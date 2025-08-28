@@ -1,0 +1,1 @@
+{"Identifier":"899affddd50445bcadb3ddf5d6556fde","Name":"CustomVarianceCorrection","Description":"Generated DATA_GRID artifact for DataGrid Inventory/CustomVarianceCorrection","Type":"DATA_GRID","Version":1,"LastModified":"28/08/2025","Author":"Test","ArtifactDependencies":[{"ArtifactType":"VIEW","ArtifactIdentifier":"cf64db1120c14fbcbe761b93eb4de3c8","ArtifactVersion":1}]}
