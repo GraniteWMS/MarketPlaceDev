@@ -1,0 +1,23 @@
+CREATE TABLE [dbo].[Custom_EquipmentMaintenance](
+	[ID] [bigint] IDENTITY(1,1) NOT NULL,
+	[EquipmentName] [varchar](100) COLLATE Latin1_General_CI_AS NOT NULL,
+	[EquipmentType] [varchar](50) COLLATE Latin1_General_CI_AS NOT NULL,
+	[SerialNumber] [varchar](50) COLLATE Latin1_General_CI_AS NULL,
+	[Location_id] [bigint] NOT NULL,
+	[MaintenanceType] [varchar](50) COLLATE Latin1_General_CI_AS NOT NULL,
+	[MaintenanceDate] [datetime] NOT NULL,
+	[NextMaintenanceDate] [datetime] NULL,
+	[TechniciansAssigned] [varchar](200) COLLATE Latin1_General_CI_AS NULL,
+	[EstimatedHours] [decimal](5, 2) NULL,
+	[ActualHours] [decimal](5, 2) NULL,
+	[MaintenanceCost] [decimal](10, 2) NULL,
+	[MaintenanceNotes] [nvarchar](1000) COLLATE Latin1_General_CI_AS NULL,
+	[IsCompleted] [bit] NOT NULL,
+	[CompletedDate] [datetime] NULL,
+	[Priority] [varchar](20) COLLATE Latin1_General_CI_AS NULL,
+	[Status] [varchar](30) COLLATE Latin1_General_CI_AS NULL,
+	[CreatedBy] [varchar](50) COLLATE Latin1_General_CI_AS NOT NULL,
+	[CreatedDate] [datetime] NOT NULL,
+	[AuditDate] [datetime] NOT NULL,
+	[AuditUser] [varchar](20) COLLATE Latin1_General_CI_AS NOT NULL
+) ON [PRIMARY]
