@@ -1,22 +1,39 @@
-name: Publish metadata to Elasticsearch
+name: Publish Metadata to Elasticsearch
 
 on:
   push:
-    branches:
-      - main   # or whatever branch you want
+    paths:
+      - '**/*_metadata.json'   # only trigger when metadata files change
 
 jobs:
   publish:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
 
     steps:
-      - name: Checkout repository
+      - name: Checkout repo
         uses: actions/checkout@v4
 
-      - name: Publish metadata to Elasticsearch
+      - name: Find changed metadata files
+        id: changed_files
+        shell: pwsh
         run: |
-          echo "Publishing metadata.json to Elasticsearch..."
-          curl -s -X POST \
-            -H "Content-Type: application/json" \
-            "${{ secrets.ES_URL }}/artifacts/_doc" \
-            --data-binary @metadata.json
+          # Compare last commit to previous
+          $changed = git diff --name-only HEAD^ HEAD | Where-Object { $_ -like "*_metadata.json" }
+          if (-not $changed) {
+            Write-Host "No metadata files changed."
+            echo "files=" >> $env:GITHUB_OUTPUT
+            exit 0
+          }
+          $list = $changed -join ","
+          echo "files=$list" >> $env:GITHUB_OUTPUT
+
+      - name: Push metadata to Elasticsearch
+        if: steps.changed_files.outputs.files != ''
+        shell: pwsh
+        run: |
+          $files = "${{ steps.changed_files.outputs.files }}".Split(",")
+          foreach ($file in $files) {
+            Write-Host "Publishing $file"
+            $json = Get-Content $file -Raw
+            Invoke-RestMethod -Uri "${{ secrets.ES_URL }}/artifacts/_doc" -Method POST -Body $json -ContentType "application/json"
+          }
