@@ -1,0 +1,22 @@
+name: Publish metadata to Elasticsearch
+
+on:
+  push:
+    branches:
+      - main   # or whatever branch you want
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Publish metadata to Elasticsearch
+        run: |
+          echo "Publishing metadata.json to Elasticsearch..."
+          curl -s -X POST \
+            -H "Content-Type: application/json" \
+            "${{ secrets.ES_URL }}/artifacts/_doc" \
+            --data-binary @metadata.json
