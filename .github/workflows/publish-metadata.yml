@@ -7,7 +7,7 @@ on:
 
 jobs:
   publish:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
 
     steps:
       - name: Checkout repo
@@ -21,23 +21,19 @@ jobs:
         run: |
           $before = "${{ github.event.before }}"
           $after = "${{ github.sha }}"
-
           if (-not $before -or $before -eq "0000000000000000000000000000000000000000") {
             # First commit in repo or branch creation
             $changed = git ls-files *"_metadata.json"
           } else {
             $changed = git diff --name-only $before $after | Where-Object { $_ -like "*_metadata.json" }
           }
-
           if (-not $changed) {
             Write-Host "No metadata files changed."
             echo "files=" >> $env:GITHUB_OUTPUT
             exit 0
           }
-
           $list = $changed -join ","
           echo "files=$list" >> $env:GITHUB_OUTPUT
-
 
       - name: Push metadata to Elasticsearch
         if: steps.changed_files.outputs.files != ''
