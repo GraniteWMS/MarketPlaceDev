@@ -3,7 +3,7 @@ name: Publish Metadata to Elasticsearch
 on:
   push:
     paths:
-      - '**/*_metadata.json'   # trigger only on metadata changes
+      - '**/*_metadata.json'
 
 jobs:
   publish:
@@ -13,69 +13,61 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0   # fetch all history so diffs work
+          fetch-depth: 0
 
-      - name: Set up Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: "3.11"
-
-      - name: Install dependencies
+      - name: Find changed metadata files
+        id: changed_files
+        shell: pwsh
         run: |
-          python -m pip install --upgrade pip
-          pip install requests
+          $before = "${{ github.event.before }}"
+          $after = "${{ github.sha }}"
+          if (-not $before -or $before -eq "0000000000000000000000000000000000000000") {
+            $changed = git ls-files *"_metadata.json"
+          } else {
+            $changed = git diff --name-only $before $after | Where-Object { $_ -like "*_metadata.json" }
+          }
+          if (-not $changed) {
+            Write-Host "No metadata files changed."
+            echo "files=" >> $env:GITHUB_OUTPUT
+            exit 0
+          }
+          $list = $changed -join ","
+          echo "files=$list" >> $env:GITHUB_OUTPUT
 
-      - name: Publish metadata with embeddings
-        env:
-          EMBEDDINGS_URL: ${{ secrets.EMBEDDINGS_URL }}
-          ES_URL: ${{ secrets.ES_URL }}
-          BEFORE_SHA: ${{ github.event.before }}
-          AFTER_SHA: ${{ github.sha }}
+      - name: Push metadata to Elasticsearch with embeddings
+        if: steps.changed_files.outputs.files != ''
         run: |
-          python - <<'EOF'
-          import os, subprocess, json, requests
+          import os, json, requests
 
-          before = os.environ['BEFORE_SHA']
-          after = os.environ['AFTER_SHA']
-          es_url = os.environ['ES_URL'] + "/artifacts/_doc"
-          embed_url = os.environ['EMBEDDINGS_URL']
-
-          # Find changed metadata files
-          if not before or before == "0000000000000000000000000000000000000000":
-              files = subprocess.check_output(["git", "ls-files", "*_metadata.json"], text=True).splitlines()
-          else:
-              diff = subprocess.check_output(["git", "diff", "--name-only", before, after], text=True).splitlines()
-              files = [f for f in diff if f.endswith("_metadata.json")]
-
-          if not files:
-              print("No metadata files changed.")
-              exit(0)
+          files = "${{ steps.changed_files.outputs.files }}".split(",")
+          embedding_url = os.environ["EMBEDDINGS_URL"]
+          es_url = os.environ["ES_URL"].rstrip("/") + "/artifacts/_doc"
 
           for file in files:
               print(f"Publishing {file}")
               with open(file, "r", encoding="utf-8") as f:
                   data = json.load(f)
 
-              # Handle both single dict and list of dicts
-              items = data if isinstance(data, list) else [data]
+              # Ensure we always work with a list of objects
+              if isinstance(data, dict):
+                  data = [data]
 
-              for item in items:
-                  # Name embedding
-                  name_resp = requests.post(embed_url, json={"inputs": [item.get("Name","")]})
-                  name_emb = name_resp.json().get("embeddings", [[]])[0]
+              for obj in data:
+                  name_text = obj.get("Name", "")
+                  desc_text = obj.get("Description", "")
 
-                  # Description embedding
-                  desc_resp = requests.post(embed_url, json={"inputs": [item.get("Description","")]})
-                  desc_emb = desc_resp.json().get("embeddings", [[]])[0]
+                  # Call embeddings service
+                  name_emb = requests.post(embedding_url, json={"inputs": [name_text]}).json()
+                  desc_emb = requests.post(embedding_url, json={"inputs": [desc_text]}).json()
 
-                  # Add embeddings
-                  item["Name_embedding"] = name_emb
-                  item["Description_embedding"] = desc_emb
+                  obj["Name_embedding"] = name_emb
+                  obj["Description_embedding"] = desc_emb
 
-                  # Push to Elasticsearch
-                  resp = requests.post(es_url, json=item)
-                  if resp.status_code not in [200, 201]:
-                      print(f"Failed to publish {file}: {resp.text}")
-                  else:
-                      print(f"Published {file} successfully.")
-          EOF
+                  # Index into Elasticsearch
+                  resp = requests.post(es_url, json=obj)
+                  resp.raise_for_status()
+                  print(f"Indexed {file} -> {resp.json()}")
+
+        env:
+          EMBEDDINGS_URL: ${{ secrets.EMBEDDINGS_URL }}
+          ES_URL: ${{ secrets.ES_URL }}
