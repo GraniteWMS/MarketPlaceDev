@@ -47,22 +47,19 @@ jobs:
               exit(0)
 
           for file_path in changed_files:
-              print(f"Publishing {file_path}...")
-              with open(file_path, "r", encoding="utf-8") as f:
-                  data = json.load(f)
+            print(f"Publishing {file_path}...")
+            with open(file_path, "r", encoding="utf-8") as f:
+                data = json.load(f)
+        
+            name_text = data.get("Name", "")
+            desc_text = data.get("Description", "")
+        
+            # Correct embedding extraction
+            data["Name_embedding"] = requests.post(EMBEDDINGS_URL, json={"inputs":[name_text]}).json()["value"]
+            data["Description_embedding"] = requests.post(EMBEDDINGS_URL, json={"inputs":[desc_text]}).json()["value"]
+        
+            resp = requests.post(ES_URL, json=data)
+            resp.raise_for_status()
+            print(f"Indexed {file_path} -> success")
 
-              name_text = data.get("Name", "")
-              desc_text = data.get("Description", "")
-
-              data["Name_embedding"] = requests.post(
-                  EMBEDDINGS_URL, json={"inputs":[name_text]}
-              ).json()["embeddings"][0]
-
-              data["Description_embedding"] = requests.post(
-                  EMBEDDINGS_URL, json={"inputs":[desc_text]}
-              ).json()["embeddings"][0]
-
-              resp = requests.post(ES_URL, json=data)
-              resp.raise_for_status()
-              print(f"Indexed {file_path} -> success")
           PYTHON_EOF
