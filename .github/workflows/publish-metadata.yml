@@ -36,38 +36,48 @@ jobs:
 
       - name: Push metadata to Elasticsearch with embeddings
         if: steps.changed_files.outputs.files != ''
+        env:
+          EMBEDDINGS_URL: ${{ secrets.EMBEDDINGS_URL }}
+          ES_URL: ${{ secrets.ES_URL }}
         run: |
-          import os, json, requests
-
-          files = "${{ steps.changed_files.outputs.files }}".split(",")
+          python - <<'EOF'
+          import os, json, requests, subprocess
+      
           embedding_url = os.environ["EMBEDDINGS_URL"]
           es_url = os.environ["ES_URL"].rstrip("/") + "/artifacts/_doc"
-
+      
+          # Get changed files
+          before = os.environ.get("GITHUB_EVENT_BEFORE")
+          after = os.environ.get("GITHUB_SHA")
+          if not before or before == "0000000000000000000000000000000000000000":
+              files = subprocess.check_output(["git", "ls-files", "*_metadata.json"], text=True).splitlines()
+          else:
+              diff = subprocess.check_output(["git", "diff", "--name-only", before, after], text=True).splitlines()
+              files = [f for f in diff if f.endswith("_metadata.json")]
+      
+          if not files:
+              print("No metadata files changed.")
+              exit(0)
+      
           for file in files:
               print(f"Publishing {file}")
               with open(file, "r", encoding="utf-8") as f:
                   data = json.load(f)
-
-              # Ensure we always work with a list of objects
-              if isinstance(data, dict):
-                  data = [data]
-
-              for obj in data:
+      
+              items = data if isinstance(data, list) else [data]
+      
+              for obj in items:
                   name_text = obj.get("Name", "")
                   desc_text = obj.get("Description", "")
-
-                  # Call embeddings service
-                  name_emb = requests.post(embedding_url, json={"inputs": [name_text]}).json()
-                  desc_emb = requests.post(embedding_url, json={"inputs": [desc_text]}).json()
-
+      
+                  name_emb = requests.post(embedding_url, json={"inputs": [name_text]}).json().get("embeddings", [[]])[0]
+                  desc_emb = requests.post(embedding_url, json={"inputs": [desc_text]}).json().get("embeddings", [[]])[0]
+      
                   obj["Name_embedding"] = name_emb
                   obj["Description_embedding"] = desc_emb
-
-                  # Index into Elasticsearch
+      
                   resp = requests.post(es_url, json=obj)
                   resp.raise_for_status()
-                  print(f"Indexed {file} -> {resp.json()}")
+                  print(f"Indexed {file} -> success")
+          EOF
 
-        env:
-          EMBEDDINGS_URL: ${{ secrets.EMBEDDINGS_URL }}
-          ES_URL: ${{ secrets.ES_URL }}
