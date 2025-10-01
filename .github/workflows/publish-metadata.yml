@@ -30,9 +30,17 @@ jobs:
 
           EMBEDDINGS_URL = os.environ["EMBEDDINGS_URL"]
           ES_URL = os.environ["ES_URL"].rstrip("/") + "/artifacts/_doc"
-
           before = os.environ.get("GITHUB_EVENT_BEFORE")
           after = os.environ.get("GITHUB_SHA")
+
+          def flatten_items(data):
+              """Recursively yield all dict objects in nested lists/dicts."""
+              if isinstance(data, dict):
+                  yield data
+              elif isinstance(data, list):
+                  for item in data:
+                      yield from flatten_items(item)
+              # else: ignore non-dict items
 
           # Determine changed metadata files
           if not before or before == "0000000000000000000000000000000000000000":
@@ -50,11 +58,8 @@ jobs:
               with open(file_path, "r", encoding="utf-8") as f:
                   data = json.load(f)
 
-              # Ensure we're always working with a list
-              items = data if isinstance(data, list) else [data]
-
-              for obj in items:
-                  # Get text fields safely
+              for obj in flatten_items(data):
+                  # Safely get fields
                   name_text = obj.get("Name", "")
                   desc_text = obj.get("Description", "")
 
