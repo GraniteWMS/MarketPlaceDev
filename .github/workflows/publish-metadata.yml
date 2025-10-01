@@ -3,7 +3,7 @@ name: Publish Metadata to Elasticsearch
 on:
   push:
     paths:
-      - '**/*_metadata.json'
+      - '**/*_metadata.json'   # trigger only on metadata changes
 
 jobs:
   publish:
@@ -13,7 +13,7 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0
+          fetch-depth: 0   # fetch all history so diffs work
 
       - name: Set up Python
         uses: actions/setup-python@v4
@@ -25,8 +25,7 @@ jobs:
           python -m pip install --upgrade pip
           pip install requests
 
-      - name: Push metadata to Elasticsearch with embeddings
-        if: github.event_name == 'push'
+      - name: Publish metadata with embeddings
         env:
           EMBEDDINGS_URL: ${{ secrets.EMBEDDINGS_URL }}
           ES_URL: ${{ secrets.ES_URL }}
@@ -57,22 +56,26 @@ jobs:
               with open(file, "r", encoding="utf-8") as f:
                   data = json.load(f)
 
-              # Get Name embedding
-              name_resp = requests.post(embed_url, json={"inputs": [data.get("Name","")]})
-              name_emb = name_resp.json().get("embeddings", [[]])[0]
+              # Handle both single dict and list of dicts
+              items = data if isinstance(data, list) else [data]
 
-              # Get Description embedding
-              desc_resp = requests.post(embed_url, json={"inputs": [data.get("Description","")]})
-              desc_emb = desc_resp.json().get("embeddings", [[]])[0]
+              for item in items:
+                  # Name embedding
+                  name_resp = requests.post(embed_url, json={"inputs": [item.get("Name","")]})
+                  name_emb = name_resp.json().get("embeddings", [[]])[0]
 
-              # Add embeddings to document
-              data["Name_embedding"] = name_emb
-              data["Description_embedding"] = desc_emb
+                  # Description embedding
+                  desc_resp = requests.post(embed_url, json={"inputs": [item.get("Description","")]})
+                  desc_emb = desc_resp.json().get("embeddings", [[]])[0]
 
-              # Push to Elasticsearch
-              resp = requests.post(es_url, json=data)
-              if resp.status_code not in [200, 201]:
-                  print(f"Failed to publish {file}: {resp.text}")
-              else:
-                  print(f"Published {file} successfully.")
+                  # Add embeddings
+                  item["Name_embedding"] = name_emb
+                  item["Description_embedding"] = desc_emb
+
+                  # Push to Elasticsearch
+                  resp = requests.post(es_url, json=item)
+                  if resp.status_code not in [200, 201]:
+                      print(f"Failed to publish {file}: {resp.text}")
+                  else:
+                      print(f"Published {file} successfully.")
           EOF
