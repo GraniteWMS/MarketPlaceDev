@@ -56,6 +56,7 @@ jobs:
         
             # Correct embedding extraction
             resp = requests.post(EMBEDDINGS_URL, json={"inputs":[name_text]})
+            print("DEBUG response:", resp.text)
             name_embedding = resp.json()["value"]
             data["Name_embedding"] = name_embedding            
             
