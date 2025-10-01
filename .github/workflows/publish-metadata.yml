@@ -59,19 +59,22 @@ jobs:
                   data = json.load(f)
 
               for obj in flatten_items(data):
-                  # Safely get fields
-                  name_text = obj.get("Name", "")
-                  desc_text = obj.get("Description", "")
+                if not isinstance(obj, dict):
+                    continue
+            
+                name_text = obj.get("Name", "")
+                desc_text = obj.get("Description", "")
+            
+                # Fetch embeddings
+                name_emb = requests.post(EMBEDDINGS_URL, json={"inputs": [name_text]}).json().get("embeddings", [[]])[0]
+                desc_emb = requests.post(EMBEDDINGS_URL, json={"inputs": [desc_text]}).json().get("embeddings", [[]])[0]
+            
+                obj["Name_embedding"] = name_emb
+                obj["Description_embedding"] = desc_emb
+            
+                # Index into Elasticsearch
+                resp = requests.post(ES_URL, json=obj)
+                resp.raise_for_status()
+                print(f"Indexed {file_path} -> success")
 
-                  # Fetch embeddings
-                  name_emb = requests.post(EMBEDDINGS_URL, json={"inputs": [name_text]}).json().get("embeddings", [[]])[0]
-                  desc_emb = requests.post(EMBEDDINGS_URL, json={"inputs": [desc_text]}).json().get("embeddings", [[]])[0]
-
-                  obj["Name_embedding"] = name_emb
-                  obj["Description_embedding"] = desc_emb
-
-                  # Index into Elasticsearch
-                  resp = requests.post(ES_URL, json=obj)
-                  resp.raise_for_status()
-                  print(f"Indexed {file_path} -> success")
           PYTHON_EOF
