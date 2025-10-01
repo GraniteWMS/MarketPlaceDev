@@ -19,42 +19,17 @@ jobs:
         env:
           EMBEDDINGS_URL: ${{ secrets.EMBEDDINGS_URL }}
           ES_URL: ${{ secrets.ES_URL }}
-          GITHUB_EVENT_BEFORE: ${{ github.event.before }}
-          GITHUB_SHA: ${{ github.sha }}
         run: |
           python3 - <<'PYTHON_EOF'
-          import os
-          import json
-          import subprocess
-          import requests
+          import os, json, requests, glob
 
           EMBEDDINGS_URL = os.environ["EMBEDDINGS_URL"]
           ES_URL = os.environ["ES_URL"].rstrip("/") + "/artifacts/_doc"
-          before = os.environ.get("GITHUB_EVENT_BEFORE")
-          after = os.environ.get("GITHUB_SHA")
 
-          def flatten_dicts(data):
-            """
-            Recursively yields all dict objects from nested lists/dicts,
-            ignores everything else.
-            """
-            if isinstance(data, dict):
-                yield data
-            elif isinstance(data, list):
-                for item in data:
-                    # recursively yield dicts only
-                    yield from flatten_dicts(item)
-            # ignore everything else (str, int, None, etc.)
-
-          # Determine changed metadata files
-          if not before or before == "0000000000000000000000000000000000000000":
-              files = subprocess.check_output(["git", "ls-files", "*_metadata.json"], text=True).splitlines()
-          else:
-              diff = subprocess.check_output(["git", "diff", "--name-only", before, after], text=True).splitlines()
-              files = [f for f in diff if f.endswith("_metadata.json")]
-
+          # find all metadata files
+          files = glob.glob("*_metadata.json")
           if not files:
-              print("No metadata files changed. Exiting.")
+              print("No metadata files found. Exiting.")
               exit(0)
 
           for file_path in files:
@@ -62,21 +37,15 @@ jobs:
               with open(file_path, "r", encoding="utf-8") as f:
                   data = json.load(f)
 
-              for obj in flatten_dicts(data):
-                # obj is guaranteed to be a dict here
-                name_text = obj.get("Name", "")
-                desc_text = obj.get("Description", "")
-            
-                # Fetch embeddings
-                name_emb = requests.post(EMBEDDINGS_URL, json={"inputs": [name_text]}).json().get("embeddings", [[]])[0]
-                desc_emb = requests.post(EMBEDDINGS_URL, json={"inputs": [desc_text]}).json().get("embeddings", [[]])[0]
-            
-                obj["Name_embedding"] = name_emb
-                obj["Description_embedding"] = desc_emb
-            
-                # Index into Elasticsearch
-                resp = requests.post(ES_URL, json=obj)
-                resp.raise_for_status()
-                print(f"Indexed {file_path} -> success")
+              # Add embeddings
+              name_text = data.get("Name", "")
+              desc_text = data.get("Description", "")
 
+              data["Name_embedding"] = requests.post(EMBEDDINGS_URL, json={"inputs":[name_text]}).json()["embeddings"][0]
+              data["Description_embedding"] = requests.post(EMBEDDINGS_URL, json={"inputs":[desc_text]}).json()["embeddings"][0]
+
+              # Post to Elasticsearch
+              resp = requests.post(ES_URL, json=data)
+              resp.raise_for_status()
+              print(f"Indexed {file_path} -> success")
           PYTHON_EOF
