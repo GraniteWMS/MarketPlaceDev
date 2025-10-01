@@ -49,11 +49,11 @@ jobs:
 
             # Generate Name embedding
             $nameEmb = Invoke-RestMethod -Uri $embeddingUrl -Method POST -Body (@{inputs = @($json.Name)} | ConvertTo-Json) -ContentType "application/json"
-            $json.Name_embedding = $nameEmb.embeddings[0]
+            $json.Name_embedding = $($nameEmb | ConvertTo-Json -Compress)
 
             # Generate Description embedding
             $descEmb = Invoke-RestMethod -Uri $embeddingUrl -Method POST -Body (@{inputs = @($json.Description)} | ConvertTo-Json) -ContentType "application/json"
-            $json.Description_embedding = $descEmb.embeddings[0]
+            $json.Description_embedding = $($descEmb | ConvertTo-Json -Compress)
 
             # Convert back to JSON and push to Elasticsearch
             $jsonBody = $json | ConvertTo-Json -Depth 10
