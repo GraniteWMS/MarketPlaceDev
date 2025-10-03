@@ -1,0 +1,1 @@
+{"Identifier":"11f70e09a9e9476e98c596e0f22d8c2d","Name":"Custom_ReportQuery","Description":"View for reporting to show the difference between the Granite stock on hand, and the qty in the ERP. Uses Base_Inventory_Summary","Type":"VIEW","Version":1,"LastModified":"03/10/2025","Author":"Josh","Tags":[],"ArtifactDependencies":[]}
