@@ -48,23 +48,45 @@ jobs:
 
           for file_path in changed_files:
             print(f"Publishing {file_path}...")
-            with open(file_path, "r", encoding="utf-8") as f:
-                data = json.load(f)
-        
-            name_text = data.get("Name", "")
-            desc_text = data.get("Description", "")
-        
-            # Correct embedding extraction
-            resp = requests.post(EMBEDDINGS_URL, json={"inputs":[name_text]})
-            name_embedding = resp.json()[0]
-            data["Name_embedding"] = name_embedding            
+            try:
+                with open(file_path, "r", encoding="utf-8") as f:
+                    data = json.load(f)
             
-            resp = requests.post(EMBEDDINGS_URL, json={"inputs":[desc_text]})
-            desc_embedding = resp.json()[0]
-            data["Description_embedding"] = desc_embedding
-        
-            resp = requests.post(ES_URL, json=data)
-            resp.raise_for_status()
-            print(f"Indexed {file_path} -> success")
+                name_text = data.get("Name", "")
+                desc_text = data.get("Description", "")
+                
+                if not name_text or not desc_text:
+                    print(f"Warning: {file_path} missing Name or Description field")
+            
+                # Generate name embedding
+                print(f"  Generating name embedding...")
+                resp = requests.post(EMBEDDINGS_URL, json={"inputs":[name_text]})
+                resp.raise_for_status()
+                name_embedding = resp.json()[0]
+                data["Name_embedding"] = name_embedding
+                
+                # Generate description embedding
+                print(f"  Generating description embedding...")
+                resp = requests.post(EMBEDDINGS_URL, json={"inputs":[desc_text]})
+                resp.raise_for_status()
+                desc_embedding = resp.json()[0]
+                data["Description_embedding"] = desc_embedding
+            
+                # Index to Elasticsearch
+                print(f"  Indexing to Elasticsearch...")
+                resp = requests.post(ES_URL, json=data)
+                resp.raise_for_status()
+                print(f"Indexed {file_path} -> success")
+            except requests.exceptions.RequestException as e:
+                print(f"ERROR: Failed to publish {file_path}: {e}")
+                if hasattr(e.response, 'text'):
+                    print(f"Response: {e.response.text}")
+                raise
+            except (KeyError, IndexError, json.JSONDecodeError) as e:
+                print(f"ERROR: Failed to process {file_path}: {e}")
+                raise
+            except Exception as e:
+                print(f"ERROR: Unexpected error publishing {file_path}: {e}")
+                raise
 
           PYTHON_EOF
