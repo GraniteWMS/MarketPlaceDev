@@ -1,0 +1,1 @@
+{"Identifier":"a7fe2d88d6de4f76809abc45f2896bf2","Name":"Custom_FN_GetERPQtyOnHand","Description":"This is a custom function used to get the qty from the erp for a given item code","Type":"SQL_INLINE_TABLE_VALUED_FUNCTION","Version":1,"LastModified":"08/10/2025","Author":"Josh","Tags":[],"ArtifactDependencies":[]}
