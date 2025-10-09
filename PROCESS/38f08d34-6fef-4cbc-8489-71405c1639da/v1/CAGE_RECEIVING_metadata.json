@@ -1,0 +1,15 @@
+{
+    "ArtifactDependencies":  [
+
+                             ],
+    "Description":  "Show the user only the documents that are allocated to their receiving bay. Uses web templates for searchable lists on Document and MasterItem steps.",
+    "Type":  "PROCESS",
+    "Version":  1,
+    "LastModified":  "09/10/2025",
+    "Tags":  {
+
+             },
+    "Author":  "Josh",
+    "Name":  "CAGE_RECEIVING",
+    "Identifier":  "38f08d346fef4cbc848971405c1639da"
+}

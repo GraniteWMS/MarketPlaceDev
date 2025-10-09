@@ -1,0 +1,15 @@
+{
+    "ArtifactDependencies":  [
+
+                             ],
+    "Description":  "When the customer has a set Picking location and empty bulk locations and we want to display  the location to use for Putaway.",
+    "Type":  "PROCESS",
+    "Version":  1,
+    "LastModified":  "09/10/2025",
+    "Tags":  {
+
+             },
+    "Author":  "Craig Collins",
+    "Name":  "PUTAWAY-DIRECTED",
+    "Identifier":  "9d366dcc1ae24a83a007674be443bf54"
+}

@@ -1,0 +1,15 @@
+{
+    "ArtifactDependencies":  [
+
+                             ],
+    "Description":  "This is the default (empty) TRANSFERDYNAMIC process.\n",
+    "Type":  "PROCESS",
+    "Version":  1,
+    "LastModified":  "09/10/2025",
+    "Tags":  {
+
+             },
+    "Author":  "System",
+    "Name":  "TRANSFERDYNAMIC",
+    "Identifier":  "3d2d4a9349d24957aab0e3440111b384"
+}

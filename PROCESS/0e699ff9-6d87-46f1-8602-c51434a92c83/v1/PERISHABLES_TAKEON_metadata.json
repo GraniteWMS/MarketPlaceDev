@@ -1,0 +1,13 @@
+{
+    "ArtifactDependencies":  [
+
+                             ],
+    "Description":  "Use when you want to enforce Batch and ExpiryDate. Will also populate ExpiryDate based on MasterItem.ShelfLife when user captures ManufactureDate.",
+    "Type":  "PROCESS",
+    "Version":  1,
+    "LastModified":  "09/10/2025",
+    "Tags":  "Manufacturing",
+    "Author":  "Josh",
+    "Name":  "PERISHABLES_TAKEON",
+    "Identifier":  "0e699ff96d8746f18602c51434a92c83"
+}

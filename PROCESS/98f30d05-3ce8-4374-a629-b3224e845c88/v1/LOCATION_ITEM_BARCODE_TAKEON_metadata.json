@@ -1,0 +1,15 @@
+{
+    "ArtifactDependencies":  [
+
+                             ],
+    "Description":  "If you need a system where users scan both the Location and MasterItem to identify the stock, thereby eliminating the need to print Tracking Entity barcodes. This process will either assign or create Tracking Entities with a barcode format of [LocationBarcode]_[MasterItemCode].",
+    "Type":  "PROCESS",
+    "Version":  1,
+    "LastModified":  "09/10/2025",
+    "Tags":  {
+
+             },
+    "Author":  "James Davidson",
+    "Name":  "LOCATION_ITEM_BARCODE_TAKEON",
+    "Identifier":  "98f30d053ce84374a629b3224e845c88"
+}

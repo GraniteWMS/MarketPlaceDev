@@ -1,0 +1,15 @@
+{
+    "ArtifactDependencies":  [
+
+                             ],
+    "Description":  "If you need a system where users scan both the Location and MasterItem to identify the stock, thereby eliminating the need to print Tracking Entity barcodes. This process will use the barcode format of [LocationBarcode]_[MasterItemCode] to find the TrackingEntity.\n\nIf the TrackingEntity does not exist it is created using CLR_Takeon. If the barcode is not in the current session then it is added.",
+    "Type":  "PROCESS",
+    "Version":  1,
+    "LastModified":  "09/10/2025",
+    "Tags":  {
+
+             },
+    "Author":  "James Davidson",
+    "Name":  "LOCATION_ITEM_BARCODE_STOCKTAKE",
+    "Identifier":  "82a38328256043008c403065cc8b3cb8"
+}

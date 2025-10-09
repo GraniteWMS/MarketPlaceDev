@@ -1,0 +1,15 @@
+{
+    "ArtifactDependencies":  [
+
+                             ],
+    "Description":  "This process includes 2 webtemplates that show outstanding locations and tracking entities for each count.",
+    "Type":  "PROCESS",
+    "Version":  1,
+    "LastModified":  "09/10/2025",
+    "Tags":  {
+
+             },
+    "Author":  "Gabriel Innes",
+    "Name":  "OUTSTANDING_LOCATION_COUNT",
+    "Identifier":  "c9ad457ce3e94dcba2cb35577fbb10f0"
+}

@@ -1,0 +1,15 @@
+{
+    "ArtifactDependencies":  [
+
+                             ],
+    "Description":  "This is the default (empty) CUSTOM process.\n",
+    "Type":  "PROCESS",
+    "Version":  1,
+    "LastModified":  "09/10/2025",
+    "Tags":  {
+
+             },
+    "Author":  "System",
+    "Name":  "CUSTOM",
+    "Identifier":  "a5d7cb86802e49a5a9a83a08780f07e4"
+}

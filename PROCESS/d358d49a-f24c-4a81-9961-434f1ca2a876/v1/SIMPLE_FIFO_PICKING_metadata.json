@@ -1,0 +1,15 @@
+{
+    "ArtifactDependencies":  [
+
+                             ],
+    "Description":  "Simple and easy FIFO picking process based on standard PICK process. Using only the DocumentDetail.Instruction and LinePriority to recommend TrackingEntity to pick based on some basic logic.\n",
+    "Type":  "PROCESS",
+    "Version":  1,
+    "LastModified":  "09/10/2025",
+    "Tags":  {
+
+             },
+    "Author":  "Gabriel Innes",
+    "Name":  "SIMPLE_FIFO_PICKING",
+    "Identifier":  "d358d49af24c4a819961434f1ca2a876"
+}

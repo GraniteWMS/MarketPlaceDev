@@ -1,0 +1,15 @@
+{
+    "ArtifactDependencies":  [
+
+                             ],
+    "Description":  "When a Truck arrives security or logistics record the arrival of the Truck and each PO Document on the Truck.  This is logged in custom_Document_TrackingLog.  It can also add the PO into IntegrationQueue to get latest version of the Document from ERP.    \n",
+    "Type":  "PROCESS",
+    "Version":  1,
+    "LastModified":  "09/10/2025",
+    "Tags":  {
+
+             },
+    "Author":  "Craig Collins",
+    "Name":  "DELIVERY_ARRIVAL",
+    "Identifier":  "7364b241ea124ab9b9214610a278361a"
+}
