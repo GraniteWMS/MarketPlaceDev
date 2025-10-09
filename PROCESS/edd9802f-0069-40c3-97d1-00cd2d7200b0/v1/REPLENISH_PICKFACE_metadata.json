@@ -1,0 +1,15 @@
+{
+    "ArtifactDependencies":  [
+
+                             ],
+    "Description":  "Intended for use where pickface locations do not contain physical TrackingEntity barcodes. When you replenish to a location that already contains the MasterItem being replenished, it will add to the existing TrackingEntity. If the MasterItem does not yet exist in the pickface location, a new TrackingEntity will be created.\n\nPickface locations must have type PICKFACE assigned.",
+    "Type":  "PROCESS",
+    "Version":  1,
+    "LastModified":  "09/10/2025",
+    "Tags":  {
+
+             },
+    "Author":  "Josh",
+    "Name":  "REPLENISH_PICKFACE",
+    "Identifier":  "edd9802f006940c397d100cd2d7200b0"
+}
