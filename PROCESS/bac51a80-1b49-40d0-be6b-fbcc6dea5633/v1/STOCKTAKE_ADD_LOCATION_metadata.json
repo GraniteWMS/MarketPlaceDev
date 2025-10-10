@@ -1,0 +1,15 @@
+{
+    "ArtifactDependencies":  [
+
+                             ],
+    "Description":  "This process allows users to add locations to stock take session using the scanner. The first step is to select a stock take session, or create a new one. Then scan the location to add to the session and confirm. All tracking entities in that location will be added to the session. ",
+    "Type":  "PROCESS",
+    "Version":  1,
+    "LastModified":  "10/10/2025",
+    "Tags":  [
+
+             ],
+    "Author":  "Gabriel Innes",
+    "Name":  "STOCKTAKE_ADD_LOCATION",
+    "Identifier":  "bac51a801b4940d0be6bfbcc6dea5633"
+}

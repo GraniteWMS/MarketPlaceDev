@@ -1,0 +1,15 @@
+{
+    "ArtifactDependencies":  [
+
+                             ],
+    "Description":  "This is the default (empty) RECEIVINGPOSTMULTIPLE process.\n",
+    "Type":  "PROCESS",
+    "Version":  1,
+    "LastModified":  "10/10/2025",
+    "Tags":  [
+
+             ],
+    "Author":  "System",
+    "Name":  "RECEIVINGPOSTMULTIPLE",
+    "Identifier":  "a96bb93eb9434c71b019d4d40976288b"
+}

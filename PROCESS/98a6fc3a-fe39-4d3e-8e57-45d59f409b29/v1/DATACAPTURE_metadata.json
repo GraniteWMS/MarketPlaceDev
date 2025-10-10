@@ -1,0 +1,15 @@
+{
+    "ArtifactDependencies":  [
+
+                             ],
+    "Description":  "This is the default (empty) DATACAPTURE process.\n",
+    "Type":  "PROCESS",
+    "Version":  1,
+    "LastModified":  "10/10/2025",
+    "Tags":  [
+
+             ],
+    "Author":  "System",
+    "Name":  "DATACAPTURE",
+    "Identifier":  "98a6fc3afe394d3e8e5745d59f409b29"
+}

@@ -1,0 +1,15 @@
+{
+    "ArtifactDependencies":  [
+
+                             ],
+    "Description":  "This is a custom process that work in a similar way to the standard lookup process but is specifically for looking at what tracking entities are assigned to the carrying entity.",
+    "Type":  "PROCESS",
+    "Version":  1,
+    "LastModified":  "10/10/2025",
+    "Tags":  [
+
+             ],
+    "Author":  "Gabriel Innes",
+    "Name":  "CARRYINGENTITY_CONTENTS_LOOKUP",
+    "Identifier":  "f2b5b199c8c24c89ba9a6d656fa40ac1"
+}

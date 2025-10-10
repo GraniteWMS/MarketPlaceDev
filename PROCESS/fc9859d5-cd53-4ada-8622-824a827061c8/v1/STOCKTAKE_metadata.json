@@ -1,0 +1,15 @@
+{
+    "ArtifactDependencies":  [
+
+                             ],
+    "Description":  "This is the default (empty) STOCKTAKE process.\n",
+    "Type":  "PROCESS",
+    "Version":  1,
+    "LastModified":  "10/10/2025",
+    "Tags":  [
+
+             ],
+    "Author":  "System",
+    "Name":  "STOCKTAKE",
+    "Identifier":  "fc9859d5cd534ada8622824a827061c8"
+}
