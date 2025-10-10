@@ -6,9 +6,9 @@
     "Type":  "PROCESS",
     "Version":  1,
     "LastModified":  "09/10/2025",
-    "Tags":  {
+    "Tags":  [
 
-             },
+             ],
     "Author":  "Josh",
     "Name":  "PERISHABLES_RECEIVING",
     "Identifier":  "68415d7e8fae4ff8a04a29f70b1a1ce9"

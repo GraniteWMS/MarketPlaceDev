@@ -6,9 +6,9 @@
     "Type":  "PROCESS",
     "Version":  1,
     "LastModified":  "09/10/2025",
-    "Tags":  {
+    "Tags":  [
 
-             },
+             ],
     "Author":  "Josh",
     "Name":  "PICKING_PICKFACE",
     "Identifier":  "44af8267a4884042a4b6f15e49391d95"

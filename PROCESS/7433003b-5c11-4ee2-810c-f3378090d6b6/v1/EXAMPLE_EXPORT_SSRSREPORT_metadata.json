@@ -6,9 +6,9 @@
     "Type":  "PROCESS",
     "Version":  1,
     "LastModified":  "09/10/2025",
-    "Tags":  {
+    "Tags":  [
 
-             },
+             ],
     "Author":  "Josh",
     "Name":  "EXAMPLE_EXPORT_SSRSREPORT",
     "Identifier":  "7433003b5c114ee2810cf3378090d6b6"

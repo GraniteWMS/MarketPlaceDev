@@ -6,9 +6,9 @@
     "Type":  "PROCESS",
     "Version":  1,
     "LastModified":  "09/10/2025",
-    "Tags":  {
+    "Tags":  [
 
-             },
+             ],
     "Author":  "Josh",
     "Name":  "COMPLETE_DOCUMENT_PICKINGPOST",
     "Identifier":  "ac965747a21b405d9fdc34a1becb50fa"

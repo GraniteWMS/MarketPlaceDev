@@ -6,9 +6,9 @@
     "Type":  "PROCESS",
     "Version":  1,
     "LastModified":  "09/10/2025",
-    "Tags":  {
+    "Tags":  [
 
-             },
+             ],
     "Author":  "Michael",
     "Name":  "UOM_PICKING",
     "Identifier":  "e4035183f3464acea818ad74743fb331"

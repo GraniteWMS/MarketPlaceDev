@@ -6,9 +6,9 @@
     "Type":  "PROCESS",
     "Version":  1,
     "LastModified":  "09/10/2025",
-    "Tags":  {
+    "Tags":  [
 
-             },
+             ],
     "Author":  "Gabriel Innes",
     "Name":  "CARRYINGENTITY_CONTENTS_LOOKUP",
     "Identifier":  "f2b5b199c8c24c89ba9a6d656fa40ac1"

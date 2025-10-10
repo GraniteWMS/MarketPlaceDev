@@ -6,9 +6,9 @@
     "Type":  "PROCESS",
     "Version":  1,
     "LastModified":  "09/10/2025",
-    "Tags":  {
+    "Tags":  [
 
-             },
+             ],
     "Author":  "Josh",
     "Name":  "EXAMPLE_EXPORT_TABLETOEXCEL",
     "Identifier":  "2c40ad4fbe0a4327a23fbf6c37e8817a"

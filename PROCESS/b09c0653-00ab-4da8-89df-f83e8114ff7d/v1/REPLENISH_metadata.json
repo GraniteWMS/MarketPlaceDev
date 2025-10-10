@@ -6,9 +6,9 @@
     "Type":  "PROCESS",
     "Version":  1,
     "LastModified":  "09/10/2025",
-    "Tags":  {
+    "Tags":  [
 
-             },
+             ],
     "Author":  "System",
     "Name":  "REPLENISH",
     "Identifier":  "b09c065300ab4da889dff83e8114ff7d"

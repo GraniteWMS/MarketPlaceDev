@@ -6,9 +6,9 @@
     "Type":  "PROCESS",
     "Version":  1,
     "LastModified":  "09/10/2025",
-    "Tags":  {
+    "Tags":  [
 
-             },
+             ],
     "Author":  "Josh",
     "Name":  "LOCATION_TYPE_PUTAWAY",
     "Identifier":  "3caaeed271f74cdf9ce73007e0feb0f7"

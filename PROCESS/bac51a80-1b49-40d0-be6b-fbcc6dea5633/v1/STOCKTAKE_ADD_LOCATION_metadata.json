@@ -6,9 +6,9 @@
     "Type":  "PROCESS",
     "Version":  1,
     "LastModified":  "09/10/2025",
-    "Tags":  {
+    "Tags":  [
 
-             },
+             ],
     "Author":  "Gabriel Innes",
     "Name":  "STOCKTAKE_ADD_LOCATION",
     "Identifier":  "bac51a801b4940d0be6bfbcc6dea5633"

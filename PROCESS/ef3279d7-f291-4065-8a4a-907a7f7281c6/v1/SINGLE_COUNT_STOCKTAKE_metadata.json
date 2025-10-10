@@ -6,9 +6,9 @@
     "Type":  "PROCESS",
     "Version":  1,
     "LastModified":  "09/10/2025",
-    "Tags":  {
+    "Tags":  [
 
-             },
+             ],
     "Author":  "Josh",
     "Name":  "SINGLE_COUNT_STOCKTAKE",
     "Identifier":  "ef3279d7f29140658a4a907a7f7281c6"

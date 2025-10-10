@@ -6,9 +6,9 @@
     "Type":  "PROCESS",
     "Version":  1,
     "LastModified":  "09/10/2025",
-    "Tags":  {
+    "Tags":  [
 
-             },
+             ],
     "Author":  "System",
     "Name":  "QUALITYCONTROL",
     "Identifier":  "8ae14e1a7b984e2fa173fc7f8ea1acf1"

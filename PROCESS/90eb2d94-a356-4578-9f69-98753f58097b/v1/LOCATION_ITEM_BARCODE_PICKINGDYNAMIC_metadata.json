@@ -6,9 +6,9 @@
     "Type":  "PROCESS",
     "Version":  1,
     "LastModified":  "09/10/2025",
-    "Tags":  {
+    "Tags":  [
 
-             },
+             ],
     "Author":  "James Davidson",
     "Name":  "LOCATION_ITEM_BARCODE_PICKINGDYNAMIC",
     "Identifier":  "90eb2d94a35645789f6998753f58097b"

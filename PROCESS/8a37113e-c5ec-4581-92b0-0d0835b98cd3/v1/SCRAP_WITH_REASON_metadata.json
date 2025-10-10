@@ -6,9 +6,9 @@
     "Type":  "PROCESS",
     "Version":  1,
     "LastModified":  "09/10/2025",
-    "Tags":  {
+    "Tags":  [
 
-             },
+             ],
     "Author":  "Unknown",
     "Name":  "SCRAP_WITH_REASON",
     "Identifier":  "8a37113ec5ec458192b00d0835b98cd3"

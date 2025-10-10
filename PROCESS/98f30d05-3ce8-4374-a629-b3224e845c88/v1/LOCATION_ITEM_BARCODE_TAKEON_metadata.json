@@ -6,9 +6,9 @@
     "Type":  "PROCESS",
     "Version":  1,
     "LastModified":  "09/10/2025",
-    "Tags":  {
+    "Tags":  [
 
-             },
+             ],
     "Author":  "James Davidson",
     "Name":  "LOCATION_ITEM_BARCODE_TAKEON",
     "Identifier":  "98f30d053ce84374a629b3224e845c88"

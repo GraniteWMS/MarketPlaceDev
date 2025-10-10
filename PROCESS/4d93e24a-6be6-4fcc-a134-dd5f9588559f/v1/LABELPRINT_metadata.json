@@ -6,9 +6,9 @@
     "Type":  "PROCESS",
     "Version":  1,
     "LastModified":  "09/10/2025",
-    "Tags":  {
+    "Tags":  [
 
-             },
+             ],
     "Author":  "System",
     "Name":  "LABELPRINT",
     "Identifier":  "4d93e24a6be64fcca134dd5f9588559f"

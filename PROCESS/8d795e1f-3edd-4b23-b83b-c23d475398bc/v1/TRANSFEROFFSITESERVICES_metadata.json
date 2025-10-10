@@ -6,9 +6,9 @@
     "Type":  "PROCESS",
     "Version":  1,
     "LastModified":  "09/10/2025",
-    "Tags":  {
+    "Tags":  [
 
-             },
+             ],
     "Author":  "CRAIG",
     "Name":  "TRANSFEROFFSITESERVICES",
     "Identifier":  "8d795e1f3edd4b23b83bc23d475398bc"

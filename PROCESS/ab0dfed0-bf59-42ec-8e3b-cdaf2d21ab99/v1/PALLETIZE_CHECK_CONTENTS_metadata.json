@@ -6,9 +6,9 @@
     "Type":  "PROCESS",
     "Version":  1,
     "LastModified":  "09/10/2025",
-    "Tags":  {
+    "Tags":  [
 
-             },
+             ],
     "Author":  "Josh",
     "Name":  "PALLETIZE_CHECK_CONTENTS",
     "Identifier":  "ab0dfed0bf5942ec8e3bcdaf2d21ab99"

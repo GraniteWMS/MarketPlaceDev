@@ -6,9 +6,9 @@
     "Type":  "PROCESS",
     "Version":  1,
     "LastModified":  "09/10/2025",
-    "Tags":  {
+    "Tags":  [
 
-             },
+             ],
     "Author":  "System",
     "Name":  "RECEIVINGPOST",
     "Identifier":  "267e51572b924adc9f71d036f83bdc17"

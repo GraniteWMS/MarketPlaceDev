@@ -6,9 +6,9 @@
     "Type":  "PROCESS",
     "Version":  1,
     "LastModified":  "09/10/2025",
-    "Tags":  {
+    "Tags":  [
 
-             },
+             ],
     "Author":  "Craig Collins",
     "Name":  "DELIVERY_ARRIVAL",
     "Identifier":  "7364b241ea124ab9b9214610a278361a"

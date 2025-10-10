@@ -6,7 +6,9 @@
     "Type":  "PROCESS",
     "Version":  1,
     "LastModified":  "09/10/2025",
-    "Tags":  "Manufacturing",
+    "Tags":  [
+                 "Manufacturing"
+             ],
     "Author":  "Josh",
     "Name":  "PERISHABLES_TAKEON",
     "Identifier":  "0e699ff96d8746f18602c51434a92c83"

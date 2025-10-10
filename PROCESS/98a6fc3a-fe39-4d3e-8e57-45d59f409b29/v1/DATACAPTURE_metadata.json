@@ -6,9 +6,9 @@
     "Type":  "PROCESS",
     "Version":  1,
     "LastModified":  "09/10/2025",
-    "Tags":  {
+    "Tags":  [
 
-             },
+             ],
     "Author":  "System",
     "Name":  "DATACAPTURE",
     "Identifier":  "98a6fc3afe394d3e8e5745d59f409b29"

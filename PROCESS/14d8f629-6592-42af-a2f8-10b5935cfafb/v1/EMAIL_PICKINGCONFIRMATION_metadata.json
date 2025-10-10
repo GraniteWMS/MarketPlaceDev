@@ -6,9 +6,9 @@
     "Type":  "PROCESS",
     "Version":  1,
     "LastModified":  "09/10/2025",
-    "Tags":  {
+    "Tags":  [
 
-             },
+             ],
     "Author":  "Gabriel Innes",
     "Name":  "EMAIL_PICKINGCONFIRMATION",
     "Identifier":  "14d8f629659242afa2f810b5935cfafb"

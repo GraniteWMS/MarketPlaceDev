@@ -6,9 +6,9 @@
     "Type":  "PROCESS",
     "Version":  1,
     "LastModified":  "09/10/2025",
-    "Tags":  {
+    "Tags":  [
 
-             },
+             ],
     "Author":  "James Davidson",
     "Name":  "LOCATION_ITEM_BARCODE_REPLENISH",
     "Identifier":  "434ca79166444e14bc0e01d99c846267"

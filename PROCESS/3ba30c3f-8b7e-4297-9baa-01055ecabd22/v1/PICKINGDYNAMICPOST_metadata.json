@@ -6,9 +6,9 @@
     "Type":  "PROCESS",
     "Version":  1,
     "LastModified":  "09/10/2025",
-    "Tags":  {
+    "Tags":  [
 
-             },
+             ],
     "Author":  "System",
     "Name":  "PICKINGDYNAMICPOST",
     "Identifier":  "3ba30c3f8b7e42979baa01055ecabd22"

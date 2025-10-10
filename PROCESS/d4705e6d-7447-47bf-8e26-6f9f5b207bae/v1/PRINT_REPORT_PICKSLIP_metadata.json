@@ -6,9 +6,9 @@
     "Type":  "PROCESS",
     "Version":  1,
     "LastModified":  "09/10/2025",
-    "Tags":  {
+    "Tags":  [
 
-             },
+             ],
     "Author":  "Gabriel",
     "Name":  "PRINT_REPORT_PICKSLIP",
     "Identifier":  "d4705e6d744747bf8e266f9f5b207bae"

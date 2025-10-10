@@ -6,9 +6,9 @@
     "Type":  "PROCESS",
     "Version":  1,
     "LastModified":  "09/10/2025",
-    "Tags":  {
+    "Tags":  [
 
-             },
+             ],
     "Author":  "Josh",
     "Name":  "MOVE_CHECK_ERPLOCATION",
     "Identifier":  "8a1860f895ce4a8dba44bee175da556e"

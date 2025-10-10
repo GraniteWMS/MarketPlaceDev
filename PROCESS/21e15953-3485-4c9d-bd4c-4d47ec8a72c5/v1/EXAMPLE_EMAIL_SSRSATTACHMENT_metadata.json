@@ -6,9 +6,9 @@
     "Type":  "PROCESS",
     "Version":  1,
     "LastModified":  "09/10/2025",
-    "Tags":  {
+    "Tags":  [
 
-             },
+             ],
     "Author":  "Josh",
     "Name":  "EXAMPLE_EMAIL_SSRSATTACHMENT",
     "Identifier":  "21e1595334854c9dbd4c4d47ec8a72c5"

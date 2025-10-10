@@ -6,9 +6,9 @@
     "Type":  "PROCESS",
     "Version":  1,
     "LastModified":  "09/10/2025",
-    "Tags":  {
+    "Tags":  [
 
-             },
+             ],
     "Author":  "Josh",
     "Name":  "REINSTATE_TRACKINGENTITY",
     "Identifier":  "35117555e48241848bccb196b66f0276"

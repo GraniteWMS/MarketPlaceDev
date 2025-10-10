@@ -6,9 +6,9 @@
     "Type":  "PROCESS",
     "Version":  1,
     "LastModified":  "09/10/2025",
-    "Tags":  {
+    "Tags":  [
 
-             },
+             ],
     "Author":  "Josh",
     "Name":  "EXAMPLE_EMAIL_FILEATTACHMENTS",
     "Identifier":  "1c93bc8434da427db4886dd3bd1275c0"

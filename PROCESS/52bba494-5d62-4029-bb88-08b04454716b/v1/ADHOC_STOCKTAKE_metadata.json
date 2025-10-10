@@ -6,9 +6,9 @@
     "Type":  "PROCESS",
     "Version":  1,
     "LastModified":  "09/10/2025",
-    "Tags":  {
+    "Tags":  [
 
-             },
+             ],
     "Author":  "James Davidson",
     "Name":  "ADHOC_STOCKTAKE",
     "Identifier":  "52bba4945d624029bb8808b04454716b"

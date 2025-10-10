@@ -6,9 +6,9 @@
     "Type":  "PROCESS",
     "Version":  1,
     "LastModified":  "09/10/2025",
-    "Tags":  {
+    "Tags":  [
 
-             },
+             ],
     "Author":  "Josh",
     "Name":  "SIMPLE_PUTAWAY_RECEIVING",
     "Identifier":  "8472a86a349141e4a0af405f60d87432"

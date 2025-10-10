@@ -6,9 +6,9 @@
     "Type":  "PROCESS",
     "Version":  1,
     "LastModified":  "09/10/2025",
-    "Tags":  {
+    "Tags":  [
 
-             },
+             ],
     "Author":  "Gabriel Innes",
     "Name":  "SIMPLE_FIFO_PICKING",
     "Identifier":  "d358d49af24c4a819961434f1ca2a876"

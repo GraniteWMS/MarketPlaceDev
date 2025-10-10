@@ -6,9 +6,9 @@
     "Type":  "PROCESS",
     "Version":  1,
     "LastModified":  "09/10/2025",
-    "Tags":  {
+    "Tags":  [
 
-             },
+             ],
     "Author":  "Gabriel Innes",
     "Name":  "BOX_PACK_REVERSAL",
     "Identifier":  "f2ac042a45d642eab4faec9e285ae45b"

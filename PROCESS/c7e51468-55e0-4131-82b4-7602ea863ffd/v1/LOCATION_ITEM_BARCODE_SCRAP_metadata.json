@@ -6,9 +6,9 @@
     "Type":  "PROCESS",
     "Version":  1,
     "LastModified":  "09/10/2025",
-    "Tags":  {
+    "Tags":  [
 
-             },
+             ],
     "Author":  "James Davidson",
     "Name":  "LOCATION_ITEM_BARCODE_SCRAP",
     "Identifier":  "c7e5146855e0413182b47602ea863ffd"

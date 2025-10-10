@@ -6,9 +6,9 @@
     "Type":  "PROCESS",
     "Version":  1,
     "LastModified":  "09/10/2025",
-    "Tags":  {
+    "Tags":  [
 
-             },
+             ],
     "Author":  "Josh",
     "Name":  "SOFT_SCRAP",
     "Identifier":  "f82acaeb7b7943e4b7dc53588f3d9b14"
