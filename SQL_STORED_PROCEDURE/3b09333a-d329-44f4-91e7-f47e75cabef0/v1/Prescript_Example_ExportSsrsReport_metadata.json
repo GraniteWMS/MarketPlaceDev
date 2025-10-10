@@ -1,0 +1,15 @@
+{
+    "ArtifactDependencies":  [
+
+                             ],
+    "Description":  "Stored procedure: Prescript_Example_ExportSsrsReport",
+    "Type":  "SQL_STORED_PROCEDURE",
+    "Version":  1,
+    "LastModified":  "10/10/2025",
+    "Tags":  [
+
+             ],
+    "Author":  "Josh",
+    "Name":  "Prescript_Example_ExportSsrsReport",
+    "Identifier":  "3b09333ad32944f491e7f47e75cabef0"
+}

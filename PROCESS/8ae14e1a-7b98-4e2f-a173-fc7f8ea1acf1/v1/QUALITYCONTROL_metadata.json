@@ -1,0 +1,15 @@
+{
+    "ArtifactDependencies":  [
+
+                             ],
+    "Description":  "This is the default (empty) QUALITYCONTROL process.",
+    "Type":  "PROCESS",
+    "Version":  1,
+    "LastModified":  "10/10/2025",
+    "Tags":  [
+
+             ],
+    "Author":  "System",
+    "Name":  "QUALITYCONTROL",
+    "Identifier":  "8ae14e1a7b984e2fa173fc7f8ea1acf1"
+}

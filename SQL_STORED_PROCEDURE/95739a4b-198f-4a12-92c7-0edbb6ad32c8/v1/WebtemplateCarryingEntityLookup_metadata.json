@@ -1,0 +1,15 @@
+{
+    "ArtifactDependencies":  [
+
+                             ],
+    "Description":  "Stored procedure: WebtemplateCarryingEntityLookup",
+    "Type":  "SQL_STORED_PROCEDURE",
+    "Version":  1,
+    "LastModified":  "10/10/2025",
+    "Tags":  [
+
+             ],
+    "Author":  "Gabriel Innes",
+    "Name":  "WebtemplateCarryingEntityLookup",
+    "Identifier":  "95739a4b198f4a1292c70edbb6ad32c8"
+}

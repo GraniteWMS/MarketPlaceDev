@@ -1,0 +1,34 @@
+{
+    "ArtifactDependencies":  [
+                                 {
+                                     "ArtifactType":  "SQL_STORED_PROCEDURE",
+                                     "ArtifactIdentifier":  "7da983b5805d42e1b53b412a4897be2d",
+                                     "ArtifactVersion":  1
+                                 },
+                                 {
+                                     "ArtifactType":  "SQL_STORED_PROCEDURE",
+                                     "ArtifactIdentifier":  "74a4ccff97cc4ff18586df3703113dec",
+                                     "ArtifactVersion":  1
+                                 },
+                                 {
+                                     "ArtifactType":  "SQL_STORED_PROCEDURE",
+                                     "ArtifactIdentifier":  "17bdcaa0ad3a40359db15365987414e6",
+                                     "ArtifactVersion":  1
+                                 },
+                                 {
+                                     "ArtifactType":  "SQL_STORED_PROCEDURE",
+                                     "ArtifactIdentifier":  "d413d15700f041c8bf60637c191e495b",
+                                     "ArtifactVersion":  1
+                                 }
+                             ],
+    "Description":  "Intended for use where pickface locations do not contain physical TrackingEntity barcodes. When you replenish to a location that already contains the MasterItem being replenished, it will add to the existing TrackingEntity. If the MasterItem does not yet exist in the pickface location, a new TrackingEntity will be created.\n\nPickface locations must have type PICKFACE assigned.",
+    "Type":  "PROCESS",
+    "Version":  1,
+    "LastModified":  "10/10/2025",
+    "Tags":  [
+
+             ],
+    "Author":  "Josh",
+    "Name":  "REPLENISH_PICKFACE",
+    "Identifier":  "edd9802f006940c397d100cd2d7200b0"
+}

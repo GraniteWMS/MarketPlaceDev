@@ -1,0 +1,15 @@
+{
+    "ArtifactDependencies":  [
+
+                             ],
+    "Description":  "Stored procedure: PrescriptAdhocStockTake_TrackingEntity",
+    "Type":  "SQL_STORED_PROCEDURE",
+    "Version":  1,
+    "LastModified":  "10/10/2025",
+    "Tags":  [
+
+             ],
+    "Author":  "James Davidson",
+    "Name":  "PrescriptAdhocStockTake_TrackingEntity",
+    "Identifier":  "99f605c173c14c2888a59b42279fac6f"
+}

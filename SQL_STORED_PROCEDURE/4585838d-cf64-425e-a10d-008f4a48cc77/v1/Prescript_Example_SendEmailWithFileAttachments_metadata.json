@@ -1,0 +1,15 @@
+{
+    "ArtifactDependencies":  [
+
+                             ],
+    "Description":  "Stored procedure: Prescript_Example_SendEmailWithFileAttachments",
+    "Type":  "SQL_STORED_PROCEDURE",
+    "Version":  1,
+    "LastModified":  "10/10/2025",
+    "Tags":  [
+
+             ],
+    "Author":  "Josh",
+    "Name":  "Prescript_Example_SendEmailWithFileAttachments",
+    "Identifier":  "4585838dcf64425ea10d008f4a48cc77"
+}

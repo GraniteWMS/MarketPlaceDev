@@ -1,0 +1,15 @@
+{
+    "ArtifactDependencies":  [
+
+                             ],
+    "Description":  "Stored procedure: Prescript_Example_SendTemplateEmailWithParameters",
+    "Type":  "SQL_STORED_PROCEDURE",
+    "Version":  1,
+    "LastModified":  "10/10/2025",
+    "Tags":  [
+
+             ],
+    "Author":  "Josh",
+    "Name":  "Prescript_Example_SendTemplateEmailWithParameters",
+    "Identifier":  "eaa2255eb057401caae7b63b880b30fa"
+}

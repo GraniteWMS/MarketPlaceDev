@@ -1,0 +1,15 @@
+{
+    "ArtifactDependencies":  [
+
+                             ],
+    "Description":  "Stored procedure: PrescriptPerishablesTakeonBatch",
+    "Type":  "SQL_STORED_PROCEDURE",
+    "Version":  1,
+    "LastModified":  "10/10/2025",
+    "Tags":  [
+
+             ],
+    "Author":  "Josh",
+    "Name":  "PrescriptPerishablesTakeonBatch",
+    "Identifier":  "918b57c403ef4707a50d035b293b8975"
+}

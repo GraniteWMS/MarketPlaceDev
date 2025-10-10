@@ -1,0 +1,15 @@
+{
+    "ArtifactDependencies":  [
+
+                             ],
+    "Description":  "Stored procedure: DELIVERY_ARRIVAL_PODocument",
+    "Type":  "SQL_STORED_PROCEDURE",
+    "Version":  1,
+    "LastModified":  "10/10/2025",
+    "Tags":  [
+
+             ],
+    "Author":  "Craig Collins",
+    "Name":  "DELIVERY_ARRIVAL_PODocument",
+    "Identifier":  "381caadf6ac94683b874c643a6bdcdae"
+}

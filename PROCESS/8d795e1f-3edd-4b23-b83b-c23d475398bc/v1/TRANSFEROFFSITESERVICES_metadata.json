@@ -1,0 +1,24 @@
+{
+    "ArtifactDependencies":  [
+                                 {
+                                     "ArtifactType":  "SQL_STORED_PROCEDURE",
+                                     "ArtifactIdentifier":  "e2bcd744462444b38390d057174eec24",
+                                     "ArtifactVersion":  1
+                                 },
+                                 {
+                                     "ArtifactType":  "SQL_STORED_PROCEDURE",
+                                     "ArtifactIdentifier":  "edc78a466dcb4375979f8ae3fd3ecd85",
+                                     "ArtifactVersion":  1
+                                 }
+                             ],
+    "Description":  "Immediate Transfer to Offsite ERP Location for ACCPAC - Document Reference is generated as Date",
+    "Type":  "PROCESS",
+    "Version":  1,
+    "LastModified":  "10/10/2025",
+    "Tags":  [
+
+             ],
+    "Author":  "CRAIG",
+    "Name":  "TRANSFEROFFSITESERVICES",
+    "Identifier":  "8d795e1f3edd4b23b83bc23d475398bc"
+}

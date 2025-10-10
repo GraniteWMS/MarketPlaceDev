@@ -1,0 +1,19 @@
+{
+    "ArtifactDependencies":  [
+                                 {
+                                     "ArtifactType":  "SQL_STORED_PROCEDURE",
+                                     "ArtifactIdentifier":  "8edf2fdc294445118f06547f13452e7c",
+                                     "ArtifactVersion":  1
+                                 }
+                             ],
+    "Description":  "Used to prevent users from moving stock between different ERPLocations, and gives an error saying to use Transfer instead.",
+    "Type":  "PROCESS",
+    "Version":  1,
+    "LastModified":  "10/10/2025",
+    "Tags":  [
+
+             ],
+    "Author":  "Josh",
+    "Name":  "MOVE_CHECK_ERPLOCATION",
+    "Identifier":  "8a1860f895ce4a8dba44bee175da556e"
+}

@@ -1,0 +1,15 @@
+{
+    "ArtifactDependencies":  [
+
+                             ],
+    "Description":  "Stored procedure: PrescriptStockTakeCount_LOC_MILocation",
+    "Type":  "SQL_STORED_PROCEDURE",
+    "Version":  1,
+    "LastModified":  "10/10/2025",
+    "Tags":  [
+
+             ],
+    "Author":  "James Davidson",
+    "Name":  "PrescriptStockTakeCount_LOC_MILocation",
+    "Identifier":  "bf05d194a906405393b7ff03657bb3ce"
+}

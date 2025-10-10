@@ -1,0 +1,15 @@
+{
+    "ArtifactDependencies":  [
+
+                             ],
+    "Description":  "Stored procedure: PrescriptPerishablesReceivingExpiryDate",
+    "Type":  "SQL_STORED_PROCEDURE",
+    "Version":  1,
+    "LastModified":  "10/10/2025",
+    "Tags":  [
+
+             ],
+    "Author":  "Josh",
+    "Name":  "PrescriptPerishablesReceivingExpiryDate",
+    "Identifier":  "280f43365c9c49dc9c5ceaef7673ac28"
+}

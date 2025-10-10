@@ -1,0 +1,15 @@
+{
+    "ArtifactDependencies":  [
+
+                             ],
+    "Description":  "Stored procedure: Prescript_ScrapBarcode_Comment",
+    "Type":  "SQL_STORED_PROCEDURE",
+    "Version":  1,
+    "LastModified":  "10/10/2025",
+    "Tags":  [
+
+             ],
+    "Author":  "Unknown",
+    "Name":  "Prescript_ScrapBarcode_Comment",
+    "Identifier":  "a493c69823174d6492f6ca095fed2f13"
+}

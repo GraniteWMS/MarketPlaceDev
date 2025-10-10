@@ -1,0 +1,15 @@
+{
+    "ArtifactDependencies":  [
+
+                             ],
+    "Description":  "Stored procedure: PrescriptReceivingPostStep200",
+    "Type":  "SQL_STORED_PROCEDURE",
+    "Version":  1,
+    "LastModified":  "10/10/2025",
+    "Tags":  [
+
+             ],
+    "Author":  "Craig Collins",
+    "Name":  "PrescriptReceivingPostStep200",
+    "Identifier":  "36eb13d91cce49dbb2c90eb6f84f743b"
+}

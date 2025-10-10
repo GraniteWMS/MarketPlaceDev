@@ -1,0 +1,15 @@
+{
+    "ArtifactDependencies":  [
+
+                             ],
+    "Description":  "Stored procedure: PrescriptPickingDocument",
+    "Type":  "SQL_STORED_PROCEDURE",
+    "Version":  1,
+    "LastModified":  "10/10/2025",
+    "Tags":  [
+
+             ],
+    "Author":  "Gabriel Innes",
+    "Name":  "PrescriptPickingDocument",
+    "Identifier":  "7ece0c51cee547e98f109ec6d0c741af"
+}

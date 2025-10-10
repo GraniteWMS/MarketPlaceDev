@@ -1,0 +1,15 @@
+{
+    "ArtifactDependencies":  [
+
+                             ],
+    "Description":  "Stored procedure: PrescriptAddLocationsToStockTakeConfirmation",
+    "Type":  "SQL_STORED_PROCEDURE",
+    "Version":  1,
+    "LastModified":  "10/10/2025",
+    "Tags":  [
+
+             ],
+    "Author":  "Gabriel Innes",
+    "Name":  "PrescriptAddLocationsToStockTakeConfirmation",
+    "Identifier":  "f42be9a8dc194a7c938048a10bc592e0"
+}

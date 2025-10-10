@@ -1,0 +1,15 @@
+{
+    "ArtifactDependencies":  [
+
+                             ],
+    "Description":  "Stored procedure: PrescriptTransferOffsiteLocation",
+    "Type":  "SQL_STORED_PROCEDURE",
+    "Version":  1,
+    "LastModified":  "10/10/2025",
+    "Tags":  [
+
+             ],
+    "Author":  "CRAIG",
+    "Name":  "PrescriptTransferOffsiteLocation",
+    "Identifier":  "e2bcd744462444b38390d057174eec24"
+}

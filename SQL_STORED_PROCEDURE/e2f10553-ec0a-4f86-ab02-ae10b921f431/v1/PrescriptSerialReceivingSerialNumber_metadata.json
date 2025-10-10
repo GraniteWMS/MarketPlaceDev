@@ -1,0 +1,15 @@
+{
+    "ArtifactDependencies":  [
+
+                             ],
+    "Description":  "Stored procedure: PrescriptSerialReceivingSerialNumber",
+    "Type":  "SQL_STORED_PROCEDURE",
+    "Version":  1,
+    "LastModified":  "10/10/2025",
+    "Tags":  [
+
+             ],
+    "Author":  "Josh",
+    "Name":  "PrescriptSerialReceivingSerialNumber",
+    "Identifier":  "e2f10553ec0a4f86ab02ae10b921f431"
+}

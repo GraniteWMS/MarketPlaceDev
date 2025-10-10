@@ -1,0 +1,15 @@
+{
+    "ArtifactDependencies":  [
+
+                             ],
+    "Description":  "Stored procedure: WebTemplate_PurchaseOrderPostDetail",
+    "Type":  "SQL_STORED_PROCEDURE",
+    "Version":  1,
+    "LastModified":  "10/10/2025",
+    "Tags":  [
+
+             ],
+    "Author":  "Craig Collins",
+    "Name":  "WebTemplate_PurchaseOrderPostDetail",
+    "Identifier":  "927a287338cd46fb81f2a249fea5fd77"
+}

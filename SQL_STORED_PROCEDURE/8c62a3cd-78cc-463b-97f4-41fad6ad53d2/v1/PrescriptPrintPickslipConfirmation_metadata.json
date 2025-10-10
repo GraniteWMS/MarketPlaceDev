@@ -1,0 +1,15 @@
+{
+    "ArtifactDependencies":  [
+
+                             ],
+    "Description":  "Stored procedure: PrescriptPrintPickslipConfirmation",
+    "Type":  "SQL_STORED_PROCEDURE",
+    "Version":  1,
+    "LastModified":  "10/10/2025",
+    "Tags":  [
+
+             ],
+    "Author":  "Gabriel",
+    "Name":  "PrescriptPrintPickslipConfirmation",
+    "Identifier":  "8c62a3cd78cc463b97f441fad6ad53d2"
+}

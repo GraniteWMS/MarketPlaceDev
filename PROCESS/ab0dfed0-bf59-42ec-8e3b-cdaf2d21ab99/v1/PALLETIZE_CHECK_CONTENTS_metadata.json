@@ -1,0 +1,19 @@
+{
+    "ArtifactDependencies":  [
+                                 {
+                                     "ArtifactType":  "SQL_STORED_PROCEDURE",
+                                     "ArtifactIdentifier":  "1bd7791cd22141b7bf7e580bc8820ccd",
+                                     "ArtifactVersion":  1
+                                 }
+                             ],
+    "Description":  "Used to enforce packing only a single MasterItem per pallet, up to a maximum count of TrackingEntities.\n\nThis process makes use of the PackageType field on the MasterItem table. It should contain the maximum number of TrackingEntities of this MasterItem allowed on a pallet.\n\nIf PackageType is left empty, or set to 0, users will be able to pack as many TrackingEntities of the MasterItem onto a pallet as they wish.",
+    "Type":  "PROCESS",
+    "Version":  1,
+    "LastModified":  "10/10/2025",
+    "Tags":  [
+
+             ],
+    "Author":  "Josh",
+    "Name":  "PALLETIZE_CHECK_CONTENTS",
+    "Identifier":  "ab0dfed0bf5942ec8e3bcdaf2d21ab99"
+}

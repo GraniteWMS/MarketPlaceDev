@@ -1,0 +1,15 @@
+{
+    "ArtifactDependencies":  [
+
+                             ],
+    "Description":  "Stored procedure: PrescriptTakeon_LOC_MIQty",
+    "Type":  "SQL_STORED_PROCEDURE",
+    "Version":  1,
+    "LastModified":  "10/10/2025",
+    "Tags":  [
+
+             ],
+    "Author":  "James Davidson",
+    "Name":  "PrescriptTakeon_LOC_MIQty",
+    "Identifier":  "60288f6a4d6c4ebf88a8f7dde8b54a45"
+}

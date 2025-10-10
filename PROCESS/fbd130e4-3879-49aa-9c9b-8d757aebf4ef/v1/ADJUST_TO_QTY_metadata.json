@@ -1,0 +1,29 @@
+{
+    "ArtifactDependencies":  [
+                                 {
+                                     "ArtifactType":  "SQL_STORED_PROCEDURE",
+                                     "ArtifactIdentifier":  "c9847b03756a46dfaa26fa5938a706cc",
+                                     "ArtifactVersion":  1
+                                 },
+                                 {
+                                     "ArtifactType":  "SQL_STORED_PROCEDURE",
+                                     "ArtifactIdentifier":  "19e174c6d820430d809f3b9a4be686f0",
+                                     "ArtifactVersion":  1
+                                 },
+                                 {
+                                     "ArtifactType":  "SQL_STORED_PROCEDURE",
+                                     "ArtifactIdentifier":  "db27569d114f479992436b800c67feb7",
+                                     "ArtifactVersion":  1
+                                 }
+                             ],
+    "Description":  "Remove the mental math for the user by allowing them to enter the qty they want to adjust TO, instead of the qty they want to adjust BY.  ",
+    "Type":  "PROCESS",
+    "Version":  1,
+    "LastModified":  "10/10/2025",
+    "Tags":  [
+
+             ],
+    "Author":  "Josh",
+    "Name":  "ADJUST_TO_QTY",
+    "Identifier":  "fbd130e4387949aa9c9b8d757aebf4ef"
+}

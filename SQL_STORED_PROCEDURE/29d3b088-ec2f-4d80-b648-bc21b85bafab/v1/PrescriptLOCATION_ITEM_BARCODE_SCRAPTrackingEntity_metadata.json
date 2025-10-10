@@ -1,0 +1,15 @@
+{
+    "ArtifactDependencies":  [
+
+                             ],
+    "Description":  "Stored procedure: PrescriptLOCATION_ITEM_BARCODE_SCRAPTrackingEntity",
+    "Type":  "SQL_STORED_PROCEDURE",
+    "Version":  1,
+    "LastModified":  "10/10/2025",
+    "Tags":  [
+
+             ],
+    "Author":  "James Davidson",
+    "Name":  "PrescriptLOCATION_ITEM_BARCODE_SCRAPTrackingEntity",
+    "Identifier":  "29d3b088ec2f4d80b648bc21b85bafab"
+}

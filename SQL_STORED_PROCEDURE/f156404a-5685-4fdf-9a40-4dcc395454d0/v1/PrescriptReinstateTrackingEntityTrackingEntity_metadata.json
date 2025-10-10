@@ -1,0 +1,15 @@
+{
+    "ArtifactDependencies":  [
+
+                             ],
+    "Description":  "Stored procedure: PrescriptReinstateTrackingEntityTrackingEntity",
+    "Type":  "SQL_STORED_PROCEDURE",
+    "Version":  1,
+    "LastModified":  "10/10/2025",
+    "Tags":  [
+
+             ],
+    "Author":  "Josh",
+    "Name":  "PrescriptReinstateTrackingEntityTrackingEntity",
+    "Identifier":  "f156404a56854fdf9a404dcc395454d0"
+}

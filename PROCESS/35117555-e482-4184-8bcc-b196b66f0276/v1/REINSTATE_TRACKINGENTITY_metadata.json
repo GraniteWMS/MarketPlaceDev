@@ -1,0 +1,24 @@
+{
+    "ArtifactDependencies":  [
+                                 {
+                                     "ArtifactType":  "SQL_STORED_PROCEDURE",
+                                     "ArtifactIdentifier":  "f156404a56854fdf9a404dcc395454d0",
+                                     "ArtifactVersion":  1
+                                 },
+                                 {
+                                     "ArtifactType":  "SQL_STORED_PROCEDURE",
+                                     "ArtifactIdentifier":  "a2b7013b582a406c818816b799208131",
+                                     "ArtifactVersion":  1
+                                 }
+                             ],
+    "Description":  "Used to place a TrackingEntity back in stock after it has been scrapped or otherwise set to InStock false. Makes use of CLR to ensure a transaction is written when a TrackingEntity is reinstated.",
+    "Type":  "PROCESS",
+    "Version":  1,
+    "LastModified":  "10/10/2025",
+    "Tags":  [
+
+             ],
+    "Author":  "Josh",
+    "Name":  "REINSTATE_TRACKINGENTITY",
+    "Identifier":  "35117555e48241848bccb196b66f0276"
+}

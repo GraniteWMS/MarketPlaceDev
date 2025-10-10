@@ -1,0 +1,15 @@
+{
+    "ArtifactDependencies":  [
+
+                             ],
+    "Description":  "Stored procedure: Prescript_Example_SendEmailWithSsrsReport",
+    "Type":  "SQL_STORED_PROCEDURE",
+    "Version":  1,
+    "LastModified":  "10/10/2025",
+    "Tags":  [
+
+             ],
+    "Author":  "Josh",
+    "Name":  "Prescript_Example_SendEmailWithSsrsReport",
+    "Identifier":  "f8810e763ef94f9586dd54923a7c6d9b"
+}

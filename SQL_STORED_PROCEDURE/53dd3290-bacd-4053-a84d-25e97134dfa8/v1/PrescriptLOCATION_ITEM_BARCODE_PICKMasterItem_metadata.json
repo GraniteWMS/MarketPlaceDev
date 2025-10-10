@@ -1,0 +1,15 @@
+{
+    "ArtifactDependencies":  [
+
+                             ],
+    "Description":  "Stored procedure: PrescriptLOCATION_ITEM_BARCODE_PICKMasterItem",
+    "Type":  "SQL_STORED_PROCEDURE",
+    "Version":  1,
+    "LastModified":  "10/10/2025",
+    "Tags":  [
+
+             ],
+    "Author":  "James Davidson",
+    "Name":  "PrescriptLOCATION_ITEM_BARCODE_PICKMasterItem",
+    "Identifier":  "53dd3290bacd4053a84d25e97134dfa8"
+}

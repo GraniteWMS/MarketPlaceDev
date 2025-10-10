@@ -1,0 +1,15 @@
+{
+    "ArtifactDependencies":  [
+
+                             ],
+    "Description":  "Stored procedure: WebtemplateStockTakeTrackingEntity",
+    "Type":  "SQL_STORED_PROCEDURE",
+    "Version":  1,
+    "LastModified":  "10/10/2025",
+    "Tags":  [
+
+             ],
+    "Author":  "Gabriel Innes",
+    "Name":  "WebtemplateStockTakeTrackingEntity",
+    "Identifier":  "f01e4db087684e3d8f3f64339d45778e"
+}

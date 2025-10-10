@@ -1,0 +1,19 @@
+{
+    "ArtifactDependencies":  [
+                                 {
+                                     "ArtifactType":  "SQL_STORED_PROCEDURE",
+                                     "ArtifactIdentifier":  "d30f82d300d04f08ad6e2200a6267199",
+                                     "ArtifactVersion":  1
+                                 }
+                             ],
+    "Description":  "This template provides an illustration of utilizing SQL_CLR to send emails with excel attachments, although it should be noted that this process is not fully functional.",
+    "Type":  "PROCESS",
+    "Version":  1,
+    "LastModified":  "10/10/2025",
+    "Tags":  [
+
+             ],
+    "Author":  "Josh",
+    "Name":  "EXAMPLE_EMAIL_EXCELATTACHMENT",
+    "Identifier":  "67480eefcc254ce6ac29953dab841370"
+}

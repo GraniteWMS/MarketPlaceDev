@@ -1,0 +1,15 @@
+{
+    "ArtifactDependencies":  [
+
+                             ],
+    "Description":  "Stored procedure: GetLookupData",
+    "Type":  "SQL_STORED_PROCEDURE",
+    "Version":  1,
+    "LastModified":  "10/10/2025",
+    "Tags":  [
+
+             ],
+    "Author":  "Craig",
+    "Name":  "GetLookupData",
+    "Identifier":  "3275f92620a54c6ea6a825a97e7bea67"
+}

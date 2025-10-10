@@ -1,0 +1,24 @@
+{
+    "ArtifactDependencies":  [
+                                 {
+                                     "ArtifactType":  "SQL_STORED_PROCEDURE",
+                                     "ArtifactIdentifier":  "1eff2a834af241cbb8c4bc6f99789930",
+                                     "ArtifactVersion":  1
+                                 },
+                                 {
+                                     "ArtifactType":  "SQL_STORED_PROCEDURE",
+                                     "ArtifactIdentifier":  "8c776de309394c1da70f038a23d43144",
+                                     "ArtifactVersion":  1
+                                 }
+                             ],
+    "Description":  "Allows for picking from a pickface location where there are no physical TrackingEntity barcodes attached to the stock. Uses a webtemplate to show the stock available in the Location that has been scanned. Intended for use with the REPLENISH_PICKFACE process.",
+    "Type":  "PROCESS",
+    "Version":  1,
+    "LastModified":  "10/10/2025",
+    "Tags":  [
+
+             ],
+    "Author":  "Josh",
+    "Name":  "PICKING_PICKFACE",
+    "Identifier":  "44af8267a4884042a4b6f15e49391d95"
+}

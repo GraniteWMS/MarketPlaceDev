@@ -1,0 +1,29 @@
+{
+    "ArtifactDependencies":  [
+                                 {
+                                     "ArtifactType":  "SQL_STORED_PROCEDURE",
+                                     "ArtifactIdentifier":  "577fd3c282dc4ae1a749b737adb9a2a9",
+                                     "ArtifactVersion":  1
+                                 },
+                                 {
+                                     "ArtifactType":  "SQL_STORED_PROCEDURE",
+                                     "ArtifactIdentifier":  "f01e4db087684e3d8f3f64339d45778e",
+                                     "ArtifactVersion":  1
+                                 },
+                                 {
+                                     "ArtifactType":  "SQL_STORED_PROCEDURE",
+                                     "ArtifactIdentifier":  "1b314a29725540c7980382328877342b",
+                                     "ArtifactVersion":  1
+                                 }
+                             ],
+    "Description":  "This process includes 2 webtemplates that show outstanding locations and tracking entities for each count.",
+    "Type":  "PROCESS",
+    "Version":  1,
+    "LastModified":  "10/10/2025",
+    "Tags":  [
+
+             ],
+    "Author":  "Gabriel Innes",
+    "Name":  "OUTSTANDING_LOCATION_COUNT",
+    "Identifier":  "c9ad457ce3e94dcba2cb35577fbb10f0"
+}

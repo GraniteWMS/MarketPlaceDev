@@ -1,0 +1,19 @@
+{
+    "ArtifactDependencies":  [
+                                 {
+                                     "ArtifactType":  "SQL_STORED_PROCEDURE",
+                                     "ArtifactIdentifier":  "0c97e5f8d1f14ea69199ea3da85f606b",
+                                     "ArtifactVersion":  1
+                                 }
+                             ],
+    "Description":  "When the customer has a set Picking location and empty bulk locations and we want to display  the location to use for Putaway.",
+    "Type":  "PROCESS",
+    "Version":  1,
+    "LastModified":  "10/10/2025",
+    "Tags":  [
+
+             ],
+    "Author":  "Craig Collins",
+    "Name":  "PUTAWAY-DIRECTED",
+    "Identifier":  "9d366dcc1ae24a83a007674be443bf54"
+}

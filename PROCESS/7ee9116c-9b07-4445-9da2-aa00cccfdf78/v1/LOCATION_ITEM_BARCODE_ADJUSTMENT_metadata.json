@@ -1,0 +1,24 @@
+{
+    "ArtifactDependencies":  [
+                                 {
+                                     "ArtifactType":  "SQL_STORED_PROCEDURE",
+                                     "ArtifactIdentifier":  "5cc64268d7724762a415e64489fd62a4",
+                                     "ArtifactVersion":  1
+                                 },
+                                 {
+                                     "ArtifactType":  "SQL_STORED_PROCEDURE",
+                                     "ArtifactIdentifier":  "da33734bf4bd426987f2fca4a6eaea11",
+                                     "ArtifactVersion":  1
+                                 }
+                             ],
+    "Description":  "If you need a system where users scan both the Location and MasterItem to identify the stock, thereby eliminating the need to print Tracking Entity barcodes. This process will use the barcode format of [LocationBarcode]_[MasterItemCode] to find the TrackingEntity.",
+    "Type":  "PROCESS",
+    "Version":  1,
+    "LastModified":  "10/10/2025",
+    "Tags":  [
+
+             ],
+    "Author":  "James Davidson",
+    "Name":  "LOCATION_ITEM_BARCODE_ADJUSTMENT",
+    "Identifier":  "7ee9116c9b0744459da2aa00cccfdf78"
+}
