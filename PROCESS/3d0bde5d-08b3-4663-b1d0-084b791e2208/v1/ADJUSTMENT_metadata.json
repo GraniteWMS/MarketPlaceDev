@@ -1,0 +1,1 @@
+{"Identifier":"3d0bde5d08b34663b1d0084b791e2208","Name":"ADJUSTMENT","Description":"Default adjust process","Type":"PROCESS","Version":1,"LastModified":"10/10/2025","Author":"Test","Tags":["Test","Default"],"ArtifactDependencies":[{"ArtifactType":"SQL_STORED_PROCEDURE","ArtifactIdentifier":"fa82571d34054d2383fa4d44d3302ac2","ArtifactVersion":1}]}
