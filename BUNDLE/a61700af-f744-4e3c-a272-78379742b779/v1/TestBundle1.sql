@@ -1,0 +1,3 @@
+-- Bundle: TestBundle1
+-- This is a metadata-only artifact that groups multiple artifacts together.
+-- See ArtifactDependencies in metadata for the list of included artifacts.
