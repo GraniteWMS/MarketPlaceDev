@@ -1,0 +1,152 @@
+name: Version Artifact on PR Merge
+
+on:
+  pull_request:
+    types: [closed]
+    paths:
+      - '**/latest/**'
+
+jobs:
+  version-artifact:
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          
+      - name: Determine artifact path and version
+        id: artifact
+        run: |
+          # Get files changed in the merged PR
+          CHANGED_FILES=$(git diff --name-only HEAD~1 HEAD | grep 'latest/')
+          
+          if [ -z "$CHANGED_FILES" ]; then
+            echo "No latest/ files changed, skipping versioning"
+            exit 0
+          fi
+          
+          # Extract first changed file to determine artifact
+          FIRST_FILE=$(echo "$CHANGED_FILES" | head -1)
+          ARTIFACT_DIR=$(dirname "$FIRST_FILE")
+          
+          # Remove /latest from path to get base path
+          BASE_PATH=$(echo "$ARTIFACT_DIR" | sed 's|/latest$||')
+          
+          # Extract components: username/type/identifier
+          USERNAME=$(echo "$BASE_PATH" | cut -d'/' -f1)
+          TYPE=$(echo "$BASE_PATH" | cut -d'/' -f2)
+          IDENTIFIER=$(echo "$BASE_PATH" | cut -d'/' -f3)
+          
+          echo "base_path=$BASE_PATH" >> $GITHUB_OUTPUT
+          echo "username=$USERNAME" >> $GITHUB_OUTPUT
+          echo "type=$TYPE" >> $GITHUB_OUTPUT
+          echo "identifier=$IDENTIFIER" >> $GITHUB_OUTPUT
+          
+          # Find existing versions
+          VERSIONS=$(ls -d $BASE_PATH/v* 2>/dev/null | sed 's|.*/v||' | sort -n || echo "")
+          if [ -z "$VERSIONS" ]; then
+            NEXT_VERSION=2
+          else
+            LAST_VERSION=$(echo "$VERSIONS" | tail -1)
+            NEXT_VERSION=$((LAST_VERSION + 1))
+          fi
+          
+          echo "next_version=$NEXT_VERSION" >> $GITHUB_OUTPUT
+          echo "Artifact: $USERNAME/$TYPE/$IDENTIFIER"
+          echo "Next version: v$NEXT_VERSION"
+          
+      - name: Copy latest to new version
+        if: steps.artifact.outputs.next_version != ''
+        run: |
+          BASE_PATH="${{ steps.artifact.outputs.base_path }}"
+          NEXT_VERSION="${{ steps.artifact.outputs.next_version }}"
+          
+          # Copy latest/ directory to new version
+          cp -r "$BASE_PATH/latest" "$BASE_PATH/v$NEXT_VERSION"
+          
+          echo "Created $BASE_PATH/v$NEXT_VERSION from latest/"
+          
+      - name: Update metadata version number
+        if: steps.artifact.outputs.next_version != ''
+        run: |
+          BASE_PATH="${{ steps.artifact.outputs.base_path }}"
+          NEXT_VERSION="${{ steps.artifact.outputs.next_version }}"
+          
+          # Find and update metadata JSON files
+          for metadata_file in "$BASE_PATH/v$NEXT_VERSION"/*_metadata.json; do
+            if [ -f "$metadata_file" ]; then
+              # Update Version field in JSON
+              jq --arg version "$NEXT_VERSION" '.Version = ($version | tonumber)' "$metadata_file" > temp.json
+              mv temp.json "$metadata_file"
+              echo "Updated version in $metadata_file to $NEXT_VERSION"
+            fi
+          done
+          
+      - name: Get artifact details from metadata
+        if: steps.artifact.outputs.next_version != ''
+        id: metadata
+        run: |
+          BASE_PATH="${{ steps.artifact.outputs.base_path }}"
+          NEXT_VERSION="${{ steps.artifact.outputs.next_version }}"
+          
+          # Find metadata file and extract artifact name
+          METADATA_FILE=$(find "$BASE_PATH/v$NEXT_VERSION" -name "*_metadata.json" | head -1)
+          if [ -f "$METADATA_FILE" ]; then
+            ARTIFACT_NAME=$(jq -r '.Name' "$METADATA_FILE")
+            echo "artifact_name=$ARTIFACT_NAME" >> $GITHUB_OUTPUT
+          fi
+          
+      - name: Commit new version
+        if: steps.artifact.outputs.next_version != ''
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          
+          IDENTIFIER="${{ steps.artifact.outputs.identifier }}"
+          TYPE="${{ steps.artifact.outputs.type }}"
+          NEXT_VERSION="${{ steps.artifact.outputs.next_version }}"
+          
+          git add .
+          git commit -m "chore: version $TYPE artifact $IDENTIFIER to v$NEXT_VERSION"
+          git push
+          
+      - name: Register version in artifact registry
+        if: steps.artifact.outputs.next_version != ''
+        run: |
+          USERNAME="${{ steps.artifact.outputs.username }}"
+          TYPE="${{ steps.artifact.outputs.type }}"
+          IDENTIFIER="${{ steps.artifact.outputs.identifier }}"
+          NEXT_VERSION="${{ steps.artifact.outputs.next_version }}"
+          ARTIFACT_NAME="${{ steps.metadata.outputs.artifact_name }}"
+          GITHUB_PATH="${{ steps.artifact.outputs.base_path }}/v$NEXT_VERSION"
+          
+          echo "Registering artifact version in MarketplaceAPI:"
+          echo "  Type: $TYPE"
+          echo "  Identifier: $IDENTIFIER"
+          echo "  Version: $NEXT_VERSION"
+          echo "  Name: $ARTIFACT_NAME"
+          echo "  Path: $GITHUB_PATH"
+          
+          # This should trigger MarketplaceAPI to register the new version
+          # The API will need to provide an endpoint for this, or we use a bot account
+          # For now, we log the information that would be registered
+          echo "::notice::Artifact $TYPE/$IDENTIFIER v$NEXT_VERSION created at $GITHUB_PATH"
+          
+      - name: Notify via comment
+        if: steps.artifact.outputs.next_version != ''
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const identifier = '${{ steps.artifact.outputs.identifier }}';
+            const type = '${{ steps.artifact.outputs.type }}';
+            const version = '${{ steps.artifact.outputs.next_version }}';
+            
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.payload.pull_request.number,
+              body: `✅ Artifact automatically versioned!\n\n**Type:** ${type}\n**Identifier:** ${identifier}\n**New Version:** v${version}\n\nThe artifact has been committed to \`v${version}/\` directory.`
+            });
