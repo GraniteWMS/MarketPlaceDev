@@ -1,0 +1,12 @@
+{
+  "Identifier": "8ba4ff33b0a044d39ecea4c12d84ab4a",
+  "Name": "TestTable20251202-1",
+  "Description": "Test table artifact",
+  "Type": "USER_TABLE",
+  "Version": 1,
+  "LastModified": "02/12/2025",
+  "Author": "Test",
+  "DatabaseVersion": "8.0.0.0",
+  "Tags": [],
+  "ArtifactDependencies": []
+}
