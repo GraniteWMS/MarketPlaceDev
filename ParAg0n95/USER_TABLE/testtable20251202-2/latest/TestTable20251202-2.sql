@@ -14,7 +14,6 @@ CREATE TABLE [dbo].[TestTable20251202-2](
 	[InStock] [bit] NOT NULL,
 	[MasterItem_id] [bigint] NOT NULL,
 	[Location_id] [bigint] NOT NULL,
-	[BelongsToEntity_id] [bigint] NULL,
 PRIMARY KEY CLUSTERED 
 (
 	[ID] ASC
