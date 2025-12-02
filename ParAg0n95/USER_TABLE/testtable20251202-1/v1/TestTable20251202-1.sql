@@ -16,7 +16,6 @@ CREATE TABLE [dbo].[TestTable20251202-1](
 	[Location_id] [bigint] NOT NULL,
 	[BelongsToEntity_id] [bigint] NULL,
 	[ManufactureDate] [datetime] NULL,
-	[GUID] [uniqueidentifier] NOT NULL,
 PRIMARY KEY CLUSTERED 
 (
 	[ID] ASC
