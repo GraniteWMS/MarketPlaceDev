@@ -1,0 +1,13 @@
+name: Publish New Artifact to Elasticsearch
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - '**/latest/**'
+
+jobs:
+  publish-to-elasticsearch:
+    uses: ./.github/workflows/publish-elasticsearch-reusable.yml
+    secrets: inherit

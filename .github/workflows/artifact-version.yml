@@ -154,3 +154,8 @@ jobs:
               issue_number: context.payload.pull_request.number,
               body: `✅ Artifact automatically versioned!\n\n**Type:** ${type}\n**Identifier:** ${identifier}\n**New Version:** v${version}\n\nThe artifact has been committed to \`v${version}/\` directory.`
             });
+  
+  publish-to-elasticsearch:
+    needs: version-artifact
+    uses: ./.github/workflows/publish-elasticsearch-reusable.yml
+    secrets: inherit

@@ -1,21 +1,18 @@
-name: Publish Metadata to Elasticsearch
+name: Publish to Elasticsearch (Reusable)
 
 on:
-  workflow_run:
-    workflows: ["Version Artifact on PR Merge"]
-    types:
-      - completed
+  workflow_call:
 
 jobs:
-  publish:
+  publish-to-elasticsearch:
     runs-on: ubuntu-latest
-
+    
     steps:
-      - name: Checkout repo
+      - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0
-
+          ref: main
+          
       - name: Push changed metadata to Elasticsearch
         env:
           EMBEDDINGS_URL: ${{ secrets.EMBEDDINGS_URL }}
