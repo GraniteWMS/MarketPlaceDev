@@ -1,12 +1,1 @@
-{
-  "Identifier": "6f0eb75173a641f09636061397c0d0e6",
-  "Name": "CustomTableTest4",
-  "Description": "This is a test custom table 123",
-  "Type": "USER_TABLE",
-  "Version": 1,
-  "LastModified": "08/12/2025",
-  "Author": "Josh",
-  "DatabaseVersion": "8.0.0.0",
-  "Tags": [],
-  "ArtifactDependencies": []
-}
+{"Identifier":"6f0eb75173a641f09636061397c0d0e6","Name":"CustomTableTest4","Description":"This is a test custom table 123","Type":"USER_TABLE","Version":0,"LastModified":"08/12/2025","Author":"Josh","DatabaseVersion":"8.0.0.0","Tags":[],"ArtifactDependencies":[]}
