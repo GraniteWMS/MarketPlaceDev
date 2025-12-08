@@ -9,7 +9,6 @@ CREATE TABLE [dbo].[TestTable20251208](
 	[Value] [decimal](19, 2) NULL,
 	[Batch] [varchar](50) COLLATE Latin1_General_CI_AS NULL,
 	[ExpiryDate] [datetime] NULL,
-	[OnHold] [bit] NOT NULL,
 PRIMARY KEY CLUSTERED 
 (
 	[ID] ASC
