@@ -5,7 +5,6 @@ CREATE TABLE [dbo].[CustomTableTest4](
 	[Barcode] [varchar](50) COLLATE Latin1_General_CI_AS NOT NULL,
 	[Qty] [decimal](19, 4) NOT NULL,
 	[SerialNumber] [varchar](30) COLLATE Latin1_General_CI_AS NULL,
-	[CreatedDate] [datetime] NOT NULL,
 PRIMARY KEY CLUSTERED 
 (
 	[ID] ASC
