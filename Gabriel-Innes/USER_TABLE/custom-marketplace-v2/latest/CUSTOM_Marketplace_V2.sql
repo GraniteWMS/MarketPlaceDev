@@ -1,6 +1,7 @@
 SET ANSI_NULLS ON
 SET QUOTED_IDENTIFIER ON
 CREATE TABLE [dbo].[CUSTOM_Marketplace_V2](
-	[WhatToBuy] [varchar](50) COLLATE Latin1_General_CI_AS NULL
+	[WhatToBuy] [varchar](50) COLLATE Latin1_General_CI_AS NULL,
+	[MyNewColumn] [varchar](50) COLLATE Latin1_General_CI_AS NULL
 ) ON [PRIMARY]
 
