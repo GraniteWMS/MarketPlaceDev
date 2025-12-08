@@ -20,28 +20,18 @@ jobs:
         env:
           EMBEDDINGS_URL: ${{ secrets.EMBEDDINGS_URL }}
           ES_URL: ${{ secrets.ES_URL }}
-          GITHUB_EVENT_BEFORE: ${{ github.event.before }}
-          GITHUB_SHA: ${{ github.sha }}
         run: |
           python3 - <<'PYTHON_EOF'
           import os, json, requests, subprocess
 
           EMBEDDINGS_URL = os.environ["EMBEDDINGS_URL"]
           ES_URL = os.environ["ES_URL"].rstrip("/") + "/artifacts/_doc"
-          before = os.environ.get("GITHUB_EVENT_BEFORE")
-          after = os.environ.get("GITHUB_SHA")
 
-          # Determine changed metadata files
-          if not before or before == "0000000000000000000000000000000000000000":
-              # first commit, take all _metadata.json files
-              changed_files = subprocess.check_output(
-                  ["git", "ls-files", "*_metadata.json"], text=True
-              ).splitlines()
-          else:
-              diff = subprocess.check_output(
-                  ["git", "diff", "--name-only", before, after], text=True
-              ).splitlines()
-              changed_files = [f for f in diff if f.endswith("_metadata.json")]
+          # Get changed metadata files from last commit only
+          diff = subprocess.check_output(
+              ["git", "diff", "--name-only", "HEAD~1", "HEAD"], text=True
+          ).splitlines()
+          changed_files = [f for f in diff if f.endswith("_metadata.json")]
 
           if not changed_files:
               print("No changed metadata files. Exiting.")
