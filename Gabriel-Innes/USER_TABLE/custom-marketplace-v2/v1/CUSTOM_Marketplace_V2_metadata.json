@@ -1,0 +1,12 @@
+{
+  "Identifier": "3d21d67cb9c440f5bbd4ca001135c494",
+  "Name": "CUSTOM_Marketplace_V2",
+  "Description": "Test table artifact",
+  "Type": "USER_TABLE",
+  "Version": 1,
+  "LastModified": "08/12/2025",
+  "Author": "Gabriel Innes",
+  "DatabaseVersion": "6.0.0.0",
+  "Tags": [],
+  "ArtifactDependencies": []
+}
