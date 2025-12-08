@@ -1,11 +1,10 @@
 name: Publish Metadata to Elasticsearch
 
 on:
-  push:
-    branches:
-      - main
-    paths:
-      - '**/*_metadata.json'
+  workflow_run:
+    workflows: ["Version Artifact on PR Merge"]
+    types:
+      - completed
 
 jobs:
   publish:
