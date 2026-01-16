@@ -16,7 +16,6 @@ CREATE TABLE [dbo].[CustomTable](
 	[Width] [int] NULL,
 	[Height] [int] NULL,
 	[MaximumWeight] [int] NULL,
-	[Version] [smallint] NULL,
 PRIMARY KEY CLUSTERED 
 (
 	[ID] ASC
