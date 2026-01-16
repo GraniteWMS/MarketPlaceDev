@@ -1,4 +1,4 @@
-name: Auto-merge PR by Codeowner
+name: Auto-approve PR by Codeowner
 
 on:
   pull_request_target:
@@ -90,10 +90,8 @@ jobs:
             echo "❌ PR author is not a codeowner of any changed files"
           fi
 
-      - name: Enable auto-merge
+      - name: Approve PR
         if: steps.check-codeowner.outputs.is_codeowner == 'true'
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          gh pr merge ${{ github.event.pull_request.number }} --auto --squash --delete-branch
-          gh pr comment ${{ github.event.pull_request.number }} --body "🤖 Auto-merge enabled: PR author is a codeowner of the modified files."
+        uses: hmarr/auto-approve-action@v4
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
