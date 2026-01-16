@@ -14,7 +14,6 @@ CREATE TABLE [dbo].[CustomTable2](
 	[ERPIdentification] [varchar](50) COLLATE Latin1_General_CI_AS NULL,
 	[Length] [int] NULL,
 	[Width] [int] NULL,
-	[Height] [int] NULL,
 PRIMARY KEY CLUSTERED 
 (
 	[ID] ASC
