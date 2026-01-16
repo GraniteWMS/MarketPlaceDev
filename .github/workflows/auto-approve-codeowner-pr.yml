@@ -1,0 +1,97 @@
+name: Auto-approve PR by Codeowner
+
+on:
+  pull_request_target:
+    types: [opened, synchronize, reopened]
+
+permissions:
+  pull-requests: write
+  contents: read
+
+jobs:
+  auto-approve:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Get changed files
+        id: changed-files
+        run: |
+          # Get the list of changed files in the PR
+          git fetch origin ${{ github.event.pull_request.base.ref }}
+          CHANGED_FILES=$(git diff --name-only origin/${{ github.event.pull_request.base.ref }}...${{ github.event.pull_request.head.sha }})
+          echo "Changed files:"
+          echo "$CHANGED_FILES"
+          echo "changed_files<<EOF" >> $GITHUB_OUTPUT
+          echo "$CHANGED_FILES" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+
+      - name: Check if PR author is codeowner
+        id: check-codeowner
+        run: |
+          PR_AUTHOR="${{ github.event.pull_request.user.login }}"
+          CHANGED_FILES="${{ steps.changed-files.outputs.changed_files }}"
+          
+          echo "PR Author: $PR_AUTHOR"
+          echo "Checking CODEOWNERS file..."
+          
+          # Read CODEOWNERS file
+          if [ ! -f ".github/CODEOWNERS" ]; then
+            echo "is_codeowner=false" >> $GITHUB_OUTPUT
+            echo "CODEOWNERS file not found"
+            exit 0
+          fi
+          
+          IS_CODEOWNER=false
+          
+          # Check each changed file
+          while IFS= read -r file; do
+            [ -z "$file" ] && continue
+            
+            echo "Checking file: $file"
+            
+            # Get the directory path
+            dir_path=$(dirname "$file")
+            
+            # Check CODEOWNERS for matching patterns
+            while IFS= read -r line; do
+              # Skip empty lines and comments
+              [[ -z "$line" || "$line" =~ ^[[:space:]]*# ]] && continue
+              
+              # Extract pattern and owners
+              pattern=$(echo "$line" | awk '{print $1}')
+              owners=$(echo "$line" | awk '{$1=""; print $0}' | xargs)
+              
+              # Remove trailing /* from pattern for directory matching
+              pattern_dir="${pattern%/*}"
+              
+              # Check if the file matches the pattern
+              if [[ "$file" == $pattern_dir/* ]] || [[ "$file" == $pattern ]]; then
+                echo "File $file matches pattern $pattern with owners: $owners"
+                
+                # Check if PR author is in the owners list
+                if echo "$owners" | grep -q "@$PR_AUTHOR"; then
+                  echo "✅ PR author $PR_AUTHOR is a codeowner of $file"
+                  IS_CODEOWNER=true
+                  break 2
+                fi
+              fi
+            done < .github/CODEOWNERS
+          done <<< "$CHANGED_FILES"
+          
+          echo "is_codeowner=$IS_CODEOWNER" >> $GITHUB_OUTPUT
+          
+          if [ "$IS_CODEOWNER" = "true" ]; then
+            echo "✅ PR author is a codeowner of at least one changed file"
+          else
+            echo "❌ PR author is not a codeowner of any changed files"
+          fi
+
+      - name: Approve PR
+        if: steps.check-codeowner.outputs.is_codeowner == 'true'
+        uses: hmarr/auto-approve-action@v4
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
