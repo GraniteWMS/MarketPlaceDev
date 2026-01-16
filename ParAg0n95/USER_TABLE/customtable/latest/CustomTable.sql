@@ -6,8 +6,6 @@ CREATE TABLE [dbo].[CustomTable](
 	[Name] [varchar](50) COLLATE Latin1_General_CI_AS NOT NULL,
 	[Site] [varchar](30) COLLATE Latin1_General_CI_AS NOT NULL,
 	[ERPLocation] [varchar](15) COLLATE Latin1_General_CI_AS NOT NULL,
-	[isActive] [bit] NOT NULL,
-	[NonStock] [bit] NOT NULL,
 	[AuditDate] [datetime] NULL,
 	[AuditUser] [varchar](20) COLLATE Latin1_General_CI_AS NULL,
 	[Status] [varchar](30) COLLATE Latin1_General_CI_AS NULL,
