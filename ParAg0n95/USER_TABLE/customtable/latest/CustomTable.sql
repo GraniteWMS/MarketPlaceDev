@@ -19,7 +19,6 @@ CREATE TABLE [dbo].[CustomTable](
 	[Height] [int] NULL,
 	[MaximumWeight] [int] NULL,
 	[Version] [smallint] NULL,
-	[GUID] [uniqueidentifier] NOT NULL,
 PRIMARY KEY CLUSTERED 
 (
 	[ID] ASC
