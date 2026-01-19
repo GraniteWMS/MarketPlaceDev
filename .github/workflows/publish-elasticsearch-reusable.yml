@@ -70,21 +70,27 @@ jobs:
                 print(f"Indexed {file_path} -> success")
                 
                 # Parse file path to extract artifact info
-                # Expected format: username/artifact_type/identifier/v{version}/..._metadata.json
+                # Expected format: username/artifact_type/slugified_name/v{version}/..._metadata.json
                 path_match = re.match(r'^([^/]+)/([^/]+)/([^/]+)/v(\d+)/', file_path)
                 if path_match and MARKETPLACE_API_URL:
                     github_username = path_match.group(1)
                     artifact_type = path_match.group(2)
-                    identifier = path_match.group(3)
+                    slugified_name = path_match.group(3)  # This is the slug, not the GUID
                     version = int(path_match.group(4))
-                    github_path = f"{github_username}/{artifact_type}/{identifier}/v{version}"
+                    github_path = f"{github_username}/{artifact_type}/{slugified_name}/v{version}"
+                    
+                    # Extract the GUID identifier from metadata
+                    identifier = data.get("Identifier", "")
+                    if not identifier:
+                        print(f"  WARNING: No Identifier in metadata, skipping marketplace API")
+                        continue
                     
                     # Publish to marketplace API
                     print(f"  Publishing to marketplace API...")
                     api_payload = {
                         "github_username": github_username,
                         "artifact_type": artifact_type,
-                        "identifier": identifier,
+                        "identifier": identifier,  # Use GUID from metadata
                         "version": version,
                         "name": name_text,
                         "github_path": github_path
