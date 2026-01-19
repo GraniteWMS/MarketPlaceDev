@@ -18,12 +18,14 @@ jobs:
         env:
           EMBEDDINGS_URL: ${{ secrets.EMBEDDINGS_URL }}
           ES_URL: ${{ secrets.ES_URL }}
+          MARKETPLACE_API_URL: ${{ secrets.MARKETPLACE_API_URL }}
         run: |
           python3 - <<'PYTHON_EOF'
-          import os, json, requests, subprocess
+          import os, json, requests, subprocess, re
 
           EMBEDDINGS_URL = os.environ["EMBEDDINGS_URL"]
           ES_URL = os.environ["ES_URL"].rstrip("/") + "/artifacts/_doc"
+          MARKETPLACE_API_URL = os.environ.get("MARKETPLACE_API_URL", "").rstrip("/")
 
           # Get changed metadata files from last commit only
           diff = subprocess.check_output(
@@ -66,6 +68,41 @@ jobs:
                 resp = requests.post(ES_URL, json=data)
                 resp.raise_for_status()
                 print(f"Indexed {file_path} -> success")
+                
+                # Parse file path to extract artifact info
+                # Expected format: username/artifact_type/identifier/v{version}/..._metadata.json
+                path_match = re.match(r'^([^/]+)/([^/]+)/([^/]+)/v(\d+)/', file_path)
+                if path_match and MARKETPLACE_API_URL:
+                    github_username = path_match.group(1)
+                    artifact_type = path_match.group(2)
+                    identifier = path_match.group(3)
+                    version = int(path_match.group(4))
+                    github_path = f"{github_username}/{artifact_type}/{identifier}/v{version}"
+                    
+                    # Publish to marketplace API
+                    print(f"  Publishing to marketplace API...")
+                    api_payload = {
+                        "github_username": github_username,
+                        "artifact_type": artifact_type,
+                        "identifier": identifier,
+                        "version": version,
+                        "name": name_text,
+                        "github_path": github_path
+                    }
+                    try:
+                        api_resp = requests.post(
+                            f"{MARKETPLACE_API_URL}/artifact-registry/publish",
+                            json=api_payload,
+                            timeout=30.0
+                        )
+                        api_resp.raise_for_status()
+                        print(f"  Marketplace API -> {api_resp.json().get('message', 'success')}")
+                    except Exception as api_err:
+                        # Don't fail the whole workflow if API call fails
+                        print(f"  WARNING: Failed to publish to marketplace API: {api_err}")
+                elif not MARKETPLACE_API_URL:
+                    print(f"  Skipping marketplace API (MARKETPLACE_API_URL not configured)")
+                    
             except requests.exceptions.RequestException as e:
                 print(f"ERROR: Failed to publish {file_path}: {e}")
                 if hasattr(e.response, 'text'):
