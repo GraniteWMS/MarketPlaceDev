@@ -1,0 +1,12 @@
+{
+  "Identifier": "1180eb214000413c867bf764a5ecd2df",
+  "Name": "CustomTable3",
+  "Description": "This is a test custom table 123",
+  "Type": "USER_TABLE",
+  "Version": 0,
+  "LastModified": "19/01/2026",
+  "Author": "Josh",
+  "DatabaseVersion": "8.0.0.0",
+  "Tags": [],
+  "ArtifactDependencies": []
+}
