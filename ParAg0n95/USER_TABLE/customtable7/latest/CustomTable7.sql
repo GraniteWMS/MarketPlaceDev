@@ -13,7 +13,6 @@ CREATE TABLE [dbo].[CustomTable7](
 	[Category] [varchar](30) COLLATE Latin1_General_CI_AS NULL,
 	[ERPIdentification] [varchar](50) COLLATE Latin1_General_CI_AS NULL,
 	[Length] [int] NULL,
-	[Width] [int] NULL,
 PRIMARY KEY CLUSTERED 
 (
 	[ID] ASC
