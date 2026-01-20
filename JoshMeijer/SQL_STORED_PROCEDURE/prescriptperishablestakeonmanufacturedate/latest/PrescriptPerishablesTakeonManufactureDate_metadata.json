@@ -1,0 +1,12 @@
+{
+  "Identifier": "290ead9837474d569467087db68c44ca",
+  "Name": "PrescriptPerishablesTakeonManufactureDate",
+  "Description": "Use when you want to enforce Batch and ExpiryDate. Will also populate ExpiryDate based on MasterItem.ShelfLife when user captures ManufactureDate. \r\n  \r\n  Maintain and set EnforceBatchNumber, EnforceExpiryDate, ShelfLife on MasterItems where it applies.",
+  "Type": "SQL_STORED_PROCEDURE",
+  "Version": 0,
+  "LastModified": "20/01/2026",
+  "Author": "Josh",
+  "DatabaseVersion": "8.0.0.0",
+  "Tags": [],
+  "ArtifactDependencies": []
+}
