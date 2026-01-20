@@ -1,0 +1,12 @@
+{
+  "Identifier": "8cb9c16fb2244bf194c98a72e721b5f5",
+  "Name": "CustomTable9",
+  "Description": "This is a test custom view",
+  "Type": "USER_TABLE",
+  "Version": 1,
+  "LastModified": "20/01/2026",
+  "Author": "Josh",
+  "DatabaseVersion": "8.0.0.0",
+  "Tags": [],
+  "ArtifactDependencies": []
+}
