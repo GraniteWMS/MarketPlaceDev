@@ -1,0 +1,28 @@
+{
+  "Identifier": "9d168f0a32964a0b9a73d1cf8a8c84f0",
+  "Name": "ProcessData",
+  "Description": "Use when you want to enforce Batch and ExpiryDate. Will also populate ExpiryDate based on MasterItem.ShelfLife when user captures ManufactureDate. \r\n  \r\n  Maintain and set EnforceBatchNumber, EnforceExpiryDate, ShelfLife on MasterItems where it applies.",
+  "Type": "DATA",
+  "Version": 1,
+  "LastModified": "20/01/2026",
+  "Author": "Josh",
+  "DatabaseVersion": "8.0.0.0",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "SQL_STORED_PROCEDURE",
+      "ArtifactIdentifier": "a6c12ef1d5c24526812183856bbf6c55",
+      "ArtifactVersion": 1
+    },
+    {
+      "ArtifactType": "SQL_STORED_PROCEDURE",
+      "ArtifactIdentifier": "3ca79ab963344cb6a4e00cc9122298e5",
+      "ArtifactVersion": 1
+    },
+    {
+      "ArtifactType": "SQL_STORED_PROCEDURE",
+      "ArtifactIdentifier": "290ead9837474d569467087db68c44ca",
+      "ArtifactVersion": 1
+    }
+  ]
+}
