@@ -1,0 +1,12 @@
+{
+  "Identifier": "0873d544c4c44c3eb09911cdc4ca2f55",
+  "Name": "CustomTable",
+  "Description": "Simple table to test upload and update",
+  "Type": "USER_TABLE",
+  "Version": 0,
+  "LastModified": "21/01/2026",
+  "Author": "Josh",
+  "DatabaseVersion": "8.0.0.0",
+  "Tags": [],
+  "ArtifactDependencies": []
+}
