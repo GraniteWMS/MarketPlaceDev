@@ -1,0 +1,12 @@
+{
+  "Identifier": "25dd4e40ed9e4cd3b071ecb0a49455e9",
+  "Name": "PrescriptPerishablesTakeonExpiryDate",
+  "Description": "",
+  "Type": "SQL_STORED_PROCEDURE",
+  "Version": 0,
+  "LastModified": "21/01/2026",
+  "Author": "Josh",
+  "DatabaseVersion": "8.0.0.0",
+  "Tags": [],
+  "ArtifactDependencies": []
+}
