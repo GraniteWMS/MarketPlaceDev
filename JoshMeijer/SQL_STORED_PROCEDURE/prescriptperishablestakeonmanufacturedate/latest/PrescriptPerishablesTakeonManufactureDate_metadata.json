@@ -1,0 +1,12 @@
+{
+  "Identifier": "db63d39ea6c540d88f645559b6fb83a7",
+  "Name": "PrescriptPerishablesTakeonManufactureDate",
+  "Description": "",
+  "Type": "SQL_STORED_PROCEDURE",
+  "Version": 0,
+  "LastModified": "21/01/2026",
+  "Author": "Josh",
+  "DatabaseVersion": "8.0.0.0",
+  "Tags": [],
+  "ArtifactDependencies": []
+}
