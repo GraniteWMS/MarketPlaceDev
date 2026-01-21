@@ -1,0 +1,12 @@
+{
+  "Identifier": "d17bb9dfb8f241728d328a687d7e215b",
+  "Name": "PrescriptPerishablesTakeonBatch",
+  "Description": "Stored procedure: PrescriptPerishablesTakeonBatch",
+  "Type": "SQL_STORED_PROCEDURE",
+  "Version": 1,
+  "LastModified": "21/01/2026",
+  "Author": "Josh",
+  "DatabaseVersion": "8.0.0.0",
+  "Tags": [],
+  "ArtifactDependencies": []
+}

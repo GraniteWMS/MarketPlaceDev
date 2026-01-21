@@ -1,0 +1,12 @@
+{
+  "Identifier": "402ffaa1d70d4cd4b920ba41330d56c2",
+  "Name": "PrescriptPerishablesTakeonManufactureDate",
+  "Description": "Stored procedure: PrescriptPerishablesTakeonManufactureDate",
+  "Type": "SQL_STORED_PROCEDURE",
+  "Version": 1,
+  "LastModified": "21/01/2026",
+  "Author": "Josh",
+  "DatabaseVersion": "8.0.0.0",
+  "Tags": [],
+  "ArtifactDependencies": []
+}
