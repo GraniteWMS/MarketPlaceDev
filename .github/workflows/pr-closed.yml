@@ -1,0 +1,51 @@
+name: PR Closed Without Merge
+
+on:
+  pull_request:
+    types:
+      - closed
+    branches:
+      - main
+
+jobs:
+  update-publish-request-closed:
+    runs-on: ubuntu-latest
+    if: github.event.pull_request.merged == false
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Extract publish_request_id from PR
+        id: extract-id
+        env:
+          PR_BODY: ${{ github.event.pull_request.body }}
+        run: |
+          # Try to extract publish_request_id from PR body
+          # Format: **Publish Request**: `uuid`
+          PUBLISH_REQUEST_ID=$(echo "$PR_BODY" | grep -oP '(?<=\*\*Publish Request\*\*: `)[a-f0-9\-]+(?=`)' || echo "")
+          
+          if [ -z "$PUBLISH_REQUEST_ID" ]; then
+            echo "No publish_request_id found in PR body"
+            echo "publish_request_id=" >> $GITHUB_OUTPUT
+          else
+            echo "Found publish_request_id: $PUBLISH_REQUEST_ID"
+            echo "publish_request_id=$PUBLISH_REQUEST_ID" >> $GITHUB_OUTPUT
+          fi
+      
+      - name: Update publish request state to closed
+        if: steps.extract-id.outputs.publish_request_id != ''
+        env:
+          MARKETPLACE_API_URL: ${{ secrets.MARKETPLACE_API_URL }}
+          PUBLISH_REQUEST_ID: ${{ steps.extract-id.outputs.publish_request_id }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+        run: |
+          echo "Updating publish request $PUBLISH_REQUEST_ID to state: closed"
+          
+          # Call MarketplaceAPI to update state
+          curl -X POST \
+            "${MARKETPLACE_API_URL}/api/v1/publish-requests/${PUBLISH_REQUEST_ID}/state" \
+            -H "Content-Type: application/json" \
+            -d "{\"pr_number\": ${PR_NUMBER}, \"state\": \"closed\", \"merged\": false}" \
+            --fail \
+            || echo "Warning: Failed to update publish request state"

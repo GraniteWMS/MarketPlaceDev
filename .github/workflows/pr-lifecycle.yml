@@ -1,34 +1,48 @@
 name: PR Lifecycle Management
 
 on:
-  pull_request:
-    types:
-      - closed
+  push:
     branches:
       - main
 
 jobs:
   publish-artifacts:
-    if: github.event.pull_request.merged == true
     uses: ./.github/workflows/publish-elasticsearch-reusable.yml
     secrets: inherit
 
   update-publish-request-state:
     runs-on: ubuntu-latest
     needs: publish-artifacts
-    if: always() && github.event.pull_request.merged == true
+    if: always()
     
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
       
+      - name: Get associated PR number
+        id: get-pr
+        run: |
+          # Get the PR number from the merge commit message
+          PR_NUMBER=$(git log -1 --pretty=%B | grep -oP '(?<=\(#)\d+(?=\))' || echo "")
+          echo "pr_number=$PR_NUMBER" >> $GITHUB_OUTPUT
+          
+          if [ -z "$PR_NUMBER" ]; then
+            echo "No PR number found in commit message"
+          else
+            echo "Found PR number: $PR_NUMBER"
+          fi
+      
       - name: Extract publish_request_id from PR
         id: extract-id
+        if: steps.get-pr.outputs.pr_number != ''
         env:
-          PR_BODY: ${{ github.event.pull_request.body }}
-          PR_BRANCH: ${{ github.event.pull_request.head.ref }}
+          GH_TOKEN: ${{ github.token }}
+          PR_NUMBER: ${{ steps.get-pr.outputs.pr_number }}
         run: |
-          # Try to extract publish_request_id from PR body first
+          # Get PR body using GitHub CLI
+          PR_BODY=$(gh pr view "$PR_NUMBER" --json body --jq .body || echo "")
+          
+          # Extract publish_request_id from PR body
           # Format: **Publish Request**: `uuid`
           PUBLISH_REQUEST_ID=$(echo "$PR_BODY" | grep -oP '(?<=\*\*Publish Request\*\*: `)[a-f0-9\-]+(?=`)' || echo "")
           
@@ -45,7 +59,7 @@ jobs:
         env:
           MARKETPLACE_API_URL: ${{ secrets.MARKETPLACE_API_URL }}
           PUBLISH_REQUEST_ID: ${{ steps.extract-id.outputs.publish_request_id }}
-          PR_NUMBER: ${{ github.event.pull_request.number }}
+          PR_NUMBER: ${{ steps.get-pr.outputs.pr_number }}
           PUBLISH_RESULT: ${{ needs.publish-artifacts.result }}
         run: |
           # Determine state based on publish result
@@ -62,48 +76,5 @@ jobs:
             "${MARKETPLACE_API_URL}/api/v1/publish-requests/${PUBLISH_REQUEST_ID}/state" \
             -H "Content-Type: application/json" \
             -d "{\"pr_number\": ${PR_NUMBER}, \"state\": \"${STATE}\", \"merged\": true}" \
-            --fail \
-            || echo "Warning: Failed to update publish request state"
-
-  update-publish-request-closed:
-    runs-on: ubuntu-latest
-    if: github.event.pull_request.merged == false
-    
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-      
-      - name: Extract publish_request_id from PR
-        id: extract-id
-        env:
-          PR_BODY: ${{ github.event.pull_request.body }}
-          PR_BRANCH: ${{ github.event.pull_request.head.ref }}
-        run: |
-          # Try to extract publish_request_id from PR body
-          # Format: **Publish Request**: `uuid`
-          PUBLISH_REQUEST_ID=$(echo "$PR_BODY" | grep -oP '(?<=\*\*Publish Request\*\*: `)[a-f0-9\-]+(?=`)' || echo "")
-          
-          if [ -z "$PUBLISH_REQUEST_ID" ]; then
-            echo "No publish_request_id found in PR body"
-            echo "publish_request_id=" >> $GITHUB_OUTPUT
-          else
-            echo "Found publish_request_id: $PUBLISH_REQUEST_ID"
-            echo "publish_request_id=$PUBLISH_REQUEST_ID" >> $GITHUB_OUTPUT
-          fi
-      
-      - name: Update publish request state to closed
-        if: steps.extract-id.outputs.publish_request_id != ''
-        env:
-          MARKETPLACE_API_URL: ${{ secrets.MARKETPLACE_API_URL }}
-          PUBLISH_REQUEST_ID: ${{ steps.extract-id.outputs.publish_request_id }}
-          PR_NUMBER: ${{ github.event.pull_request.number }}
-        run: |
-          echo "Updating publish request $PUBLISH_REQUEST_ID to state: closed"
-          
-          # Call MarketplaceAPI to update state
-          curl -X POST \
-            "${MARKETPLACE_API_URL}/api/v1/publish-requests/${PUBLISH_REQUEST_ID}/state" \
-            -H "Content-Type: application/json" \
-            -d "{\"pr_number\": ${PR_NUMBER}, \"state\": \"closed\", \"merged\": false}" \
             --fail \
             || echo "Warning: Failed to update publish request state"
