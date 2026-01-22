@@ -54,29 +54,28 @@ jobs:
             echo "publish_request_id=$PUBLISH_REQUEST_ID" >> $GITHUB_OUTPUT
           fi
       
-      - name: Update publish request state
+      - name: Finalize publish request
         if: steps.extract-id.outputs.publish_request_id != ''
         env:
           MARKETPLACE_API_URL: ${{ secrets.MARKETPLACE_API_URL }}
           PUBLISH_REQUEST_ID: ${{ steps.extract-id.outputs.publish_request_id }}
-          PR_NUMBER: ${{ steps.get-pr.outputs.pr_number }}
           PUBLISH_RESULT: ${{ needs.publish-artifacts.result }}
         run: |
-          # Determine state based on publish result
+          # Determine merged status based on publish result
           if [ "$PUBLISH_RESULT" = "success" ]; then
-            STATE="merged"
+            MERGED="true"
           else
-            STATE="failed"
+            MERGED="false"
           fi
           
-          echo "Updating publish request $PUBLISH_REQUEST_ID to state: $STATE"
+          echo "Finalizing publish request $PUBLISH_REQUEST_ID (merged=$MERGED)"
           
           # Remove trailing slash from MARKETPLACE_API_URL to avoid double slashes
           API_BASE="${MARKETPLACE_API_URL%/}"
           
-          # Call MarketplaceAPI to update state
+          # Call MarketplaceAPI to finalize publish request
           curl -X POST \
-            "${API_BASE}/api/v1/publish-requests/${PUBLISH_REQUEST_ID}/state" \
+            "${API_BASE}/api/v1/publish-requests/${PUBLISH_REQUEST_ID}/finalize" \
             -H "Content-Type: application/json" \
-            -d "{\"pr_number\": ${PR_NUMBER}, \"state\": \"${STATE}\", \"merged\": true}" \
+            -d "{\"merged\": ${MERGED}}" \
             --fail-with-body

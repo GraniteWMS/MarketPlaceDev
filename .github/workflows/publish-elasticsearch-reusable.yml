@@ -151,31 +151,6 @@ jobs:
           
           echo "Successfully indexed ${{ matrix.file }} to Elasticsearch"
       
-      - name: Publish to Marketplace API
-        if: steps.load-metadata.outputs.identifier != '' && steps.load-metadata.outputs.github_path != ''
-        env:
-          MARKETPLACE_API_URL: ${{ secrets.MARKETPLACE_API_URL }}
-        run: |
-          API_PAYLOAD=$(jq -n \
-            --arg username "${{ steps.load-metadata.outputs.github_username }}" \
-            --arg type "${{ steps.load-metadata.outputs.artifact_type }}" \
-            --arg identifier "${{ steps.load-metadata.outputs.identifier }}" \
-            --arg version "${{ steps.load-metadata.outputs.version }}" \
-            --arg name "${{ steps.load-metadata.outputs.name }}" \
-            --arg path "${{ steps.load-metadata.outputs.github_path }}" \
-            '{
-              "github_username": $username,
-              "artifact_type": $type,
-              "identifier": $identifier,
-              "version": ($version | tonumber),
-              "name": $name,
-              "github_path": $path
-            }')
-          
-          # Remove trailing slash from MARKETPLACE_API_URL to avoid double slashes
-          API_BASE="${MARKETPLACE_API_URL%/}"
-          
-          curl -X POST "${API_BASE}/api/v1/artifact-registry/publish" \
-            -H "Content-Type: application/json" \
-            -d "$API_PAYLOAD" \
-            --fail-with-body
+      # Note: Per-artifact Marketplace API callback removed.
+      # Artifacts are now staged upfront when publish request is created,
+      # and moved to registry via the /finalize endpoint after PR merge.

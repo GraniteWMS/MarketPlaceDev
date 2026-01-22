@@ -33,21 +33,20 @@ jobs:
             echo "publish_request_id=$PUBLISH_REQUEST_ID" >> $GITHUB_OUTPUT
           fi
       
-      - name: Update publish request state to closed
+      - name: Finalize publish request as closed
         if: steps.extract-id.outputs.publish_request_id != ''
         env:
           MARKETPLACE_API_URL: ${{ secrets.MARKETPLACE_API_URL }}
           PUBLISH_REQUEST_ID: ${{ steps.extract-id.outputs.publish_request_id }}
-          PR_NUMBER: ${{ github.event.pull_request.number }}
         run: |
-          echo "Updating publish request $PUBLISH_REQUEST_ID to state: closed"
+          echo "Finalizing publish request $PUBLISH_REQUEST_ID (closed without merge)"
           
           # Remove trailing slash from MARKETPLACE_API_URL to avoid double slashes
           API_BASE="${MARKETPLACE_API_URL%/}"
           
-          # Call MarketplaceAPI to update state
+          # Call MarketplaceAPI to finalize publish request
           curl -X POST \
-            "${API_BASE}/api/v1/publish-requests/${PUBLISH_REQUEST_ID}/state" \
+            "${API_BASE}/api/v1/publish-requests/${PUBLISH_REQUEST_ID}/finalize" \
             -H "Content-Type: application/json" \
-            -d "{\"pr_number\": ${PR_NUMBER}, \"state\": \"closed\", \"merged\": false}" \
+            -d "{\"merged\": false}" \
             --fail-with-body
