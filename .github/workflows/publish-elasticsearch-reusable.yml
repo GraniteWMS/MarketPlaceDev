@@ -94,6 +94,7 @@ jobs:
             -H "Content-Type: application/json" \
             -d "{\"inputs\":[\"${{ steps.load-metadata.outputs.name }}\"]}"
           )
+          echo "$RESPONSE" > /tmp/name_embedding.json
           echo "embedding=$RESPONSE" >> $GITHUB_OUTPUT
       
       - name: Generate description embedding
@@ -108,31 +109,30 @@ jobs:
             -H "Content-Type: application/json" \
             -d "{\"inputs\":[$DESC]}"
           )
+          echo "$RESPONSE" > /tmp/desc_embedding.json
           echo "embedding=$RESPONSE" >> $GITHUB_OUTPUT
       
       - name: Index to Elasticsearch
         env:
           ES_URL: ${{ secrets.ES_URL }}
-          NAME_EMBEDDING: ${{ steps.name-embedding.outputs.embedding }}
-          DESC_EMBEDDING: ${{ steps.desc-embedding.outputs.embedding }}
         run: |
           # Load original metadata
           METADATA=$(cat "${{ matrix.file }}")
           
-          # Add embeddings to metadata (use environment variables)
-          if [ -n "$NAME_EMBEDDING" ] && [ -n "$DESC_EMBEDDING" ]; then
+          # Add embeddings to metadata from temp files
+          if [ -f /tmp/name_embedding.json ] && [ -f /tmp/desc_embedding.json ]; then
             UPDATED_METADATA=$(echo "$METADATA" | jq \
-              --argjson name_emb "$NAME_EMBEDDING" \
-              --argjson desc_emb "$DESC_EMBEDDING" \
-              '. + {"Name_embedding": $name_emb, "Description_embedding": $desc_emb}')
-          elif [ -n "$NAME_EMBEDDING" ]; then
+              --slurpfile name_emb /tmp/name_embedding.json \
+              --slurpfile desc_emb /tmp/desc_embedding.json \
+              '. + {"Name_embedding": $name_emb[0], "Description_embedding": $desc_emb[0]}')
+          elif [ -f /tmp/name_embedding.json ]; then
             UPDATED_METADATA=$(echo "$METADATA" | jq \
-              --argjson name_emb "$NAME_EMBEDDING" \
-              '. + {"Name_embedding": $name_emb}')
-          elif [ -n "$DESC_EMBEDDING" ]; then
+              --slurpfile name_emb /tmp/name_embedding.json \
+              '. + {"Name_embedding": $name_emb[0]}')
+          elif [ -f /tmp/desc_embedding.json ]; then
             UPDATED_METADATA=$(echo "$METADATA" | jq \
-              --argjson desc_emb "$DESC_EMBEDDING" \
-              '. + {"Description_embedding": $desc_emb}')
+              --slurpfile desc_emb /tmp/desc_embedding.json \
+              '. + {"Description_embedding": $desc_emb[0]}')
           else
             UPDATED_METADATA="$METADATA"
           fi
