@@ -113,15 +113,29 @@ jobs:
       - name: Index to Elasticsearch
         env:
           ES_URL: ${{ secrets.ES_URL }}
+          NAME_EMBEDDING: ${{ steps.name-embedding.outputs.embedding }}
+          DESC_EMBEDDING: ${{ steps.desc-embedding.outputs.embedding }}
         run: |
           # Load original metadata
           METADATA=$(cat "${{ matrix.file }}")
           
-          # Add embeddings to metadata
-          UPDATED_METADATA=$(echo "$METADATA" | jq \
-            --argjson name_emb '${{ steps.name-embedding.outputs.embedding || "null" }}' \
-            --argjson desc_emb '${{ steps.desc-embedding.outputs.embedding || "null" }}' \
-            '. + {"Name_embedding": ($name_emb // null), "Description_embedding": ($desc_emb // null)}')
+          # Add embeddings to metadata (use environment variables)
+          if [ -n "$NAME_EMBEDDING" ] && [ -n "$DESC_EMBEDDING" ]; then
+            UPDATED_METADATA=$(echo "$METADATA" | jq \
+              --argjson name_emb "$NAME_EMBEDDING" \
+              --argjson desc_emb "$DESC_EMBEDDING" \
+              '. + {"Name_embedding": $name_emb, "Description_embedding": $desc_emb}')
+          elif [ -n "$NAME_EMBEDDING" ]; then
+            UPDATED_METADATA=$(echo "$METADATA" | jq \
+              --argjson name_emb "$NAME_EMBEDDING" \
+              '. + {"Name_embedding": $name_emb}')
+          elif [ -n "$DESC_EMBEDDING" ]; then
+            UPDATED_METADATA=$(echo "$METADATA" | jq \
+              --argjson desc_emb "$DESC_EMBEDDING" \
+              '. + {"Description_embedding": $desc_emb}')
+          else
+            UPDATED_METADATA="$METADATA"
+          fi
           
           # Index to Elasticsearch
           ES_ENDPOINT="${ES_URL%/}/artifacts/_doc"
