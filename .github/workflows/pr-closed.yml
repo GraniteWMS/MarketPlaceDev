@@ -42,10 +42,12 @@ jobs:
         run: |
           echo "Updating publish request $PUBLISH_REQUEST_ID to state: closed"
           
+          # Remove trailing slash from MARKETPLACE_API_URL to avoid double slashes
+          API_BASE="${MARKETPLACE_API_URL%/}"
+          
           # Call MarketplaceAPI to update state
           curl -X POST \
-            "${MARKETPLACE_API_URL}/api/v1/publish-requests/${PUBLISH_REQUEST_ID}/state" \
+            "${API_BASE}/api/v1/publish-requests/${PUBLISH_REQUEST_ID}/state" \
             -H "Content-Type: application/json" \
             -d "{\"pr_number\": ${PR_NUMBER}, \"state\": \"closed\", \"merged\": false}" \
-            --fail \
-            || echo "Warning: Failed to update publish request state"
+            --fail-with-body

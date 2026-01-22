@@ -153,7 +153,6 @@ jobs:
       
       - name: Publish to Marketplace API
         if: steps.load-metadata.outputs.identifier != '' && steps.load-metadata.outputs.github_path != ''
-        continue-on-error: true
         env:
           MARKETPLACE_API_URL: ${{ secrets.MARKETPLACE_API_URL }}
         run: |
@@ -173,8 +172,10 @@ jobs:
               "github_path": $path
             }')
           
-          curl -X POST "${MARKETPLACE_API_URL}/api/v1/artifact-registry/publish" \
+          # Remove trailing slash from MARKETPLACE_API_URL to avoid double slashes
+          API_BASE="${MARKETPLACE_API_URL%/}"
+          
+          curl -X POST "${API_BASE}/api/v1/artifact-registry/publish" \
             -H "Content-Type: application/json" \
             -d "$API_PAYLOAD" \
-            --fail-with-body \
-            || echo "Warning: Failed to publish to marketplace API"
+            --fail-with-body
