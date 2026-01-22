@@ -120,22 +120,27 @@ jobs:
           METADATA=$(cat "${{ matrix.file }}")
           
           # Add embeddings to metadata from temp files
+          # The embeddings API returns an array of embeddings, we need the first one
           if [ -f /tmp/name_embedding.json ] && [ -f /tmp/desc_embedding.json ]; then
             UPDATED_METADATA=$(echo "$METADATA" | jq \
               --slurpfile name_emb /tmp/name_embedding.json \
               --slurpfile desc_emb /tmp/desc_embedding.json \
-              '. + {"Name_embedding": $name_emb[0], "Description_embedding": $desc_emb[0]}')
+              '. + {"Name_embedding": $name_emb[0][0], "Description_embedding": $desc_emb[0][0]}')
           elif [ -f /tmp/name_embedding.json ]; then
             UPDATED_METADATA=$(echo "$METADATA" | jq \
               --slurpfile name_emb /tmp/name_embedding.json \
-              '. + {"Name_embedding": $name_emb[0]}')
+              '. + {"Name_embedding": $name_emb[0][0]}')
           elif [ -f /tmp/desc_embedding.json ]; then
             UPDATED_METADATA=$(echo "$METADATA" | jq \
               --slurpfile desc_emb /tmp/desc_embedding.json \
-              '. + {"Description_embedding": $desc_emb[0]}')
+              '. + {"Description_embedding": $desc_emb[0][0]}')
           else
             UPDATED_METADATA="$METADATA"
           fi
+          
+          # Debug: Show what we're sending to ES
+          echo "Indexing to Elasticsearch:"
+          echo "$UPDATED_METADATA" | jq -C '.' || echo "$UPDATED_METADATA"
           
           # Index to Elasticsearch
           ES_ENDPOINT="${ES_URL%/}/artifacts/_doc"
