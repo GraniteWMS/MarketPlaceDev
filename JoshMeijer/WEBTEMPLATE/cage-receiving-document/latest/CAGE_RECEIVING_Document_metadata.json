@@ -1,0 +1,20 @@
+{
+  "Identifier": "da11b134966347bba7b8b7832841a8e0",
+  "Name": "CAGE_RECEIVING_Document",
+  "Description": "Test web template artifact publish",
+  "Type": "WEBTEMPLATE",
+  "Version": 0,
+  "LastModified": "27/01/2026",
+  "Author": "Josh",
+  "Tags": [
+    "test",
+    "web-template"
+  ],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "ac04581176b940d686aff10367179ac2",
+      "ArtifactVersion": 1
+    }
+  ]
+}
