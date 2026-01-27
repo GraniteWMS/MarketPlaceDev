@@ -1,0 +1,21 @@
+{
+  "Identifier": "aa5aabbdc35e5f5d8e6b8c93651e9b85",
+  "Name": "CAGE_RECEIVING_Document",
+  "Description": "WebTemplate for process template CAGE_RECEIVING / step Document",
+  "Type": "WEBTEMPLATE",
+  "Version": 1,
+  "LastModified": "27/01/2026",
+  "Author": "Josh",
+  "Tags": [
+    "bind_target=process_step",
+    "bind_step_name=Document"
+  ],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "53aa60bac6204cd0b4c79e5bfe041285",
+      "ArtifactVersion": 1
+    }
+  ],
+  "PostDeployArtifacts": []
+}
