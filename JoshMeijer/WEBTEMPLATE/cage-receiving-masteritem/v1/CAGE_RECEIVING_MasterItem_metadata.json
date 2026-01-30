@@ -1,0 +1,18 @@
+{
+  "Identifier": "2e06befc3f444dea9416d5d4277050e8",
+  "Name": "CAGE_RECEIVING_MasterItem",
+  "Description": "WebTemplate for process template CAGE_RECEIVING / step MasterItem",
+  "Type": "WEBTEMPLATE",
+  "Version": 1,
+  "LastModified": "30/01/2026",
+  "Author": "JoshMeijer",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "12d713156a50459aa7d88798b69d060d",
+      "ArtifactVersion": 1
+    }
+  ],
+  "PostDeployArtifacts": []
+}

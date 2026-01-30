@@ -1,0 +1,13 @@
+{
+  "Identifier": "ed4e7c98ee7541f7938ab1d590568afe",
+  "Name": "WebTemplate_CageReceiving_Document",
+  "Description": "",
+  "Type": "VIEW",
+  "Version": 0,
+  "LastModified": "30/01/2026",
+  "Author": "JoshMeijer",
+  "DatabaseVersion": "8.0.0.0",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": []
+}
