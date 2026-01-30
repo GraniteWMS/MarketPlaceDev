@@ -1,5 +1,5 @@
 {
-  "Identifier": "30ca4fcd09d14000afa6c905a1d892d5",
+  "Identifier": "fb1d7af618574b4fa48b0b910c13b10d",
   "Name": "CAGE_RECEIVING_Document",
   "Description": "WebTemplate for process template CAGE_RECEIVING / step Document",
   "Type": "WEBTEMPLATE",
@@ -10,7 +10,7 @@
   "ArtifactDependencies": [
     {
       "ArtifactType": "VIEW",
-      "ArtifactIdentifier": "ed4e7c98ee7541f7938ab1d590568afe",
+      "ArtifactIdentifier": "113dc31ddb734d62909fc71ac2939e34",
       "ArtifactVersion": 1
     }
   ],
