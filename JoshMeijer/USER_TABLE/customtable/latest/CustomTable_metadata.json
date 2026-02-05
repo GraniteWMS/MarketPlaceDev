@@ -1,0 +1,13 @@
+{
+  "Identifier": "83ca027a544749eda8bdbb57371fa3fc",
+  "Name": "CustomTable",
+  "Description": "Test table artifact",
+  "Type": "USER_TABLE",
+  "Version": 0,
+  "LastModified": "05/02/2026",
+  "Author": "JoshMeijer",
+  "DatabaseVersion": "8.0.0.0",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": []
+}
