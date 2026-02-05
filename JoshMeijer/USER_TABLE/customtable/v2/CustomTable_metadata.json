@@ -3,7 +3,7 @@
   "Name": "CustomTable",
   "Description": "Test table artifact",
   "Type": "USER_TABLE",
-  "Version": 0,
+  "Version": 2,
   "LastModified": "05/02/2026",
   "Author": "ParAg0n95",
   "DatabaseVersion": "8.0.0.0",
