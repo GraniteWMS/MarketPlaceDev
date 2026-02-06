@@ -4,7 +4,6 @@ CREATE TABLE [dbo].[CustomTable](
 	[ID] [bigint] IDENTITY(1,1) NOT NULL,
 	[Date] [datetime] NOT NULL,
 	[Document_id] [bigint] NOT NULL,
-	[DocumentLine_id] [bigint] NOT NULL,
-	[Test] [nchar](10) COLLATE Latin1_General_CI_AS NULL
+	[DocumentLine_id] [bigint] NOT NULL
 ) ON [PRIMARY]
 
