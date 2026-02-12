@@ -11,5 +11,7 @@
     "test"
   ],
   "ArtifactDependencies": [],
-  "PostDeployArtifacts": []
+  "PostDeployArtifacts": [],
+  "Deprecated": true,
+  "DeprecationReason": "Bug identified"
 }
