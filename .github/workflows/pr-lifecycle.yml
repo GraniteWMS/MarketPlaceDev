@@ -60,7 +60,7 @@ jobs:
           MARKETPLACE_API_URL: ${{ secrets.MARKETPLACE_API_URL }}
           PUBLISH_REQUEST_ID: ${{ steps.extract-id.outputs.publish_request_id }}
           PUBLISH_RESULT: ${{ needs.publish-artifacts.result }}
-          GITHUB_CALLBACK_API_KEY: ${{ secrets.GITHUB_CALLBACK_API_KEY }}
+          MARKETPLACE_CALLBACK_API_KEY: ${{ secrets.MARKETPLACE_CALLBACK_API_KEY }}
         run: |
           # Determine merged status based on publish result
           if [ "$PUBLISH_RESULT" = "success" ]; then
@@ -78,6 +78,6 @@ jobs:
           curl -X POST \
             "${API_BASE}/api/v1/publish-requests/${PUBLISH_REQUEST_ID}/finalize" \
             -H "Content-Type: application/json" \
-            -H "X-GitHub-Callback-Key: ${GITHUB_CALLBACK_API_KEY}" \
+            -H "X-GitHub-Callback-Key: ${MARKETPLACE_CALLBACK_API_KEY}" \
             -d "{\"merged\": ${MERGED}}" \
             --fail-with-body
