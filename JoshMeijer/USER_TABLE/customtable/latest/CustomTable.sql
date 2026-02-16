@@ -1,8 +1,0 @@
-SET ANSI_NULLS ON
-SET QUOTED_IDENTIFIER ON
-CREATE TABLE [dbo].[CustomTable](
-	[ID] [bigint] IDENTITY(1,1) NOT NULL,
-	[Document_id] [bigint] NOT NULL,
-	[DocumentLine_id] [bigint] NOT NULL
-) ON [PRIMARY]
-
