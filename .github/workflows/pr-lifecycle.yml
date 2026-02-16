@@ -6,14 +6,8 @@ on:
       - main
 
 jobs:
-  publish-artifacts:
-    uses: ./.github/workflows/publish-elasticsearch-reusable.yml
-    secrets: inherit
-
   update-publish-request-state:
     runs-on: ubuntu-latest
-    needs: publish-artifacts
-    if: always()
     
     steps:
       - name: Checkout code
@@ -59,15 +53,10 @@ jobs:
         env:
           MARKETPLACE_API_URL: ${{ secrets.MARKETPLACE_API_URL }}
           PUBLISH_REQUEST_ID: ${{ steps.extract-id.outputs.publish_request_id }}
-          PUBLISH_RESULT: ${{ needs.publish-artifacts.result }}
           MARKETPLACE_CALLBACK_API_KEY: ${{ secrets.MARKETPLACE_CALLBACK_API_KEY }}
         run: |
-          # Determine merged status based on publish result
-          if [ "$PUBLISH_RESULT" = "success" ]; then
-            MERGED="true"
-          else
-            MERGED="false"
-          fi
+          # This workflow runs on push to main (i.e., after merge)
+          MERGED="true"
           
           echo "Finalizing publish request $PUBLISH_REQUEST_ID (merged=$MERGED)"
           
