@@ -1,0 +1,14 @@
+{
+  "Identifier": "2c3d0c46-887c-4587-a1d9-7cdd4310699b",
+  "Name": "PrescriptTest",
+  "Description": "A procedure to test publishing",
+  "Type": "PRESCRIPT",
+  "Version": 1,
+  "LastModified": "17/02/2026",
+  "Author": "JoshMeijer",
+  "DatabaseVersion": "8.0.0.0",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": [],
+  "Deprecated": false
+}
