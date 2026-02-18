@@ -1,0 +1,25 @@
+{
+  "Identifier": "68f08bc1-2a9a-43e4-a369-7ed166507745",
+  "Name": "CAGE_RECEIVING",
+  "Description": "Receiving process supporting cage locations",
+  "Type": "PROCESS",
+  "Version": 1,
+  "LastModified": "18/02/2026",
+  "Author": "JoshMeijer",
+  "DatabaseVersion": "8.0.0.0",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": [
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "85a47b358ce64d328764cd01df2fb9e1",
+      "ArtifactVersion": 1
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "fb2a15a6c729473db9b25ed1733e3c9f",
+      "ArtifactVersion": 1
+    }
+  ],
+  "Deprecated": false
+}
