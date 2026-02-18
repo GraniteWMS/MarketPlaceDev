@@ -1,0 +1,19 @@
+{
+  "Identifier": "b3cbe73a-aae7-4956-b094-bbc25a51bcb3",
+  "Name": "CAGE_RECEIVING_Document",
+  "Description": "",
+  "Type": "WEBTEMPLATE",
+  "Version": 0,
+  "LastModified": "18/02/2026",
+  "Author": "JoshMeijer",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "ad7cc39fe71845b8ae2e9471d09c0f1b",
+      "ArtifactVersion": 1
+    }
+  ],
+  "PostDeployArtifacts": [],
+  "Deprecated": false
+}
