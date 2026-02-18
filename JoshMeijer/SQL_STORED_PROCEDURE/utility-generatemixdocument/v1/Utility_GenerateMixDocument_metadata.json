@@ -1,0 +1,20 @@
+{
+  "Identifier": "b25bedd5-f26f-4479-9952-cde3de9e4893",
+  "Name": "Utility_GenerateMixDocument",
+  "Description": "",
+  "Type": "SQL_STORED_PROCEDURE",
+  "Version": 1,
+  "LastModified": "18/02/2026",
+  "Author": "JoshMeijer",
+  "DatabaseVersion": "8.0.0.0",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "11480a0e93084104b1db36daf0f26cd3",
+      "ArtifactVersion": 1
+    }
+  ],
+  "PostDeployArtifacts": [],
+  "Deprecated": false
+}
