@@ -1,0 +1,20 @@
+{
+  "Identifier": "da9d49d8-7893-4655-9ee1-7707ebd6bed1",
+  "Name": "CreateWorkorder",
+  "Description": "Desktop function that creates work orders from template documents",
+  "Type": "DESKTOP_FUNCTION",
+  "Version": 0,
+  "LastModified": "18/02/2026",
+  "Author": "JoshMeijer",
+  "DatabaseVersion": "8.0.0.0",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "SQL_STORED_PROCEDURE",
+      "ArtifactIdentifier": "2cd71981e9a04b86bcd9287ffc9c0c93",
+      "ArtifactVersion": 1
+    }
+  ],
+  "PostDeployArtifacts": [],
+  "Deprecated": false
+}

@@ -1,0 +1,20 @@
+{
+  "Identifier": "577eea9a-64c5-4731-8b21-8af31517a2dd",
+  "Name": "Utility_GenerateBomDocument",
+  "Description": "",
+  "Type": "SQL_STORED_PROCEDURE",
+  "Version": 1,
+  "LastModified": "18/02/2026",
+  "Author": "JoshMeijer",
+  "DatabaseVersion": "8.0.0.0",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "02e49444116944f6b34d12949c25d563",
+      "ArtifactVersion": 1
+    }
+  ],
+  "PostDeployArtifacts": [],
+  "Deprecated": false
+}
