@@ -1,0 +1,19 @@
+{
+  "Identifier": "fb2a15a6-c729-473d-b9b2-5ed1733e3c9f",
+  "Name": "CAGE_RECEIVING_MasterItem",
+  "Description": "",
+  "Type": "WEBTEMPLATE",
+  "Version": 0,
+  "LastModified": "18/02/2026",
+  "Author": "JoshMeijer",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "cab7119f832d4877b2bf15f3a9d729e1",
+      "ArtifactVersion": 1
+    }
+  ],
+  "PostDeployArtifacts": [],
+  "Deprecated": false
+}
