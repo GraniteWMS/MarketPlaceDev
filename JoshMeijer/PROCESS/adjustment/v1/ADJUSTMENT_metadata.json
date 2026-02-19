@@ -1,0 +1,31 @@
+{
+  "Identifier": "88ca93f5-c61b-4248-8ff6-8ef5ec2e8c0d",
+  "Name": "ADJUSTMENT",
+  "Description": "Test publishing process with a process function",
+  "Type": "PROCESS",
+  "Version": 1,
+  "LastModified": "19/02/2026",
+  "Author": "JoshMeijer",
+  "DatabaseVersion": "8.0.0.0",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "bcc82430a8b640e4a9ecc898c44aa6e4",
+      "ArtifactVersion": 1
+    },
+    {
+      "ArtifactType": "PROCESS",
+      "ArtifactIdentifier": "10944387aa1549beb367c7a11529016c",
+      "ArtifactVersion": 1
+    }
+  ],
+  "PostDeployArtifacts": [
+    {
+      "ArtifactType": "PROCESS_FUNCTION",
+      "ArtifactIdentifier": "285d9095c65d40239a0707dfecf277a5",
+      "ArtifactVersion": 1
+    }
+  ],
+  "Deprecated": false
+}
