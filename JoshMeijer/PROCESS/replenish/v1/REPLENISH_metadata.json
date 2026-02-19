@@ -1,0 +1,26 @@
+{
+  "Identifier": "a946482b-9524-4b0b-bb76-0222ab6413c9",
+  "Name": "REPLENISH",
+  "Description": "Test publishing process with a process function",
+  "Type": "PROCESS",
+  "Version": 1,
+  "LastModified": "19/02/2026",
+  "Author": "JoshMeijer",
+  "DatabaseVersion": "8.0.0.0",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "PROCESS",
+      "ArtifactIdentifier": "1767eaf332e64e4d8b6375374eeb2dc8",
+      "ArtifactVersion": 1
+    }
+  ],
+  "PostDeployArtifacts": [
+    {
+      "ArtifactType": "PROCESS_FUNCTION",
+      "ArtifactIdentifier": "fb98bb81acad423f9204a26381710fc6",
+      "ArtifactVersion": 1
+    }
+  ],
+  "Deprecated": false
+}
