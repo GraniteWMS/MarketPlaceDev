@@ -1,0 +1,14 @@
+{
+  "Identifier": "5a4a7611-5501-4114-85b3-8424ba2d5cb6",
+  "Name": "PrescriptTest",
+  "Description": "",
+  "Type": "PRESCRIPT",
+  "Version": 1,
+  "LastModified": "23/02/2026",
+  "Author": "JoshMeijer",
+  "DatabaseVersion": "8.0.0.0",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": [],
+  "Deprecated": false
+}

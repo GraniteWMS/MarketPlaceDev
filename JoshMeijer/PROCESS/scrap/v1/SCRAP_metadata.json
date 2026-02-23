@@ -1,0 +1,14 @@
+{
+  "Identifier": "522453af-bc91-47cf-9f53-147dc81da322",
+  "Name": "SCRAP",
+  "Description": "",
+  "Type": "PROCESS",
+  "Version": 1,
+  "LastModified": "23/02/2026",
+  "Author": "JoshMeijer",
+  "DatabaseVersion": "8.0.0.0",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": [],
+  "Deprecated": false
+}
