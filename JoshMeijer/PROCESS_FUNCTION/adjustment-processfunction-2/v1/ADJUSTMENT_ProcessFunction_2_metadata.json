@@ -1,0 +1,14 @@
+{
+  "Identifier": "dd71037a-cfa8-4cba-a624-d943fce0635f",
+  "Name": "ADJUSTMENT_ProcessFunction_2",
+  "Description": "",
+  "Type": "PROCESS_FUNCTION",
+  "Version": 1,
+  "LastModified": "25/02/2026",
+  "Author": "JoshMeijer",
+  "DatabaseVersion": "8.0.0.0",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": [],
+  "Deprecated": false
+}
