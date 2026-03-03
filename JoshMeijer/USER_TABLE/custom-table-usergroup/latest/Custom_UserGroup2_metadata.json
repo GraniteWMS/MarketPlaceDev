@@ -1,7 +1,7 @@
 {
   "Identifier": "4dd0b6a5-2ab8-4d3c-a672-2dbd8a83006b",
-  "Name": "Custom_UserGroup",
-  "Description": "Test table artifact V2",
+  "Name": "Custom_UserGroup2",
+  "Description": "Table: Custom_Table_UserGroup",
   "Type": "USER_TABLE",
   "Version": 0,
   "LastModified": "03/03/2026",
