@@ -1,6 +1,6 @@
 SET ANSI_NULLS ON
 SET QUOTED_IDENTIFIER ON
-CREATE TABLE [dbo].[Custom_Table_UserGroup](
+CREATE TABLE [dbo].[Custom_UserGroup](
 	[ID] [bigint] IDENTITY(1,1) NOT NULL,
 	[Name] [varchar](25) COLLATE Latin1_General_CI_AS NOT NULL,
 	[AuditUser] [varchar](20) COLLATE Latin1_General_CI_AS NULL,
