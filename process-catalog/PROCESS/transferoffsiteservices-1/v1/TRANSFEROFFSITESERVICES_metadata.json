@@ -1,0 +1,118 @@
+{
+  "Identifier": "8d795e1f3edd4b23b83bc23d475398bc",
+  "Version": 1,
+  "LastModified": "31/05/2024",
+  "DeployCount": 5,
+  "Author": "CRAIG",
+  "ProcessType": "REPLENISH",
+  "ProcessName": "TRANSFEROFFSITESERVICES",
+  "ProcessDescription": "Transfer to Offsite Services",
+  "UsageNotes": "Immediate Transfer to Offsite ERP Location for ACCPAC - Document Reference is generated as Date",
+  "ImplementationNotes": "Webtemplate for offsite locations has a specified TYPE (OFFSITESERVICES) that is looks at",
+  "Industries": [],
+  "PrerequisitesSQLCLR": false,
+  "ProcessMetaData": {
+    "Name": "TRANSFEROFFSITESERVICES",
+    "Description": "Transfer to Offsite Services (Spray, Galv)",
+    "ActivityCost": 0.0,
+    "Type": "REPLENISH",
+    "IntegrationMethod": "",
+    "IntegrationIsActive": true,
+    "IntegrationPost": true
+  },
+  "ProcessStepMetadata": [
+    {
+      "Name": "FromTrackingEntity",
+      "Description": "FromTrackingEntity",
+      "ProcessIndex": 2,
+      "NextIndex": 3,
+      "isActive": true,
+      "Required": true,
+      "hasWebTemplate": true
+    },
+    {
+      "Name": "Location",
+      "Description": "Select which site",
+      "ProcessIndex": 0,
+      "NextIndex": 1,
+      "isActive": true,
+      "Required": true,
+      "PreScript": "PrescriptTransferOffsiteLocation",
+      "hasWebTemplate": false
+    },
+    {
+      "Name": "ToTrackingEntity",
+      "Description": "To TrackingEntity",
+      "ProcessIndex": 100,
+      "NextIndex": 100,
+      "isActive": true,
+      "Required": false,
+      "hasWebTemplate": true
+    },
+    {
+      "Name": "Qty",
+      "Description": "Qty to Replenish",
+      "ProcessIndex": 3,
+      "NextIndex": 4,
+      "isActive": true,
+      "Required": true,
+      "hasWebTemplate": true
+    },
+    {
+      "Name": "Comment",
+      "Description": "Document/Reference",
+      "ProcessIndex": 1,
+      "NextIndex": 2,
+      "isActive": true,
+      "Required": true,
+      "hasWebTemplate": true
+    },
+    {
+      "Name": "Confirmation",
+      "Description": "Confirmation",
+      "ProcessIndex": 4,
+      "NextIndex": 2,
+      "isActive": true,
+      "Required": true,
+      "hasWebTemplate": false
+    },
+    {
+      "Name": "Reference",
+      "Description": "Reference",
+      "ProcessIndex": 100,
+      "NextIndex": 100,
+      "isActive": true,
+      "Required": true,
+      "hasWebTemplate": true
+    }
+  ],
+  "Name": "TRANSFEROFFSITESERVICES",
+  "Description": "Transfer to Offsite Services\n\nImmediate Transfer to Offsite ERP Location for ACCPAC - Document Reference is generated as Date\n\nWebtemplate for offsite locations has a specified TYPE (OFFSITESERVICES) that is looks at",
+  "Type": "PROCESS",
+  "Tags": [
+    "REPLENISH"
+  ],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "d18f1c732d2257bc87bdc567e507956e",
+      "ArtifactVersion": 1
+    },
+    {
+      "ArtifactType": "SQL_STORED_PROCEDURE",
+      "ArtifactIdentifier": "463edbba1e345c5aa70eda98758d5a67",
+      "ArtifactVersion": 1
+    },
+    {
+      "ArtifactType": "SQL_STORED_PROCEDURE",
+      "ArtifactIdentifier": "6da0a06c3623572ab5cc67695fb9084e",
+      "ArtifactVersion": 1
+    },
+    {
+      "ArtifactType": "PRE_DEPLOY_SCRIPT",
+      "ArtifactIdentifier": "58575de332b65b01b229853047a80653",
+      "ArtifactVersion": 1
+    }
+  ],
+  "PostDeployArtifacts": []
+}

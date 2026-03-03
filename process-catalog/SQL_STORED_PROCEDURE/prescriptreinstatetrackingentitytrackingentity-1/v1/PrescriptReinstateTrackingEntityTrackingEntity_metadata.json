@@ -1,0 +1,11 @@
+{
+  "Identifier": "e773568be5b854d8ab7005b0bcf7d18f",
+  "Name": "PrescriptReinstateTrackingEntityTrackingEntity",
+  "Description": "",
+  "Type": "SQL_STORED_PROCEDURE",
+  "Version": 1,
+  "LastModified": "09/02/2024",
+  "Author": "Josh",
+  "Tags": [],
+  "ArtifactDependencies": []
+}

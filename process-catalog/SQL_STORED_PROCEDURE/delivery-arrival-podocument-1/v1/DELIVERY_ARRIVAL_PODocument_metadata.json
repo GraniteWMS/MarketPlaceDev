@@ -1,0 +1,11 @@
+{
+  "Identifier": "5eb02db84a415384b502e4550a70eda0",
+  "Name": "DELIVERY_ARRIVAL_PODocument",
+  "Description": "",
+  "Type": "SQL_STORED_PROCEDURE",
+  "Version": 1,
+  "LastModified": "09/04/2024",
+  "Author": "Craig Collins",
+  "Tags": [],
+  "ArtifactDependencies": []
+}

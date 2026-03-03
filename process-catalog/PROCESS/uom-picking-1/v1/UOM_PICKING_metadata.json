@@ -1,0 +1,94 @@
+{
+  "Identifier": "e4035183f3464acea818ad74743fb331",
+  "Version": 1,
+  "LastModified": "23/05/2024",
+  "DeployCount": 2,
+  "Author": "Michael",
+  "ProcessType": "PICKING",
+  "ProcessName": "UOM_PICKING",
+  "ProcessDescription": "PICKING",
+  "UsageNotes": "Allows users to work in the UOM specified on the document in the ERP. Customized DocumentProgress and ProcessApp screens display the Qty and ActionQty using the UOMConversion captured when the document was pulled down from the ERP. \n\n This process works best when there are MasterItemAliases configured with UOMConversion and a SinglePickface Location specified for the MasterItem. This will allow users to pick using any alias from the Pickface location, or using TrackingEntity barcodes interchangeably.",
+  "ImplementationNotes": "Included under SQL Objects are altered versions of API_QueryDocumentProgress and API_QueryDocumentProgressDetail views. These will need to be manually applied as they will already exist in your database.\n\nThe PostDeploy script alters the OrderDetailDocumentProgress DataGrid (and records an audit for the change).",
+  "Industries": [],
+  "PrerequisitesSQLCLR": false,
+  "ProcessMetaData": {
+    "Name": "PICKING",
+    "Description": "PICKING",
+    "ActivityCost": 0.0,
+    "Type": "PICKING",
+    "IntegrationMethod": "",
+    "IntegrationIsActive": false,
+    "IntegrationPost": false
+  },
+  "ProcessStepMetadata": [
+    {
+      "Name": "Document",
+      "Description": "Document",
+      "ProcessIndex": 0,
+      "NextIndex": 1,
+      "isActive": true,
+      "Required": true,
+      "DefaultValue": "",
+      "PreScript": "",
+      "hasWebTemplate": true
+    },
+    {
+      "Name": "Location",
+      "Description": "Location",
+      "ProcessIndex": 1,
+      "NextIndex": 2,
+      "isActive": true,
+      "Required": true,
+      "DefaultValue": "",
+      "PreScript": "",
+      "hasWebTemplate": true
+    },
+    {
+      "Name": "TrackingEntity",
+      "Description": "TrackingEntity",
+      "ProcessIndex": 2,
+      "NextIndex": 3,
+      "isActive": true,
+      "Required": true,
+      "DefaultValue": "",
+      "PreScript": "",
+      "hasWebTemplate": true
+    },
+    {
+      "Name": "Qty",
+      "Description": "Qty",
+      "ProcessIndex": 3,
+      "NextIndex": 2,
+      "isActive": true,
+      "Required": true,
+      "DefaultValue": "",
+      "PreScript": "",
+      "hasWebTemplate": true
+    }
+  ],
+  "Name": "UOM_PICKING",
+  "Description": "PICKING\n\nAllows users to work in the UOM specified on the document in the ERP. Customized DocumentProgress and ProcessApp screens display the Qty and ActionQty using the UOMConversion captured when the document was pulled down from the ERP. \n\n This process works best when there are MasterItemAliases configured with UOMConversion and a SinglePickface Location specified for the MasterItem. This will allow users to pick using any alias from the Pickface location, or using TrackingEntity barcodes interchangeably.\n\nIncluded under SQL Objects are altered versions of API_QueryDocumentProgress and API_QueryDocumentProgressDetail views. These will need to be manually applied as they will already exist in your database.\n\nThe PostDeploy script alters the OrderDetailDocumentProgress DataGrid (and records an audit for the change).",
+  "Type": "PROCESS",
+  "Tags": [
+    "PICKING"
+  ],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "bad5beeea9835b01a655182f92a7c900",
+      "ArtifactVersion": 1
+    },
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "f6859022528152f8853eebd96e87f35a",
+      "ArtifactVersion": 1
+    }
+  ],
+  "PostDeployArtifacts": [
+    {
+      "ArtifactType": "POST_DEPLOY_SCRIPT",
+      "ArtifactIdentifier": "ff126142beef56078971c29e67c898a7",
+      "ArtifactVersion": 1
+    }
+  ]
+}

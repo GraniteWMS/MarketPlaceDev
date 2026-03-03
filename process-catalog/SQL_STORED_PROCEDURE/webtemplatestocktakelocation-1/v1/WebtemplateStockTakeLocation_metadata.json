@@ -1,0 +1,11 @@
+{
+  "Identifier": "4eeea8f5ade85516a300dcfa1d1a46a3",
+  "Name": "WebtemplateStockTakeLocation",
+  "Description": "",
+  "Type": "SQL_STORED_PROCEDURE",
+  "Version": 1,
+  "LastModified": "15/02/2024",
+  "Author": "Gabriel Innes",
+  "Tags": [],
+  "ArtifactDependencies": []
+}

@@ -1,0 +1,132 @@
+{
+  "Identifier": "68415d7e8fae4ff8a04a29f70b1a1ce9",
+  "Version": 1,
+  "LastModified": "09/02/2024",
+  "DeployCount": 6,
+  "Author": "Josh",
+  "ProcessType": "RECEIVING",
+  "ProcessName": "PERISHABLES_RECEIVING",
+  "ProcessDescription": "PERISHABLES RECEIVING",
+  "UsageNotes": "Utilizes MasterItem's EnforceBatchNumber and EnforceExpiryDate settings to ensure Expiry and Batch are captured when required. Also makes use of MasterItem's ShelfLife setting to auto populate ExpiryDate if ManufactureDate is entered.",
+  "ImplementationNotes": "",
+  "Industries": [],
+  "PrerequisitesSQLCLR": false,
+  "ProcessMetaData": {
+    "Name": "PERISHABLESRECEIVING",
+    "Description": "PERISHABLESRECEIVING",
+    "ActivityCost": 0.0,
+    "Type": "RECEIVING",
+    "IntegrationIsActive": false,
+    "IntegrationPost": false
+  },
+  "ProcessStepMetadata": [
+    {
+      "Name": "Location",
+      "Description": "Receiving Location",
+      "ProcessIndex": 0,
+      "NextIndex": 1,
+      "isActive": true,
+      "Required": false,
+      "hasWebTemplate": true
+    },
+    {
+      "Name": "Document",
+      "Description": "Document",
+      "ProcessIndex": 1,
+      "NextIndex": 2,
+      "isActive": true,
+      "Required": true,
+      "hasWebTemplate": true
+    },
+    {
+      "Name": "MasterItem",
+      "Description": "MasterItem",
+      "ProcessIndex": 2,
+      "NextIndex": 3,
+      "isActive": true,
+      "Required": true,
+      "hasWebTemplate": true
+    },
+    {
+      "Name": "Batch",
+      "Description": "Batch",
+      "ProcessIndex": 3,
+      "NextIndex": 4,
+      "isActive": true,
+      "Required": false,
+      "PreScript": "PrescriptPerishablesReceivingBatch",
+      "hasWebTemplate": true
+    },
+    {
+      "Name": "ExpiryDate",
+      "Description": "ExpiryDate (YYYYMMDD)",
+      "ProcessIndex": 5,
+      "NextIndex": 6,
+      "isActive": true,
+      "Required": false,
+      "PreScript": "PrescriptPerishablesReceivingExpiryDate",
+      "hasWebTemplate": true
+    },
+    {
+      "Name": "Qty",
+      "Description": "Qty",
+      "ProcessIndex": 6,
+      "NextIndex": 7,
+      "isActive": true,
+      "Required": true,
+      "hasWebTemplate": true
+    },
+    {
+      "Name": "NoEntities",
+      "Description": "Number of TrackingEntities",
+      "ProcessIndex": 7,
+      "NextIndex": 3,
+      "isActive": true,
+      "Required": false,
+      "hasWebTemplate": true
+    },
+    {
+      "Name": "Print",
+      "Description": "Print",
+      "ProcessIndex": 99,
+      "NextIndex": 0,
+      "isActive": true,
+      "Required": true,
+      "hasWebTemplate": true
+    },
+    {
+      "Name": "ManufactureDate",
+      "Description": "ManufactureDate (YYYYMMDD)",
+      "ProcessIndex": 4,
+      "NextIndex": 5,
+      "isActive": true,
+      "Required": false,
+      "PreScript": "PrescriptPerishablesReceivingManufactureDate",
+      "hasWebTemplate": true
+    }
+  ],
+  "Name": "PERISHABLES_RECEIVING",
+  "Description": "PERISHABLES RECEIVING\n\nUtilizes MasterItem's EnforceBatchNumber and EnforceExpiryDate settings to ensure Expiry and Batch are captured when required. Also makes use of MasterItem's ShelfLife setting to auto populate ExpiryDate if ManufactureDate is entered.",
+  "Type": "PROCESS",
+  "Tags": [
+    "RECEIVING"
+  ],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "SQL_STORED_PROCEDURE",
+      "ArtifactIdentifier": "b8094ec43f1457ba970164d4368e7f34",
+      "ArtifactVersion": 1
+    },
+    {
+      "ArtifactType": "SQL_STORED_PROCEDURE",
+      "ArtifactIdentifier": "d8a708a8ae0f55c8934cbed24c50932e",
+      "ArtifactVersion": 1
+    },
+    {
+      "ArtifactType": "SQL_STORED_PROCEDURE",
+      "ArtifactIdentifier": "914e2a607d135c8d86de0575cfe9547a",
+      "ArtifactVersion": 1
+    }
+  ],
+  "PostDeployArtifacts": []
+}

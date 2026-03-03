@@ -1,0 +1,93 @@
+{
+  "Identifier": "ef3279d7f29140658a4a907a7f7281c6",
+  "Version": 1,
+  "LastModified": "13/02/2024",
+  "DeployCount": 5,
+  "Author": "Josh",
+  "ProcessType": "STOCKTAKECOUNT",
+  "ProcessName": "SINGLE_COUNT_STOCKTAKE",
+  "ProcessDescription": "STOCKTAKECOUNT",
+  "UsageNotes": "Prevent users adding to an existing counted qty. Count must be reset from desktop to allow recounts on same count number. Works for TrackingEntities and CarryingEntities",
+  "ImplementationNotes": "",
+  "Industries": [],
+  "PrerequisitesSQLCLR": false,
+  "ProcessMetaData": {
+    "Name": "STOCKTAKECOUNT_PREVENT_SAMECOUNT",
+    "Description": "STOCKTAKECOUNT_PREVENT_SAMECOUNT",
+    "ActivityCost": 0.0,
+    "Type": "STOCKTAKECOUNT",
+    "IntegrationIsActive": false,
+    "IntegrationPost": false
+  },
+  "ProcessStepMetadata": [
+    {
+      "Name": "Session",
+      "Description": "Session",
+      "ProcessIndex": 0,
+      "NextIndex": 1,
+      "isActive": true,
+      "Required": false,
+      "hasWebTemplate": true
+    },
+    {
+      "Name": "Count",
+      "Description": "Count",
+      "ProcessIndex": 1,
+      "NextIndex": 2,
+      "isActive": true,
+      "Required": true,
+      "hasWebTemplate": true
+    },
+    {
+      "Name": "Location",
+      "Description": "Location",
+      "ProcessIndex": 2,
+      "NextIndex": 3,
+      "isActive": true,
+      "Required": true,
+      "hasWebTemplate": true
+    },
+    {
+      "Name": "TrackingEntity",
+      "Description": "TrackingEntity",
+      "ProcessIndex": 3,
+      "NextIndex": 4,
+      "isActive": true,
+      "Required": false,
+      "PreScript": "PrescriptStockTakeCountTrackingEntity",
+      "hasWebTemplate": true
+    },
+    {
+      "Name": "PalletConfirmation",
+      "Description": "PalletConfirmation",
+      "ProcessIndex": 4,
+      "NextIndex": 5,
+      "isActive": true,
+      "Required": false,
+      "hasWebTemplate": true
+    },
+    {
+      "Name": "Qty",
+      "Description": "Qty",
+      "ProcessIndex": 5,
+      "NextIndex": 2,
+      "isActive": true,
+      "Required": false,
+      "hasWebTemplate": true
+    }
+  ],
+  "Name": "SINGLE_COUNT_STOCKTAKE",
+  "Description": "STOCKTAKECOUNT\n\nPrevent users adding to an existing counted qty. Count must be reset from desktop to allow recounts on same count number. Works for TrackingEntities and CarryingEntities",
+  "Type": "PROCESS",
+  "Tags": [
+    "STOCKTAKECOUNT"
+  ],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "SQL_STORED_PROCEDURE",
+      "ArtifactIdentifier": "ed694c137004590eba918995f0f8c9a4",
+      "ArtifactVersion": 1
+    }
+  ],
+  "PostDeployArtifacts": []
+}

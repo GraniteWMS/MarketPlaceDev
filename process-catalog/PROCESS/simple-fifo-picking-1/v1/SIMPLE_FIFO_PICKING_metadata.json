@@ -1,0 +1,95 @@
+{
+  "Identifier": "d358d49af24c4a819961434f1ca2a876",
+  "Version": 1,
+  "LastModified": "14/02/2024",
+  "DeployCount": 23,
+  "Author": "Gabriel Innes",
+  "ProcessType": "PICKING",
+  "ProcessName": "SIMPLE_FIFO_PICKING",
+  "ProcessDescription": "SIMPLE FIFO PICKING",
+  "UsageNotes": "Simple and easy FIFO picking process based on standard PICK process. Using only the DocumentDetail.Instruction and LinePriority to recommend TrackingEntity to pick based on some basic logic.\n",
+  "ImplementationNotes": "The stored procedure FIFOPickingRecommendation is responsible for calculating the recommendation. This recommendation is captured in the 'Instruction' field of the DocumentDetail, and LinePriority is also maintained. Please review this stored procedure if logic applies.",
+  "Industries": [],
+  "PrerequisitesSQLCLR": false,
+  "ProcessMetaData": {
+    "Name": "PICKING FIFO",
+    "Description": "PICKING FIFO",
+    "ActivityCost": 0.0,
+    "Type": "PICKING",
+    "IntegrationIsActive": false,
+    "IntegrationPost": false
+  },
+  "ProcessStepMetadata": [
+    {
+      "Name": "Document",
+      "Description": "Document",
+      "ProcessIndex": 0,
+      "NextIndex": 1,
+      "isActive": true,
+      "Required": true,
+      "PreScript": "PrescriptPickingDocument",
+      "hasWebTemplate": true
+    },
+    {
+      "Name": "Location",
+      "Description": "Location",
+      "ProcessIndex": 1,
+      "NextIndex": 2,
+      "isActive": true,
+      "Required": true,
+      "hasWebTemplate": true
+    },
+    {
+      "Name": "TrackingEntity",
+      "Description": "TrackingEntity",
+      "ProcessIndex": 2,
+      "NextIndex": 3,
+      "isActive": true,
+      "Required": true,
+      "hasWebTemplate": true
+    },
+    {
+      "Name": "Qty",
+      "Description": "Qty",
+      "ProcessIndex": 3,
+      "NextIndex": 2,
+      "isActive": true,
+      "Required": true,
+      "hasWebTemplate": true
+    },
+    {
+      "Name": "Step200",
+      "Description": "Step200",
+      "ProcessIndex": 200,
+      "NextIndex": 0,
+      "isActive": true,
+      "Required": true,
+      "PreScript": "PrescriptPickingStep200",
+      "hasWebTemplate": true
+    }
+  ],
+  "Name": "SIMPLE_FIFO_PICKING",
+  "Description": "SIMPLE FIFO PICKING\n\nSimple and easy FIFO picking process based on standard PICK process. Using only the DocumentDetail.Instruction and LinePriority to recommend TrackingEntity to pick based on some basic logic.\n\nThe stored procedure FIFOPickingRecommendation is responsible for calculating the recommendation. This recommendation is captured in the 'Instruction' field of the DocumentDetail, and LinePriority is also maintained. Please review this stored procedure if logic applies.",
+  "Type": "PROCESS",
+  "Tags": [
+    "PICKING"
+  ],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "SQL_STORED_PROCEDURE",
+      "ArtifactIdentifier": "2d4c539a7c8c5a9fba064c94e0578615",
+      "ArtifactVersion": 1
+    },
+    {
+      "ArtifactType": "SQL_STORED_PROCEDURE",
+      "ArtifactIdentifier": "0c8348cd20bb5cf9be750f507a8c80ac",
+      "ArtifactVersion": 1
+    },
+    {
+      "ArtifactType": "SQL_STORED_PROCEDURE",
+      "ArtifactIdentifier": "cbf5f5709adc55b0a3ab4fe9d3c98a63",
+      "ArtifactVersion": 1
+    }
+  ],
+  "PostDeployArtifacts": []
+}

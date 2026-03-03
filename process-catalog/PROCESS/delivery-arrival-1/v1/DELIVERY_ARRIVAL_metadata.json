@@ -1,0 +1,120 @@
+{
+  "Identifier": "7364b241ea124ab9b9214610a278361a",
+  "Version": 1,
+  "LastModified": "09/04/2024",
+  "DeployCount": 13,
+  "Author": "Craig Collins",
+  "ProcessType": "CUSTOM",
+  "ProcessName": "DELIVERY_ARRIVAL",
+  "ProcessDescription": "DELIVERY_ARRIVAL",
+  "UsageNotes": "When a Truck arrives security or logistics record the arrival of the Truck and each PO Document on the Truck.  This is logged in custom_Document_TrackingLog.  It can also add the PO into IntegrationQueue to get latest version of the Document from ERP.    \n",
+  "ImplementationNotes": "\nThe process also adds in the Grid and enquiry for showing the DocumentTrackingLog.  There is a lookup on the first step for the Delivery Location.  We default this to DeliveryApron, but should be setup as a location in deployment.",
+  "Industries": [],
+  "PrerequisitesSQLCLR": false,
+  "ProcessMetaData": {
+    "Name": "DELIVERY_ARRIVAL",
+    "Description": "DELIVERY_ARRIVAL",
+    "ActivityCost": 0.0,
+    "Type": "CUSTOM",
+    "IntegrationMethod": "",
+    "IntegrationIsActive": false,
+    "IntegrationPost": false
+  },
+  "ProcessStepMetadata": [
+    {
+      "Name": "Driver",
+      "Description": "Driver Name or Initials",
+      "ProcessIndex": 3,
+      "NextIndex": 4,
+      "isActive": true,
+      "Required": true,
+      "DefaultValue": "",
+      "PreScript": "",
+      "hasWebTemplate": true
+    },
+    {
+      "Name": "VehicleReg",
+      "Description": "Vehicle Registration",
+      "ProcessIndex": 2,
+      "NextIndex": 3,
+      "isActive": true,
+      "Required": true,
+      "DefaultValue": "",
+      "PreScript": "",
+      "hasWebTemplate": true
+    },
+    {
+      "Name": "PODocument",
+      "Description": "Purchase Order Document",
+      "ProcessIndex": 5,
+      "NextIndex": 5,
+      "isActive": true,
+      "Required": true,
+      "DefaultValue": "",
+      "PreScript": "DELIVERY_ARRIVAL_PODocument",
+      "hasWebTemplate": true
+    },
+    {
+      "Name": "Location",
+      "Description": "Select Location from Lookup List",
+      "ProcessIndex": 0,
+      "NextIndex": 1,
+      "isActive": true,
+      "Required": true,
+      "DefaultValue": "",
+      "PreScript": "",
+      "hasWebTemplate": true
+    },
+    {
+      "Name": "Carrier",
+      "Description": "Carrier Company",
+      "ProcessIndex": 1,
+      "NextIndex": 2,
+      "isActive": true,
+      "Required": true,
+      "DefaultValue": "",
+      "PreScript": "",
+      "hasWebTemplate": true
+    },
+    {
+      "Name": "Reference",
+      "Description": "Waybill or Container Number",
+      "ProcessIndex": 4,
+      "NextIndex": 5,
+      "isActive": true,
+      "Required": true,
+      "DefaultValue": "",
+      "PreScript": "",
+      "hasWebTemplate": true
+    }
+  ],
+  "Name": "DELIVERY_ARRIVAL",
+  "Description": "DELIVERY_ARRIVAL\n\nWhen a Truck arrives security or logistics record the arrival of the Truck and each PO Document on the Truck.  This is logged in custom_Document_TrackingLog.  It can also add the PO into IntegrationQueue to get latest version of the Document from ERP.\n\nThe process also adds in the Grid and enquiry for showing the DocumentTrackingLog.  There is a lookup on the first step for the Delivery Location.  We default this to DeliveryApron, but should be setup as a location in deployment.",
+  "Type": "PROCESS",
+  "Tags": [
+    "CUSTOM"
+  ],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "USER_TABLE",
+      "ArtifactIdentifier": "e1db1592996c56f9b83aef53074dfbae",
+      "ArtifactVersion": 1
+    },
+    {
+      "ArtifactType": "SQL_STORED_PROCEDURE",
+      "ArtifactIdentifier": "5eb02db84a415384b502e4550a70eda0",
+      "ArtifactVersion": 1
+    },
+    {
+      "ArtifactType": "PRE_DEPLOY_SCRIPT",
+      "ArtifactIdentifier": "9b0effb7bdec544c9c4ff0c61bab349c",
+      "ArtifactVersion": 1
+    },
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "a3bdb88853b75fb8ab5697475f4e2687",
+      "ArtifactVersion": 1
+    }
+  ],
+  "PostDeployArtifacts": []
+}

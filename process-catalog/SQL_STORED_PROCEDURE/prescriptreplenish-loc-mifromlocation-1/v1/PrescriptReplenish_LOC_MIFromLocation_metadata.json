@@ -1,0 +1,11 @@
+{
+  "Identifier": "ab430dfb478b5a38bcde73f892ea7d33",
+  "Name": "PrescriptReplenish_LOC_MIFromLocation",
+  "Description": "",
+  "Type": "SQL_STORED_PROCEDURE",
+  "Version": 1,
+  "LastModified": "22/03/2024",
+  "Author": "James Davidson",
+  "Tags": [],
+  "ArtifactDependencies": []
+}

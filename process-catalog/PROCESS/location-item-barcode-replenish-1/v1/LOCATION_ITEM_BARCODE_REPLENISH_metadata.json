@@ -1,0 +1,119 @@
+{
+  "Identifier": "434ca79166444e14bc0e01d99c846267",
+  "Version": 1,
+  "LastModified": "22/03/2024",
+  "DeployCount": 4,
+  "Author": "James Davidson",
+  "ProcessType": "REPLENISH",
+  "ProcessName": "LOCATION_ITEM_BARCODE_REPLENISH",
+  "ProcessDescription": "LOCATION_ITEM_BARCODE_REPLENISH",
+  "UsageNotes": "If you need a system where users scan both the Location and MasterItem to identify the stock, thereby eliminating the need to print Tracking Entity barcodes. This process will use the barcode format of [LocationBarcode]_[MasterItemCode] to find the TrackingEntity.",
+  "ImplementationNotes": "This is one of potentially several processes you'll need to implement. All processes prefixed with LOCATION_ITEM_BARCODE_* are part of this implementation.",
+  "Industries": [],
+  "PrerequisitesSQLCLR": false,
+  "ProcessMetaData": {
+    "Name": "LOCATION_ITEM_BARCODE_REPLENISH",
+    "Description": "LOCATION_ITEM_BARCODE_REPLENISH",
+    "ActivityCost": 0.0,
+    "Type": "REPLENISH",
+    "IntegrationMethod": "",
+    "IntegrationIsActive": false,
+    "IntegrationPost": false
+  },
+  "ProcessStepMetadata": [
+    {
+      "Name": "FromTrackingEntity",
+      "Description": "MasterItem",
+      "ProcessIndex": 1,
+      "NextIndex": 2,
+      "isActive": true,
+      "Required": true,
+      "DefaultValue": "",
+      "PreScript": "PrescriptReplenish_LOC_MIFromTrackingEntity",
+      "hasWebTemplate": true
+    },
+    {
+      "Name": "Location",
+      "Description": "To Location",
+      "ProcessIndex": 2,
+      "NextIndex": 3,
+      "isActive": true,
+      "Required": true,
+      "DefaultValue": "",
+      "PreScript": "PrescriptReplenish_LOC_MILocation",
+      "hasWebTemplate": true
+    },
+    {
+      "Name": "ToTrackingEntity",
+      "Description": "ToTrackingEntity",
+      "ProcessIndex": 4,
+      "NextIndex": 0,
+      "isActive": true,
+      "Required": true,
+      "DefaultValue": "",
+      "PreScript": "PrescriptReplenish_LOC_MIToTrackingEntity",
+      "hasWebTemplate": true
+    },
+    {
+      "Name": "Qty",
+      "Description": "Qty to Replenish",
+      "ProcessIndex": 3,
+      "NextIndex": 4,
+      "isActive": true,
+      "Required": true,
+      "DefaultValue": "",
+      "PreScript": "PrescriptReplenish_LOC_MIQty",
+      "hasWebTemplate": true
+    },
+    {
+      "Name": "FromLocation",
+      "Description": "From Location",
+      "ProcessIndex": 0,
+      "NextIndex": 1,
+      "isActive": true,
+      "Required": true,
+      "DefaultValue": "",
+      "PreScript": "PrescriptReplenish_LOC_MIFromLocation",
+      "hasWebTemplate": true
+    }
+  ],
+  "Name": "LOCATION_ITEM_BARCODE_REPLENISH",
+  "Description": "LOCATION_ITEM_BARCODE_REPLENISH\n\nIf you need a system where users scan both the Location and MasterItem to identify the stock, thereby eliminating the need to print Tracking Entity barcodes. This process will use the barcode format of [LocationBarcode]_[MasterItemCode] to find the TrackingEntity.\n\nThis is one of potentially several processes you'll need to implement. All processes prefixed with LOCATION_ITEM_BARCODE_* are part of this implementation.",
+  "Type": "PROCESS",
+  "Tags": [
+    "REPLENISH"
+  ],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "SQL_STORED_PROCEDURE",
+      "ArtifactIdentifier": "2e1ee3e43fe85bd6ad19037b2fc669bc",
+      "ArtifactVersion": 1
+    },
+    {
+      "ArtifactType": "SQL_STORED_PROCEDURE",
+      "ArtifactIdentifier": "92732abb3d9d5551ac71329c72447c6f",
+      "ArtifactVersion": 1
+    },
+    {
+      "ArtifactType": "SQL_STORED_PROCEDURE",
+      "ArtifactIdentifier": "8cb484f3900f59c1a04dafd145378a2b",
+      "ArtifactVersion": 1
+    },
+    {
+      "ArtifactType": "SQL_STORED_PROCEDURE",
+      "ArtifactIdentifier": "1d429660adce5ad1b907574c697247b3",
+      "ArtifactVersion": 1
+    },
+    {
+      "ArtifactType": "SQL_STORED_PROCEDURE",
+      "ArtifactIdentifier": "29bce6d8a89e5038919d320776138eb0",
+      "ArtifactVersion": 1
+    },
+    {
+      "ArtifactType": "SQL_STORED_PROCEDURE",
+      "ArtifactIdentifier": "ab430dfb478b5a38bcde73f892ea7d33",
+      "ArtifactVersion": 1
+    }
+  ],
+  "PostDeployArtifacts": []
+}

@@ -1,0 +1,61 @@
+{
+  "Identifier": "f82acaeb7b7943e4b7dc53588f3d9b14",
+  "Version": 1,
+  "LastModified": "09/02/2024",
+  "DeployCount": 9,
+  "Author": "Josh",
+  "ProcessType": "MOVE",
+  "ProcessName": "SOFT_SCRAP",
+  "ProcessDescription": "SOFT_SCRAP",
+  "UsageNotes": "Instead of scrapping TrackingEntity, move the TrackingEntity to a non-stock location.",
+  "ImplementationNotes": "The Post Deploy script will insert a non-stock Location called SCRAP that will be used to move the stock into, please review this location after deploy and ensure the location is setup correctly.",
+  "Industries": [],
+  "PrerequisitesSQLCLR": false,
+  "ProcessMetaData": {
+    "Name": "SOFT_SCRAP",
+    "Description": "SOFT_SCRAP",
+    "ActivityCost": 0.0,
+    "Type": "MOVE",
+    "IntegrationMethod": "",
+    "IntegrationIsActive": false,
+    "IntegrationPost": false
+  },
+  "ProcessStepMetadata": [
+    {
+      "Name": "TrackingEntity",
+      "Description": "TrackingEntity",
+      "ProcessIndex": 0,
+      "NextIndex": 0,
+      "isActive": true,
+      "Required": true,
+      "DefaultValue": "",
+      "PreScript": "",
+      "hasWebTemplate": true
+    },
+    {
+      "Name": "Location",
+      "Description": "To Location",
+      "ProcessIndex": 100,
+      "NextIndex": 0,
+      "isActive": true,
+      "Required": true,
+      "DefaultValue": "SCRAP",
+      "PreScript": "",
+      "hasWebTemplate": true
+    }
+  ],
+  "Name": "SOFT_SCRAP",
+  "Description": "SOFT_SCRAP\n\nInstead of scrapping TrackingEntity, move the TrackingEntity to a non-stock location.\n\nThe Post Deploy script will insert a non-stock Location called SCRAP that will be used to move the stock into, please review this location after deploy and ensure the location is setup correctly.",
+  "Type": "PROCESS",
+  "Tags": [
+    "MOVE"
+  ],
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": [
+    {
+      "ArtifactType": "POST_DEPLOY_SCRIPT",
+      "ArtifactIdentifier": "94af1f80ad515e28b7cfa7c0453abf63",
+      "ArtifactVersion": 1
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "Identifier": "1dae0f3debfb5f16b9a2b531769b4526",
+  "Name": "ValidateLocation",
+  "Description": "",
+  "Type": "SQL_STORED_PROCEDURE",
+  "Version": 1,
+  "LastModified": "26/03/2024",
+  "Author": "James Davidson",
+  "Tags": [],
+  "ArtifactDependencies": []
+}

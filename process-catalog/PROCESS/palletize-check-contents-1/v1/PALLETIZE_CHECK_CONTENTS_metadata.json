@@ -1,0 +1,67 @@
+{
+  "Identifier": "ab0dfed0bf5942ec8e3bcdaf2d21ab99",
+  "Version": 1,
+  "LastModified": "09/02/2024",
+  "DeployCount": 1,
+  "Author": "Josh",
+  "ProcessType": "PALLETIZE",
+  "ProcessName": "PALLETIZE_CHECK_CONTENTS",
+  "ProcessDescription": "PALLETIZE ADD",
+  "UsageNotes": "Used to enforce packing only a single MasterItem per pallet, up to a maximum count of TrackingEntities.\n\nThis process makes use of the PackageType field on the MasterItem table. It should contain the maximum number of TrackingEntities of this MasterItem allowed on a pallet.\n\nIf PackageType is left empty, or set to 0, users will be able to pack as many TrackingEntities of the MasterItem onto a pallet as they wish.",
+  "ImplementationNotes": "",
+  "Industries": [],
+  "PrerequisitesSQLCLR": false,
+  "ProcessMetaData": {
+    "Name": "PALLETIZE_CHECK_CONTENTS",
+    "Description": "PALLETIZE_CHECK_CONTENTS",
+    "ActivityCost": 0.0,
+    "Type": "PALLETIZE",
+    "IntegrationIsActive": false,
+    "IntegrationPost": false
+  },
+  "ProcessStepMetadata": [
+    {
+      "Name": "Type",
+      "Description": "Type",
+      "ProcessIndex": 100,
+      "NextIndex": 1,
+      "isActive": true,
+      "Required": false,
+      "DefaultValue": "Add",
+      "hasWebTemplate": true
+    },
+    {
+      "Name": "CarryingEntity",
+      "Description": "CarryingEntity (Pallet)",
+      "ProcessIndex": 0,
+      "NextIndex": 1,
+      "isActive": true,
+      "Required": false,
+      "hasWebTemplate": false
+    },
+    {
+      "Name": "TrackingEntity",
+      "Description": "TrackingEntity",
+      "ProcessIndex": 1,
+      "NextIndex": 1,
+      "isActive": true,
+      "Required": false,
+      "PreScript": "PrescriptPalletizeCheckContentsTrackingEntity",
+      "hasWebTemplate": true
+    }
+  ],
+  "Name": "PALLETIZE_CHECK_CONTENTS",
+  "Description": "PALLETIZE ADD\n\nUsed to enforce packing only a single MasterItem per pallet, up to a maximum count of TrackingEntities.\n\nThis process makes use of the PackageType field on the MasterItem table. It should contain the maximum number of TrackingEntities of this MasterItem allowed on a pallet.\n\nIf PackageType is left empty, or set to 0, users will be able to pack as many TrackingEntities of the MasterItem onto a pallet as they wish.",
+  "Type": "PROCESS",
+  "Tags": [
+    "PALLETIZE"
+  ],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "SQL_STORED_PROCEDURE",
+      "ArtifactIdentifier": "1f77eb28509e574688d123b1a1294d71",
+      "ArtifactVersion": 1
+    }
+  ],
+  "PostDeployArtifacts": []
+}

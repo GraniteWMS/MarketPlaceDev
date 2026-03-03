@@ -1,0 +1,11 @@
+{
+  "Identifier": "06dbc2a94d1855358500c6da56ab9ede",
+  "Name": "PrescriptStocktakeTrackingEntity",
+  "Description": "",
+  "Type": "SQL_STORED_PROCEDURE",
+  "Version": 1,
+  "LastModified": "15/02/2024",
+  "Author": "Gabriel Innes",
+  "Tags": [],
+  "ArtifactDependencies": []
+}

@@ -1,0 +1,11 @@
+{
+  "Identifier": "9b0effb7bdec544c9c4ff0c61bab349c",
+  "Name": "PreDeployScript",
+  "Description": "",
+  "Type": "PRE_DEPLOY_SCRIPT",
+  "Version": 1,
+  "LastModified": "09/04/2024",
+  "Author": "Craig Collins",
+  "Tags": [],
+  "ArtifactDependencies": []
+}

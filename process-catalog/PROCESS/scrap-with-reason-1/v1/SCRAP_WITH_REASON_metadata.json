@@ -1,0 +1,75 @@
+{
+  "Identifier": "8a37113ec5ec458192b00d0835b98cd3",
+  "Version": 1,
+  "LastModified": "16/05/2024",
+  "DeployCount": 14,
+  "Author": "Unknown",
+  "ProcessType": "SCRAP",
+  "ProcessName": "SCRAP_WITH_REASON",
+  "ProcessDescription": "SCRAP",
+  "UsageNotes": "Simple scrap process with reason lookup. If reason not specify force user to capture comment (details)",
+  "ImplementationNotes": "",
+  "Industries": [],
+  "PrerequisitesSQLCLR": false,
+  "ProcessMetaData": {
+    "Name": "ScrapBarcode",
+    "Description": "Scrap Barcodes",
+    "ActivityCost": 0,
+    "Type": "SCRAP",
+    "IntegrationIsActive": true,
+    "IntegrationPost": false
+  },
+  "ProcessStepMetadata": [
+    {
+      "Name": "Reference",
+      "Description": "Reason",
+      "ProcessIndex": 0,
+      "NextIndex": 1,
+      "isActive": true,
+      "Required": false,
+      "hasWebTemplate": true
+    },
+    {
+      "Name": "TrackingEntity",
+      "Description": "Scan Barcode",
+      "ProcessIndex": 2,
+      "NextIndex": 3,
+      "isActive": true,
+      "Required": true,
+      "hasWebTemplate": true
+    },
+    {
+      "Name": "Confirmation",
+      "Description": "Are You Sure?",
+      "ProcessIndex": 3,
+      "NextIndex": 0,
+      "isActive": true,
+      "Required": false,
+      "hasWebTemplate": true
+    },
+    {
+      "Name": "Comment",
+      "Description": "Details",
+      "ProcessIndex": 1,
+      "NextIndex": 2,
+      "isActive": true,
+      "Required": false,
+      "PreScript": "Prescript_ScrapBarcode_Comment",
+      "hasWebTemplate": true
+    }
+  ],
+  "Name": "SCRAP_WITH_REASON",
+  "Description": "SCRAP\n\nSimple scrap process with reason lookup. If reason not specify force user to capture comment (details)",
+  "Type": "PROCESS",
+  "Tags": [
+    "SCRAP"
+  ],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "SQL_STORED_PROCEDURE",
+      "ArtifactIdentifier": "e0dc0cc1773d50fcbed1e03af4172ec9",
+      "ArtifactVersion": 1
+    }
+  ],
+  "PostDeployArtifacts": []
+}

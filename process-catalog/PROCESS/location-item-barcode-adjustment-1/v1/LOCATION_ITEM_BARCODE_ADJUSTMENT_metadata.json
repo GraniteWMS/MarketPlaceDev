@@ -1,0 +1,99 @@
+{
+  "Identifier": "7ee9116c9b0744459da2aa00cccfdf78",
+  "Version": 1,
+  "LastModified": "22/03/2024",
+  "DeployCount": 2,
+  "Author": "James Davidson",
+  "ProcessType": "ADJUSTMENT",
+  "ProcessName": "LOCATION_ITEM_BARCODE_ADJUSTMENT",
+  "ProcessDescription": "LOCATION_ITEM_BARCODE_ADJUSTMENT",
+  "UsageNotes": "If you need a system where users scan both the Location and MasterItem to identify the stock, thereby eliminating the need to print Tracking Entity barcodes. This process will use the barcode format of [LocationBarcode]_[MasterItemCode] to find the TrackingEntity.",
+  "ImplementationNotes": "This is one of potentially several processes you'll need to implement. All processes prefixed with LOCATION_ITEM_BARCODE_* are part of this implementation.",
+  "Industries": [],
+  "PrerequisitesSQLCLR": false,
+  "ProcessMetaData": {
+    "Name": "LOCATION_ITEM_BARCODE_ADJUSTMENT",
+    "Description": "LOCATION_ITEM_BARCODE_ADJUSTMENT",
+    "ActivityCost": 0.0,
+    "Type": "ADJUSTMENT",
+    "IntegrationMethod": "",
+    "IntegrationIsActive": false,
+    "IntegrationPost": false
+  },
+  "ProcessStepMetadata": [
+    {
+      "Name": "TrackingEntity",
+      "Description": "MasterItem",
+      "ProcessIndex": 1,
+      "NextIndex": 2,
+      "isActive": true,
+      "Required": true,
+      "DefaultValue": "",
+      "PreScript": "PrescriptAdjustment_LOC_MITrackingEntity",
+      "hasWebTemplate": true
+    },
+    {
+      "Name": "Type",
+      "Description": "Type",
+      "ProcessIndex": 2,
+      "NextIndex": 3,
+      "isActive": true,
+      "Required": true,
+      "DefaultValue": "",
+      "PreScript": "",
+      "hasWebTemplate": true
+    },
+    {
+      "Name": "Qty",
+      "Description": "Qty",
+      "ProcessIndex": 3,
+      "NextIndex": 4,
+      "isActive": true,
+      "Required": true,
+      "DefaultValue": "",
+      "PreScript": "",
+      "hasWebTemplate": true
+    },
+    {
+      "Name": "Confirmation",
+      "Description": "Confirmation",
+      "ProcessIndex": 4,
+      "NextIndex": 0,
+      "isActive": true,
+      "Required": false,
+      "DefaultValue": "",
+      "PreScript": "",
+      "hasWebTemplate": true
+    },
+    {
+      "Name": "FromLocation",
+      "Description": "From Location",
+      "ProcessIndex": 0,
+      "NextIndex": 1,
+      "isActive": true,
+      "Required": true,
+      "DefaultValue": "",
+      "PreScript": "PrescriptAdjustment_LOC_MIFromLocation",
+      "hasWebTemplate": true
+    }
+  ],
+  "Name": "LOCATION_ITEM_BARCODE_ADJUSTMENT",
+  "Description": "LOCATION_ITEM_BARCODE_ADJUSTMENT\n\nIf you need a system where users scan both the Location and MasterItem to identify the stock, thereby eliminating the need to print Tracking Entity barcodes. This process will use the barcode format of [LocationBarcode]_[MasterItemCode] to find the TrackingEntity.\n\nThis is one of potentially several processes you'll need to implement. All processes prefixed with LOCATION_ITEM_BARCODE_* are part of this implementation.",
+  "Type": "PROCESS",
+  "Tags": [
+    "ADJUSTMENT"
+  ],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "SQL_STORED_PROCEDURE",
+      "ArtifactIdentifier": "0c47e63ac84d5c76a87e5946aac7f819",
+      "ArtifactVersion": 1
+    },
+    {
+      "ArtifactType": "SQL_STORED_PROCEDURE",
+      "ArtifactIdentifier": "e48eb78cb0545ff880d2d972d5e664bb",
+      "ArtifactVersion": 1
+    }
+  ],
+  "PostDeployArtifacts": []
+}

@@ -1,0 +1,57 @@
+{
+  "Identifier": "f9b5b65429b14f0e98800312a73e5fb2",
+  "Version": 1,
+  "LastModified": "09/02/2024",
+  "DeployCount": 3,
+  "Author": "Josh",
+  "ProcessType": "MOVE",
+  "ProcessName": "MOVE_CHECK_ONHOLD",
+  "ProcessDescription": "MOVE",
+  "UsageNotes": "Prevent moving TrackingEntities that are on hold. Also works for CarryingEntities containing on hold TrackingEntities.",
+  "ImplementationNotes": "",
+  "Industries": [],
+  "PrerequisitesSQLCLR": false,
+  "ProcessMetaData": {
+    "Name": "MOVECHECKONHOLD",
+    "Description": "MOVECHECKONHOLD",
+    "ActivityCost": 0.0,
+    "Type": "MOVE",
+    "IntegrationIsActive": false,
+    "IntegrationPost": false
+  },
+  "ProcessStepMetadata": [
+    {
+      "Name": "TrackingEntity",
+      "Description": "TrackingEntity",
+      "ProcessIndex": 1,
+      "NextIndex": 1,
+      "isActive": true,
+      "Required": true,
+      "PreScript": "PrescriptMoveCheckOnHoldTrackingEntity",
+      "hasWebTemplate": true
+    },
+    {
+      "Name": "Location",
+      "Description": "To Location",
+      "ProcessIndex": 0,
+      "NextIndex": 1,
+      "isActive": true,
+      "Required": true,
+      "hasWebTemplate": true
+    }
+  ],
+  "Name": "MOVE_CHECK_ONHOLD",
+  "Description": "MOVE\n\nPrevent moving TrackingEntities that are on hold. Also works for CarryingEntities containing on hold TrackingEntities.",
+  "Type": "PROCESS",
+  "Tags": [
+    "MOVE"
+  ],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "SQL_STORED_PROCEDURE",
+      "ArtifactIdentifier": "70c94070501d594b9f1772fd6a9b7ea8",
+      "ArtifactVersion": 1
+    }
+  ],
+  "PostDeployArtifacts": []
+}

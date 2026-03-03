@@ -1,0 +1,48 @@
+{
+  "Identifier": "7433003b5c114ee2810cf3378090d6b6",
+  "Version": 1,
+  "LastModified": "19/03/2024",
+  "DeployCount": 0,
+  "Author": "Josh",
+  "ProcessType": "CUSTOM",
+  "ProcessName": "EXAMPLE_EXPORT_SSRSREPORT",
+  "ProcessDescription": "EXAMPLE_EXPORT_SSRSREPORT",
+  "UsageNotes": "This template provides an illustration of utilizing SQL_CLR to send emails with attachments, although it should be noted that this process is not fully functional.",
+  "ImplementationNotes": "Within the stored procedure Prescript_Example_ExportSsrsReport, the clr_ReportExportToFile is employed to export a SSRS report to file (PDF).",
+  "Industries": [],
+  "PrerequisitesSQLCLR": true,
+  "ProcessMetaData": {
+    "Name": "EXAMPLE_EXPORT_SSRSREPORT",
+    "Description": "EXAMPLE_EXPORT_SSRSREPORT",
+    "ActivityCost": 0.0,
+    "Type": "CUSTOM",
+    "IntegrationIsActive": false,
+    "IntegrationPost": false
+  },
+  "ProcessStepMetadata": [
+    {
+      "Name": "Example",
+      "Description": "Example",
+      "ProcessIndex": 0,
+      "NextIndex": 0,
+      "isActive": true,
+      "Required": true,
+      "PreScript": "Prescript_Example_ExportSsrsReport",
+      "hasWebTemplate": true
+    }
+  ],
+  "Name": "EXAMPLE_EXPORT_SSRSREPORT",
+  "Description": "EXAMPLE_EXPORT_SSRSREPORT\n\nThis template provides an illustration of utilizing SQL_CLR to send emails with attachments, although it should be noted that this process is not fully functional.\n\nWithin the stored procedure Prescript_Example_ExportSsrsReport, the clr_ReportExportToFile is employed to export a SSRS report to file (PDF).",
+  "Type": "PROCESS",
+  "Tags": [
+    "CUSTOM"
+  ],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "SQL_STORED_PROCEDURE",
+      "ArtifactIdentifier": "5cfeabc3eeff5e958d3c8f14d8265ba5",
+      "ArtifactVersion": 1
+    }
+  ],
+  "PostDeployArtifacts": []
+}

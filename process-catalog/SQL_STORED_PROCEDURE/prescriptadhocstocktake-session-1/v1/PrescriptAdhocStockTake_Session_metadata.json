@@ -1,0 +1,11 @@
+{
+  "Identifier": "02697227183858ba8cf52b0ecfcd8d0c",
+  "Name": "PrescriptAdhocStockTake_Session",
+  "Description": "",
+  "Type": "SQL_STORED_PROCEDURE",
+  "Version": 1,
+  "LastModified": "04/04/2024",
+  "Author": "James Davidson",
+  "Tags": [],
+  "ArtifactDependencies": []
+}

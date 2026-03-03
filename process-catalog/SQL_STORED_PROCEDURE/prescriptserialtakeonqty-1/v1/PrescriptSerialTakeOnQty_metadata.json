@@ -1,0 +1,11 @@
+{
+  "Identifier": "42fdb57905b35cc68aa4f290fa925c40",
+  "Name": "PrescriptSerialTakeOnQty",
+  "Description": "",
+  "Type": "SQL_STORED_PROCEDURE",
+  "Version": 1,
+  "LastModified": "09/02/2024",
+  "Author": "Josh",
+  "Tags": [],
+  "ArtifactDependencies": []
+}

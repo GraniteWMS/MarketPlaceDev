@@ -1,0 +1,72 @@
+{
+  "Identifier": "35117555e48241848bccb196b66f0276",
+  "Version": 1,
+  "LastModified": "09/02/2024",
+  "DeployCount": 5,
+  "Author": "Josh",
+  "ProcessType": "CUSTOM",
+  "ProcessName": "REINSTATE_TRACKINGENTITY",
+  "ProcessDescription": "REINSTATE TRACKINGENTITY",
+  "UsageNotes": "Used to place a TrackingEntity back in stock after it has been scrapped or otherwise set to InStock false. Makes use of CLR to ensure a transaction is written when a TrackingEntity is reinstated.",
+  "ImplementationNotes": "",
+  "Industries": [],
+  "PrerequisitesSQLCLR": true,
+  "ProcessMetaData": {
+    "Name": "REINSTATE_TRACKINGENTITY",
+    "Description": "REINSTATE_TRACKINGENTITY",
+    "ActivityCost": 0.0,
+    "Type": "CUSTOM",
+    "IntegrationIsActive": false,
+    "IntegrationPost": false
+  },
+  "ProcessStepMetadata": [
+    {
+      "Name": "TrackingEntity",
+      "Description": "TrackingEntity",
+      "ProcessIndex": 0,
+      "NextIndex": 1,
+      "isActive": true,
+      "Required": true,
+      "PreScript": "PrescriptReinstateTrackingEntityTrackingEntity",
+      "hasWebTemplate": true
+    },
+    {
+      "Name": "Step200",
+      "Description": "Step200",
+      "ProcessIndex": 200,
+      "NextIndex": 0,
+      "isActive": true,
+      "Required": true,
+      "PreScript": "PrescriptReinstateTrackingEntityStep200",
+      "hasWebTemplate": true
+    },
+    {
+      "Name": "Confirm",
+      "Description": "Confirm",
+      "ProcessIndex": 1,
+      "NextIndex": 0,
+      "isActive": true,
+      "Required": true,
+      "hasWebTemplate": false
+    }
+  ],
+  "Name": "REINSTATE_TRACKINGENTITY",
+  "Description": "REINSTATE TRACKINGENTITY\n\nUsed to place a TrackingEntity back in stock after it has been scrapped or otherwise set to InStock false. Makes use of CLR to ensure a transaction is written when a TrackingEntity is reinstated.",
+  "Type": "PROCESS",
+  "Tags": [
+    "CUSTOM"
+  ],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "SQL_STORED_PROCEDURE",
+      "ArtifactIdentifier": "e773568be5b854d8ab7005b0bcf7d18f",
+      "ArtifactVersion": 1
+    },
+    {
+      "ArtifactType": "SQL_STORED_PROCEDURE",
+      "ArtifactIdentifier": "85b1ea504a7e5435953604df1d6c4505",
+      "ArtifactVersion": 1
+    }
+  ],
+  "PostDeployArtifacts": []
+}

@@ -1,0 +1,11 @@
+{
+  "Identifier": "26a13e512bbf5047bace3d7837628d5c",
+  "Name": "PrescriptLOCATION_ITEM_BARCODE_PICKMasterItem",
+  "Description": "",
+  "Type": "SQL_STORED_PROCEDURE",
+  "Version": 1,
+  "LastModified": "26/03/2024",
+  "Author": "James Davidson",
+  "Tags": [],
+  "ArtifactDependencies": []
+}

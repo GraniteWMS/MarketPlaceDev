@@ -1,0 +1,100 @@
+{
+  "Identifier": "52bba4945d624029bb8808b04454716b",
+  "Version": 1,
+  "LastModified": "04/04/2024",
+  "DeployCount": 6,
+  "Author": "James Davidson",
+  "ProcessType": "STOCKTAKECOUNT",
+  "ProcessName": "ADHOC_STOCKTAKE",
+  "ProcessDescription": "ADHOC_STOCKTAKE",
+  "UsageNotes": "Simple adhoc stock take count. User has option to select session or enter new session name. Barcodes scanned will be added to session.",
+  "ImplementationNotes": "",
+  "Industries": [],
+  "PrerequisitesSQLCLR": false,
+  "ProcessMetaData": {
+    "Name": "ADHOC_STOCKTAKE",
+    "Description": "ADHOC_STOCKTAKE",
+    "ActivityCost": 0.0,
+    "Type": "STOCKTAKECOUNT",
+    "IntegrationMethod": "",
+    "IntegrationIsActive": false,
+    "IntegrationPost": false
+  },
+  "ProcessStepMetadata": [
+    {
+      "Name": "Session",
+      "Description": "Session",
+      "ProcessIndex": 0,
+      "NextIndex": 1,
+      "isActive": true,
+      "Required": true,
+      "PreScript": "PrescriptAdhocStockTake_Session",
+      "hasWebTemplate": false
+    },
+    {
+      "Name": "Count",
+      "Description": "Count",
+      "ProcessIndex": 1,
+      "NextIndex": 2,
+      "isActive": true,
+      "Required": true,
+      "hasWebTemplate": true
+    },
+    {
+      "Name": "Location",
+      "Description": "Location",
+      "ProcessIndex": 2,
+      "NextIndex": 3,
+      "isActive": true,
+      "Required": true,
+      "hasWebTemplate": true
+    },
+    {
+      "Name": "TrackingEntity",
+      "Description": "TrackingEntity",
+      "ProcessIndex": 3,
+      "NextIndex": 4,
+      "isActive": true,
+      "Required": false,
+      "PreScript": "PrescriptAdhocStockTake_TrackingEntity",
+      "hasWebTemplate": true
+    },
+    {
+      "Name": "PalletConfirmation",
+      "Description": "PalletConfirmation",
+      "ProcessIndex": 4,
+      "NextIndex": 5,
+      "isActive": true,
+      "Required": false,
+      "hasWebTemplate": true
+    },
+    {
+      "Name": "Qty",
+      "Description": "Qty",
+      "ProcessIndex": 5,
+      "NextIndex": 2,
+      "isActive": true,
+      "Required": false,
+      "hasWebTemplate": true
+    }
+  ],
+  "Name": "ADHOC_STOCKTAKE",
+  "Description": "ADHOC_STOCKTAKE\n\nSimple adhoc stock take count. User has option to select session or enter new session name. Barcodes scanned will be added to session.",
+  "Type": "PROCESS",
+  "Tags": [
+    "STOCKTAKECOUNT"
+  ],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "SQL_STORED_PROCEDURE",
+      "ArtifactIdentifier": "02697227183858ba8cf52b0ecfcd8d0c",
+      "ArtifactVersion": 1
+    },
+    {
+      "ArtifactType": "SQL_STORED_PROCEDURE",
+      "ArtifactIdentifier": "9ae9647572e05523acaeceda1e68bbfc",
+      "ArtifactVersion": 1
+    }
+  ],
+  "PostDeployArtifacts": []
+}

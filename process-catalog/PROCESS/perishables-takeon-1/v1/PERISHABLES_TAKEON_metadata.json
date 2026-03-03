@@ -1,0 +1,126 @@
+{
+  "Identifier": "0e699ff96d8746f18602c51434a92c83",
+  "Version": 1,
+  "LastModified": "09/02/2024",
+  "DeployCount": 26,
+  "Author": "Josh",
+  "ProcessType": "TAKEON",
+  "ProcessName": "PERISHABLES_TAKEON",
+  "ProcessDescription": "PERISHABLES TAKEON",
+  "UsageNotes": "Use when you want to enforce Batch and ExpiryDate. Will also populate ExpiryDate based on MasterItem.ShelfLife when user captures ManufactureDate.",
+  "ImplementationNotes": "Maintain and set EnforceBatchNumber, EnforceExpiryDate, ShelfLife on MasterItems where it applies.",
+  "Industries": [
+    "Manufacturing"
+  ],
+  "PrerequisitesSQLCLR": false,
+  "ProcessMetaData": {
+    "Name": "PERISHABLESTAKEON",
+    "Description": "PERISHABLESTAKEON",
+    "ActivityCost": 0.0,
+    "Type": "TAKEON",
+    "IntegrationIsActive": false,
+    "IntegrationPost": false
+  },
+  "ProcessStepMetadata": [
+    {
+      "Name": "MasterItem",
+      "Description": "MasterItem",
+      "ProcessIndex": 1,
+      "NextIndex": 2,
+      "isActive": true,
+      "Required": true,
+      "hasWebTemplate": true
+    },
+    {
+      "Name": "Location",
+      "Description": "Location",
+      "ProcessIndex": 0,
+      "NextIndex": 1,
+      "isActive": true,
+      "Required": false,
+      "hasWebTemplate": true
+    },
+    {
+      "Name": "Batch",
+      "Description": "Batch",
+      "ProcessIndex": 2,
+      "NextIndex": 3,
+      "isActive": true,
+      "Required": false,
+      "PreScript": "PrescriptPerishablesTakeonBatch",
+      "hasWebTemplate": true
+    },
+    {
+      "Name": "ExpiryDate",
+      "Description": "ExpiryDate (YYYYMMDD)",
+      "ProcessIndex": 4,
+      "NextIndex": 5,
+      "isActive": true,
+      "Required": false,
+      "PreScript": "PrescriptPerishablesTakeonExpiryDate",
+      "hasWebTemplate": true
+    },
+    {
+      "Name": "Qty",
+      "Description": "Qty",
+      "ProcessIndex": 5,
+      "NextIndex": 6,
+      "isActive": true,
+      "Required": true,
+      "hasWebTemplate": true
+    },
+    {
+      "Name": "NoEntities",
+      "Description": "Number of TrackingEntities",
+      "ProcessIndex": 6,
+      "NextIndex": 2,
+      "isActive": true,
+      "Required": false,
+      "hasWebTemplate": true
+    },
+    {
+      "Name": "Print",
+      "Description": "Print",
+      "ProcessIndex": 99,
+      "NextIndex": 0,
+      "isActive": true,
+      "Required": true,
+      "hasWebTemplate": true
+    },
+    {
+      "Name": "ManufactureDate",
+      "Description": "ManufactureDate (YYYYMMDD)",
+      "ProcessIndex": 3,
+      "NextIndex": 4,
+      "isActive": true,
+      "Required": false,
+      "PreScript": "PrescriptPerishablesTakeonManufactureDate",
+      "hasWebTemplate": true
+    }
+  ],
+  "Name": "PERISHABLES_TAKEON",
+  "Description": "PERISHABLES TAKEON\n\nUse when you want to enforce Batch and ExpiryDate. Will also populate ExpiryDate based on MasterItem.ShelfLife when user captures ManufactureDate.\n\nMaintain and set EnforceBatchNumber, EnforceExpiryDate, ShelfLife on MasterItems where it applies.",
+  "Type": "PROCESS",
+  "Tags": [
+    "Manufacturing",
+    "TAKEON"
+  ],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "SQL_STORED_PROCEDURE",
+      "ArtifactIdentifier": "ce8cd722d42252afba4ebac0bddf0516",
+      "ArtifactVersion": 1
+    },
+    {
+      "ArtifactType": "SQL_STORED_PROCEDURE",
+      "ArtifactIdentifier": "03ed736b6ea7534cb15411cf917d297e",
+      "ArtifactVersion": 1
+    },
+    {
+      "ArtifactType": "SQL_STORED_PROCEDURE",
+      "ArtifactIdentifier": "a4022b93ff9250cda3dacde17c151227",
+      "ArtifactVersion": 1
+    }
+  ],
+  "PostDeployArtifacts": []
+}

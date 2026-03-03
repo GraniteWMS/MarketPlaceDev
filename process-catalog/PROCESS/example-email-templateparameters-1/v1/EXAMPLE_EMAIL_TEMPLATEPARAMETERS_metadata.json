@@ -1,0 +1,54 @@
+{
+  "Identifier": "23679ec7db834803aea63f915a59733b",
+  "Version": 1,
+  "LastModified": "09/04/2024",
+  "DeployCount": 5,
+  "Author": "Josh",
+  "ProcessType": "CUSTOM",
+  "ProcessName": "EXAMPLE_EMAIL_TEMPLATEPARAMETERS",
+  "ProcessDescription": "EXAMPLE_EMAIL_TEMPLATEPARAMETERS",
+  "UsageNotes": "This template provides an illustration of utilizing SQL_CLR to send emails and passing parameters, although it should be noted that this process is not fully functional.",
+  "ImplementationNotes": "Within the stored procedure Prescript_Example_SendTemplateEmailWithParameters, the clr_TemplateEmail is employed and email_AddTemplateParameter use to set params. Note that the PostDeploy script also creates the email template used in the prescript - this will give you a good starting point for customizing the template to suit your needs.",
+  "Industries": [],
+  "PrerequisitesSQLCLR": true,
+  "ProcessMetaData": {
+    "Name": "EXAMPLE_EMAIL_TEMPLATEPARAMETERS",
+    "Description": "EXAMPLE_EMAIL_TEMPLATEPARAMETERS",
+    "ActivityCost": 0.0,
+    "Type": "CUSTOM",
+    "IntegrationIsActive": false,
+    "IntegrationPost": false
+  },
+  "ProcessStepMetadata": [
+    {
+      "Name": "Example",
+      "Description": "Example",
+      "ProcessIndex": 0,
+      "NextIndex": 0,
+      "isActive": true,
+      "Required": true,
+      "PreScript": "Prescript_Example_SendTemplateEmailWithParameters",
+      "hasWebTemplate": true
+    }
+  ],
+  "Name": "EXAMPLE_EMAIL_TEMPLATEPARAMETERS",
+  "Description": "EXAMPLE_EMAIL_TEMPLATEPARAMETERS\n\nThis template provides an illustration of utilizing SQL_CLR to send emails and passing parameters, although it should be noted that this process is not fully functional.\n\nWithin the stored procedure Prescript_Example_SendTemplateEmailWithParameters, the clr_TemplateEmail is employed and email_AddTemplateParameter use to set params. Note that the PostDeploy script also creates the email template used in the prescript - this will give you a good starting point for customizing the template to suit your needs.",
+  "Type": "PROCESS",
+  "Tags": [
+    "CUSTOM"
+  ],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "SQL_STORED_PROCEDURE",
+      "ArtifactIdentifier": "3e28338e53765ed2bb9b34c078e1db41",
+      "ArtifactVersion": 1
+    }
+  ],
+  "PostDeployArtifacts": [
+    {
+      "ArtifactType": "POST_DEPLOY_SCRIPT",
+      "ArtifactIdentifier": "ae54ed9e597551d280cd438fc78be684",
+      "ArtifactVersion": 1
+    }
+  ]
+}

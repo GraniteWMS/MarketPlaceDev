@@ -1,0 +1,11 @@
+{
+  "Identifier": "914e2a607d135c8d86de0575cfe9547a",
+  "Name": "PrescriptPerishablesReceivingManufactureDate",
+  "Description": "",
+  "Type": "SQL_STORED_PROCEDURE",
+  "Version": 1,
+  "LastModified": "09/02/2024",
+  "Author": "Josh",
+  "Tags": [],
+  "ArtifactDependencies": []
+}

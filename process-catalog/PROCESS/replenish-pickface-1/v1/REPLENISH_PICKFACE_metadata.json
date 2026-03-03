@@ -1,0 +1,93 @@
+{
+  "Identifier": "edd9802f006940c397d100cd2d7200b0",
+  "Version": 1,
+  "LastModified": "09/02/2024",
+  "DeployCount": 7,
+  "Author": "Josh",
+  "ProcessType": "CUSTOM",
+  "ProcessName": "REPLENISH_PICKFACE",
+  "ProcessDescription": "REPLENISH PICKFACE",
+  "UsageNotes": "Intended for use where pickface locations do not contain physical TrackingEntity barcodes. When you replenish to a location that already contains the MasterItem being replenished, it will add to the existing TrackingEntity. If the MasterItem does not yet exist in the pickface location, a new TrackingEntity will be created.\n\nPickface locations must have type PICKFACE assigned.",
+  "ImplementationNotes": "Ensure your pickface locations type is set to PICKFACE. SQLCLR procedures must be deployed and configured to use this process.\n ",
+  "Industries": [],
+  "PrerequisitesSQLCLR": true,
+  "ProcessMetaData": {
+    "Name": "REPLENISH_PICKFACE",
+    "Description": "REPLENISH PICKFACE",
+    "ActivityCost": 0.0,
+    "Type": "CUSTOM",
+    "IntegrationIsActive": false,
+    "IntegrationPost": false
+  },
+  "ProcessStepMetadata": [
+    {
+      "Name": "FromTrackingEntity",
+      "Description": "From Barcode",
+      "ProcessIndex": 0,
+      "NextIndex": 1,
+      "isActive": true,
+      "Required": true,
+      "PreScript": "PrescriptReplenishPickfaceFromTrackingEntity",
+      "hasWebTemplate": true
+    },
+    {
+      "Name": "Location",
+      "Description": "To Location",
+      "ProcessIndex": 1,
+      "NextIndex": 2,
+      "isActive": true,
+      "Required": true,
+      "PreScript": "PrescriptReplenishPickfaceLocation",
+      "hasWebTemplate": true
+    },
+    {
+      "Name": "Qty",
+      "Description": "Qty to Replenish",
+      "ProcessIndex": 2,
+      "NextIndex": 1,
+      "isActive": true,
+      "Required": true,
+      "PreScript": "PrescriptReplenishPickfaceQty",
+      "hasWebTemplate": true
+    },
+    {
+      "Name": "Step200",
+      "Description": "Step200",
+      "ProcessIndex": 200,
+      "NextIndex": 0,
+      "isActive": true,
+      "Required": true,
+      "PreScript": "PrescriptReplenishPickfaceStep200",
+      "hasWebTemplate": true
+    }
+  ],
+  "Name": "REPLENISH_PICKFACE",
+  "Description": "REPLENISH PICKFACE\n\nIntended for use where pickface locations do not contain physical TrackingEntity barcodes. When you replenish to a location that already contains the MasterItem being replenished, it will add to the existing TrackingEntity. If the MasterItem does not yet exist in the pickface location, a new TrackingEntity will be created.\n\nPickface locations must have type PICKFACE assigned.\n\nEnsure your pickface locations type is set to PICKFACE. SQLCLR procedures must be deployed and configured to use this process.",
+  "Type": "PROCESS",
+  "Tags": [
+    "CUSTOM"
+  ],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "SQL_STORED_PROCEDURE",
+      "ArtifactIdentifier": "107e46fb98955da79b42f1d61cee4777",
+      "ArtifactVersion": 1
+    },
+    {
+      "ArtifactType": "SQL_STORED_PROCEDURE",
+      "ArtifactIdentifier": "20f8115038105ede928c0fbe5bf6e2a6",
+      "ArtifactVersion": 1
+    },
+    {
+      "ArtifactType": "SQL_STORED_PROCEDURE",
+      "ArtifactIdentifier": "11cb4aa66d19504dad73fe98e54f44f6",
+      "ArtifactVersion": 1
+    },
+    {
+      "ArtifactType": "SQL_STORED_PROCEDURE",
+      "ArtifactIdentifier": "5bcdbc2c7b0b5bbe82fdb5e609fca6e3",
+      "ArtifactVersion": 1
+    }
+  ],
+  "PostDeployArtifacts": []
+}
