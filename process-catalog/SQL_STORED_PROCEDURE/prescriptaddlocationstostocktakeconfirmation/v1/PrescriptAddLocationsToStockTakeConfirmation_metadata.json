@@ -1,0 +1,11 @@
+{
+  "Identifier": "0ffa966ef2305f23899c5b6237c6e80a",
+  "Name": "PrescriptAddLocationsToStockTakeConfirmation",
+  "Description": "",
+  "Type": "SQL_STORED_PROCEDURE",
+  "Version": 1,
+  "LastModified": "20/02/2024",
+  "Author": "Gabriel Innes",
+  "Tags": [],
+  "ArtifactDependencies": []
+}

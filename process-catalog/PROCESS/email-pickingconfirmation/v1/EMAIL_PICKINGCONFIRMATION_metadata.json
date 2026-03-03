@@ -1,0 +1,29 @@
+{
+  "Identifier": "14d8f629659242afa2f810b5935cfafb",
+  "Name": "EMAIL_PICKINGCONFIRMATION",
+  "Description": "EMAIL_PICKINGCONFIRMATION\n\nA simple process that uses the UtilityAPI to send an email confirming picked quantities. All that is needed is the document number.\n\nYou need to configure the email addresses that this will be sent to in the static data table. The template that this email uses is created in the post deploy script.",
+  "Type": "PROCESS",
+  "Version": 1,
+  "LastModified": "16/02/2024",
+  "Author": "Gabriel Innes",
+  "Tags": [
+    "CUSTOM"
+  ],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "a322065f6a065d5998c2afec98d42c9c",
+      "ArtifactVersion": 1
+    },
+    {
+      "ArtifactType": "SQL_STORED_PROCEDURE",
+      "ArtifactIdentifier": "e903c96dacf557eb806097a751b8a977",
+      "ArtifactVersion": 1
+    },
+    {
+      "ArtifactType": "POST_DEPLOY_SCRIPT",
+      "ArtifactIdentifier": "643aa787661c59db98a1af376603b8f9",
+      "ArtifactVersion": 1
+    }
+  ]
+}

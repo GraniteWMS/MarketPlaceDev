@@ -1,0 +1,24 @@
+{
+  "Identifier": "438e16810dbc4df9b7b43fee24e32a8b",
+  "Name": "SERIAL_RECEIVING",
+  "Description": "SERIAL RECEIVING\n\nUtilizes MasterItem's EnforceSerialNumber setting to force the capture of SerialNumber for items that require it. Also forces Qty to be 1 for items that require a SerialNumber\n\nSet MasterItem.EnforceSerialNumber on serialized products.",
+  "Type": "PROCESS",
+  "Version": 1,
+  "LastModified": "09/02/2024",
+  "Author": "Josh",
+  "Tags": [
+    "RECEIVING"
+  ],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "SQL_STORED_PROCEDURE",
+      "ArtifactIdentifier": "ee0db6c0a0af5e8a9974c44ed89932e3",
+      "ArtifactVersion": 1
+    },
+    {
+      "ArtifactType": "SQL_STORED_PROCEDURE",
+      "ArtifactIdentifier": "5a517d04a1a05933a496198f1f859c59",
+      "ArtifactVersion": 1
+    }
+  ]
+}

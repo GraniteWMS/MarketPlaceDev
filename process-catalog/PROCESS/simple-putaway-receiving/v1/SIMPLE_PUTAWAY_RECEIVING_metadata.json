@@ -1,0 +1,24 @@
+{
+  "Identifier": "8472a86a349141e4a0af405f60d87432",
+  "Name": "SIMPLE_PUTAWAY_RECEIVING",
+  "Description": "SIMPLE_PUTAWAY_RECEIVING\n\nUse this process to receive directly into the configured putaway location for the MasterItem you are receiving. Will not allow receiving of MasterItems that do not have a putaway location configured\n\nAssign PutawayLocation for all MasterItems.  Field: MasterItem.PutawayLocation_id",
+  "Type": "PROCESS",
+  "Version": 1,
+  "LastModified": "13/02/2024",
+  "Author": "Josh",
+  "Tags": [
+    "RECEIVING"
+  ],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "SQL_STORED_PROCEDURE",
+      "ArtifactIdentifier": "8b212208606959a8977105b7f6e5cb54",
+      "ArtifactVersion": 1
+    },
+    {
+      "ArtifactType": "SQL_STORED_PROCEDURE",
+      "ArtifactIdentifier": "182c9e9cb2f65774ab0111acd85dd4ac",
+      "ArtifactVersion": 1
+    }
+  ]
+}

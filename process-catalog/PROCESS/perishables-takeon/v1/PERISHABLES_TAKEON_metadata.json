@@ -1,0 +1,30 @@
+{
+  "Identifier": "0e699ff96d8746f18602c51434a92c83",
+  "Name": "PERISHABLES_TAKEON",
+  "Description": "PERISHABLES TAKEON\n\nUse when you want to enforce Batch and ExpiryDate. Will also populate ExpiryDate based on MasterItem.ShelfLife when user captures ManufactureDate.\n\nMaintain and set EnforceBatchNumber, EnforceExpiryDate, ShelfLife on MasterItems where it applies.",
+  "Type": "PROCESS",
+  "Version": 1,
+  "LastModified": "09/02/2024",
+  "Author": "Josh",
+  "Tags": [
+    "Manufacturing",
+    "TAKEON"
+  ],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "SQL_STORED_PROCEDURE",
+      "ArtifactIdentifier": "ce8cd722d42252afba4ebac0bddf0516",
+      "ArtifactVersion": 1
+    },
+    {
+      "ArtifactType": "SQL_STORED_PROCEDURE",
+      "ArtifactIdentifier": "03ed736b6ea7534cb15411cf917d297e",
+      "ArtifactVersion": 1
+    },
+    {
+      "ArtifactType": "SQL_STORED_PROCEDURE",
+      "ArtifactIdentifier": "a4022b93ff9250cda3dacde17c151227",
+      "ArtifactVersion": 1
+    }
+  ]
+}

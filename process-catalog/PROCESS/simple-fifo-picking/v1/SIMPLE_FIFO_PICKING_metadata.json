@@ -1,0 +1,29 @@
+{
+  "Identifier": "d358d49af24c4a819961434f1ca2a876",
+  "Name": "SIMPLE_FIFO_PICKING",
+  "Description": "SIMPLE FIFO PICKING\n\nSimple and easy FIFO picking process based on standard PICK process. Using only the DocumentDetail.Instruction and LinePriority to recommend TrackingEntity to pick based on some basic logic.\n\nThe stored procedure FIFOPickingRecommendation is responsible for calculating the recommendation. This recommendation is captured in the 'Instruction' field of the DocumentDetail, and LinePriority is also maintained. Please review this stored procedure if logic applies.",
+  "Type": "PROCESS",
+  "Version": 1,
+  "LastModified": "14/02/2024",
+  "Author": "Gabriel Innes",
+  "Tags": [
+    "PICKING"
+  ],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "SQL_STORED_PROCEDURE",
+      "ArtifactIdentifier": "2d4c539a7c8c5a9fba064c94e0578615",
+      "ArtifactVersion": 1
+    },
+    {
+      "ArtifactType": "SQL_STORED_PROCEDURE",
+      "ArtifactIdentifier": "0c8348cd20bb5cf9be750f507a8c80ac",
+      "ArtifactVersion": 1
+    },
+    {
+      "ArtifactType": "SQL_STORED_PROCEDURE",
+      "ArtifactIdentifier": "cbf5f5709adc55b0a3ab4fe9d3c98a63",
+      "ArtifactVersion": 1
+    }
+  ]
+}

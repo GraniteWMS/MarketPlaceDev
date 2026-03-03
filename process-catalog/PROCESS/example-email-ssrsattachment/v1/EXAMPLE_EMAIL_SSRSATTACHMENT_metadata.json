@@ -1,0 +1,19 @@
+{
+  "Identifier": "21e1595334854c9dbd4c4d47ec8a72c5",
+  "Name": "EXAMPLE_EMAIL_SSRSATTACHMENT",
+  "Description": "EXAMPLE_EMAIL_SSRSATTACHMENT\n\nThis template provides an illustration of utilizing SQL_CLR to send emails with SSRS Report attachments, although it should be noted that this process is not fully functional.\n\nWithin the stored procedure Prescript_Example_SendEmailWithSsrsReport, the clr_SimpleEmail is employed to attach SSRS reports and dispatch an email.",
+  "Type": "PROCESS",
+  "Version": 1,
+  "LastModified": "19/03/2024",
+  "Author": "Josh",
+  "Tags": [
+    "CUSTOM"
+  ],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "SQL_STORED_PROCEDURE",
+      "ArtifactIdentifier": "1876e97a078b5e89a5ca660971e1a8c9",
+      "ArtifactVersion": 1
+    }
+  ]
+}

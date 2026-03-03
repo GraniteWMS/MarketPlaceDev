@@ -1,0 +1,11 @@
+{
+  "Identifier": "97479dd7c7225732bbf8aa217be1a1a2",
+  "Name": "PrescriptLOCATION_ITEM_BARCODE_PICKTrackingEntity",
+  "Description": "",
+  "Type": "SQL_STORED_PROCEDURE",
+  "Version": 1,
+  "LastModified": "26/03/2024",
+  "Author": "James Davidson",
+  "Tags": [],
+  "ArtifactDependencies": []
+}

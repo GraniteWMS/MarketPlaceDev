@@ -1,0 +1,29 @@
+{
+  "Identifier": "68415d7e8fae4ff8a04a29f70b1a1ce9",
+  "Name": "PERISHABLES_RECEIVING",
+  "Description": "PERISHABLES RECEIVING\n\nUtilizes MasterItem's EnforceBatchNumber and EnforceExpiryDate settings to ensure Expiry and Batch are captured when required. Also makes use of MasterItem's ShelfLife setting to auto populate ExpiryDate if ManufactureDate is entered.",
+  "Type": "PROCESS",
+  "Version": 1,
+  "LastModified": "09/02/2024",
+  "Author": "Josh",
+  "Tags": [
+    "RECEIVING"
+  ],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "SQL_STORED_PROCEDURE",
+      "ArtifactIdentifier": "b8094ec43f1457ba970164d4368e7f34",
+      "ArtifactVersion": 1
+    },
+    {
+      "ArtifactType": "SQL_STORED_PROCEDURE",
+      "ArtifactIdentifier": "d8a708a8ae0f55c8934cbed24c50932e",
+      "ArtifactVersion": 1
+    },
+    {
+      "ArtifactType": "SQL_STORED_PROCEDURE",
+      "ArtifactIdentifier": "914e2a607d135c8d86de0575cfe9547a",
+      "ArtifactVersion": 1
+    }
+  ]
+}

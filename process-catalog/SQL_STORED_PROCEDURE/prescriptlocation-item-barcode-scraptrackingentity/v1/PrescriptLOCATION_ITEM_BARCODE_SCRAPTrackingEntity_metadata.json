@@ -1,0 +1,11 @@
+{
+  "Identifier": "0cc05e6890d55f7e923be1228c3db7d3",
+  "Name": "PrescriptLOCATION_ITEM_BARCODE_SCRAPTrackingEntity",
+  "Description": "",
+  "Type": "SQL_STORED_PROCEDURE",
+  "Version": 1,
+  "LastModified": "26/03/2024",
+  "Author": "James Davidson",
+  "Tags": [],
+  "ArtifactDependencies": []
+}

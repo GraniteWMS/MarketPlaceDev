@@ -1,0 +1,19 @@
+{
+  "Identifier": "f9b5b65429b14f0e98800312a73e5fb2",
+  "Name": "MOVE_CHECK_ONHOLD",
+  "Description": "MOVE\n\nPrevent moving TrackingEntities that are on hold. Also works for CarryingEntities containing on hold TrackingEntities.",
+  "Type": "PROCESS",
+  "Version": 1,
+  "LastModified": "09/02/2024",
+  "Author": "Josh",
+  "Tags": [
+    "MOVE"
+  ],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "SQL_STORED_PROCEDURE",
+      "ArtifactIdentifier": "70c94070501d594b9f1772fd6a9b7ea8",
+      "ArtifactVersion": 1
+    }
+  ]
+}

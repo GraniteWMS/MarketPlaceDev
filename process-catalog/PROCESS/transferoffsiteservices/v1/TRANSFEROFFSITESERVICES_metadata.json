@@ -1,0 +1,34 @@
+{
+  "Identifier": "8d795e1f3edd4b23b83bc23d475398bc",
+  "Name": "TRANSFEROFFSITESERVICES",
+  "Description": "Transfer to Offsite Services\n\nImmediate Transfer to Offsite ERP Location for ACCPAC - Document Reference is generated as Date\n\nWebtemplate for offsite locations has a specified TYPE (OFFSITESERVICES) that is looks at",
+  "Type": "PROCESS",
+  "Version": 1,
+  "LastModified": "31/05/2024",
+  "Author": "CRAIG",
+  "Tags": [
+    "REPLENISH"
+  ],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "d18f1c732d2257bc87bdc567e507956e",
+      "ArtifactVersion": 1
+    },
+    {
+      "ArtifactType": "SQL_STORED_PROCEDURE",
+      "ArtifactIdentifier": "463edbba1e345c5aa70eda98758d5a67",
+      "ArtifactVersion": 1
+    },
+    {
+      "ArtifactType": "SQL_STORED_PROCEDURE",
+      "ArtifactIdentifier": "6da0a06c3623572ab5cc67695fb9084e",
+      "ArtifactVersion": 1
+    },
+    {
+      "ArtifactType": "PRE_DEPLOY_SCRIPT",
+      "ArtifactIdentifier": "58575de332b65b01b229853047a80653",
+      "ArtifactVersion": 1
+    }
+  ]
+}

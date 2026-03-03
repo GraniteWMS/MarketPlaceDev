@@ -1,0 +1,11 @@
+{
+  "Identifier": "1de0237e520b5b8e8a82809418e890be",
+  "Name": "PrescriptAdjustToQtyStep200",
+  "Description": "",
+  "Type": "SQL_STORED_PROCEDURE",
+  "Version": 1,
+  "LastModified": "09/02/2024",
+  "Author": "Josh",
+  "Tags": [],
+  "ArtifactDependencies": []
+}

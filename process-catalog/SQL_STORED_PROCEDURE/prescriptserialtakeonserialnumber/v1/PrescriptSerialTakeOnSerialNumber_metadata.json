@@ -1,0 +1,11 @@
+{
+  "Identifier": "f8b529ca00f75c2f942d60dbcea59b9c",
+  "Name": "PrescriptSerialTakeOnSerialNumber",
+  "Description": "",
+  "Type": "SQL_STORED_PROCEDURE",
+  "Version": 1,
+  "LastModified": "09/02/2024",
+  "Author": "Josh",
+  "Tags": [],
+  "ArtifactDependencies": []
+}
