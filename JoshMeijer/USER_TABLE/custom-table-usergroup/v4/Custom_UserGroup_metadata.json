@@ -3,7 +3,7 @@
   "Name": "Custom_UserGroup",
   "Description": "Table: Custom_Table_UserGroup",
   "Type": "USER_TABLE",
-  "Version": 0,
+  "Version": 4,
   "LastModified": "03/03/2026",
   "Author": "ParAg0n95",
   "DatabaseVersion": "8.0.0.0",
