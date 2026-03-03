@@ -1,0 +1,14 @@
+{
+  "Identifier": "517de05d-aad6-4b35-af86-1c529f631670",
+  "Name": "Custom_UserGroup",
+  "Description": "Table: Custom_Table_UserGroup",
+  "Type": "USER_TABLE",
+  "Version": 0,
+  "LastModified": "03/03/2026",
+  "Author": "ParAg0n95",
+  "DatabaseVersion": "8.0.0.0",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": [],
+  "Deprecated": false
+}
