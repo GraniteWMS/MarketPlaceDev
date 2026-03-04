@@ -1,5 +1,0 @@
-IF NOT EXISTS (SELECT * FROM BarcodeMaster WHERE Name = 'STOCKTAKESESSION')
-	BEGIN
-		INSERT INTO BarcodeMaster (Name, Prefix, NextBarcode, Length)
-		SELECT 'STOCKTAKESESSION', 'STS', 0, 6
-	END
