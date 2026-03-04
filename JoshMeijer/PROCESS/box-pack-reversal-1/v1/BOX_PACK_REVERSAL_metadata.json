@@ -1,0 +1,41 @@
+{
+  "Identifier": "f2ac042a45d642eab4faec9e285ae45b",
+  "Name": "BOX_PACK_REVERSAL",
+  "Description": "BOX_PACK_REVERSAL\n\nThis process is used to reverse the pack of a MasterItem from a carrying entity. It will unpack all of the specified MasterItem from the specified carrying entity. It does not allow for a unpacking a specific quantity.\n\nThis process writes a new transaction of type UNPACK and sets the reversal ID of the original pack transaction. It will also update the packed quantity on the document detail line.",
+  "Type": "PROCESS",
+  "Version": 1,
+  "LastModified": "15/02/2024",
+  "Author": "Gabriel Innes",
+  "Tags": [
+    "CUSTOM"
+  ],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "c0fcbaf280c553989b927f0ab159e16b",
+      "ArtifactVersion": 1
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "3fd3a6efc8c557c3967ab0faa67ae8ba",
+      "ArtifactVersion": 1
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "980118b63a16586e8b53175c106b76fa",
+      "ArtifactVersion": 1
+    }
+  ],
+  "PostDeployArtifacts": [
+    {
+      "ArtifactType": "POST_DEPLOY_SCRIPT",
+      "ArtifactIdentifier": "7b513b1822d55f81a6004c252183f2bf",
+      "ArtifactVersion": 1
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "2e4fbf1f48265a46982bfd0af7e292a2",
+      "ArtifactVersion": 1
+    }
+  ]
+}

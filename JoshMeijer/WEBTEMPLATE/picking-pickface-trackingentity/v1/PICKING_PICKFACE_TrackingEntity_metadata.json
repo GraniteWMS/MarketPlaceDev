@@ -1,0 +1,17 @@
+{
+  "Identifier": "7cb14676c172592492a9f536d7ca753e",
+  "Name": "PICKING_PICKFACE_TrackingEntity",
+  "Description": "WebTemplate for process template PICKING_PICKFACE / step TrackingEntity",
+  "Type": "WEBTEMPLATE",
+  "Version": 1,
+  "LastModified": "09/02/2024",
+  "Author": "Josh",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "SQL_STORED_PROCEDURE",
+      "ArtifactIdentifier": "9e18022bdbae55a29584a62d7c5e7509",
+      "ArtifactVersion": 1
+    }
+  ]
+}

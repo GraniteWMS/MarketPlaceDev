@@ -1,0 +1,5 @@
+IF NOT EXISTS (SELECT ID FROM Type WHERE Name = 'OFFSITESERVICES')
+BEGIN
+    INSERT INTO Type (AppliesTo, Name, Description, isActive, Version, AuditDate, Locked, AuditUser)
+    VALUES ('LOCATION', 'OFFSITESERVICES', 'OFFSITESERVICES', 1, 1, GETDATE(), 0, 'SYSTEM')
+END

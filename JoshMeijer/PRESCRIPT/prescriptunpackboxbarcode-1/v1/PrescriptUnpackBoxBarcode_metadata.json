@@ -1,0 +1,11 @@
+{
+  "Identifier": "3fd3a6efc8c557c3967ab0faa67ae8ba",
+  "Name": "PrescriptUnpackBoxBarcode",
+  "Description": "",
+  "Type": "PRESCRIPT",
+  "Version": 1,
+  "LastModified": "15/02/2024",
+  "Author": "Gabriel Innes",
+  "Tags": [],
+  "ArtifactDependencies": []
+}

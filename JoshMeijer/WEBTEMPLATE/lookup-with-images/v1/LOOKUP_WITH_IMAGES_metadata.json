@@ -1,0 +1,11 @@
+{
+  "Identifier": "95061f691d2d535fb7be57d5c56f683a",
+  "Name": "LOOKUP_WITH_IMAGES",
+  "Description": "WebTemplate for process template LOOKUP_WITH_IMAGES",
+  "Type": "WEBTEMPLATE",
+  "Version": 1,
+  "LastModified": "09/02/2024",
+  "Author": "Gabriel Innes",
+  "Tags": [],
+  "ArtifactDependencies": []
+}

@@ -1,0 +1,41 @@
+{
+  "Identifier": "bac51a801b4940d0be6bfbcc6dea5633",
+  "Name": "STOCKTAKE_ADD_LOCATION",
+  "Description": "STOCKTAKE_ADD_LOCATION\n\nThis process allows users to add locations to stock take session using the scanner. The first step is to select a stock take session, or create a new one. Then scan the location to add to the session and confirm. All tracking entities in that location will be added to the session.\n\nThe NEW SESSION button uses the barcodemaster table to create a new session. Be sure to change the length and prefix in the barcode master table to meet your requirements",
+  "Type": "PROCESS",
+  "Version": 1,
+  "LastModified": "20/02/2024",
+  "Author": "Gabriel Innes",
+  "Tags": [
+    "CUSTOM"
+  ],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "57ed26a257a75061b648e8d578aca406",
+      "ArtifactVersion": 1
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "b49b0ef32d505b7a8178c805730d2dcb",
+      "ArtifactVersion": 1
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "a6a5a50204ab51c0ab025e0e15aa804a",
+      "ArtifactVersion": 1
+    }
+  ],
+  "PostDeployArtifacts": [
+    {
+      "ArtifactType": "POST_DEPLOY_SCRIPT",
+      "ArtifactIdentifier": "f117bd9ef072574aa09a7457df1738dc",
+      "ArtifactVersion": 1
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "c6482f19b41952ddbbb9c71ddc5d7c53",
+      "ArtifactVersion": 1
+    }
+  ]
+}

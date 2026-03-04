@@ -1,0 +1,19 @@
+{
+  "Identifier": "2c40ad4fbe0a4327a23fbf6c37e8817a",
+  "Name": "EXAMPLE_EXPORT_TABLETOEXCEL",
+  "Description": "EXAMPLE_EXPORT_TABLETOEXCEL\n\nThis template provides an illustration of utilizing SQL_CLR to export data to excel and upload, although it should be noted that this process is not fully functional.\n\nIn the stored procedure Prescript_Example_ExportExcelFile, clr_TableExport is employed to export data by utilizing a SQL view and passing parameters. It's important to note that the path specified should be a local path on the SQL server, which can likely be configured within the StaticData table.",
+  "Type": "PROCESS",
+  "Version": 1,
+  "LastModified": "19/03/2024",
+  "Author": "Josh",
+  "Tags": [
+    "CUSTOM"
+  ],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "34320ee1d7205389864a994575d455b7",
+      "ArtifactVersion": 1
+    }
+  ]
+}

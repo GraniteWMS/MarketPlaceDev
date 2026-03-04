@@ -1,0 +1,34 @@
+{
+  "Identifier": "98f30d053ce84374a629b3224e845c88",
+  "Name": "LOCATION_ITEM_BARCODE_TAKEON",
+  "Description": "LOCATION_ITEM_BARCODE_TAKEON\n\nIf you need a system where users scan both the Location and MasterItem to identify the stock, thereby eliminating the need to print Tracking Entity barcodes. This process will either assign or create Tracking Entities with a barcode format of [LocationBarcode]_[MasterItemCode].\n\nThis is one of potentially several processes you'll need to implement. All processes prefixed with LOCATION_ITEM_BARCODE_* are part of this implementation.",
+  "Type": "PROCESS",
+  "Version": 1,
+  "LastModified": "22/03/2024",
+  "Author": "James Davidson",
+  "Tags": [
+    "TAKEON"
+  ],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "601f1cc171495ecd8ef66e62de7a1fd2",
+      "ArtifactVersion": 1
+    },
+    {
+      "ArtifactType": "SQL_STORED_PROCEDURE",
+      "ArtifactIdentifier": "0afcb0daff8354f397a961bbc6e1e77d",
+      "ArtifactVersion": 1
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "3ce06dfabb9c5343badab5847809d0a5",
+      "ArtifactVersion": 1
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "fc920ef8e52d514c87221c1d341b14f2",
+      "ArtifactVersion": 1
+    }
+  ]
+}
