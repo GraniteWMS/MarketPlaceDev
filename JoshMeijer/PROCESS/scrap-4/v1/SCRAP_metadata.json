@@ -1,0 +1,18 @@
+{
+  "Identifier": "99d9d3a7-2b13-48cd-9c59-08686f466c0a",
+  "Name": "SCRAP",
+  "Description": "Test publishing process with type",
+  "Type": 6,
+  "Version": 1,
+  "LastModified": "05/03/2026",
+  "Author": "JoshMeijer",
+  "DatabaseVersion": "8.0.0.0",
+  "Tags": [],
+  "TypeSpecificAttributes": {},
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "SqlClrAssemblyVersion": null,
+  "Deprecated": false,
+  "DeprecationReason": null
+}
