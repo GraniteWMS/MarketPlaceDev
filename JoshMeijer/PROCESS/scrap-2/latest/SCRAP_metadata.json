@@ -1,0 +1,19 @@
+{
+  "Identifier": "c6d47f3a-0b77-4d94-8fe9-402984fb1be9",
+  "Name": "SCRAP",
+  "Description": "Test publishing process with type",
+  "Type": "PROCESS",
+  "Version": 0,
+  "LastModified": "05/03/2026",
+  "Author": "JoshMeijer",
+  "DatabaseVersion": "8.0.0.0",
+  "Tags": [],
+  "TypeSpecificAttributes": {
+    "__type": "Granite.Marketplace.ServiceModel.Types.ProcessSpecificAttributes, Granite.Marketplace.ServiceModel",
+    "ProcessType": "SCRAP"
+  },
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}
