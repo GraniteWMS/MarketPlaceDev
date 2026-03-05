@@ -1,0 +1,18 @@
+{
+  "Identifier": "988f3fae-e0e7-42bf-b578-b9e6a8831fc3",
+  "Name": "SCRAP",
+  "Description": "Test publishing process with type",
+  "Type": "PROCESS",
+  "Version": 1,
+  "LastModified": "05/03/2026",
+  "Author": "JoshMeijer",
+  "DatabaseVersion": "8.0.0.0",
+  "Tags": [],
+  "TypeSpecificAttributes": {
+    "ProcessType": "SCRAP"
+  },
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}
