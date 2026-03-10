@@ -1,0 +1,42 @@
+{
+  "Identifier": "c7e5146855e0413182b47602ea863ffd",
+  "Name": "LOCATION_ITEM_BARCODE_SCRAP",
+  "Description": "SCRAP\n\nIf you need a system where users scan both the Location and MasterItem to identify the stock, thereby eliminating the need to print Tracking Entity barcodes. This process will use the barcode format of [LocationBarcode]_[MasterItemCode] to find the TrackingEntity.\n\nThis is one of potentially several processes you'll need to implement. All processes prefixed with LOCATION_ITEM_BARCODE_* are part of this implementation.\\n\\nThe location step is defaulted to LocationBarcode OR LocationName = 'SCRAP', the post script will insert Location if not exists.",
+  "Type": "PROCESS",
+  "Version": 1,
+  "LastModified": "26/03/2024",
+  "Author": "James Davidson",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "a8d6baccc176547d8032edc98756c6bb",
+      "ArtifactVersion": 1
+    },
+    {
+      "ArtifactType": "SQL_STORED_PROCEDURE",
+      "ArtifactIdentifier": "1dae0f3debfb5f16b9a2b531769b4526",
+      "ArtifactVersion": 1
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "4087814f92475cca9ef06f42456406bb",
+      "ArtifactVersion": 1
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "a5bc1e8a62b65327b56896c4eb4e727c",
+      "ArtifactVersion": 1
+    }
+  ],
+  "TypeSpecificAttributes": {
+    "ProcessType": "REPLENISH"
+  },
+  "PostDeployArtifacts": [
+    {
+      "ArtifactType": "POST_DEPLOY_SCRIPT",
+      "ArtifactIdentifier": "902f2edade415270b8e1f89ce76fdecf",
+      "ArtifactVersion": 1
+    }
+  ]
+}

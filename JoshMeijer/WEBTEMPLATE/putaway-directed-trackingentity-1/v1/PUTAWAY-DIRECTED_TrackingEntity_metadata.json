@@ -1,0 +1,17 @@
+{
+  "Identifier": "9c9f71cf527453419bb979b87312ff2d",
+  "Name": "PUTAWAY-DIRECTED_TrackingEntity",
+  "Description": "WebTemplate for process template PUTAWAY-DIRECTED / step TrackingEntity",
+  "Type": "WEBTEMPLATE",
+  "Version": 1,
+  "LastModified": "26/03/2024",
+  "Author": "Craig Collins",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "e747f403e88e56a980e773a683de7956",
+      "ArtifactVersion": 1
+    }
+  ]
+}

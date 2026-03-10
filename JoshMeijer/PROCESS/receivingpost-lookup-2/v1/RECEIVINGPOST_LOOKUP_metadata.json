@@ -1,0 +1,57 @@
+{
+  "Identifier": "acc34e4fe5ee4f4c935378146f018df2",
+  "Name": "RECEIVINGPOST_LOOKUP",
+  "Description": "RECEIVINGPOST_LOOKUP\n\nShow a list of Purchase Orders for selection when posting. Once you choose a purchase order, the details of the items to be posted will be displayed. After POST successful a label will be added to the LabelPrintQueue, see implementation notes.\n\nPlease update the ERP_ReceiptHeader view to point to your ERP system. Additionally, the PrescriptReceivingPostStep200 stored procedure requires the bartender label named RECEIPTCONFIRMLIVE.BTW, based on the SQL view Label_ReceiptSummary.",
+  "Type": "PROCESS",
+  "Version": 1,
+  "LastModified": "13/04/2024",
+  "Author": "Craig Collins",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "3f0040c6668355a8a8ffa31911b28ddc",
+      "ArtifactVersion": 1
+    },
+    {
+      "ArtifactType": "SQL_STORED_PROCEDURE",
+      "ArtifactIdentifier": "708b9d94c601587aaebfcee0fbf28a67",
+      "ArtifactVersion": 1
+    },
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "93c1a79e229b583ba37254cddd699b03",
+      "ArtifactVersion": 1
+    },
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "c6109d48d08058df97ae86cb0a563bad",
+      "ArtifactVersion": 1
+    },
+    {
+      "ArtifactType": "USER_TABLE",
+      "ArtifactIdentifier": "417485c5652a506989b3bbb5c4bc5dec",
+      "ArtifactVersion": 1
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "b87cf9870f225eb6a12822dc9270d992",
+      "ArtifactVersion": 1
+    }
+  ],
+  "TypeSpecificAttributes": {
+    "ProcessType": "RECEIVINGPOST"
+  },
+  "PostDeployArtifacts": [
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "d6b43eab6208543fb954b3447e5a376b",
+      "ArtifactVersion": 1
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "d5f5871d55d0532197cb3c4a2ec6d5d5",
+      "ArtifactVersion": 1
+    }
+  ]
+}

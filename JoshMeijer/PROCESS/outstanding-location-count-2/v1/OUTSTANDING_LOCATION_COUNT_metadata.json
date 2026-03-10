@@ -1,0 +1,42 @@
+{
+  "Identifier": "c9ad457ce3e94dcba2cb35577fbb10f0",
+  "Name": "OUTSTANDING_LOCATION_COUNT",
+  "Description": "OUTSTANDING_LOCATION_COUNT\n\nThis process includes 2 webtemplates that show outstanding locations and tracking entities for each count.\n\nThe prescript on the tracking entity step will set the tracking counted quantity to 0 so that new qty for the count will override it. Remove this prescript for standard stock take behavior.",
+  "Type": "PROCESS",
+  "Version": 1,
+  "LastModified": "15/02/2024",
+  "Author": "Gabriel Innes",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "SQL_STORED_PROCEDURE",
+      "ArtifactIdentifier": "4eeea8f5ade85516a300dcfa1d1a46a3",
+      "ArtifactVersion": 1
+    },
+    {
+      "ArtifactType": "SQL_STORED_PROCEDURE",
+      "ArtifactIdentifier": "504b351817285155aaf2f783d465a8ca",
+      "ArtifactVersion": 1
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "62406e996fe654d7a58cbb2e099ab308",
+      "ArtifactVersion": 1
+    }
+  ],
+  "TypeSpecificAttributes": {
+    "ProcessType": "STOCKTAKECOUNT"
+  },
+  "PostDeployArtifacts": [
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "dd30b3ba92265ace9b50745fe92d7639",
+      "ArtifactVersion": 1
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "f428653e5c745a2684847c0fed3852a2",
+      "ArtifactVersion": 1
+    }
+  ]
+}

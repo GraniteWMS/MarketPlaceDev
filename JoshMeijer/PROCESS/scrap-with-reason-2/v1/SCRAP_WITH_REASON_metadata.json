@@ -1,0 +1,20 @@
+{
+  "Identifier": "8a37113ec5ec458192b00d0835b98cd3",
+  "Name": "SCRAP_WITH_REASON",
+  "Description": "SCRAP\n\nSimple scrap process with reason lookup. If reason not specify force user to capture comment (details)",
+  "Type": "PROCESS",
+  "Version": 1,
+  "LastModified": "16/05/2024",
+  "Author": "Unknown",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "0f61b4a9d1eb5e9e97d6361363ccc33a",
+      "ArtifactVersion": 1
+    }
+  ],
+  "TypeSpecificAttributes": {
+    "ProcessType": "SCRAP"
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "Identifier": "ab0dfed0bf5942ec8e3bcdaf2d21ab99",
+  "Name": "PALLETIZE_CHECK_CONTENTS",
+  "Description": "PALLETIZE ADD\n\nUsed to enforce packing only a single MasterItem per pallet, up to a maximum count of TrackingEntities.\n\nThis process makes use of the PackageType field on the MasterItem table. It should contain the maximum number of TrackingEntities of this MasterItem allowed on a pallet.\n\nIf PackageType is left empty, or set to 0, users will be able to pack as many TrackingEntities of the MasterItem onto a pallet as they wish.",
+  "Type": "PROCESS",
+  "Version": 1,
+  "LastModified": "09/02/2024",
+  "Author": "Josh",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "82e2c3bb5e705a44938be673e2b99f3a",
+      "ArtifactVersion": 1
+    }
+  ],
+  "TypeSpecificAttributes": {
+    "ProcessType": "PALLETIZE"
+  },
+  "PostDeployArtifacts": [
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "6b76979921525a78ab2430ec006b4d52",
+      "ArtifactVersion": 1
+    }
+  ]
+}

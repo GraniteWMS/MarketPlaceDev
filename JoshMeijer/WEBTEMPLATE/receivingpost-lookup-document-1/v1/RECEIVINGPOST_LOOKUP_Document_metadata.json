@@ -1,0 +1,17 @@
+{
+  "Identifier": "d6b43eab6208543fb954b3447e5a376b",
+  "Name": "RECEIVINGPOST_LOOKUP_Document",
+  "Description": "WebTemplate for process template RECEIVINGPOST_LOOKUP / step Document",
+  "Type": "WEBTEMPLATE",
+  "Version": 1,
+  "LastModified": "13/04/2024",
+  "Author": "Craig Collins",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "3f0040c6668355a8a8ffa31911b28ddc",
+      "ArtifactVersion": 1
+    }
+  ]
+}

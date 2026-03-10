@@ -1,0 +1,1 @@
+{{ "SELECT LocationName, Qty FROM WebTemplate_PickingDynamicLocMI_TrackingEntity WHERE Code = @MasterItem" | dbSelect({MasterItem}) | basicTable({}) }}

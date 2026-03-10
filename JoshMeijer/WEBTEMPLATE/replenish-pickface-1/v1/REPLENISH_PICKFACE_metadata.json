@@ -1,0 +1,11 @@
+{
+  "Identifier": "0bd844d253a1593a85bac63974309e0d",
+  "Name": "REPLENISH_PICKFACE",
+  "Description": "WebTemplate for process template REPLENISH_PICKFACE",
+  "Type": "WEBTEMPLATE",
+  "Version": 1,
+  "LastModified": "09/02/2024",
+  "Author": "Josh",
+  "Tags": [],
+  "ArtifactDependencies": []
+}

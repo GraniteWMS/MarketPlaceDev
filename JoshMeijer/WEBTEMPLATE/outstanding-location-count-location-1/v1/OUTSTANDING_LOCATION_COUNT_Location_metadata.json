@@ -1,0 +1,17 @@
+{
+  "Identifier": "dd30b3ba92265ace9b50745fe92d7639",
+  "Name": "OUTSTANDING_LOCATION_COUNT_Location",
+  "Description": "WebTemplate for process template OUTSTANDING_LOCATION_COUNT / step Location",
+  "Type": "WEBTEMPLATE",
+  "Version": 1,
+  "LastModified": "15/02/2024",
+  "Author": "Gabriel Innes",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "SQL_STORED_PROCEDURE",
+      "ArtifactIdentifier": "4eeea8f5ade85516a300dcfa1d1a46a3",
+      "ArtifactVersion": 1
+    }
+  ]
+}

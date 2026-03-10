@@ -1,0 +1,17 @@
+{
+  "Identifier": "0fd8216a51b2548aa9a8b655417c2ffb",
+  "Name": "PUTAWAY-DIRECTED_Location",
+  "Description": "WebTemplate for process template PUTAWAY-DIRECTED / step Location",
+  "Type": "WEBTEMPLATE",
+  "Version": 1,
+  "LastModified": "26/03/2024",
+  "Author": "Craig Collins",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "SQL_STORED_PROCEDURE",
+      "ArtifactIdentifier": "68323400fcf75ec78f7d2d77b713ac13",
+      "ArtifactVersion": 1
+    }
+  ]
+}
