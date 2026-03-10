@@ -1,1 +1,0 @@
-{{ "SELECT Barcode FROM WebTemplate_OffsiteServicesLocations" | dbSelect({}) | basicTable({selectOnColumn:"Barcode", enableSearch:false}) }}
