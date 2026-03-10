@@ -1,0 +1,16 @@
+{
+  "Identifier": "e498cb68-4cbd-4f5b-9fbb-f3c72478a387",
+  "Name": "Prescript_Custom_Step200",
+  "Description": "",
+  "Type": "PRESCRIPT",
+  "Version": 0,
+  "LastModified": "10/03/2026",
+  "Author": "JoshMeijer",
+  "DatabaseVersion": "8.0.0.0",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": true,
+  "SqlClrAssemblyVersion": "7.0.0.1",
+  "Deprecated": false
+}
