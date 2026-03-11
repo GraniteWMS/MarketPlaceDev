@@ -1,0 +1,24 @@
+{
+  "Identifier": "c2d55df2-209f-4ce9-8f29-0b16e6a8adef",
+  "Name": "ADJUSTMENT",
+  "Description": "Basic adjustment process",
+  "Type": "PROCESS",
+  "Version": 1,
+  "LastModified": "11/03/2026",
+  "DatabaseVersion": "8.0.0.0",
+  "Tags": [],
+  "TypeSpecificAttributes": {
+    "ProcessType": "ADJUSTMENT"
+  },
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "eb56514362f84caeb68efac2d95141e9",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PrescriptTest"
+    }
+  ],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}
