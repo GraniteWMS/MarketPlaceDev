@@ -1,0 +1,40 @@
+{
+  "Identifier": "6064cfd5-da0f-45e1-861d-f2d5990b688c",
+  "Name": "BasicBundle",
+  "Description": "This bundle has a couple simple processes and a custom table",
+  "Type": "BUNDLE",
+  "Version": 1,
+  "LastModified": "11/03/2026",
+  "Tags": [
+    "simple"
+  ],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "USER_TABLE",
+      "ArtifactIdentifier": "a08093837ec84bd7be2cc103fc463bb5",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Custom_Table_UserGroup"
+    },
+    {
+      "ArtifactType": "PROCESS",
+      "ArtifactIdentifier": "34f609c8d5b4418f963a5971d1190fd8",
+      "ArtifactVersion": 1,
+      "ArtifactName": "CUSTOM"
+    },
+    {
+      "ArtifactType": "PROCESS",
+      "ArtifactIdentifier": "c2d55df2209f4ce98f290b16e6a8adef",
+      "ArtifactVersion": 1,
+      "ArtifactName": "ADJUSTMENT"
+    },
+    {
+      "ArtifactType": "PROCESS",
+      "ArtifactIdentifier": "d0619d0a46724a339d5312f0e58bfd93",
+      "ArtifactVersion": 1,
+      "ArtifactName": "SCRAP"
+    }
+  ],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}
