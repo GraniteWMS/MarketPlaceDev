@@ -1,0 +1,18 @@
+{
+  "Identifier": "1230ef26bbea5863a73407cf703f6ca9",
+  "Name": "DataDependency_Location_1230ef26bbea5863a73407cf703f6ca9",
+  "Description": "",
+  "Type": "DATA",
+  "Version": 1,
+  "LastModified": "26/03/2024",
+  "Author": "James Davidson",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "TypeSpecificAttributes": {
+    "Table": "Location",
+    "KeyColumn": "Barcode",
+    "KeyValues": [
+      "SCRAP"
+    ]
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "Identifier": "67480eefcc254ce6ac29953dab841370",
+  "Name": "EXAMPLE_EMAIL_EXCELATTACHMENT",
+  "Description": "EXAMPLE_EMAIL_EXCELATTACHMENT\n\nThis template provides an illustration of utilizing SQL_CLR to send emails with excel attachments, although it should be noted that this process is not fully functional.\n\nWithin the stored procedure Prescript_Example_SendEmailWithExcelAttachment, the clr_SimpleEmail is employed to attach excel file and dispatch an email.",
+  "Type": "PROCESS",
+  "Version": 1,
+  "LastModified": "19/03/2024",
+  "Author": "Josh",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "6342c293ecc652fdb72f35f57fe99341",
+      "ArtifactVersion": 1
+    }
+  ],
+  "TypeSpecificAttributes": {
+    "ProcessType": "CUSTOM"
+  }
+}

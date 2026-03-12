@@ -1,0 +1,18 @@
+{
+  "Identifier": "7624d30d59d65c89862a537910dbb592",
+  "Name": "DataDependency_BarcodeMaster_7624d30d59d65c89862a537910dbb592",
+  "Description": "",
+  "Type": "DATA",
+  "Version": 1,
+  "LastModified": "20/02/2024",
+  "Author": "Gabriel Innes",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "TypeSpecificAttributes": {
+    "Table": "BarcodeMaster",
+    "KeyColumn": "Name",
+    "KeyValues": [
+      "STOCKTAKESESSION"
+    ]
+  }
+}

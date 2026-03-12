@@ -1,0 +1,11 @@
+{
+  "Identifier": "72c9754002135d2a8c098f41b59f474f",
+  "Name": "ADHOC_STOCKTAKE_Session",
+  "Description": "WebTemplate for process template ADHOC_STOCKTAKE / step Session",
+  "Type": "WEBTEMPLATE",
+  "Version": 1,
+  "LastModified": "04/04/2024",
+  "Author": "James Davidson",
+  "Tags": [],
+  "ArtifactDependencies": []
+}

@@ -1,0 +1,11 @@
+{
+  "Identifier": "c6482f19b41952ddbbb9c71ddc5d7c53",
+  "Name": "STOCKTAKE_ADD_LOCATION_Session",
+  "Description": "WebTemplate for process template STOCKTAKE_ADD_LOCATION / step Session",
+  "Type": "WEBTEMPLATE",
+  "Version": 1,
+  "LastModified": "20/02/2024",
+  "Author": "Gabriel Innes",
+  "Tags": [],
+  "ArtifactDependencies": []
+}

@@ -1,0 +1,17 @@
+{
+  "Identifier": "f6043f6f82115c6bb23748bc3d94bd01",
+  "Name": "LOCATION_ITEM_BARCODE_PICK_TrackingEntity",
+  "Description": "WebTemplate for process template LOCATION_ITEM_BARCODE_PICK / step TrackingEntity",
+  "Type": "WEBTEMPLATE",
+  "Version": 1,
+  "LastModified": "26/03/2024",
+  "Author": "James Davidson",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "c0f29c3798ee5d659c588702d310cbe7",
+      "ArtifactVersion": 1
+    }
+  ]
+}

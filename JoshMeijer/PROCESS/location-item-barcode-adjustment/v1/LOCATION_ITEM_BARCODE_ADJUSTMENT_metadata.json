@@ -1,0 +1,25 @@
+{
+  "Identifier": "7ee9116c9b0744459da2aa00cccfdf78",
+  "Name": "LOCATION_ITEM_BARCODE_ADJUSTMENT",
+  "Description": "LOCATION_ITEM_BARCODE_ADJUSTMENT\n\nIf you need a system where users scan both the Location and MasterItem to identify the stock, thereby eliminating the need to print Tracking Entity barcodes. This process will use the barcode format of [LocationBarcode]_[MasterItemCode] to find the TrackingEntity.\n\nThis is one of potentially several processes you'll need to implement. All processes prefixed with LOCATION_ITEM_BARCODE_* are part of this implementation.",
+  "Type": "PROCESS",
+  "Version": 1,
+  "LastModified": "22/03/2024",
+  "Author": "James Davidson",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "SQL_STORED_PROCEDURE",
+      "ArtifactIdentifier": "0c47e63ac84d5c76a87e5946aac7f819",
+      "ArtifactVersion": 1
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "17ea59a63e1c555fb31aad4fb3a38735",
+      "ArtifactVersion": 1
+    }
+  ],
+  "TypeSpecificAttributes": {
+    "ProcessType": "ADJUSTMENT"
+  }
+}

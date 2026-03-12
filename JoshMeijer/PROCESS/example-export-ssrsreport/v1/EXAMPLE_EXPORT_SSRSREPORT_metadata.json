@@ -1,0 +1,20 @@
+{
+  "Identifier": "7433003b5c114ee2810cf3378090d6b6",
+  "Name": "EXAMPLE_EXPORT_SSRSREPORT",
+  "Description": "EXAMPLE_EXPORT_SSRSREPORT\n\nThis template provides an illustration of utilizing SQL_CLR to send emails with attachments, although it should be noted that this process is not fully functional.\n\nWithin the stored procedure Prescript_Example_ExportSsrsReport, the clr_ReportExportToFile is employed to export a SSRS report to file (PDF).",
+  "Type": "PROCESS",
+  "Version": 1,
+  "LastModified": "19/03/2024",
+  "Author": "Josh",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "56a7b1b457a958ffaf455ab5624a7c7b",
+      "ArtifactVersion": 1
+    }
+  ],
+  "TypeSpecificAttributes": {
+    "ProcessType": "CUSTOM"
+  }
+}

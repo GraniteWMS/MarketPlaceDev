@@ -1,0 +1,18 @@
+{
+  "Identifier": "3bd9df423f1d550d83a5421f309b15a0",
+  "Name": "DataDependency_OptionalFields_3bd9df423f1d550d83a5421f309b15a0",
+  "Description": "",
+  "Type": "DATA",
+  "Version": 1,
+  "LastModified": "09/02/2024",
+  "Author": "Gabriel Innes",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "TypeSpecificAttributes": {
+    "Table": "OptionalFields",
+    "KeyColumn": "Name",
+    "KeyValues": [
+      "ImageURL"
+    ]
+  }
+}

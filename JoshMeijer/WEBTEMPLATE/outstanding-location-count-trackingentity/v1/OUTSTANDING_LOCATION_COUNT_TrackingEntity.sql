@@ -1,0 +1,1 @@
+{{ "EXEC WebtemplateStockTakeTrackingEntity @Session = @Session, @Count = @Count, @Location = @Location" | dbSelect({Session, Count, Location}) | basicTable({enableSearch:false}) }}

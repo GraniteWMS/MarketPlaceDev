@@ -1,0 +1,52 @@
+{
+  "Identifier": "90eb2d94a35645789f6998753f58097b",
+  "Name": "LOCATION_ITEM_BARCODE_PICKINGDYNAMIC",
+  "Description": "LOCATION_ITEM_BARCODE_PICKINGDYNAMIC\n\nIf you need a system where users scan both the Location and MasterItem to identify the stock, thereby eliminating the need to print Tracking Entity barcodes. This process will use the barcode format of [LocationBarcode]_[MasterItemCode] to find the TrackingEntity.\n\nThis is one of potentially several processes you'll need to implement. All processes prefixed with LOCATION_ITEM_BARCODE_* are part of this implementation.\n\nThe document step will accept an existing document, or if the document number is the next one in the sequence (According to BarcodeMaster table) then it will create the document). The location step is defaulted to LocationBarcode = 'DIS', the post script will insert Location if not exists.",
+  "Type": "PROCESS",
+  "Version": 1,
+  "LastModified": "22/03/2024",
+  "Author": "James Davidson",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "74418acb9c405fdba5e6d934444fbe51",
+      "ArtifactVersion": 1
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "f1e028a200da563a9261eb3c88e9086a",
+      "ArtifactVersion": 1
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "15e52806ed7e5ac2a2517f53eb1f50af",
+      "ArtifactVersion": 1
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "cd53f16c792553b9bb4eca2db39d849f",
+      "ArtifactVersion": 1
+    }
+  ],
+  "TypeSpecificAttributes": {
+    "ProcessType": "PICKINGDYNAMIC"
+  },
+  "PostDeployArtifacts": [
+    {
+      "ArtifactType": "DATA",
+      "ArtifactIdentifier": "ef027214fecf513ea95a680745bf8c3f",
+      "ArtifactVersion": 1
+    },
+    {
+      "ArtifactType": "POST_DEPLOY_SCRIPT",
+      "ArtifactIdentifier": "477a9b4b324b5f028ec5fada7e16eb2b",
+      "ArtifactVersion": 1
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "af53f48afd7653d2a40d07a66f51fdb4",
+      "ArtifactVersion": 1
+    }
+  ]
+}

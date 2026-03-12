@@ -1,0 +1,32 @@
+{
+  "Identifier": "4f3e5e1e70294531a52afd441756848e",
+  "Name": "LOOKUP_WEBTEMPLATE",
+  "Description": "GENERIC LOOKUP\n\nLookup that allows the user to search by Location, MasterItem, or TrackingEntity without selecting the type",
+  "Type": "PROCESS",
+  "Version": 1,
+  "LastModified": "26/03/2024",
+  "Author": "Craig",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "9d294452614e59f88db7ed651d65d501",
+      "ArtifactVersion": 1
+    },
+    {
+      "ArtifactType": "SQL_STORED_PROCEDURE",
+      "ArtifactIdentifier": "5685df3c395e56768fc2f1e8e1b82b18",
+      "ArtifactVersion": 1
+    }
+  ],
+  "TypeSpecificAttributes": {
+    "ProcessType": "CUSTOM"
+  },
+  "PostDeployArtifacts": [
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "7fc8f46027eb530dbf12acfda44e32eb",
+      "ArtifactVersion": 1
+    }
+  ]
+}

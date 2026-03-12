@@ -1,0 +1,20 @@
+{
+  "Identifier": "d4705e6d744747bf8e266f9f5b207bae",
+  "Name": "PRINT_REPORT_PICKSLIP",
+  "Description": "PRINT_REPORT_PICKSLIP\n\nYou can use this process to print a SSRS pickslip report from the scanner. It take the document number, printer name, and then to confirm.\n\nThis process requires the UtilityAPI to be set up as well as SSRS. The picking report used here is the standard pickslip report but you can print any report using this method. You will need to configure the report that you are printing in the prescript. Remeber to add the printers as lookup values. Only use printers that can accept standard print jobs. Not label printers",
+  "Type": "PROCESS",
+  "Version": 1,
+  "LastModified": "16/02/2024",
+  "Author": "Gabriel",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "e98c0e265a5159febb8ba81af6c1c811",
+      "ArtifactVersion": 1
+    }
+  ],
+  "TypeSpecificAttributes": {
+    "ProcessType": "CUSTOM"
+  }
+}

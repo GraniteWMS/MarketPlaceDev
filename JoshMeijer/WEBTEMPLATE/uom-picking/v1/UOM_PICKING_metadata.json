@@ -1,0 +1,11 @@
+{
+  "Identifier": "e36e95634b9a5a62874f358fc8796ddf",
+  "Name": "UOM_PICKING",
+  "Description": "WebTemplate for process template UOM_PICKING",
+  "Type": "WEBTEMPLATE",
+  "Version": 1,
+  "LastModified": "23/05/2024",
+  "Author": "Michael",
+  "Tags": [],
+  "ArtifactDependencies": []
+}

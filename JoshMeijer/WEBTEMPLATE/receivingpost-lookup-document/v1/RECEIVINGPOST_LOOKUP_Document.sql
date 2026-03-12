@@ -1,0 +1,1 @@
+{{ "SELECT * FROM WebTemplate_PurchaseOrderPostLookup ORDER BY ExpectedDate" | dbSelect({}) | basicTable({selectOnColumn:"Number", enableSearch:true}) }}

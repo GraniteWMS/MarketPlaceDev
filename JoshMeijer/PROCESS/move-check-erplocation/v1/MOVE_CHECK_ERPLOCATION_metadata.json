@@ -1,0 +1,20 @@
+{
+  "Identifier": "8a1860f895ce4a8dba44bee175da556e",
+  "Name": "MOVE_CHECK_ERPLOCATION",
+  "Description": "MOVE\n\nUsed to prevent users from moving stock between different ERPLocations, and gives an error saying to use Transfer instead.",
+  "Type": "PROCESS",
+  "Version": 1,
+  "LastModified": "09/02/2024",
+  "Author": "Josh",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "48c1d7cf52155d44b73cf11527725839",
+      "ArtifactVersion": 1
+    }
+  ],
+  "TypeSpecificAttributes": {
+    "ProcessType": "MOVE"
+  }
+}
