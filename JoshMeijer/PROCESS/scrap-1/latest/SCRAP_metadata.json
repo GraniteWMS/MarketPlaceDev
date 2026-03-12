@@ -1,0 +1,24 @@
+{
+  "Identifier": "8bf005c9-3157-48b8-b017-0ffa2fd84137",
+  "Name": "SCRAP",
+  "Description": "Basic scrap process",
+  "Type": "PROCESS",
+  "Version": 0,
+  "LastModified": "12/03/2026",
+  "DatabaseVersion": "8.0.0.0",
+  "Tags": [],
+  "TypeSpecificAttributes": {
+    "ProcessType": "SCRAP"
+  },
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "DATA",
+      "ArtifactIdentifier": "4d934e587d2b4558b4d4e4734c646ce8",
+      "ArtifactVersion": 1,
+      "ArtifactName": "DataDependency_SystemSettings_0aa17d4306ea415eab6ff72c830fd400"
+    }
+  ],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}
