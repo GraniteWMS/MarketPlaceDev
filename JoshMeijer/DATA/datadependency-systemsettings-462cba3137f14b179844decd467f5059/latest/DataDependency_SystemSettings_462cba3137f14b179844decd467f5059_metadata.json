@@ -1,0 +1,21 @@
+{
+  "Identifier": "a313738f-a172-4716-bdff-d868f55cf59d",
+  "Name": "DataDependency_SystemSettings_462cba3137f14b179844decd467f5059",
+  "Description": "",
+  "Type": "DATA",
+  "Version": 0,
+  "LastModified": "12/03/2026",
+  "DatabaseVersion": "8.0.0.0",
+  "Tags": [],
+  "TypeSpecificAttributes": {
+    "Table": "dbo.SystemSettings",
+    "KeyColumn": "ID",
+    "KeyValues": [
+      "5"
+    ]
+  },
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}
