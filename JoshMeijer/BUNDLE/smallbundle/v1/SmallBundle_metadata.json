@@ -1,0 +1,26 @@
+{
+  "Identifier": "dad2263c-807c-4e24-8da6-9a02f98b70cf",
+  "Name": "SmallBundle",
+  "Description": "",
+  "Type": "BUNDLE",
+  "Version": 1,
+  "LastModified": "12/03/2026",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "PROCESS",
+      "ArtifactIdentifier": "d0619d0a46724a339d5312f0e58bfd93",
+      "ArtifactVersion": 1,
+      "ArtifactName": "SCRAP"
+    },
+    {
+      "ArtifactType": "PROCESS",
+      "ArtifactIdentifier": "c2d55df2209f4ce98f290b16e6a8adef",
+      "ArtifactVersion": 1,
+      "ArtifactName": "ADJUSTMENT"
+    }
+  ],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}
