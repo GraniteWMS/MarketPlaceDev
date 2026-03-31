@@ -1,0 +1,93 @@
+{
+  "Identifier": "b28f4fa3-c259-4744-83b7-1f83cbc007fc",
+  "Name": "CAGE_RECEIVING",
+  "Description": "Cage receiving process",
+  "Type": "PROCESS",
+  "Version": 0,
+  "LastModified": "31/03/2026",
+  "DatabaseVersion": "8.0.0.0",
+  "Tags": [],
+  "TypeSpecificAttributes": {
+    "ProcessType": "RECEIVING",
+    "ProcessStepMetadata": [
+      {
+        "__type": "Granite.Marketplace.ServiceModel.Types.ProcessStepMetadata, Granite.Marketplace.ServiceModel",
+        "Name": "Location",
+        "Description": "Receiving Location",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": false,
+        "PreScript": "",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Document",
+        "Description": "Document",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "MasterItem",
+        "Description": "MasterItem",
+        "ProcessIndex": 2,
+        "NextIndex": 3,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Qty",
+        "Description": "Qty",
+        "ProcessIndex": 3,
+        "NextIndex": 4,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "NoEntities",
+        "Description": "Number of TrackingEntities",
+        "ProcessIndex": 4,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": false,
+        "PreScript": "",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Print",
+        "Description": "Print",
+        "ProcessIndex": 99,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "",
+        "hasWebTemplate": true
+      }
+    ]
+  },
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": [
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "235295a31a4f459a971674284c276491",
+      "ArtifactVersion": 1,
+      "ArtifactName": "CAGE_RECEIVING_Document"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "86fcf93df6df41ecaa1fb38167345396",
+      "ArtifactVersion": 1,
+      "ArtifactName": "CAGE_RECEIVING_MasterItem"
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}
