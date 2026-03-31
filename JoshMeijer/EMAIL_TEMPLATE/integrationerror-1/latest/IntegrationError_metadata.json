@@ -1,0 +1,17 @@
+{
+  "Identifier": "a6fae249-46e6-4344-af9d-ed3222ef67e8",
+  "Name": "IntegrationError",
+  "Description": "Test email template artifact",
+  "Type": "EMAIL_TEMPLATE",
+  "Version": 0,
+  "LastModified": "31/03/2026",
+  "DatabaseVersion": "8.0.0.0",
+  "Tags": [
+    "email",
+    "template"
+  ],
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}
