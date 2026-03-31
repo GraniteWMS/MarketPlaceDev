@@ -1,0 +1,20 @@
+{
+  "Identifier": "0426d8f3-047f-47c6-a0d9-1e7f4598a588",
+  "Name": "CAGE_RECEIVING_MasterItem",
+  "Description": "",
+  "Type": "WEBTEMPLATE",
+  "Version": 1,
+  "LastModified": "31/03/2026",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "b422d3e633054f468960cca71a38e5c4",
+      "ArtifactVersion": 1,
+      "ArtifactName": "WebTemplate_CageReceiving_MasterItem"
+    }
+  ],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

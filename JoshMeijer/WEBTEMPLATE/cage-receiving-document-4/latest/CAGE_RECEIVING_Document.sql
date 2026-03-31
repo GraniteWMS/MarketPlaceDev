@@ -1,0 +1,1 @@
+{{ "SELECT Document, Supplier FROM WebTemplate_CageReceiving_Document WHERE Cage = @Location" | dbSelect({Location}) | basicTable({selectOnColumn:"Document", enableSearch:true}) }}
