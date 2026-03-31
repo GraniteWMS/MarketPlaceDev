@@ -1,0 +1,14 @@
+{
+  "Identifier": "01e3b166-2743-44e5-b77a-da8f671fa0c1",
+  "Name": "WebTemplate_CageReceiving_MasterItem",
+  "Description": "",
+  "Type": "VIEW",
+  "Version": 1,
+  "LastModified": "31/03/2026",
+  "DatabaseVersion": "8.0.0.0",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}
