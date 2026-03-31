@@ -1,0 +1,14 @@
+{
+  "Identifier": "75e3ff0c-b398-4e9e-9978-8b0255a94564",
+  "Name": "Custom_Table_UserGroup",
+  "Description": "Test table artifact",
+  "Type": "USER_TABLE",
+  "Version": 0,
+  "LastModified": "31/03/2026",
+  "DatabaseVersion": "8.0.0.0",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}
