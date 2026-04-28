@@ -1,0 +1,11 @@
+{
+  "Identifier": "aedd9944e1cd59a99e6f61147ed48fc9",
+  "Name": "WebtemplateLookupValue",
+  "Description": "",
+  "Type": "SQL_STORED_PROCEDURE",
+  "Version": 1,
+  "LastModified": "09/02/2024",
+  "Author": "Gabriel Innes",
+  "Tags": [],
+  "ArtifactDependencies": []
+}

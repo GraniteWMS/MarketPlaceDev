@@ -1,0 +1,1 @@
+{{ "SELECT MasterItem, PackedQty FROM WebtemplateUnPackMasterItem WHERE Barcode = @Barcode " | dbSelect({Barcode}) | basicTable({selectOnColumn:"MasterItem", enableSearch:true}) }}

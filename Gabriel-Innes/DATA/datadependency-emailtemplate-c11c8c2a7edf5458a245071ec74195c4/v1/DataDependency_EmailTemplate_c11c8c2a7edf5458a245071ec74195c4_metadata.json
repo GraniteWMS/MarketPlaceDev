@@ -1,0 +1,18 @@
+{
+  "Identifier": "c11c8c2a7edf5458a245071ec74195c4",
+  "Name": "DataDependency_EmailTemplate_c11c8c2a7edf5458a245071ec74195c4",
+  "Description": "",
+  "Type": "DATA",
+  "Version": 1,
+  "LastModified": "16/02/2024",
+  "Author": "Gabriel Innes",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "TypeSpecificAttributes": {
+    "Table": "EmailTemplate",
+    "KeyColumn": "Name",
+    "KeyValues": [
+      "PickingNotification"
+    ]
+  }
+}

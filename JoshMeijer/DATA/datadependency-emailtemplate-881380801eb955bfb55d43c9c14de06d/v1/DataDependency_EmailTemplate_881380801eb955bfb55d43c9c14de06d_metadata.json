@@ -1,0 +1,18 @@
+{
+  "Identifier": "881380801eb955bfb55d43c9c14de06d",
+  "Name": "DataDependency_EmailTemplate_881380801eb955bfb55d43c9c14de06d",
+  "Description": "",
+  "Type": "DATA",
+  "Version": 1,
+  "LastModified": "09/04/2024",
+  "Author": "Josh",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "TypeSpecificAttributes": {
+    "Table": "dbo.EmailTemplate",
+    "KeyColumn": "Name",
+    "KeyValues": [
+      "PickingNotification"
+    ]
+  }
+}

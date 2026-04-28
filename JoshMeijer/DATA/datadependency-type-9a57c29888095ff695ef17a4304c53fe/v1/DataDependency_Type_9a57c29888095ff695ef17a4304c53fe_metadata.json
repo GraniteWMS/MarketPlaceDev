@@ -1,0 +1,18 @@
+{
+  "Identifier": "9a57c29888095ff695ef17a4304c53fe",
+  "Name": "DataDependency_Type_9a57c29888095ff695ef17a4304c53fe",
+  "Description": "",
+  "Type": "DATA",
+  "Version": 1,
+  "LastModified": "31/05/2024",
+  "Author": "CRAIG",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "TypeSpecificAttributes": {
+    "Table": "Type",
+    "KeyColumn": "Name",
+    "KeyValues": [
+      "OFFSITESERVICES"
+    ]
+  }
+}

@@ -1,0 +1,87 @@
+{
+  "Identifier": "ef3279d7f29140658a4a907a7f7281c6",
+  "Name": "SINGLE_COUNT_STOCKTAKE",
+  "Description": "STOCKTAKECOUNT\n\nPrevent users adding to an existing counted qty. Count must be reset from desktop to allow recounts on same count number. Works for TrackingEntities and CarryingEntities",
+  "Type": "PROCESS",
+  "Version": 1,
+  "LastModified": "13/02/2024",
+  "Author": "Josh",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "ad510c09ff185514bf897df308541fda",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PrescriptStockTakeCountTrackingEntity"
+    }
+  ],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "STOCKTAKECOUNT",
+    "ProcessStepMetadata": [
+      {
+        "Name": "Session",
+        "Description": "Session",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "Count",
+        "Description": "Count",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "Location",
+        "Description": "Location",
+        "ProcessIndex": 2,
+        "NextIndex": 3,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "TrackingEntity",
+        "Description": "TrackingEntity",
+        "ProcessIndex": 3,
+        "NextIndex": 4,
+        "isActive": true,
+        "Required": false,
+        "PreScript": "PrescriptStockTakeCountTrackingEntity",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "PalletConfirmation",
+        "Description": "PalletConfirmation",
+        "ProcessIndex": 4,
+        "NextIndex": 5,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "Qty",
+        "Description": "Qty",
+        "ProcessIndex": 5,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      }
+    ]
+  },
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

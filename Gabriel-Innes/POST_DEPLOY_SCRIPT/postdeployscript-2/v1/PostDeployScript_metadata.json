@@ -1,0 +1,11 @@
+{
+  "Identifier": "f117bd9ef072574aa09a7457df1738dc",
+  "Name": "PostDeployScript",
+  "Description": "",
+  "Type": "POST_DEPLOY_SCRIPT",
+  "Version": 1,
+  "LastModified": "20/02/2024",
+  "Author": "Gabriel Innes",
+  "Tags": [],
+  "ArtifactDependencies": []
+}

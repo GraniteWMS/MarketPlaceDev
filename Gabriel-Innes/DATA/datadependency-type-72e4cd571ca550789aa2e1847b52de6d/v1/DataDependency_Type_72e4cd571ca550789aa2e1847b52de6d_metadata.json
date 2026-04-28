@@ -1,0 +1,18 @@
+{
+  "Identifier": "72e4cd571ca550789aa2e1847b52de6d",
+  "Name": "DataDependency_Type_72e4cd571ca550789aa2e1847b52de6d",
+  "Description": "",
+  "Type": "DATA",
+  "Version": 1,
+  "LastModified": "15/02/2024",
+  "Author": "Gabriel Innes",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "TypeSpecificAttributes": {
+    "Table": "dbo.Type",
+    "KeyColumn": "Name",
+    "KeyValues": [
+      "UNPACK"
+    ]
+  }
+}

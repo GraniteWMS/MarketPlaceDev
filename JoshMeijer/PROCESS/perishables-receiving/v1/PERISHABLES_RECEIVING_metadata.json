@@ -1,0 +1,129 @@
+{
+  "Identifier": "68415d7e8fae4ff8a04a29f70b1a1ce9",
+  "Name": "PERISHABLES_RECEIVING",
+  "Description": "PERISHABLES RECEIVING\n\nUtilizes MasterItem's EnforceBatchNumber and EnforceExpiryDate settings to ensure Expiry and Batch are captured when required. Also makes use of MasterItem's ShelfLife setting to auto populate ExpiryDate if ManufactureDate is entered.",
+  "Type": "PROCESS",
+  "Version": 1,
+  "LastModified": "09/02/2024",
+  "Author": "Josh",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "cd67029fcc675de5add98af45756678e",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PrescriptPerishablesReceivingBatch"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "1d06391804b05cecbf17cad34fd9c309",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PrescriptPerishablesReceivingExpiryDate"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "0495f08d89665fddbc785a10ff68ee1f",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PrescriptPerishablesReceivingManufactureDate"
+    }
+  ],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "RECEIVING",
+    "ProcessStepMetadata": [
+      {
+        "Name": "Location",
+        "Description": "Receiving Location",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "Document",
+        "Description": "Document",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "MasterItem",
+        "Description": "MasterItem",
+        "ProcessIndex": 2,
+        "NextIndex": 3,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "Batch",
+        "Description": "Batch",
+        "ProcessIndex": 3,
+        "NextIndex": 4,
+        "isActive": true,
+        "Required": false,
+        "PreScript": "PrescriptPerishablesReceivingBatch",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "ExpiryDate",
+        "Description": "ExpiryDate (YYYYMMDD)",
+        "ProcessIndex": 5,
+        "NextIndex": 6,
+        "isActive": true,
+        "Required": false,
+        "PreScript": "PrescriptPerishablesReceivingExpiryDate",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Qty",
+        "Description": "Qty",
+        "ProcessIndex": 6,
+        "NextIndex": 7,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "NoEntities",
+        "Description": "Number of TrackingEntities",
+        "ProcessIndex": 7,
+        "NextIndex": 3,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "Print",
+        "Description": "Print",
+        "ProcessIndex": 99,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "ManufactureDate",
+        "Description": "ManufactureDate (YYYYMMDD)",
+        "ProcessIndex": 4,
+        "NextIndex": 5,
+        "isActive": true,
+        "Required": false,
+        "PreScript": "PrescriptPerishablesReceivingManufactureDate",
+        "hasWebTemplate": true
+      }
+    ]
+  },
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}
