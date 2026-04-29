@@ -1,0 +1,11 @@
+{
+  "Identifier": "b49b0ef32d505b7a8178c805730d2dcb",
+  "Name": "PrescriptAddLocationsToStockTakeLocation",
+  "Description": "",
+  "Type": "PRESCRIPT",
+  "Version": 1,
+  "LastModified": "20/02/2024",
+  "Author": "Gabriel Innes",
+  "Tags": [],
+  "ArtifactDependencies": []
+}

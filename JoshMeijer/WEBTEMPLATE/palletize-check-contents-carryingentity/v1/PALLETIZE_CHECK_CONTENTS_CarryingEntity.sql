@@ -1,0 +1,1 @@
+<style> #btnNew { display:none } </style>

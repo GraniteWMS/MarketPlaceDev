@@ -1,0 +1,18 @@
+{
+  "Identifier": "0ba47c11152a54c0820294005715c3e4",
+  "Name": "PickingNotification",
+  "Description": "This template shows the details of what was picked on an order",
+  "Type": "EMAIL_TEMPLATE",
+  "Version": 0,
+  "LastModified": "09/04/2024",
+  "Author": "Josh",
+  "Tags": [
+    "email",
+    "template"
+  ],
+  "ArtifactDependencies": [],
+  "DatabaseVersion": "8.0.0.0",
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

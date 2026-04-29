@@ -1,0 +1,11 @@
+{
+  "Identifier": "463edbba1e345c5aa70eda98758d5a67",
+  "Name": "WebTemplate_TransferOffsiteConfirmation",
+  "Description": "",
+  "Type": "SQL_STORED_PROCEDURE",
+  "Version": 1,
+  "LastModified": "31/05/2024",
+  "Author": "CRAIG",
+  "Tags": [],
+  "ArtifactDependencies": []
+}

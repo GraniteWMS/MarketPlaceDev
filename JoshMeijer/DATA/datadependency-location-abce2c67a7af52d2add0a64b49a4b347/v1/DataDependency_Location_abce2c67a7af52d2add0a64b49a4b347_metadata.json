@@ -1,0 +1,18 @@
+{
+  "Identifier": "abce2c67a7af52d2add0a64b49a4b347",
+  "Name": "DataDependency_Location_abce2c67a7af52d2add0a64b49a4b347",
+  "Description": "",
+  "Type": "DATA",
+  "Version": 1,
+  "LastModified": "09/02/2024",
+  "Author": "Josh",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "TypeSpecificAttributes": {
+    "Table": "Location",
+    "KeyColumn": "Barcode",
+    "KeyValues": [
+      "SCRAP"
+    ]
+  }
+}

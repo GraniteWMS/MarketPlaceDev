@@ -1,0 +1,100 @@
+{
+  "Identifier": "52bba4945d624029bb8808b04454716b",
+  "Name": "ADHOC_STOCKTAKE",
+  "Description": "ADHOC_STOCKTAKE\n\nSimple adhoc stock take count. User has option to select session or enter new session name. Barcodes scanned will be added to session.",
+  "Type": "PROCESS",
+  "Version": 0,
+  "LastModified": "04/04/2024",
+  "Author": "James Davidson",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "de85884c9f7d5e44b7064ba61ce62ce9",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PrescriptAdhocStockTake_Session"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "568978d20e41537b8ce258cbcfa5a77c",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PrescriptAdhocStockTake_TrackingEntity"
+    }
+  ],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "STOCKTAKECOUNT",
+    "ProcessStepMetadata": [
+      {
+        "Name": "Session",
+        "Description": "Session",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "PrescriptAdhocStockTake_Session",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Count",
+        "Description": "Count",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "Location",
+        "Description": "Location",
+        "ProcessIndex": 2,
+        "NextIndex": 3,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "TrackingEntity",
+        "Description": "TrackingEntity",
+        "ProcessIndex": 3,
+        "NextIndex": 4,
+        "isActive": true,
+        "Required": false,
+        "PreScript": "PrescriptAdhocStockTake_TrackingEntity",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "PalletConfirmation",
+        "Description": "PalletConfirmation",
+        "ProcessIndex": 4,
+        "NextIndex": 5,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "Qty",
+        "Description": "Qty",
+        "ProcessIndex": 5,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      }
+    ]
+  },
+  "PostDeployArtifacts": [
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "72c9754002135d2a8c098f41b59f474f",
+      "ArtifactVersion": 1,
+      "ArtifactName": "ADHOC_STOCKTAKE_Session"
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

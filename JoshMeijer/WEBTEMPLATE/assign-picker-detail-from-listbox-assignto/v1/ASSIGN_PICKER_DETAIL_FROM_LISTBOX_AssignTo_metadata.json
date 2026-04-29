@@ -1,0 +1,20 @@
+{
+  "Identifier": "0e8ff74a324b534ea3ae39ee1c857879",
+  "Name": "ASSIGN_PICKER_DETAIL_FROM_LISTBOX_AssignTo",
+  "Description": "WebTemplate for process template ASSIGN_PICKER_DETAIL_FROM_LISTBOX / step AssignTo",
+  "Type": "WEBTEMPLATE",
+  "Version": 1,
+  "LastModified": "20/04/2026",
+  "Author": "Nicole",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "10c5981e29c053b79e3431d04417b10e",
+      "ArtifactVersion": 1
+    }
+  ],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

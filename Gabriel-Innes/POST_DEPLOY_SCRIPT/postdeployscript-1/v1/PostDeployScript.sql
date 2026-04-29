@@ -1,0 +1,3 @@
+IF NOT EXISTS (SELECT * FROM OptionalFields WHERE Name = 'ImageURL')
+BEGIN
+	END

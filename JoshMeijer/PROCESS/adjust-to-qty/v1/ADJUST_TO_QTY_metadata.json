@@ -1,0 +1,77 @@
+{
+  "Identifier": "fbd130e4387949aa9c9b8d757aebf4ef",
+  "Name": "ADJUST_TO_QTY",
+  "Description": "ADJUST QTY\n\nRemove the mental math for the user by allowing them to enter the qty they want to adjust TO, instead of the qty they want to adjust BY.\n\nMakes use of clr_Adjustment. Ensure CLR procedures are deployed and configured",
+  "Type": "PROCESS",
+  "Version": 1,
+  "LastModified": "09/02/2024",
+  "Author": "Josh",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "1164716751d459c6bf58a8bdb200c7bc",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PrescriptAdjustToQtyTrackingEntity"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "21ed7978c004560883a95573d1ef9ed3",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PrescriptAdjustToQtyQty"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "6c8f4188c17a53439d58493c1e2df8e2",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PrescriptAdjustToQtyStep200"
+    }
+  ],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "CUSTOM",
+    "ProcessStepMetadata": [
+      {
+        "Name": "TrackingEntity",
+        "Description": "TrackingEntity",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "PrescriptAdjustToQtyTrackingEntity",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Qty",
+        "Description": "Qty",
+        "ProcessIndex": 1,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "PrescriptAdjustToQtyQty",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Step200",
+        "Description": "Step200",
+        "ProcessIndex": 200,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "PrescriptAdjustToQtyStep200",
+        "hasWebTemplate": true
+      }
+    ]
+  },
+  "PostDeployArtifacts": [
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "ab94d3e760445afbae52d6f81b194626",
+      "ArtifactVersion": 1,
+      "ArtifactName": "ADJUST_TO_QTY"
+    }
+  ],
+  "DependsOnClr": true,
+  "SqlClrAssemblyVersion": "7.0.0.0",
+  "Deprecated": false
+}

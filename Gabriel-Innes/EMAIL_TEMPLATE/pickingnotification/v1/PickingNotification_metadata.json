@@ -1,0 +1,18 @@
+{
+  "Identifier": "d5f6a23c11ba5d77acc518acfab4d747",
+  "Name": "PickingNotification",
+  "Description": "",
+  "Type": "EMAIL_TEMPLATE",
+  "Version": 1,
+  "LastModified": "16/02/2024",
+  "Author": "Gabriel Innes",
+  "Tags": [
+    "email",
+    "template"
+  ],
+  "ArtifactDependencies": [],
+  "DatabaseVersion": "8.0.0.0",
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

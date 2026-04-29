@@ -1,0 +1,18 @@
+{
+  "Identifier": "8086286f63ac5b1882bb7cf58377cc09",
+  "Name": "DataDependency_Location_8086286f63ac5b1882bb7cf58377cc09",
+  "Description": "",
+  "Type": "DATA",
+  "Version": 1,
+  "LastModified": "09/04/2024",
+  "Author": "Craig Collins",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "TypeSpecificAttributes": {
+    "Table": "Location",
+    "KeyColumn": "Barcode",
+    "KeyValues": [
+      "1-DELIVERYAPRON"
+    ]
+  }
+}

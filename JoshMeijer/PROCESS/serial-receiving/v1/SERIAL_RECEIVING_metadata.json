@@ -1,0 +1,94 @@
+{
+  "Identifier": "438e16810dbc4df9b7b43fee24e32a8b",
+  "Name": "SERIAL_RECEIVING",
+  "Description": "SERIAL RECEIVING\n\nUtilizes MasterItem's EnforceSerialNumber setting to force the capture of SerialNumber for items that require it. Also forces Qty to be 1 for items that require a SerialNumber\n\nSet MasterItem.EnforceSerialNumber on serialized products.",
+  "Type": "PROCESS",
+  "Version": 1,
+  "LastModified": "09/02/2024",
+  "Author": "Josh",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "b72013a1e42350e692b5ad2e90541a4d",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PrescriptSerialReceivingQty"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "2886cfbf2b0d58c4b7b27904de0902fa",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PrescriptSerialReceivingSerialNumber"
+    }
+  ],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "RECEIVING",
+    "ProcessStepMetadata": [
+      {
+        "Name": "Location",
+        "Description": "Receiving Location",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "Document",
+        "Description": "Document",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "MasterItem",
+        "Description": "MasterItem",
+        "ProcessIndex": 2,
+        "NextIndex": 3,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "Qty",
+        "Description": "Qty",
+        "ProcessIndex": 4,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "DefaultValue": "",
+        "PreScript": "PrescriptSerialReceivingQty",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Print",
+        "Description": "Print",
+        "ProcessIndex": 99,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "SerialNumber",
+        "Description": "SerialNumber",
+        "ProcessIndex": 3,
+        "NextIndex": 4,
+        "isActive": true,
+        "Required": false,
+        "PreScript": "PrescriptSerialReceivingSerialNumber",
+        "hasWebTemplate": true
+      }
+    ]
+  },
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

@@ -1,0 +1,121 @@
+{
+  "Identifier": "0e699ff96d8746f18602c51434a92c83",
+  "Name": "PERISHABLES_TAKEON",
+  "Description": "PERISHABLES TAKEON\n\nUse when you want to enforce Batch and ExpiryDate. Will also populate ExpiryDate based on MasterItem.ShelfLife when user captures ManufactureDate.\n\nMaintain and set EnforceBatchNumber, EnforceExpiryDate, ShelfLife on MasterItems where it applies.",
+  "Type": "PROCESS",
+  "Version": 0,
+  "LastModified": "09/02/2024",
+  "Author": "Josh",
+  "Tags": [
+    "Manufacturing"
+  ],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "aa88206b1f7554e6a50663c319b88d3b",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PrescriptPerishablesTakeonBatch"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "ba7f42404b96553eb5e1541677d6f7e4",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PrescriptPerishablesTakeonExpiryDate"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "b6705ec750685e52b89704e5b835aee5",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PrescriptPerishablesTakeonManufactureDate"
+    }
+  ],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "TAKEON",
+    "ProcessStepMetadata": [
+      {
+        "Name": "MasterItem",
+        "Description": "MasterItem",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "Location",
+        "Description": "Location",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "Batch",
+        "Description": "Batch",
+        "ProcessIndex": 2,
+        "NextIndex": 3,
+        "isActive": true,
+        "Required": false,
+        "PreScript": "PrescriptPerishablesTakeonBatch",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "ExpiryDate",
+        "Description": "ExpiryDate (YYYYMMDD)",
+        "ProcessIndex": 4,
+        "NextIndex": 5,
+        "isActive": true,
+        "Required": false,
+        "PreScript": "PrescriptPerishablesTakeonExpiryDate",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Qty",
+        "Description": "Qty",
+        "ProcessIndex": 5,
+        "NextIndex": 6,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "NoEntities",
+        "Description": "Number of TrackingEntities",
+        "ProcessIndex": 6,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "Print",
+        "Description": "Print",
+        "ProcessIndex": 99,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "ManufactureDate",
+        "Description": "ManufactureDate (YYYYMMDD)",
+        "ProcessIndex": 3,
+        "NextIndex": 4,
+        "isActive": true,
+        "Required": false,
+        "PreScript": "PrescriptPerishablesTakeonManufactureDate",
+        "hasWebTemplate": true
+      }
+    ]
+  },
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}
