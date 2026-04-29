@@ -1,3 +1,0 @@
-IF NOT EXISTS(SELECT ID FROM [Location] WHERE Barcode = 'SCRAP' OR [Name] = 'SCRAP')
- BEGIN
- END

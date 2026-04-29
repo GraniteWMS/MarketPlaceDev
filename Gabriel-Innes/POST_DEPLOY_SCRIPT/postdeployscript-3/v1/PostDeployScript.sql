@@ -1,3 +1,0 @@
-IF NOT EXISTS (SELECT 1 FROM [dbo].[Type] WHERE [Name] = N'UNPACK' AND [AppliesTo] = N'TRANSACTION') 
-BEGIN 
-	END

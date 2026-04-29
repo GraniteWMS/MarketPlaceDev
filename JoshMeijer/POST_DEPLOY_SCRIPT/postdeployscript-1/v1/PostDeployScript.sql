@@ -1,3 +1,0 @@
-IF NOT EXISTS (SELECT * FROM Location WHERE Barcode = 'DIS')
-BEGIN
-	END
