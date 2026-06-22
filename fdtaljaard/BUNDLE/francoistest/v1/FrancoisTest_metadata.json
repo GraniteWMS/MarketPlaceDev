@@ -1,0 +1,29 @@
+{
+  "Identifier": "d2cec47a-ed33-445e-bcb6-c0a3a8945ead",
+  "Name": "FrancoisTest",
+  "Description": "Francois Test bundle",
+  "Type": "BUNDLE",
+  "Version": 1,
+  "LastModified": "22/06/2026",
+  "Tags": [
+    "test",
+    "delete"
+  ],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "DATA",
+      "ArtifactIdentifier": "7624d30d59d65c89862a537910dbb592",
+      "ArtifactVersion": 1,
+      "ArtifactName": "DataDependency_BarcodeMaster_7624d30d59d65c89862a537910dbb592"
+    },
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "a322065f6a065d5998c2afec98d42c9c",
+      "ArtifactVersion": 1,
+      "ArtifactName": "EmailTemplatePickedLines"
+    }
+  ],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}
