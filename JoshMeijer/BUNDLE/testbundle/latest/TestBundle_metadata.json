@@ -1,0 +1,26 @@
+{
+  "Identifier": "8ff13aad-c8c3-4a12-8111-b7e0a7412b57",
+  "Name": "TestBundle",
+  "Description": "",
+  "Type": "BUNDLE",
+  "Version": 0,
+  "LastModified": "23/06/2026",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "PROCESS",
+      "ArtifactIdentifier": "b3da19c459084f478e50fb245c3490c0",
+      "ArtifactVersion": 1,
+      "ArtifactName": "LOOKUP_WITH_IMAGES"
+    },
+    {
+      "ArtifactType": "PROCESS",
+      "ArtifactIdentifier": "d4705e6d744747bf8e266f9f5b207bae",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PRINT_REPORT_PICKSLIP"
+    }
+  ],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}
