@@ -1,1 +1,0 @@
-INSERT INTO [Location] (Barcode, [Name], isActive) VALUES ('SCRAP', 'SCRAP', 1)

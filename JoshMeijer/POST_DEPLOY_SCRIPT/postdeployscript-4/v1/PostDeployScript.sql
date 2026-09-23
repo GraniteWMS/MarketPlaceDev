@@ -1,3 +1,0 @@
-IF NOT EXISTS (SELECT 1 FROM Location WHERE Barcode = 'SCRAP')
-BEGIN
-    END
