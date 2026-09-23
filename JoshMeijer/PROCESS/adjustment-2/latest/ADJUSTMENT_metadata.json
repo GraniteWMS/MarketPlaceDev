@@ -1,0 +1,93 @@
+{
+  "Identifier": "be63ec15-aab0-49a7-95a0-c2faa532eaca",
+  "Name": "ADJUSTMENT",
+  "Description": "Test new process artifact",
+  "Type": "PROCESS",
+  "Version": 0,
+  "LastModified": "23/09/2026",
+  "DatabaseVersion": "8.0.0.0",
+  "Tags": [],
+  "TypeSpecificAttributes": {
+    "ProcessType": "ADJUSTMENT",
+    "ProcessName": "ADJUSTMENT",
+    "ProcessDescription": "ADJUSTMENT",
+    "IntegrationIsActive": false,
+    "IntegrationPost": false,
+    "ProcessStepMetadata": [
+      {
+        "Name": "IntegrationReference",
+        "Description": "IntegrationReference",
+        "Process": "ADJUSTMENT",
+        "ProcessIndex": 0,
+        "NextIndex": 0,
+        "isActive": false,
+        "Required": false,
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Reference",
+        "Description": "Reference",
+        "Process": "ADJUSTMENT",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "TrackingEntity",
+        "Description": "TrackingEntity",
+        "Process": "ADJUSTMENT",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Type",
+        "Description": "Type",
+        "Process": "ADJUSTMENT",
+        "ProcessIndex": 2,
+        "NextIndex": 3,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Qty",
+        "Description": "Qty",
+        "Process": "ADJUSTMENT",
+        "ProcessIndex": 3,
+        "NextIndex": 4,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Comment",
+        "Description": "Comment",
+        "Process": "ADJUSTMENT",
+        "ProcessIndex": 4,
+        "NextIndex": 5,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Confirmation",
+        "Description": "Confirmation",
+        "Process": "ADJUSTMENT",
+        "ProcessIndex": 5,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": true
+      }
+    ]
+  },
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}
