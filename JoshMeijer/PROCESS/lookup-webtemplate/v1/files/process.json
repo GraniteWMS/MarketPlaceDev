@@ -1,0 +1,29 @@
+{
+  "Name": "LOOKUP_WEBTEMPLATE",
+  "Description": "GENERIC LOOKUP",
+  "Type": "CUSTOM",
+  "IsActive": true,
+  "IntegrationIsActive": false,
+  "IntegrationPost": false,
+  "WebTemplateArtifact": "7fc8f460-27eb-530d-bf12-acfda44e32eb",
+  "Steps": [
+    {
+      "Name": "Scanned",
+      "Description": "Scan a Barcode",
+      "ProcessIndex": 0,
+      "NextIndex": 1,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false
+    },
+    {
+      "Name": "Result",
+      "Description": "Press Enter to Restart",
+      "ProcessIndex": 1,
+      "NextIndex": 0,
+      "IsActive": true,
+      "Required": false,
+      "IsBusinessRule": false
+    }
+  ]
+}

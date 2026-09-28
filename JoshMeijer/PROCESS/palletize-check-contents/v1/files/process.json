@@ -1,0 +1,40 @@
+{
+  "Name": "PALLETIZE_CHECK_CONTENTS",
+  "Description": "PALLETIZE ADD",
+  "Type": "PALLETIZE",
+  "IsActive": true,
+  "IntegrationIsActive": false,
+  "IntegrationPost": false,
+  "Steps": [
+    {
+      "Name": "CarryingEntity",
+      "Description": "CarryingEntity (Pallet)",
+      "ProcessIndex": 0,
+      "NextIndex": 1,
+      "IsActive": true,
+      "Required": false,
+      "IsBusinessRule": false,
+      "WebTemplateArtifact": "6b769799-2152-5a78-ab24-30ec006b4d52"
+    },
+    {
+      "Name": "TrackingEntity",
+      "Description": "TrackingEntity",
+      "ProcessIndex": 1,
+      "NextIndex": 1,
+      "IsActive": true,
+      "Required": false,
+      "IsBusinessRule": false,
+      "PreScript": "PrescriptPalletizeCheckContentsTrackingEntity"
+    },
+    {
+      "Name": "Type",
+      "Description": "Type",
+      "ProcessIndex": 100,
+      "NextIndex": 1,
+      "IsActive": true,
+      "Required": false,
+      "IsBusinessRule": false,
+      "DefaultValue": "Add"
+    }
+  ]
+}

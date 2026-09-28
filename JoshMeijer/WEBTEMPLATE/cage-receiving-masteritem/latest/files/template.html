@@ -1,0 +1,1 @@
+{{ "SELECT Code, Description, Completion FROM WebTemplate_CageReceiving_MasterItem WHERE Document = @Document" | dbSelect({Document}) | basicTable({selectOnColumn:"Code", enableSearch:true}) }}

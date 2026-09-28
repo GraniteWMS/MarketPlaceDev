@@ -1,0 +1,13 @@
+{
+  "Identifier": "f239c9d8135d5be788f63722cc6cf311",
+  "Name": "SCRAP_WITH_REASON_Reference",
+  "Description": "WebTemplate for process template SCRAP_WITH_REASON / step Reference",
+  "Type": "WEBTEMPLATE",
+  "Version": 0,
+  "LastModified": "16/05/2024",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

@@ -1,0 +1,66 @@
+{
+  "Name": "DELIVERY_ARRIVAL",
+  "Description": "DELIVERY_ARRIVAL",
+  "Type": "CUSTOM",
+  "IsActive": true,
+  "IntegrationIsActive": false,
+  "IntegrationPost": false,
+  "Steps": [
+    {
+      "Name": "Location",
+      "Description": "Select Location from Lookup List",
+      "ProcessIndex": 0,
+      "NextIndex": 1,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "WebTemplateArtifact": "08fa2cd2-4c3d-54d7-b604-60cf45cd03df"
+    },
+    {
+      "Name": "Carrier",
+      "Description": "Carrier Company",
+      "ProcessIndex": 1,
+      "NextIndex": 2,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false
+    },
+    {
+      "Name": "VehicleReg",
+      "Description": "Vehicle Registration",
+      "ProcessIndex": 2,
+      "NextIndex": 3,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false
+    },
+    {
+      "Name": "Driver",
+      "Description": "Driver Name or Initials",
+      "ProcessIndex": 3,
+      "NextIndex": 4,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false
+    },
+    {
+      "Name": "Reference",
+      "Description": "Waybill or Container Number",
+      "ProcessIndex": 4,
+      "NextIndex": 5,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false
+    },
+    {
+      "Name": "PODocument",
+      "Description": "Purchase Order Document",
+      "ProcessIndex": 5,
+      "NextIndex": 5,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "DELIVERY_ARRIVAL_PODocument"
+    }
+  ]
+}

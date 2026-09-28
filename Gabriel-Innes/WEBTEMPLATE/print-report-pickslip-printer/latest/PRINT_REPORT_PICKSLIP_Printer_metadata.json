@@ -1,0 +1,13 @@
+{
+  "Identifier": "6dc9adbe25f4583ea33feb1626c79c92",
+  "Name": "PRINT_REPORT_PICKSLIP_Printer",
+  "Description": "WebTemplate for process template PRINT_REPORT_PICKSLIP / step Printer",
+  "Type": "WEBTEMPLATE",
+  "Version": 0,
+  "LastModified": "16/02/2024",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

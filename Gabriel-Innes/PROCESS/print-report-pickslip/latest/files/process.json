@@ -1,0 +1,39 @@
+{
+  "Name": "PRINT_REPORT_PICKSLIP",
+  "Description": "PRINT_REPORT_PICKSLIP",
+  "Type": "CUSTOM",
+  "IsActive": true,
+  "IntegrationIsActive": false,
+  "IntegrationPost": false,
+  "Steps": [
+    {
+      "Name": "Document",
+      "Description": "Document",
+      "ProcessIndex": 0,
+      "NextIndex": 1,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false
+    },
+    {
+      "Name": "Printer",
+      "Description": "Printer name",
+      "ProcessIndex": 1,
+      "NextIndex": 2,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "WebTemplateArtifact": "6dc9adbe-25f4-583e-a33f-eb1626c79c92"
+    },
+    {
+      "Name": "Confirmation",
+      "Description": "Confirm Print",
+      "ProcessIndex": 2,
+      "NextIndex": 0,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "PrescriptPrintPickslipConfirmation"
+    }
+  ]
+}

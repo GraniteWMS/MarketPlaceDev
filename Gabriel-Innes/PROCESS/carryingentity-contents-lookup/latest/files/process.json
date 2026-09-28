@@ -1,0 +1,29 @@
+{
+  "Name": "CARRYINGENTITY_CONTENTS_LOOKUP",
+  "Description": "CARRYINGENTITY_CONTENTS_LOOKUP",
+  "Type": "CUSTOM",
+  "IsActive": true,
+  "IntegrationIsActive": false,
+  "IntegrationPost": false,
+  "WebTemplateArtifact": "3b7781a4-27cb-5b75-b7fc-549ad324c167",
+  "Steps": [
+    {
+      "Name": "Barcode",
+      "Description": "Carrying Entity Barcode",
+      "ProcessIndex": 0,
+      "NextIndex": 1,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false
+    },
+    {
+      "Name": "Confirmation",
+      "Description": "Confirm",
+      "ProcessIndex": 1,
+      "NextIndex": 0,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false
+    }
+  ]
+}

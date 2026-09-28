@@ -1,0 +1,53 @@
+{
+  "Name": "ASSIGN_PICKER_DETAIL_FROM_LISTBOX",
+  "Description": "ASSIGN_PICKER_DETAIL_FROM_LISTBOX",
+  "Type": "CUSTOM",
+  "IsActive": true,
+  "IntegrationIsActive": false,
+  "IntegrationPost": false,
+  "WebTemplateArtifact": "1b184a49-25d5-5ab0-a589-68da9822b81d",
+  "Steps": [
+    {
+      "Name": "Type",
+      "Description": "Select Type",
+      "ProcessIndex": 0,
+      "NextIndex": 1,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "WebTemplateArtifact": "e9323532-5f84-55ec-b632-1742a56b774a"
+    },
+    {
+      "Name": "Document",
+      "Description": "Document",
+      "ProcessIndex": 1,
+      "NextIndex": 2,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "PrescriptAssignPickerDetailDocument",
+      "WebTemplateArtifact": "d98f4631-9ca0-5cd8-a509-5b8ac1213c13"
+    },
+    {
+      "Name": "AssignTo",
+      "Description": "Select User to Assign To",
+      "ProcessIndex": 2,
+      "NextIndex": 3,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "WebTemplateArtifact": "0e8ff74a-324b-534e-a3ae-39ee1c857879"
+    },
+    {
+      "Name": "SelectedRecordID",
+      "Description": "Select Record(s) from Line List",
+      "ProcessIndex": 3,
+      "NextIndex": 3,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "PrescriptAssignPickerDetailFromListSelectedRecordID",
+      "WebTemplateArtifact": "b234e953-5f2b-5743-857f-99e7d7c98484"
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "Identifier": "bba2a0e47a8452f5bc27628a4815c7a0",
+  "Name": "DataDependency_SystemStaticData_bba2a0e47a8452f5bc27628a4815c7a0",
+  "Description": "",
+  "Type": "DATA",
+  "Version": 0,
+  "LastModified": "16/02/2024",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "TypeSpecificAttributes": {
+    "Table": "SystemStaticData",
+    "KeyColumn": "Key",
+    "KeyValues": [
+      "PickingConfirmation"
+    ]
+  }
+}

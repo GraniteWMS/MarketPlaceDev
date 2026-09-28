@@ -1,0 +1,1 @@
+INSERT INTO [dbo].[OptionalFields] ([Name], [isActive], [AppliesTo]) VALUES ('AssignedTo', 1, 'DOCUMENTDETAIL')

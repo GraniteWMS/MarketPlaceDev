@@ -1,0 +1,20 @@
+{
+  "Name": "EXAMPLE_EMAIL_SSRSATTACHMENT",
+  "Description": "EXAMPLE_EMAIL_SSRSATTACHMENT",
+  "Type": "CUSTOM",
+  "IsActive": true,
+  "IntegrationIsActive": false,
+  "IntegrationPost": false,
+  "Steps": [
+    {
+      "Name": "Example",
+      "Description": "Example",
+      "ProcessIndex": 0,
+      "NextIndex": 0,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "Prescript_Example_SendEmailWithSsrsReport"
+    }
+  ]
+}

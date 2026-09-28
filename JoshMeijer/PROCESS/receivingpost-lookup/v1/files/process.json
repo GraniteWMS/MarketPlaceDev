@@ -1,0 +1,40 @@
+{
+  "Name": "RECEIVINGPOST_LOOKUP",
+  "Description": "RECEIVINGPOST_LOOKUP",
+  "Type": "RECEIVINGPOST",
+  "IsActive": true,
+  "IntegrationIsActive": true,
+  "IntegrationPost": true,
+  "Steps": [
+    {
+      "Name": "Document",
+      "Description": "Document",
+      "ProcessIndex": 0,
+      "NextIndex": 1,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "WebTemplateArtifact": "d6b43eab-6208-543f-b954-b3447e5a376b"
+    },
+    {
+      "Name": "Confirmation",
+      "Description": "Confirm the Details to Post",
+      "ProcessIndex": 1,
+      "NextIndex": 0,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "WebTemplateArtifact": "d5f5871d-55d0-5321-97cb-3c4a2ec6d5d5"
+    },
+    {
+      "Name": "Step200",
+      "Description": "Insert Confirm Label to Print in Receiving",
+      "ProcessIndex": 200,
+      "NextIndex": 200,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "PrescriptReceivingPostStep200"
+    }
+  ]
+}

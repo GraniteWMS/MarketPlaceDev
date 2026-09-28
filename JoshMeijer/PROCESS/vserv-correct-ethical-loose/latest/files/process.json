@@ -1,0 +1,39 @@
+{
+  "Name": "VSERV_CORRECT_ETHICAL_LOOSE",
+  "Description": "VSERV_CORRECT_ETHICAL_LOOSE",
+  "Type": "ADJUSTMENT",
+  "IsActive": true,
+  "IntegrationIsActive": false,
+  "IntegrationPost": false,
+  "Steps": [
+    {
+      "Name": "TrackingEntity",
+      "Description": "Scan EAN Barcode",
+      "ProcessIndex": 1,
+      "NextIndex": 2,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "Prescript_CorrectEthicalLoose_TrackingEntity"
+    },
+    {
+      "Name": "Qty",
+      "Description": "Enter Corrected Qty",
+      "ProcessIndex": 2,
+      "NextIndex": 0,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "Prescript_AdjustToQty_Qty"
+    },
+    {
+      "Name": "Type",
+      "Description": "Type",
+      "ProcessIndex": 100,
+      "NextIndex": 0,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false
+    }
+  ]
+}

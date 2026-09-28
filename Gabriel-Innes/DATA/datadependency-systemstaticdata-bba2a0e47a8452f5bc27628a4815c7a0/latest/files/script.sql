@@ -1,0 +1,2 @@
+INSERT INTO [SystemStaticData] ([Key],[Description],[Group],[Value],[isEncrypted]) 
+VALUES('PickingConfirmation','List of emails to send the picking confirmation email to. Separate emails with ;','Prescript','email1@gmail.com;email2@gmail.com','False')

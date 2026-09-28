@@ -1,0 +1,41 @@
+{
+  "Name": "STOCKTAKE_ADD_LOCATION",
+  "Description": "STOCKTAKE_ADD_LOCATION",
+  "Type": "CUSTOM",
+  "IsActive": true,
+  "IntegrationIsActive": false,
+  "IntegrationPost": false,
+  "Steps": [
+    {
+      "Name": "Session",
+      "Description": "Stocktake Session",
+      "ProcessIndex": 0,
+      "NextIndex": 1,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "PrescriptAddLocationsToStockTake",
+      "WebTemplateArtifact": "c6482f19-b419-52dd-bbb9-c71ddc5d7c53"
+    },
+    {
+      "Name": "Location",
+      "Description": "Location",
+      "ProcessIndex": 1,
+      "NextIndex": 2,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "PrescriptAddLocationsToStockTakeLocation"
+    },
+    {
+      "Name": "Confirmation",
+      "Description": "Confirm",
+      "ProcessIndex": 2,
+      "NextIndex": 1,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "PrescriptAddLocationsToStockTakeConfirmation"
+    }
+  ]
+}

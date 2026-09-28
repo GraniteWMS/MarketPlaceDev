@@ -1,0 +1,8 @@
+{
+  "Group": "DocumentTracking",
+  "Name": "DocumentTrackingLog",
+  "SQLView": "DataGrid_Custom_DocumentTrackingLog",
+  "GridDefinition": "[{\"field\":\"Document\",\"width\":140,\"filter\":\"agTextColumnFilter\"},{\"headerName\":\"Comment\",\"field\":\"Comment\",\"width\":300,\"filter\":\"agTextColumnFilter\"},{\"field\":\"TrackingStatus\",\"width\":120,\"filter\":\"agTextColumnFilter\"},{\"field\":\"Process\",\"width\":180,\"filter\":\"agTextColumnFilter\"},{\"field\":\"User\",\"width\":120,\"filter\":\"agTextColumnFilter\"},{\"field\":\"ActivityDate\",\"width\":180,\"filter\":\"agDateColumnFilter\"}]",
+  "IsApplicationGrid": false,
+  "IsCustomGrid": true
+}

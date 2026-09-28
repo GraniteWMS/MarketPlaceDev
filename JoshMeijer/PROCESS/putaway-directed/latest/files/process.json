@@ -1,0 +1,30 @@
+{
+  "Name": "PUTAWAY-DIRECTED",
+  "Description": "PUTAWAY-DIRECTED",
+  "Type": "MOVE",
+  "IsActive": true,
+  "IntegrationIsActive": false,
+  "IntegrationPost": false,
+  "Steps": [
+    {
+      "Name": "TrackingEntity",
+      "Description": "Scan Tracking Barcode",
+      "ProcessIndex": 0,
+      "NextIndex": 1,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "WebTemplateArtifact": "9c9f71cf-5274-5341-9bb9-79b87312ff2d"
+    },
+    {
+      "Name": "Location",
+      "Description": "To Location",
+      "ProcessIndex": 1,
+      "NextIndex": 0,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "WebTemplateArtifact": "0fd8216a-51b2-548a-a9a8-b655417c2ffb"
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "Identifier": "08fa2cd24c3d54d7b60460cf45cd03df",
+  "Name": "DELIVERY_ARRIVAL_Location",
+  "Description": "WebTemplate for process template DELIVERY_ARRIVAL / step Location",
+  "Type": "WEBTEMPLATE",
+  "Version": 0,
+  "LastModified": "09/04/2024",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}
