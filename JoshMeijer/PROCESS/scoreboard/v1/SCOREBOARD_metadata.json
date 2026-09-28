@@ -1,0 +1,111 @@
+{
+  "Identifier": "845a5f48-8e77-45de-b928-642cec48406e",
+  "Name": "SCOREBOARD",
+  "Description": "SCOREBOARD 2026\n\nUpdated Scoreboard for standard REC, PUTAWAY, PICK, PACK with a new custom table design showing date separation and leader for the day.  Shows only last 3 days.\nThis process is amazing to get adoption in the warehouse and improve productivity",
+  "Type": "PROCESS",
+  "Version": 1,
+  "LastModified": "08/05/2026",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "72697a5a-91ca-5111-bc70-14408935d4fd",
+      "ArtifactVersion": 1,
+      "ArtifactName": "webtemplate_ScoreboardPutawayLines"
+    },
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "612a4985-e43c-5fd0-ba6c-b2b8d8c79537",
+      "ArtifactVersion": 1,
+      "ArtifactName": "webtemplate_ScoreboardPackedLines"
+    },
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "84a4ae69-52ba-5031-bebf-6079b8e567b3",
+      "ArtifactVersion": 1,
+      "ArtifactName": "webtemplate_ScoreboardPickedLines"
+    },
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "7f31b60a-f111-5db6-b48b-406d8b43e155",
+      "ArtifactVersion": 1,
+      "ArtifactName": "webtemplate_ScoreboardReceivedLines"
+    }
+  ],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "CUSTOM",
+    "ProcessStepMetadata": [
+      {
+        "Name": "ScorePutaway",
+        "Description": "Putaway Score",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": false,
+        "DefaultValue": "",
+        "PreScript": "",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "ScoreLoadOut",
+        "Description": "Packing Score",
+        "ProcessIndex": 3,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "ScorePicked",
+        "Description": "Picking Score",
+        "ProcessIndex": 2,
+        "NextIndex": 3,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "ScoreReceive",
+        "Description": "Receiving Score",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": false,
+        "DefaultValue": "",
+        "PreScript": "",
+        "hasWebTemplate": true
+      }
+    ]
+  },
+  "PostDeployArtifacts": [
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "9de1818c-4fc9-5c1e-aaff-5cc12376d7bf",
+      "ArtifactVersion": 1,
+      "ArtifactName": "SCOREBOARD_ScoreReceive"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "ba0b0803-93b2-5298-8134-6bd6fd9b9d2a",
+      "ArtifactVersion": 1,
+      "ArtifactName": "SCOREBOARD_ScorePutaway"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "39f049c7-52cb-562b-9c04-20df61b5456a",
+      "ArtifactVersion": 1,
+      "ArtifactName": "SCOREBOARD_ScorePicked"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "97bfa636-1e66-55cc-a099-d69c4e924e45",
+      "ArtifactVersion": 1,
+      "ArtifactName": "SCOREBOARD_ScoreLoadOut"
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

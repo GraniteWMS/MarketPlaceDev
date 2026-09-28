@@ -1,0 +1,31 @@
+{
+  "Name": "LOOKUP_ITEMLOC",
+  "Description": "Lookup by Location or Item",
+  "Type": "CUSTOM",
+  "IsActive": true,
+  "IntegrationIsActive": false,
+  "IntegrationPost": false,
+  "WebTemplateArtifact": "67af14fa-86b3-5613-9e50-828c38049cd2",
+  "Steps": [
+    {
+      "Name": "Scanned",
+      "Description": "Scan a Barcode (Location, Item, SKU)",
+      "ProcessIndex": 0,
+      "NextIndex": 1,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "PrescriptLookupScanned"
+    },
+    {
+      "Name": "Result",
+      "Description": "Press Enter to Restart",
+      "ProcessIndex": 1,
+      "NextIndex": 0,
+      "IsActive": true,
+      "Required": false,
+      "IsBusinessRule": false,
+      "WebTemplateArtifact": "48531c99-e799-5cb6-815f-eea1b1756801"
+    }
+  ]
+}

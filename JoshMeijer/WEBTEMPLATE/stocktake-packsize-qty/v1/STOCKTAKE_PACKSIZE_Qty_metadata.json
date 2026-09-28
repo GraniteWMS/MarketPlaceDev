@@ -1,0 +1,13 @@
+{
+  "Identifier": "3a0e81df-34af-5f73-89e5-064f2cb648ad",
+  "Name": "STOCKTAKE_PACKSIZE_Qty",
+  "Description": "WebTemplate for process template STOCKTAKE_PACKSIZE / step Qty",
+  "Type": "WEBTEMPLATE",
+  "Version": 1,
+  "LastModified": "08/06/2026",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

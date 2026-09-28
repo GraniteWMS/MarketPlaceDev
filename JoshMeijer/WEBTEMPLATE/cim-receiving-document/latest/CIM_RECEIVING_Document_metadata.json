@@ -1,0 +1,13 @@
+{
+  "Identifier": "74960d97-90b8-565d-ba66-3c1a64bcb2f7",
+  "Name": "CIM_RECEIVING_Document",
+  "Description": "WebTemplate for process template CIM_RECEIVING / step Document",
+  "Type": "WEBTEMPLATE",
+  "Version": 0,
+  "LastModified": "18/05/2026",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

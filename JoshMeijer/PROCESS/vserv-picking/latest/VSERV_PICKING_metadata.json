@@ -1,0 +1,165 @@
+{
+  "Identifier": "07849bb3-81a5-4b88-8de0-dd8c43c38b41",
+  "Name": "VSERV_PICKING",
+  "Description": "VSERV_PICKING\n\nAutomatically determines the tracking entity to pick based on the item code, location and expiry date.\n\nThere are 2 settings in system static data that are used to determine if FIFO or FEFO must be used.",
+  "Type": "PROCESS",
+  "Version": 0,
+  "LastModified": "09/02/2026",
+  "Tags": [
+    "Manufacturing",
+    "Retail",
+    "Automotive",
+    "Agricultural",
+    "Textile",
+    "Electronics",
+    "Construction",
+    "E-commerce",
+    "Logistics",
+    "Pharmaceutical",
+    "Cold Storage"
+  ],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "e807b1fc-2392-5b4e-b40a-a8f4703bdddd",
+      "ArtifactVersion": 1,
+      "ArtifactName": "WebTemplate_Picking_Document"
+    },
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "c22650e6-10b7-504e-91b1-01f3d58dc990",
+      "ArtifactVersion": 1,
+      "ArtifactName": "WebTemplate_Picking_Location"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "df8c0803-f782-5f4f-9670-30f73560d0a3",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_Picking_Document"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "e4ea05fd-edf2-5e47-abac-af7366f391b5",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_Picking_Location"
+    },
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "e4eae5a8-7668-57ba-8964-326ce7556eb1",
+      "ArtifactVersion": 1,
+      "ArtifactName": "MasterItemAlias_View"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "b851e66a-02e3-5064-9475-7170aba9b6e5",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_Picking_TrackingEntity"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "23cdb57f-8cd3-5bdf-a770-882755256673",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_Picking_ExpiryDate"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "3cd2748b-ed7a-5f8f-aff8-0fd61193a5f3",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_Picking_Step200"
+    },
+    {
+      "ArtifactType": "DATA",
+      "ArtifactIdentifier": "7f84714f-fb5e-53e3-89fa-9b17ea667707",
+      "ArtifactVersion": 1,
+      "ArtifactName": "DataDependency_SystemStaticData_7f84714ffb5e53e389fa9b17ea667707"
+    },
+    {
+      "ArtifactType": "DATA",
+      "ArtifactIdentifier": "d2cce832-6e0c-52c8-ac9e-2139ccae14a9",
+      "ArtifactVersion": 1,
+      "ArtifactName": "DataDependency_SystemStaticData_d2cce8326e0c52c8ac9e2139ccae14a9"
+    }
+  ],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "PICKING",
+    "ProcessStepMetadata": [
+      {
+        "Name": "Document",
+        "Description": "Document",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_Picking_Document",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Location",
+        "Description": "Location",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_Picking_Location",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "TrackingEntity",
+        "Description": "Enter Item Code or Alias",
+        "ProcessIndex": 3,
+        "NextIndex": 4,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_Picking_TrackingEntity",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Qty",
+        "Description": "Qty",
+        "ProcessIndex": 4,
+        "NextIndex": 3,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "Comment",
+        "Description": "Expiry Date (YYYYMM)",
+        "ProcessIndex": 2,
+        "NextIndex": 3,
+        "isActive": true,
+        "Required": false,
+        "PreScript": "Prescript_Picking_ExpiryDate",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Step200",
+        "Description": "Step200",
+        "ProcessIndex": 200,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_Picking_Step200",
+        "hasWebTemplate": true
+      }
+    ]
+  },
+  "PostDeployArtifacts": [
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "8181fdfa-9fb3-5ed9-beea-545c05420f2c",
+      "ArtifactVersion": 1,
+      "ArtifactName": "VSERV_PICKING_Document"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "6483fb3c-e22d-5073-a0fe-418c96a855f6",
+      "ArtifactVersion": 1,
+      "ArtifactName": "VSERV_PICKING_Location"
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

@@ -1,0 +1,13 @@
+{
+  "Identifier": "d3b95784-7b26-5144-904c-644d8015e593",
+  "Name": "PICKINGFULLORPARTIALTE_Document",
+  "Description": "WebTemplate for process template PICKINGFULLORPARTIALTE / step Document",
+  "Type": "WEBTEMPLATE",
+  "Version": 0,
+  "LastModified": "04/09/2026",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

@@ -1,0 +1,99 @@
+{
+  "Identifier": "0035ca65-6925-4aa6-b557-f0c09b56b433",
+  "Name": "CONSUME_REVERSAL",
+  "Description": "CONSUME REVERSAL\n\nFor the reversal of consume transactions.",
+  "Type": "PROCESS",
+  "Version": 1,
+  "LastModified": "28/03/2024",
+  "Tags": [
+    "Manufacturing"
+  ],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "13154111-f00e-5fd8-a487-64ce97a1c8ab",
+      "ArtifactVersion": 1,
+      "ArtifactName": "WebTemplateConsumeReversal"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "829a0de0-8dca-554b-9bed-1acb7488eb16",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PrescriptConsumeReversalDocument"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "bb904137-060e-5fcc-ab19-abc6f1b26a0b",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PrescriptConsumeReversalTrackingEntity"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "760e11b3-3e44-5094-9747-e526b6c828b3",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PrescriptConsumeReversalConfirmation"
+    }
+  ],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "CUSTOM",
+    "ProcessStepMetadata": [
+      {
+        "Name": "Document",
+        "Description": "Document",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "PrescriptConsumeReversalDocument",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "TrackingEntity",
+        "Description": "TrackingEntity",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "PrescriptConsumeReversalTrackingEntity",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "TransactionID",
+        "Description": "Select Transaction to reverse",
+        "ProcessIndex": 2,
+        "NextIndex": 3,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": false,
+        "PreScript": ""
+      },
+      {
+        "Name": "Confirmation",
+        "Description": "Confirmation",
+        "ProcessIndex": 3,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "PrescriptConsumeReversalConfirmation",
+        "hasWebTemplate": false
+      }
+    ]
+  },
+  "PostDeployArtifacts": [
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "2315fd8d-0688-593d-982d-17302a19114f",
+      "ArtifactVersion": 1,
+      "ArtifactName": "CONSUME_REVERSAL_TransactionID"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "aa972303-dbca-5070-9a04-27ce2456f909",
+      "ArtifactVersion": 1,
+      "ArtifactName": "CONSUME_REVERSAL_Confirmation"
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

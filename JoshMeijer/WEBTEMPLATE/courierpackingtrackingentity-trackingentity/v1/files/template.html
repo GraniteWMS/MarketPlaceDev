@@ -1,0 +1,109 @@
+{{  
+    navigateToStepButton({
+        stepName: "BoxWeight"
+    }) 
+}}
+
+{{ 
+    navigateToStepButton({
+        stepName: "zConfirmation"
+    }) 
+}}
+
+{{ 
+    navigateToStepButton({
+        stepName: "Document"
+    }) 
+}}
+
+{{ 
+    navigateToStepButton({
+        stepName: "BoxBarcode"
+    }) 
+}}
+<script>
+    setTimeout(function () {
+        document
+            .querySelectorAll("button[onclick*=\"navigateToStep("BoxWeight"\"]")
+            .forEach(function (button) {
+                button.innerText = "Capture Final Box Weight";
+            });
+
+        document
+            .querySelectorAll("button[onclick*=\"navigateToStep("zConfirmation"\"]")
+            .forEach(function (button) {
+                button.innerText = "Finalise Courier Box";
+            });
+
+        document
+            .querySelectorAll("button[onclick*=\"navigateToStep("Document"\"]")
+            .forEach(function (button) {
+                button.innerText = "Add New Order to Box";
+            });
+
+        document
+            .querySelectorAll("button[onclick*=\"navigateToStep("BoxBarcode"\"]")
+            .forEach(function (button) {
+                button.innerText = "Add New Box";
+            });
+    }, 100);
+</script>
+
+<label style="font-size:16px;  font-weight:bold;">
+    Box Barcode:
+</label>
+<br>
+<label style="font-size:16px;">
+    {{BoxBarcode}}
+</label>
+<br>
+<label style="font-size:16px;  font-weight:bold;">
+    Box Size:
+</label>
+<br>
+<label style="font-size:16px;">
+    {{BoxType}}
+</label>
+<br>
+<label style="font-size:16px;  font-weight:bold;">
+    Document:
+</label>
+<br>
+<label style="font-size:16px;">
+    {{Document}}
+</label>
+<br>
+{{
+  "
+  SELECT
+        TE.Barcode AS TrackingEntityBarcode
+      , D.Number AS DocumentNumber
+  FROM dbo.Custom_CourierBox CB
+  INNER JOIN dbo.Custom_CourierBoxTrackingEntity CBTE
+      ON CBTE.CourierBox_id = CB.ID
+  INNER JOIN dbo.TrackingEntity TE
+      ON TE.ID = CBTE.TrackingEntity_id
+  INNER JOIN
+  (
+      SELECT DISTINCT
+            T.Document_id
+          , T.TrackingEntity_id
+      FROM dbo.[Transaction] T
+      WHERE UPPER(T.[Type]) = "PICK"
+        AND ISNULL(T.ReversalTransaction_id, 0) = 0
+        AND ISNULL(T.ActionQty, 0) > 0
+  ) PTE
+      ON PTE.TrackingEntity_id = CBTE.TrackingEntity_id
+  INNER JOIN dbo.Custom_CourierBoxDocument CBD
+      ON CBD.CourierBox_id = CB.ID
+     AND CBD.Document_id = PTE.Document_id
+  INNER JOIN dbo.Document D
+      ON D.ID = CBD.Document_id
+  WHERE CB.BoxBarcode = @BoxBarcode
+  ORDER BY
+        D.Number
+      , CBTE.ScanDate DESC
+  "
+  | dbSelect({BoxBarcode})
+  | basicTable({selectOnColumn:"", enableSearch:false})
+}}

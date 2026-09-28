@@ -1,0 +1,17 @@
+{
+  "Identifier": "b812d56e-8b2d-5f2f-a593-41582e351cd6",
+  "Name": "DataDependency_SystemStaticData_b812d56e8b2d5f2fa59341582e351cd6",
+  "Description": "",
+  "Type": "DATA",
+  "Version": 0,
+  "LastModified": "28/10/2025",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "TypeSpecificAttributes": {
+    "Table": "SystemStaticData",
+    "KeyColumn": "Key",
+    "KeyValues": [
+      "Plant"
+    ]
+  }
+}

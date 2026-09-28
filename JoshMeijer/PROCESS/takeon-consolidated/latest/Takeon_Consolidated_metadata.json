@@ -1,0 +1,156 @@
+{
+  "Identifier": "34f4fd05-7fe0-4238-877b-11ac5318425b",
+  "Name": "Takeon_Consolidated",
+  "Description": "Takeon_Consolidated\n\nConsolidate Batch, Serial and generic takeon into a single process.\n\nUses Enforce rules on items to skip steps.",
+  "Type": "PROCESS",
+  "Version": 0,
+  "LastModified": "05/08/2026",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "fd64c6bf-9b71-5d4d-b7eb-e1612bc10dd2",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PrescriptTakeonBatch"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "2f6e1972-3d69-5d6e-8367-2ab51099385b",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PrescriptTakeonExpiryDate"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "e8fd6943-c9bc-5edf-8009-d3956bbdfe99",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PrescriptTakeonSerialNumber"
+    }
+  ],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "TAKEON",
+    "ProcessStepMetadata": [
+      {
+        "Name": "MasterItem",
+        "Description": "MasterItem",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": false,
+        "PreScript": ""
+      },
+      {
+        "Name": "Location",
+        "Description": "Location",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "Batch",
+        "Description": "Batch",
+        "ProcessIndex": 2,
+        "NextIndex": 3,
+        "isActive": true,
+        "Required": false,
+        "PreScript": "PrescriptTakeonBatch",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "ExpiryDate",
+        "Description": "ExpiryDate (YYYYMMDD)",
+        "ProcessIndex": 3,
+        "NextIndex": 4,
+        "isActive": true,
+        "Required": false,
+        "PreScript": "PrescriptTakeonExpiryDate",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Qty",
+        "Description": "Qty",
+        "ProcessIndex": 5,
+        "NextIndex": 6,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": false,
+        "PreScript": ""
+      },
+      {
+        "Name": "Print",
+        "Description": "Print",
+        "ProcessIndex": 99,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "DefaultValue": "",
+        "PreScript": "",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "SerialNumber",
+        "Description": "SerialNumber",
+        "ProcessIndex": 4,
+        "NextIndex": 5,
+        "isActive": true,
+        "Required": false,
+        "PreScript": "PrescriptTakeonSerialNumber",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Confirmation",
+        "Description": "Confirmation",
+        "ProcessIndex": 6,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": false,
+        "PreScript": ""
+      }
+    ]
+  },
+  "PostDeployArtifacts": [
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "4c23644d-b9cf-5b20-b627-5b739e7181ad",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Takeon_Consolidated_MasterItem"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "c0b2c41a-d555-5d45-af47-f375c7a9e9d7",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Takeon_Consolidated_Batch"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "ac6845a2-3987-53f7-b35e-dc5e651ed48e",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Takeon_Consolidated_ExpiryDate"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "5b51977c-7f22-520b-aa2d-0f9e2891d0c7",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Takeon_Consolidated_SerialNumber"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "b20ee149-5375-5c67-8115-7ee5e38f6115",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Takeon_Consolidated_Qty"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "80263675-7449-5e8e-a4c0-b57e8a2939dc",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Takeon_Consolidated_Confirmation"
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

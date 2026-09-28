@@ -1,0 +1,19 @@
+{
+  "Identifier": "f18dc32d-8cdc-59ee-bdaf-ba0caed17bb7",
+  "Name": "UNRECEIVE_BUTTANUTT_Document",
+  "Description": "WebTemplate for process template UNRECEIVE_BUTTANUTT / step Document",
+  "Type": "WEBTEMPLATE",
+  "Version": 1,
+  "LastModified": "21/03/2026",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "201658d1-f280-5a7f-b9fd-41ab374c5ca4",
+      "ArtifactVersion": 1
+    }
+  ],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

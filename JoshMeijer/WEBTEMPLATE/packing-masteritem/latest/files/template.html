@@ -1,0 +1,33 @@
+<style>
+  #btnNew { display:none }
+</style>
+
+<button
+  type="button"
+  style="
+    background-color:#0e216e;
+    border:none;
+    color:#ffffff;
+    padding:15px 32px;
+    text-align:center;
+    text-decoration:none;
+    display:inline-block;
+    margin-bottom:15px;
+    font-size:14px;
+  "
+  onclick="closePrintAndBack()">
+  CLOSE BOX AND PRINT PACKING LABEL
+</button>
+
+<script>
+function closePrintAndBack() {
+
+    // Step 1: Submit the command
+    ProceedNext("CLOSE BOX AND PRINT PACKING LABEL\n");
+
+    // Step 2: Wait 2 seconds, then go back using Granite navigation
+    setTimeout(function () {
+        Previous();
+    }, 2000);
+}
+</script>

@@ -1,0 +1,167 @@
+{
+  "Identifier": "bec6a281-3ad1-4c31-bc81-7b671dca127d",
+  "Name": "VSERV_PACKING",
+  "Description": "VSERV_PACKING\n\nAllows you to pack against 2 different types of carrying entities. It validates that the quantities picked for each expiry date are correct.",
+  "Type": "PROCESS",
+  "Version": 1,
+  "LastModified": "09/02/2026",
+  "Tags": [
+    "Electronics",
+    "Construction",
+    "E-commerce",
+    "Logistics",
+    "Pharmaceutical",
+    "Cold Storage",
+    "Manufacturing",
+    "Retail",
+    "Automotive",
+    "Agricultural",
+    "Textile"
+  ],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "511fdb69-755e-578e-a164-09c26043c62f",
+      "ArtifactVersion": 1,
+      "ArtifactName": "WebTemplate_Packing_Document"
+    },
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "b240b7c9-ab5a-5ce4-8fdd-26be272f6bd8",
+      "ArtifactVersion": 1,
+      "ArtifactName": "WebTemplate_Packing_Qty"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "a6d48b85-22d2-54ab-b409-e486de97c087",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_Packing_CarryingEntity"
+    },
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "72767ada-0ff8-52b0-affd-601a74915e85",
+      "ArtifactVersion": 1,
+      "ArtifactName": "MasterItemAlias_View"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "f136e66b-e6e5-5028-b00e-6f3b8c2498be",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_Packing_MasterItem"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "9f0f0ef3-fad9-5dae-ba30-5ecf60cd6ab0",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_Packing_Qty"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "866d55c0-067a-57df-969d-220e1f8588ef",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_Packing_Comment"
+    },
+    {
+      "ArtifactType": "DATA",
+      "ArtifactIdentifier": "90a98fd4-39d4-532e-89ca-ae57340f2264",
+      "ArtifactVersion": 1,
+      "ArtifactName": "DataDependency_BarcodeMaster_90a98fd439d4532e89caae57340f2264"
+    }
+  ],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "PACKING",
+    "ProcessStepMetadata": [
+      {
+        "Name": "Document",
+        "Description": "Document",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "DefaultValue": "",
+        "PreScript": "",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Location",
+        "Description": "Check and Pack Location",
+        "ProcessIndex": 100,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "DefaultValue": "PACKING",
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "CarryingEntity",
+        "Description": "BOX or LOOSE",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": false,
+        "PreScript": "Prescript_Packing_CarryingEntity",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "MasterItem",
+        "Description": "MasterItem or Alias",
+        "ProcessIndex": 2,
+        "NextIndex": 3,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_Packing_MasterItem",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Qty",
+        "Description": "Qty",
+        "ProcessIndex": 4,
+        "NextIndex": 3,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_Packing_Qty",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Comment",
+        "Description": "Enter Expiry Date (YYYYMM)",
+        "ProcessIndex": 3,
+        "NextIndex": 4,
+        "isActive": true,
+        "Required": false,
+        "PreScript": "Prescript_Packing_Comment",
+        "hasWebTemplate": true
+      }
+    ]
+  },
+  "PostDeployArtifacts": [
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "11e7c491-45e5-5616-ac2b-fd7295224d44",
+      "ArtifactVersion": 1,
+      "ArtifactName": "VSERV_PACKING"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "92863d5a-b49d-5fd0-bbec-23ef65c52f51",
+      "ArtifactVersion": 1,
+      "ArtifactName": "VSERV_PACKING_Document"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "fd0a16ac-f05a-5d09-b05d-135a39a23f1d",
+      "ArtifactVersion": 1,
+      "ArtifactName": "VSERV_PACKING_CarryingEntity"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "17ad6263-1d70-503c-97e6-b5b66575f129",
+      "ArtifactVersion": 1,
+      "ArtifactName": "VSERV_PACKING_Qty"
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

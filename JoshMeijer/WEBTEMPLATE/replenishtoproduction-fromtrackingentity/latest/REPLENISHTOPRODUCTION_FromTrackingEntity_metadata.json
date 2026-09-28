@@ -1,0 +1,19 @@
+{
+  "Identifier": "6f4d153b-232f-51f3-bcb6-f45792e5851b",
+  "Name": "REPLENISHTOPRODUCTION_FromTrackingEntity",
+  "Description": "WebTemplate for process template REPLENISHTOPRODUCTION / step FromTrackingEntity",
+  "Type": "WEBTEMPLATE",
+  "Version": 0,
+  "LastModified": "09/09/2026",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "SQL_STORED_PROCEDURE",
+      "ArtifactIdentifier": "3f0f86e1-53b3-5f7e-a5ca-151c78617d37",
+      "ArtifactVersion": 1
+    }
+  ],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

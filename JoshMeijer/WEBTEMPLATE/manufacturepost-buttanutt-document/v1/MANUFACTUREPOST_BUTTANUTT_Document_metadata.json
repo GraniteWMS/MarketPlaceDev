@@ -1,0 +1,19 @@
+{
+  "Identifier": "a4774781-a00c-5b5f-883c-2fd8bc2111de",
+  "Name": "MANUFACTUREPOST_BUTTANUTT_Document",
+  "Description": "WebTemplate for process template MANUFACTUREPOST_BUTTANUTT / step Document",
+  "Type": "WEBTEMPLATE",
+  "Version": 1,
+  "LastModified": "21/03/2026",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "d40e6797-0e38-55d3-af4e-050cb5befba3",
+      "ArtifactVersion": 1
+    }
+  ],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

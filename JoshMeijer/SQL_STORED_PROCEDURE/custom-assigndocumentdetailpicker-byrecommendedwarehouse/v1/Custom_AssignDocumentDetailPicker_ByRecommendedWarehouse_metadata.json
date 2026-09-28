@@ -1,0 +1,10 @@
+{
+  "Identifier": "880800e6-55c4-5163-b7c0-05f4ea0215c9",
+  "Name": "Custom_AssignDocumentDetailPicker_ByRecommendedWarehouse",
+  "Description": "",
+  "Type": "SQL_STORED_PROCEDURE",
+  "Version": 1,
+  "LastModified": "18/05/2026",
+  "Tags": [],
+  "ArtifactDependencies": []
+}

@@ -1,0 +1,13 @@
+{
+  "Identifier": "6065b0d2-61e1-538a-8b77-7e0b82c0bb8d",
+  "Name": "PICKINGFULLORPARTIALTE_TrackingEntity",
+  "Description": "WebTemplate for process template PICKINGFULLORPARTIALTE / step TrackingEntity",
+  "Type": "WEBTEMPLATE",
+  "Version": 0,
+  "LastModified": "04/09/2026",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

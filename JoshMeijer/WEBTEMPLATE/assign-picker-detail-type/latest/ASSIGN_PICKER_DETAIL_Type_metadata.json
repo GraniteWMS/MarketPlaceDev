@@ -1,0 +1,13 @@
+{
+  "Identifier": "b75a72e7-72cc-5da8-9cf8-7900d42bc087",
+  "Name": "ASSIGN_PICKER_DETAIL_Type",
+  "Description": "WebTemplate for process template ASSIGN_PICKER_DETAIL / step Type",
+  "Type": "WEBTEMPLATE",
+  "Version": 0,
+  "LastModified": "17/03/2026",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

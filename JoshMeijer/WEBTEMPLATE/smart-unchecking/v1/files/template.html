@@ -1,0 +1,86 @@
+{{#if Document}}
+    {{
+        "SELECT LineNumber, Code as ItemCode, ISNULL(PackedQty, 0) PackedQty, ISNULL(ActionQty, 0) ActionQty,
+        DocumentDetail.UOM, FromLocation, IntransitLocation, ToLocation, 
+        Comment, Instruction, SerialNumber, Batch, ExpiryDate
+        FROM Document INNER JOIN
+        DocumentDetail ON Document.ID = DocumentDetail.Document_id INNER JOIN
+        MasterItem ON DocumentDetail.Item_id = MasterItem.ID
+        WHERE Document.Number = @Document"
+        | dbSelect({Document})
+        | to => documentDetails
+    }}
+    {{#if documentDetails.Count > 0}}
+        <ul class="list-group" style="padding: 0 !important;margin: 0 !important;">
+            {{#each documentLine in documentDetails}}
+                <li class="list-group-item" style="position:inherit;padding: 0 !important;margin: 0 !important;">
+                    <div class="d-flex justify-content-between">
+                        <h6 class="mb-1"><p style="font-weight:300;display:inline">({{documentLine.LineNumber}})</p>{{documentLine.ItemCode}}</h6>
+                        <div class="progress" style="height: inherit;width:110px;float:right;{{#if documentLine.ActionQty == documentLine.PackedQty}}background-color:#008CC9;{{/if}}">
+                            <div class="progress-bar" role="progressbar" style="font-size: medium;text-align:start; overflow: visible;width:100%;background-color: whitesmoke;color: black;">
+                                {{documentLine.PackedQty}}-{{documentLine.ActionQty}}
+                            </div>
+                        </div>
+                    </div>
+                    <small class="list-group-item-text" style="-ms-word-wrap: break-word; word-wrap: break-word;">{{ItemDescription}}</small>
+                    <span style="float:right;position:inherit;width:110px;border-radius:8px;">{{UOM}}</span>
+
+                    {{#if documentLine.FromLocation}}
+                    <header class="list-group-item-text nopadding">
+                        <p style="font-weight:100; display:inline">From Location</p>
+                        <p style="font-weight:600; display:inline; word-wrap: break-word;">{{documentLine.FromLocation}}</p>
+                    </header>
+                    {{/if}}
+
+                    {{#if documentLine.IntransitLocation}}
+                    <header class="list-group-item-text nopadding">
+                        <p style="font-weight:100; display:inline">Transit Location</p>
+                        <p style="font-weight:600; display:inline; word-wrap: break-word;">{{documentLine.IntransitLocation}}</p>
+                    </header>
+                    {{/if}}
+
+                    {{#if documentLine.ToLocation}}
+                    <header class="list-group-item-text nopadding">
+                        <p style="font-weight:100; display:inline">To Location</p>
+                        <p style="font-weight:600; display:inline; word-wrap: break-word;">{{documentLine.ToLocation}}</p>
+                    </header>
+                    {{/if}}
+
+                    {{#if documentLine.Comment}}
+                    <header class="list-group-item-text nopadding">
+                        <p style="font-weight:100; display:inline">Comment </p>
+                        <p style="font-weight:600; font-style:italic;display:inline;word-wrap: break-word;">{{documentLine.Comment}}</p>
+                    </header>
+                    {{/if}}
+
+                    {{#if documentLine.Instruction}}
+                    <header class="list-group-item-text nopadding">
+                        <p style="color: White; background-color:#7BB72E; font-weight:400;display:inline;word-wrap: break-word;">{{documentLine.Instruction}}</p>
+                    </header>
+                    {{/if}}
+
+                    {{#if documentLine.SerialNumber}}
+                    <header class="list-group-item-text nopadding">
+                        <p style="display:inline">Serial </p>
+                        <p style="display:inline">{{documentLine.SerialNumber}}</p>
+                    </header>
+                    {{/if}}
+
+                    {{#if documentLine.Batch}}
+                    <header class="list-group-item-text nopadding">
+                        <p style="display:inline">Batch </p>
+                        <p style="display:inline">{{documentLine.Batch}}</p>
+                    </header>
+                    {{/if}}
+
+                    {{#if documentLine.ExpiryDate}}
+                    <header class="list-group-item-text nopadding">
+                        <p style="display:inline">Expiry </p>
+                        <p style="display:inline">{{documentLine.ExpiryDate}}</p>
+                    </header>
+                    {{/if}}
+                </li>
+            {{/each}}
+        </ul>
+    {{/if}}
+{{/if}}

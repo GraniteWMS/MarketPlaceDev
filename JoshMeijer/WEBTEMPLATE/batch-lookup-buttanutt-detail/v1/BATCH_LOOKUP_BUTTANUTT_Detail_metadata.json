@@ -1,0 +1,24 @@
+{
+  "Identifier": "058af6f4-f346-5e32-a71e-d5f5f576e362",
+  "Name": "BATCH_LOOKUP_BUTTANUTT_Detail",
+  "Description": "WebTemplate for process template BATCH_LOOKUP_BUTTANUTT / step Detail",
+  "Type": "WEBTEMPLATE",
+  "Version": 1,
+  "LastModified": "21/03/2026",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "3510cef7-6042-5613-9f13-4cda37d22a44",
+      "ArtifactVersion": 1
+    },
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "6ae658be-e00c-5386-b5d5-1ec0f70b6d25",
+      "ArtifactVersion": 1
+    }
+  ],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

@@ -1,0 +1,88 @@
+{
+  "Name": "CIM_TRANSFER",
+  "Description": "CIM TRANSFER",
+  "Type": "TRANSFER",
+  "IsActive": true,
+  "IntegrationIsActive": false,
+  "IntegrationPost": false,
+  "WebTemplateArtifact": "79a81a88-91de-53bc-bfe1-5611af47c3aa",
+  "Steps": [
+    {
+      "Name": "Document",
+      "Description": "Scan/Enter Transfer Number",
+      "ProcessIndex": 0,
+      "NextIndex": 1,
+      "IsActive": true,
+      "Required": false,
+      "IsBusinessRule": false,
+      "PreScript": "PrescriptTransferDocument",
+      "WebTemplateArtifact": "0471ed8b-1fad-5343-9975-c190a731c016"
+    },
+    {
+      "Name": "DestinationLocation",
+      "Description": "DestinationLocation",
+      "ProcessIndex": 1,
+      "NextIndex": 2,
+      "IsActive": true,
+      "Required": false,
+      "IsBusinessRule": false
+    },
+    {
+      "Name": "IntransitLocation",
+      "Description": "IntransitLocation",
+      "ProcessIndex": 2,
+      "NextIndex": 3,
+      "IsActive": true,
+      "Required": false,
+      "IsBusinessRule": false
+    },
+    {
+      "Name": "TrackingEntity",
+      "Description": "Scan/Enter Tracking Entity Barcode",
+      "ProcessIndex": 3,
+      "NextIndex": 3,
+      "IsActive": true,
+      "Required": false,
+      "IsBusinessRule": false,
+      "PreScript": "PrescriptTransferTrackingEntity"
+    },
+    {
+      "Name": "Print",
+      "Description": "Print",
+      "ProcessIndex": 99,
+      "NextIndex": 99,
+      "IsActive": true,
+      "Required": false,
+      "IsBusinessRule": false
+    },
+    {
+      "Name": "Qty",
+      "Description": "Enter Qty for Tracking Barcode to Transfer",
+      "ProcessIndex": 100,
+      "NextIndex": 0,
+      "IsActive": true,
+      "Required": false,
+      "IsBusinessRule": false
+    },
+    {
+      "Name": "Type",
+      "Description": "Type",
+      "ProcessIndex": 100,
+      "NextIndex": 1,
+      "IsActive": true,
+      "Required": false,
+      "IsBusinessRule": false,
+      "DefaultValue": "TRANSFER"
+    },
+    {
+      "Name": "Step200",
+      "Description": "Step200",
+      "ProcessIndex": 200,
+      "NextIndex": 0,
+      "IsActive": true,
+      "Required": false,
+      "IsBusinessRule": false,
+      "PreScript": "PrescriptTransferStep200"
+    }
+  ]
+}

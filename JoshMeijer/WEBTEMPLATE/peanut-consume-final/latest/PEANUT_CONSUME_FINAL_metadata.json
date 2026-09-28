@@ -1,0 +1,13 @@
+{
+  "Identifier": "d554ced3-875b-5a6c-8ed5-c1152689d44c",
+  "Name": "PEANUT_CONSUME_FINAL",
+  "Description": "WebTemplate for process template PEANUT_CONSUME_FINAL",
+  "Type": "WEBTEMPLATE",
+  "Version": 0,
+  "LastModified": "31/05/2026",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

@@ -1,0 +1,29 @@
+{
+  "Identifier": "4c591d34-0ce6-47ce-b5e7-01b5b78f6011",
+  "Name": "MANUFACTUREPOST",
+  "Description": "MANUFACTUREPOST\n\nThis is the default (empty) MANUFACTUREPOST process.",
+  "Type": "PROCESS",
+  "Version": 1,
+  "LastModified": "19/03/2024",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "MANUFACTUREPOST",
+    "ProcessStepMetadata": [
+      {
+        "Name": "Document",
+        "Description": "Document",
+        "ProcessIndex": 0,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      }
+    ]
+  },
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

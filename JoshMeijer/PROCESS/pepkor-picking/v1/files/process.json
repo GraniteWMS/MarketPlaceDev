@@ -1,0 +1,60 @@
+{
+  "Name": "PEPKOR_PICKING",
+  "Description": "PEPKOR_PICKING",
+  "Type": "PICKING",
+  "IsActive": true,
+  "IntegrationIsActive": false,
+  "IntegrationPost": false,
+  "WebTemplateArtifact": "30a552ec-d4a8-58ad-9676-9ca70407a4a4",
+  "Steps": [
+    {
+      "Name": "Document",
+      "Description": "Enter SO #",
+      "ProcessIndex": 0,
+      "NextIndex": 1,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "Prescript_Picking_Document",
+      "WebTemplateArtifact": "2af87a2e-b788-5459-b5ed-f2b6ab658246"
+    },
+    {
+      "Name": "TrackingEntity",
+      "Description": "Scan Barcode",
+      "ProcessIndex": 1,
+      "NextIndex": 2,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "Prescript_Picking_TrackingEntity"
+    },
+    {
+      "Name": "Qty",
+      "Description": "Enter Qty To Pick",
+      "ProcessIndex": 2,
+      "NextIndex": 1,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false
+    },
+    {
+      "Name": "Location",
+      "Description": "Location",
+      "ProcessIndex": 100,
+      "NextIndex": 0,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false
+    },
+    {
+      "Name": "Step200",
+      "Description": "Step200",
+      "ProcessIndex": 200,
+      "NextIndex": 0,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "Prescript_Picking_Step200"
+    }
+  ]
+}

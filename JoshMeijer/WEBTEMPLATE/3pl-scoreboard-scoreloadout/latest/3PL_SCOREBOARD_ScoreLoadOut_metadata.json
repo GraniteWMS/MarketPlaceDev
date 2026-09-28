@@ -1,0 +1,19 @@
+{
+  "Identifier": "65dcc0ef-1a21-5b04-9548-f2e68918a971",
+  "Name": "3PL_SCOREBOARD_ScoreLoadOut",
+  "Description": "WebTemplate for process template 3PL_SCOREBOARD / step ScoreLoadOut",
+  "Type": "WEBTEMPLATE",
+  "Version": 0,
+  "LastModified": "04/08/2025",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "db9b137e-0730-5b72-83ad-464f9b98494b",
+      "ArtifactVersion": 1
+    }
+  ],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

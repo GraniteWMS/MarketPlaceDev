@@ -1,0 +1,13 @@
+{
+  "Identifier": "1eb39ba6-ef52-52db-8fe2-e1d97d6317a5",
+  "Name": "Agriline_CustomPack_Prototype_Box",
+  "Description": "WebTemplate for process template Agriline_CustomPack_Prototype / step Box",
+  "Type": "WEBTEMPLATE",
+  "Version": 0,
+  "LastModified": "04/06/2026",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

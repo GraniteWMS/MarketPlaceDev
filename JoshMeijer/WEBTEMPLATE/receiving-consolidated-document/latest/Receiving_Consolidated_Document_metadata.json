@@ -1,0 +1,19 @@
+{
+  "Identifier": "341aa6dc-fd4a-5cee-a10e-d933adb58978",
+  "Name": "Receiving_Consolidated_Document",
+  "Description": "WebTemplate for process template Receiving_Consolidated / step Document",
+  "Type": "WEBTEMPLATE",
+  "Version": 0,
+  "LastModified": "05/08/2026",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "d8806787-12b7-5e43-8422-a8170bcd5a2f",
+      "ArtifactVersion": 1
+    }
+  ],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

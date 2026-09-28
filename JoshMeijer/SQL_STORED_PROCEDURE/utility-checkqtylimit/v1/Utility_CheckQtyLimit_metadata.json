@@ -1,0 +1,10 @@
+{
+  "Identifier": "895c5bb2-9c55-562b-9fe4-b187072ce924",
+  "Name": "Utility_CheckQtyLimit",
+  "Description": "",
+  "Type": "SQL_STORED_PROCEDURE",
+  "Version": 1,
+  "LastModified": "18/03/2026",
+  "Tags": [],
+  "ArtifactDependencies": []
+}

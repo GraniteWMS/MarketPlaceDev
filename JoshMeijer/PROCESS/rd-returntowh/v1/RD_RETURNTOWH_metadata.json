@@ -1,0 +1,106 @@
+{
+  "Identifier": "7c726c0d-30f6-4457-b0af-27196786d626",
+  "Name": "RD_RETURNTOWH",
+  "Description": "Retail Distribution -Return To Warehouse\n\nRetail Distribution - When Stores return goods to the Warehouse we need to put them away.  We default From Locaiton to Stores.  Specify the TO Location in the Warehouse and Scan Item BarcodeAlias.  We resolve from TrackingEntity as STORES_ITEMCODE and if it doesnt exist with a Qty we do a Takeon.  Then we replenish it to the TO TrackingEntity which is the Warehouse Locatiomn_ItemCode\n\nSome special code exists in the Item Code scan (TotrackingEntity step to resolve the Barcode to Item Code)",
+  "Type": "PROCESS",
+  "Version": 1,
+  "LastModified": "09/10/2025",
+  "Tags": [
+    "Retail"
+  ],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "SQL_STORED_PROCEDURE",
+      "ArtifactIdentifier": "25c733f9-5f89-5707-b1e1-01d54bbb1f5a",
+      "ArtifactVersion": 1,
+      "ArtifactName": "WebTemplate_Putaway_TrackingEntity"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "9fc85fcf-0946-5690-bba3-a575146f21b3",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_Replenish_ToLocation"
+    },
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "1e0f90ce-b10c-5aa0-8c76-a8a45f3a8614",
+      "ArtifactVersion": 1,
+      "ArtifactName": "MasterItemAlias_View"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "d4138944-5bc1-5f9c-b34e-5fadcfab62b8",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_ReturnToWH_ToTrackingEntity"
+    }
+  ],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "REPLENISH",
+    "ProcessStepMetadata": [
+      {
+        "Name": "FromTrackingEntity",
+        "Description": "Scan Item",
+        "ProcessIndex": 100,
+        "NextIndex": 100,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Location",
+        "Description": "To Location",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_Replenish_ToLocation",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "ToTrackingEntity",
+        "Description": "Scan Item",
+        "ProcessIndex": 1,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": false,
+        "PreScript": "Prescript_ReturnToWH_ToTrackingEntity",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Qty",
+        "Description": "Qty to Replenish",
+        "ProcessIndex": 100,
+        "NextIndex": 100,
+        "isActive": true,
+        "Required": true,
+        "DefaultValue": "1",
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "FromLocation",
+        "Description": "From Location",
+        "ProcessIndex": 100,
+        "NextIndex": 100,
+        "isActive": true,
+        "Required": true,
+        "DefaultValue": "STORES",
+        "hasWebTemplate": true,
+        "PreScript": ""
+      }
+    ]
+  },
+  "PostDeployArtifacts": [
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "aeb69d42-853e-5c48-8c82-2b8e4c605364",
+      "ArtifactVersion": 1,
+      "ArtifactName": "RD_RETURNTOWH_Location"
+    }
+  ],
+  "DependsOnClr": true,
+  "SqlClrAssemblyVersion": "7.0.0.0",
+  "Deprecated": false
+}

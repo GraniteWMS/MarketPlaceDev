@@ -1,0 +1,19 @@
+{
+  "Identifier": "ccf7df90-cbaa-5481-98f7-f20e927ed1ef",
+  "Name": "PowerSpeedSpotCheck_Session",
+  "Description": "WebTemplate for process template PowerSpeedSpotCheck / step Session",
+  "Type": "WEBTEMPLATE",
+  "Version": 1,
+  "LastModified": "15/05/2025",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "SQL_STORED_PROCEDURE",
+      "ArtifactIdentifier": "5e4336de-3976-541e-bb4a-ac6926bb2ecd",
+      "ArtifactVersion": 1
+    }
+  ],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

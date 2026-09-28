@@ -1,0 +1,133 @@
+{
+  "Identifier": "34ddd9db-bd88-45f0-8f7e-c42def0baed7",
+  "Name": "3PLSTOCKTAKECOUNT",
+  "Description": "Stocktake Count with webtemplates\n\nStandard Stocktake count made more user friendly on the scanner to select Session, Show locations to count, and show outstanding barcodes in the locations.  Also requires Batch to be captured\n\nBatch is not currently tied to any logic",
+  "Type": "PROCESS",
+  "Version": 0,
+  "LastModified": "24/06/2024",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "1b4e045c-4437-5716-8b63-d0fc562c09e3",
+      "ArtifactVersion": 1,
+      "ArtifactName": "webtemplate_ActiveStocktakesessions"
+    },
+    {
+      "ArtifactType": "SQL_STORED_PROCEDURE",
+      "ArtifactIdentifier": "9140d67e-6cb4-5899-b0b4-28a8f8c986b5",
+      "ArtifactVersion": 1,
+      "ArtifactName": "WebtemplateStockTakeLocation"
+    },
+    {
+      "ArtifactType": "SQL_STORED_PROCEDURE",
+      "ArtifactIdentifier": "46b4656f-a91c-57d3-9788-3dc12a9a8158",
+      "ArtifactVersion": 1,
+      "ArtifactName": "WebtemplateStockTakeTrackingEntity"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "7927c839-f942-5a0f-9b7f-167c48f8db14",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PrescriptStoctakeCountTrackingEntity"
+    }
+  ],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "STOCKTAKECOUNT",
+    "ProcessStepMetadata": [
+      {
+        "Name": "Session",
+        "Description": "Session",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": false,
+        "PreScript": ""
+      },
+      {
+        "Name": "Count",
+        "Description": "Count",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "Location",
+        "Description": "Location",
+        "ProcessIndex": 2,
+        "NextIndex": 3,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": false,
+        "PreScript": ""
+      },
+      {
+        "Name": "TrackingEntity",
+        "Description": "TrackingEntity",
+        "ProcessIndex": 3,
+        "NextIndex": 4,
+        "isActive": true,
+        "Required": false,
+        "PreScript": "PrescriptStoctakeCountTrackingEntity",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "PalletConfirmation",
+        "Description": "PalletConfirmation",
+        "ProcessIndex": 5,
+        "NextIndex": 6,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "Qty",
+        "Description": "Qty",
+        "ProcessIndex": 6,
+        "NextIndex": 3,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "Batch",
+        "Description": "BatchConfirm",
+        "ProcessIndex": 4,
+        "NextIndex": 5,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      }
+    ]
+  },
+  "PostDeployArtifacts": [
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "649d0109-7c58-5378-8a70-a5a61bb9ac2a",
+      "ArtifactVersion": 1,
+      "ArtifactName": "3PLSTOCKTAKECOUNT_Session"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "7bbbfb1e-a262-5a21-b1bb-4fd82a98fbf4",
+      "ArtifactVersion": 1,
+      "ArtifactName": "3PLSTOCKTAKECOUNT_Location"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "ff9c9288-d71d-5efc-8768-e5f4d55690b0",
+      "ArtifactVersion": 1,
+      "ArtifactName": "3PLSTOCKTAKECOUNT_TrackingEntity"
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

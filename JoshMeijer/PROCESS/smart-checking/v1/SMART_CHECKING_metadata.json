@@ -1,0 +1,110 @@
+{
+  "Identifier": "26587262-ef86-4012-9b44-9014a6a02432",
+  "Name": "SMART_CHECKING",
+  "Description": "Packing process that gives you more control over what you are packing\n\nThis is an extension of the standard packing process that allows you to pack the same pallets and serial numbers you picked against an order. It allows for packing master items, tracking entities, serial numbers and pallets. It is also set up in such a way to be used in conjunction with SMART_UNCHECKING so that any pack transaction using SMART_CHECKING can be reversed correctly.\n\nBy default the process uses the sales order document number as the pallet for all the packed entities, but this can be safely changed without breaking any other functionality.",
+  "Type": "PROCESS",
+  "Version": 1,
+  "LastModified": "03/08/2024",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "afdecb69-f258-54eb-81a4-904779918126",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_Checking_Document"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "4e211dbe-3019-5923-9bb6-fa3110583f9f",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_Checking_MasterItem"
+    }
+  ],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "PACKING",
+    "ProcessStepMetadata": [
+      {
+        "Name": "Document",
+        "Description": "Document",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_Checking_Document",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Location",
+        "Description": "Check and Pack Location",
+        "ProcessIndex": 100,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "DefaultValue": "DIS",
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "CarryingEntity",
+        "Description": "BOX or PALLET",
+        "ProcessIndex": 100,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "MasterItem",
+        "Description": "Scan or Enter Barcode",
+        "ProcessIndex": 2,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_Checking_MasterItem",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Qty",
+        "Description": "Qty",
+        "ProcessIndex": 100,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "Comment",
+        "Description": "Comment",
+        "ProcessIndex": 100,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "Type",
+        "Description": "Select Type of Check",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      }
+    ]
+  },
+  "PostDeployArtifacts": [
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "a0a8423f-39f6-558b-921b-a7540527a82e",
+      "ArtifactVersion": 1,
+      "ArtifactName": "SMART_CHECKING_Type"
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

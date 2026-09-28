@@ -1,0 +1,13 @@
+{
+  "Identifier": "2f1b2ecb-d65c-5754-af0e-81ab9bf0a805",
+  "Name": "SERIAL_TAKEON_MasterItem",
+  "Description": "WebTemplate for process template SERIAL_TAKEON / step MasterItem",
+  "Type": "WEBTEMPLATE",
+  "Version": 0,
+  "LastModified": "14/03/2024",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

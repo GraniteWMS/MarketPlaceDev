@@ -1,0 +1,13 @@
+{
+  "Identifier": "eaf3e243-db3f-597c-8940-5283e5a97d11",
+  "Name": "MOVEBYJOB_Location",
+  "Description": "WebTemplate for process template MOVEBYJOB / step Location",
+  "Type": "WEBTEMPLATE",
+  "Version": 1,
+  "LastModified": "18/03/2026",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

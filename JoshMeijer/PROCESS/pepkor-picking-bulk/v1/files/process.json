@@ -1,0 +1,60 @@
+{
+  "Name": "PEPKOR_PICKING_BULK",
+  "Description": "PEPKOR_PICKING_BULK",
+  "Type": "PICKING",
+  "IsActive": true,
+  "IntegrationIsActive": false,
+  "IntegrationPost": false,
+  "WebTemplateArtifact": "b1639acb-bd10-5c78-b3df-bbb34c21662e",
+  "Steps": [
+    {
+      "Name": "Document",
+      "Description": "Enter SO #",
+      "ProcessIndex": 0,
+      "NextIndex": 1,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "Prescript_Picking_Document"
+    },
+    {
+      "Name": "Location",
+      "Description": "Scan Bin Location",
+      "ProcessIndex": 1,
+      "NextIndex": 2,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "Prescript_PickingBulk_Location"
+    },
+    {
+      "Name": "TrackingEntity",
+      "Description": "Scan Item Code",
+      "ProcessIndex": 2,
+      "NextIndex": 3,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "Prescript_PickingBulk_TrackingEntity"
+    },
+    {
+      "Name": "Qty",
+      "Description": "Enter Qty To Pick",
+      "ProcessIndex": 3,
+      "NextIndex": 2,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false
+    },
+    {
+      "Name": "Step200",
+      "Description": "Step200",
+      "ProcessIndex": 200,
+      "NextIndex": 0,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "Prescript_Picking_Step200"
+    }
+  ]
+}

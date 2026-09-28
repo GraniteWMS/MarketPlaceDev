@@ -1,0 +1,110 @@
+{
+  "Identifier": "1f5468f6-e238-4a29-8dd4-b15d166fa377",
+  "Name": "PEANUT_CONSUME_FINAL",
+  "Description": "PEANUT_CONSUME_FINAL\n\nIt automatically calculates the wastage quantity based on the wastage percentage set on the line comment",
+  "Type": "PROCESS",
+  "Version": 1,
+  "LastModified": "31/05/2026",
+  "Tags": [
+    "Manufacturing"
+  ],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "5ddf3528-d48e-5358-ae52-ba47f2b0b313",
+      "ArtifactVersion": 1,
+      "ArtifactName": "WebTemplate_PeanutManufacture_Document"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "48a28f9c-d928-50e3-b2d6-2f3b7c008c42",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_PeanutConsume_Document"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "f0b73589-f3bb-5154-9767-d46b6cbb32d0",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_PeanutConsume_TrackingEntity"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "69f6248f-0e44-565d-bdcf-c75365830972",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_PeanutConsume_Qty"
+    }
+  ],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "CONSUME",
+    "ProcessStepMetadata": [
+      {
+        "Name": "Document",
+        "Description": "Enter FG Document",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_PeanutConsume_Document",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Location",
+        "Description": "Location",
+        "ProcessIndex": 100,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "DefaultValue": "Peanut Warehouse",
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "TrackingEntity",
+        "Description": "Scan Barcode To Consume",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_PeanutConsume_TrackingEntity",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Qty",
+        "Description": "Qty To Consume",
+        "ProcessIndex": 2,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_PeanutConsume_Qty",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Comment",
+        "Description": "Comment",
+        "ProcessIndex": 100,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      }
+    ]
+  },
+  "PostDeployArtifacts": [
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "d554ced3-875b-5a6c-8ed5-c1152689d44c",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PEANUT_CONSUME_FINAL"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "db21e92f-5958-522b-9dd6-114a2b628585",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PEANUT_CONSUME_FINAL_Document"
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

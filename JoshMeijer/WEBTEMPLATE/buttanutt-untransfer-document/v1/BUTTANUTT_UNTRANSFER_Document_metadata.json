@@ -1,0 +1,19 @@
+{
+  "Identifier": "c9e2a50c-3b61-5fe3-a5f6-156ac7a03e8f",
+  "Name": "BUTTANUTT_UNTRANSFER_Document",
+  "Description": "WebTemplate for process template BUTTANUTT_UNTRANSFER / step Document",
+  "Type": "WEBTEMPLATE",
+  "Version": 1,
+  "LastModified": "07/06/2026",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "c39f6a42-6a86-56c5-bd65-15129a4aeac9",
+      "ArtifactVersion": 1
+    }
+  ],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

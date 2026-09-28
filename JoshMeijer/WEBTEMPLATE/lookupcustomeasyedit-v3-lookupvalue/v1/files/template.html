@@ -1,0 +1,230 @@
+{{#if LastValue}}
+    {{#if Type === "MasterItem"}}
+        {{
+            "SELECT TOP 1
+                  X.Code
+                , X.Description
+             FROM
+             (
+                SELECT MI.ID, MI.Code, MI.Description
+                FROM dbo.MasterItem MI WITH (NOLOCK)
+                WHERE MI.Code = @LastValue
+                   OR MI.FormattedCode = @LastValue
+                UNION
+                SELECT MI.ID, MI.Code, MI.Description
+                FROM dbo.MasterItemAlias_View MIA WITH (NOLOCK)
+                INNER JOIN dbo.MasterItem MI WITH (NOLOCK)
+                    ON MI.ID = MIA.MasterItem_id
+                WHERE MIA.Code = @LastValue
+             ) X"
+            | dbSingle({LastValue})
+            | to => masterItem
+        }}
+        <div>
+            <header>{{masterItem.Code}}</header>
+            <small style="-ms-word-wrap: break-word; word-wrap: break-word;">{{masterItem.Description}}</small>
+        </div>
+    {{else}}
+        <div>
+            <header>{{LastValue}}</header>
+            <small>{{Type}}</small>
+        </div>
+    {{/if}}
+
+    {{
+        "SELECT
+              MasterItem.Code
+            , MasterItem.Description
+            , MasterItem.UOM
+            , Location.Name AS LocationName
+            , Location.ERPLocation
+            , CarryingEntity.Barcode AS Pallet
+            , TrackingEntity.Barcode
+            , TrackingEntity.InStock
+            , TrackingEntity.OnHold
+            , TrackingEntity.StockTake
+            , TrackingEntity.Qty
+            , TrackingEntity.SerialNumber
+            , TrackingEntity.Batch
+            , TrackingEntity.ExpiryDate
+        FROM dbo.TrackingEntity TrackingEntity WITH (NOLOCK)
+        INNER JOIN dbo.MasterItem MasterItem WITH (NOLOCK)
+            ON MasterItem.ID = TrackingEntity.MasterItem_id
+        INNER JOIN dbo.Location Location WITH (NOLOCK)
+            ON Location.ID = TrackingEntity.Location_id
+        LEFT JOIN dbo.CarryingEntity CarryingEntity WITH (NOLOCK)
+            ON CarryingEntity.ID = TrackingEntity.BelongsToEntity_id
+        WHERE
+        (
+            @Type = "MasterItem"
+            AND TrackingEntity.InStock = 1
+            AND TrackingEntity.Qty > 0
+            AND TrackingEntity.MasterItem_id IN
+            (
+                SELECT MI.ID
+                FROM dbo.MasterItem MI WITH (NOLOCK)
+                WHERE MI.Code = @LastValue
+                   OR MI.FormattedCode = @LastValue
+                UNION
+                SELECT MIA.MasterItem_id
+                FROM dbo.MasterItemAlias_View MIA WITH (NOLOCK)
+                WHERE MIA.Code = @LastValue
+            )
+        )
+        OR
+        (
+            @Type = "Location"
+            AND TrackingEntity.InStock = 1
+            AND Location.Barcode = @LastValue
+        )
+        OR
+        (
+            @Type = "Inventory"
+            AND TrackingEntity.Barcode = @LastValue
+        )
+        OR
+        (
+            @Type = "Serial"
+            AND TrackingEntity.SerialNumber = @LastValue
+        )
+        OR
+        (
+            @Type = "Batch"
+            AND TrackingEntity.InStock = 1
+            AND TrackingEntity.Batch = @LastValue
+        )
+        ORDER BY MasterItem.Code, Location.Name, TrackingEntity.Barcode
+        OPTION (RECOMPILE)"
+        | dbSelect({LastValue, Type})
+        | to => trackingEntities
+    }}
+
+    {{
+        "SELECT SUM(TrackingEntity.Qty)
+        FROM dbo.TrackingEntity TrackingEntity WITH (NOLOCK)
+        INNER JOIN dbo.MasterItem MasterItem WITH (NOLOCK)
+            ON MasterItem.ID = TrackingEntity.MasterItem_id
+        INNER JOIN dbo.Location Location WITH (NOLOCK)
+            ON Location.ID = TrackingEntity.Location_id
+        WHERE
+        (
+            @Type = "MasterItem"
+            AND TrackingEntity.InStock = 1
+            AND TrackingEntity.Qty > 0
+            AND TrackingEntity.MasterItem_id IN
+            (
+                SELECT MI.ID
+                FROM dbo.MasterItem MI WITH (NOLOCK)
+                WHERE MI.Code = @LastValue
+                   OR MI.FormattedCode = @LastValue
+                UNION
+                SELECT MIA.MasterItem_id
+                FROM dbo.MasterItemAlias_View MIA WITH (NOLOCK)
+                WHERE MIA.Code = @LastValue
+            )
+        )
+        OR
+        (
+            @Type = "Location"
+            AND TrackingEntity.InStock = 1
+            AND Location.Barcode = @LastValue
+        )
+        OR
+        (
+            @Type = "Inventory"
+            AND TrackingEntity.Barcode = @LastValue
+        )
+        OR
+        (
+            @Type = "Serial"
+            AND TrackingEntity.SerialNumber = @LastValue
+        )
+        OR
+        (
+            @Type = "Batch"
+            AND TrackingEntity.InStock = 1
+            AND TrackingEntity.Batch = @LastValue
+        )
+        OPTION (RECOMPILE)"
+        | dbScalar({LastValue, Type})
+        | to => sumQty
+    }}
+
+    {{#if trackingEntities}}
+        <div class="row g-0">
+            <small class="col">Count</small>
+            <header id="Count" class="col">{{trackingEntities.Count}}</header>
+        </div>
+        <div class="row g-0">
+            <small class="col">Sum total</small>
+            <header class="col">{{sumQty}}</header>
+        </div>
+        <hr />
+
+        <div style="max-height: 40vh; overflow-y: auto;">
+        {{#each trackingEntities}}
+            {{#if it.InStock}}
+                <div><header class="gn-success">InStock</header></div>
+            {{else}}
+                <div><header class="gn-error">Scrapped</header></div>
+            {{/if}}
+            {{#if it.OnHold}}
+                <div><header class="gn-message">OnHold</header></div>
+            {{/if}}
+            {{#if it.StockTake}}
+                <div><header class="gn-message">StockTake</header></div>
+            {{/if}}
+            {{#if Type != "MasterItem"}}
+                <div class="row g-0">
+                    <header class="col">{{it.Code}}</header>
+                </div>
+                <div class="row g-0">
+                    <small style="-ms-word-wrap: break-word; word-wrap: break-word;">{{it.Description}}</small>
+                </div>
+            {{/if}}
+            {{#if it.Pallet}}
+                <div class="row g-0">
+                    <small class="col">Pallet</small>
+                    <header class="col">{{it.Pallet}}</header>
+                </div>
+            {{/if}}
+            <div class="row g-0">
+                <small class="col">Barcode</small>
+                <header class="col">{{it.Barcode}}</header>
+            </div>
+            {{#if Type != "Location"}}
+                <div class="row g-0">
+                    <small class="col">Location</small>
+                    <header class="col">{{it.LocationName}} <small style="font-style:normal">{{it.ERPLocation}}</small></header>
+                </div>
+            {{/if}}
+            <div class="row g-0">
+                <small class="col">Qty</small>
+                <header class="col">{{it.Qty}} {{it.UOM}}</header>
+            </div>
+            {{#if it.SerialNumber}}
+                <div class="row g-0">
+                    <small class="col">Serial</small>
+                    <header class="col">{{it.SerialNumber}}</header>
+                </div>
+            {{/if}}
+            {{#if it.Batch}}
+                <div class="row g-0">
+                    <small class="col">Batch</small>
+                    <header class="col">{{it.Batch}}</header>
+                </div>
+            {{/if}}
+            {{#if it.ExpiryDate}}
+                <div class="row g-0">
+                    <small class="col">Expiry</small>
+                    <header class="col">{{it.ExpiryDate}}</header>
+                </div>
+            {{/if}}
+            <hr />
+        {{/each}}
+        </div>
+    {{else}}
+        <div><small>No stock found.</small></div>
+    {{/if}}
+    <hr />
+{{/if}}

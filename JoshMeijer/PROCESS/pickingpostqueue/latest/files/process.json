@@ -1,0 +1,31 @@
+{
+  "Name": "PICKINGPOSTQUEUE",
+  "Description": "Picking Post to Queue",
+  "Type": "CUSTOM",
+  "IsActive": true,
+  "IntegrationIsActive": false,
+  "IntegrationPost": false,
+  "Steps": [
+    {
+      "Name": "Document",
+      "Description": "Document",
+      "ProcessIndex": 0,
+      "NextIndex": 1,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "WebTemplateArtifact": "f767c2cd-13c2-5e4c-8080-91ba109e88c3"
+    },
+    {
+      "Name": "Confirmation",
+      "Description": "Confirm Details To Post",
+      "ProcessIndex": 1,
+      "NextIndex": 0,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "PrescriptPickingPostQueueConfirmation",
+      "WebTemplateArtifact": "26b7c08e-4f24-5d4a-ab73-a093b84375dd"
+    }
+  ]
+}

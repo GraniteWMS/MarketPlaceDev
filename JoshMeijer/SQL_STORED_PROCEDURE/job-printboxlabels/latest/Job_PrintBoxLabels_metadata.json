@@ -1,0 +1,10 @@
+{
+  "Identifier": "0da3c6db-c232-5018-af55-4895cbd0cebc",
+  "Name": "Job_PrintBoxLabels",
+  "Description": "",
+  "Type": "SQL_STORED_PROCEDURE",
+  "Version": 0,
+  "LastModified": "10/05/2026",
+  "Tags": [],
+  "ArtifactDependencies": []
+}

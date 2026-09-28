@@ -1,0 +1,60 @@
+{
+  "Name": "RD_RECEIVING",
+  "Description": "Retail Distribution Receiving against PO",
+  "Type": "RECEIVING",
+  "IsActive": true,
+  "IntegrationIsActive": true,
+  "IntegrationPost": true,
+  "Steps": [
+    {
+      "Name": "Document",
+      "Description": "Purchase Order",
+      "ProcessIndex": 0,
+      "NextIndex": 1,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "Prescript_Receiving_Document",
+      "WebTemplateArtifact": "b0a2b0cf-a7c2-55e3-80e7-264b5f44931a"
+    },
+    {
+      "Name": "Location",
+      "Description": "Receiving Location",
+      "ProcessIndex": 1,
+      "NextIndex": 2,
+      "IsActive": true,
+      "Required": false,
+      "IsBusinessRule": false,
+      "PreScript": "Prescript_Receiving_Location"
+    },
+    {
+      "Name": "MasterItem",
+      "Description": "Scan or Select MasterItem from PO",
+      "ProcessIndex": 2,
+      "NextIndex": 2,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "Prescript_Receiving_MasterItem"
+    },
+    {
+      "Name": "Qty",
+      "Description": "Qty Received",
+      "ProcessIndex": 100,
+      "NextIndex": 100,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "DefaultValue": "1"
+    },
+    {
+      "Name": "UseBarcode",
+      "Description": "UseBarcode",
+      "ProcessIndex": 100,
+      "NextIndex": 0,
+      "IsActive": true,
+      "Required": false,
+      "IsBusinessRule": false
+    }
+  ]
+}

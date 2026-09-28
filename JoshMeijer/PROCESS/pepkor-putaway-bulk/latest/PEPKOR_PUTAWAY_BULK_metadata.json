@@ -1,0 +1,84 @@
+{
+  "Identifier": "e6e74755-eea2-4780-9fb9-6f20bd8d9ba0",
+  "Name": "PEPKOR_PUTAWAY_BULK",
+  "Description": "PEPKOR_PUTAWAY_BULK\n\nPutaway barcode using location and item code",
+  "Type": "PROCESS",
+  "Version": 0,
+  "LastModified": "13/05/2026",
+  "Tags": [
+    "Manufacturing",
+    "Retail",
+    "Automotive",
+    "Agricultural",
+    "Textile",
+    "Electronics",
+    "Construction",
+    "E-commerce",
+    "Pharmaceutical",
+    "Logistics",
+    "Cold Storage"
+  ],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "71b560c5-ea62-5ea8-b333-759377d9b494",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_PutawayBulk_FromTrackingEntity"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "1516730b-4953-5bf0-88f6-a6f7ea555fbc",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_PutawayBulk_Location"
+    }
+  ],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "REPLENISH",
+    "ProcessStepMetadata": [
+      {
+        "Name": "FromTrackingEntity",
+        "Description": "Scan Item Code",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_PutawayBulk_FromTrackingEntity",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Location",
+        "Description": "Scan Bin Location",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_PutawayBulk_Location",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "ToTrackingEntity",
+        "Description": "To TrackingEntity",
+        "ProcessIndex": 100,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "Qty",
+        "Description": "Qty to Put Away",
+        "ProcessIndex": 2,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      }
+    ]
+  },
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

@@ -1,0 +1,78 @@
+{
+  "Identifier": "b17d6bf7-5249-48de-b0bf-3a84a3539215",
+  "Name": "COMPLET_TASK",
+  "Description": "COMPLET_TASK\n\nCompletes a task entered by CREATE_TASK",
+  "Type": "PROCESS",
+  "Version": 1,
+  "LastModified": "04/06/2025",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "USER_TABLE",
+      "ArtifactIdentifier": "7fc30b7d-9bad-5b47-9a4b-dd64e1e4cb9a",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Custom_TaskList"
+    },
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "cd749a88-b410-5232-a838-43e5ab2a87e7",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Webtemplate_TaskList"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "d9b70c8e-d061-51c3-adcd-926927ef0d34",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PrescriptCompleteTasksConfirmation"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "06c8317f-f90f-55a5-a243-7aba5c665bbb",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PrescriptCompleteTasksTaskName"
+    }
+  ],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "CUSTOM",
+    "ProcessStepMetadata": [
+      {
+        "Name": "Confirmation",
+        "Description": "Confirm",
+        "ProcessIndex": 1,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "PrescriptCompleteTasksConfirmation",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "TaskName",
+        "Description": "Task Name",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "PrescriptCompleteTasksTaskName",
+        "hasWebTemplate": false
+      }
+    ]
+  },
+  "PostDeployArtifacts": [
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "3b79441b-2584-598f-87ef-e05cb5c243d1",
+      "ArtifactVersion": 1,
+      "ArtifactName": "COMPLET_TASK_TaskName"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "97b4a4e0-33ce-5160-be96-04fee8a02484",
+      "ArtifactVersion": 1,
+      "ArtifactName": "COMPLET_TASK_Confirmation"
+    }
+  ],
+  "DependsOnClr": true,
+  "SqlClrAssemblyVersion": "7.0.0.0",
+  "Deprecated": false
+}

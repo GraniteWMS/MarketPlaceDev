@@ -1,0 +1,16 @@
+{{ "SELECT EnforceSerialNumber FROM MasterItem WHERE Code = @MasterItem" | dbScalar({MasterItem}) |> to => enforceSerial }}
+{{#if enforceSerial == 0}}
+	{{ 
+      navigateToStep({
+          stepName: "Qty",
+          stepInputOverride: ""
+      }) 
+	}}
+{{/if}}
+
+	{{ 
+        navigateToStepButton({
+            stepName: "MasterItem",
+            buttonText: "Change Item"
+        }) 
+    }}

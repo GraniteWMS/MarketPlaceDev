@@ -1,0 +1,19 @@
+{
+  "Identifier": "bc431d3d-3790-5d90-9d74-b2c6174359bb",
+  "Name": "ACUMATICAPACK_Document",
+  "Description": "WebTemplate for process template ACUMATICAPACK / step Document",
+  "Type": "WEBTEMPLATE",
+  "Version": 1,
+  "LastModified": "01/06/2026",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "63eb4e3b-a274-5c43-a542-f35990c5c2b3",
+      "ArtifactVersion": 1
+    }
+  ],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

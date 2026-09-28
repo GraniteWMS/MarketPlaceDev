@@ -1,0 +1,13 @@
+{
+  "Identifier": "9ecd3018-a9b4-5c5c-895a-1d90200f9958",
+  "Name": "ADJUSTTOQTY-CLRV7WithAsktoPost_ERPAction",
+  "Description": "WebTemplate for process template ADJUSTTOQTY-CLRV7WithAsktoPost / step ERPAction",
+  "Type": "WEBTEMPLATE",
+  "Version": 1,
+  "LastModified": "30/07/2026",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

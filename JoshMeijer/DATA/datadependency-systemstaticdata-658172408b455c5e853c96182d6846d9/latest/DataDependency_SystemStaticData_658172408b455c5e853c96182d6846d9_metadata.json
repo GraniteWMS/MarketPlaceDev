@@ -1,0 +1,17 @@
+{
+  "Identifier": "65817240-8b45-5c5e-853c-96182d6846d9",
+  "Name": "DataDependency_SystemStaticData_658172408b455c5e853c96182d6846d9",
+  "Description": "",
+  "Type": "DATA",
+  "Version": 0,
+  "LastModified": "09/10/2025",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "TypeSpecificAttributes": {
+    "Table": "SystemStaticData",
+    "KeyColumn": "Key",
+    "KeyValues": [
+      "BAT"
+    ]
+  }
+}

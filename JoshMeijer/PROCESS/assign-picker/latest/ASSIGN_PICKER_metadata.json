@@ -1,0 +1,75 @@
+{
+  "Identifier": "00664a95-f3af-4c20-aaf0-a6767e425009",
+  "Name": "ASSIGN_PICKER",
+  "Description": "ASSIGN PICKER TO DOCUMENT\n\nAbility to assign the document to a specific user in the PICKING user group",
+  "Type": "PROCESS",
+  "Version": 0,
+  "LastModified": "17/03/2026",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "5659848a-c167-5ee1-b283-d93c88155b19",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PrescriptAssignPickerType"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "7f1b7fdc-4158-5de6-b47b-e1fd8f892385",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PrescriptAssignPickerDocument"
+    }
+  ],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "CUSTOM",
+    "ProcessStepMetadata": [
+      {
+        "Name": "Type",
+        "Description": "Type",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "PrescriptAssignPickerType",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "PickerName",
+        "Description": "Picker",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Document",
+        "Description": "Document",
+        "ProcessIndex": 2,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "PrescriptAssignPickerDocument",
+        "hasWebTemplate": true
+      }
+    ]
+  },
+  "PostDeployArtifacts": [
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "55744001-cf1f-5239-8c13-d367aae6da87",
+      "ArtifactVersion": 1,
+      "ArtifactName": "ASSIGN_PICKER"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "6f9bcac3-00fd-5660-a8a5-ca591e001530",
+      "ArtifactVersion": 1,
+      "ArtifactName": "ASSIGN_PICKER_Type"
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

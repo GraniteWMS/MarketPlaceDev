@@ -1,0 +1,19 @@
+{
+  "Identifier": "203fdb43-fef8-5b46-b11b-f5faf44fcdcf",
+  "Name": "RECEIVINGLOCITEM_Location",
+  "Description": "WebTemplate for process template RECEIVINGLOCITEM / step Location",
+  "Type": "WEBTEMPLATE",
+  "Version": 1,
+  "LastModified": "10/05/2026",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "97b74da2-34b8-5ba2-995f-1158b461b2d0",
+      "ArtifactVersion": 1
+    }
+  ],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

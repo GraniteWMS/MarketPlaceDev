@@ -1,0 +1,13 @@
+{
+  "Identifier": "2a3f1801-6c3d-51b9-91e1-9c8c02e052be",
+  "Name": "Receiving_Consolidated_Confirmation",
+  "Description": "WebTemplate for process template Receiving_Consolidated / step Confirmation",
+  "Type": "WEBTEMPLATE",
+  "Version": 1,
+  "LastModified": "05/08/2026",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

@@ -1,0 +1,65 @@
+{
+  "Identifier": "908294a1-c52a-4bf7-ad10-53ee9a7eeb5c",
+  "Name": "3PL_LOADCOMPLETE",
+  "Description": "3PL Load Complete\n\nAfter Completing loadout -send an email to management and customer with load out details\n\nconfigure email service",
+  "Type": "PROCESS",
+  "Version": 1,
+  "LastModified": "04/08/2025",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "e2d24574-ec61-5780-8404-c27203ddcacf",
+      "ArtifactVersion": 1,
+      "ArtifactName": "webtemplate_OutboundDocumentToComplete"
+    },
+    {
+      "ArtifactType": "USER_TABLE",
+      "ArtifactIdentifier": "1b52b5fe-b1cd-5d22-a5be-49d4ffc4e1ad",
+      "ArtifactVersion": 1,
+      "ArtifactName": "custom_DocumentTrackingLog"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "c22583d2-5da1-5aea-9237-66913c66af8a",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_3PL_LoadCompleteConfirmation"
+    }
+  ],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "CUSTOM",
+    "ProcessStepMetadata": [
+      {
+        "Name": "Document",
+        "Description": "Document",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": false,
+        "PreScript": ""
+      },
+      {
+        "Name": "Confirmation",
+        "Description": "Confirmation",
+        "ProcessIndex": 1,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_3PL_LoadCompleteConfirmation",
+        "hasWebTemplate": true
+      }
+    ]
+  },
+  "PostDeployArtifacts": [
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "c267cf03-6760-5643-9b43-756802ccb99a",
+      "ArtifactVersion": 1,
+      "ArtifactName": "3PL_LOADCOMPLETE_Document"
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

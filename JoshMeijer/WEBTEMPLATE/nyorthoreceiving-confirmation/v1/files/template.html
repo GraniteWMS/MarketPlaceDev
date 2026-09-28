@@ -1,0 +1,1 @@
+{{ "SELECT @MasterItem ItemCode,  @Qty Qty" | dbSelect({MasterItem,Qty}) | basicTable({}) }}

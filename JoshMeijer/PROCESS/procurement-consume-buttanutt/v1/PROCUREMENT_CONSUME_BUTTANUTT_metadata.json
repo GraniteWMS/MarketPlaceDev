@@ -1,0 +1,93 @@
+{
+  "Identifier": "29b5699c-023e-46fc-b4a2-e9daf709cdba",
+  "Name": "PROCUREMENT_CONSUME_BUTTANUTT",
+  "Description": "PROCUREMENT_CONSUME_BUTTANUTT\n\nDefaults the Qty step to the full scanned barcode qty",
+  "Type": "PROCESS",
+  "Version": 1,
+  "LastModified": "21/03/2026",
+  "Tags": [
+    "Manufacturing"
+  ],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "aae3b378-2e6f-539d-b687-b93a82d43be9",
+      "ArtifactVersion": 1,
+      "ArtifactName": "WebTemplate_Manufacture_Document"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "fc27d08c-4d80-52a1-9e30-fb5f4ac00950",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_Consume_Document"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "0ec576cf-d1bf-5be6-a9e1-526d888b0c60",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_Consume_TrackingEntity"
+    }
+  ],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "CONSUME",
+    "ProcessStepMetadata": [
+      {
+        "Name": "Document",
+        "Description": "Enter FG Document",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_Consume_Document",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Location",
+        "Description": "Confirm Location",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "TrackingEntity",
+        "Description": "Scan Barcode To Consume",
+        "ProcessIndex": 2,
+        "NextIndex": 3,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_Consume_TrackingEntity",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Qty",
+        "Description": "Enter Quantity To Consume",
+        "ProcessIndex": 3,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      }
+    ]
+  },
+  "PostDeployArtifacts": [
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "7f5b7d98-d8f5-525c-b552-b6da24908f7c",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PROCUREMENT_CONSUME_BUTTANUTT"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "d093d3c6-f7ae-5db2-9697-417dfc89820e",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PROCUREMENT_CONSUME_BUTTANUTT_Document"
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

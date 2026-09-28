@@ -1,0 +1,12 @@
+{{ "SELECT CountNumber FROM CountNumbers WHERE CountNumber = @Count" | dbScalar({Count}) |> to => count}}
+{{#if count == 1}} 
+     {{ "SELECT Distinct LocationBarcode, LocationName FROM WebtemplateStockTake WHERE Count1Qty is NULL AND Session = @Session " | dbSelect({Session}) | basicTable({selectOnColumn:"", enableSearch:false}) }}
+{{/if}}
+
+{{#if count == 2}} 
+     {{ "SELECT Distinct LocationBarcode, LocationName FROM WebtemplateStockTake WHERE Count2Qty is NULL AND Session = @Session " | dbSelect({Session}) | basicTable({selectOnColumn:"", enableSearch:false}) }}
+{{/if}}
+
+{{#if count == 3}} 
+     {{ "SELECT Distinct LocationBarcode, LocationName FROM WebtemplateStockTake WHERE Count3Qty is NULL AND Session = @Session " | dbSelect({Session})  | basicTable({selectOnColumn:"", enableSearch:false}) }}
+{{/if}}

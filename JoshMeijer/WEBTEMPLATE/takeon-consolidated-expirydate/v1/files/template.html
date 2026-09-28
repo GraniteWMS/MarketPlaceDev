@@ -1,0 +1,25 @@
+{{ "SELECT EnforceBatchNumber, EnforceExpiryDate FROM MasterItem WHERE Code = @MasterItem" | dbSingle({MasterItem}) |> to => row }}
+{{#if row.EnforceExpiryDate == 0}}
+	{{ 
+      navigateToStep({
+          stepName: "SerialNumber",
+          stepInputOverride: ""
+      }) 
+	}}
+{{/if}}
+
+	{{ 
+        navigateToStepButton({
+            stepName: "MasterItem",
+            buttonText: "Change Item"
+        }) 
+    }}
+
+{{#if row.EnforceBatchNumber == 1}}
+	{{ 
+        navigateToStepButton({
+            stepName: "Batch",
+            buttonText: "Change Batch"
+        }) 
+    }}
+{{/if}}

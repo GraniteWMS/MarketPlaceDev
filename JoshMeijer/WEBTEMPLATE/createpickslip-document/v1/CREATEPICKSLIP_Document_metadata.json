@@ -1,0 +1,19 @@
+{
+  "Identifier": "ac38944a-8962-51a2-af5c-f2e84712c66b",
+  "Name": "CREATEPICKSLIP_Document",
+  "Description": "WebTemplate for process template CREATEPICKSLIP / step Document",
+  "Type": "WEBTEMPLATE",
+  "Version": 1,
+  "LastModified": "01/06/2026",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "SQL_STORED_PROCEDURE",
+      "ArtifactIdentifier": "710910b4-5c59-5868-a7ff-249bc2542af1",
+      "ArtifactVersion": 1
+    }
+  ],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

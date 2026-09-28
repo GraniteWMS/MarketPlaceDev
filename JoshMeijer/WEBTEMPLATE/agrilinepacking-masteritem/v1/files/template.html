@@ -1,0 +1,52 @@
+{{ "SELECT CASE WHEN EXISTS (
+    SELECT 1 FROM DocumentDetail
+    WHERE Document_id = (SELECT ID FROM Document WHERE Number = @DocumentNumber)
+    AND Cancelled = 0
+    AND PackedQty < Qty
+) THEN 1 ELSE 0 END" | dbScalar({DocumentNumber}) |> to => hasUnpackedLines }}
+
+{{ "SELECT 1 FROM CarryingEntity WHERE ISNULL([type_id], 0) != 0 AND ISNULL([Length], 0) > 0 AND ISNULL(Width, 0) > 0 AND ISNULL(Height, 0) > 0 AND Barcode = @CarryingEntity" | dbScalar({CarryingEntity}) |> to => dymensions }}
+{{#if hasUnpackedLines == 1 && dymensions == 1}}
+  {{ 
+      navigateToStepButton({
+          stepName: "CarryingEntity",
+          buttonText: "Pack new box"
+      }) 
+  }}
+{{/if}}
+
+{{ "SELECT @BoxCode" | dbScalar({BoxCode}) |> to => boxcode }}
+{{#if dymensions != 1 && boxcode == "CUSTOM"}}
+    <script>
+        (function () {
+            var el = document.getElementById("textBox");
+            if (el) el.style.display = "none";
+        })();
+    </script>
+
+    <div id="messageBoxBanner" style="padding:8px;margin-bottom:8px;border:1px solid #C0392B;background:#F5C6C3;color:#922B21;border-radius:6px;font-size:0.95em;">
+        <div style="margin-bottom:8px;">
+            <strong>Error:</strong> All {{Qties[0].ActionQty}} units have been packed.
+        </div>
+        <button onclick="document.getElementById("messageBoxBanner").style.display="none";document.getElementById("textBox").style.display="";navigateToStep("Length", document.getElementById("textBox").value, "false");" style="width:100%;padding:10px;background:#922B21;color:white;border:none;border-radius:4px;font-size:1em;cursor:pointer;">Enter dimensions</button>
+    </div>
+{{/if}}
+
+{{#if dymensions == 1}}
+  {{ "SELECT SUM(dd.ActionQty) AS ActionQty, SUM(dd.PackedQty) AS PackedQty FROM Document d INNER JOIN DocumentDetail dd ON d.ID = dd.Document_id WHERE d.Number = @Document" |> dbSelect({Document}) |> to => Qties }}
+  {{#if (Qties.Count > 0 && Qties[0].ActionQty == Qties[0].PackedQty)}}
+      <script>
+          (function () {
+              var el = document.getElementById("textBox");
+              if (el) el.style.display = "none";
+          })();
+      </script>
+
+      <div id="messageBoxBanner" style="padding:8px;margin-bottom:8px;border:1px solid #4CAE4C;background:#D6F0D6;color:#2D6E2D;border-radius:6px;font-size:0.95em;">
+          <div style="margin-bottom:8px;">
+              <strong>Success:</strong> All {{Qties[0].ActionQty}} units have been packed.
+          </div>
+          <button onclick="document.getElementById("messageBoxBanner").style.display="none";document.getElementById("textBox").style.display="";navigateToStep("Document", document.getElementById("textBox").value, "false");" style="width:100%;padding:10px;background:#4CAE4C;color:white;border:none;border-radius:4px;font-size:1em;cursor:pointer;">Confirm</button>
+      </div>
+  {{/if}}
+{{/if}}

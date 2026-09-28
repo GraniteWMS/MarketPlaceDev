@@ -1,0 +1,64 @@
+{
+  "Identifier": "ad0d0c4a-7d8b-4d89-9162-568c91852695",
+  "Name": "PEPKOR_PUTAWAY",
+  "Description": "PEPKOR_PUTAWAY\n\nPepkor basic putaway",
+  "Type": "PROCESS",
+  "Version": 0,
+  "LastModified": "13/05/2026",
+  "Tags": [
+    "Manufacturing",
+    "Retail",
+    "Automotive",
+    "Agricultural",
+    "Textile",
+    "Electronics",
+    "Construction",
+    "E-commerce",
+    "Cold Storage",
+    "Pharmaceutical",
+    "Logistics"
+  ],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "e93784ba-57ec-5e92-aae5-f69f60445036",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_Putaway_TrackingEntity"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "f586bfd6-0ebf-5e46-a1ae-c5420fddce64",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_Putaway_Location"
+    }
+  ],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "MOVE",
+    "ProcessStepMetadata": [
+      {
+        "Name": "TrackingEntity",
+        "Description": "Scan Barcode",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_Putaway_TrackingEntity",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Location",
+        "Description": "Scan Bin Location",
+        "ProcessIndex": 1,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_Putaway_Location",
+        "hasWebTemplate": true
+      }
+    ]
+  },
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

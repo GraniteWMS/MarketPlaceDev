@@ -1,0 +1,19 @@
+{
+  "Identifier": "5a0bbe05-3755-5e4c-9348-b22b54a3d63e",
+  "Name": "TRANSFERPOST_Confirmation",
+  "Description": "WebTemplate for process template TRANSFERPOST / step Confirmation",
+  "Type": "WEBTEMPLATE",
+  "Version": 0,
+  "LastModified": "10/09/2026",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "SQL_STORED_PROCEDURE",
+      "ArtifactIdentifier": "d5290b49-70e8-5ee2-a02e-d28a22d3d24b",
+      "ArtifactVersion": 1
+    }
+  ],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

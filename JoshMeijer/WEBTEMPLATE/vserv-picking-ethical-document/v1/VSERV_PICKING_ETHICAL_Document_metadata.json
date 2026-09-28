@@ -1,0 +1,19 @@
+{
+  "Identifier": "4f825b49-13fb-5af6-af8c-822732cb836b",
+  "Name": "VSERV_PICKING_ETHICAL_Document",
+  "Description": "WebTemplate for process template VSERV_PICKING_ETHICAL / step Document",
+  "Type": "WEBTEMPLATE",
+  "Version": 1,
+  "LastModified": "12/06/2026",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "4c3fe570-abb2-5bb0-8619-6178b9517e90",
+      "ArtifactVersion": 1
+    }
+  ],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

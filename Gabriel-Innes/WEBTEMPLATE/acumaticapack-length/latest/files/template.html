@@ -1,0 +1,5 @@
+{{ "SELECT @BoxCode" | dbScalar({BoxCode}) |> to => boxcode }}
+
+{{#if boxcode != "CUSTOM"}}
+	{{navigateToStep({stepName:"MasterItem", submitFinalStep: false})}}
+{{/if}}

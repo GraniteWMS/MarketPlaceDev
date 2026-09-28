@@ -1,0 +1,224 @@
+{
+  "Identifier": "b47fd1ca-8f9d-4a98-95ee-8f611ec2be13",
+  "Name": "CourierPackingTrackingEntity",
+  "Description": "CourierPackingTrackingEntity\n\nCapture courier box information. Dimensions and Weight.\n\nN/a",
+  "Type": "PROCESS",
+  "Version": 1,
+  "LastModified": "13/07/2026",
+  "Tags": [
+    "Manufacturing",
+    "Retail",
+    "Automotive",
+    "Agricultural",
+    "Textile",
+    "Electronics",
+    "Construction",
+    "E-commerce",
+    "Logistics",
+    "Pharmaceutical",
+    "Cold Storage"
+  ],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "USER_TABLE",
+      "ArtifactIdentifier": "983d911e-94e1-52c2-8484-90f3afa2d354",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Custom_CourierBox"
+    },
+    {
+      "ArtifactType": "USER_TABLE",
+      "ArtifactIdentifier": "6aa5aa04-954e-5be3-a02e-80d76aa1fe75",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Custom_CourierBoxTrackingEntity"
+    },
+    {
+      "ArtifactType": "USER_TABLE",
+      "ArtifactIdentifier": "55419874-7365-54de-bd20-9ffdccb3f588",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Custom_CourierBoxType"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "34d3f656-6c44-54fa-b9e5-57de905e20a4",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PrescriptCourierPackingBoxBarcode"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "adbae9ad-b0f4-5f5f-a113-f0e19ade7cec",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PrescriptCourierPackingBoxType"
+    },
+    {
+      "ArtifactType": "USER_TABLE",
+      "ArtifactIdentifier": "15ab6712-2e8c-5bc0-9bff-879db21002d1",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Custom_CourierBoxDocument"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "b987200c-301a-5799-bb40-52d6a98f1c6c",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PrescriptCourierPackingDocument"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "39b4c32e-1601-5816-bbf7-0e0a816ebb54",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PrescriptCourierPackingTrackingEntity"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "93a6b35d-861c-5304-bda8-bceaf8d6c5eb",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PrescriptCourierPackingBoxWeight"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "7767002a-05ae-5827-a7e9-3b21d80f81eb",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PrescriptCourierPackingzConfirmation"
+    },
+    {
+      "ArtifactType": "DATA",
+      "ArtifactIdentifier": "b61bceb6-bb08-57a1-9e5f-1615cb651940",
+      "ArtifactVersion": 1,
+      "ArtifactName": "DataDependency_Custom_CourierBoxType_b61bceb6bb0857a19e5f1615cb651940"
+    },
+    {
+      "ArtifactType": "DATA",
+      "ArtifactIdentifier": "3207ca3b-0be5-5f0c-9247-d7e8841fe406",
+      "ArtifactVersion": 1,
+      "ArtifactName": "DataDependency_Custom_CourierBoxType_3207ca3b0be55f0c9247d7e8841fe406"
+    },
+    {
+      "ArtifactType": "DATA",
+      "ArtifactIdentifier": "8e4664b0-1cc8-5330-bd05-e356742f7a9e",
+      "ArtifactVersion": 1,
+      "ArtifactName": "DataDependency_Custom_CourierBoxType_8e4664b01cc85330bd05e356742f7a9e"
+    },
+    {
+      "ArtifactType": "DATA",
+      "ArtifactIdentifier": "a3eb0686-7d23-5e0e-9af3-deeea19bcbff",
+      "ArtifactVersion": 1,
+      "ArtifactName": "DataDependency_Custom_CourierBoxType_a3eb06867d235e0e9af3deeea19bcbff"
+    },
+    {
+      "ArtifactType": "DATA",
+      "ArtifactIdentifier": "4237b2e1-dd35-5702-b623-4dfa69511559",
+      "ArtifactVersion": 1,
+      "ArtifactName": "DataDependency_Custom_CourierBoxType_4237b2e1dd355702b6234dfa69511559"
+    },
+    {
+      "ArtifactType": "PRE_DEPLOY_SCRIPT",
+      "ArtifactIdentifier": "7a441e81-0c6d-5af2-972e-c5f0557621db",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PreDeployScript"
+    }
+  ],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "CUSTOM",
+    "ProcessStepMetadata": [
+      {
+        "Name": "BoxBarcode",
+        "Description": "Scan/Enter courier box barcode",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": false,
+        "PreScript": "PrescriptCourierPackingBoxBarcode",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "BoxType",
+        "Description": "Select courier box type",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": false,
+        "PreScript": "PrescriptCourierPackingBoxType",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Document",
+        "Description": "Scan/Enter order into courier box",
+        "ProcessIndex": 2,
+        "NextIndex": 3,
+        "isActive": true,
+        "Required": false,
+        "PreScript": "PrescriptCourierPackingDocument",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "TrackingEntity",
+        "Description": "Scan tracking entity into box",
+        "ProcessIndex": 5,
+        "NextIndex": 5,
+        "isActive": true,
+        "Required": false,
+        "PreScript": "PrescriptCourierPackingTrackingEntity",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "BoxWeight",
+        "Description": "Capture final box weight",
+        "ProcessIndex": 3,
+        "NextIndex": 4,
+        "isActive": true,
+        "Required": false,
+        "PreScript": "PrescriptCourierPackingBoxWeight",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "zConfirmation",
+        "Description": "Finalise courier box",
+        "ProcessIndex": 4,
+        "NextIndex": 5,
+        "isActive": true,
+        "Required": false,
+        "PreScript": "PrescriptCourierPackingzConfirmation",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "BarcodeCount",
+        "Description": "BarcodeCount",
+        "ProcessIndex": 100,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": false,
+        "DefaultValue": "0",
+        "hasWebTemplate": true,
+        "PreScript": ""
+      }
+    ]
+  },
+  "PostDeployArtifacts": [
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "350ccb90-e17e-5acc-b5e0-224aa551d482",
+      "ArtifactVersion": 1,
+      "ArtifactName": "CourierPackingTrackingEntity_Document"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "f18c7261-a32f-5b05-9d57-7d7106d2aeab",
+      "ArtifactVersion": 1,
+      "ArtifactName": "CourierPackingTrackingEntity_BoxWeight"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "d1bb60c4-8a62-50e0-b96a-fd3270a9d055",
+      "ArtifactVersion": 1,
+      "ArtifactName": "CourierPackingTrackingEntity_zConfirmation"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "47a1eeb1-6292-5396-b54b-dd4b31d8c098",
+      "ArtifactVersion": 1,
+      "ArtifactName": "CourierPackingTrackingEntity_TrackingEntity"
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

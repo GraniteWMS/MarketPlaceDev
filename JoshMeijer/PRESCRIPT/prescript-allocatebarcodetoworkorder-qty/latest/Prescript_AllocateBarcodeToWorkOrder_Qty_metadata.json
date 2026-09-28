@@ -1,0 +1,10 @@
+{
+  "Identifier": "124b01d9-5655-5919-938f-4034f3a6bb48",
+  "Name": "Prescript_AllocateBarcodeToWorkOrder_Qty",
+  "Description": "",
+  "Type": "PRESCRIPT",
+  "Version": 0,
+  "LastModified": "07/06/2026",
+  "Tags": [],
+  "ArtifactDependencies": []
+}

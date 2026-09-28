@@ -1,0 +1,29 @@
+{
+  "Identifier": "a5d7cb86-802e-49a5-a9a8-3a08780f07e4",
+  "Name": "CUSTOM",
+  "Description": "CUSTOM\n\nThis is the default (empty) CUSTOM process.",
+  "Type": "PROCESS",
+  "Version": 1,
+  "LastModified": "19/03/2024",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "CUSTOM",
+    "ProcessStepMetadata": [
+      {
+        "Name": "CustomStep",
+        "Description": "CustomStep",
+        "ProcessIndex": 0,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      }
+    ]
+  },
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

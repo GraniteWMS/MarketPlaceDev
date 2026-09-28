@@ -1,0 +1,13 @@
+{
+  "Identifier": "c0b2c41a-d555-5d45-af47-f375c7a9e9d7",
+  "Name": "Takeon_Consolidated_Batch",
+  "Description": "WebTemplate for process template Takeon_Consolidated / step Batch",
+  "Type": "WEBTEMPLATE",
+  "Version": 0,
+  "LastModified": "05/08/2026",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

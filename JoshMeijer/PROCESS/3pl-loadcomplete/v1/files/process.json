@@ -1,0 +1,30 @@
+{
+  "Name": "3PL_LOADCOMPLETE",
+  "Description": "LOAD COMPLETE",
+  "Type": "CUSTOM",
+  "IsActive": true,
+  "IntegrationIsActive": false,
+  "IntegrationPost": false,
+  "Steps": [
+    {
+      "Name": "Document",
+      "Description": "Document",
+      "ProcessIndex": 0,
+      "NextIndex": 1,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "WebTemplateArtifact": "820ca109-21cc-5954-a905-15e6769dbdd7"
+    },
+    {
+      "Name": "Confirmation",
+      "Description": "Confirmation",
+      "ProcessIndex": 1,
+      "NextIndex": 0,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "Prescript_3PL_LoadCompleteConfirmation"
+    }
+  ]
+}

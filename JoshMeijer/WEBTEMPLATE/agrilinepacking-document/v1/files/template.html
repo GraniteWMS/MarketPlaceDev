@@ -1,0 +1,21 @@
+{{ 
+	"
+    SELECT 
+    d.Number
+    ,d.CreateDate
+    ,d.TradingPartnerDescription AS Customer
+    ,SUM(CAST(dd.ActionQty AS int)) AS Qty
+    ,SUM(CAST(dd.PackedQty AS int)) AS ActionQty
+    FROM Document d
+    INNER JOIN DocumentDetail dd ON d.ID = dd.Document_id
+    WHERE d.[Type] = "ORDER"
+    AND d.[Status] NOT IN("ONHOLD", "COMPLETE", "CANCELLED")
+    GROUP BY
+    d.Number
+    ,d.CreateDate
+    ,d.TradingPartnerDescription 
+    HAVING SUM(dd.PackedQty) < SUM(dd.ActionQty)
+    " 
+    | dbSelect({}) 
+    | createCardList({selectOnColumn:"Number", enableSearch:true}) 
+}}

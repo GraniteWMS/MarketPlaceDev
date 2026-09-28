@@ -1,0 +1,13 @@
+{
+  "Identifier": "d1068585-f806-58f7-897e-0dbb9de414a1",
+  "Name": "ADJUSTTOQTY-V7CLRWithPOST",
+  "Description": "WebTemplate for process template ADJUSTTOQTY-V7CLRWithPOST",
+  "Type": "WEBTEMPLATE",
+  "Version": 0,
+  "LastModified": "30/07/2026",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

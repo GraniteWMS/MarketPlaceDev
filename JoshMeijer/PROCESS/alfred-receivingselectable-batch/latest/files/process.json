@@ -1,0 +1,85 @@
+{
+  "Name": "ALFRED_RECEIVINGSELECTABLE_BATCH",
+  "Description": "ALFRED_RECEIVINGSELECTABLE_BATCH",
+  "Type": "RECEIVING",
+  "IsActive": true,
+  "IntegrationIsActive": false,
+  "IntegrationPost": false,
+  "WebTemplateArtifact": "5c8d39ce-9cfe-5215-b660-ce2b4f4867e5",
+  "Steps": [
+    {
+      "Name": "Location",
+      "Description": "Receiving Location",
+      "ProcessIndex": 0,
+      "NextIndex": 1,
+      "IsActive": true,
+      "Required": false,
+      "IsBusinessRule": false,
+      "WebTemplateArtifact": "cc49fc6f-61f6-50b2-a8cf-f736550f10e3"
+    },
+    {
+      "Name": "Document",
+      "Description": "Enter Receiving Document",
+      "ProcessIndex": 1,
+      "NextIndex": 2,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "WebTemplateArtifact": "2369bd1b-b1f7-544c-bd64-d5296d2dba35"
+    },
+    {
+      "Name": "MasterItem",
+      "Description": "Select / Search MasterItem",
+      "ProcessIndex": 2,
+      "NextIndex": 3,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false
+    },
+    {
+      "Name": "Batch",
+      "Description": "Batch",
+      "ProcessIndex": 3,
+      "NextIndex": 4,
+      "IsActive": true,
+      "Required": false,
+      "IsBusinessRule": false
+    },
+    {
+      "Name": "ExpiryDate",
+      "Description": "ExpiryDate (YYYYMMDD)",
+      "ProcessIndex": 4,
+      "NextIndex": 5,
+      "IsActive": true,
+      "Required": false,
+      "IsBusinessRule": false
+    },
+    {
+      "Name": "Qty",
+      "Description": "Enter Units per barcode",
+      "ProcessIndex": 5,
+      "NextIndex": 6,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false
+    },
+    {
+      "Name": "NoEntities",
+      "Description": "Number of barcodes",
+      "ProcessIndex": 6,
+      "NextIndex": 2,
+      "IsActive": true,
+      "Required": false,
+      "IsBusinessRule": false
+    },
+    {
+      "Name": "Print",
+      "Description": "Print",
+      "ProcessIndex": 99,
+      "NextIndex": 0,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false
+    }
+  ]
+}

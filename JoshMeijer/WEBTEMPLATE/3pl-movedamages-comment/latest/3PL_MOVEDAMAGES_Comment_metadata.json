@@ -1,0 +1,13 @@
+{
+  "Identifier": "548d27fb-bf51-520c-8f82-cdb51d4f5e79",
+  "Name": "3PL_MOVEDAMAGES_Comment",
+  "Description": "WebTemplate for process template 3PL_MOVEDAMAGES / step Comment",
+  "Type": "WEBTEMPLATE",
+  "Version": 0,
+  "LastModified": "13/07/2024",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

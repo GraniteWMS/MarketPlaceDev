@@ -1,0 +1,13 @@
+{
+  "Identifier": "9ba705e3-5bf9-5b24-aacb-497c8b77fb61",
+  "Name": "PACK_MULTIPLE_BOXES_PrintLabels",
+  "Description": "WebTemplate for process template PACK_MULTIPLE_BOXES / step PrintLabels",
+  "Type": "WEBTEMPLATE",
+  "Version": 0,
+  "LastModified": "30/07/2024",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

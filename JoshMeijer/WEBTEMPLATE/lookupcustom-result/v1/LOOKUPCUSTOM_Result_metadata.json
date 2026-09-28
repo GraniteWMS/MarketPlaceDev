@@ -1,0 +1,13 @@
+{
+  "Identifier": "05867f20-6b5e-54e5-a5db-22436eb64f72",
+  "Name": "LOOKUPCUSTOM_Result",
+  "Description": "WebTemplate for process template LOOKUPCUSTOM / step Result",
+  "Type": "WEBTEMPLATE",
+  "Version": 1,
+  "LastModified": "23/04/2026",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

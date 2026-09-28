@@ -1,0 +1,10 @@
+{
+  "Identifier": "e5dab171-49ae-5d88-883e-a03417980040",
+  "Name": "WebTemplate_PackingCustom_PackDetail",
+  "Description": "",
+  "Type": "SQL_STORED_PROCEDURE",
+  "Version": 1,
+  "LastModified": "07/07/2026",
+  "Tags": [],
+  "ArtifactDependencies": []
+}

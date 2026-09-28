@@ -1,0 +1,67 @@
+{
+  "Name": "ALFRED_RECEIVINGSELECTABLE_STANDARD",
+  "Description": "ALFRED-RECEIVINGSELECTABLE_STANDARD",
+  "Type": "RECEIVING",
+  "IsActive": true,
+  "IntegrationIsActive": false,
+  "IntegrationPost": false,
+  "WebTemplateArtifact": "271ef409-3f9a-528f-b659-7ef5cabbf3a8",
+  "Steps": [
+    {
+      "Name": "Location",
+      "Description": "Receiving Location",
+      "ProcessIndex": 0,
+      "NextIndex": 1,
+      "IsActive": true,
+      "Required": false,
+      "IsBusinessRule": false,
+      "WebTemplateArtifact": "91607f6a-9877-5b74-852f-525408477637"
+    },
+    {
+      "Name": "Document",
+      "Description": "Enter Receiving Document",
+      "ProcessIndex": 1,
+      "NextIndex": 2,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "WebTemplateArtifact": "756629bb-2b38-5939-8e91-eb84f3930b5c"
+    },
+    {
+      "Name": "MasterItem",
+      "Description": "Select / Search MasterItem",
+      "ProcessIndex": 2,
+      "NextIndex": 3,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false
+    },
+    {
+      "Name": "Qty",
+      "Description": "Enter Units per barcode",
+      "ProcessIndex": 3,
+      "NextIndex": 4,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false
+    },
+    {
+      "Name": "NoEntities",
+      "Description": "Number of barcodes",
+      "ProcessIndex": 4,
+      "NextIndex": 2,
+      "IsActive": true,
+      "Required": false,
+      "IsBusinessRule": false
+    },
+    {
+      "Name": "Print",
+      "Description": "Print",
+      "ProcessIndex": 99,
+      "NextIndex": 0,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false
+    }
+  ]
+}

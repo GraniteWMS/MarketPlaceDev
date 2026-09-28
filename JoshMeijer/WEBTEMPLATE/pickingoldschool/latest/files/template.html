@@ -1,0 +1,602 @@
+{{#if Document}}
+    <!-- Fixed style values -->
+    {{var LabelSize = "14px"}}
+    {{var LabelColor = "#555555"}}
+    {{var LabelBold = false}}
+    {{var HeaderValueSize = "15px"}}
+    {{var DetailValueSize = "14px"}}
+    {{var ValueColor = "#000000"}}
+    {{var ValueBold = true}}
+    {{var HeaderSecondaryValueSize = "12px"}}
+    {{var DetailSecondaryValueSize = "12px"}}
+    {{var SecondaryValueColor = "#888888"}}
+    {{var SecondaryValueBold = false}}
+    {{var HeaderSize = "16px"}}
+    {{var HeaderColor = "#2c3e50"}}
+    {{var HeaderBold = true}}
+    {{var SubheaderSize = "14px"}}
+    {{var SubheaderColor = "#34495e"}}
+    {{var SubheaderBold = false}}
+
+    {{
+        "SELECT Number, SUM(ActionQty) / SUM(Qty) * 100 as Progress, Document.Description, 
+        TradingPartnerCode, TradingPartnerDescription, Document.ERPLocation
+        FROM Document INNER JOIN
+        DocumentDetail ON Document.ID = DocumentDetail.Document_id
+        WHERE Number = @Document
+        GROUP BY Number, Document.Description, 
+        TradingPartnerCode, TradingPartnerDescription, Document.ERPLocation"
+        |> dbSingle({Document}) 
+        |> to => document
+    }}
+    {{#if TrackingEntity}}
+        {{
+            "SELECT LineNumber, MasterItem.Code as ItemCode, DocumentDetail.Completed, CAST(ISNULL(ActionQty, 0) / DocumentDetail.Qty * 100 as int) as ActionCompletion,
+            CAST(ActionQty AS int) ActionQty, CAST(DocumentDetail.Qty AS int) Qty, MasterItem.Description ItemDescription, DocumentDetail.UOM, FromLocation, IntransitLocation,
+            ToLocation, Comment, Instruction, DocumentDetail.SerialNumber, DocumentDetail.Batch, DocumentDetail.ExpiryDate
+            FROM Document INNER JOIN
+            DocumentDetail ON Document.ID = DocumentDetail.Document_id INNER JOIN
+            MasterItem ON DocumentDetail.Item_id = MasterItem.ID LEFT JOIN
+            TrackingEntity ON Item_id = TrackingEntity.MasterItem_id LEFT JOIN
+            MasterItemAlias_View ON MasterItem.ID = MasterItemAlias_View.MasterItem_id 
+            LEFT JOIN OptionalFieldValues_DocumentDetail ON DocumentDetail.ID = OptionalFieldValues_DocumentDetail.BelongsTo_id
+			LEFT JOIN [Location] ON OptionalFieldValues_DocumentDetail.[Value] = [Location].Barcode
+            WHERE Number = @Document AND 
+            (TrackingEntity.Barcode = @TrackingEntity OR 
+            MasterItem.Code = @TrackingEntity OR 
+            MasterItem.FormattedCode = @TrackingEntity OR 
+            MasterItemAlias_View.Code = @TrackingEntity)
+            ORDER BY
+            CASE 
+                WHEN [Location].[Type] = \"PICK\" THEN 1
+                WHEN [Location].[Type] = \"BULK\" THEN 2
+                ELSE 3
+            END
+            ,[Location].Barcode ASC"
+            |> dbSelect({Document, TrackingEntity}) 
+            |> to => documentDetails
+        }}
+    {{else}}
+        {{
+            "SELECT LineNumber, Code as ItemCode, DocumentDetail.Completed, CAST(ISNULL(ActionQty, 0) / Qty * 100 as int) as ActionCompletion,
+            CAST(ActionQty AS int) ActionQty, CAST(Qty AS int) Qty, MasterItem.Description ItemDescription, DocumentDetail.UOM, FromLocation, IntransitLocation,
+            ToLocation, Comment, Instruction, SerialNumber, Batch, ExpiryDate
+            FROM Document INNER JOIN
+            DocumentDetail ON Document.ID = DocumentDetail.Document_id INNER JOIN
+            MasterItem ON DocumentDetail.Item_id = MasterItem.ID
+            LEFT JOIN OptionalFieldValues_DocumentDetail ON DocumentDetail.ID = OptionalFieldValues_DocumentDetail.BelongsTo_id
+			LEFT JOIN [Location] ON OptionalFieldValues_DocumentDetail.[Value] = [Location].Barcode
+            WHERE Number = @Document
+            ORDER BY
+            CASE 
+                WHEN [Location].[Type] = \"PICK\" THEN 1
+                WHEN [Location].[Type] = \"BULK\" THEN 2
+                ELSE 3
+            END"
+            |> dbSelect({Document}) 
+            |> to => documentDetails
+        }}
+    {{/if}}    
+
+    {{#if document.Number}}
+    <div class="row g-0 py-1">
+        <div class="col-4">
+            <small style="font-size:{{LabelSize}}; color:{{LabelColor}}; {{#if LabelBold}}font-weight:bold{{/if}}">Document</small>
+        </div>
+        <div class="col-8 text-end">
+            <span style="font-size:{{HeaderValueSize}}; color:{{ValueColor}}; {{#if ValueBold}}font-weight:bold{{/if}}">{{document.Number}}</span>
+            <span style="font-size:{{HeaderSecondaryValueSize}}; color:{{SecondaryValueColor}}; {{#if SecondaryValueBold}}font-weight:bold{{/if}}" class="ms-2">{{document.Progress}}% completed</span>
+        </div>
+    </div>
+    {{/if}}
+
+    {{#if document.Description}}
+    <div class="row g-0 py-1">
+        <div class="col-4">
+            <small style="font-size:{{LabelSize}}; color:{{LabelColor}}; {{#if LabelBold}}font-weight:bold{{/if}}">Description</small>
+        </div>
+        <div class="col-8 text-end">
+            <span style="font-size:{{HeaderValueSize}}; color:{{ValueColor}}; {{#if ValueBold}}font-weight:bold{{/if}}">{{document.Description}}</span>
+        </div>
+    </div>
+    {{/if}}
+
+    {{#if document.TradingPartnerCode}}
+    <div class="row g-0 py-1">
+        <div class="col-4">
+            <small style="font-size:{{LabelSize}}; color:{{LabelColor}}; {{#if LabelBold}}font-weight:bold{{/if}}">Trading Partner</small>
+        </div>
+        <div class="col-8 text-end">
+            <span style="font-size:{{HeaderValueSize}}; color:{{ValueColor}}; {{#if ValueBold}}font-weight:bold{{/if}}">{{document.TradingPartnerCode}} {{document.TradingPartnerDescription}}</span>
+        </div>
+    </div>
+    {{/if}}
+
+    {{#if document.ERPLocation}}
+    <div class="row g-0 py-1">
+        <div class="col-4">
+            <small style="font-size:{{LabelSize}}; color:{{LabelColor}}; {{#if LabelBold}}font-weight:bold{{/if}}">ERPLocation</small>
+        </div>
+        <div class="col-8 text-end">
+            <span style="font-size:{{HeaderValueSize}}; color:{{ValueColor}}; {{#if ValueBold}}font-weight:bold{{/if}}">{{document.ERPLocation}}</span>
+        </div>
+    </div>
+    {{/if}}
+{{/if}}
+
+{{#if Location}}
+    {{
+        "SELECT TOP 1 Name 
+        FROM Location 
+        WHERE Barcode = @Location OR Name = @Location"
+        | dbSingle({Location})
+        |> to => location
+    }}
+    <div class="row g-0 py-1">
+        <div class="col-4">
+            <small style="font-size:{{LabelSize}}; color:{{LabelColor}}; {{#if LabelBold}}font-weight:bold{{/if}}">Picking Location</small>
+        </div>
+        <div class="col-8 text-end">
+            <span style="font-size:{{HeaderValueSize}}; color:{{ValueColor}}; {{#if ValueBold}}font-weight:bold{{/if}}">{{location.Name}}</span>
+        </div>
+    </div>
+    <hr />
+{{/if}}
+
+{{#if TrackingEntity}}
+    {{
+        "SELECT ID FROM TrackingEntity WHERE Barcode = @TrackingEntity" 
+        | dbExists({TrackingEntity}) |> to => isTrackingEntity
+    }}
+    {{
+        "SELECT ID FROM CarryingEntity WHERE Barcode = @TrackingEntity" 
+        | dbExists({TrackingEntity}) |> to => isCarryingEntity
+    }}
+{{/if}}
+
+{{#if TrackingEntity && isTrackingEntity}}
+    {{
+        "SELECT TOP 1 MasterItem.Code, MasterItem.Description, 
+        Location.Name LocationName, Location.ERPLocation, CarryingEntity.Barcode Pallet,
+        TrackingEntity.Barcode, Qty, SerialNumber, Batch, ExpiryDate 
+        FROM TrackingEntity INNER JOIN
+        MasterItem ON TrackingEntity.MasterItem_id = MasterItem.ID INNER JOIN
+        Location ON TrackingEntity.Location_id = Location.ID LEFT JOIN
+        CarryingEntity ON TrackingEntity.BelongsToEntity_id = CarryingEntity.ID
+        WHERE TrackingEntity.Barcode = @TrackingEntity"
+        |> dbSingle({TrackingEntity}) 
+        |> to => trackingEntity
+    }}
+    <div>
+        <header id="_masterItemCode" style="font-size:{{HeaderSize}}; color:{{HeaderColor}}; {{#if HeaderBold}}font-weight:bold{{/if}}">{{trackingEntity.Code}}</header>
+    </div>
+    <div>
+        <small id="_masterItemDescription" class="text-break" style="font-size:{{SubheaderSize}}; color:{{SubheaderColor}}; {{#if SubheaderBold}}font-weight:bold{{/if}}">{{trackingEntity.Description}}</small>
+    </div>
+
+    {{#if trackingEntity.Pallet}}
+    <div class="row g-0 py-1">
+        <div class="col-4">
+            <small style="font-size:{{LabelSize}}; color:{{LabelColor}}; {{#if LabelBold}}font-weight:bold{{/if}}">Pallet</small>
+        </div>
+        <div class="col-8 text-end">
+            <span id="_trackingEntityPallet" style="font-size:{{HeaderValueSize}}; color:{{ValueColor}}; {{#if ValueBold}}font-weight:bold{{/if}}">{{trackingEntity.Pallet}}</span>
+        </div>
+    </div>
+    {{/if}}
+
+    <div class="row g-0 py-1">
+        <div class="col-4">
+            <small style="font-size:{{LabelSize}}; color:{{LabelColor}}; {{#if LabelBold}}font-weight:bold{{/if}}">Barcode</small>
+        </div>
+        <div class="col-8 text-end">
+            <span id="_trackingEntityBarcode" style="font-size:{{HeaderValueSize}}; color:{{ValueColor}}; {{#if ValueBold}}font-weight:bold{{/if}}">{{trackingEntity.Barcode}}</span>
+        </div>
+    </div>
+
+    <div class="row g-0 py-1">
+        <div class="col-4">
+            <small style="font-size:{{LabelSize}}; color:{{LabelColor}}; {{#if LabelBold}}font-weight:bold{{/if}}">Location</small>
+        </div>
+        <div class="col-8 text-end">
+            <span id="_locationName" style="font-size:{{HeaderValueSize}}; color:{{ValueColor}}; {{#if ValueBold}}font-weight:bold{{/if}}">{{trackingEntity.LocationName}} <small style="font-style:normal; font-size:{{HeaderSecondaryValueSize}}; color:{{SecondaryValueColor}}; {{#if SecondaryValueBold}}font-weight:bold{{/if}}">{{trackingEntity.ERPLocation}}</small></span>
+        </div>
+    </div>
+
+    <div class="row g-0 py-1">
+        <div class="col-4">
+            <small style="font-size:{{LabelSize}}; color:{{LabelColor}}; {{#if LabelBold}}font-weight:bold{{/if}}">Qty</small>
+        </div>
+        <div class="col-8 text-end">
+            <span id="_trackingEntityQty" style="font-size:{{HeaderValueSize}}; color:{{ValueColor}}; {{#if ValueBold}}font-weight:bold{{/if}}">{{trackingEntity.Qty}}</span>
+        </div>
+    </div>
+    <hr />
+
+    {{#if trackingEntity.SerialNumber}}
+    <div class="row g-0 py-1">
+        <div class="col-4">
+            <small style="font-size:{{LabelSize}}; color:{{LabelColor}}; {{#if LabelBold}}font-weight:bold{{/if}}">Serial</small>
+        </div>
+        <div class="col-8 text-end">
+            <span id="_trackingEntitySerial" style="font-size:{{HeaderValueSize}}; color:{{ValueColor}}; {{#if ValueBold}}font-weight:bold{{/if}}">{{trackingEntity.SerialNumber}}</span>
+        </div>
+    </div>
+    {{/if}}
+
+    {{#if trackingEntity.Batch}}
+    <div class="row g-0 py-1">
+        <div class="col-4">
+            <small style="font-size:{{LabelSize}}; color:{{LabelColor}}; {{#if LabelBold}}font-weight:bold{{/if}}">Batch</small>
+        </div>
+        <div class="col-8 text-end">
+            <span id="_trackingEntityBatch" style="font-size:{{HeaderValueSize}}; color:{{ValueColor}}; {{#if ValueBold}}font-weight:bold{{/if}}">{{trackingEntity.Batch}}</span>
+        </div>
+    </div>
+    {{/if}}
+
+    {{#if trackingEntity.ExpiryDate}}
+    <div class="row g-0 py-1">
+        <div class="col-4">
+            <small style="font-size:{{LabelSize}}; color:{{LabelColor}}; {{#if LabelBold}}font-weight:bold{{/if}}">Expiry</small>
+        </div>
+        <div class="col-8 text-end">
+            <span id="_trackingEntityExpiry" style="font-size:{{HeaderValueSize}}; color:{{ValueColor}}; {{#if ValueBold}}font-weight:bold{{/if}}">{{trackingEntity.ExpiryDate}}</span>
+        </div>
+    </div>
+    {{/if}}
+{{/if}}
+
+{{#if TrackingEntity && isCarryingEntity}}
+    {{var CarryingEntity = TrackingEntity}}
+    {{
+        "SELECT TrackingEntity.Barcode as Barcode, TrackingEntity.Qty, MasterItem.Code, MasterItem.Description,
+        TrackingEntity.SerialNumber, TrackingEntity.Batch, TrackingEntity.ExpiryDate, Location.Name as Location, Location.ERPLocation as ERPLocation
+        FROM TrackingEntity INNER JOIN
+        CarryingEntity ON TrackingEntity.BelongsToEntity_id = CarryingEntity.ID INNER JOIN
+        MasterItem ON TrackingEntity.MasterItem_id = MasterItem.ID INNER JOIN
+        Location ON TrackingEntity.Location_id = Location.ID
+        WHERE CarryingEntity.Barcode = @CarryingEntity"
+        |> dbSelect({CarryingEntity}) 
+        |> to => trackingEntities
+    }}
+
+    <div class="row g-0 py-1">
+        <div class="col-4">
+            <small style="font-size:{{LabelSize}}; color:{{LabelColor}}; {{#if LabelBold}}font-weight:bold{{/if}}">Pallet</small>
+        </div>
+        <div class="col-8 text-end">
+            <a style="font-size:{{HeaderValueSize}}; color:{{ValueColor}}; {{#if ValueBold}}font-weight:bold{{/if}}" role="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                {{CarryingEntity}}
+            </a>
+        </div>
+    </div>
+
+    <div class="collapse" id="collapseExample">
+        {{#if trackingEntities.Count > 0}}
+            <div class="row g-0 py-1">
+                <div class="col-4">
+                    <small style="font-size:{{LabelSize}}; color:{{LabelColor}}; {{#if LabelBold}}font-weight:bold{{/if}}">Location</small>
+                </div>
+                <div class="col-8 text-end">
+                    <span style="font-size:{{HeaderValueSize}}; color:{{ValueColor}}; {{#if ValueBold}}font-weight:bold{{/if}}">{{trackingEntities[0].Location}} <small style="font-style:normal; font-size:{{HeaderSecondaryValueSize}}; color:{{SecondaryValueColor}}; {{#if SecondaryValueBold}}font-weight:bold{{/if}}">{{trackingEntities[0].ERPLocation}}</small></span>
+                </div>
+            </div>
+            <hr />
+            {{#each trackingEntities}}
+            <div class="row g-0 py-1">
+                <div class="col-4">
+                    <small style="font-size:{{LabelSize}}; color:{{LabelColor}}; {{#if LabelBold}}font-weight:bold{{/if}}">{{it.Barcode}}</small>
+                </div>
+                <div class="col-8 text-end">
+                    <span style="font-size:{{HeaderValueSize}}; color:{{ValueColor}}; {{#if ValueBold}}font-weight:bold{{/if}}">{{it.Qty}}</span>
+                </div>
+            </div>
+            <div>
+                <header style="font-size:{{HeaderSize}}; color:{{HeaderColor}}; {{#if HeaderBold}}font-weight:bold{{/if}}">{{it.Code}}</header>
+                <small class="text-break" style="font-size:{{SubheaderSize}}; color:{{SubheaderColor}}; {{#if SubheaderBold}}font-weight:bold{{/if}}">{{it.Description}}</small>
+            </div>
+            {{#if it.SerialNumber}}
+            <div class="row g-0 py-1">
+                <div class="col-4">
+                    <small style="font-size:{{LabelSize}}; color:{{LabelColor}}; {{#if LabelBold}}font-weight:bold{{/if}}">Serial</small>
+                </div>
+                <div class="col-8 text-end">
+                    <span style="font-size:{{HeaderValueSize}}; color:{{ValueColor}}; {{#if ValueBold}}font-weight:bold{{/if}}">{{it.SerialNumber}}</span>
+                </div>
+            </div>
+            {{/if}}
+            {{#if it.Batch}}
+            <div class="row g-0 py-1">
+                <div class="col-4">
+                    <small style="font-size:{{LabelSize}}; color:{{LabelColor}}; {{#if LabelBold}}font-weight:bold{{/if}}">Batch</small>
+                </div>
+                <div class="col-8 text-end">
+                    <span style="font-size:{{HeaderValueSize}}; color:{{ValueColor}}; {{#if ValueBold}}font-weight:bold{{/if}}">{{it.Batch}}</span>
+                </div>
+            </div>
+            {{/if}}
+            {{#if it.ExpiryDate}}
+            <div class="row g-0 py-1">
+                <div class="col-4">
+                    <small style="font-size:{{LabelSize}}; color:{{LabelColor}}; {{#if LabelBold}}font-weight:bold{{/if}}">Expiry</small>
+                </div>
+                <div class="col-8 text-end">
+                    <span style="font-size:{{HeaderValueSize}}; color:{{ValueColor}}; {{#if ValueBold}}font-weight:bold{{/if}}">{{it.ExpiryDate}}</span>
+                </div>
+            </div>
+            {{/if}}
+            <hr />
+            {{/each}}
+        {{/if}}
+    </div>
+{{/if}}
+
+{{#if Comment}}
+    <div class="row g-0 py-1">
+        <div class="col-4">
+            <small style="font-size:{{LabelSize}}; color:{{LabelColor}}; {{#if LabelBold}}font-weight:bold{{/if}}">Comment</small>
+        </div>
+        <div class="col-8 text-end">
+            <span style="font-size:{{HeaderValueSize}}; color:{{ValueColor}}; {{#if ValueBold}}font-weight:bold{{/if}}; font-style: italic">{{Comment}}</span>
+        </div>
+    </div>
+{{/if}}
+
+{{#if IntegrationReference}}
+    <div class="row g-0 py-1">
+        <div class="col-4">
+            <small style="font-size:{{LabelSize}}; color:{{LabelColor}}; {{#if LabelBold}}font-weight:bold{{/if}}">Integration Reference</small>
+        </div>
+        <div class="col-8 text-end">
+            <span style="font-size:{{HeaderValueSize}}; color:{{ValueColor}}; {{#if ValueBold}}font-weight:bold{{/if}}; font-style: italic">{{IntegrationReference}}</span>
+        </div>
+    </div>
+{{/if}}
+
+{{#if Reference}}
+    <div class="row g-0 py-1">
+        <div class="col-4">
+            <small style="font-size:{{LabelSize}}; color:{{LabelColor}}; {{#if LabelBold}}font-weight:bold{{/if}}">Reference</small>
+        </div>
+        <div class="col-8 text-end">
+            <span style="font-size:{{HeaderValueSize}}; color:{{ValueColor}}; {{#if ValueBold}}font-weight:bold{{/if}}; font-style: italic">{{Reference}}</span>
+        </div>
+    </div>
+{{/if}}
+
+<hr />
+
+{{#if documentDetails }}
+    {{#if documentDetails.Count > 0 }}
+    <ul id="document-lines-list" class="list-group list-group-flush">
+        {{#each documentDetail in documentDetails}}
+        {{#if documentDetail.ActionQty >= documentDetail.Qty}}
+            <li class="list-group-item completed">
+        {{else}}
+            <li class="list-group-item">
+        {{/if}}
+                <span class="action-qty" style="display: none;">{{documentDetail.ActionQty}}</span>
+                <span class="qty" style="display: none;">{{documentDetail.Qty}}</span>
+                <div class="row g-0 align-items-start">
+                    <div class="col-8">
+                        <div class="d-flex align-items-center">
+                            <span class="text-muted me-2" style="font-size:{{DetailSecondaryValueSize}}; color:{{SecondaryValueColor}}; {{#if SecondaryValueBold}}font-weight:bold{{/if}}">({{documentDetail.LineNumber}})</span>
+                            <span style="font-size:{{DetailValueSize}}; color:{{ValueColor}}; {{#if ValueBold}}font-weight:bold{{/if}}">
+                                {{documentDetail.ItemCode}}
+                            </span>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                      <div class="progress" style="height: inherit;width:80px;float:right;
+                          {{#if documentDetail.Completed}}background-color:#008CC9;{{/if}}">
+                          <div class="progress-bar" role="progressbar" style="font-size: medium;text-align:start; overflow: visible;width: {{documentDetail.ActionCompletion}}%;background-color: #008CC9;color: black;">
+                              {{documentDetail.ActionQty}}-{{documentDetail.Qty}}
+                          </div>
+                      </div>
+                    </div>
+                </div>
+                
+                <div class="row g-0 mt-1">
+                    <div class="col-10">
+                        <small class="text-break" style="font-size:{{SubheaderSize}}; color:{{SubheaderColor}}; {{#if SubheaderBold}}font-weight:bold{{/if}}">{{documentDetail.ItemDescription}}</small>
+                    </div>
+                    <div class="col-2 text-end">
+                        <small style="font-size:{{HeaderSecondaryValueSize}}; color:{{SecondaryValueColor}}; {{#if SecondaryValueBold}}font-weight:bold{{/if}}">{{documentDetail.UOM}}</small>
+                    </div>
+                </div>
+
+                {{#if documentDetail.FromLocation}}
+                <div class="row g-0 mt-1">
+                    <div class="col-12">
+                        <small style="font-size:{{LabelSize}}; color:{{LabelColor}}; {{#if LabelBold}}font-weight:bold{{/if}}">From Location: </small>
+                        <span style="font-size:{{HeaderValueSize}}; color:{{ValueColor}}; {{#if ValueBold}}font-weight:bold{{/if}}">{{documentDetail.FromLocation}}</span>
+                    </div>
+                </div>
+                {{/if}}
+                
+                {{#if documentDetail.IntransitLocation}}
+                <div class="row g-0 mt-1">
+                    <div class="col-12">
+                        <small style="font-size:{{LabelSize}}; color:{{LabelColor}}; {{#if LabelBold}}font-weight:bold{{/if}}">Transit Location: </small>
+                        <span style="font-size:{{HeaderValueSize}}; color:{{ValueColor}}; {{#if ValueBold}}font-weight:bold{{/if}}">{{documentDetail.IntransitLocation}}</span>
+                    </div>
+                </div>
+                {{/if}}
+
+                {{#if documentDetail.ToLocation}}
+                <div class="row g-0 mt-1">
+                    <div class="col-12">
+                        <small style="font-size:{{LabelSize}}; color:{{LabelColor}}; {{#if LabelBold}}font-weight:bold{{/if}}">To Location: </small>
+                        <span style="font-size:{{HeaderValueSize}}; color:{{ValueColor}}; {{#if ValueBold}}font-weight:bold{{/if}}">{{documentDetail.ToLocation}}</span>
+                    </div>
+                </div>
+                {{/if}}
+
+                {{#if documentDetail.Comment}}
+                <div class="row g-0 mt-1">
+                    <div class="col-12">
+                        <small style="font-size:{{LabelSize}}; color:{{LabelColor}}; {{#if LabelBold}}font-weight:bold{{/if}}">Comment: </small>
+                        <span style="font-size:{{HeaderValueSize}}; color:{{ValueColor}}; {{#if ValueBold}}font-weight:bold{{/if}}; font-style: italic">{{documentDetail.Comment}}</span>
+                    </div>
+                </div>
+                {{/if}}
+                
+                {{#if documentDetail.Instruction}}
+                <div class="row g-0 mt-1">
+                    <div class="col-12">
+                        <span style="color: White; background-color:#7BB72E; font-weight:400;display:inline;word-wrap: break-word; font-size:{{HeaderValueSize}};">{{documentDetail.Instruction}}</span>
+                    </div>
+                </div>
+                {{/if}}
+                
+                {{#if documentDetail.SerialNumber}}
+                <div class="row g-0 mt-1">
+                    <div class="col-12">
+                        <small style="font-size:{{LabelSize}}; color:{{LabelColor}}; {{#if LabelBold}}font-weight:bold{{/if}}">Serial: </small>
+                        <span style="font-size:{{HeaderValueSize}}; color:{{ValueColor}}; {{#if ValueBold}}font-weight:bold{{/if}}">{{documentDetail.SerialNumber}}</span>
+                    </div>
+                </div>
+                {{/if}}
+                
+                {{#if documentDetail.Batch}}
+                <div class="row g-0 mt-1">
+                    <div class="col-12">
+                        <small style="font-size:{{LabelSize}}; color:{{LabelColor}}; {{#if LabelBold}}font-weight:bold{{/if}}">Batch: </small>
+                        <span style="font-size:{{HeaderValueSize}}; color:{{ValueColor}}; {{#if ValueBold}}font-weight:bold{{/if}}">{{documentDetail.Batch}}</span>
+                    </div>
+                </div>
+                {{/if}}
+                
+                {{#if documentDetail.ExpiryDate}}
+                <div class="row g-0 mt-1">
+                    <div class="col-12">
+                        <small style="font-size:{{LabelSize}}; color:{{LabelColor}}; {{#if LabelBold}}font-weight:bold{{/if}}">Expiry: </small>
+                        <span style="font-size:{{HeaderValueSize}}; color:{{ValueColor}}; {{#if ValueBold}}font-weight:bold{{/if}}">{{documentDetail.ExpiryDate}}</span>
+                    </div>
+                </div>
+                {{/if}}
+            </li>
+        {{/each}}
+    </ul>
+    <div class="container-fluid mt-3">
+        <div class="row g-2">
+            <div class="col-4">
+                <button class="btn btn-sm btn-outline-primary w-100" onclick="prevPage()">Previous</button>
+            </div>
+            <div class="col-4">
+                <button class="btn btn-sm btn-outline-primary w-100" onclick="toggleShowCompleted()">Toggle Completed</button>
+            </div>
+            <div class="col-4">
+                <button class="btn btn-sm btn-outline-primary w-100" onclick="nextPage()">Next</button>
+            </div>
+        </div>
+    </div>
+    <style>
+        .notOnPage {
+            display: none;
+        }
+        .completed {
+            display: none;
+        }
+    </style>
+
+    <span id="current-page" style="display: none;">1</span>
+    <span id="show-completed" style="display: none;">false</span>
+    <script>    
+        function getListItems() {
+            return document.querySelectorAll("#document-lines-list li");
+        }
+
+        function getTotalPages() {
+            var itemsPerPage = getItemsPerPage();
+            return Math.ceil(getListItems().length / itemsPerPage);
+        }
+
+        function getItemsPerPage() {
+            return 5;
+        }
+
+        function getCurrentPage() {
+            var result = document.querySelector("#current-page").textContent;
+            return parseInt(result);
+        }
+        function setCurrentPage(page) {
+            document.querySelector("#current-page").textContent = page;
+        }
+
+        function getShowCompleted() {
+            var result = document.querySelector("#show-completed").textContent === "true";
+            return result;
+        }   
+
+        function setShowCompleted(show) {            
+            document.querySelector("#show-completed").textContent = show;
+        }
+
+        function showPage(page) {
+            var completeLines = 0;
+            const listItems = getListItems();
+            const itemsPerPage = getItemsPerPage();
+
+            listItems.forEach((item, index) => {
+                item.classList.add("notOnPage");
+
+                if (item.classList.contains("completed")) {
+                    completeLines++;
+                    return;
+                }
+
+                if (index - completeLines >= (page - 1) * itemsPerPage && index - completeLines < page * itemsPerPage) {
+                    item.classList.remove("notOnPage");
+                }
+            });
+        }
+
+        function toggleShowCompleted() {
+            var showCompleted = getShowCompleted();
+            showCompleted = !showCompleted;
+            setShowCompleted(showCompleted);
+
+            const listItems = getListItems();
+
+            listItems.forEach((item) => {
+                const actionQty = parseFloat(item.querySelector(".action-qty").textContent);
+                const qty = parseFloat(item.querySelector(".qty").textContent);
+            
+                if (showCompleted && actionQty >= qty) {
+                    item.classList.remove("completed");
+                } else if (!showCompleted && actionQty >= qty) {
+                    item.classList.add("completed");
+                }
+            });
+
+            const currentPage = getCurrentPage();
+            showPage(currentPage);
+        }
+
+        function nextPage() {
+            var currentPage = getCurrentPage();
+            var totalPages = getTotalPages();
+
+            if (currentPage < totalPages) {
+                currentPage++;
+                setCurrentPage(currentPage);
+                showPage(currentPage);
+            }
+        }
+
+        function prevPage() {
+            var currentPage = getCurrentPage();
+
+            if (currentPage > 1) {
+                currentPage--;
+                setCurrentPage(currentPage);
+                showPage(currentPage);
+            }
+        }
+
+        showPage(1);
+    </script>
+    {{/if}}
+{{/if}}

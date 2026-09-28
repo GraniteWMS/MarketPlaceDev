@@ -1,0 +1,13 @@
+{
+  "Identifier": "c08700ec-2e00-53a1-b513-77596ab3633a",
+  "Name": "RECEIVING_STD_Location",
+  "Description": "WebTemplate for process template RECEIVING_STD / step Location",
+  "Type": "WEBTEMPLATE",
+  "Version": 1,
+  "LastModified": "01/09/2026",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

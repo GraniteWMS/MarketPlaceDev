@@ -1,0 +1,13 @@
+{
+  "Identifier": "da833f33-e2ee-54eb-9e2f-3c25c083a81c",
+  "Name": "NYOrthoReceiving_Confirmation",
+  "Description": "WebTemplate for process template NYOrthoReceiving / step Confirmation",
+  "Type": "WEBTEMPLATE",
+  "Version": 1,
+  "LastModified": "15/04/2024",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

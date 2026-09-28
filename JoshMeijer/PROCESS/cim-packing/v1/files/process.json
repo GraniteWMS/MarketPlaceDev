@@ -1,0 +1,69 @@
+{
+  "Name": "CIM_PACKING",
+  "Description": "CIM PACKING",
+  "Type": "PACKING",
+  "IsActive": true,
+  "IntegrationIsActive": false,
+  "IntegrationPost": false,
+  "Steps": [
+    {
+      "Name": "Document",
+      "Description": "Scan/Enter Sales Order Number",
+      "ProcessIndex": 0,
+      "NextIndex": 1,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "PrescriptPackingDocument",
+      "WebTemplateArtifact": "4b6da5d7-016d-565a-ae74-1a2e62cdc645"
+    },
+    {
+      "Name": "MasterItem",
+      "Description": "Scan/Enter Tracking Barcode",
+      "ProcessIndex": 1,
+      "NextIndex": 2,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "PrescriptPackingMasterItem"
+    },
+    {
+      "Name": "Qty",
+      "Description": "Enter Packed Qty",
+      "ProcessIndex": 2,
+      "NextIndex": 1,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "PrescriptPackingQty"
+    },
+    {
+      "Name": "CarryingEntity",
+      "Description": "BOX or PALLET",
+      "ProcessIndex": 100,
+      "NextIndex": 0,
+      "IsActive": true,
+      "Required": false,
+      "IsBusinessRule": false
+    },
+    {
+      "Name": "Location",
+      "Description": "Scan/Enter Packing Location",
+      "ProcessIndex": 100,
+      "NextIndex": 0,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false
+    },
+    {
+      "Name": "STEP200",
+      "Description": "STEP200",
+      "ProcessIndex": 200,
+      "NextIndex": 0,
+      "IsActive": true,
+      "Required": false,
+      "IsBusinessRule": false,
+      "PreScript": "PrescriptPackingStep200"
+    }
+  ]
+}

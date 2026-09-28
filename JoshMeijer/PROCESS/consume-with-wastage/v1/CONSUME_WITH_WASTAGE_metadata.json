@@ -1,0 +1,111 @@
+{
+  "Identifier": "caae7cdb-f757-497d-bf4e-f39842b913ca",
+  "Name": "CONSUME_WITH_WASTAGE",
+  "Description": "CONSUME_WITH_WASTAGE\n\nBased on a percentage value that we bring down into each document line, we do a CLR Takeon for said percentage of the consumed qty on the transaction into a wastage location",
+  "Type": "PROCESS",
+  "Version": 1,
+  "LastModified": "18/03/2026",
+  "Tags": [
+    "Manufacturing"
+  ],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "ff2d2676-c641-5b27-8348-1d4fce5aef3c",
+      "ArtifactVersion": 1,
+      "ArtifactName": "WebTemplate_PeanutManufacture_Document"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "bc90b497-bae8-5481-8514-3c48593d8593",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_PeanutConsume_Document"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "8f9ff46d-a7b3-518e-819a-79527a339e01",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_PeanutConsume_TrackingEntity"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "39f26250-acd6-5136-a673-011f8d08ae05",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_PeanutConsume_Step200"
+    }
+  ],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "CONSUME",
+    "ProcessStepMetadata": [
+      {
+        "Name": "Document",
+        "Description": "Document",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_PeanutConsume_Document",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Location",
+        "Description": "Location",
+        "ProcessIndex": 100,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "DefaultValue": "Peanut Warehouse",
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "TrackingEntity",
+        "Description": "TrackingEntity",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_PeanutConsume_TrackingEntity",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Qty",
+        "Description": "Qty",
+        "ProcessIndex": 2,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "Step200",
+        "Description": "Step200",
+        "ProcessIndex": 200,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_PeanutConsume_Step200",
+        "hasWebTemplate": true
+      }
+    ]
+  },
+  "PostDeployArtifacts": [
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "f014f1e5-046b-54d5-96a5-0a3d6576c845",
+      "ArtifactVersion": 1,
+      "ArtifactName": "CONSUME_WITH_WASTAGE"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "d60c3f84-d323-58af-969a-e941ce882ef3",
+      "ArtifactVersion": 1,
+      "ArtifactName": "CONSUME_WITH_WASTAGE_Document"
+    }
+  ],
+  "DependsOnClr": true,
+  "SqlClrAssemblyVersion": "7.0.0.0",
+  "Deprecated": false
+}

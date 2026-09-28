@@ -1,0 +1,40 @@
+{
+  "Name": "PICKINGPOST",
+  "Description": "Picking Post with Select Order and Confirm",
+  "Type": "PICKINGPOST",
+  "IsActive": true,
+  "IntegrationIsActive": true,
+  "IntegrationPost": false,
+  "Steps": [
+    {
+      "Name": "Document",
+      "Description": "Document",
+      "ProcessIndex": 0,
+      "NextIndex": 1,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "WebTemplateArtifact": "a4d86ca6-9976-551c-98f4-268c347c9106"
+    },
+    {
+      "Name": "Confirmation",
+      "Description": "Confirm Details To Post",
+      "ProcessIndex": 1,
+      "NextIndex": 0,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "WebTemplateArtifact": "636a9e35-c03b-5788-b6c4-24ac5d29f4c9"
+    },
+    {
+      "Name": "Step200",
+      "Description": "Print Shipment Summary Label",
+      "ProcessIndex": 200,
+      "NextIndex": 200,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "PrescriptPickingPostStep200"
+    }
+  ]
+}

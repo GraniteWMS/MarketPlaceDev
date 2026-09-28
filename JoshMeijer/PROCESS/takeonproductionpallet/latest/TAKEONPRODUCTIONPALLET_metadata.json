@@ -1,0 +1,222 @@
+{
+  "Identifier": "bb29918c-e156-418b-83f4-f983f2654451",
+  "Name": "TAKEONPRODUCTIONPALLET",
+  "Description": "Takeon Production Pallet (SAGE ASSEMBLY)\n\nIn Egg Production - Create a Pallet (CarryingEntity), with a Trackingentity on it.  Defaulted Item Code, Location, etc.\nThe LOT Number is a Julian Date derivative.\nThe Reason for Pallet is that 2 lots can be combined at the end of a run..\nThe Label is printed as the Pallet Label using CLR, Not as TrackingEntity\n\nVery good use of TAKEON in Production to Generate a pallet with SAGE Assembly and a Pallet Barcode printed.\nThe LABEL_TRACKINGENTITY and LABEL_PALLET Views are Included.\nThere is a step 201 that also consumes Stock in Production location according to the BOM.  Views for BOM Header and BOM Detail are also included.\nFinally - the CarryingEntity includes a routine for allocating an SSCC number.  This SSCC Column is added to the CarryingEntity Table",
+  "Type": "PROCESS",
+  "Version": 0,
+  "LastModified": "08/09/2026",
+  "Tags": [
+    "Manufacturing"
+  ],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "SQL_SCALAR_FUNCTION",
+      "ArtifactIdentifier": "0dbb8a33-4823-53bc-8397-b5ee09b97311",
+      "ArtifactVersion": 1,
+      "ArtifactName": "GenerateJulianDateCode"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "bb000fbd-4121-5412-8160-39c8472eb0bb",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_CCF_PACKPALLET_MasterItem"
+    },
+    {
+      "ArtifactType": "SQL_SCALAR_FUNCTION",
+      "ArtifactIdentifier": "08160bab-c9ae-57ff-8338-42bcdd07fa0f",
+      "ArtifactVersion": 1,
+      "ArtifactName": "FN_CalcSSCC_Checkdigit"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "40ffeaa4-e2ba-51cd-b3ca-56d102fe96b9",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_CCF_PACKPALLET_Palletbarcode"
+    },
+    {
+      "ArtifactType": "USER_TABLE",
+      "ArtifactIdentifier": "046a00c7-5dc6-5eec-8a3b-d980b66c692c",
+      "ArtifactVersion": 1,
+      "ArtifactName": "custom_LogMessages"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "9cbca3af-822b-5f69-b3bb-5a2500b3c9d5",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_CCF_PACKPALLET_Step200"
+    },
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "be033a73-b404-5ddf-b963-21808575e372",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Integration_Accpac_BomD"
+    },
+    {
+      "ArtifactType": "SQL_STORED_PROCEDURE",
+      "ArtifactIdentifier": "2080a7bc-33e8-5745-a34b-3f694e31e7c1",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Utility_ConsumeInputsfromWIP"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "96ff2018-7c6a-563a-8909-6201d56ead43",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_CCF_PACKPALLET_Step201"
+    },
+    {
+      "ArtifactType": "PRE_DEPLOY_SCRIPT",
+      "ArtifactIdentifier": "cd1ca418-1bfd-5135-9331-d0e37f97d266",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PreDeployScript"
+    },
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "2a31d6f4-4a18-5eab-b67c-3da4f5325e78",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Integration_Accpac_BomH"
+    },
+    {
+      "ArtifactType": "DATA",
+      "ArtifactIdentifier": "9bbd7c18-9786-56b4-b436-143b0413e504",
+      "ArtifactVersion": 1,
+      "ArtifactName": "DataDependency_SystemStaticData_9bbd7c18978656b4b436143b0413e504"
+    }
+  ],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "TAKEON",
+    "ProcessStepMetadata": [
+      {
+        "Name": "MasterItem",
+        "Description": "Item Code",
+        "ProcessIndex": 100,
+        "NextIndex": 100,
+        "isActive": true,
+        "Required": true,
+        "DefaultValue": "110028534",
+        "PreScript": "Prescript_CCF_PACKPALLET_MasterItem",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Location",
+        "Description": "Location",
+        "ProcessIndex": 100,
+        "NextIndex": 100,
+        "isActive": true,
+        "Required": true,
+        "DefaultValue": "CCF-LINE-1",
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "Batch",
+        "Description": "Lot Number",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "ExpiryDate",
+        "Description": "ExpiryDate (YYYYMMDD)",
+        "ProcessIndex": 100,
+        "NextIndex": 100,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "Qty",
+        "Description": "Qty of Cases",
+        "ProcessIndex": 2,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "DefaultValue": "60",
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "ManufactureDate",
+        "Description": "ManufactureDate (YYYYMMDD)",
+        "ProcessIndex": 100,
+        "NextIndex": 100,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "PalletBarcode",
+        "Description": "Pallet Code",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": false,
+        "PreScript": "Prescript_CCF_PACKPALLET_Palletbarcode",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "CarryingEntity",
+        "Description": "CarryingEntity",
+        "ProcessIndex": 100,
+        "NextIndex": 100,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "Step200",
+        "Description": "Step200 -Print CarryingEntity",
+        "ProcessIndex": 200,
+        "NextIndex": 200,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_CCF_PACKPALLET_Step200",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Skid",
+        "Description": "Select SKID",
+        "ProcessIndex": 100,
+        "NextIndex": 100,
+        "isActive": true,
+        "Required": false,
+        "DefaultValue": "WOOD INTERNAL",
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "Steo201",
+        "Description": "Step201 -Decrease RM from BOM",
+        "ProcessIndex": 201,
+        "NextIndex": 201,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_CCF_PACKPALLET_Step201",
+        "hasWebTemplate": true
+      }
+    ]
+  },
+  "PostDeployArtifacts": [
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "2c35925d-696f-5a22-bf5c-7d241f099e72",
+      "ArtifactVersion": 1,
+      "ArtifactName": "TAKEONPRODUCTIONPALLET_PalletBarcode"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "d03baf0b-f21f-5d29-8023-2b5c1916adcc",
+      "ArtifactVersion": 1,
+      "ArtifactName": "TAKEONPRODUCTIONPALLET_Skid"
+    }
+  ],
+  "DependsOnClr": true,
+  "SqlClrAssemblyVersion": "7.0.0.0",
+  "Deprecated": false
+}

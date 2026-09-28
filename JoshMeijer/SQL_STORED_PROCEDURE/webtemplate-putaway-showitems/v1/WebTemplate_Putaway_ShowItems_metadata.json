@@ -1,0 +1,10 @@
+{
+  "Identifier": "8b21295f-01b4-5057-9113-864a7254e02f",
+  "Name": "WebTemplate_Putaway_ShowItems",
+  "Description": "",
+  "Type": "SQL_STORED_PROCEDURE",
+  "Version": 1,
+  "LastModified": "07/04/2026",
+  "Tags": [],
+  "ArtifactDependencies": []
+}

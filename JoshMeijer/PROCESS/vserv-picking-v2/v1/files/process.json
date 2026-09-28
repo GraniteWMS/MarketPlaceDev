@@ -1,0 +1,90 @@
+{
+  "Name": "VSERV_PICKING_V2",
+  "Description": "VSERV_PICKING_V2",
+  "Type": "PICKING",
+  "IsActive": true,
+  "IntegrationIsActive": false,
+  "IntegrationPost": false,
+  "WebTemplateArtifact": "1cd6d743-8562-5dac-a6c2-b060a8593144",
+  "Steps": [
+    {
+      "Name": "Queue",
+      "Description": "Select Picking Queue",
+      "ProcessIndex": 0,
+      "NextIndex": 1,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "WebTemplateArtifact": "1d4d31eb-072b-56cb-a81c-ebbe75b5f52c"
+    },
+    {
+      "Name": "Document",
+      "Description": "Enter Picking Order",
+      "ProcessIndex": 1,
+      "NextIndex": 2,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "Prescript_Picking_Document",
+      "WebTemplateArtifact": "cf35b01d-02bf-52db-931d-c876de980696"
+    },
+    {
+      "Name": "Location",
+      "Description": "Where Are You Picking The Stock From?",
+      "ProcessIndex": 2,
+      "NextIndex": 3,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "Prescript_Picking_Location"
+    },
+    {
+      "Name": "MasterItem",
+      "Description": "Scan EAN Barcode",
+      "ProcessIndex": 3,
+      "NextIndex": 4,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "Prescript_Picking_MasterItem"
+    },
+    {
+      "Name": "TrackingEntity",
+      "Description": "Expiry Date (YYYYMM)",
+      "ProcessIndex": 4,
+      "NextIndex": 5,
+      "IsActive": true,
+      "Required": false,
+      "IsBusinessRule": false,
+      "PreScript": "Prescript_Picking_TrackingEntity"
+    },
+    {
+      "Name": "Qty",
+      "Description": "What Qty Are You Picking?",
+      "ProcessIndex": 5,
+      "NextIndex": 2,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false
+    },
+    {
+      "Name": "Comment",
+      "Description": "ExpiryDate",
+      "ProcessIndex": 100,
+      "NextIndex": 0,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false
+    },
+    {
+      "Name": "Step200",
+      "Description": "Step200",
+      "ProcessIndex": 200,
+      "NextIndex": 0,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "Prescript_Picking_Step200"
+    }
+  ]
+}

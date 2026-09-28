@@ -1,0 +1,4 @@
+{{ messageBox({ error: false, info: true, success: true, hideTextBox: true }) }}
+{{ navigateToStepButton({stepName: "Document", buttonText: "Pack new order"}) }}
+{{ "EXEC WebTemplate_PackingCustom_PackDetail @Document" | dbSelect({Document}) | basicTable({}) }}
+{{ hideTextBox() }}

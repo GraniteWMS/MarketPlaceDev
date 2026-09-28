@@ -1,0 +1,48 @@
+{
+  "Identifier": "54d5b301-c593-4c25-8189-3210ebb72147",
+  "Name": "PREPRINTBOXLABELS",
+  "Description": "Preprint Packing Box labels\n\nHide the Box label in Packing and preprint the labels on rolls.\nUses modification to the view Label_Pallet to show records in PrintQueue so that the printing of Box labels works.\n\nInserts into queue and prints via clr with a Scheduled Job.   Note it prints the label Pallet.zpl and uses barcode master to add to print queue.\nUses modification to the view Label_pallet to show records in PrintQueue so that the printing of Box labels works.",
+  "Type": "PROCESS",
+  "Version": 0,
+  "LastModified": "10/05/2026",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "SQL_STORED_PROCEDURE",
+      "ArtifactIdentifier": "b01df8f7-c1fa-5262-a51b-00034873e881",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Utility_GenerateBoxLabelsAndInsertIntoQueue"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "12e7fb62-a0b9-5f1b-8722-591938b68add",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_PREPRINTBOXLABELS_NumberOfLabels"
+    },
+    {
+      "ArtifactType": "SQL_STORED_PROCEDURE",
+      "ArtifactIdentifier": "94ca2dd3-7af0-5d29-930a-53a625208813",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Job_PrePrintPalletLabels"
+    }
+  ],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "CUSTOM",
+    "ProcessStepMetadata": [
+      {
+        "Name": "NumberOfLabels",
+        "Description": "Qty. Labels to Print",
+        "ProcessIndex": 0,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_PREPRINTBOXLABELS_NumberOfLabels",
+        "hasWebTemplate": true
+      }
+    ]
+  },
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

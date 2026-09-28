@@ -1,0 +1,120 @@
+{
+  "Name": "TAKEONPRODUCTIONPALLET",
+  "Description": "Takeon Production Pallet (SAGE ASSEMBLY)",
+  "Type": "TAKEON",
+  "IsActive": true,
+  "IntegrationMethod": "MANUFACTURE",
+  "IntegrationIsActive": true,
+  "IntegrationPost": true,
+  "Steps": [
+    {
+      "Name": "PalletBarcode",
+      "Description": "Pallet Code",
+      "ProcessIndex": 0,
+      "NextIndex": 1,
+      "IsActive": true,
+      "Required": false,
+      "IsBusinessRule": false,
+      "PreScript": "Prescript_CCF_PACKPALLET_Palletbarcode",
+      "WebTemplateArtifact": "2c35925d-696f-5a22-bf5c-7d241f099e72"
+    },
+    {
+      "Name": "Batch",
+      "Description": "Lot Number",
+      "ProcessIndex": 1,
+      "NextIndex": 2,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false
+    },
+    {
+      "Name": "Qty",
+      "Description": "Qty of Cases",
+      "ProcessIndex": 2,
+      "NextIndex": 0,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "DefaultValue": "60"
+    },
+    {
+      "Name": "CarryingEntity",
+      "Description": "CarryingEntity",
+      "ProcessIndex": 100,
+      "NextIndex": 100,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false
+    },
+    {
+      "Name": "ExpiryDate",
+      "Description": "ExpiryDate (YYYYMMDD)",
+      "ProcessIndex": 100,
+      "NextIndex": 100,
+      "IsActive": true,
+      "Required": false,
+      "IsBusinessRule": false
+    },
+    {
+      "Name": "Location",
+      "Description": "Location",
+      "ProcessIndex": 100,
+      "NextIndex": 100,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "DefaultValue": "CCF-LINE-1"
+    },
+    {
+      "Name": "ManufactureDate",
+      "Description": "ManufactureDate (YYYYMMDD)",
+      "ProcessIndex": 100,
+      "NextIndex": 100,
+      "IsActive": true,
+      "Required": false,
+      "IsBusinessRule": false
+    },
+    {
+      "Name": "MasterItem",
+      "Description": "Item Code",
+      "ProcessIndex": 100,
+      "NextIndex": 100,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "DefaultValue": "110028534",
+      "PreScript": "Prescript_CCF_PACKPALLET_MasterItem"
+    },
+    {
+      "Name": "Skid",
+      "Description": "Select SKID",
+      "ProcessIndex": 100,
+      "NextIndex": 100,
+      "IsActive": true,
+      "Required": false,
+      "IsBusinessRule": false,
+      "DefaultValue": "WOOD INTERNAL",
+      "WebTemplateArtifact": "d03baf0b-f21f-5d29-8023-2b5c1916adcc"
+    },
+    {
+      "Name": "Step200",
+      "Description": "Step200 -Print CarryingEntity",
+      "ProcessIndex": 200,
+      "NextIndex": 200,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "Prescript_CCF_PACKPALLET_Step200"
+    },
+    {
+      "Name": "Steo201",
+      "Description": "Step201 -Decrease RM from BOM",
+      "ProcessIndex": 201,
+      "NextIndex": 201,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "Prescript_CCF_PACKPALLET_Step201"
+    }
+  ]
+}

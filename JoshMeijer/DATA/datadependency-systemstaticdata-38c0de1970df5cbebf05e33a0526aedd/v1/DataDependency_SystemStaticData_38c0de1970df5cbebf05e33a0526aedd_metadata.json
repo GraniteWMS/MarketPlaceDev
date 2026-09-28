@@ -1,0 +1,17 @@
+{
+  "Identifier": "38c0de19-70df-5cbe-bf05-e33a0526aedd",
+  "Name": "DataDependency_SystemStaticData_38c0de1970df5cbebf05e33a0526aedd",
+  "Description": "",
+  "Type": "DATA",
+  "Version": 1,
+  "LastModified": "11/09/2024",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "TypeSpecificAttributes": {
+    "Table": "SystemStaticData",
+    "KeyColumn": "Key",
+    "KeyValues": [
+      "DisplayFormat"
+    ]
+  }
+}

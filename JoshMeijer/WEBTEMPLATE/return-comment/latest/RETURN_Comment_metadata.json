@@ -1,0 +1,13 @@
+{
+  "Identifier": "340c43b1-b422-589e-8cc3-dab5082d725a",
+  "Name": "RETURN_Comment",
+  "Description": "WebTemplate for process template RETURN / step Comment",
+  "Type": "WEBTEMPLATE",
+  "Version": 0,
+  "LastModified": "27/03/2024",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

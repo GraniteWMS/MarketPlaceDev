@@ -1,0 +1,19 @@
+{
+  "Identifier": "571b7c99-3f63-59d9-8cee-5a8a3368a743",
+  "Name": "REPLENISHDISPLAYTOBARCODE_ToTrackingEntity",
+  "Description": "WebTemplate for process template REPLENISHDISPLAYTOBARCODE / step ToTrackingEntity",
+  "Type": "WEBTEMPLATE",
+  "Version": 0,
+  "LastModified": "30/09/2025",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "SQL_STORED_PROCEDURE",
+      "ArtifactIdentifier": "0078c667-675e-5948-826c-2a94dadd5305",
+      "ArtifactVersion": 1
+    }
+  ],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

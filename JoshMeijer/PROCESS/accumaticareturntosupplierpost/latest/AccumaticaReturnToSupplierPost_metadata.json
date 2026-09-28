@@ -1,0 +1,56 @@
+{
+  "Identifier": "8e71988a-ccd7-4d6d-9f62-31535b4ecff0",
+  "Name": "AccumaticaReturnToSupplierPost",
+  "Description": "Accumatica Return To Supplier Post\n\nN/a\n\nN/a",
+  "Type": "PROCESS",
+  "Version": 0,
+  "LastModified": "23/04/2026",
+  "Tags": [
+    "Electronics",
+    "Construction",
+    "E-commerce",
+    "Logistics",
+    "Pharmaceutical",
+    "Cold Storage",
+    "Textile",
+    "Agricultural",
+    "Automotive",
+    "Retail",
+    "Manufacturing"
+  ],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "33de79d5-83f4-5866-924a-20fe77c8b037",
+      "ArtifactVersion": 1,
+      "ArtifactName": "API_QueryTransactionsPicking"
+    }
+  ],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "PICKINGPOST",
+    "ProcessStepMetadata": [
+      {
+        "Name": "Document",
+        "Description": "Document",
+        "ProcessIndex": 0,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_ReturnToSupplierPost_Document",
+        "hasWebTemplate": false
+      }
+    ]
+  },
+  "PostDeployArtifacts": [
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "e5e0dee6-e1f2-5cf2-bfc2-0eea104d7637",
+      "ArtifactVersion": 1,
+      "ArtifactName": "AccumaticaReturnToSupplierPost_Document"
+    }
+  ],
+  "DependsOnClr": true,
+  "SqlClrAssemblyVersion": "7.0.0.0",
+  "Deprecated": false
+}

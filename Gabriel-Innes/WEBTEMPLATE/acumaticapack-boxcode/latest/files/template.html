@@ -1,0 +1,7 @@
+{{ "SELECT Code FROM MasterItem WHERE Type = "PACKAGING"" | dbSelect({}) | createButtonList({"Code"}) }}
+
+{{ "SELECT 1 FROM CarryingEntity WHERE ISNULL([type_id], 0) != 0 AND ISNULL([Length], 0) > 0 AND Barcode =  @CarryingEntity" | dbScalar({CarryingEntity}) |> to => typeset }}
+
+{{#if typeset == 1}}
+	{{navigateToStep({stepName:"MasterItem", submitFinalStep: false})}}
+{{/if}}

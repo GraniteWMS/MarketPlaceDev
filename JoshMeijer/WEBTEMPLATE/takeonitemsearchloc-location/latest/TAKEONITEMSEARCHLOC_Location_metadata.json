@@ -1,0 +1,13 @@
+{
+  "Identifier": "c7fca2d4-fc1f-5d2a-baaf-3afd140fbe39",
+  "Name": "TAKEONITEMSEARCHLOC_Location",
+  "Description": "WebTemplate for process template TAKEONITEMSEARCHLOC / step Location",
+  "Type": "WEBTEMPLATE",
+  "Version": 0,
+  "LastModified": "30/05/2026",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

@@ -1,0 +1,29 @@
+{
+  "Name": "RD_LOOKUP",
+  "Description": "Retail Distribution LOOKUP",
+  "Type": "CUSTOM",
+  "IsActive": true,
+  "IntegrationIsActive": false,
+  "IntegrationPost": false,
+  "WebTemplateArtifact": "d1b92d83-df4c-50b4-8a21-889bc8b60e38",
+  "Steps": [
+    {
+      "Name": "Scanned",
+      "Description": "Scan a Barcode",
+      "ProcessIndex": 0,
+      "NextIndex": 1,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false
+    },
+    {
+      "Name": "Result",
+      "Description": "Press Enter to Restart",
+      "ProcessIndex": 1,
+      "NextIndex": 0,
+      "IsActive": true,
+      "Required": false,
+      "IsBusinessRule": false
+    }
+  ]
+}

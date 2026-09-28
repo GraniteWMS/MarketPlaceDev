@@ -1,0 +1,3 @@
+<style> #btnNew { display:none } </style>
+
+{{ "SELECT Barcode, [Location], [Date] FROM WebTemplate_Dispatch_CarryingEntity ORDER BY [Date] DESC" | dbSelect({}) | basicTable({selectOnColumn:"Barcode", enableSearch:true}) }}

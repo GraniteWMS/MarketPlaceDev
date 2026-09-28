@@ -1,0 +1,7 @@
+{{ "SELECT Qty FROM TrackingEntity WHERE Barcode = @TrackingEntity" | dbScalar({TrackingEntity}) |> to => TeQty }}
+
+{{#if PickConfig == "Full TE"}}
+  <script>
+      ProceedNext("{{TeQty}}");
+  </script>
+{{/if}}

@@ -1,0 +1,13 @@
+{
+  "Identifier": "d36d9505-c4c8-5682-a033-f71e43334324",
+  "Name": "TAKEON_EXPIRY_CALENDAR_ExpiryDate",
+  "Description": "WebTemplate for process template TAKEON_EXPIRY_CALENDAR / step ExpiryDate",
+  "Type": "WEBTEMPLATE",
+  "Version": 0,
+  "LastModified": "02/08/2024",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

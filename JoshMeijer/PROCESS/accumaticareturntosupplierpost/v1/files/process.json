@@ -1,0 +1,22 @@
+{
+  "Name": "AccumaticaReturnToSupplierPost",
+  "Description": "Accumatica Return To Supplier Post",
+  "Type": "PICKINGPOST",
+  "IsActive": true,
+  "IntegrationMethod": "RETURNTOSUPPLIER",
+  "IntegrationIsActive": true,
+  "IntegrationPost": true,
+  "Steps": [
+    {
+      "Name": "Document",
+      "Description": "Document",
+      "ProcessIndex": 0,
+      "NextIndex": 0,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "Prescript_ReturnToSupplierPost_Document",
+      "WebTemplateArtifact": "e5e0dee6-e1f2-5cf2-bfc2-0eea104d7637"
+    }
+  ]
+}

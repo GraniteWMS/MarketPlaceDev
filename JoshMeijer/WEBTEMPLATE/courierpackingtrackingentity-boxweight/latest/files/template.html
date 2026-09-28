@@ -1,0 +1,25 @@
+{{  
+    navigateToStepButton({
+        stepName: "TrackingEntity"
+    }) 
+}}
+<script>
+    var barcodeCountRaw = "{{BarcodeCount}}";
+
+    if (
+        barcodeCountRaw !== ""
+        && barcodeCountRaw !== "null"
+        && barcodeCountRaw !== "undefined"
+    ) {
+        var barcodeCount = Number(barcodeCountRaw);
+
+        if (!isNaN(barcodeCount) && barcodeCount === 0) {
+            navigateToStep(
+                "TrackingEntity",
+                document.getElementById("textBox") ? document.getElementById("textBox").value : "",
+                "False",
+                false
+            );
+        }
+    }
+</script>

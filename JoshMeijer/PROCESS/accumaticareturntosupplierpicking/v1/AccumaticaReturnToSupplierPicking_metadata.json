@@ -1,0 +1,80 @@
+{
+  "Identifier": "a5307c24-7bdd-4988-b97c-2be23a21fd7f",
+  "Name": "AccumaticaReturnToSupplierPicking",
+  "Description": "Accumatica Return To Supplier Picking\n\nThe Return to Supplier (RTS) process starts in Acumatica ERP, where the RTS document is created and released.\n\nOnce issued, the document is automatically sent to Granite WMS, where it is generated as an order.\n\nFrom there, the RTS is handled like a standard picking process in Granite, allowing the warehouse team to pick the items that need to be returned to the supplier.\n\nn/a",
+  "Type": "PROCESS",
+  "Version": 1,
+  "LastModified": "23/04/2026",
+  "Tags": [
+    "Manufacturing",
+    "Retail",
+    "Automotive",
+    "Agricultural",
+    "Textile",
+    "Electronics",
+    "Construction",
+    "E-commerce",
+    "Logistics",
+    "Pharmaceutical",
+    "Cold Storage"
+  ],
+  "ArtifactDependencies": [],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "PICKING",
+    "ProcessStepMetadata": [
+      {
+        "Name": "Document",
+        "Description": "Document",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_ReturnToSupplierPicking_Document",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Location",
+        "Description": "Destination Staging Location",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "DefaultValue": "Checking",
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "TrackingEntity",
+        "Description": "TrackingEntity",
+        "ProcessIndex": 2,
+        "NextIndex": 3,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "Qty",
+        "Description": "Quantity to Pick",
+        "ProcessIndex": 3,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "DefaultValue": "1",
+        "hasWebTemplate": true,
+        "PreScript": ""
+      }
+    ]
+  },
+  "PostDeployArtifacts": [
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "c9a29587-3eb6-5979-b283-12af9c75de7c",
+      "ArtifactVersion": 1,
+      "ArtifactName": "AccumaticaReturnToSupplierPicking_Document"
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

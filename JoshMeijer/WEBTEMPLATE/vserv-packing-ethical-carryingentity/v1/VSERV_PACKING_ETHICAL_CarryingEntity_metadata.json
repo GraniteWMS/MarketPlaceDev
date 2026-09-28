@@ -1,0 +1,19 @@
+{
+  "Identifier": "3bc6e1ca-b3d7-5bb0-8bd8-7c2c0c0d253d",
+  "Name": "VSERV_PACKING_ETHICAL_CarryingEntity",
+  "Description": "WebTemplate for process template VSERV_PACKING_ETHICAL / step CarryingEntity",
+  "Type": "WEBTEMPLATE",
+  "Version": 1,
+  "LastModified": "12/06/2026",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "458ec185-8fd2-5b98-bb28-7e2f7b3b2bcd",
+      "ArtifactVersion": 1
+    }
+  ],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

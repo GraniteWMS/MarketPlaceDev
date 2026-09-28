@@ -1,0 +1,77 @@
+{
+  "Identifier": "6b2c5bc8-a8cc-43fe-82ea-357690ac61f7",
+  "Name": "RD_TRANSFERPOSTOVERRIDE",
+  "Description": "Retail Distribution (Override Completeness rule)\n\nRetail Distribution -Transfer Post.  See the Standard Post - This version of post is for Superusers or management to Override the Transfer Completeness Rull in System Static Data\n\nTransfer Post is mapped to Dynamic Transfer Post to Create the Transfer Document in the ERP./Retail System.",
+  "Type": "PROCESS",
+  "Version": 0,
+  "LastModified": "09/10/2025",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "2b4f53ab-2a8b-50de-bd11-1b075c58065b",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Integration_Transactions"
+    },
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "3ab90c73-dcca-5e9d-966f-eb63aaa78d66",
+      "ArtifactVersion": 1,
+      "ArtifactName": "webtemplate_TransfertoPost"
+    },
+    {
+      "ArtifactType": "SQL_STORED_PROCEDURE",
+      "ArtifactIdentifier": "644fdb18-9a9e-5e1d-9e1d-49616329d549",
+      "ArtifactVersion": 1,
+      "ArtifactName": "WebTemplate_TransferPostDetail"
+    },
+    {
+      "ArtifactType": "DATA",
+      "ArtifactIdentifier": "0e7d102f-8eee-5f25-9f09-7777302653d6",
+      "ArtifactVersion": 1,
+      "ArtifactName": "DataDependency_SystemStaticData_0e7d102f8eee5f259f097777302653d6"
+    }
+  ],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "TRANSFERPOST",
+    "ProcessStepMetadata": [
+      {
+        "Name": "Document",
+        "Description": "Document",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": false,
+        "PreScript": ""
+      },
+      {
+        "Name": "Confirmation",
+        "Description": "Confirmation",
+        "ProcessIndex": 1,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": false,
+        "PreScript": ""
+      }
+    ]
+  },
+  "PostDeployArtifacts": [
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "20a0594a-dd58-50b3-abdd-7316982936ba",
+      "ArtifactVersion": 1,
+      "ArtifactName": "RD_TRANSFERPOSTOVERRIDE_Document"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "4c37bb1c-58cf-58f4-9b12-e3eb29855919",
+      "ArtifactVersion": 1,
+      "ArtifactName": "RD_TRANSFERPOSTOVERRIDE_Confirmation"
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

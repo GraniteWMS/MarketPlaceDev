@@ -1,0 +1,87 @@
+{
+  "Identifier": "4ec91387-94dc-495c-a086-4c856f991dc3",
+  "Name": "PICKINGPOST",
+  "Description": "Picking Post with Select Order and Confirm\n\nMore user friendly PickingPost.  Selectfrom  Documents with outstanding data to Post and then Shows Details of what will be posted to Confirm before posting.\n\nWebtemplates for Document to Select and Details (stored proc feeds webtemplate).  Also has a Step200 to print a Shipment Confirmation Label, however, requires LabelPrintQueue process to be available and Label_ShipDetail view.\nAlso records that the Post happened in Custom_DocumentTrackingLog.",
+  "Type": "PROCESS",
+  "Version": 0,
+  "LastModified": "01/04/2026",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "f17d2914-7a98-5e64-a299-6e6e2be5f320",
+      "ArtifactVersion": 1,
+      "ArtifactName": "WebTemplate_SOtoPOST"
+    },
+    {
+      "ArtifactType": "SQL_STORED_PROCEDURE",
+      "ArtifactIdentifier": "a8ca43e1-97b5-504b-8768-802140935999",
+      "ArtifactVersion": 1,
+      "ArtifactName": "WebTemplate_SalesOrderPostDetail"
+    },
+    {
+      "ArtifactType": "USER_TABLE",
+      "ArtifactIdentifier": "b15befa5-6ac1-590b-8e48-ef7eb4a799a4",
+      "ArtifactVersion": 1,
+      "ArtifactName": "custom_DocumentTrackingLog"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "b0d0f65f-47ec-548d-80dd-edab1e4bf250",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PrescriptPickingPostStep200"
+    }
+  ],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "PICKINGPOST",
+    "ProcessStepMetadata": [
+      {
+        "Name": "Document",
+        "Description": "Document",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": false,
+        "PreScript": ""
+      },
+      {
+        "Name": "Confirmation",
+        "Description": "Confirm Details To Post",
+        "ProcessIndex": 1,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": false,
+        "PreScript": ""
+      },
+      {
+        "Name": "Step200",
+        "Description": "Print Shipment Summary Label",
+        "ProcessIndex": 200,
+        "NextIndex": 200,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "PrescriptPickingPostStep200",
+        "hasWebTemplate": true
+      }
+    ]
+  },
+  "PostDeployArtifacts": [
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "a4d86ca6-9976-551c-98f4-268c347c9106",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PICKINGPOST_Document"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "636a9e35-c03b-5788-b6c4-24ac5d29f4c9",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PICKINGPOST_Confirmation"
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

@@ -1,0 +1,13 @@
+{
+  "Identifier": "953938b6-d5a5-52af-80b7-b935e43e6ec8",
+  "Name": "TAKEONITEMSEARCH_MasterItemSearch",
+  "Description": "WebTemplate for process template TAKEONITEMSEARCH / step MasterItemSearch",
+  "Type": "WEBTEMPLATE",
+  "Version": 1,
+  "LastModified": "30/05/2026",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

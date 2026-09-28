@@ -1,0 +1,10 @@
+{
+  "Identifier": "ad5a8dcd-0d64-59b1-bedd-70eadd5b688b",
+  "Name": "WebtemplateSpotCheckBarcode",
+  "Description": "",
+  "Type": "SQL_STORED_PROCEDURE",
+  "Version": 0,
+  "LastModified": "15/05/2025",
+  "Tags": [],
+  "ArtifactDependencies": []
+}

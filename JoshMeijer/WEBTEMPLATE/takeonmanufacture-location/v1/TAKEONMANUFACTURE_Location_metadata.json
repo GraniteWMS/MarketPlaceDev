@@ -1,0 +1,19 @@
+{
+  "Identifier": "3d8d1f60-af70-5240-85f8-c99c8c07eafa",
+  "Name": "TAKEONMANUFACTURE_Location",
+  "Description": "WebTemplate for process template TAKEONMANUFACTURE / step Location",
+  "Type": "WEBTEMPLATE",
+  "Version": 1,
+  "LastModified": "07/09/2025",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "54a9e0b7-8f70-5297-98ee-6211847d40e3",
+      "ArtifactVersion": 1
+    }
+  ],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

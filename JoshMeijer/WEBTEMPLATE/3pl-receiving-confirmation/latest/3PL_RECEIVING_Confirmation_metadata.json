@@ -1,0 +1,13 @@
+{
+  "Identifier": "ca26d8e4-f619-58ea-a872-9ec876a04705",
+  "Name": "3PL_RECEIVING_Confirmation",
+  "Description": "WebTemplate for process template 3PL_RECEIVING / step Confirmation",
+  "Type": "WEBTEMPLATE",
+  "Version": 0,
+  "LastModified": "04/08/2025",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

@@ -1,0 +1,79 @@
+{
+  "Identifier": "774a4818-d132-47da-be6e-bb1310a9fb9e",
+  "Name": "BATCHCHANGE",
+  "Description": "Bulk Batch Change\n\nEnter Item Code, Batch, New Batch and update all TrackingEntities  -Also creates Transactions",
+  "Type": "PROCESS",
+  "Version": 0,
+  "LastModified": "04/08/2025",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "69b3b915-07ab-5605-8262-fe430eedbe37",
+      "ArtifactVersion": 1,
+      "ArtifactName": "webtemplate_BatchNumbers"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "a5b3484d-95d8-572d-bf81-8fa42a7b6702",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript3PL_BatchChangeConfirmation"
+    }
+  ],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "CUSTOM",
+    "ProcessStepMetadata": [
+      {
+        "Name": "MasterItem",
+        "Description": "Master Item",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "Batch",
+        "Description": "Select Batch",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": false,
+        "PreScript": ""
+      },
+      {
+        "Name": "NewBatch",
+        "Description": "New Batch",
+        "ProcessIndex": 2,
+        "NextIndex": 3,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "Confirmation",
+        "Description": "Confirmation",
+        "ProcessIndex": 3,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript3PL_BatchChangeConfirmation",
+        "hasWebTemplate": true
+      }
+    ]
+  },
+  "PostDeployArtifacts": [
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "ef4699a4-0ad4-51e4-aaa2-6dada7cc081f",
+      "ArtifactVersion": 1,
+      "ArtifactName": "BATCHCHANGE_Batch"
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

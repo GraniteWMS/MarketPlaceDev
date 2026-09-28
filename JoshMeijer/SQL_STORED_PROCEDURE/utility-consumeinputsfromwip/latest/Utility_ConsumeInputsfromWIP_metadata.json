@@ -1,0 +1,10 @@
+{
+  "Identifier": "2080a7bc-33e8-5745-a34b-3f694e31e7c1",
+  "Name": "Utility_ConsumeInputsfromWIP",
+  "Description": "",
+  "Type": "SQL_STORED_PROCEDURE",
+  "Version": 0,
+  "LastModified": "08/09/2026",
+  "Tags": [],
+  "ArtifactDependencies": []
+}

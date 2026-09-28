@@ -1,0 +1,1 @@
+{{ "SELECT DISTINCT Code, Description, Category FROM WebTemplate_MasterItemswithBOMS" | dbSelect({}) | basicTable({selectOnColumn:"Code", enableSearch:true}) }}

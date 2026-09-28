@@ -1,0 +1,19 @@
+{
+  "Identifier": "f22e9b29-c043-54eb-b8f1-75bfa5535844",
+  "Name": "REPLENISHTOPRODUCTION_Confirmation",
+  "Description": "WebTemplate for process template REPLENISHTOPRODUCTION / step Confirmation",
+  "Type": "WEBTEMPLATE",
+  "Version": 1,
+  "LastModified": "09/09/2026",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "SQL_STORED_PROCEDURE",
+      "ArtifactIdentifier": "3f0f86e1-53b3-5f7e-a5ca-151c78617d37",
+      "ArtifactVersion": 1
+    }
+  ],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

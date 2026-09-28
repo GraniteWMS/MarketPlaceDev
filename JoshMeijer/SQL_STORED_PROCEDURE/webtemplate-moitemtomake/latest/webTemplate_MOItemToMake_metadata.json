@@ -1,0 +1,10 @@
+{
+  "Identifier": "bd9f7536-6bc3-52a6-8788-a28ae0535c9b",
+  "Name": "webTemplate_MOItemToMake",
+  "Description": "",
+  "Type": "SQL_STORED_PROCEDURE",
+  "Version": 0,
+  "LastModified": "19/06/2024",
+  "Tags": [],
+  "ArtifactDependencies": []
+}

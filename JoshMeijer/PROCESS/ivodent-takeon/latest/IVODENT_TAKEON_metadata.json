@@ -1,0 +1,109 @@
+{
+  "Identifier": "9ad916f4-3350-4db0-9ba7-955aab334ba4",
+  "Name": "IVODENT_TAKEON",
+  "Description": "IVODENT_TAKEON\n\nHas lots of steps",
+  "Type": "PROCESS",
+  "Version": 0,
+  "LastModified": "11/06/2026",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "TAKEON",
+    "ProcessStepMetadata": [
+      {
+        "Name": "MasterItem",
+        "Description": "MasterItem",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "Location",
+        "Description": "Location",
+        "ProcessIndex": 2,
+        "NextIndex": 3,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "Qty",
+        "Description": "Qty per Label",
+        "ProcessIndex": 7,
+        "NextIndex": 8,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "NoLabels",
+        "Description": "Copies of Label",
+        "ProcessIndex": 8,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "UseBarcode",
+        "Description": "UseBarcode",
+        "ProcessIndex": 6,
+        "NextIndex": 7,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "SerialNumber",
+        "Description": "SerialNumber",
+        "ProcessIndex": 3,
+        "NextIndex": 4,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "ExpiryDate",
+        "Description": "ExpiryDate (yyyymmdd)",
+        "ProcessIndex": 5,
+        "NextIndex": 6,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "Batch",
+        "Description": "Batch",
+        "ProcessIndex": 4,
+        "NextIndex": 5,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "Comment",
+        "Description": "Comment",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      }
+    ]
+  },
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

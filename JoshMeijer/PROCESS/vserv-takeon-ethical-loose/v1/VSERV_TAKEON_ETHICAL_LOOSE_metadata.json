@@ -1,0 +1,91 @@
+{
+  "Identifier": "01adea45-7e65-496d-94bf-c74c762ef401",
+  "Name": "VSERV_TAKEON_ETHICAL_LOOSE",
+  "Description": "VSERV_TAKEON_ETHICAL_LOOSE\n\nReplenishes to TE in same location with same item code",
+  "Type": "PROCESS",
+  "Version": 1,
+  "LastModified": "12/06/2026",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "db43b863-ec70-58b9-86a7-0ef3408dd551",
+      "ArtifactVersion": 1,
+      "ArtifactName": "MasterItemAlias_View"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "cf4681ef-c972-583d-8c53-6d76cd823b6b",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_TakeonEthical_MasterItem"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "d0e7ff7c-9291-5182-8a8f-9c86a54a112d",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_TakeonEthical_Location"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "801cbd84-68a6-5497-862a-f2c2bd138387",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_TakeonEthicalLoose_Qty"
+    }
+  ],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "TAKEON",
+    "ProcessStepMetadata": [
+      {
+        "Name": "MasterItem",
+        "Description": "Select SKU or Scan EAN Barcode",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_TakeonEthical_MasterItem",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Location",
+        "Description": "Scan Rack Location",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_TakeonEthical_Location",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Qty",
+        "Description": "Enter Qty",
+        "ProcessIndex": 2,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_TakeonEthicalLoose_Qty",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "UseBarcode",
+        "Description": "UseBarcode",
+        "ProcessIndex": 100,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      }
+    ]
+  },
+  "PostDeployArtifacts": [
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "647918b7-271c-5527-848d-8ee4c2c439bd",
+      "ArtifactVersion": 1,
+      "ArtifactName": "VSERV_TAKEON_ETHICAL_LOOSE_Qty"
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

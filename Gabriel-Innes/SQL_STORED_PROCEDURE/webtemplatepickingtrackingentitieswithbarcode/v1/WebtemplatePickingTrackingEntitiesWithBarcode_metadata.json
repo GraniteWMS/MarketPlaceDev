@@ -1,0 +1,10 @@
+{
+  "Identifier": "4b8d0805-ba06-5648-a8d9-3064324f6d4f",
+  "Name": "WebtemplatePickingTrackingEntitiesWithBarcode",
+  "Description": "",
+  "Type": "SQL_STORED_PROCEDURE",
+  "Version": 1,
+  "LastModified": "12/02/2025",
+  "Tags": [],
+  "ArtifactDependencies": []
+}

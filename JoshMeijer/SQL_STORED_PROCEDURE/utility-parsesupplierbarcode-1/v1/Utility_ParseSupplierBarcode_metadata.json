@@ -1,0 +1,10 @@
+{
+  "Identifier": "db2fee17-9047-5864-8355-582518e67d47",
+  "Name": "Utility_ParseSupplierBarcode",
+  "Description": "",
+  "Type": "SQL_STORED_PROCEDURE",
+  "Version": 1,
+  "LastModified": "11/06/2026",
+  "Tags": [],
+  "ArtifactDependencies": []
+}

@@ -1,0 +1,19 @@
+{
+  "Identifier": "c9280f22-380b-51be-90f8-c8f32aee8e4e",
+  "Name": "RECEIVINGPOST_BUTTANUTT_Document",
+  "Description": "WebTemplate for process template RECEIVINGPOST_BUTTANUTT / step Document",
+  "Type": "WEBTEMPLATE",
+  "Version": 0,
+  "LastModified": "21/03/2026",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "ff47efda-171f-5335-b820-151f39461bf7",
+      "ArtifactVersion": 1
+    }
+  ],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

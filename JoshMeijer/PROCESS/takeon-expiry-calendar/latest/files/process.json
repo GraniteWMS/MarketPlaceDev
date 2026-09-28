@@ -1,0 +1,76 @@
+{
+  "Name": "TAKEON_EXPIRY_CALENDAR",
+  "Description": "A Take On process that includes a webtemplate HTML Calendar",
+  "Type": "TAKEON",
+  "IsActive": true,
+  "IntegrationIsActive": false,
+  "IntegrationPost": false,
+  "Steps": [
+    {
+      "Name": "MasterItem",
+      "Description": "MasterItem",
+      "ProcessIndex": 0,
+      "NextIndex": 1,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false
+    },
+    {
+      "Name": "Location",
+      "Description": "Location",
+      "ProcessIndex": 1,
+      "NextIndex": 2,
+      "IsActive": true,
+      "Required": false,
+      "IsBusinessRule": false
+    },
+    {
+      "Name": "Batch",
+      "Description": "Batch",
+      "ProcessIndex": 2,
+      "NextIndex": 3,
+      "IsActive": true,
+      "Required": false,
+      "IsBusinessRule": false
+    },
+    {
+      "Name": "ExpiryDate",
+      "Description": "ExpiryDate (YYYYMMDD)",
+      "ProcessIndex": 3,
+      "NextIndex": 4,
+      "IsActive": true,
+      "Required": false,
+      "IsBusinessRule": false,
+      "PreScript": "Prescript_Takeon_ExpiryDate",
+      "WebTemplateArtifact": "d36d9505-c4c8-5682-a033-f71e43334324"
+    },
+    {
+      "Name": "Qty",
+      "Description": "Qty",
+      "ProcessIndex": 4,
+      "NextIndex": 0,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false
+    },
+    {
+      "Name": "Print",
+      "Description": "Print",
+      "ProcessIndex": 99,
+      "NextIndex": 0,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false
+    },
+    {
+      "Name": "NoEntities",
+      "Description": "Number of TrackingEntities",
+      "ProcessIndex": 100,
+      "NextIndex": 0,
+      "IsActive": true,
+      "Required": false,
+      "IsBusinessRule": false,
+      "DefaultValue": "1"
+    }
+  ]
+}

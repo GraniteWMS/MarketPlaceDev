@@ -1,0 +1,12 @@
+{{ "SELECT @BoxCode" | dbScalar({BoxCode}) |> to => boxcode }}
+
+{{#if boxcode != "CUSTOM" }}
+	{{navigateToStep({stepName:"MasterItem", submitFinalStep: false})}}
+{{/if}}
+
+{{ 
+    navigateToStepButton({
+        stepName: "MasterItem",
+        buttonText: "Enter Dimensions Later"
+    }) 
+}}

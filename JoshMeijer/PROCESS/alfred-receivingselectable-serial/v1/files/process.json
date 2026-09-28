@@ -1,0 +1,78 @@
+{
+  "Name": "ALFRED_RECEIVINGSELECTABLE_SERIAL",
+  "Description": "ALFRED_RECEIVINGSELECTABLE_SERIAL",
+  "Type": "RECEIVING",
+  "IsActive": true,
+  "IntegrationIsActive": false,
+  "IntegrationPost": false,
+  "WebTemplateArtifact": "af3338ee-5ef3-5c55-8a9b-43a25eddec64",
+  "Steps": [
+    {
+      "Name": "Location",
+      "Description": "Receiving Location",
+      "ProcessIndex": 0,
+      "NextIndex": 1,
+      "IsActive": true,
+      "Required": false,
+      "IsBusinessRule": false,
+      "WebTemplateArtifact": "9dc84497-26db-5a7f-ada7-dcdf5c4fd016"
+    },
+    {
+      "Name": "Document",
+      "Description": "Enter Receiving Document",
+      "ProcessIndex": 1,
+      "NextIndex": 2,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "WebTemplateArtifact": "be1a498f-b568-5352-8769-024c8f510ca2"
+    },
+    {
+      "Name": "MasterItem",
+      "Description": "Select / Search MasterItem",
+      "ProcessIndex": 2,
+      "NextIndex": 3,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false
+    },
+    {
+      "Name": "SerialNumber",
+      "Description": "Enter Serial Number",
+      "ProcessIndex": 3,
+      "NextIndex": 3,
+      "IsActive": true,
+      "Required": false,
+      "IsBusinessRule": false,
+      "PreScript": "PrescriptRECEIVINGSERIALSerialNumber"
+    },
+    {
+      "Name": "Print",
+      "Description": "Print",
+      "ProcessIndex": 99,
+      "NextIndex": 0,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false
+    },
+    {
+      "Name": "Qty",
+      "Description": "Enter Units per barcode",
+      "ProcessIndex": 100,
+      "NextIndex": 0,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "DefaultValue": "1"
+    },
+    {
+      "Name": "UseBarcode",
+      "Description": "UseBarcode",
+      "ProcessIndex": 100,
+      "NextIndex": 0,
+      "IsActive": true,
+      "Required": false,
+      "IsBusinessRule": false
+    }
+  ]
+}

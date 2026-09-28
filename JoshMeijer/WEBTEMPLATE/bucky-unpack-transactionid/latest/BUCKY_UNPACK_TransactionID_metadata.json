@@ -1,0 +1,19 @@
+{
+  "Identifier": "f56377cc-58e0-5b49-a019-6ce409574309",
+  "Name": "BUCKY_UNPACK_TransactionID",
+  "Description": "WebTemplate for process template BUCKY_UNPACK / step TransactionID",
+  "Type": "WEBTEMPLATE",
+  "Version": 0,
+  "LastModified": "27/01/2026",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "f0130192-4901-532d-8a41-8c0122045335",
+      "ArtifactVersion": 1
+    }
+  ],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

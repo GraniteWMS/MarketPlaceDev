@@ -1,0 +1,19 @@
+{
+  "Identifier": "20a0594a-dd58-50b3-abdd-7316982936ba",
+  "Name": "RD_TRANSFERPOSTOVERRIDE_Document",
+  "Description": "WebTemplate for process template RD_TRANSFERPOSTOVERRIDE / step Document",
+  "Type": "WEBTEMPLATE",
+  "Version": 1,
+  "LastModified": "09/10/2025",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "3ab90c73-dcca-5e9d-966f-eb63aaa78d66",
+      "ArtifactVersion": 1
+    }
+  ],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

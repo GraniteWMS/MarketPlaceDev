@@ -1,0 +1,88 @@
+{
+  "Identifier": "8c47af27-0d55-4c5c-8238-3b374cf900d6",
+  "Name": "BUTTANUTT_CONSUME",
+  "Description": "BUTTANUTT_CONSUME\n\nIt defaults the consume location to the FromLocation on the document",
+  "Type": "PROCESS",
+  "Version": 1,
+  "LastModified": "24/02/2026",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "b40ae7a1-d98c-582a-998e-8ee7d67973e6",
+      "ArtifactVersion": 1,
+      "ArtifactName": "WebTemplate_Manufacture_Document"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "82e1dd3c-8bc6-5407-aa63-b30c7e4665c6",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_Consume_Document"
+    }
+  ],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "CONSUME",
+    "ProcessStepMetadata": [
+      {
+        "Name": "Document",
+        "Description": "Document",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_Consume_Document",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Location",
+        "Description": "Location",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "DefaultValue": "",
+        "PreScript": "",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "TrackingEntity",
+        "Description": "TrackingEntity",
+        "ProcessIndex": 2,
+        "NextIndex": 3,
+        "isActive": true,
+        "Required": true,
+        "DefaultValue": "",
+        "PreScript": "",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Qty",
+        "Description": "Qty",
+        "ProcessIndex": 3,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "DefaultValue": "",
+        "PreScript": "",
+        "hasWebTemplate": true
+      }
+    ]
+  },
+  "PostDeployArtifacts": [
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "8f14b462-6dfa-5491-aea3-6bc117445191",
+      "ArtifactVersion": 1,
+      "ArtifactName": "BUTTANUTT_CONSUME"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "a692bb12-e557-54f3-928f-c2f80d5b74c0",
+      "ArtifactVersion": 1,
+      "ArtifactName": "BUTTANUTT_CONSUME_Document"
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

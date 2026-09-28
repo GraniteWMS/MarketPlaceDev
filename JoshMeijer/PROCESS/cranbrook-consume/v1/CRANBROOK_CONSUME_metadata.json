@@ -1,0 +1,144 @@
+{
+  "Identifier": "a69a2b4d-03be-47c0-94aa-69131b44d6c2",
+  "Name": "CRANBROOK_CONSUME",
+  "Description": "CRANBROOK_COSNUME\n\nN/a\n\nN/a",
+  "Type": "PROCESS",
+  "Version": 1,
+  "LastModified": "25/06/2026",
+  "Tags": [
+    "Manufacturing",
+    "Retail",
+    "Automotive",
+    "Agricultural",
+    "Textile",
+    "Electronics",
+    "Construction",
+    "E-commerce",
+    "Logistics",
+    "Pharmaceutical",
+    "Cold Storage"
+  ],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "USER_TABLE",
+      "ArtifactIdentifier": "60963bfa-9ae9-52e4-b588-e7b92b486d59",
+      "ArtifactVersion": 1,
+      "ArtifactName": "OptionalFieldValues_Location"
+    },
+    {
+      "ArtifactType": "SQL_STORED_PROCEDURE",
+      "ArtifactIdentifier": "0eb8efcc-b738-5ec4-b53f-148b9ecebc00",
+      "ArtifactVersion": 1,
+      "ArtifactName": "usp_Picking_GetRecommendedBarcodes"
+    },
+    {
+      "ArtifactType": "USER_TABLE",
+      "ArtifactIdentifier": "906fd048-1c12-5a34-9365-9695a13ab674",
+      "ArtifactVersion": 1,
+      "ArtifactName": "OptionalFieldValues_Document"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "6eceddcd-f62b-5afa-8949-19b33b4ffbcf",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PreScript_Consume_Document"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "46e310e6-068c-5719-831d-2a5cc845afc9",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_Consume_TrackingEntity"
+    },
+    {
+      "ArtifactType": "USER_TABLE",
+      "ArtifactIdentifier": "3b749c30-1535-57ea-82f0-46ff13a6378f",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Custom_ScanComparisonLog"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "31f62511-ae9d-5327-b8ab-c1804d16d5a8",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PRESCRIPT_Consume_Qty"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "c14769c5-f383-5c96-bd4e-ca418cf28d8b",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PreScript_Consume_Step200"
+    },
+    {
+      "ArtifactType": "SQL_STORED_PROCEDURE",
+      "ArtifactIdentifier": "3b48e526-2cd7-5c97-abeb-12aff876ace8",
+      "ArtifactVersion": 1,
+      "ArtifactName": "usp_Consume_GetRecommendedBarcodes"
+    }
+  ],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "CONSUME",
+    "ProcessStepMetadata": [
+      {
+        "Name": "Document",
+        "Description": "ENTER DOCUMENT NUMBER",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "PreScript_Consume_Document",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Location",
+        "Description": "Scan Machine Number",
+        "ProcessIndex": 100,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "DefaultValue": "PROD",
+        "PreScript": "",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "TrackingEntity",
+        "Description": "SCAN RAW MATERIAL BARCODE",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": false,
+        "PreScript": "Prescript_Consume_TrackingEntity",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Qty",
+        "Description": "ENTER QUANTITY (KG)",
+        "ProcessIndex": 2,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "PRESCRIPT_Consume_Qty",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Step200",
+        "Description": "Step200",
+        "ProcessIndex": 200,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "PreScript_Consume_Step200",
+        "hasWebTemplate": true
+      }
+    ]
+  },
+  "PostDeployArtifacts": [
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "f4b53c33-3645-53f4-9157-52a9448738bb",
+      "ArtifactVersion": 1,
+      "ArtifactName": "CRANBROOK_CONSUME"
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

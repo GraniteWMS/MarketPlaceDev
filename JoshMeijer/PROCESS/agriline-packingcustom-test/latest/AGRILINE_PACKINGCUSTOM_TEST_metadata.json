@@ -1,0 +1,98 @@
+{
+  "Identifier": "28eb8a83-4e77-434a-b899-8897d14081b2",
+  "Name": "AGRILINE_PACKINGCUSTOM_TEST",
+  "Description": "AGRILINE_PACKINGCUSTOM_TEST\n\nNot final, moving for testing purposes",
+  "Type": "PROCESS",
+  "Version": 0,
+  "LastModified": "07/07/2026",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "SQL_STORED_PROCEDURE",
+      "ArtifactIdentifier": "e5dab171-49ae-5d88-883e-a03417980040",
+      "ArtifactVersion": 1,
+      "ArtifactName": "WebTemplate_PackingCustom_PackDetail"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "754b6b19-0f63-5838-8655-f7869cc27306",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_PackingCustom_Document"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "188f84df-657e-534c-92bb-5e2cef32af33",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_PackingCustom_ItemCode"
+    }
+  ],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "CUSTOM",
+    "ProcessStepMetadata": [
+      {
+        "Name": "Document",
+        "Description": "Document",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_PackingCustom_Document",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "ItemCode",
+        "Description": "Item Code",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_PackingCustom_ItemCode",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "NoBoxes",
+        "Description": "Number of boxes",
+        "ProcessIndex": 2,
+        "NextIndex": 3,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": false,
+        "PreScript": ""
+      },
+      {
+        "Name": "PackDetail",
+        "Description": "Pack details",
+        "ProcessIndex": 3,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": false,
+        "PreScript": ""
+      }
+    ]
+  },
+  "PostDeployArtifacts": [
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "5b9630df-d9e6-51a6-80dd-8779f4fec4fc",
+      "ArtifactVersion": 1,
+      "ArtifactName": "AGRILINE_PACKINGCUSTOM_TEST_ItemCode"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "043f72fa-7bed-5d92-80c1-516efc93d650",
+      "ArtifactVersion": 1,
+      "ArtifactName": "AGRILINE_PACKINGCUSTOM_TEST_NoBoxes"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "6fb64ba2-d0fc-5737-990b-33487fc6e940",
+      "ArtifactVersion": 1,
+      "ArtifactName": "AGRILINE_PACKINGCUSTOM_TEST_PackDetail"
+    }
+  ],
+  "DependsOnClr": true,
+  "SqlClrAssemblyVersion": "7.0.0.0",
+  "Deprecated": false
+}

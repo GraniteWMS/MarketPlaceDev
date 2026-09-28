@@ -1,0 +1,13 @@
+{
+  "Identifier": "81101c74-5768-5d11-94a9-1cc0c14921ad",
+  "Name": "TAKEONITEMSEARCHLOC_MasterItem",
+  "Description": "WebTemplate for process template TAKEONITEMSEARCHLOC / step MasterItem",
+  "Type": "WEBTEMPLATE",
+  "Version": 0,
+  "LastModified": "30/05/2026",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

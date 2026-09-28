@@ -1,0 +1,17 @@
+{
+  "Identifier": "c1f8188a-ca19-558d-87eb-1e45aec13d2a",
+  "Name": "DataDependency_SystemStaticData_c1f8188aca19558d87eb1e45aec13d2a",
+  "Description": "",
+  "Type": "DATA",
+  "Version": 1,
+  "LastModified": "09/10/2025",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "TypeSpecificAttributes": {
+    "Table": "SystemStaticData",
+    "KeyColumn": "Key",
+    "KeyValues": [
+      "ALP"
+    ]
+  }
+}

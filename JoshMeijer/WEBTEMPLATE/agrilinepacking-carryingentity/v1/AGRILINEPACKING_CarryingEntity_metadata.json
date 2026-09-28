@@ -1,0 +1,19 @@
+{
+  "Identifier": "44db2fea-c39d-5045-a58e-3ddd73a4a216",
+  "Name": "AGRILINEPACKING_CarryingEntity",
+  "Description": "WebTemplate for process template AGRILINEPACKING / step CarryingEntity",
+  "Type": "WEBTEMPLATE",
+  "Version": 1,
+  "LastModified": "23/06/2026",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "USER_TABLE",
+      "ArtifactIdentifier": "709ea410-d8a2-5f76-b5cc-3fcbbd5d77ed",
+      "ArtifactVersion": 1
+    }
+  ],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

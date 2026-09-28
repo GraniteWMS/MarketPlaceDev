@@ -1,0 +1,13 @@
+{
+  "Identifier": "bcafdfd0-00a7-5aee-974d-26512904c61e",
+  "Name": "RECEIVINGLOCITEM_Qty",
+  "Description": "WebTemplate for process template RECEIVINGLOCITEM / step Qty",
+  "Type": "WEBTEMPLATE",
+  "Version": 1,
+  "LastModified": "10/05/2026",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

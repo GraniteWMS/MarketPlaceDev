@@ -1,0 +1,13 @@
+{
+  "Identifier": "2debf577-a782-5985-9dd8-7906edc4e9c8",
+  "Name": "QUALITYCONTROL_Comment",
+  "Description": "WebTemplate for process template QUALITYCONTROL / step Comment",
+  "Type": "WEBTEMPLATE",
+  "Version": 0,
+  "LastModified": "27/03/2024",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

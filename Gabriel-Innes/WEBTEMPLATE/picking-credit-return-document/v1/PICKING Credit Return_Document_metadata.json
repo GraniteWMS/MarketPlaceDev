@@ -1,0 +1,19 @@
+{
+  "Identifier": "02485f8a-697c-5d83-b001-ba5b44c1b3d8",
+  "Name": "PICKING Credit Return_Document",
+  "Description": "WebTemplate for process template PICKING Credit Return / step Document",
+  "Type": "WEBTEMPLATE",
+  "Version": 1,
+  "LastModified": "12/02/2025",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "5f978d3d-d35b-5d26-b48b-cd929a56a3ae",
+      "ArtifactVersion": 1
+    }
+  ],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

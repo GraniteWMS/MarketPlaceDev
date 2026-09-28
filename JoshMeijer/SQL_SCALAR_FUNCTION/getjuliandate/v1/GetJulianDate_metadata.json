@@ -1,0 +1,10 @@
+{
+  "Identifier": "671410e0-5f48-52a3-b9f4-c48f7fada2e7",
+  "Name": "GetJulianDate",
+  "Description": "",
+  "Type": "SQL_SCALAR_FUNCTION",
+  "Version": 1,
+  "LastModified": "28/10/2025",
+  "Tags": [],
+  "ArtifactDependencies": []
+}

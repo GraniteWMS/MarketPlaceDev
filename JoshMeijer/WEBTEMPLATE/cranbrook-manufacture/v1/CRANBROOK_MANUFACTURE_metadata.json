@@ -1,0 +1,13 @@
+{
+  "Identifier": "91421b90-6d77-5a6f-9d03-f20a21629b83",
+  "Name": "CRANBROOK_MANUFACTURE",
+  "Description": "WebTemplate for process template CRANBROOK_MANUFACTURE",
+  "Type": "WEBTEMPLATE",
+  "Version": 1,
+  "LastModified": "25/06/2026",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

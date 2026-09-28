@@ -1,0 +1,1 @@
+{{ "SELECT DocumentNumber, FromLocation, ToLocation, CreateDate FROM WebTemplate_ConfirmTransfer_Document ORDER BY DocumentNumber DESC" | dbSelect({}) | basicTable({selectOnColumn:"DocumentNumber", enableSearch:true}) }}

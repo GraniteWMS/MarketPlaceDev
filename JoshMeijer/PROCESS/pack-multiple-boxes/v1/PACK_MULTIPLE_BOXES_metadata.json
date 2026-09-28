@@ -1,0 +1,200 @@
+{
+  "Identifier": "b80bb848-1d6d-4759-a20f-a78b74547bdd",
+  "Name": "PACK_MULTIPLE_BOXES",
+  "Description": "Performs multiple Pack transactions at once\n\nWhen you know how many boxes will be packed for an order and the quantity for each box is the same, it is much faster just to pack everything at once.\n\nIn order to generate the box numbers, a recursive common table expression is used, and the resulting set of box numbers is inserted into the Carrying Entity table in a single transaction. This is much faster than generating the numbers one by one in a loop. One thing to keep in mind though is that SQL Server has a recursion limit that needs to be set. It is set in the Step200 prescript to a value of 100. This means that a maximum of 100 boxes can be generated at a time. There is an appropriate rule on the NoOfBoxes prescript to check this. You can increase the limit, but make sure you do it on both prescripts and make sure that the Step201 will have enough time to print all of the box labels.\n\nThe Location step for the process is hard coded in the Step200. You can change this if you want.\n\nThe MasterItem prescript references printers in the static data table. You can set these printer names appropriately.\n\nThe QtyPerBox step will do the necessary UOM conversions if a  master item alias with a UOM conversion is scanned on the MasterItem step.",
+  "Type": "PROCESS",
+  "Version": 1,
+  "LastModified": "30/07/2024",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "e6f7ced8-fe78-589b-a203-683d5fa9c1d0",
+      "ArtifactVersion": 1,
+      "ArtifactName": "MasterItemAlias_View"
+    },
+    {
+      "ArtifactType": "SQL_STORED_PROCEDURE",
+      "ArtifactIdentifier": "48c6b7a4-8759-5bc0-8b24-d80f737a1dbe",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Utility_UpdateDocumentStatus"
+    },
+    {
+      "ArtifactType": "USER_TABLE",
+      "ArtifactIdentifier": "f18efacb-7491-5930-bc92-9bd0c3f883ae",
+      "ArtifactVersion": 1,
+      "ArtifactName": "custom_DocumentTrackingLog"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "29e70a37-d916-5471-80d2-5470e693e357",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_PackMultipleBoxes_MasterItem"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "fe6d2e9d-d3be-53d9-9595-87ffea381cbb",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_PackMultipleBoxes_Document"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "264163a6-4acf-55c7-bb8c-68fec249d5a3",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_PackMultipleBoxes_NoOfBoxes"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "7aff59d3-6f14-5f82-ad2d-5e37d3fb5aa7",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_PackMultipleBoxes_QtyPerBox"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "b17857f0-e7f9-59a1-a539-bba2e753e3c5",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_PackMultipleBoxes_Step200"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "9e736295-98ec-56d5-bb14-3ea618621749",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_PackMultipleBoxes_Step201"
+    },
+    {
+      "ArtifactType": "DATA",
+      "ArtifactIdentifier": "ac4e4e15-3181-5fcc-baa9-17f555d95efd",
+      "ArtifactVersion": 1,
+      "ArtifactName": "DataDependency_SystemStaticData_ac4e4e1531815fccbaa917f555d95efd"
+    },
+    {
+      "ArtifactType": "DATA",
+      "ArtifactIdentifier": "b4b6d3a3-9537-5755-85cc-a1e7afdc0e9a",
+      "ArtifactVersion": 1,
+      "ArtifactName": "DataDependency_SystemStaticData_b4b6d3a39537575585cca1e7afdc0e9a"
+    },
+    {
+      "ArtifactType": "DATA",
+      "ArtifactIdentifier": "033da4a4-640f-5270-8096-06bf597ffaf4",
+      "ArtifactVersion": 1,
+      "ArtifactName": "DataDependency_SystemStaticData_033da4a4640f5270809606bf597ffaf4"
+    },
+    {
+      "ArtifactType": "DATA",
+      "ArtifactIdentifier": "05da74c0-c945-51ec-9d53-b3cd9aaf1ee5",
+      "ArtifactVersion": 1,
+      "ArtifactName": "DataDependency_SystemStaticData_05da74c0c94551ec9d53b3cd9aaf1ee5"
+    },
+    {
+      "ArtifactType": "DATA",
+      "ArtifactIdentifier": "85364fc6-dbb3-595e-83a9-e46d18c32c2d",
+      "ArtifactVersion": 1,
+      "ArtifactName": "DataDependency_SystemStaticData_85364fc6dbb3595e83a9e46d18c32c2d"
+    },
+    {
+      "ArtifactType": "DATA",
+      "ArtifactIdentifier": "c8f66198-8139-5bb3-812e-6ca0e02544c3",
+      "ArtifactVersion": 1,
+      "ArtifactName": "DataDependency_SystemStaticData_c8f6619881395bb3812e6ca0e02544c3"
+    },
+    {
+      "ArtifactType": "DATA",
+      "ArtifactIdentifier": "ac4690be-c4c0-5b56-9a9b-a0d4c5846701",
+      "ArtifactVersion": 1,
+      "ArtifactName": "DataDependency_SystemStaticData_ac4690bec4c05b569a9ba0d4c5846701"
+    }
+  ],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "CUSTOM",
+    "ProcessStepMetadata": [
+      {
+        "Name": "MasterItem",
+        "Description": "Enter MasterItem",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_PackMultipleBoxes_MasterItem",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Document",
+        "Description": "Enter Document Number",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_PackMultipleBoxes_Document",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "NoOfBoxes",
+        "Description": "Enter Number of Boxes",
+        "ProcessIndex": 2,
+        "NextIndex": 3,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_PackMultipleBoxes_NoOfBoxes",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "QtyPerBox",
+        "Description": "Enter Qty Per Box",
+        "ProcessIndex": 3,
+        "NextIndex": 4,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_PackMultipleBoxes_QtyPerBox",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Step200",
+        "Description": "Step200",
+        "ProcessIndex": 200,
+        "NextIndex": 200,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_PackMultipleBoxes_Step200",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "PrintLabels",
+        "Description": "Would You Like To Print Labels?",
+        "ProcessIndex": 4,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "Step201",
+        "Description": "Step201",
+        "ProcessIndex": 201,
+        "NextIndex": 201,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_PackMultipleBoxes_Step201",
+        "hasWebTemplate": true
+      }
+    ]
+  },
+  "PostDeployArtifacts": [
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "afd9ddbc-8c8a-551d-8ab3-acc68cf36588",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PACK_MULTIPLE_BOXES"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "9ba705e3-5bf9-5b24-aacb-497c8b77fb61",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PACK_MULTIPLE_BOXES_PrintLabels"
+    }
+  ],
+  "DependsOnClr": true,
+  "SqlClrAssemblyVersion": "7.0.0.0",
+  "Deprecated": false
+}

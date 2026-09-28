@@ -1,0 +1,13 @@
+{
+  "Identifier": "d77eef26-f694-5c23-b18b-092fb780785b",
+  "Name": "PICKINGOLDSCHOOL",
+  "Description": "WebTemplate for process template PICKINGOLDSCHOOL",
+  "Type": "WEBTEMPLATE",
+  "Version": 0,
+  "LastModified": "18/03/2026",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

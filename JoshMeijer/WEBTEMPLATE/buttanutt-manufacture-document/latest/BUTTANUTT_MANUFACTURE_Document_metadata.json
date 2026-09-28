@@ -1,0 +1,19 @@
+{
+  "Identifier": "2ce4a98e-d8fc-54d5-9e9c-d5e97133a9ea",
+  "Name": "BUTTANUTT_MANUFACTURE_Document",
+  "Description": "WebTemplate for process template BUTTANUTT_MANUFACTURE / step Document",
+  "Type": "WEBTEMPLATE",
+  "Version": 0,
+  "LastModified": "24/02/2026",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "5cc77d6b-8c37-56a4-995c-33abe0b93d07",
+      "ArtifactVersion": 1
+    }
+  ],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

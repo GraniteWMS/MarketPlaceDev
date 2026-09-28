@@ -1,0 +1,19 @@
+{
+  "Identifier": "90681bb7-2bb6-54b1-a8df-bdb2d471b486",
+  "Name": "3PL_SCOREBOARD_ScoreReceive",
+  "Description": "WebTemplate for process template 3PL_SCOREBOARD / step ScoreReceive",
+  "Type": "WEBTEMPLATE",
+  "Version": 0,
+  "LastModified": "04/08/2025",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "09a4bf3c-d71a-5eee-b9cd-c00b83cde87d",
+      "ArtifactVersion": 1
+    }
+  ],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

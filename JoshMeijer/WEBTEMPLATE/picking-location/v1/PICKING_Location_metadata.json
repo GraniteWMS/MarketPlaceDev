@@ -1,0 +1,19 @@
+{
+  "Identifier": "5b6430d1-ca9a-5e2f-afc5-e7dc89dfcac4",
+  "Name": "PICKING_Location",
+  "Description": "WebTemplate for process template PICKING / step Location",
+  "Type": "WEBTEMPLATE",
+  "Version": 1,
+  "LastModified": "10/09/2026",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "d40e13d0-f223-562d-b615-7c021b4f5fbb",
+      "ArtifactVersion": 1
+    }
+  ],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

@@ -1,0 +1,60 @@
+{
+  "Identifier": "400974d5-41d5-4cec-9fb8-74f21a448370",
+  "Name": "ACUMATICAPACKINGPOST",
+  "Description": "ACUMATICAPACKINGPOST\n\nUse this process to post pack transactions to create packages against a shipment in Acumatica.\n\nThe carrying entities that are posted need to have a masteritem id in the [type_id]. This masteritem must be one of the boxes that is set up in acumtica.",
+  "Type": "PROCESS",
+  "Version": 1,
+  "LastModified": "01/06/2026",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "31e832a7-2b17-53d6-9277-b38b2d4d8511",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_PackingPost_Document"
+    },
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "afbbe3b0-837e-567a-8d97-dd88e14a9aa4",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Integration_Transactions_PACKINGPOST"
+    }
+  ],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "CUSTOM",
+    "ProcessStepMetadata": [
+      {
+        "Name": "Document",
+        "Description": "Document",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Shipment",
+        "Description": "Shipment",
+        "ProcessIndex": 1,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_PackingPost_Document ",
+        "hasWebTemplate": false
+      }
+    ]
+  },
+  "PostDeployArtifacts": [
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "88d7cc1e-6481-535b-b16c-1ea780075bcc",
+      "ArtifactVersion": 1,
+      "ArtifactName": "ACUMATICAPACKINGPOST_Shipment"
+    }
+  ],
+  "DependsOnClr": true,
+  "SqlClrAssemblyVersion": "7.0.0.0",
+  "Deprecated": false
+}

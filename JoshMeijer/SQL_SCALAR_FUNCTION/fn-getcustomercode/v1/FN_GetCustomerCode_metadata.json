@@ -1,0 +1,10 @@
+{
+  "Identifier": "d0f52b72-2e0b-57e8-849e-2a87020628cf",
+  "Name": "FN_GetCustomerCode",
+  "Description": "",
+  "Type": "SQL_SCALAR_FUNCTION",
+  "Version": 1,
+  "LastModified": "22/01/2025",
+  "Tags": [],
+  "ArtifactDependencies": []
+}

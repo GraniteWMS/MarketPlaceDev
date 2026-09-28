@@ -1,0 +1,19 @@
+{
+  "Identifier": "c6aa0f0e-4d58-55c1-9025-d29f023d5462",
+  "Name": "ASSIGNPRODUCTIONLINE_MasterItem",
+  "Description": "WebTemplate for process template ASSIGNPRODUCTIONLINE / step MasterItem",
+  "Type": "WEBTEMPLATE",
+  "Version": 1,
+  "LastModified": "07/09/2025",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "fd6a412a-85be-57c3-9910-296bec467b51",
+      "ArtifactVersion": 1
+    }
+  ],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

@@ -1,0 +1,87 @@
+{
+  "Identifier": "86050d6f-8608-46f3-9a03-5cc1076f8fbd",
+  "Name": "RD_MOVETORTV",
+  "Description": "Retail Distribution -Return to Vendor\n\nRetail Distribution - Return to Vendor is simply a NONStock Location RTV.  We do a REPLENISH Process to Split the TrackingEntity from the Bin in the Warehouse to the Vendor Location(RTV).  TrackingEntity is always Location_ItemCode. Qty is always 1.  Alias is always resolved to ItemCode\n\nIn the Prescript Prescript_MoveToRTV_ToTrackingEntity, If the Source trackingEntity does not exist, We do a CLR_Takeon to create it.  The reason is to allow a Return to Vendor Directly from a Store, where we may never have processed the Item before, so dont have the FromTrackingEntity.",
+  "Type": "PROCESS",
+  "Version": 1,
+  "LastModified": "09/10/2025",
+  "Tags": [
+    "Retail"
+  ],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "fd4593c5-12b3-59dc-bede-118762b17f8f",
+      "ArtifactVersion": 1,
+      "ArtifactName": "MasterItemAlias_View"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "d6a888ef-3c6b-5305-8094-056516a3c33c",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_MoveToRTV_ToTrackingEntity"
+    }
+  ],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "REPLENISH",
+    "ProcessStepMetadata": [
+      {
+        "Name": "FromTrackingEntity",
+        "Description": "Scan Item",
+        "ProcessIndex": 100,
+        "NextIndex": 100,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Location",
+        "Description": "To Location",
+        "ProcessIndex": 100,
+        "NextIndex": 100,
+        "isActive": true,
+        "Required": true,
+        "DefaultValue": "RTV",
+        "PreScript": "",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "ToTrackingEntity",
+        "Description": "Scan Item",
+        "ProcessIndex": 1,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": false,
+        "PreScript": "Prescript_MoveToRTV_ToTrackingEntity",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Qty",
+        "Description": "Qty to Replenish",
+        "ProcessIndex": 100,
+        "NextIndex": 100,
+        "isActive": true,
+        "Required": true,
+        "DefaultValue": "1",
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "FromLocation",
+        "Description": "From Location",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "",
+        "hasWebTemplate": true
+      }
+    ]
+  },
+  "PostDeployArtifacts": [],
+  "DependsOnClr": true,
+  "SqlClrAssemblyVersion": "7.0.0.0",
+  "Deprecated": false
+}

@@ -1,0 +1,17 @@
+{
+  "Identifier": "12d6a540-db4c-5e9a-977a-e26e1ec0034d",
+  "Name": "DataDependency_SystemStaticData_12d6a540db4c5e9a977ae26e1ec0034d",
+  "Description": "",
+  "Type": "DATA",
+  "Version": 0,
+  "LastModified": "11/09/2024",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "TypeSpecificAttributes": {
+    "Table": "SystemStaticData",
+    "KeyColumn": "Key",
+    "KeyValues": [
+      "DecimalPlaces"
+    ]
+  }
+}

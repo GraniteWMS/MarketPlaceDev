@@ -1,0 +1,19 @@
+{
+  "Identifier": "44b33dd3-10a2-5d1e-ba44-6b3e5f195a7f",
+  "Name": "BUTTANUTT_UNTRANSFER_TransactionID",
+  "Description": "WebTemplate for process template BUTTANUTT_UNTRANSFER / step TransactionID",
+  "Type": "WEBTEMPLATE",
+  "Version": 0,
+  "LastModified": "07/06/2026",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "c39f6a42-6a86-56c5-bd65-15129a4aeac9",
+      "ArtifactVersion": 1
+    }
+  ],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

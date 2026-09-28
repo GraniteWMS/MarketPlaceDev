@@ -1,0 +1,114 @@
+{
+  "Identifier": "e5ba7f25-006c-4213-85ff-1eadaea9f57a",
+  "Name": "VSERV_TAKEON",
+  "Description": "VSERV_TAKEON\n\nIf you need a takeon process that automatically knows to replenish to an existing tracking entity in the same location with the same expiry instead of always creating a new one.",
+  "Type": "PROCESS",
+  "Version": 0,
+  "LastModified": "09/02/2026",
+  "Tags": [
+    "Manufacturing",
+    "Retail",
+    "Automotive",
+    "Agricultural",
+    "Textile",
+    "Electronics",
+    "Construction",
+    "E-commerce",
+    "Logistics",
+    "Pharmaceutical",
+    "Cold Storage"
+  ],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "0b628a17-0ad0-541f-b787-05ac0600903a",
+      "ArtifactVersion": 1,
+      "ArtifactName": "WebTemplate_Takeon_MasterItem"
+    },
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "9f129e47-6baa-5cba-b8c6-d927e0ffeeea",
+      "ArtifactVersion": 1,
+      "ArtifactName": "WebTemplate_Takeon_Location"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "aa9b5f3f-fd69-5a26-9bcd-e66ac75ad9e4",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_Takeon_ExpiryDate"
+    }
+  ],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "TAKEON",
+    "ProcessStepMetadata": [
+      {
+        "Name": "MasterItem",
+        "Description": "MasterItem",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "DefaultValue": "",
+        "PreScript": "",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Location",
+        "Description": "Location",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": false,
+        "PreScript": ""
+      },
+      {
+        "Name": "ExpiryDate",
+        "Description": "ExpiryDate (YYYYMM)",
+        "ProcessIndex": 2,
+        "NextIndex": 3,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_Takeon_ExpiryDate",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Qty",
+        "Description": "Qty",
+        "ProcessIndex": 3,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "UseBarcode",
+        "Description": "UseBarcode",
+        "ProcessIndex": 100,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      }
+    ]
+  },
+  "PostDeployArtifacts": [
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "9c4bd84f-71fc-557e-a981-e8b70caa679b",
+      "ArtifactVersion": 1,
+      "ArtifactName": "VSERV_TAKEON_MasterItem"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "7adf9a9b-1121-58c3-bbb1-3ab74321bdc9",
+      "ArtifactVersion": 1,
+      "ArtifactName": "VSERV_TAKEON_Location"
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

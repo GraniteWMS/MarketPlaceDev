@@ -1,0 +1,13 @@
+{
+  "Identifier": "afd9ddbc-8c8a-551d-8ab3-acc68cf36588",
+  "Name": "PACK_MULTIPLE_BOXES",
+  "Description": "WebTemplate for process template PACK_MULTIPLE_BOXES",
+  "Type": "WEBTEMPLATE",
+  "Version": 0,
+  "LastModified": "30/07/2024",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

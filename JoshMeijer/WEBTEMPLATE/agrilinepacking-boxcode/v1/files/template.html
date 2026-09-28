@@ -1,0 +1,18 @@
+{{ 
+	"
+    SELECT DISTINCT
+    mi.Code	AS BoxCode
+    FROM CarryingEntity ce
+    INNER JOIN [Transaction] t ON ce.ID	= t.ToContainableEntity_id
+    LEFT JOIN MasterItem mi ON ce.[type_id] = mi.Id
+    WHERE ce.Barcode = @CarryingEntity
+    " 
+    | dbScalar({CarryingEntity}) 
+    |> to => box 
+}}
+
+{{#if box}}
+	{{navigateToStep({stepName:"MasterItem", submitFinalStep: false})}}
+{{/if}}
+
+{{ "SELECT [Boxes] FROM (VALUES ("CUSTOM")) AS T([Boxes])" | dbSelect({}) | createButtonList({"Boxes"}) }}

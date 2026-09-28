@@ -1,0 +1,13 @@
+{
+  "Identifier": "48838b6c-ea31-54e7-9aa1-04449c6f7b9f",
+  "Name": "MOVEBYJOB_Confirm",
+  "Description": "WebTemplate for process template MOVEBYJOB / step Confirm",
+  "Type": "WEBTEMPLATE",
+  "Version": 0,
+  "LastModified": "18/03/2026",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

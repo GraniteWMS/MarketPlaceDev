@@ -1,0 +1,111 @@
+{
+  "Identifier": "70994126-a9dc-484e-bbbf-f75893978208",
+  "Name": "ALLOCATE_BARCODE_TO_WORKORDER",
+  "Description": "ALLOCATE_BARCODE_TO_WORKORDER\n\nYou can use this process to allocate quantities from barcodes to work orders of batches without having to actaully consume the quantities\n\nYou need to add 2 fields to the Custom_TrackingEntityAllocation table:\nBatch varchar(100)\n[User] varchar(50)",
+  "Type": "PROCESS",
+  "Version": 1,
+  "LastModified": "07/06/2026",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "USER_TABLE",
+      "ArtifactIdentifier": "b31c4839-faa9-5a38-bf7a-dea8b2fd57bb",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Custom_TrackingEntityAllocation"
+    },
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "4b1a7b0c-413d-5fb2-a332-02ffae9df03b",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Custom_VW_AllocatedBarcodes"
+    },
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "7ea4cb78-ebb9-5549-9542-f3e5fc8b8128",
+      "ArtifactVersion": 1,
+      "ArtifactName": "WebTemplate_AllocateBarcodeToWorkOrder_Batch"
+    },
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "b6dd80b6-9bc2-5707-96f7-2221c37b9feb",
+      "ArtifactVersion": 1,
+      "ArtifactName": "WebTemplate_AllocateBarcodeToWorkOrder_TrackingEntity"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "28a51cf6-4153-5bbc-99fe-268736aeae8a",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_AllocateBarcodeToWorkOrder_Batch"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "4fe196cc-173c-5a58-b74a-a05090af904c",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_AllocateBarcodeToWorkOrder_TrackingEntity"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "124b01d9-5655-5919-938f-4034f3a6bb48",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_AllocateBarcodeToWorkOrder_Qty"
+    }
+  ],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "CUSTOM",
+    "ProcessStepMetadata": [
+      {
+        "Name": "Batch",
+        "Description": "Enter Batch",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_AllocateBarcodeToWorkOrder_Batch",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "TrackingEntity",
+        "Description": "Scan Barcode (or Select ID to Deallocate)",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_AllocateBarcodeToWorkOrder_TrackingEntity",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Qty",
+        "Description": "Enter Qty To Allocate/Deallocate To Batch",
+        "ProcessIndex": 2,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_AllocateBarcodeToWorkOrder_Qty",
+        "hasWebTemplate": false
+      }
+    ]
+  },
+  "PostDeployArtifacts": [
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "72f7e5f6-e7c7-5f00-8745-5ed45caa7d68",
+      "ArtifactVersion": 1,
+      "ArtifactName": "ALLOCATE_BARCODE_TO_WORKORDER_Batch"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "ffac5185-1779-55c3-89dd-4e3694b4602f",
+      "ArtifactVersion": 1,
+      "ArtifactName": "ALLOCATE_BARCODE_TO_WORKORDER_TrackingEntity"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "f7761407-ddf6-5f3e-a376-5f11b9621081",
+      "ArtifactVersion": 1,
+      "ArtifactName": "ALLOCATE_BARCODE_TO_WORKORDER_Qty"
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

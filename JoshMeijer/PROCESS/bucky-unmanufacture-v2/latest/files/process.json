@@ -1,0 +1,41 @@
+{
+  "Name": "BUCKY_UNMANUFACTURE_V2",
+  "Description": "BUCKY_UNMANUFACTURE_V2",
+  "Type": "CUSTOM",
+  "IsActive": true,
+  "IntegrationIsActive": false,
+  "IntegrationPost": false,
+  "Steps": [
+    {
+      "Name": "Document",
+      "Description": "Enter Document",
+      "ProcessIndex": 0,
+      "NextIndex": 1,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "WebTemplateArtifact": "05a895de-362c-5c63-af42-b09d28472f73"
+    },
+    {
+      "Name": "TransactionID",
+      "Description": "Select Transaction ID",
+      "ProcessIndex": 1,
+      "NextIndex": 1,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "Prescript_UnmanufactureTransaction_TransactionID",
+      "WebTemplateArtifact": "3efa8603-882d-5fef-9f3e-a3ee97addb35"
+    },
+    {
+      "Name": "Step200",
+      "Description": "Reverses the Transaction",
+      "ProcessIndex": 200,
+      "NextIndex": 0,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "Prescript_UnmanufactureTransaction_Step200"
+    }
+  ]
+}

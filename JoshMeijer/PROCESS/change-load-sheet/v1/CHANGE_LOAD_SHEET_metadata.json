@@ -1,0 +1,62 @@
+{
+  "Identifier": "f56180e2-3456-4c6b-abbf-127f0c0a39c2",
+  "Name": "CHANGE_LOAD_SHEET",
+  "Description": "CHANGE LOAD SHEET\n\nUsed to change the Load Sheet number the scanned tracking entity is on.\n\nCreates new Load Prep transaction and marks the previous one as reversed.",
+  "Type": "PROCESS",
+  "Version": 1,
+  "LastModified": "07/08/2024",
+  "Tags": [
+    "Logistics"
+  ],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "c2751945-ab4a-5821-a857-7ade07701510",
+      "ArtifactVersion": 1,
+      "ArtifactName": "WebTemplate_CurrentLoadSheets"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "aabcf2c2-e690-5823-b7a5-4cc91c6626ee",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PrescriptChangeLoadSheetBarcode"
+    }
+  ],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "CUSTOM",
+    "ProcessStepMetadata": [
+      {
+        "Name": "LoadNumber",
+        "Description": "Load Number",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": false,
+        "PreScript": ""
+      },
+      {
+        "Name": "TrackingEntity",
+        "Description": "Barcode",
+        "ProcessIndex": 1,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "PrescriptChangeLoadSheetBarcode",
+        "hasWebTemplate": true
+      }
+    ]
+  },
+  "PostDeployArtifacts": [
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "e41e7ffe-9529-5fb5-9388-e05088012a3d",
+      "ArtifactVersion": 1,
+      "ArtifactName": "CHANGE_LOAD_SHEET_LoadNumber"
+    }
+  ],
+  "DependsOnClr": true,
+  "SqlClrAssemblyVersion": "7.0.0.0",
+  "Deprecated": false
+}

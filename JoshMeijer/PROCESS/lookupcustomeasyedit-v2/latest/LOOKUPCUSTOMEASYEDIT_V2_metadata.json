@@ -1,0 +1,90 @@
+{
+  "Identifier": "7ba2c574-22b4-41ba-8b16-5a47cd814845",
+  "Name": "LOOKUPCUSTOMEASYEDIT_V2",
+  "Description": "LOOKUPCUSTOMEASYEDIT_V2\n\nQuery Improvements & Allow to scan EAN/Alias barcodes under MasterItem\n\nN/a",
+  "Type": "PROCESS",
+  "Version": 0,
+  "LastModified": "29/06/2026",
+  "Tags": [
+    "Manufacturing",
+    "Retail",
+    "Automotive",
+    "Agricultural",
+    "Textile",
+    "Electronics",
+    "Construction",
+    "E-commerce",
+    "Logistics",
+    "Pharmaceutical",
+    "Cold Storage"
+  ],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "42f269f7-036b-5993-9f1b-d073878b14d0",
+      "ArtifactVersion": 1,
+      "ArtifactName": "MasterItemAlias_View"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "9e888ec1-d258-5114-bc43-8d023e4a0a14",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PrescriptLookupMasterItemLookUpValue"
+    }
+  ],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "CUSTOM",
+    "ProcessStepMetadata": [
+      {
+        "Name": "LookupValue",
+        "Description": "ENTER/SCAN Barcode",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": false,
+        "DefaultValue": "",
+        "PreScript": "PrescriptLookupMasterItemLookUpValue",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Type",
+        "Description": "Type",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": false,
+        "DefaultValue": "MasterItem",
+        "PreScript": "",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Display",
+        "Description": "Display",
+        "ProcessIndex": 2,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": false,
+        "DefaultValue": "",
+        "PreScript": "",
+        "hasWebTemplate": true
+      }
+    ]
+  },
+  "PostDeployArtifacts": [
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "f711ef49-0c2a-5349-a4e7-fe851df7ceab",
+      "ArtifactVersion": 1,
+      "ArtifactName": "LOOKUPCUSTOMEASYEDIT_V2_Type"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "79b04ac8-5318-5c51-a491-892e1fb3d58f",
+      "ArtifactVersion": 1,
+      "ArtifactName": "LOOKUPCUSTOMEASYEDIT_V2_Display"
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

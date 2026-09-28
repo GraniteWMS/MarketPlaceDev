@@ -1,0 +1,19 @@
+{
+  "Identifier": "db21e92f-5958-522b-9dd6-114a2b628585",
+  "Name": "PEANUT_CONSUME_FINAL_Document",
+  "Description": "WebTemplate for process template PEANUT_CONSUME_FINAL / step Document",
+  "Type": "WEBTEMPLATE",
+  "Version": 0,
+  "LastModified": "31/05/2026",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "5ddf3528-d48e-5358-ae52-ba47f2b0b313",
+      "ArtifactVersion": 1
+    }
+  ],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

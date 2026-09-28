@@ -1,0 +1,13 @@
+{
+  "Identifier": "b1d30de8-f8bb-53d9-af7c-ff050d238e8a",
+  "Name": "ADJUSTMENT-LOC_ITEM_TOQTY_Comment",
+  "Description": "WebTemplate for process template ADJUSTMENT-LOC_ITEM_TOQTY / step Comment",
+  "Type": "WEBTEMPLATE",
+  "Version": 1,
+  "LastModified": "20/12/2024",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

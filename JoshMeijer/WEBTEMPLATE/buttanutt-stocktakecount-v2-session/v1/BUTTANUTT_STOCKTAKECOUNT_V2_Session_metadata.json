@@ -1,0 +1,19 @@
+{
+  "Identifier": "627d22fa-7a6b-5c2e-9741-c771fa07bc9c",
+  "Name": "BUTTANUTT_STOCKTAKECOUNT_V2_Session",
+  "Description": "WebTemplate for process template BUTTANUTT_STOCKTAKECOUNT_V2 / step Session",
+  "Type": "WEBTEMPLATE",
+  "Version": 1,
+  "LastModified": "29/03/2026",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "979e844b-f173-58b7-a848-9e53a6d13825",
+      "ArtifactVersion": 1
+    }
+  ],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

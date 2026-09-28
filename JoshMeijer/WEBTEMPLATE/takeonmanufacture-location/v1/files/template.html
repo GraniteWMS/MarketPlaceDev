@@ -1,0 +1,6 @@
+{{PrinterName}}
+{{ "SELECT * 
+    FROM Webtemplate_AssignProductionProductionLine 
+    WHERE ItemCode IS NOT NULL AND Printer = @PrinterName
+    ORDER BY LocationBarcode" 
+| dbSelect({PrinterName}) | basicTable({selectOnColumn:"LocationBarcode", enableSearch:false}) }}

@@ -1,0 +1,163 @@
+{
+  "Identifier": "ba6aa9fa-a31e-4354-8dd0-78f14dbc78bb",
+  "Name": "ASSIGNPRODUCTIONLINE",
+  "Description": "ASSIGN PRODUCTION LINE\n\nNeed to preset what is being produced on a production line.  Sets Input Product, Output Product (MasterItem), Qty per Batch, Batch, Job etc.  It is a Takeon, not a manufacture process\n\nNeed a custom table to stoe this assignment.  Currently the printers are L1, L2, L3 (which maps to LINE1, Line2, LINE3 etc.)  The webtemplate on Location filters by the printer so logging in with print L1 only shows Line 1 assignment.",
+  "Type": "PROCESS",
+  "Version": 1,
+  "LastModified": "07/09/2025",
+  "Tags": [
+    "Manufacturing"
+  ],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "USER_TABLE",
+      "ArtifactIdentifier": "dae69aea-b782-502d-8de5-945657b94ca0",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Custom_ProductionLineAssignments"
+    },
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "ec670dc0-4c79-53a3-8d48-5bb1487b7235",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Webtemplate_AssignProductionProductionLine"
+    },
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "fd6a412a-85be-57c3-9910-296bec467b51",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Webtemplate_AssignProductionMasterItems"
+    },
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "f31a38a7-93ed-5c7f-9dd5-31a2c1fb4ea1",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Webtemplate_AssignProductionPreformMasterItems"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "1c6aed31-770e-53e2-aaa8-fb58c5dac585",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PrescriptAssignProductionLineProductionLine"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "0588819c-86d5-5b0f-9c13-7ebe77e4621e",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PrescriptAssignProductionLineMasterItem"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "feebc101-b53d-5416-a1f4-4a8afffb626f",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PrescriptAssignProductionLineConfirmation"
+    }
+  ],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "CUSTOM",
+    "ProcessStepMetadata": [
+      {
+        "Name": "ProductionLine",
+        "Description": "Production Line Number",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "PrescriptAssignProductionLineProductionLine",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "MasterItem",
+        "Description": "Finished MasterItem",
+        "ProcessIndex": 3,
+        "NextIndex": 4,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "PrescriptAssignProductionLineMasterItem",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Confirmation",
+        "Description": "Confirmation",
+        "ProcessIndex": 7,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "PrescriptAssignProductionLineConfirmation",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "PreformMasterItem",
+        "Description": "Preform MasterItem",
+        "ProcessIndex": 2,
+        "NextIndex": 3,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": false,
+        "PreScript": ""
+      },
+      {
+        "Name": "Batch",
+        "Description": "Confirm LOT",
+        "ProcessIndex": 4,
+        "NextIndex": 5,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "PalletsPerBatch",
+        "Description": "Pallets per LOT",
+        "ProcessIndex": 5,
+        "NextIndex": 6,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "BottlesPerPallet",
+        "Description": "Bottles per Pallet",
+        "ProcessIndex": 6,
+        "NextIndex": 7,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "Job",
+        "Description": "Enter Job Number",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      }
+    ]
+  },
+  "PostDeployArtifacts": [
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "f8aa363c-98ec-5ec5-90cc-37699257a6bd",
+      "ArtifactVersion": 1,
+      "ArtifactName": "ASSIGNPRODUCTIONLINE_ProductionLine"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "411398d8-09b2-5410-a087-3ecda47e91dc",
+      "ArtifactVersion": 1,
+      "ArtifactName": "ASSIGNPRODUCTIONLINE_PreformMasterItem"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "c6aa0f0e-4d58-55c1-9025-d29f023d5462",
+      "ArtifactVersion": 1,
+      "ArtifactName": "ASSIGNPRODUCTIONLINE_MasterItem"
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

@@ -1,0 +1,19 @@
+{
+  "Identifier": "72f7e5f6-e7c7-5f00-8745-5ed45caa7d68",
+  "Name": "ALLOCATE_BARCODE_TO_WORKORDER_Batch",
+  "Description": "WebTemplate for process template ALLOCATE_BARCODE_TO_WORKORDER / step Batch",
+  "Type": "WEBTEMPLATE",
+  "Version": 0,
+  "LastModified": "07/06/2026",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "7ea4cb78-ebb9-5549-9542-f3e5fc8b8128",
+      "ArtifactVersion": 1
+    }
+  ],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

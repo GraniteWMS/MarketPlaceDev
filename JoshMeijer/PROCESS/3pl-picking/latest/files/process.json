@@ -1,0 +1,59 @@
+{
+  "Name": "3PL_PICKING",
+  "Description": "OUTBOUND PICKING",
+  "Type": "PICKING",
+  "IsActive": true,
+  "IntegrationIsActive": false,
+  "IntegrationPost": false,
+  "Steps": [
+    {
+      "Name": "Location",
+      "Description": "Staging Location",
+      "ProcessIndex": 0,
+      "NextIndex": 1,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "WebTemplateArtifact": "bbfc2d1d-cb84-565c-b66a-45464eebc0db"
+    },
+    {
+      "Name": "Document",
+      "Description": "Document",
+      "ProcessIndex": 1,
+      "NextIndex": 2,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "PrescriptPickingDocument",
+      "WebTemplateArtifact": "943f4ab7-655a-57f7-83ae-52d9e82f272f"
+    },
+    {
+      "Name": "Comment",
+      "Description": "Truck Registration",
+      "ProcessIndex": 2,
+      "NextIndex": 3,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false
+    },
+    {
+      "Name": "TrackingEntity",
+      "Description": "TrackingEntity",
+      "ProcessIndex": 3,
+      "NextIndex": 3,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "PrescriptPickingTrackingEntity"
+    },
+    {
+      "Name": "Qty",
+      "Description": "Qty",
+      "ProcessIndex": 100,
+      "NextIndex": 100,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "Identifier": "10581441-32db-43b6-9a5b-cda1a93f9338",
+  "Name": "TRANSFERPOST",
+  "Description": "TRANSFERPOST\n\nThis is the default (empty) TRANSFERPOST process.",
+  "Type": "PROCESS",
+  "Version": 1,
+  "LastModified": "19/03/2024",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "TRANSFERPOST",
+    "ProcessStepMetadata": [
+      {
+        "Name": "Document",
+        "Description": "Document",
+        "ProcessIndex": 0,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      }
+    ]
+  },
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

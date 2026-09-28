@@ -1,0 +1,13 @@
+{
+  "Identifier": "78bc286f-a3a0-51fc-bf17-8c2345327b3d",
+  "Name": "ACUMATICAPACK",
+  "Description": "WebTemplate for process template ACUMATICAPACK",
+  "Type": "WEBTEMPLATE",
+  "Version": 0,
+  "LastModified": "01/06/2026",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

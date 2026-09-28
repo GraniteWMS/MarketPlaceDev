@@ -1,0 +1,30 @@
+{
+  "Name": "RD_RECEIVINGPOST",
+  "Description": "Retail Distribution - Receiving Post",
+  "Type": "RECEIVINGPOST",
+  "IsActive": true,
+  "IntegrationIsActive": true,
+  "IntegrationPost": true,
+  "Steps": [
+    {
+      "Name": "Document",
+      "Description": "Document",
+      "ProcessIndex": 0,
+      "NextIndex": 1,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "WebTemplateArtifact": "e55b8dc7-bd55-5f6f-bbdf-923b74c1d871"
+    },
+    {
+      "Name": "Confirmation",
+      "Description": "Confirm the Details to Post",
+      "ProcessIndex": 1,
+      "NextIndex": 0,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "WebTemplateArtifact": "3f271e80-f735-5cef-84cf-c2c4001e1ddb"
+    }
+  ]
+}

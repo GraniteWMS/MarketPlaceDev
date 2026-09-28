@@ -1,0 +1,13 @@
+{
+  "Identifier": "c9a29587-3eb6-5979-b283-12af9c75de7c",
+  "Name": "AccumaticaReturnToSupplierPicking_Document",
+  "Description": "WebTemplate for process template AccumaticaReturnToSupplierPicking / step Document",
+  "Type": "WEBTEMPLATE",
+  "Version": 0,
+  "LastModified": "23/04/2026",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

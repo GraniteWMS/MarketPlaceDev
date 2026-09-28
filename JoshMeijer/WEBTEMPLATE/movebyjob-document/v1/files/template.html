@@ -1,0 +1,17 @@
+{{#if Location === "STARTED" }}
+if below is empty, nothing is in NotStarted
+{{ "SELECT DISTINCT TE.Batch Number FROM TrackingEntity TE 
+		INNER JOIN [Location] L ON TE.Location_id = L.ID
+	WHERE L.Barcode = \"NotStarted\"
+	ORDER BY TE.Batch		
+"
+| dbSelect({}) | basicTable({selectOnColumn:"Number", enableSearch:true}) }}
+{{/if}}
+{{#if Location === "READYFORPRODUCTION" }}
+if below is empty, nothing is in Started
+{{ "SELECT DISTINCT TE.Batch Number FROM TrackingEntity TE 
+		INNER JOIN [Location] L ON TE.Location_id = L.ID
+	WHERE L.Barcode = \"Started\"
+	ORDER BY TE.Batch"
+| dbSelect({}) | basicTable({selectOnColumn:"Number", enableSearch:true}) }}
+{{/if}}

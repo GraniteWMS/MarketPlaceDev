@@ -1,0 +1,136 @@
+{
+  "Identifier": "7ddf118a-8b93-4db0-8c28-415292b53b06",
+  "Name": "STOCKTAKENOLOCATIONNOQTYFUNCTION",
+  "Description": "STOCKTAKENOLOCATIONNOQTYFUNCTION\n\nN/a\n\nN/a",
+  "Type": "PROCESS",
+  "Version": 0,
+  "LastModified": "22/09/2026",
+  "Tags": [
+    "Electronics",
+    "Construction",
+    "E-commerce",
+    "Logistics",
+    "Pharmaceutical",
+    "Cold Storage"
+  ],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "cd8903fa-028b-57e9-b2ce-4111663c7d78",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PrescriptStocktakeOverrideTrackingEntity"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "6a9d4131-ea3e-5a7d-b87f-b7d2e1ff7596",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PrescriptStocktakeCustomPallet"
+    }
+  ],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "STOCKTAKECOUNT",
+    "ProcessStepMetadata": [
+      {
+        "Name": "Session",
+        "Description": "Session",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": false,
+        "DefaultValue": "",
+        "PreScript": "",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Count",
+        "Description": "Count",
+        "ProcessIndex": 2,
+        "NextIndex": 3,
+        "isActive": true,
+        "Required": true,
+        "DefaultValue": "",
+        "PreScript": "",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Location",
+        "Description": "Scan/Enter Location",
+        "ProcessIndex": 3,
+        "NextIndex": 4,
+        "isActive": true,
+        "Required": true,
+        "DefaultValue": "",
+        "PreScript": "",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "TrackingEntity",
+        "Description": "Scan/Enter TrackingEntity",
+        "ProcessIndex": 4,
+        "NextIndex": 5,
+        "isActive": true,
+        "Required": false,
+        "DefaultValue": "",
+        "PreScript": "PrescriptStocktakeOverrideTrackingEntity",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "PalletConfirmation",
+        "Description": "PalletConfirmation",
+        "ProcessIndex": 5,
+        "NextIndex": 6,
+        "isActive": true,
+        "Required": false,
+        "DefaultValue": "",
+        "PreScript": "",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Qty",
+        "Description": "Qty",
+        "ProcessIndex": 6,
+        "NextIndex": 4,
+        "isActive": true,
+        "Required": false,
+        "DefaultValue": "",
+        "PreScript": "",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "CustomPallet",
+        "Description": "Scan/Enter Pallet Number",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "DefaultValue": "",
+        "PreScript": "PrescriptStocktakeCustomPallet",
+        "hasWebTemplate": true
+      }
+    ]
+  },
+  "PostDeployArtifacts": [
+    {
+      "ArtifactType": "DATA",
+      "ArtifactIdentifier": "6f14f78f-48f1-5077-932e-eb91c3e3ad83",
+      "ArtifactVersion": 1,
+      "ArtifactName": "DataDependency_@Mapping_6f14f78f48f15077932eeb91c3e3ad83"
+    },
+    {
+      "ArtifactType": "POST_DEPLOY_SCRIPT",
+      "ArtifactIdentifier": "39ae7c0b-e5dc-5e29-ad30-06a14c9b95df",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PostDeployScript"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "3e5e4087-8c63-5ead-a4bc-629347e9958d",
+      "ArtifactVersion": 1,
+      "ArtifactName": "STOCKTAKENOLOCATIONNOQTYFUNCTION_Session"
+    }
+  ],
+  "DependsOnClr": true,
+  "SqlClrAssemblyVersion": "7.0.0.0",
+  "Deprecated": false
+}

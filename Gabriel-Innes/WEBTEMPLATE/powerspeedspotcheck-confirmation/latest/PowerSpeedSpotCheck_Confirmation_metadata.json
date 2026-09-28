@@ -1,0 +1,19 @@
+{
+  "Identifier": "c54e4b4c-9084-51b4-b63c-188228426afc",
+  "Name": "PowerSpeedSpotCheck_Confirmation",
+  "Description": "WebTemplate for process template PowerSpeedSpotCheck / step Confirmation",
+  "Type": "WEBTEMPLATE",
+  "Version": 0,
+  "LastModified": "15/05/2025",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "SQL_STORED_PROCEDURE",
+      "ArtifactIdentifier": "195fc078-adc4-5f8e-b8be-1de817e4cc67",
+      "ArtifactVersion": 1
+    }
+  ],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

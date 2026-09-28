@@ -1,0 +1,13 @@
+{
+  "Identifier": "a79d3738-9ad7-5e13-8577-0e107029c7eb",
+  "Name": "TAKEONITEMSEARCH_Qty",
+  "Description": "WebTemplate for process template TAKEONITEMSEARCH / step Qty",
+  "Type": "WEBTEMPLATE",
+  "Version": 1,
+  "LastModified": "30/05/2026",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

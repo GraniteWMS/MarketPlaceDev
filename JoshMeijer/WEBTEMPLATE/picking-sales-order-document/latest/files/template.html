@@ -1,0 +1,3 @@
+{{ "SELECT * FROM WebtemplatePickingDocument" 
+            | dbSelect({Location, Session}) 
+            | basicTable({ selectOnColumn:"Number", enableSearch:"false", submitOnClick: "true"}) }}

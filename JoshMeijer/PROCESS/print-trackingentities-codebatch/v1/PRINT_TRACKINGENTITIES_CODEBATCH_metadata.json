@@ -1,0 +1,92 @@
+{
+  "Identifier": "5e427e0d-8061-4e1b-bc9f-9e9a0241c8e8",
+  "Name": "PRINT_TRACKINGENTITIES_CODEBATCH",
+  "Description": "PRINT TRACKINGENTITIES BY CODE AND BATCH\n\nIf you import all TE's, then you can go by Item Code and Batch and print all TE Labels for initial labelling",
+  "Type": "PROCESS",
+  "Version": 1,
+  "LastModified": "13/07/2024",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "3c548f08-648c-52ab-ac71-88d77db9fe8c",
+      "ArtifactVersion": 1,
+      "ArtifactName": "WebTemplate_MasterItems"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "98a24752-7043-5d53-aef5-b8efab9c6e11",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PrescriptPrintTEbyItemcodBbatchConfirmation"
+    }
+  ],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "CUSTOM",
+    "ProcessStepMetadata": [
+      {
+        "Name": "MasterItem",
+        "Description": "MasterItem Code",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": false,
+        "PreScript": ""
+      },
+      {
+        "Name": "Batch",
+        "Description": "Select Batch",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": false,
+        "PreScript": ""
+      },
+      {
+        "Name": "Confirmation",
+        "Description": "Confirmation",
+        "ProcessIndex": 3,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "PrescriptPrintTEbyItemcodBbatchConfirmation",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Location",
+        "Description": "Location",
+        "ProcessIndex": 2,
+        "NextIndex": 3,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": false,
+        "PreScript": ""
+      }
+    ]
+  },
+  "PostDeployArtifacts": [
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "c61b27d6-bce2-555a-a02c-e145011bc95a",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PRINT_TRACKINGENTITIES_CODEBATCH_MasterItem"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "a9bfc2fc-4808-5d45-809c-dbbb12219e8f",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PRINT_TRACKINGENTITIES_CODEBATCH_Batch"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "069e05fc-354e-52d7-9a23-4dbd0190c8b0",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PRINT_TRACKINGENTITIES_CODEBATCH_Location"
+    }
+  ],
+  "DependsOnClr": true,
+  "SqlClrAssemblyVersion": "7.0.0.0",
+  "Deprecated": false
+}

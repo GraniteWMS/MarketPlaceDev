@@ -1,0 +1,16 @@
+{
+  "Identifier": "61d90b1a-bc7a-5ad9-8a02-641b45742adf",
+  "Name": "Picking Sales Order",
+  "Description": "Data grid: Transactions/Picking Sales Order",
+  "Type": "DATA_GRID",
+  "Version": 0,
+  "LastModified": "29/01/2025",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "b21f0fe3-9fe9-547c-aa3d-089f2e546085",
+      "ArtifactVersion": 1
+    }
+  ]
+}

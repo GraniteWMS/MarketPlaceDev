@@ -1,0 +1,20 @@
+{
+  "Name": "CONSUMEPOST_BUTTANUTT",
+  "Description": "CONSUMEPOST_BUTTANUTT",
+  "Type": "CONSUMEPOST",
+  "IsActive": true,
+  "IntegrationIsActive": true,
+  "IntegrationPost": false,
+  "Steps": [
+    {
+      "Name": "Document",
+      "Description": "Document",
+      "ProcessIndex": 0,
+      "NextIndex": 0,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "WebTemplateArtifact": "3073e134-4827-570d-9404-7b3c2a867110"
+    }
+  ]
+}

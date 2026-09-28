@@ -1,0 +1,19 @@
+{
+  "Identifier": "39f049c7-52cb-562b-9c04-20df61b5456a",
+  "Name": "SCOREBOARD_ScorePicked",
+  "Description": "WebTemplate for process template SCOREBOARD / step ScorePicked",
+  "Type": "WEBTEMPLATE",
+  "Version": 0,
+  "LastModified": "08/05/2026",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "84a4ae69-52ba-5031-bebf-6079b8e567b3",
+      "ArtifactVersion": 1
+    }
+  ],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

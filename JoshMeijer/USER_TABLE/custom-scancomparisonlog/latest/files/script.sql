@@ -1,0 +1,20 @@
+CREATE TABLE [dbo].[Custom_ScanComparisonLog](
+	[ID] [bigint] IDENTITY(1,1) NOT NULL,
+	[UserName] [varchar](50) COLLATE Latin1_General_CI_AS NULL,
+	[ScanDate] [datetime] NULL,
+	[DocumentName] [varchar](50) COLLATE Latin1_General_CI_AS NULL,
+	[DocumentID] [bigint] NULL,
+	[ScannedBarcode] [varchar](50) COLLATE Latin1_General_CI_AS NULL,
+	[NeededBarcode] [varchar](50) COLLATE Latin1_General_CI_AS NULL,
+	[ScannedItem] [varchar](100) COLLATE Latin1_General_CI_AS NULL,
+	[NeededItem] [varchar](100) COLLATE Latin1_General_CI_AS NULL,
+	[ScannedLocation] [varchar](50) COLLATE Latin1_General_CI_AS NULL,
+	[NeededLocation] [varchar](50) COLLATE Latin1_General_CI_AS NULL,
+	[ScannedBatch] [varchar](50) COLLATE Latin1_General_CI_AS NULL,
+	[NeededBatch] [varchar](50) COLLATE Latin1_General_CI_AS NULL,
+	[ScannedExpiryDate] [datetime] NULL,
+	[NeededExpiryDate] [datetime] NULL,
+	[ScannedQty] [decimal](19, 6) NULL,
+	[NeededQty] [decimal](19, 6) NULL,
+	[MatchResult] [varchar](20) COLLATE Latin1_General_CI_AS NULL
+) ON [PRIMARY]

@@ -1,0 +1,41 @@
+{
+  "Name": "BUCKY_UNPICK",
+  "Description": "BUCKY_UNPICK",
+  "Type": "CUSTOM",
+  "IsActive": true,
+  "IntegrationIsActive": false,
+  "IntegrationPost": false,
+  "Steps": [
+    {
+      "Name": "Document",
+      "Description": "Enter Document",
+      "ProcessIndex": 0,
+      "NextIndex": 1,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "WebTemplateArtifact": "4cebe786-e909-509b-b6bc-a222cc05adfe"
+    },
+    {
+      "Name": "TransactionID",
+      "Description": "Select Transaction ID",
+      "ProcessIndex": 1,
+      "NextIndex": 1,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "Prescript_UnpickTransaction_TransactionID",
+      "WebTemplateArtifact": "9e2bf197-3778-5d9c-ad09-942b1ef5d29e"
+    },
+    {
+      "Name": "Step200",
+      "Description": "Reverses the Transaction",
+      "ProcessIndex": 200,
+      "NextIndex": 0,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "Prescript_UnpickTransaction_Step200"
+    }
+  ]
+}

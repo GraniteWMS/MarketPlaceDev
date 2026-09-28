@@ -1,0 +1,13 @@
+{
+  "Identifier": "6a636a3c-8cbf-5aa9-aa2c-23685a63db6b",
+  "Name": "Receiving_Consolidated",
+  "Description": "WebTemplate for process template Receiving_Consolidated",
+  "Type": "WEBTEMPLATE",
+  "Version": 0,
+  "LastModified": "05/08/2026",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

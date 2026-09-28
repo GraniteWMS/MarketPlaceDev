@@ -1,0 +1,10 @@
+{
+  "Identifier": "a6eb10b5-5a15-5c40-9338-6c10b1cfb574",
+  "Name": "Webtemplate_Picking_Document",
+  "Description": "",
+  "Type": "SQL_STORED_PROCEDURE",
+  "Version": 0,
+  "LastModified": "18/03/2026",
+  "Tags": [],
+  "ArtifactDependencies": []
+}

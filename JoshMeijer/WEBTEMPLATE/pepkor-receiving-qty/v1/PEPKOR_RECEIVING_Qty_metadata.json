@@ -1,0 +1,13 @@
+{
+  "Identifier": "9431c075-7416-53e3-885d-9405ff622287",
+  "Name": "PEPKOR_RECEIVING_Qty",
+  "Description": "WebTemplate for process template PEPKOR_RECEIVING / step Qty",
+  "Type": "WEBTEMPLATE",
+  "Version": 1,
+  "LastModified": "13/05/2026",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

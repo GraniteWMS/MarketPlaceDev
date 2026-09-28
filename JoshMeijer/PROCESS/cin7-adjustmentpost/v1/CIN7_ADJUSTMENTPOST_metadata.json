@@ -1,0 +1,49 @@
+{
+  "Identifier": "e7dd9e0b-c51b-446d-b04b-5ed54c644dcc",
+  "Name": "CIN7_ADJUSTMENTPOST",
+  "Description": "CIN7_ADJUSTMENTPOST\n\nIf you want to batch post a bunch of adjustments to Cin7",
+  "Type": "PROCESS",
+  "Version": 1,
+  "LastModified": "12/07/2026",
+  "Tags": [
+    "Manufacturing",
+    "Retail",
+    "Automotive",
+    "Agricultural",
+    "Textile",
+    "Electronics",
+    "Construction",
+    "E-commerce",
+    "Logistics",
+    "Pharmaceutical",
+    "Cold Storage"
+  ],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "8818aea1-481f-5a9f-a796-3f4a3b10dd99",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_AdjustmentPost_DocumentReference"
+    }
+  ],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "CUSTOM",
+    "ProcessStepMetadata": [
+      {
+        "Name": "DocumentReference",
+        "Description": "DocumentReference",
+        "ProcessIndex": 0,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_AdjustmentPost_DocumentReference",
+        "hasWebTemplate": true
+      }
+    ]
+  },
+  "PostDeployArtifacts": [],
+  "DependsOnClr": true,
+  "SqlClrAssemblyVersion": "7.0.0.0",
+  "Deprecated": false
+}

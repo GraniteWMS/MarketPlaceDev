@@ -1,0 +1,13 @@
+{
+  "Identifier": "bfd0e5ad-c19d-5d8f-8b23-1d2ae8241e61",
+  "Name": "RECEIVING_BUTTANUTT",
+  "Description": "WebTemplate for process template RECEIVING_BUTTANUTT",
+  "Type": "WEBTEMPLATE",
+  "Version": 1,
+  "LastModified": "21/03/2026",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

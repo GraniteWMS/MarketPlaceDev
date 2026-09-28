@@ -1,0 +1,13 @@
+{
+  "Identifier": "e27dd4cd-fe1c-5c8c-938b-7a5c3d243af3",
+  "Name": "STOCKTAKECOUNTALIAS_Count",
+  "Description": "WebTemplate for process template STOCKTAKECOUNTALIAS / step Count",
+  "Type": "WEBTEMPLATE",
+  "Version": 0,
+  "LastModified": "29/01/2025",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

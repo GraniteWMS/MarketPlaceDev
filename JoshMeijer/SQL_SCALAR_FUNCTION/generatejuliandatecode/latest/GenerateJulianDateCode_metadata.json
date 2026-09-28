@@ -1,0 +1,10 @@
+{
+  "Identifier": "42eeba9a-34e4-5849-895b-f27e45bd2744",
+  "Name": "GenerateJulianDateCode",
+  "Description": "",
+  "Type": "SQL_SCALAR_FUNCTION",
+  "Version": 0,
+  "LastModified": "08/09/2026",
+  "Tags": [],
+  "ArtifactDependencies": []
+}

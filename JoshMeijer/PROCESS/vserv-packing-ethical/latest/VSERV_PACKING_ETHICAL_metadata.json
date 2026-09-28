@@ -1,0 +1,128 @@
+{
+  "Identifier": "eb1fd2b7-a0d0-4972-b6e3-8f18e29d4a5c",
+  "Name": "VSERV_PACKING_ETHICAL",
+  "Description": "VSERV_PACKING_ETHICAL\n\nIt can print a variable number of box barcodes depending on the input",
+  "Type": "PROCESS",
+  "Version": 0,
+  "LastModified": "12/06/2026",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "458ec185-8fd2-5b98-bb28-7e2f7b3b2bcd",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Custom_VW_Ethical_PickingQuantitiesNotPacked"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "52e7b52c-bf19-5bc6-a933-9fc24b1b1643",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_PackingEthical_CarryingEntity"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "4dfdda7c-19fb-59de-83db-4479154f242c",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_PackingEthical_Qty"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "fa68c02e-5111-5aae-b37c-0b6b49d84087",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_PackingEthical_Step200"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "98622108-6235-5858-94b9-19fa703eebf1",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_PackingEthical_Other"
+    }
+  ],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "CUSTOM",
+    "ProcessStepMetadata": [
+      {
+        "Name": "CarryingEntity",
+        "Description": "Enter Picking Crate",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_PackingEthical_CarryingEntity",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Box",
+        "Description": "# of Boxes",
+        "ProcessIndex": 2,
+        "NextIndex": 3,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "Qty",
+        "Description": "Enter Number Of Items",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_PackingEthical_Qty",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Step200",
+        "Description": "Step200",
+        "ProcessIndex": 200,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_PackingEthical_Step200",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Packet",
+        "Description": "# of Packets",
+        "ProcessIndex": 3,
+        "NextIndex": 4,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "IceBox",
+        "Description": "# of Ice Boxes",
+        "ProcessIndex": 4,
+        "NextIndex": 5,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "Other",
+        "Description": "# of Others",
+        "ProcessIndex": 5,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": false,
+        "PreScript": "Prescript_PackingEthical_Other",
+        "hasWebTemplate": true
+      }
+    ]
+  },
+  "PostDeployArtifacts": [
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "3bc6e1ca-b3d7-5bb0-8bd8-7c2c0c0d253d",
+      "ArtifactVersion": 1,
+      "ArtifactName": "VSERV_PACKING_ETHICAL_CarryingEntity"
+    }
+  ],
+  "DependsOnClr": true,
+  "SqlClrAssemblyVersion": "7.0.0.0",
+  "Deprecated": false
+}

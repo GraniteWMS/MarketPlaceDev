@@ -1,0 +1,112 @@
+{
+  "Identifier": "76d288a5-ac74-4b27-80e4-3e2d92405fc7",
+  "Name": "RECEIVE RETURN",
+  "Description": "RECEIVE RETURN\n\nThis process specifies the receive location and limits the type of document that can be received based on the document prefix.",
+  "Type": "PROCESS",
+  "Version": 0,
+  "LastModified": "12/02/2025",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "2d63ace1-6298-5b97-807e-8ae7754ad79c",
+      "ArtifactVersion": 1,
+      "ArtifactName": "WebTemplateReceiveReturnDocument"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "895d970e-6380-5964-a472-b67e14718bbb",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PrescriptReceiveReturnDocument"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "5caaa270-20f9-5878-814a-4eb1a9e2882b",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PrescriptPalletizeCarryingEntity"
+    }
+  ],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "RECEIVING",
+    "ProcessStepMetadata": [
+      {
+        "Name": "Location",
+        "Description": "Receiving Location",
+        "ProcessIndex": 100,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": false,
+        "DefaultValue": "RETURN",
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "Document",
+        "Description": "Document",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "PrescriptReceiveReturnDocument",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "MasterItem",
+        "Description": "MasterItem",
+        "ProcessIndex": 2,
+        "NextIndex": 3,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "Qty",
+        "Description": "Qty",
+        "ProcessIndex": 3,
+        "NextIndex": 4,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "NoEntities",
+        "Description": "Number of TrackingEntities",
+        "ProcessIndex": 4,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "CarryingEntity",
+        "Description": "CarryingEntity",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": false,
+        "PreScript": "PrescriptPalletizeCarryingEntity",
+        "hasWebTemplate": false
+      }
+    ]
+  },
+  "PostDeployArtifacts": [
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "79faf466-f4de-5145-a894-1f5ebac46a82",
+      "ArtifactVersion": 1,
+      "ArtifactName": "RECEIVE RETURN_Document"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "b2b7657c-a059-50a0-a228-59a22600728a",
+      "ArtifactVersion": 1,
+      "ArtifactName": "RECEIVE RETURN_CarryingEntity"
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

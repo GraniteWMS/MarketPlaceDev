@@ -1,0 +1,10 @@
+{
+  "Identifier": "710910b4-5c59-5868-a7ff-249bc2542af1",
+  "Name": "WebTemplate_Pickslipsummaryinfo",
+  "Description": "",
+  "Type": "SQL_STORED_PROCEDURE",
+  "Version": 1,
+  "LastModified": "01/06/2026",
+  "Tags": [],
+  "ArtifactDependencies": []
+}

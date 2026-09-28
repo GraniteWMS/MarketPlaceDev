@@ -1,0 +1,2 @@
+INSERT INTO [SystemStaticData] ([Key],[Description],[Group],[Value],[isEncrypted]) 
+VALUES('DisplayFormat','Format of the displayed suggestion. Available variables: @LocationBarcode, @LocationName, @TrackingEntity, @Batch, @ExpiryDate, @SerialNumber, @Qty','PickingSuggestion','Location: @LocationName TE: @TrackingEntity Batch: @Batch (@Qty)','False')

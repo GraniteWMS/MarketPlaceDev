@@ -1,0 +1,13 @@
+{
+  "Identifier": "e2f52ac0-1def-54f5-b2b5-8957719bf897",
+  "Name": "DELINKCOURIERPACKING_Confirmation",
+  "Description": "WebTemplate for process template DELINKCOURIERPACKING / step Confirmation",
+  "Type": "WEBTEMPLATE",
+  "Version": 1,
+  "LastModified": "13/07/2026",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

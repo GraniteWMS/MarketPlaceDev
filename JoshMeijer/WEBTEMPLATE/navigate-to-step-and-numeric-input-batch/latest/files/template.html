@@ -1,0 +1,5 @@
+{{ "SELECT EnforceBatchNumber FROM MasterItem WHERE Code = @MasterItem" | dbScalar({MasterItem}) |> to => enforceBatch }} 
+
+{{#if !enforceBatch}}
+	{{navigateToStep({stepName:"Qty", stepInputOverride:""})}}
+{{/if}}

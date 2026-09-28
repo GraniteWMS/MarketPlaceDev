@@ -1,0 +1,13 @@
+{
+  "Identifier": "00817da9-ba02-50d1-b3f0-9fea8449c986",
+  "Name": "3PL_LOADOUTDOC_Batch",
+  "Description": "WebTemplate for process template 3PL_LOADOUTDOC / step Batch",
+  "Type": "WEBTEMPLATE",
+  "Version": 0,
+  "LastModified": "17/06/2024",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

@@ -1,0 +1,91 @@
+{
+  "Name": "CONSUME_ALLOCATED_BARCODES",
+  "Description": "CONSUME_ALLOCATED_BARCODES",
+  "Type": "CONSUME",
+  "IsActive": true,
+  "IntegrationIsActive": false,
+  "IntegrationPost": false,
+  "WebTemplateArtifact": "e33c1c00-0947-56d0-8826-c542f0c50aa1",
+  "Steps": [
+    {
+      "Name": "Document",
+      "Description": "Enter FG Document",
+      "ProcessIndex": 0,
+      "NextIndex": 1,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "WebTemplateArtifact": "08a23e92-feb9-5f20-9e49-ae7c914e4834"
+    },
+    {
+      "Name": "Batch",
+      "Description": "Select Batch",
+      "ProcessIndex": 1,
+      "NextIndex": 2,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "WebTemplateArtifact": "1a7ce571-0833-5b10-96f7-09388f200e74"
+    },
+    {
+      "Name": "TrackingEntity",
+      "Description": "Scan Barcode To Consume",
+      "ProcessIndex": 2,
+      "NextIndex": 3,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "Prescript_ConsumePeanutAllocated_TrackingEntity",
+      "WebTemplateArtifact": "94692c06-f689-5fc9-a753-d37ed5d2d083"
+    },
+    {
+      "Name": "Qty",
+      "Description": "Qty To Consume",
+      "ProcessIndex": 3,
+      "NextIndex": 2,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "Prescript_PeanutConsume_Qty"
+    },
+    {
+      "Name": "ActionQtyAllowance",
+      "Description": "ActionQtyAllowance",
+      "ProcessIndex": 100,
+      "NextIndex": 0,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "DefaultValue": "11"
+    },
+    {
+      "Name": "Comment",
+      "Description": "Comment",
+      "ProcessIndex": 100,
+      "NextIndex": 0,
+      "IsActive": true,
+      "Required": false,
+      "IsBusinessRule": false
+    },
+    {
+      "Name": "Location",
+      "Description": "Location",
+      "ProcessIndex": 100,
+      "NextIndex": 0,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "DefaultValue": "Peanut Warehouse"
+    },
+    {
+      "Name": "Step200",
+      "Description": "Step200",
+      "ProcessIndex": 200,
+      "NextIndex": 0,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "Prescript_ConsumePeanutAllocated_Step200"
+    }
+  ]
+}

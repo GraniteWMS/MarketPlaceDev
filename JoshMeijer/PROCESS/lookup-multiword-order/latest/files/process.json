@@ -1,0 +1,29 @@
+{
+  "Name": "LOOKUP_MULTIWORD_ORDER",
+  "Description": "LOOKUP ORDERS FOR MULTIWORDS IN DESC",
+  "Type": "CUSTOM",
+  "IsActive": true,
+  "IntegrationIsActive": false,
+  "IntegrationPost": false,
+  "WebTemplateArtifact": "f4782146-84b2-592c-a2b2-fdd757a5efaa",
+  "Steps": [
+    {
+      "Name": "Search",
+      "Description": "Select words to search",
+      "ProcessIndex": 0,
+      "NextIndex": 1,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false
+    },
+    {
+      "Name": "Result",
+      "Description": "Press Enter to Restart",
+      "ProcessIndex": 1,
+      "NextIndex": 0,
+      "IsActive": true,
+      "Required": false,
+      "IsBusinessRule": false
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "Identifier": "c84b1657-573f-59bb-8ec5-bb328f11caf5",
+  "Name": "IntegrationDocumentPostingQueue",
+  "Description": "",
+  "Type": "USER_TABLE",
+  "Version": 0,
+  "LastModified": "02/04/2026",
+  "Tags": [],
+  "ArtifactDependencies": []
+}

@@ -1,0 +1,19 @@
+{
+  "Identifier": "411398d8-09b2-5410-a087-3ecda47e91dc",
+  "Name": "ASSIGNPRODUCTIONLINE_PreformMasterItem",
+  "Description": "WebTemplate for process template ASSIGNPRODUCTIONLINE / step PreformMasterItem",
+  "Type": "WEBTEMPLATE",
+  "Version": 0,
+  "LastModified": "07/09/2025",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "f31a38a7-93ed-5c7f-9dd5-31a2c1fb4ea1",
+      "ArtifactVersion": 1
+    }
+  ],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

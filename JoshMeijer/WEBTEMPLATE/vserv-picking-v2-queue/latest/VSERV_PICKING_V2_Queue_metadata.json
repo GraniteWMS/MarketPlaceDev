@@ -1,0 +1,13 @@
+{
+  "Identifier": "1d4d31eb-072b-56cb-a81c-ebbe75b5f52c",
+  "Name": "VSERV_PICKING_V2_Queue",
+  "Description": "WebTemplate for process template VSERV_PICKING_V2 / step Queue",
+  "Type": "WEBTEMPLATE",
+  "Version": 0,
+  "LastModified": "12/05/2026",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

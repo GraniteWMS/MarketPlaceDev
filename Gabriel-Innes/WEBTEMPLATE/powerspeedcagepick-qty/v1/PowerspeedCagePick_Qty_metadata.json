@@ -1,0 +1,19 @@
+{
+  "Identifier": "6459402e-2015-5821-842a-a34a19b19a4b",
+  "Name": "PowerspeedCagePick_Qty",
+  "Description": "WebTemplate for process template PowerspeedCagePick / step Qty",
+  "Type": "WEBTEMPLATE",
+  "Version": 1,
+  "LastModified": "03/07/2025",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "SQL_STORED_PROCEDURE",
+      "ArtifactIdentifier": "10f82c53-02e1-5de2-b0fc-ff793a6fd395",
+      "ArtifactVersion": 1
+    }
+  ],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

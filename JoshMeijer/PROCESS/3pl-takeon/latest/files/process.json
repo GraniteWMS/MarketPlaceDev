@@ -1,0 +1,82 @@
+{
+  "Name": "3PL_TAKEON",
+  "Description": "TAKEON",
+  "Type": "TAKEON",
+  "IsActive": true,
+  "IntegrationIsActive": false,
+  "IntegrationPost": false,
+  "WebTemplateArtifact": "930707ba-b27a-5569-b881-8f8a9a657f5e",
+  "Steps": [
+    {
+      "Name": "Location",
+      "Description": "Location",
+      "ProcessIndex": 0,
+      "NextIndex": 1,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "WebTemplateArtifact": "11a57b96-6875-5485-95e7-e6f2e9eb77dd"
+    },
+    {
+      "Name": "TradingPartner",
+      "Description": "Select Client",
+      "ProcessIndex": 1,
+      "NextIndex": 2,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "PrescriptTakeonTradingPartner",
+      "WebTemplateArtifact": "e1b92e96-21d1-55e0-9169-ca0bf34aadab"
+    },
+    {
+      "Name": "CarryingEntity",
+      "Description": "Pallet Barcode",
+      "ProcessIndex": 2,
+      "NextIndex": 3,
+      "IsActive": true,
+      "Required": false,
+      "IsBusinessRule": false,
+      "PreScript": "PrescriptTakeonCarryingEntity"
+    },
+    {
+      "Name": "MasterItem",
+      "Description": "MasterItem",
+      "ProcessIndex": 3,
+      "NextIndex": 4,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "PrescriptTakeonMasterItem",
+      "WebTemplateArtifact": "8b43ad16-e89f-5467-85f0-1ceeb1378cbf"
+    },
+    {
+      "Name": "Qty",
+      "Description": "Qty per TrackingEntity",
+      "ProcessIndex": 4,
+      "NextIndex": 5,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "PrescriptTakeonQty"
+    },
+    {
+      "Name": "NoEntities",
+      "Description": "Number of TrackingEntities",
+      "ProcessIndex": 5,
+      "NextIndex": 2,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "PrescriptTakeonNoEntities"
+    },
+    {
+      "Name": "Print",
+      "Description": "Print",
+      "ProcessIndex": 99,
+      "NextIndex": 99,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false
+    }
+  ]
+}

@@ -1,0 +1,61 @@
+{
+  "Name": "PICKINGFULLORPARTIALTE",
+  "Description": "PICKING FULL OR PARTIAL TE",
+  "Type": "PICKING",
+  "IsActive": true,
+  "IntegrationIsActive": false,
+  "IntegrationPost": false,
+  "WebTemplateArtifact": "b6562ac1-9ad5-51d2-abdf-b63be56a002d",
+  "Steps": [
+    {
+      "Name": "Document",
+      "Description": "Document",
+      "ProcessIndex": 0,
+      "NextIndex": 1,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "WebTemplateArtifact": "d3b95784-7b26-5144-904c-644d8015e593"
+    },
+    {
+      "Name": "PickConfig",
+      "Description": "PickConfig",
+      "ProcessIndex": 1,
+      "NextIndex": 2,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "WebTemplateArtifact": "2664f9af-e3ca-5f7f-be39-48e99a7facb8"
+    },
+    {
+      "Name": "TrackingEntity",
+      "Description": "TrackingEntity",
+      "ProcessIndex": 2,
+      "NextIndex": 3,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "WebTemplateArtifact": "6065b0d2-61e1-538a-8b77-7e0b82c0bb8d"
+    },
+    {
+      "Name": "Qty",
+      "Description": "Qty",
+      "ProcessIndex": 3,
+      "NextIndex": 2,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "WebTemplateArtifact": "558106e7-7bff-5675-a8c0-3c05ba1eaf13"
+    },
+    {
+      "Name": "Location",
+      "Description": "Location",
+      "ProcessIndex": 100,
+      "NextIndex": 100,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "DefaultValue": "DISPATCH"
+    }
+  ]
+}

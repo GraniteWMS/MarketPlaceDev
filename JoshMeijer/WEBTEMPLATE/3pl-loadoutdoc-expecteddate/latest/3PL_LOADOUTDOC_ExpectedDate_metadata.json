@@ -1,0 +1,13 @@
+{
+  "Identifier": "3a92e731-70f7-5285-82f1-b2e2c12bbf12",
+  "Name": "3PL_LOADOUTDOC_ExpectedDate",
+  "Description": "WebTemplate for process template 3PL_LOADOUTDOC / step ExpectedDate",
+  "Type": "WEBTEMPLATE",
+  "Version": 0,
+  "LastModified": "17/06/2024",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

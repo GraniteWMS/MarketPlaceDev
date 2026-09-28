@@ -1,0 +1,13 @@
+{
+  "Identifier": "f014f1e5-046b-54d5-96a5-0a3d6576c845",
+  "Name": "CONSUME_WITH_WASTAGE",
+  "Description": "WebTemplate for process template CONSUME_WITH_WASTAGE",
+  "Type": "WEBTEMPLATE",
+  "Version": 1,
+  "LastModified": "18/03/2026",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

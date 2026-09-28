@@ -1,0 +1,97 @@
+{
+  "Identifier": "afbf7a74-79b4-4dca-8d6e-ab21a46670ed",
+  "Name": "VSERV_REPLENISH",
+  "Description": "VSERV_REPLENISH\n\nIt will ensure that that no 2 tracking entities of the same item code and location, have the same expiry date.",
+  "Type": "PROCESS",
+  "Version": 0,
+  "LastModified": "09/02/2026",
+  "Tags": [
+    "Electronics",
+    "Construction",
+    "E-commerce",
+    "Logistics",
+    "Cold Storage",
+    "Pharmaceutical",
+    "Textile",
+    "Retail",
+    "Automotive",
+    "Agricultural",
+    "Manufacturing"
+  ],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "942f2717-0d67-5924-a259-c4b859807aad",
+      "ArtifactVersion": 1,
+      "ArtifactName": "WebTemplate_Replenish_Location"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "2af1c79e-7265-59a7-815e-814b19f5fe9e",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_Replenish_FromTrackingEntity"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "080d25bc-53a9-5981-8abb-00749083a174",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_Replenish_Location"
+    }
+  ],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "REPLENISH",
+    "ProcessStepMetadata": [
+      {
+        "Name": "FromTrackingEntity",
+        "Description": "FromTrackingEntity",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_Replenish_FromTrackingEntity",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Location",
+        "Description": "To Location",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_Replenish_Location",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "ToTrackingEntity",
+        "Description": "To TrackingEntity",
+        "ProcessIndex": 100,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "Qty",
+        "Description": "Qty to Replenish",
+        "ProcessIndex": 2,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      }
+    ]
+  },
+  "PostDeployArtifacts": [
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "aedcb65e-969b-546f-8441-7123f727efe9",
+      "ArtifactVersion": 1,
+      "ArtifactName": "VSERV_REPLENISH_Location"
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

@@ -1,0 +1,52 @@
+{
+  "Identifier": "019f81a0-4675-4fe2-8a4e-cb2625c6f19f",
+  "Name": "VETSERV_PUTAWAY_ETHICAL",
+  "Description": "VETSERV_PUTAWAY_ETHICAL\n\nTransfers a whole pallet to a bin",
+  "Type": "PROCESS",
+  "Version": 1,
+  "LastModified": "12/06/2026",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "8b4bbc55-8ebc-56db-a5af-37c8712363d6",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_PutawayEthical_TrackingEntity"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "f690266c-aae3-5a26-9760-401adb67a8a3",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_PutawayEthical_Location"
+    }
+  ],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "MOVE",
+    "ProcessStepMetadata": [
+      {
+        "Name": "TrackingEntity",
+        "Description": "Scan Ethical (ETHL) Stock Box",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_PutawayEthical_TrackingEntity",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Location",
+        "Description": "Scan Rack Location",
+        "ProcessIndex": 1,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_PutawayEthical_Location",
+        "hasWebTemplate": true
+      }
+    ]
+  },
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

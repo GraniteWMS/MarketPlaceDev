@@ -1,0 +1,83 @@
+{
+  "Identifier": "7c606bb2-ed3d-414a-b8f9-29b197919d8b",
+  "Name": "BUCKY_UNMANUFACTURE_V2",
+  "Description": "BUCKY_UNMANUFACTURE_V2\n\nUseful for when you need to do manufacture reversals on the scanner.\n\nThe Step200 script does most of the work. There is a table variable called \"@TransactionIDsToReverse\". You can insert however many transactions you want into this variable as you wish. For example you could insert all the manufacture transactions for a particular master item on the document.",
+  "Type": "PROCESS",
+  "Version": 1,
+  "LastModified": "27/01/2026",
+  "Tags": [
+    "Manufacturing"
+  ],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "b69a3f0c-4969-5cfb-ab43-2a30198e67cb",
+      "ArtifactVersion": 1,
+      "ArtifactName": "WebTemplate_UnmanufactureTransaction_TransactionID"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "29040ba7-558c-5302-9e18-84596127aec4",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_UnmanufactureTransaction_TransactionID"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "f2cbde26-bc9b-55b2-a82c-2637430674e7",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_UnmanufactureTransaction_Step200"
+    }
+  ],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "CUSTOM",
+    "ProcessStepMetadata": [
+      {
+        "Name": "Document",
+        "Description": "Enter Document",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": false,
+        "PreScript": ""
+      },
+      {
+        "Name": "TransactionID",
+        "Description": "Select Transaction ID",
+        "ProcessIndex": 1,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_UnmanufactureTransaction_TransactionID",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Step200",
+        "Description": "Reverses the Transaction",
+        "ProcessIndex": 200,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_UnmanufactureTransaction_Step200",
+        "hasWebTemplate": true
+      }
+    ]
+  },
+  "PostDeployArtifacts": [
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "05a895de-362c-5c63-af42-b09d28472f73",
+      "ArtifactVersion": 1,
+      "ArtifactName": "BUCKY_UNMANUFACTURE_V2_Document"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "3efa8603-882d-5fef-9f3e-a3ee97addb35",
+      "ArtifactVersion": 1,
+      "ArtifactName": "BUCKY_UNMANUFACTURE_V2_TransactionID"
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

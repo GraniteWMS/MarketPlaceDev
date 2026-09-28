@@ -1,0 +1,87 @@
+{
+  "Name": "TAKEON",
+  "Description": "Initial Takeon",
+  "Type": "TAKEON",
+  "IsActive": true,
+  "IntegrationIsActive": false,
+  "IntegrationPost": false,
+  "Steps": [
+    {
+      "Name": "Location",
+      "Description": "Location",
+      "ProcessIndex": 0,
+      "NextIndex": 1,
+      "IsActive": true,
+      "Required": false,
+      "IsBusinessRule": false,
+      "WebTemplateArtifact": "7d3f9c1f-4d29-526e-a0bc-b83f14153d8e"
+    },
+    {
+      "Name": "MasterItem",
+      "Description": "MasterItem",
+      "ProcessIndex": 1,
+      "NextIndex": 2,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "WebTemplateArtifact": "d0b7b940-b90c-5e72-a107-2f5cb2a8e932"
+    },
+    {
+      "Name": "Batch",
+      "Description": "Batch / Lot",
+      "ProcessIndex": 2,
+      "NextIndex": 3,
+      "IsActive": true,
+      "Required": false,
+      "IsBusinessRule": false
+    },
+    {
+      "Name": "ExpiryDate",
+      "Description": "ExpiryDate (YYYYMMDD)",
+      "ProcessIndex": 3,
+      "NextIndex": 4,
+      "IsActive": true,
+      "Required": false,
+      "IsBusinessRule": false
+    },
+    {
+      "Name": "Qty",
+      "Description": "Qty per TrackingEntity",
+      "ProcessIndex": 4,
+      "NextIndex": 5,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "PrescriptTakeonQty"
+    },
+    {
+      "Name": "NoEntities",
+      "Description": "Number of Identical TrackingEntities",
+      "ProcessIndex": 5,
+      "NextIndex": 0,
+      "IsActive": true,
+      "Required": false,
+      "IsBusinessRule": false,
+      "PreScript": "PrescriptTakeonNoEntities"
+    },
+    {
+      "Name": "Print",
+      "Description": "Print",
+      "ProcessIndex": 99,
+      "NextIndex": 0,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false
+    },
+    {
+      "Name": "NoLabels",
+      "Description": "NoLabels",
+      "ProcessIndex": 100,
+      "NextIndex": 100,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "DefaultValue": "1"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "Identifier": "7e620fdb-8aec-55d4-9f47-3a7a8da529d8",
+  "Name": "PICKING Credit Return_Cage",
+  "Description": "WebTemplate for process template PICKING Credit Return / step Cage",
+  "Type": "WEBTEMPLATE",
+  "Version": 1,
+  "LastModified": "12/02/2025",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "SQL_STORED_PROCEDURE",
+      "ArtifactIdentifier": "aae9a925-9d3d-53a6-ad70-3274b7fe2b24",
+      "ArtifactVersion": 1
+    }
+  ],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

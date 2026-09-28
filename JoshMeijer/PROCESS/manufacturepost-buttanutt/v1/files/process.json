@@ -1,0 +1,20 @@
+{
+  "Name": "MANUFACTUREPOST_BUTTANUTT",
+  "Description": "MANUFACTUREPOST_BUTTANUTT",
+  "Type": "MANUFACTUREPOST",
+  "IsActive": true,
+  "IntegrationIsActive": true,
+  "IntegrationPost": false,
+  "Steps": [
+    {
+      "Name": "Document",
+      "Description": "Document",
+      "ProcessIndex": 0,
+      "NextIndex": 0,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "WebTemplateArtifact": "a4774781-a00c-5b5f-883c-2fd8bc2111de"
+    }
+  ]
+}

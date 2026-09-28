@@ -1,0 +1,222 @@
+{
+  "Identifier": "1c42435a-3bde-40c2-985e-91a860e112f2",
+  "Name": "RECEIVE_INGREDIENTS",
+  "Description": "RECEIVE INGREDIENTS\n\nReceiving with Optional fields for Newburg Eggs",
+  "Type": "PROCESS",
+  "Version": 0,
+  "LastModified": "31/07/2025",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "f28f732d-e292-5d0d-96e4-a008d5de2a7b",
+      "ArtifactVersion": 1,
+      "ArtifactName": "WebTemplate_MasterItems_Ingredients"
+    },
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "a18639bf-a686-519a-a1aa-71fcf8015969",
+      "ArtifactVersion": 1,
+      "ArtifactName": "WebTemplate_ReceivingLocations"
+    },
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "951e6763-e9b2-5249-bc60-1e56a7f1282c",
+      "ArtifactVersion": 1,
+      "ArtifactName": "WebTemplate_IngredientSuppliers"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "039a751e-aca6-5942-aeed-9a15b39f1f6c",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_ReceiveIngredients_MasterItem"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "4b04e38b-9ec4-5e24-9287-e5aad28213b0",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_ReceiveIngredients_Step200"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "39ed9ba7-5f32-566e-9402-3b3ad48bbc25",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_ReceiveIngredients_Step201"
+    },
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "c785d267-e66d-507e-9984-c9626af70405",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Label_Box"
+    },
+    {
+      "ArtifactType": "SQL_SCALAR_FUNCTION",
+      "ArtifactIdentifier": "76cb1c2c-b7a7-5d3c-bd22-9eee29a8da2d",
+      "ArtifactVersion": 1,
+      "ArtifactName": "GetJulianDate"
+    },
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "2aa7b6c1-d40c-54fb-8375-75fa5b224771",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Label_TrackingEntity"
+    }
+  ],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "TAKEON",
+    "ProcessStepMetadata": [
+      {
+        "Name": "MasterItem",
+        "Description": "Select Item",
+        "ProcessIndex": 2,
+        "NextIndex": 3,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_ReceiveIngredients_MasterItem",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Qty",
+        "Description": "Qty per Pallet",
+        "ProcessIndex": 4,
+        "NextIndex": 5,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "NoEntities",
+        "Description": "Number of pallets",
+        "ProcessIndex": 5,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "DefaultValue": "1",
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "Location",
+        "Description": "Receiving Location",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Print",
+        "Description": "Print",
+        "ProcessIndex": 99,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "OptionalFieldValue1",
+        "Description": "Select Supplier",
+        "ProcessIndex": 100,
+        "NextIndex": 100,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": false,
+        "PreScript": ""
+      },
+      {
+        "Name": "OptionalField1",
+        "Description": "OptionalField1",
+        "ProcessIndex": 100,
+        "NextIndex": 100,
+        "isActive": true,
+        "Required": true,
+        "DefaultValue": "Supplier",
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "OptionalFieldValue0",
+        "Description": "Enter Purchase Order",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "Batch",
+        "Description": "Batch Number",
+        "ProcessIndex": 3,
+        "NextIndex": 4,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "OptionalField0",
+        "Description": "OptionalField0",
+        "ProcessIndex": 100,
+        "NextIndex": 100,
+        "isActive": true,
+        "Required": true,
+        "DefaultValue": "Document",
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "Step200",
+        "Description": "Update OptionalField",
+        "ProcessIndex": 200,
+        "NextIndex": 200,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_ReceiveIngredients_Step200",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Step201",
+        "Description": "Print Labels",
+        "ProcessIndex": 201,
+        "NextIndex": 201,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_ReceiveIngredients_Step201",
+        "hasWebTemplate": true
+      }
+    ]
+  },
+  "PostDeployArtifacts": [
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "1daa1717-603b-53e5-95cf-1ea393990e53",
+      "ArtifactVersion": 1,
+      "ArtifactName": "RECEIVE_INGREDIENTS"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "1fb6e1bc-f22d-594a-943b-1377d04d5959",
+      "ArtifactVersion": 1,
+      "ArtifactName": "RECEIVE_INGREDIENTS_Location"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "c052447f-947b-5d3d-8ae8-6e2590b4703c",
+      "ArtifactVersion": 1,
+      "ArtifactName": "RECEIVE_INGREDIENTS_OptionalFieldValue1"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "f27ad6f0-17f3-56e2-bf39-bbd58eac7c11",
+      "ArtifactVersion": 1,
+      "ArtifactName": "RECEIVE_INGREDIENTS_MasterItem"
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

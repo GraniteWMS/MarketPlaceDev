@@ -1,0 +1,19 @@
+{
+  "Identifier": "a692bb12-e557-54f3-928f-c2f80d5b74c0",
+  "Name": "BUTTANUTT_CONSUME_Document",
+  "Description": "WebTemplate for process template BUTTANUTT_CONSUME / step Document",
+  "Type": "WEBTEMPLATE",
+  "Version": 1,
+  "LastModified": "24/02/2026",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "b40ae7a1-d98c-582a-998e-8ee7d67973e6",
+      "ArtifactVersion": 1
+    }
+  ],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

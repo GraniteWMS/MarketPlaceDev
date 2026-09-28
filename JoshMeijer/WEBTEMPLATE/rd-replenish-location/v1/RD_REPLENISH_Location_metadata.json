@@ -1,0 +1,19 @@
+{
+  "Identifier": "04c67524-f3bd-57dd-b13d-64d138554480",
+  "Name": "RD_REPLENISH_Location",
+  "Description": "WebTemplate for process template RD_REPLENISH / step Location",
+  "Type": "WEBTEMPLATE",
+  "Version": 1,
+  "LastModified": "09/10/2025",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "SQL_STORED_PROCEDURE",
+      "ArtifactIdentifier": "e3e9cf97-e3f5-5233-8e29-43fa15079b09",
+      "ArtifactVersion": 1
+    }
+  ],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

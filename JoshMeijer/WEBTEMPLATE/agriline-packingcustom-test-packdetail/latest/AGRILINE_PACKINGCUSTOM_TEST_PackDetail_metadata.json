@@ -1,0 +1,19 @@
+{
+  "Identifier": "6fb64ba2-d0fc-5737-990b-33487fc6e940",
+  "Name": "AGRILINE_PACKINGCUSTOM_TEST_PackDetail",
+  "Description": "WebTemplate for process template AGRILINE_PACKINGCUSTOM_TEST / step PackDetail",
+  "Type": "WEBTEMPLATE",
+  "Version": 0,
+  "LastModified": "07/07/2026",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "SQL_STORED_PROCEDURE",
+      "ArtifactIdentifier": "e5dab171-49ae-5d88-883e-a03417980040",
+      "ArtifactVersion": 1
+    }
+  ],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

@@ -1,0 +1,19 @@
+{
+  "Identifier": "cae97223-5057-5028-9dc5-d51ba1ff109d",
+  "Name": "PICKING SALES ORDER_TrackingEntity",
+  "Description": "WebTemplate for process template PICKING SALES ORDER / step TrackingEntity",
+  "Type": "WEBTEMPLATE",
+  "Version": 1,
+  "LastModified": "29/01/2025",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "53d1f2c0-cb5c-54b5-aa62-535b2e379803",
+      "ArtifactVersion": 1
+    }
+  ],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

@@ -1,0 +1,13 @@
+{
+  "Identifier": "80fc12c1-6d7f-5c04-9d68-a42ca51072da",
+  "Name": "BUTTANUTT_STOCKTAKECOUNT_V2_Count",
+  "Description": "WebTemplate for process template BUTTANUTT_STOCKTAKECOUNT_V2 / step Count",
+  "Type": "WEBTEMPLATE",
+  "Version": 0,
+  "LastModified": "29/03/2026",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

@@ -1,0 +1,153 @@
+{
+  "Identifier": "33825393-a41b-48ec-8695-705f1150324b",
+  "Name": "PowerspeedCagePick",
+  "Description": "PowerspeedCagePick\n\nThis process is customised for cage picking at Powerspeed. If you are grouping picks by location category you may find value here.",
+  "Type": "PROCESS",
+  "Version": 0,
+  "LastModified": "03/07/2025",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "6f94d3b5-682b-5f2f-9f17-fa0541a27365",
+      "ArtifactVersion": 1,
+      "ArtifactName": "WebtemplateDocumentsToPick"
+    },
+    {
+      "ArtifactType": "SQL_STORED_PROCEDURE",
+      "ArtifactIdentifier": "760e3398-5df7-5afd-b55f-10abfc28c758",
+      "ArtifactVersion": 1,
+      "ArtifactName": "WebtemplateCagePickTrackingEntitiesWithBarcode"
+    },
+    {
+      "ArtifactType": "SQL_STORED_PROCEDURE",
+      "ArtifactIdentifier": "7a165800-2aa0-5dc7-806a-bf2fe304f65b",
+      "ArtifactVersion": 1,
+      "ArtifactName": "WebtemplateCagePickTrackingEntities"
+    },
+    {
+      "ArtifactType": "SQL_STORED_PROCEDURE",
+      "ArtifactIdentifier": "10f82c53-02e1-5de2-b0fc-ff793a6fd395",
+      "ArtifactVersion": 1,
+      "ArtifactName": "WebtemplatePickingQuantity"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "a0eb7b90-af57-59a7-873e-e7ee8c2eeebd",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PrescriptCagePickTrackingEntity"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "ac814575-d07b-5fca-968b-b16cbed84156",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PrescriptCagePickQty"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "bcaee961-1dcb-5aad-8ead-712bc4534fea",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PrescriptPickingComment"
+    }
+  ],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "PICKING",
+    "ProcessStepMetadata": [
+      {
+        "Name": "Document",
+        "Description": "Document Number",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": false,
+        "PreScript": ""
+      },
+      {
+        "Name": "Location",
+        "Description": "Location",
+        "ProcessIndex": 100,
+        "NextIndex": 100,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "TrackingEntity",
+        "Description": "TrackingEntity (Granite Barcode)",
+        "ProcessIndex": 3,
+        "NextIndex": 4,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "PrescriptCagePickTrackingEntity",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Qty",
+        "Description": "Qty",
+        "ProcessIndex": 4,
+        "NextIndex": 3,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "PrescriptCagePickQty",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Comment",
+        "Description": "Box Number",
+        "ProcessIndex": 2,
+        "NextIndex": 3,
+        "isActive": true,
+        "Required": false,
+        "PreScript": "PrescriptPickingComment",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Cage",
+        "Description": "Cage",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "",
+        "hasWebTemplate": false
+      }
+    ]
+  },
+  "PostDeployArtifacts": [
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "fccb355f-2373-5161-a53d-1f4c881b1404",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PowerspeedCagePick"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "a3a81a5d-6ba7-5d33-b18e-d8cadc1ed553",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PowerspeedCagePick_Cage"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "68179454-a2a1-5157-b042-17e264dcc806",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PowerspeedCagePick_Document"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "69040693-2550-5731-81e8-d2c5f469c1a2",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PowerspeedCagePick_TrackingEntity"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "6459402e-2015-5821-842a-a34a19b19a4b",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PowerspeedCagePick_Qty"
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

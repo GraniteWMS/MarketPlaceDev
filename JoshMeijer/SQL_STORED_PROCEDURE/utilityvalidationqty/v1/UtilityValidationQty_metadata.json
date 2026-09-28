@@ -1,0 +1,10 @@
+{
+  "Identifier": "01d2be97-55e1-5690-884b-242cf5d2e658",
+  "Name": "UtilityValidationQty",
+  "Description": "",
+  "Type": "SQL_STORED_PROCEDURE",
+  "Version": 1,
+  "LastModified": "03/09/2025",
+  "Tags": [],
+  "ArtifactDependencies": []
+}

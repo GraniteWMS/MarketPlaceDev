@@ -1,0 +1,19 @@
+{
+  "Identifier": "4cebe786-e909-509b-b6bc-a222cc05adfe",
+  "Name": "BUCKY_UNPICK_Document",
+  "Description": "WebTemplate for process template BUCKY_UNPICK / step Document",
+  "Type": "WEBTEMPLATE",
+  "Version": 0,
+  "LastModified": "27/01/2026",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "32ca163e-955f-57df-bb85-dec9a59df741",
+      "ArtifactVersion": 1
+    }
+  ],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

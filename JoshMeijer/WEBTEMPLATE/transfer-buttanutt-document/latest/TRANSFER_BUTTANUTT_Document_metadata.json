@@ -1,0 +1,19 @@
+{
+  "Identifier": "3bca8e8a-3845-5b0b-bfd7-67624bd9d03b",
+  "Name": "TRANSFER_BUTTANUTT_Document",
+  "Description": "WebTemplate for process template TRANSFER_BUTTANUTT / step Document",
+  "Type": "WEBTEMPLATE",
+  "Version": 0,
+  "LastModified": "21/03/2026",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "fbe5f9e5-e235-5fad-aac8-ac860060ee9d",
+      "ArtifactVersion": 1
+    }
+  ],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

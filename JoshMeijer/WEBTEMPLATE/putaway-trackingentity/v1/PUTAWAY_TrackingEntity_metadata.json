@@ -1,0 +1,19 @@
+{
+  "Identifier": "d98e2bac-fee9-512f-b75a-d2376874e07e",
+  "Name": "PUTAWAY_TrackingEntity",
+  "Description": "WebTemplate for process template PUTAWAY / step TrackingEntity",
+  "Type": "WEBTEMPLATE",
+  "Version": 1,
+  "LastModified": "31/03/2026",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "e29bc811-9c1b-5365-a358-fc802812ab25",
+      "ArtifactVersion": 1
+    }
+  ],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

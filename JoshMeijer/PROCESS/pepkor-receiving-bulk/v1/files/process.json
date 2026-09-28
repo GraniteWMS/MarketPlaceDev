@@ -1,0 +1,59 @@
+{
+  "Name": "PEPKOR_RECEIVING_BULK",
+  "Description": "PEPKOR_RECEIVING_BULK",
+  "Type": "RECEIVING",
+  "IsActive": true,
+  "IntegrationIsActive": false,
+  "IntegrationPost": false,
+  "WebTemplateArtifact": "c816d5fa-551c-5b37-a1d3-4971a08131d7",
+  "Steps": [
+    {
+      "Name": "Document",
+      "Description": "Enter PO #",
+      "ProcessIndex": 0,
+      "NextIndex": 1,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false
+    },
+    {
+      "Name": "MasterItem",
+      "Description": "Enter Item Code or Scan EAN",
+      "ProcessIndex": 1,
+      "NextIndex": 2,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false
+    },
+    {
+      "Name": "Qty",
+      "Description": "Enter Qty to Receive",
+      "ProcessIndex": 2,
+      "NextIndex": 1,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "Prescript_ReceivingNoLabel_Qty",
+      "WebTemplateArtifact": "cdc2d3df-9f69-5c58-98bc-52321308f0b5"
+    },
+    {
+      "Name": "Location",
+      "Description": "Receiving Location",
+      "ProcessIndex": 100,
+      "NextIndex": 0,
+      "IsActive": true,
+      "Required": false,
+      "IsBusinessRule": false,
+      "DefaultValue": "RECEIVING"
+    },
+    {
+      "Name": "UseBarcode",
+      "Description": "UseBarcode",
+      "ProcessIndex": 100,
+      "NextIndex": 0,
+      "IsActive": true,
+      "Required": false,
+      "IsBusinessRule": false
+    }
+  ]
+}

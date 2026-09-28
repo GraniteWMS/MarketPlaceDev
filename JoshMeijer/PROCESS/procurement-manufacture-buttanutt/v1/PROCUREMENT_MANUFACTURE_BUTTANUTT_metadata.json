@@ -1,0 +1,135 @@
+{
+  "Identifier": "3c7fb77e-4641-4bb5-ae5a-c583a822c64c",
+  "Name": "PROCUREMENT_MANUFACTURE_BUTTANUTT",
+  "Description": "PROCUREMENT_MANUFACTURE_BUTTANUTT\n\nDefaults in silent steps the Batch and Expiry Date based on what they are set to on the document line.",
+  "Type": "PROCESS",
+  "Version": 1,
+  "LastModified": "21/03/2026",
+  "Tags": [
+    "Manufacturing"
+  ],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "2865ce3f-828a-5d02-930b-b7d5e4398075",
+      "ArtifactVersion": 1,
+      "ArtifactName": "WebTemplate_Manufacture_Document"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "0a6632d6-2299-572c-8ae6-82f222049cc1",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_Manufacture_Document"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "944b9c0e-7346-5484-a943-78e0b1ce1b25",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_Manufacture_NoEntities"
+    }
+  ],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "MANUFACTURE",
+    "ProcessStepMetadata": [
+      {
+        "Name": "Document",
+        "Description": "Enter FG Document",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_Manufacture_Document",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "MasterItem",
+        "Description": "Select Finished Good SKU To Manufacture",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "Location",
+        "Description": "Location",
+        "ProcessIndex": 100,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "DefaultValue": "",
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "Batch",
+        "Description": "Batch",
+        "ProcessIndex": 100,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "ExpiryDate",
+        "Description": "ExpiryDate (YYYYMMDD)",
+        "ProcessIndex": 100,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "Qty",
+        "Description": "Enter Qty Per Barcode",
+        "ProcessIndex": 2,
+        "NextIndex": 3,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "NoEntities",
+        "Description": "Number Of Barcodes With Same Qty",
+        "ProcessIndex": 3,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": false,
+        "PreScript": "Prescript_Manufacture_NoEntities",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Print",
+        "Description": "Print",
+        "ProcessIndex": 99,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "DefaultValue": "",
+        "PreScript": "",
+        "hasWebTemplate": true
+      }
+    ]
+  },
+  "PostDeployArtifacts": [
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "450415fe-31d7-5e80-a161-74e10ab9b5ee",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PROCUREMENT_MANUFACTURE_BUTTANUTT"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "a952b35e-1636-524d-94f7-7b5c5ef2e63e",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PROCUREMENT_MANUFACTURE_BUTTANUTT_Document"
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

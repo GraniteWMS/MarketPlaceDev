@@ -1,0 +1,19 @@
+{
+  "Identifier": "48eb5ae9-ccd6-5086-a60d-397a8d389bf4",
+  "Name": "UNPICK_TO_BARCODE_Location",
+  "Description": "WebTemplate for process template UNPICK_TO_BARCODE / step Location",
+  "Type": "WEBTEMPLATE",
+  "Version": 0,
+  "LastModified": "17/02/2026",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "b9c08d9b-4479-5606-b3a9-07c351839783",
+      "ArtifactVersion": 1
+    }
+  ],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

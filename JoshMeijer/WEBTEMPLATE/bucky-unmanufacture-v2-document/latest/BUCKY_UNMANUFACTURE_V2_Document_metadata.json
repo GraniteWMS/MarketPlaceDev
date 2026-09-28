@@ -1,0 +1,19 @@
+{
+  "Identifier": "05a895de-362c-5c63-af42-b09d28472f73",
+  "Name": "BUCKY_UNMANUFACTURE_V2_Document",
+  "Description": "WebTemplate for process template BUCKY_UNMANUFACTURE_V2 / step Document",
+  "Type": "WEBTEMPLATE",
+  "Version": 0,
+  "LastModified": "27/01/2026",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "b69a3f0c-4969-5cfb-ab43-2a30198e67cb",
+      "ArtifactVersion": 1
+    }
+  ],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

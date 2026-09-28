@@ -1,0 +1,19 @@
+{
+  "Identifier": "d093d3c6-f7ae-5db2-9697-417dfc89820e",
+  "Name": "PROCUREMENT_CONSUME_BUTTANUTT_Document",
+  "Description": "WebTemplate for process template PROCUREMENT_CONSUME_BUTTANUTT / step Document",
+  "Type": "WEBTEMPLATE",
+  "Version": 1,
+  "LastModified": "21/03/2026",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "aae3b378-2e6f-539d-b687-b93a82d43be9",
+      "ArtifactVersion": 1
+    }
+  ],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

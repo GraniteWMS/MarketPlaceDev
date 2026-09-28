@@ -1,0 +1,13 @@
+{
+  "Identifier": "e33c1c00-0947-56d0-8826-c542f0c50aa1",
+  "Name": "CONSUME_ALLOCATED_BARCODES",
+  "Description": "WebTemplate for process template CONSUME_ALLOCATED_BARCODES",
+  "Type": "WEBTEMPLATE",
+  "Version": 0,
+  "LastModified": "07/06/2026",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

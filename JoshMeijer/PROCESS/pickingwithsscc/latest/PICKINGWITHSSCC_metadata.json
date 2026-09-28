@@ -1,0 +1,166 @@
+{
+  "Identifier": "72e33337-4901-40a4-91e2-451b3c81ecfe",
+  "Name": "PICKINGWITHSSCC",
+  "Description": "Picking with SSCC Label Print\n\nDuring Picking of Pallets, we require an SSCC label.  This prints in the Step200.  A prerequisite is that CarryingEntity has the SSCC column added.  \nThis process is designed for picking full pallets of production (Egg production).  The Pallet may have multiple TrackingEntities.  The Label_Pallet view is written to collect multiple Batch or lot numbers in the Batch field.\n\nThe PreDeploy Script includes code to add the SSCC column to the CarryingEntity Table.\nALTER TABLE dbo.CarryingEntity ADD SSCC varchar(20) NULL;",
+  "Type": "PROCESS",
+  "Version": 0,
+  "LastModified": "08/09/2026",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "ac33fb2c-d635-52ba-be4f-b27e3738534c",
+      "ArtifactVersion": 1,
+      "ArtifactName": "webtemplate_SOtoPick"
+    },
+    {
+      "ArtifactType": "SQL_STORED_PROCEDURE",
+      "ArtifactIdentifier": "ac49d781-1749-5b28-8f91-a571be3069ff",
+      "ArtifactVersion": 1,
+      "ArtifactName": "FIFOPickingRecommendation"
+    },
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "25c3841a-95e9-5899-b01e-b64d977edbd4",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Integration_Accpac_SalesOrderHeader"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "c644a9df-0800-53eb-8b96-024e3a7a24aa",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_CCF_PICKING_Document"
+    },
+    {
+      "ArtifactType": "SQL_STORED_PROCEDURE",
+      "ArtifactIdentifier": "e28a94d4-0e3f-5711-8c86-a4ede3b7d805",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Utility_PrintSSCCLabel"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "aa4f97bd-a4ba-5089-816e-7cd829abec4f",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_CCF_PICKING_Step200"
+    },
+    {
+      "ArtifactType": "SQL_SCALAR_FUNCTION",
+      "ArtifactIdentifier": "7f40878a-693f-535e-bb85-d674cdce8cbd",
+      "ArtifactVersion": 1,
+      "ArtifactName": "FN_CalcSSCC_Checkdigit"
+    },
+    {
+      "ArtifactType": "SQL_SCALAR_FUNCTION",
+      "ArtifactIdentifier": "42eeba9a-34e4-5849-895b-f27e45bd2744",
+      "ArtifactVersion": 1,
+      "ArtifactName": "GenerateJulianDateCode"
+    },
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "91f1ef17-5fa7-5b16-8405-8ad972d11fb6",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Label_Pallet"
+    },
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "c6a9fb1d-ef08-51d7-945c-01cfd7230e30",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Label_TrackingEntity"
+    },
+    {
+      "ArtifactType": "DATA",
+      "ArtifactIdentifier": "f59458f6-fbca-5fe3-89a6-79486f4dcdde",
+      "ArtifactVersion": 1,
+      "ArtifactName": "DataDependency_SystemStaticData_f59458f6fbca5fe389a679486f4dcdde"
+    },
+    {
+      "ArtifactType": "DATA",
+      "ArtifactIdentifier": "81939306-3798-59f7-bb63-86c609439eea",
+      "ArtifactVersion": 1,
+      "ArtifactName": "DataDependency_SystemStaticData_81939306379859f7bb6386c609439eea"
+    },
+    {
+      "ArtifactType": "DATA",
+      "ArtifactIdentifier": "9743fb6b-fe77-52eb-b463-12541b1527ef",
+      "ArtifactVersion": 1,
+      "ArtifactName": "DataDependency_SystemStaticData_9743fb6bfe7752ebb46312541b1527ef"
+    }
+  ],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "PICKING",
+    "ProcessStepMetadata": [
+      {
+        "Name": "Document",
+        "Description": "Document",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_CCF_PICKING_Document",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Location",
+        "Description": "Staging Location",
+        "ProcessIndex": 100,
+        "NextIndex": 100,
+        "isActive": true,
+        "Required": true,
+        "DefaultValue": "CCF-DISPATCH",
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "TrackingEntity",
+        "Description": "Scan Pallet Barcode",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "Qty",
+        "Description": "Qty",
+        "ProcessIndex": 100,
+        "NextIndex": 100,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "Step200",
+        "Description": "Update FIFO and Print SSCC Label",
+        "ProcessIndex": 200,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_CCF_PICKING_Step200",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Confirmation",
+        "Description": "Confirm and Print Shipping Label",
+        "ProcessIndex": 2,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      }
+    ]
+  },
+  "PostDeployArtifacts": [
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "6842f59d-21aa-5e95-bc6a-d13601355dd6",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PICKINGWITHSSCC_Document"
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

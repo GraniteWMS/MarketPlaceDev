@@ -1,0 +1,29 @@
+{
+  "Identifier": "69d329af-aff3-4205-9e4b-cd845ea2a5ec",
+  "Name": "PICKINGPOST",
+  "Description": "PICKINGPOST\n\nThis is the default (empty) PICKINGPOST process.",
+  "Type": "PROCESS",
+  "Version": 0,
+  "LastModified": "27/03/2024",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "PICKINGPOST",
+    "ProcessStepMetadata": [
+      {
+        "Name": "Document",
+        "Description": "Document",
+        "ProcessIndex": 0,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      }
+    ]
+  },
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

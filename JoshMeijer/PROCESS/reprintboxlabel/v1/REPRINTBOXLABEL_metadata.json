@@ -1,0 +1,52 @@
+{
+  "Identifier": "8c6bf06b-2dc2-48dc-9ac8-1ae71d85bb36",
+  "Name": "REPRINTBOXLABEL",
+  "Description": "Reprint Packed Box Label\n\nOnce a box is packed and closed in Packing, we print a box contents labels.  In some cases this is an SSRS report printed to the label printer.\nThe main way to print is inserting to the LabelPrintQueue with a job that prints the label\n\nUses SSRS to print box label.  Box label must exist.  Requires Sheduled Job to pick up the record and print it.  This could easily be put directly into the Confirmation as a CLR print and print directly - I just like to queue it.",
+  "Type": "PROCESS",
+  "Version": 1,
+  "LastModified": "10/05/2026",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "fd2a1107-0698-52f1-8b89-6eabc472160e",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_REPRINTBOXLABEL_Confirmation"
+    },
+    {
+      "ArtifactType": "SQL_STORED_PROCEDURE",
+      "ArtifactIdentifier": "0da3c6db-c232-5018-af55-4895cbd0cebc",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Job_PrintBoxLabels"
+    }
+  ],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "CUSTOM",
+    "ProcessStepMetadata": [
+      {
+        "Name": "Confirmation",
+        "Description": "Confirm to printthe label",
+        "ProcessIndex": 1,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": false,
+        "PreScript": "Prescript_REPRINTBOXLABEL_Confirmation",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Box",
+        "Description": "Scan Box Label to print Packed Label",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "",
+        "hasWebTemplate": true
+      }
+    ]
+  },
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

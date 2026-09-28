@@ -1,0 +1,13 @@
+{
+  "Identifier": "dc2625a7-d7ce-58ee-b6b7-5044817e0683",
+  "Name": "3PL_RECEIVING_Comment",
+  "Description": "WebTemplate for process template 3PL_RECEIVING / step Comment",
+  "Type": "WEBTEMPLATE",
+  "Version": 0,
+  "LastModified": "04/08/2025",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

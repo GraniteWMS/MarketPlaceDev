@@ -1,0 +1,70 @@
+{
+  "Name": "PICKING",
+  "Description": "SO PICKING (SAGE) V7.2",
+  "Type": "PICKING",
+  "IsActive": true,
+  "IntegrationIsActive": false,
+  "IntegrationPost": false,
+  "Steps": [
+    {
+      "Name": "Document",
+      "Description": "Document",
+      "ProcessIndex": 0,
+      "NextIndex": 1,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "PrescriptPickingDocument",
+      "WebTemplateArtifact": "acca22e7-7e9c-523d-88e9-5039ee1c197f"
+    },
+    {
+      "Name": "TrackingEntity",
+      "Description": "Scan Tracking Barcode",
+      "ProcessIndex": 1,
+      "NextIndex": 2,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false
+    },
+    {
+      "Name": "Qty",
+      "Description": "Qty you are picking",
+      "ProcessIndex": 2,
+      "NextIndex": 1,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false
+    },
+    {
+      "Name": "Location",
+      "Description": "Staging Location",
+      "ProcessIndex": 100,
+      "NextIndex": 100,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "DefaultValue": "DIS",
+      "WebTemplateArtifact": "5b6430d1-ca9a-5e2f-afc5-e7dc89dfcac4"
+    },
+    {
+      "Name": "Step200",
+      "Description": "Step200",
+      "ProcessIndex": 200,
+      "NextIndex": 0,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "PrescriptPickingStep200"
+    },
+    {
+      "Name": "Step201",
+      "Description": "Step201-LabelPrint",
+      "ProcessIndex": 201,
+      "NextIndex": 201,
+      "IsActive": true,
+      "Required": false,
+      "IsBusinessRule": false,
+      "PreScript": "PrescriptPickingStep201PickLabelPrint"
+    }
+  ]
+}

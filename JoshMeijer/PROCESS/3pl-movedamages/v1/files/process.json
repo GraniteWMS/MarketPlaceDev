@@ -1,0 +1,48 @@
+{
+  "Name": "3PL_MOVEDAMAGES",
+  "Description": "MOVE TO DAMAGES",
+  "Type": "MOVE",
+  "IsActive": true,
+  "IntegrationIsActive": false,
+  "IntegrationPost": false,
+  "Steps": [
+    {
+      "Name": "TrackingEntity",
+      "Description": "Scan Pallet",
+      "ProcessIndex": 0,
+      "NextIndex": 1,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false
+    },
+    {
+      "Name": "Document",
+      "Description": "Document (Optional)",
+      "ProcessIndex": 1,
+      "NextIndex": 2,
+      "IsActive": true,
+      "Required": false,
+      "IsBusinessRule": false
+    },
+    {
+      "Name": "Comment",
+      "Description": "Damage Reason",
+      "ProcessIndex": 2,
+      "NextIndex": 0,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "WebTemplateArtifact": "548d27fb-bf51-520c-8f82-cdb51d4f5e79"
+    },
+    {
+      "Name": "Location",
+      "Description": "To Location",
+      "ProcessIndex": 100,
+      "NextIndex": 0,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "DefaultValue": "DAMAGES"
+    }
+  ]
+}

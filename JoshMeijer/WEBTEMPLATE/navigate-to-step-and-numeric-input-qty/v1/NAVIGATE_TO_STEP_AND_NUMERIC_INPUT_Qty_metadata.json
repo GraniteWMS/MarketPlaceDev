@@ -1,0 +1,13 @@
+{
+  "Identifier": "141d2a69-c428-5901-8158-1e872f9bc0eb",
+  "Name": "NAVIGATE_TO_STEP_AND_NUMERIC_INPUT_Qty",
+  "Description": "WebTemplate for process template NAVIGATE_TO_STEP_AND_NUMERIC_INPUT / step Qty",
+  "Type": "WEBTEMPLATE",
+  "Version": 1,
+  "LastModified": "05/05/2026",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

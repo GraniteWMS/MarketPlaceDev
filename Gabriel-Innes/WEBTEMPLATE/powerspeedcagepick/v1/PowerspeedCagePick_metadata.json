@@ -1,0 +1,13 @@
+{
+  "Identifier": "fccb355f-2373-5161-a53d-1f4c881b1404",
+  "Name": "PowerspeedCagePick",
+  "Description": "WebTemplate for process template PowerspeedCagePick",
+  "Type": "WEBTEMPLATE",
+  "Version": 1,
+  "LastModified": "03/07/2025",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

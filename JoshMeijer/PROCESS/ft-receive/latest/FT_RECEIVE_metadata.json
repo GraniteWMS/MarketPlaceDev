@@ -1,0 +1,171 @@
+{
+  "Identifier": "d0b288f8-d9bd-431f-adb7-0ed9a512c3a8",
+  "Name": "FT_RECEIVE",
+  "Description": "FT_RECEIVE\n\nReceiving process using the navigateToStep and navigateToStepButton in webtemplates.\nCustomer has items that require EAN barcode scanning, and a barcode may belong to multiple items codes.\nThe process looks at MasterItem Type (LabelType) to determine if barcode scan is required or not.\nIf no LabelType items exist - jump to Masteritem step and enter Qty.\nIf LabelType is valid - scan EANBarcode and validate - update MasterItem step and Qty for the EANBarcode and LabelType scanned.\n\nA rule defined in SystemStaticData - validates LabelType which require EANBarcode scan",
+  "Type": "PROCESS",
+  "Version": 0,
+  "LastModified": "20/05/2026",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "SQL_STORED_PROCEDURE",
+      "ArtifactIdentifier": "129a1a6d-0961-585e-ad1f-049aae3bbf3c",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Utility_GetTopTrackingEntity"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "cb22e4e0-5f1f-54ff-908e-bac02ff1f3f6",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_Receive_MasterItem"
+    },
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "3767217a-d34c-5575-a752-c935785155a9",
+      "ArtifactVersion": 1,
+      "ArtifactName": "MasterItemAlias_View"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "b758e4c3-3b1b-578d-b269-91682146909d",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_Receive_EANBarcode"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "19bc4724-704c-518c-bced-57faf2fbd06e",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_Receive_LabelType"
+    },
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "6a4ed192-b8af-5c21-9950-b3e69fa26801",
+      "ArtifactVersion": 1,
+      "ArtifactName": "WebTemplate_Receiving_DocumentLines"
+    },
+    {
+      "ArtifactType": "DATA",
+      "ArtifactIdentifier": "eca28c07-ad8e-5d6a-a699-9eec38503110",
+      "ArtifactVersion": 1,
+      "ArtifactName": "DataDependency_SystemStaticData_eca28c07ad8e5d6aa6999eec38503110"
+    }
+  ],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "RECEIVING",
+    "ProcessStepMetadata": [
+      {
+        "Name": "Location",
+        "Description": "Receiving Location",
+        "ProcessIndex": 100,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": false,
+        "DefaultValue": "REC",
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "Document",
+        "Description": "Document",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "DefaultValue": "",
+        "PreScript": "",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "MasterItem",
+        "Description": "Select / Enter Stock Code",
+        "ProcessIndex": 3,
+        "NextIndex": 4,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_Receive_MasterItem",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Qty",
+        "Description": "Enter Qty",
+        "ProcessIndex": 4,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": false,
+        "PreScript": ""
+      },
+      {
+        "Name": "UseBarcode",
+        "Description": "UseBarcode",
+        "ProcessIndex": 100,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "EANBarcode",
+        "Description": "Scan Unit or Carton Barcode",
+        "ProcessIndex": 2,
+        "NextIndex": 3,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_Receive_EANBarcode",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "LabelType",
+        "Description": "Select Label Type",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_Receive_LabelType",
+        "hasWebTemplate": false
+      }
+    ]
+  },
+  "PostDeployArtifacts": [
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "94f38c37-d95b-5e1a-adba-817d7694d421",
+      "ArtifactVersion": 1,
+      "ArtifactName": "FT_RECEIVE"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "c2afd228-b0fc-50c3-91e4-3439ff68db49",
+      "ArtifactVersion": 1,
+      "ArtifactName": "FT_RECEIVE_Document"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "1207ca87-c41f-5f52-b389-9cf3c60adac8",
+      "ArtifactVersion": 1,
+      "ArtifactName": "FT_RECEIVE_LabelType"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "1fab6f98-e06c-5f49-b543-c046404b91a1",
+      "ArtifactVersion": 1,
+      "ArtifactName": "FT_RECEIVE_EANBarcode"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "7f2463a3-395a-58e8-a7ff-ddacf80e1d2e",
+      "ArtifactVersion": 1,
+      "ArtifactName": "FT_RECEIVE_MasterItem"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "7999e2b6-dea1-54ef-9642-29c65633a45a",
+      "ArtifactVersion": 1,
+      "ArtifactName": "FT_RECEIVE_Qty"
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

@@ -1,0 +1,15 @@
+{{#if LabelType != "NONE"}} 
+    {{ 
+        navigateToStep({
+            stepName: "Qty",
+            submitFinalStep: true
+        }) 
+    }}
+{{/if}} 
+{{ 
+    navigateToStepButton({
+        stepName: "LabelType",
+        buttonText: "Change Label Type"
+    }) 
+}}
+<br>

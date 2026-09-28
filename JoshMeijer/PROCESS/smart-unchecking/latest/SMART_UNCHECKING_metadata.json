@@ -1,0 +1,91 @@
+{
+  "Identifier": "9dbb28a5-ac7a-42d2-aa48-05ec575178f3",
+  "Name": "SMART_UNCHECKING",
+  "Description": "Allows you to reverse any pack transaction created with SMART_CHECKING\n\nThe process allows you to scan any pallet, serial number, tracking entity, or master item scanned on the SMART_CHECKING process and it will reverse the corresponding pack transaction.\n\nThe process to reverse a single pack granite transaction involves quite a few database transactions so they are batched together in one COMMIT which is contained in a TRY CATCH block. If any of the transactions in the batch fail, none of the transactions will be committed. Check the Step200 for more clarity.",
+  "Type": "PROCESS",
+  "Version": 0,
+  "LastModified": "03/08/2024",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "369495c2-2694-5ac7-ba6b-7aea55230eb1",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_Uncheck_Document"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "508b8d6f-64e3-5e3a-832e-09a0ff1f7203",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_Uncheck_Barcode"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "ab0876d2-6852-5aa4-a3f2-022a80054c6c",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_Uncheck_Step200"
+    }
+  ],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "CUSTOM",
+    "ProcessStepMetadata": [
+      {
+        "Name": "Type",
+        "Description": "Type",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "Document",
+        "Description": "Enter Document Number",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_Uncheck_Document",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Barcode",
+        "Description": "Scan Barcode",
+        "ProcessIndex": 2,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_Uncheck_Barcode",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Step200",
+        "Description": "Step200",
+        "ProcessIndex": 200,
+        "NextIndex": 200,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_Uncheck_Step200",
+        "hasWebTemplate": true
+      }
+    ]
+  },
+  "PostDeployArtifacts": [
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "568f5339-fc6c-5b38-a36c-21083ed56d2e",
+      "ArtifactVersion": 1,
+      "ArtifactName": "SMART_UNCHECKING"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "ced23b01-c0fe-5638-8420-521ecb20595c",
+      "ArtifactVersion": 1,
+      "ArtifactName": "SMART_UNCHECKING_Type"
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

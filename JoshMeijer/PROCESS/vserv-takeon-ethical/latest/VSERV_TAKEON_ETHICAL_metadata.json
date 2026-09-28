@@ -1,0 +1,139 @@
+{
+  "Identifier": "502ea5c1-9ac1-4e8f-8620-fe8c3e660cfa",
+  "Name": "VSERV_TAKEON_ETHICAL",
+  "Description": "VSERV_TAKEON_ETHICAL\n\nReplenishes to TE linked to carrying entity if it has the same batch and expiry",
+  "Type": "PROCESS",
+  "Version": 0,
+  "LastModified": "12/06/2026",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "23c1ab73-8a66-56c8-af83-2b30fae7245e",
+      "ArtifactVersion": 1,
+      "ArtifactName": "MasterItemAlias_View"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "9ed9ad40-9fd8-5179-a427-10e6f432db32",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_TakeonEthical_MasterItem"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "cec9413e-6e4a-5e7a-9388-d38f35efc57b",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_TakeonEthical_Location"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "cd749833-2e10-5d82-8100-98ad013cb741",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_TakeonEthical_Batch"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "9f56fcb1-ac6a-5bd7-bcbe-193c2e4ce701",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_TakeonEthical_ExpiryDate"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "274c0c68-df4e-5df2-be2e-3b6c9cd5f280",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_TakeonEthical_Qty"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "829740b1-1eae-5183-8f5b-246ca57b19cf",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_TakeonEthical_CarryingEntity"
+    }
+  ],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "TAKEON",
+    "ProcessStepMetadata": [
+      {
+        "Name": "MasterItem",
+        "Description": "Scan EAN Barcode",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_TakeonEthical_MasterItem",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Location",
+        "Description": "Scan Rack Location",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_TakeonEthical_Location",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Batch",
+        "Description": "Enter Batch",
+        "ProcessIndex": 2,
+        "NextIndex": 3,
+        "isActive": true,
+        "Required": false,
+        "PreScript": "Prescript_TakeonEthical_Batch",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "ExpiryDate",
+        "Description": "Enter Expiry Date (YYYYMM)",
+        "ProcessIndex": 3,
+        "NextIndex": 4,
+        "isActive": true,
+        "Required": false,
+        "PreScript": "Prescript_TakeonEthical_ExpiryDate",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Qty",
+        "Description": "Enter Qty",
+        "ProcessIndex": 5,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_TakeonEthical_Qty",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "CarryingEntity",
+        "Description": "Scan Ethical (ETHL) Stock Box",
+        "ProcessIndex": 4,
+        "NextIndex": 5,
+        "isActive": true,
+        "Required": false,
+        "PreScript": "Prescript_TakeonEthical_CarryingEntity",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "UseBarcode",
+        "Description": "UseBarcode",
+        "ProcessIndex": 100,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      }
+    ]
+  },
+  "PostDeployArtifacts": [
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "db9da792-9c18-5de9-9326-65d151f72b5c",
+      "ArtifactVersion": 1,
+      "ArtifactName": "VSERV_TAKEON_ETHICAL_CarryingEntity"
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

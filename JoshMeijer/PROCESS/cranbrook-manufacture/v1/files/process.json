@@ -1,0 +1,108 @@
+{
+  "Name": "CRANBROOK_MANUFACTURE",
+  "Description": "CRANBROOK_MANUFACTURE",
+  "Type": "MANUFACTURE",
+  "IsActive": true,
+  "IntegrationIsActive": false,
+  "IntegrationPost": false,
+  "WebTemplateArtifact": "91421b90-6d77-5a6f-9d03-f20a21629b83",
+  "Steps": [
+    {
+      "Name": "Document",
+      "Description": "ENTER DOCUMENT NUMBER",
+      "ProcessIndex": 0,
+      "NextIndex": 1,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "PreScript_Manufacture_Document"
+    },
+    {
+      "Name": "Location",
+      "Description": "ENTER MACHINE NUMBER",
+      "ProcessIndex": 1,
+      "NextIndex": 2,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false
+    },
+    {
+      "Name": "Mix",
+      "Description": "CHOOSE MIX",
+      "ProcessIndex": 2,
+      "NextIndex": 3,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "WebTemplateArtifact": "b82829cc-498d-52e5-b5fe-0f632deb91c2"
+    },
+    {
+      "Name": "MasterItem",
+      "Description": "ENTER FINISH PRODUCT CODE",
+      "ProcessIndex": 3,
+      "NextIndex": 4,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false
+    },
+    {
+      "Name": "Months",
+      "Description": "MONTHS TILL EXPIRY DATE",
+      "ProcessIndex": 4,
+      "NextIndex": 5,
+      "IsActive": true,
+      "Required": false,
+      "IsBusinessRule": false,
+      "PreScript": "PreScript_Manufacture_Batch",
+      "WebTemplateArtifact": "3d57f82a-5fc3-5945-acc6-b4aaaf103bb9"
+    },
+    {
+      "Name": "Qty",
+      "Description": "ENTER QUANTITY (KG)",
+      "ProcessIndex": 5,
+      "NextIndex": 6,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "Prescript_Generic_Replace_Decimal"
+    },
+    {
+      "Name": "NoEntities",
+      "Description": "ENTER NUMBER OF PALLETS",
+      "ProcessIndex": 6,
+      "NextIndex": 0,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "PreScript_Manufacture_Entities"
+    },
+    {
+      "Name": "ActionQtyAllowance",
+      "Description": "ActionQtyAllowance",
+      "ProcessIndex": 100,
+      "NextIndex": 0,
+      "IsActive": true,
+      "Required": false,
+      "IsBusinessRule": false,
+      "DefaultValue": "15"
+    },
+    {
+      "Name": "Batch",
+      "Description": "Product Date",
+      "ProcessIndex": 100,
+      "NextIndex": 0,
+      "IsActive": true,
+      "Required": false,
+      "IsBusinessRule": false
+    },
+    {
+      "Name": "ExpiryDate",
+      "Description": "Enter Expiry Date (YYYYMMDD)",
+      "ProcessIndex": 100,
+      "NextIndex": 0,
+      "IsActive": true,
+      "Required": false,
+      "IsBusinessRule": false
+    }
+  ]
+}

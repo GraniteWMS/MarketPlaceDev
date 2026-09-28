@@ -1,0 +1,176 @@
+{
+  "Identifier": "d0663463-23bb-44d5-82c1-3e38088bb428",
+  "Name": "VSERV_PICKING_ETHICAL",
+  "Description": "VSERV_PICKING_ETHICAL\n\nTo deduces the TE from scanning the carrying entity and forces you to confirm the pick by scanning the alias",
+  "Type": "PROCESS",
+  "Version": 0,
+  "LastModified": "12/06/2026",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "d7cdc3cf-c748-5b56-9ee1-a1226dfaa997",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Custom_VW_RouteNameSequence"
+    },
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "4c3fe570-abb2-5bb0-8619-6178b9517e90",
+      "ArtifactVersion": 1,
+      "ArtifactName": "WebTemplate_PickingEthical_Document"
+    },
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "c6d9b0b8-ee94-5001-b143-f99a8da378d3",
+      "ArtifactVersion": 1,
+      "ArtifactName": "WebTemplate_PickingEthical_Comment"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "f81cde19-a261-5336-ac5b-dd4c338380d6",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_PickingEthical_Document"
+    },
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "ecd614c0-4584-5853-8f6e-e2cadc75d0fe",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Custom_VW_Ethical_PickingQuantitiesNotPacked"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "3cc7e7dd-ca85-597c-9eea-3dbfd349e797",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_PickingEthical_TrackingEntity"
+    },
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "1d58b3bc-c95b-5f5b-be1a-454cef00f09c",
+      "ArtifactVersion": 1,
+      "ArtifactName": "MasterItemAlias_View"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "6ef1d1d8-80be-50f1-88e2-510748aa67ef",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_PickingEthical_ConfirmItem"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "85f90707-de34-552b-81f9-492aac12391e",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_PickingEthical_Step200"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "7a41f554-e3a7-5578-b9ec-cc6cb2fa1ef2",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_PickingEthical_Comment"
+    }
+  ],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "PICKING",
+    "ProcessStepMetadata": [
+      {
+        "Name": "Document",
+        "Description": "Enter Picking Order",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_PickingEthical_Document",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Location",
+        "Description": "Location",
+        "ProcessIndex": 100,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "TrackingEntity",
+        "Description": "Scan Ethical (ETHL) Stock Box",
+        "ProcessIndex": 2,
+        "NextIndex": 3,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_PickingEthical_TrackingEntity",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Qty",
+        "Description": "Qty",
+        "ProcessIndex": 100,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "DefaultValue": "1",
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "ConfirmItem",
+        "Description": "Scan EAN Barcode",
+        "ProcessIndex": 3,
+        "NextIndex": 3,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_PickingEthical_ConfirmItem",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Step200",
+        "Description": "Step200",
+        "ProcessIndex": 200,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_PickingEthical_Step200",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Comment",
+        "Description": "Enter Picking Crate (PC) Barcode",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_PickingEthical_Comment",
+        "hasWebTemplate": false
+      }
+    ]
+  },
+  "PostDeployArtifacts": [
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "38cb4014-e289-5332-8683-17196eea2dfa",
+      "ArtifactVersion": 1,
+      "ArtifactName": "VSERV_PICKING_ETHICAL"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "4f825b49-13fb-5af6-af8c-822732cb836b",
+      "ArtifactVersion": 1,
+      "ArtifactName": "VSERV_PICKING_ETHICAL_Document"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "c9df1128-28af-59b1-88a9-37b3063b1285",
+      "ArtifactVersion": 1,
+      "ArtifactName": "VSERV_PICKING_ETHICAL_Comment"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "5859a1ae-8b67-587b-ba7a-204ed318282f",
+      "ArtifactVersion": 1,
+      "ArtifactName": "VSERV_PICKING_ETHICAL_TrackingEntity"
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

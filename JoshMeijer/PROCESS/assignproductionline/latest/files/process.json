@@ -1,0 +1,88 @@
+{
+  "Name": "ASSIGNPRODUCTIONLINE",
+  "Description": "ASSIGN PRODUCTION LINE",
+  "Type": "CUSTOM",
+  "IsActive": true,
+  "IntegrationIsActive": false,
+  "IntegrationPost": false,
+  "Steps": [
+    {
+      "Name": "ProductionLine",
+      "Description": "Production Line Number",
+      "ProcessIndex": 0,
+      "NextIndex": 1,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "PrescriptAssignProductionLineProductionLine",
+      "WebTemplateArtifact": "f8aa363c-98ec-5ec5-90cc-37699257a6bd"
+    },
+    {
+      "Name": "Job",
+      "Description": "Enter Job Number",
+      "ProcessIndex": 1,
+      "NextIndex": 2,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false
+    },
+    {
+      "Name": "PreformMasterItem",
+      "Description": "Preform MasterItem",
+      "ProcessIndex": 2,
+      "NextIndex": 3,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "WebTemplateArtifact": "411398d8-09b2-5410-a087-3ecda47e91dc"
+    },
+    {
+      "Name": "MasterItem",
+      "Description": "Finished MasterItem",
+      "ProcessIndex": 3,
+      "NextIndex": 4,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "PrescriptAssignProductionLineMasterItem",
+      "WebTemplateArtifact": "c6aa0f0e-4d58-55c1-9025-d29f023d5462"
+    },
+    {
+      "Name": "Batch",
+      "Description": "Confirm LOT",
+      "ProcessIndex": 4,
+      "NextIndex": 5,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false
+    },
+    {
+      "Name": "PalletsPerBatch",
+      "Description": "Pallets per LOT",
+      "ProcessIndex": 5,
+      "NextIndex": 6,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false
+    },
+    {
+      "Name": "BottlesPerPallet",
+      "Description": "Bottles per Pallet",
+      "ProcessIndex": 6,
+      "NextIndex": 7,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false
+    },
+    {
+      "Name": "Confirmation",
+      "Description": "Confirmation",
+      "ProcessIndex": 7,
+      "NextIndex": 0,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "PrescriptAssignProductionLineConfirmation"
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "Identifier": "0912e353-79c5-5a31-9311-e805d07d1029",
+  "Name": "PrescriptAddEANBarcodeMasterItem",
+  "Description": "",
+  "Type": "PRESCRIPT",
+  "Version": 1,
+  "LastModified": "29/06/2026",
+  "Tags": [],
+  "ArtifactDependencies": []
+}

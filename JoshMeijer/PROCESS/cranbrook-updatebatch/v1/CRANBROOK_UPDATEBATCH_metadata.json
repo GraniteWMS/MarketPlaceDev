@@ -1,0 +1,65 @@
+{
+  "Identifier": "669c7751-e9f5-46c7-83c7-b784463e0b9d",
+  "Name": "CRANBROOK_UPDATEBATCH",
+  "Description": "UPDATE BATCH\n\nIf you want the user to be able to update the batch from the scanner\n\nWrite to the Audit table",
+  "Type": "PROCESS",
+  "Version": 1,
+  "LastModified": "20/05/2026",
+  "Tags": [
+    "Electronics",
+    "Construction",
+    "E-commerce",
+    "Logistics",
+    "Pharmaceutical",
+    "Cold Storage",
+    "Textile",
+    "Agricultural",
+    "Automotive",
+    "Retail",
+    "Manufacturing"
+  ],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "cd7540b0-64c7-5618-8196-fa8d05e66e51",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PrescriptUpdateBatchTrackingEntity"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "4ed1785a-c110-5da7-8a04-2738b3826784",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PrescriptUpdateBatchBatch"
+    }
+  ],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "CUSTOM",
+    "ProcessStepMetadata": [
+      {
+        "Name": "TrackingEntity",
+        "Description": "Scan the Barcode You Want To Update",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "PrescriptUpdateBatchTrackingEntity",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Batch",
+        "Description": "Enter New Batch Number",
+        "ProcessIndex": 1,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": false,
+        "PreScript": "PrescriptUpdateBatchBatch",
+        "hasWebTemplate": true
+      }
+    ]
+  },
+  "PostDeployArtifacts": [],
+  "DependsOnClr": true,
+  "SqlClrAssemblyVersion": "7.0.0.0",
+  "Deprecated": false
+}

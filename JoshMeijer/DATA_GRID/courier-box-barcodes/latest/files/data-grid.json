@@ -1,0 +1,9 @@
+{
+  "Group": "Courier",
+  "Name": "Courier Box Barcodes",
+  "SQLView": "Custom_DG_CourierPackingBoxBarcodeReport",
+  "GridDefinition": "@GridDefinition",
+  "PageSize": 100000,
+  "IsApplicationGrid": false,
+  "IsCustomGrid": true
+}

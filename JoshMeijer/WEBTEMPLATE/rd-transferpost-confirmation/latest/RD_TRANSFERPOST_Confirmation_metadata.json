@@ -1,0 +1,19 @@
+{
+  "Identifier": "eb0bce76-dd46-5ca5-9896-13b9676276af",
+  "Name": "RD_TRANSFERPOST_Confirmation",
+  "Description": "WebTemplate for process template RD_TRANSFERPOST / step Confirmation",
+  "Type": "WEBTEMPLATE",
+  "Version": 0,
+  "LastModified": "09/10/2025",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "SQL_STORED_PROCEDURE",
+      "ArtifactIdentifier": "0fa6684d-4caf-5ae1-8720-fbc30ffede44",
+      "ArtifactVersion": 1
+    }
+  ],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

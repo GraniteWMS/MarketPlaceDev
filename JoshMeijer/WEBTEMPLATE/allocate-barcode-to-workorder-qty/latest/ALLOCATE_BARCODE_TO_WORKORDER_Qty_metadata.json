@@ -1,0 +1,13 @@
+{
+  "Identifier": "f7761407-ddf6-5f3e-a376-5f11b9621081",
+  "Name": "ALLOCATE_BARCODE_TO_WORKORDER_Qty",
+  "Description": "WebTemplate for process template ALLOCATE_BARCODE_TO_WORKORDER / step Qty",
+  "Type": "WEBTEMPLATE",
+  "Version": 0,
+  "LastModified": "07/06/2026",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

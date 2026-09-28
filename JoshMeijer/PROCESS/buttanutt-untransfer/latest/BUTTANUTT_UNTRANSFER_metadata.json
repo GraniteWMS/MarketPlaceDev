@@ -1,0 +1,99 @@
+{
+  "Identifier": "a04558e5-48ec-4163-9295-1e37f2504973",
+  "Name": "BUTTANUTT_UNTRANSFER",
+  "Description": "BUTTANUTT_UNTRANSFER\n\nIt allows you to reverse a transfer from the scanner",
+  "Type": "PROCESS",
+  "Version": 0,
+  "LastModified": "07/06/2026",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "c39f6a42-6a86-56c5-bd65-15129a4aeac9",
+      "ArtifactVersion": 1,
+      "ArtifactName": "WebTemplate_UntransferTransaction_TransactionID"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "2e608ba6-6301-5384-81cd-ed396f438d1b",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_UntransferTransaction_TransactionID"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "f88602a3-bb6a-5136-a55e-36d332d8c6f5",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_UntransferTransaction_Step200"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "583a572d-43d9-5bc4-a3f3-fff313cc72d0",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_UntransferTransaction_Confirmation"
+    }
+  ],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "CUSTOM",
+    "ProcessStepMetadata": [
+      {
+        "Name": "Document",
+        "Description": "Enter Document",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "DefaultValue": "",
+        "PreScript": "",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "TransactionID",
+        "Description": "Select Transaction ID",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_UntransferTransaction_TransactionID",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Step200",
+        "Description": "Reverses the Transaction",
+        "ProcessIndex": 200,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_UntransferTransaction_Step200",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Confirmation",
+        "Description": "Are you sure you want to reverse this transaction?",
+        "ProcessIndex": 2,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_UntransferTransaction_Confirmation",
+        "hasWebTemplate": true
+      }
+    ]
+  },
+  "PostDeployArtifacts": [
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "c9e2a50c-3b61-5fe3-a5f6-156ac7a03e8f",
+      "ArtifactVersion": 1,
+      "ArtifactName": "BUTTANUTT_UNTRANSFER_Document"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "44b33dd3-10a2-5d1e-ba44-6b3e5f195a7f",
+      "ArtifactVersion": 1,
+      "ArtifactName": "BUTTANUTT_UNTRANSFER_TransactionID"
+    }
+  ],
+  "DependsOnClr": true,
+  "SqlClrAssemblyVersion": "7.0.0.0",
+  "Deprecated": false
+}

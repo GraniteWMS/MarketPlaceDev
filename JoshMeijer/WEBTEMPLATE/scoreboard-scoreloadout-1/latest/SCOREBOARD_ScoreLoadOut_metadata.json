@@ -1,0 +1,19 @@
+{
+  "Identifier": "4e49a537-8ca0-56c9-8395-a73293741480",
+  "Name": "SCOREBOARD_ScoreLoadOut",
+  "Description": "WebTemplate for process template SCOREBOARD / step ScoreLoadOut",
+  "Type": "WEBTEMPLATE",
+  "Version": 0,
+  "LastModified": "13/07/2024",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "b8503ac0-1394-551c-9805-dcc6bb0bde33",
+      "ArtifactVersion": 1
+    }
+  ],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

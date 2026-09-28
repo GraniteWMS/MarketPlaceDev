@@ -1,0 +1,30 @@
+{
+  "Name": "3PL_RELEASELOADOUT",
+  "Description": "3PL_Release Loadout",
+  "Type": "CUSTOM",
+  "IsActive": true,
+  "IntegrationIsActive": false,
+  "IntegrationPost": false,
+  "Steps": [
+    {
+      "Name": "Document",
+      "Description": "Document",
+      "ProcessIndex": 0,
+      "NextIndex": 1,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "WebTemplateArtifact": "f3c56b78-99ae-57de-965a-035552c2823b"
+    },
+    {
+      "Name": "Confirmation",
+      "Description": "Confirmation",
+      "ProcessIndex": 1,
+      "NextIndex": 0,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "Prescript_3PL_ReleaseLoadoutConfirmation"
+    }
+  ]
+}

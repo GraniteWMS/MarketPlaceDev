@@ -1,0 +1,19 @@
+{
+  "Identifier": "bb96755e-8de2-57da-89c8-b3996107b4f5",
+  "Name": "PEANUT_CONSUME_RUTF_FINAL_Document",
+  "Description": "WebTemplate for process template PEANUT_CONSUME_RUTF_FINAL / step Document",
+  "Type": "WEBTEMPLATE",
+  "Version": 0,
+  "LastModified": "31/05/2026",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "5d7ab0ef-d9c6-52a2-99d0-dedff4c0d907",
+      "ArtifactVersion": 1
+    }
+  ],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

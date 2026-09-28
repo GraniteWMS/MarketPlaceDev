@@ -1,0 +1,66 @@
+{
+  "Identifier": "029bcf4d-5739-4027-8095-830749ecb997",
+  "Name": "SCRAP",
+  "Description": "SCRAP\n\nThis is the default (empty) SCRAP process.",
+  "Type": "PROCESS",
+  "Version": 0,
+  "LastModified": "27/03/2024",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "SCRAP",
+    "ProcessStepMetadata": [
+      {
+        "Name": "Reference",
+        "Description": "Reference",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "TrackingEntity",
+        "Description": "TrackingEntity",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "Comment",
+        "Description": "Select Scrap Reason",
+        "ProcessIndex": 2,
+        "NextIndex": 3,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "Confirmation",
+        "Description": "Continue with scrap transaction?",
+        "ProcessIndex": 3,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      }
+    ]
+  },
+  "PostDeployArtifacts": [
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "4f48b102-2d88-5613-860d-cc405ba14938",
+      "ArtifactVersion": 1,
+      "ArtifactName": "SCRAP_Comment"
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

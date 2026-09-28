@@ -1,0 +1,61 @@
+{
+  "Name": "PEANUT_CONSUME_FINAL",
+  "Description": "PEANUT_CONSUME_FINAL",
+  "Type": "CONSUME",
+  "IsActive": true,
+  "IntegrationIsActive": false,
+  "IntegrationPost": false,
+  "WebTemplateArtifact": "d554ced3-875b-5a6c-8ed5-c1152689d44c",
+  "Steps": [
+    {
+      "Name": "Document",
+      "Description": "Enter FG Document",
+      "ProcessIndex": 0,
+      "NextIndex": 1,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "Prescript_PeanutConsume_Document",
+      "WebTemplateArtifact": "db21e92f-5958-522b-9dd6-114a2b628585"
+    },
+    {
+      "Name": "TrackingEntity",
+      "Description": "Scan Barcode To Consume",
+      "ProcessIndex": 1,
+      "NextIndex": 2,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "Prescript_PeanutConsume_TrackingEntity"
+    },
+    {
+      "Name": "Qty",
+      "Description": "Qty To Consume",
+      "ProcessIndex": 2,
+      "NextIndex": 1,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "Prescript_PeanutConsume_Qty"
+    },
+    {
+      "Name": "Comment",
+      "Description": "Comment",
+      "ProcessIndex": 100,
+      "NextIndex": 0,
+      "IsActive": true,
+      "Required": false,
+      "IsBusinessRule": false
+    },
+    {
+      "Name": "Location",
+      "Description": "Location",
+      "ProcessIndex": 100,
+      "NextIndex": 0,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "DefaultValue": "Peanut Warehouse"
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "Identifier": "35b037d7-2ab9-58eb-ad95-b615332f8df0",
+  "Name": "PICKING Credit Return",
+  "Description": "WebTemplate for process template PICKING Credit Return",
+  "Type": "WEBTEMPLATE",
+  "Version": 0,
+  "LastModified": "12/02/2025",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

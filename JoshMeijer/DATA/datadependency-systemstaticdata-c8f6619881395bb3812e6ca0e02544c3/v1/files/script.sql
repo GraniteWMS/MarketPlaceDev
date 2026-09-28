@@ -1,0 +1,2 @@
+INSERT INTO [SystemStaticData] ([Key],[Description],[Group],[Value],[isEncrypted]) 
+VALUES('PackingListPrinterStation6','The printer used to print the packing list at dispatch','PrinterName','HPBA4227 (HP LaserJet Pro 3001-3008) ST5_6_7 (redirected 2)','False')

@@ -1,0 +1,47 @@
+{
+  "Identifier": "4ab77529-0be4-4fd9-a82a-780eee43b503",
+  "Name": "VSERV_MOVE_TO_ETHICAL_REC",
+  "Description": "VSERV_MOVE_TO_ETHICAL_REC\n\nMoves a carrying entity to receiving",
+  "Type": "PROCESS",
+  "Version": 1,
+  "LastModified": "12/06/2026",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "bf6020d1-f20b-5225-b301-d436bc7b1886",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_MoveToEthicalReceiving_TrackingEntity"
+    }
+  ],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "MOVE",
+    "ProcessStepMetadata": [
+      {
+        "Name": "TrackingEntity",
+        "Description": "Scan Ethical (ETHL) Stock Box",
+        "ProcessIndex": 0,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_MoveToEthicalReceiving_TrackingEntity",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Location",
+        "Description": "Location",
+        "ProcessIndex": 100,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "DefaultValue": "ETHICAL RECEIVING",
+        "PreScript": "",
+        "hasWebTemplate": true
+      }
+    ]
+  },
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

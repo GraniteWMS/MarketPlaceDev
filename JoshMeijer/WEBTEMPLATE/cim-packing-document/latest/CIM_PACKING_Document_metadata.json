@@ -1,0 +1,13 @@
+{
+  "Identifier": "4b6da5d7-016d-565a-ae74-1a2e62cdc645",
+  "Name": "CIM_PACKING_Document",
+  "Description": "WebTemplate for process template CIM_PACKING / step Document",
+  "Type": "WEBTEMPLATE",
+  "Version": 0,
+  "LastModified": "18/05/2026",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

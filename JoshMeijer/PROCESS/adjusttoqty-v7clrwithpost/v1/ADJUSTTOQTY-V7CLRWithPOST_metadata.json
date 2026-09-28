@@ -1,0 +1,112 @@
+{
+  "Identifier": "4c7760ac-7c22-409b-855a-b96695ad0ed8",
+  "Name": "ADJUSTTOQTY-V7CLRWithPOST",
+  "Description": "ADJUST TO QTY (V7Clr and ClrPost)\n\nEasy adjust to user doesnt have to calculate Adjustment Qty -just enter the new count.\nAlso doesnt have to select increase or decrease\n\nThe process is a custom process -uses CLR to perform the adjustment.\nThis process adds a STEP 201 to use the CLR POST as well.  It still looks at the Integration_Transactions View to pick up the last transaction (just entered).  It uses a DATEDIFF to check that the Transaction was in the last 60 seconds.",
+  "Type": "PROCESS",
+  "Version": 1,
+  "LastModified": "30/07/2026",
+  "Tags": [
+    "Manufacturing",
+    "Retail",
+    "Automotive",
+    "Agricultural",
+    "Textile",
+    "Electronics",
+    "Construction",
+    "E-commerce",
+    "Logistics",
+    "Pharmaceutical",
+    "Cold Storage"
+  ],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "2d43ce6f-264e-5341-aac4-85c007deeb94",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PrescriptAdjustToQtyTrackingEntity"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "eb00702c-9291-5a2b-abce-76807814adcf",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PrescriptAdjustToQtyQty"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "2f3c0bfa-ef37-59cd-8244-c5c9d33139b0",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PrescriptAdjustToQtyStep200"
+    },
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "a1455fd9-4b46-5bf4-87fe-7cab00156b65",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Integration_Transactions"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "2cc7d1b6-6bed-511b-a7e6-a145480a9502",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PrescriptAdjustmentToQty_Step201"
+    }
+  ],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "CUSTOM",
+    "ProcessStepMetadata": [
+      {
+        "Name": "TrackingEntity",
+        "Description": "TrackingEntity",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "DefaultValue": "",
+        "PreScript": "PrescriptAdjustToQtyTrackingEntity",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Qty",
+        "Description": "Qty",
+        "ProcessIndex": 1,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "DefaultValue": "",
+        "PreScript": "PrescriptAdjustToQtyQty",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Step200",
+        "Description": "Do the Adjustment with CLR",
+        "ProcessIndex": 200,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "PrescriptAdjustToQtyStep200",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Step201",
+        "Description": "Post to ERP using CLR",
+        "ProcessIndex": 201,
+        "NextIndex": 201,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "PrescriptAdjustmentToQty_Step201",
+        "hasWebTemplate": true
+      }
+    ]
+  },
+  "PostDeployArtifacts": [
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "d1068585-f806-58f7-897e-0dbb9de414a1",
+      "ArtifactVersion": 1,
+      "ArtifactName": "ADJUSTTOQTY-V7CLRWithPOST"
+    }
+  ],
+  "DependsOnClr": true,
+  "SqlClrAssemblyVersion": "7.0.0.0",
+  "Deprecated": false
+}

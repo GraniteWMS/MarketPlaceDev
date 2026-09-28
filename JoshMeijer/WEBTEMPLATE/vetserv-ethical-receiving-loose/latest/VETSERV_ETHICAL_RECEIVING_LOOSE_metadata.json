@@ -1,0 +1,13 @@
+{
+  "Identifier": "2450214a-f6b7-5031-a953-bb60e9220147",
+  "Name": "VETSERV_ETHICAL_RECEIVING_LOOSE",
+  "Description": "WebTemplate for process template VETSERV_ETHICAL_RECEIVING_LOOSE",
+  "Type": "WEBTEMPLATE",
+  "Version": 0,
+  "LastModified": "12/06/2026",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

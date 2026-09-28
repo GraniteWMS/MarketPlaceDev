@@ -1,0 +1,13 @@
+{
+  "Identifier": "ce9668ea-cd9a-54bd-90dd-63d5d2d0b1bd",
+  "Name": "AGRILINEPACKING",
+  "Description": "WebTemplate for process template AGRILINEPACKING",
+  "Type": "WEBTEMPLATE",
+  "Version": 0,
+  "LastModified": "23/06/2026",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

@@ -1,0 +1,78 @@
+CREATE PROCEDURE [dbo].[Prescript_Packing_MasterItem] (
+   @input dbo.ScriptInputParameters READONLY 
+)
+AS
+DECLARE @Output TABLE(
+  Name varchar(max),  
+  Value varchar(max)  
+  )
+SET NOCOUNT ON;
+DECLARE @valid bit = 1
+DECLARE @message varchar(MAX)
+DECLARE @stepInput varchar(MAX) 
+SELECT @stepInput = Value FROM @input WHERE Name = 'StepInput' 
+DECLARE @Location varchar(50) = (SELECT Value FROM @input WHERE Name = 'Location')
+DECLARE @BoxNumber varchar(30) = (SELECT Value FROM @input WHERE Name = 'CarryingEntity')
+DECLARE @TrackingEntityBarcode varchar(100)
+DECLARE @MasterItemCode VARCHAR(50) 
+DECLARE @userName nvarchar(max) = (SELECT Value FROM @input WHERE Name = 'User')
+DECLARE @FirstSpace int
+BEGIN TRY
+	IF @stepInput = 'CLOSE BOX AND PRINT PACKING LABEL'
+	BEGIN
+		
+		SELECT @Valid = 1
+		SELECT @Message = 'Box Closed and Packing Label queued to printer  - Please go back to create a new box label'
+		INSERT INTO LabelPrintQueue (DateQueued,LabelFormat,LabelParameter1,QuantityofLabels,Printer,[Status],[User])
+		SELECT getdate(),'SSRSBoxLabel',@BoxNumber,1,'Z4','ENTERED',@userName
+		SELECT @stepInput = ''
+	END
+	ELSE
+	BEGIN
+		
+		SELECT @FirstSpace = Charindex(' ',@stepInput,0)
+		IF @FirstSpace > 0
+			SELECT @stepInput = LEFT(@stepInput,@Firstspace-1)
+		SELECT @MasterItemCode = @stepInput
+		IF EXISTS (SELECT 1 FROM dbo.MasterItem WHERE Code = @MasterItemCode AND isActive = 1)
+			SET @MasterItemCode = @stepInput;
+		ELSE
+		BEGIN
+			IF LEN(@stepInput) = 13 AND EXISTS(SELECT 1 FROM dbo.MasterItem WHERE Code = LEFT(@stepInput,12))
+			BEGIN
+				SET @MasterItemCode = LEFT(@stepInput,12)
+				SELECT @stepInput = LEFT(@stepInput,12)
+			END
+			ELSE
+			BEGIN
+ 
+					DECLARE @aliasCount int = 0, @aliasCode varchar(100) = NULL;
+					SELECT @aliasCount = COUNT(*),
+							@aliasCode  = MAX(MI.Code)
+					FROM MasterItemAlias_View MIAV
+					JOIN dbo.MasterItem      MI ON MIAV.MasterItem_id = MI.ID
+					WHERE MIAV.Code = @stepInput 
+						AND MI.isActive = 1;
+					IF @aliasCount = 0
+						RAISERROR('(%s) is not a valid item code or known alias.', 16, 1, @stepInput);
+					IF @aliasCount > 1
+						RAISERROR('Scanned code "%s" maps to multiple items. Please scan the item code.', 16, 1, @stepInput);
+					SET @MasterItemCode = @aliasCode;
+				END
+       
+		END
+		SELECT @Valid = 1
+		SELECT @message = ''
+		SELECT @stepInput = @MasterItemCode
+	END
+END TRY
+BEGIN CATCH
+	SELECT @Valid = 0, @Message = ERROR_MESSAGE()
+END CATCH
+INSERT INTO @Output
+SELECT 'Message', @message
+INSERT INTO @Output
+SELECT 'Valid', @valid
+INSERT INTO @Output
+SELECT 'StepInput', @stepInput
+SELECT * FROM @Output

@@ -1,0 +1,93 @@
+{
+  "Identifier": "d03fc5ed-40b9-4189-bd7d-0dc14aed887f",
+  "Name": "BUCKY_UNRECEIVE",
+  "Description": "BUCKY_UNRECEIVE\n\nUseful for reversing a receive transaction on the scanner. Has strong built-in, tested rules and functionality.",
+  "Type": "PROCESS",
+  "Version": 1,
+  "LastModified": "27/01/2026",
+  "Tags": [
+    "Manufacturing",
+    "Retail",
+    "Automotive",
+    "Agricultural",
+    "Textile",
+    "Electronics",
+    "Construction",
+    "E-commerce",
+    "Logistics",
+    "Pharmaceutical",
+    "Cold Storage"
+  ],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "e67553a3-4134-5801-913f-e776767bf4b1",
+      "ArtifactVersion": 1,
+      "ArtifactName": "WebTemplate_UnreceiveTransaction_TransactionID"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "a0497c53-4143-5df5-b426-1eb83363e023",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_UnreceiveTransaction_TransactionID"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "31ea582b-9cd1-5269-80a0-442d530e3049",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_UnreceiveTransaction_Step200"
+    }
+  ],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "CUSTOM",
+    "ProcessStepMetadata": [
+      {
+        "Name": "Document",
+        "Description": "Enter Document",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": false,
+        "PreScript": ""
+      },
+      {
+        "Name": "TransactionID",
+        "Description": "Select Transaction ID",
+        "ProcessIndex": 1,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_UnreceiveTransaction_TransactionID",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Step200",
+        "Description": "Reverses the Transaction",
+        "ProcessIndex": 200,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_UnreceiveTransaction_Step200",
+        "hasWebTemplate": true
+      }
+    ]
+  },
+  "PostDeployArtifacts": [
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "b8cb1592-bac8-56ce-ac1e-308386b93ddd",
+      "ArtifactVersion": 1,
+      "ArtifactName": "BUCKY_UNRECEIVE_Document"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "18471041-1ffc-57de-8110-65367b636efd",
+      "ArtifactVersion": 1,
+      "ArtifactName": "BUCKY_UNRECEIVE_TransactionID"
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

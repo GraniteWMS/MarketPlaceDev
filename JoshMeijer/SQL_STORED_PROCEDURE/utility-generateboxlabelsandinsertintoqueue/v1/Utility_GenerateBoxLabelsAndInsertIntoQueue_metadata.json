@@ -1,0 +1,10 @@
+{
+  "Identifier": "b01df8f7-c1fa-5262-a51b-00034873e881",
+  "Name": "Utility_GenerateBoxLabelsAndInsertIntoQueue",
+  "Description": "",
+  "Type": "SQL_STORED_PROCEDURE",
+  "Version": 1,
+  "LastModified": "10/05/2026",
+  "Tags": [],
+  "ArtifactDependencies": []
+}

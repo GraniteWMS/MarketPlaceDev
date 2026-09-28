@@ -1,0 +1,39 @@
+{
+  "Identifier": "4d93e24a-6be6-4fcc-a134-dd5f9588559f",
+  "Name": "LABELPRINT",
+  "Description": "LABELPRINT\n\nThis is the default (empty) LABELPRINT process.",
+  "Type": "PROCESS",
+  "Version": 1,
+  "LastModified": "19/03/2024",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "LABELPRINT",
+    "ProcessStepMetadata": [
+      {
+        "Name": "Type",
+        "Description": "Type",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "Barcode",
+        "Description": "Barcode",
+        "ProcessIndex": 1,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      }
+    ]
+  },
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

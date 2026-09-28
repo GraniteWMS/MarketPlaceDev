@@ -1,0 +1,115 @@
+{
+  "Identifier": "9f2f36d9-6f20-48c9-b327-aff75bc649c1",
+  "Name": "SOLOSTOCKTAKECOUNT",
+  "Description": "SOLOSTOCKTAKECOUNT\n\nAutomatically moves and adjusts the stock.",
+  "Type": "PROCESS",
+  "Version": 1,
+  "LastModified": "08/04/2025",
+  "Tags": [
+    "Logistics"
+  ],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "043ca6ba-ad38-5056-ada6-c892d0863825",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_StockTakeHoldCustom_TrackingEntity"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "e2e3d6e6-6457-547e-9e06-bc81b9e039ff",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_StockTakeHoldCustom_Location"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "cfaf6d08-dc2b-53ad-bc22-159a1202efbe",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_StockTakeHoldCustom_Qty"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "c67e8b86-7a82-557e-9fb5-57700409dfa3",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_StockTakeHoldCustom_Step200_CLR"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "a1236d7c-9770-5531-9904-21005e3e2d82",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_StockTakeHoldCustom_MasterItem"
+    }
+  ],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "LOOKUP",
+    "ProcessStepMetadata": [
+      {
+        "Name": "CTrackingEntity",
+        "Description": "TrackingEntity",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_StockTakeHoldCustom_TrackingEntity",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "CLocation",
+        "Description": "Location",
+        "ProcessIndex": 3,
+        "NextIndex": 4,
+        "isActive": true,
+        "Required": true,
+        "DefaultValue": "",
+        "PreScript": "Prescript_StockTakeHoldCustom_Location",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "CQty",
+        "Description": "Qty",
+        "ProcessIndex": 4,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "DefaultValue": "",
+        "PreScript": "Prescript_StockTakeHoldCustom_Qty",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Step200",
+        "Description": "Step200",
+        "ProcessIndex": 200,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_StockTakeHoldCustom_Step200_CLR",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "CBatch",
+        "Description": "Batch",
+        "ProcessIndex": 2,
+        "NextIndex": 3,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "CMasterItem",
+        "Description": "MasterItem",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_StockTakeHoldCustom_MasterItem",
+        "hasWebTemplate": true
+      }
+    ]
+  },
+  "PostDeployArtifacts": [],
+  "DependsOnClr": true,
+  "SqlClrAssemblyVersion": "7.0.0.0",
+  "Deprecated": false
+}

@@ -1,0 +1,122 @@
+{
+  "Name": "3PL_RECEIVING",
+  "Description": "INBOUND RECEIVING",
+  "Type": "RECEIVING",
+  "IsActive": true,
+  "IntegrationIsActive": false,
+  "IntegrationPost": false,
+  "WebTemplateArtifact": "b557fd31-c7d5-553d-86be-077b02f02da0",
+  "Steps": [
+    {
+      "Name": "Document",
+      "Description": "INBOUND Container/Delivery",
+      "ProcessIndex": 0,
+      "NextIndex": 1,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "Prescript3PLReceiving_Document",
+      "WebTemplateArtifact": "af36cf5e-4ce2-588a-b2f6-b0863d2eb571"
+    },
+    {
+      "Name": "Location",
+      "Description": "Staging Location",
+      "ProcessIndex": 1,
+      "NextIndex": 2,
+      "IsActive": true,
+      "Required": false,
+      "IsBusinessRule": false,
+      "WebTemplateArtifact": "1f2406e7-5b76-5ce5-9d70-11ef29da37f9"
+    },
+    {
+      "Name": "MasterItem",
+      "Description": "Scan or Select item Code",
+      "ProcessIndex": 2,
+      "NextIndex": 3,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "Prescript3PLReceiving_MasterItem"
+    },
+    {
+      "Name": "Batch",
+      "Description": "Batch",
+      "ProcessIndex": 3,
+      "NextIndex": 4,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "Prescript3PLReceiving_Batch",
+      "WebTemplateArtifact": "b2977dce-2649-5e8a-9159-64ecff814d8b"
+    },
+    {
+      "Name": "Qty",
+      "Description": "Qty per Pallet",
+      "ProcessIndex": 4,
+      "NextIndex": 5,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "Prescript3PLReceiving_Qty",
+      "WebTemplateArtifact": "de779f7f-28df-52a6-9316-b67090ab6b1c"
+    },
+    {
+      "Name": "NoEntities",
+      "Description": "Number of Identical Pallets",
+      "ProcessIndex": 5,
+      "NextIndex": 6,
+      "IsActive": true,
+      "Required": false,
+      "IsBusinessRule": false,
+      "PreScript": "Prescript3PLReceiving_Noentities"
+    },
+    {
+      "Name": "Comment",
+      "Description": "Comment",
+      "ProcessIndex": 6,
+      "NextIndex": 7,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "WebTemplateArtifact": "dc2625a7-d7ce-58ee-b6b7-5044817e0683"
+    },
+    {
+      "Name": "Confirmation",
+      "Description": "Confirmation",
+      "ProcessIndex": 7,
+      "NextIndex": 2,
+      "IsActive": true,
+      "Required": false,
+      "IsBusinessRule": false,
+      "WebTemplateArtifact": "ca26d8e4-f619-58ea-a872-9ec876a04705"
+    },
+    {
+      "Name": "Print",
+      "Description": "Print",
+      "ProcessIndex": 99,
+      "NextIndex": 99,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false
+    },
+    {
+      "Name": "NoLabels",
+      "Description": "Number of Box Labels",
+      "ProcessIndex": 100,
+      "NextIndex": 100,
+      "IsActive": true,
+      "Required": false,
+      "IsBusinessRule": false,
+      "DefaultValue": "2"
+    },
+    {
+      "Name": "UseBarcode",
+      "Description": "UseBarcode",
+      "ProcessIndex": 100,
+      "NextIndex": 0,
+      "IsActive": true,
+      "Required": false,
+      "IsBusinessRule": false
+    }
+  ]
+}

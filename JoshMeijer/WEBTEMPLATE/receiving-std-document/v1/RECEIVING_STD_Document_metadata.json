@@ -1,0 +1,19 @@
+{
+  "Identifier": "a141e69e-22b3-52da-8289-fff900a7e4b0",
+  "Name": "RECEIVING_STD_Document",
+  "Description": "WebTemplate for process template RECEIVING_STD / step Document",
+  "Type": "WEBTEMPLATE",
+  "Version": 1,
+  "LastModified": "01/09/2026",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "40b87c40-b724-5ab8-98be-bb1d989f15a4",
+      "ArtifactVersion": 1
+    }
+  ],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

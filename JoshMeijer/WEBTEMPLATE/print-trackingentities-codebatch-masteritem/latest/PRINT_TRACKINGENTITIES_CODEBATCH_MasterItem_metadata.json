@@ -1,0 +1,19 @@
+{
+  "Identifier": "c61b27d6-bce2-555a-a02c-e145011bc95a",
+  "Name": "PRINT_TRACKINGENTITIES_CODEBATCH_MasterItem",
+  "Description": "WebTemplate for process template PRINT_TRACKINGENTITIES_CODEBATCH / step MasterItem",
+  "Type": "WEBTEMPLATE",
+  "Version": 0,
+  "LastModified": "13/07/2024",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "3c548f08-648c-52ab-ac71-88d77db9fe8c",
+      "ArtifactVersion": 1
+    }
+  ],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

@@ -1,0 +1,77 @@
+{
+  "Name": "3PLSTOCKTAKECOUNT",
+  "Description": "Stocktake Count with webtemplates",
+  "Type": "STOCKTAKECOUNT",
+  "IsActive": true,
+  "IntegrationIsActive": false,
+  "IntegrationPost": false,
+  "Steps": [
+    {
+      "Name": "Session",
+      "Description": "Session",
+      "ProcessIndex": 0,
+      "NextIndex": 1,
+      "IsActive": true,
+      "Required": false,
+      "IsBusinessRule": false,
+      "WebTemplateArtifact": "649d0109-7c58-5378-8a70-a5a61bb9ac2a"
+    },
+    {
+      "Name": "Count",
+      "Description": "Count",
+      "ProcessIndex": 1,
+      "NextIndex": 2,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false
+    },
+    {
+      "Name": "Location",
+      "Description": "Location",
+      "ProcessIndex": 2,
+      "NextIndex": 3,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "WebTemplateArtifact": "7bbbfb1e-a262-5a21-b1bb-4fd82a98fbf4"
+    },
+    {
+      "Name": "TrackingEntity",
+      "Description": "TrackingEntity",
+      "ProcessIndex": 3,
+      "NextIndex": 4,
+      "IsActive": true,
+      "Required": false,
+      "IsBusinessRule": false,
+      "PreScript": "PrescriptStoctakeCountTrackingEntity",
+      "WebTemplateArtifact": "ff9c9288-d71d-5efc-8768-e5f4d55690b0"
+    },
+    {
+      "Name": "Batch",
+      "Description": "BatchConfirm",
+      "ProcessIndex": 4,
+      "NextIndex": 5,
+      "IsActive": true,
+      "Required": false,
+      "IsBusinessRule": false
+    },
+    {
+      "Name": "PalletConfirmation",
+      "Description": "PalletConfirmation",
+      "ProcessIndex": 5,
+      "NextIndex": 6,
+      "IsActive": true,
+      "Required": false,
+      "IsBusinessRule": false
+    },
+    {
+      "Name": "Qty",
+      "Description": "Qty",
+      "ProcessIndex": 6,
+      "NextIndex": 3,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false
+    }
+  ]
+}

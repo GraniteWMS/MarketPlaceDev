@@ -1,0 +1,13 @@
+{
+  "Identifier": "79a81a88-91de-53bc-bfe1-5611af47c3aa",
+  "Name": "CIM_TRANSFER",
+  "Description": "WebTemplate for process template CIM_TRANSFER",
+  "Type": "WEBTEMPLATE",
+  "Version": 1,
+  "LastModified": "18/05/2026",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

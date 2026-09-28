@@ -1,0 +1,13 @@
+{
+  "Identifier": "b82829cc-498d-52e5-b5fe-0f632deb91c2",
+  "Name": "CRANBROOK_MANUFACTURE_Mix",
+  "Description": "WebTemplate for process template CRANBROOK_MANUFACTURE / step Mix",
+  "Type": "WEBTEMPLATE",
+  "Version": 1,
+  "LastModified": "25/06/2026",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

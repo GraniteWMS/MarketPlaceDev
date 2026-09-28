@@ -1,0 +1,13 @@
+{
+  "Identifier": "fdf3623e-6237-502a-9a86-05895e14f05c",
+  "Name": "PICKINGOLDSCHOOL_PickType",
+  "Description": "WebTemplate for process template PICKINGOLDSCHOOL / step PickType",
+  "Type": "WEBTEMPLATE",
+  "Version": 0,
+  "LastModified": "18/03/2026",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

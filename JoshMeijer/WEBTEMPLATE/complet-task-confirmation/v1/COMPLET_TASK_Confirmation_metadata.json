@@ -1,0 +1,19 @@
+{
+  "Identifier": "97b4a4e0-33ce-5160-be96-04fee8a02484",
+  "Name": "COMPLET_TASK_Confirmation",
+  "Description": "WebTemplate for process template COMPLET_TASK / step Confirmation",
+  "Type": "WEBTEMPLATE",
+  "Version": 1,
+  "LastModified": "04/06/2025",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "cd749a88-b410-5232-a838-43e5ab2a87e7",
+      "ArtifactVersion": 1
+    }
+  ],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

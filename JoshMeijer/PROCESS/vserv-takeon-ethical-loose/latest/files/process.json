@@ -1,0 +1,50 @@
+{
+  "Name": "VSERV_TAKEON_ETHICAL_LOOSE",
+  "Description": "VSERV_TAKEON_ETHICAL_LOOSE",
+  "Type": "TAKEON",
+  "IsActive": true,
+  "IntegrationIsActive": false,
+  "IntegrationPost": false,
+  "Steps": [
+    {
+      "Name": "Location",
+      "Description": "Scan Rack Location",
+      "ProcessIndex": 0,
+      "NextIndex": 1,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "Prescript_TakeonEthical_Location"
+    },
+    {
+      "Name": "MasterItem",
+      "Description": "Select SKU or Scan EAN Barcode",
+      "ProcessIndex": 1,
+      "NextIndex": 2,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "Prescript_TakeonEthical_MasterItem"
+    },
+    {
+      "Name": "Qty",
+      "Description": "Enter Qty",
+      "ProcessIndex": 2,
+      "NextIndex": 0,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "Prescript_TakeonEthicalLoose_Qty",
+      "WebTemplateArtifact": "647918b7-271c-5527-848d-8ee4c2c439bd"
+    },
+    {
+      "Name": "UseBarcode",
+      "Description": "UseBarcode",
+      "ProcessIndex": 100,
+      "NextIndex": 0,
+      "IsActive": true,
+      "Required": false,
+      "IsBusinessRule": false
+    }
+  ]
+}

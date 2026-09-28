@@ -1,0 +1,23 @@
+<script>
+
+function attachProductClickHandlers() {
+    document.querySelectorAll("#divDetail h6.mb-1").forEach(function(element) {
+        let text = element.textContent.trim();
+        let productCode = text.replace(/^\(\d+\)/, "").trim();
+
+        element.style.cursor = "pointer";
+        element.style.color = "blue";
+        element.style.textDecoration = "underline";
+        
+        // Use an IIFE to properly capture productCode in the closure
+        element.onclick = (function(code) {
+            return function() {
+                ProceedNext(code);
+            };
+        })(productCode);
+    });
+}
+
+attachProductClickHandlers();
+
+</script>

@@ -1,0 +1,10 @@
+{
+  "Identifier": "79974a6d-f48b-59a4-bd11-a63eed23c408",
+  "Name": "WebTemplate_Picking_ZonesonOrder",
+  "Description": "",
+  "Type": "SQL_STORED_PROCEDURE",
+  "Version": 0,
+  "LastModified": "04/05/2026",
+  "Tags": [],
+  "ArtifactDependencies": []
+}

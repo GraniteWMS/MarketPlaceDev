@@ -1,0 +1,2 @@
+{{ ['QC PROCESS', 'DAMAGED STOCK', 'EXPIRED STOCK', 'SHORT DATED STOCK', 'PROCESS ERROR'] | map => { Value: it } | createButtonList({ columnName: 'Value' }) }}
+{{ hideTextBox() }}

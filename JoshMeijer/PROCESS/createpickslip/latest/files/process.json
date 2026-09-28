@@ -1,0 +1,32 @@
+{
+  "Name": "CREATEPICKSLIP",
+  "Description": "Create a Batch Pickslip",
+  "Type": "CUSTOM",
+  "IsActive": true,
+  "IntegrationIsActive": false,
+  "IntegrationPost": false,
+  "Steps": [
+    {
+      "Name": "Pickslip",
+      "Description": "Pickslip",
+      "ProcessIndex": 0,
+      "NextIndex": 1,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "PrescriptCreatePickslipPickslip",
+      "WebTemplateArtifact": "bc49caef-1298-5f6d-b6a7-be15f3e3d7b0"
+    },
+    {
+      "Name": "Document",
+      "Description": "Scan Orders to add to Batch",
+      "ProcessIndex": 1,
+      "NextIndex": 1,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "PrescriptCreatePickslipDocument",
+      "WebTemplateArtifact": "ac38944a-8962-51a2-af5c-f2e84712c66b"
+    }
+  ]
+}

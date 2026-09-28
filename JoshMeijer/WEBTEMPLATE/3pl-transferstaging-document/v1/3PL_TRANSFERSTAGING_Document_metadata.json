@@ -1,0 +1,19 @@
+{
+  "Identifier": "3b648bbb-1232-55fe-93bb-7f97794cc5b0",
+  "Name": "3PL_TRANSFERSTAGING_Document",
+  "Description": "WebTemplate for process template 3PL_TRANSFERSTAGING / step Document",
+  "Type": "WEBTEMPLATE",
+  "Version": 1,
+  "LastModified": "13/08/2025",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "2a2afa71-88ed-58ff-81b7-0921ab35f6db",
+      "ArtifactVersion": 1
+    }
+  ],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

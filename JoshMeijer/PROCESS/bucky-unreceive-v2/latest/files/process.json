@@ -1,0 +1,41 @@
+{
+  "Name": "BUCKY_UNRECEIVE_V2",
+  "Description": "BUCKY_UNRECEIVE_V2",
+  "Type": "CUSTOM",
+  "IsActive": true,
+  "IntegrationIsActive": false,
+  "IntegrationPost": false,
+  "Steps": [
+    {
+      "Name": "Document",
+      "Description": "Enter Document",
+      "ProcessIndex": 0,
+      "NextIndex": 1,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "WebTemplateArtifact": "eb865ffa-48ff-50d6-a98a-45bb3cb14165"
+    },
+    {
+      "Name": "TransactionID",
+      "Description": "Select Transaction ID",
+      "ProcessIndex": 1,
+      "NextIndex": 1,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "Prescript_UnreceiveTransaction_TransactionID",
+      "WebTemplateArtifact": "1ad0cabf-9f25-53f0-9faa-0d9796758feb"
+    },
+    {
+      "Name": "Step200",
+      "Description": "Reverses the Transaction",
+      "ProcessIndex": 200,
+      "NextIndex": 0,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "Prescript_UnreceiveTransaction_Step200"
+    }
+  ]
+}

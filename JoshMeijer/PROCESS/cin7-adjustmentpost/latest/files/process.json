@@ -1,0 +1,21 @@
+{
+  "Name": "CIN7_ADJUSTMENTPOST",
+  "Description": "CIN7_ADJUSTMENTPOST",
+  "Type": "CUSTOM",
+  "IsActive": true,
+  "IntegrationMethod": "ADJUSTMENT",
+  "IntegrationIsActive": true,
+  "IntegrationPost": false,
+  "Steps": [
+    {
+      "Name": "DocumentReference",
+      "Description": "DocumentReference",
+      "ProcessIndex": 0,
+      "NextIndex": 0,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "Prescript_AdjustmentPost_DocumentReference"
+    }
+  ]
+}

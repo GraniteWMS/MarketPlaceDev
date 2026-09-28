@@ -1,0 +1,13 @@
+{
+  "Identifier": "78e2d805-b495-5ecf-a70b-fcad5d1d4ef7",
+  "Name": "Receiving_Consolidated_ExpiryDate",
+  "Description": "WebTemplate for process template Receiving_Consolidated / step ExpiryDate",
+  "Type": "WEBTEMPLATE",
+  "Version": 0,
+  "LastModified": "05/08/2026",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

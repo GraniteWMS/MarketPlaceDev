@@ -1,0 +1,96 @@
+{
+  "Identifier": "afce9558-e1d0-4a3f-95b9-0daa978bf966",
+  "Name": "TAKEON",
+  "Description": "Initial Takeon\n\nAdd a Selection and search for Locations and MasterItems for a basic Initial Takeon\n\nThe Webtemplate view for Location excludes NONSTOCK and isActive = 0.  The Webtemplate view  for Masteritem excludes isActive = 0",
+  "Type": "PROCESS",
+  "Version": 0,
+  "LastModified": "22/04/2024",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "ef6183e6-545a-5f98-891d-b10cd19c1942",
+      "ArtifactVersion": 1,
+      "ArtifactName": "WebTemplate_MasterItems"
+    },
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "d0ee0c5e-94c5-559c-b29e-15b263b30b1c",
+      "ArtifactVersion": 1,
+      "ArtifactName": "WebTemplate_Locations"
+    }
+  ],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "TAKEON",
+    "ProcessStepMetadata": [
+      {
+        "Name": "MasterItem",
+        "Description": "MasterItem",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": false,
+        "PreScript": ""
+      },
+      {
+        "Name": "Location",
+        "Description": "Location",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": false,
+        "PreScript": ""
+      },
+      {
+        "Name": "Qty",
+        "Description": "Qty per TrackingEntity",
+        "ProcessIndex": 2,
+        "NextIndex": 3,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "NoEntities",
+        "Description": "Number of TrackingEntities",
+        "ProcessIndex": 3,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "Print",
+        "Description": "Print",
+        "ProcessIndex": 99,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "DefaultValue": "",
+        "PreScript": "",
+        "hasWebTemplate": true
+      }
+    ]
+  },
+  "PostDeployArtifacts": [
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "35706427-6062-5d51-8e3e-4ab192580e7a",
+      "ArtifactVersion": 1,
+      "ArtifactName": "TAKEON_Location"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "fb688422-c5b5-5eea-a7dd-cf4706bc48b6",
+      "ArtifactVersion": 1,
+      "ArtifactName": "TAKEON_MasterItem"
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

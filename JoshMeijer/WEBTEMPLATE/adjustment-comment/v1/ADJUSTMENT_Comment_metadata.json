@@ -1,0 +1,13 @@
+{
+  "Identifier": "2135e2f8-a2e7-5bc5-9bc9-7877d6eb0cf5",
+  "Name": "ADJUSTMENT_Comment",
+  "Description": "WebTemplate for process template ADJUSTMENT / step Comment",
+  "Type": "WEBTEMPLATE",
+  "Version": 1,
+  "LastModified": "27/03/2024",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

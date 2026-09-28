@@ -1,0 +1,13 @@
+{
+  "Identifier": "67725e6d-e762-5737-b53d-79e77400c310",
+  "Name": "REPLENISHTOPRODUCTION_Location",
+  "Description": "WebTemplate for process template REPLENISHTOPRODUCTION / step Location",
+  "Type": "WEBTEMPLATE",
+  "Version": 1,
+  "LastModified": "09/09/2026",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

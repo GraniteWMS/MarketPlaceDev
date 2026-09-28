@@ -1,0 +1,9 @@
+{
+  "Group": "Courier",
+  "Name": "Courier Box Exceptions",
+  "SQLView": "Custom_DG_CourierPackingBoxExceptionReport",
+  "GridDefinition": "@GridDefinition",
+  "PageSize": 100000,
+  "IsApplicationGrid": false,
+  "IsCustomGrid": true
+}

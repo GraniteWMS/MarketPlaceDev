@@ -1,0 +1,10 @@
+{
+  "Identifier": "feebc101-b53d-5416-a1f4-4a8afffb626f",
+  "Name": "PrescriptAssignProductionLineConfirmation",
+  "Description": "",
+  "Type": "PRESCRIPT",
+  "Version": 1,
+  "LastModified": "07/09/2025",
+  "Tags": [],
+  "ArtifactDependencies": []
+}

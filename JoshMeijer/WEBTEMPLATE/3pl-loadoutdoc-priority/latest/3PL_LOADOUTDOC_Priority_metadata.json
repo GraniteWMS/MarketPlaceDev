@@ -1,0 +1,13 @@
+{
+  "Identifier": "601420ce-7d77-5bc7-8481-00022efd64cd",
+  "Name": "3PL_LOADOUTDOC_Priority",
+  "Description": "WebTemplate for process template 3PL_LOADOUTDOC / step Priority",
+  "Type": "WEBTEMPLATE",
+  "Version": 0,
+  "LastModified": "17/06/2024",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

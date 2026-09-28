@@ -1,0 +1,19 @@
+{
+  "Identifier": "943f4ab7-655a-57f7-83ae-52d9e82f272f",
+  "Name": "3PL_PICKING_Document",
+  "Description": "WebTemplate for process template 3PL_PICKING / step Document",
+  "Type": "WEBTEMPLATE",
+  "Version": 1,
+  "LastModified": "04/08/2025",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "3e1d875a-ea5d-5ccb-b4f0-cdc51c6315f4",
+      "ArtifactVersion": 1
+    }
+  ],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

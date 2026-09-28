@@ -1,0 +1,106 @@
+{
+  "Identifier": "42214d3c-ab1c-43c6-b77d-e25af931ff84",
+  "Name": "PICKING_WITH_SELECTMETHOD",
+  "Description": "PICKING - Select Method of getting the Pickign document\n\nWith standard Picking, you enter the Order to Pick.  In a paperless warehouse, the Picker doesnt have the Document to pick.  This process shows 4 methods of getting the document.  SELECT Document, Get NEXT Document, Get ASSIGNED Document and Enter Document.\nThe Assigned Document also needs a way of assigning documents (functions on WebDesktop) and more structure behind it.\nThe process also has the Recommendation Prescript to update Instructions of what to pick\n\nThe process to recommend the next pick location is a single update of Instruction on the Document Prescript and the Silent step 200.  This logic should be reviewed.\nThe PickingMethod is in the ProcessStepLookup table.",
+  "Type": "PROCESS",
+  "Version": 0,
+  "LastModified": "22/03/2024",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "e9ea50bb-4953-50b0-9b91-59ff1ccfd7de",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PrescriptPickingDocument"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "59aad882-86c7-5d94-bb7f-f73741fe44c0",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PrescriptPickingPickMethod"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "d562af76-b084-5633-afe4-bb599fdcd825",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PrescriptPickingStep200"
+    }
+  ],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "PICKING",
+    "ProcessStepMetadata": [
+      {
+        "Name": "Document",
+        "Description": "Document",
+        "ProcessIndex": 2,
+        "NextIndex": 3,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "PrescriptPickingDocument",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Location",
+        "Description": "Dispatch Staging Location",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "DefaultValue": "",
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "TrackingEntity",
+        "Description": "TrackingEntity",
+        "ProcessIndex": 3,
+        "NextIndex": 4,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "Qty",
+        "Description": "Qty",
+        "ProcessIndex": 4,
+        "NextIndex": 3,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "PickingMethod",
+        "Description": "Pick Method",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "PrescriptPickingPickMethod",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Step200",
+        "Description": "Refresh Instruction",
+        "ProcessIndex": 200,
+        "NextIndex": 200,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "PrescriptPickingStep200",
+        "hasWebTemplate": true
+      }
+    ]
+  },
+  "PostDeployArtifacts": [
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "ae5bb71d-c8a4-52e9-b284-c34279d20204",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PICKING_WITH_SELECTMETHOD_PickingMethod"
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

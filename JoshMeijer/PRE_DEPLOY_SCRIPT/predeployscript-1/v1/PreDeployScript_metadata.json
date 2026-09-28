@@ -1,0 +1,10 @@
+{
+  "Identifier": "7fa36ce8-fe15-5fd8-a7ea-cbc69af20da7",
+  "Name": "PreDeployScript",
+  "Description": "",
+  "Type": "PRE_DEPLOY_SCRIPT",
+  "Version": 1,
+  "LastModified": "30/07/2024",
+  "Tags": [],
+  "ArtifactDependencies": []
+}

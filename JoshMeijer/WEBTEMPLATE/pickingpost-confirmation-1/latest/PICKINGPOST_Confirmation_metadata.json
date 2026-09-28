@@ -1,0 +1,19 @@
+{
+  "Identifier": "18aff9fc-454e-5293-a6b0-b8b06ec2af63",
+  "Name": "PICKINGPOST_Confirmation",
+  "Description": "WebTemplate for process template PICKINGPOST / step Confirmation",
+  "Type": "WEBTEMPLATE",
+  "Version": 0,
+  "LastModified": "10/09/2026",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "SQL_STORED_PROCEDURE",
+      "ArtifactIdentifier": "4a0c8d84-7526-5053-b1d1-ea11abccf525",
+      "ArtifactVersion": 1
+    }
+  ],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

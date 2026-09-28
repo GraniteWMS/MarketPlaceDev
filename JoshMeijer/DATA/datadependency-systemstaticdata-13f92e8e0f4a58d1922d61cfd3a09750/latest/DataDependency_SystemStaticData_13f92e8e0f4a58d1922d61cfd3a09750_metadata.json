@@ -1,0 +1,17 @@
+{
+  "Identifier": "13f92e8e-0f4a-58d1-922d-61cfd3a09750",
+  "Name": "DataDependency_SystemStaticData_13f92e8e0f4a58d1922d61cfd3a09750",
+  "Description": "",
+  "Type": "DATA",
+  "Version": 0,
+  "LastModified": "12/05/2026",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "TypeSpecificAttributes": {
+    "Table": "SystemStaticData",
+    "KeyColumn": "Key",
+    "KeyValues": [
+      "ActivateFIFO"
+    ]
+  }
+}

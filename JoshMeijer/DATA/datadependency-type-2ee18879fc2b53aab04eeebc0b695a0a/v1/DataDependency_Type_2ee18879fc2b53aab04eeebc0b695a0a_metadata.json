@@ -1,0 +1,17 @@
+{
+  "Identifier": "2ee18879-fc2b-53aa-b04e-eebc0b695a0a",
+  "Name": "DataDependency_Type_2ee18879fc2b53aab04eeebc0b695a0a",
+  "Description": "",
+  "Type": "DATA",
+  "Version": 1,
+  "LastModified": "22/04/2024",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "TypeSpecificAttributes": {
+    "Table": "dbo.Type",
+    "KeyColumn": "Name",
+    "KeyValues": [
+      "PICKSTAGING"
+    ]
+  }
+}

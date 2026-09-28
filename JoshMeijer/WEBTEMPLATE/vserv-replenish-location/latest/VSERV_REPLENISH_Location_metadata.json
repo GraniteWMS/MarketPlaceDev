@@ -1,0 +1,19 @@
+{
+  "Identifier": "aedcb65e-969b-546f-8441-7123f727efe9",
+  "Name": "VSERV_REPLENISH_Location",
+  "Description": "WebTemplate for process template VSERV_REPLENISH / step Location",
+  "Type": "WEBTEMPLATE",
+  "Version": 0,
+  "LastModified": "09/02/2026",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "942f2717-0d67-5924-a259-c4b859807aad",
+      "ArtifactVersion": 1
+    }
+  ],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

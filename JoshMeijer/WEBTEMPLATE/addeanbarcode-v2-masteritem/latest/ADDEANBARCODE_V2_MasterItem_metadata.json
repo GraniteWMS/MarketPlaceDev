@@ -1,0 +1,13 @@
+{
+  "Identifier": "71145e4b-1603-5027-b634-a2482622f2f0",
+  "Name": "ADDEANBARCODE_V2_MasterItem",
+  "Description": "WebTemplate for process template ADDEANBARCODE_V2 / step MasterItem",
+  "Type": "WEBTEMPLATE",
+  "Version": 0,
+  "LastModified": "29/06/2026",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

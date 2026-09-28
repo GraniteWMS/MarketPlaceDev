@@ -1,0 +1,1 @@
+{{ "SELECT ItemCode, ExpiryDate, Picked, Packed FROM WebTemplate_Packing_Qty WHERE DocumentNumber = @Document AND ItemCode = @MasterItem" | dbSelect({Document, MasterItem}) | basicTable({}) }}

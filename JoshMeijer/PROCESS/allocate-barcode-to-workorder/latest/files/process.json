@@ -1,0 +1,43 @@
+{
+  "Name": "ALLOCATE_BARCODE_TO_WORKORDER",
+  "Description": "ALLOCATE_BARCODE_TO_WORKORDER",
+  "Type": "CUSTOM",
+  "IsActive": true,
+  "IntegrationIsActive": false,
+  "IntegrationPost": false,
+  "Steps": [
+    {
+      "Name": "Batch",
+      "Description": "Enter Batch",
+      "ProcessIndex": 0,
+      "NextIndex": 1,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "Prescript_AllocateBarcodeToWorkOrder_Batch",
+      "WebTemplateArtifact": "72f7e5f6-e7c7-5f00-8745-5ed45caa7d68"
+    },
+    {
+      "Name": "TrackingEntity",
+      "Description": "Scan Barcode (or Select ID to Deallocate)",
+      "ProcessIndex": 1,
+      "NextIndex": 2,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "Prescript_AllocateBarcodeToWorkOrder_TrackingEntity",
+      "WebTemplateArtifact": "ffac5185-1779-55c3-89dd-4e3694b4602f"
+    },
+    {
+      "Name": "Qty",
+      "Description": "Enter Qty To Allocate/Deallocate To Batch",
+      "ProcessIndex": 2,
+      "NextIndex": 1,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "Prescript_AllocateBarcodeToWorkOrder_Qty",
+      "WebTemplateArtifact": "f7761407-ddf6-5f3e-a376-5f11b9621081"
+    }
+  ]
+}

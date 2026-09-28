@@ -1,0 +1,19 @@
+{
+  "Identifier": "1ae2ae32-59ac-5f80-9684-1cea1bb04034",
+  "Name": "TRANSFERCONFIRMPOST_BUTTANUTT_Document",
+  "Description": "WebTemplate for process template TRANSFERCONFIRMPOST_BUTTANUTT / step Document",
+  "Type": "WEBTEMPLATE",
+  "Version": 1,
+  "LastModified": "21/03/2026",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "665be8a6-cf9f-52d3-9af3-4f6584329241",
+      "ArtifactVersion": 1
+    }
+  ],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

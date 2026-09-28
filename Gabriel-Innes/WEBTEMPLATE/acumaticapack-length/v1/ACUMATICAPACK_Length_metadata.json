@@ -1,0 +1,13 @@
+{
+  "Identifier": "e357c8fa-1d64-5e17-9303-b236fed2f69b",
+  "Name": "ACUMATICAPACK_Length",
+  "Description": "WebTemplate for process template ACUMATICAPACK / step Length",
+  "Type": "WEBTEMPLATE",
+  "Version": 1,
+  "LastModified": "01/06/2026",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

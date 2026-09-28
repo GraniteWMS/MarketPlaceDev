@@ -1,0 +1,10 @@
+{
+  "Identifier": "9d6ba4c9-0307-550e-94f8-8da90a97efbd",
+  "Name": "Prescript_ReplenishToBarcode_ToTrackingEntity",
+  "Description": "",
+  "Type": "PRESCRIPT",
+  "Version": 0,
+  "LastModified": "21/03/2026",
+  "Tags": [],
+  "ArtifactDependencies": []
+}

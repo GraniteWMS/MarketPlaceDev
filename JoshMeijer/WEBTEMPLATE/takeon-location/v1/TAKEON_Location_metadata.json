@@ -1,0 +1,19 @@
+{
+  "Identifier": "7d3f9c1f-4d29-526e-a0bc-b83f14153d8e",
+  "Name": "TAKEON_Location",
+  "Description": "WebTemplate for process template TAKEON / step Location",
+  "Type": "WEBTEMPLATE",
+  "Version": 1,
+  "LastModified": "12/07/2024",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "c2ad4da5-f976-5a5e-ab88-3341bd481f05",
+      "ArtifactVersion": 1
+    }
+  ],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

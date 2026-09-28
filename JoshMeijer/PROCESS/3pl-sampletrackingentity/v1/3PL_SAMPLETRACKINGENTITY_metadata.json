@@ -1,0 +1,105 @@
+{
+  "Identifier": "ca5b8ae2-4bf5-473d-8313-5ec654ec1c5e",
+  "Name": "3PL_SAMPLETRACKINGENTITY",
+  "Description": "TAKE SAMPLES (NO QTY REDUCTION)\n\nRecord a Sample Transaction against a pallet but Do not Reduce the original pallet Qty.  In #PL they do not want to reduce the pallet Quantity, a Replenish should be used if they did.\n\nI record a Transaction and then have a Sample report DataGrid and DataGrid entry as well to show samples.",
+  "Type": "PROCESS",
+  "Version": 1,
+  "LastModified": "13/07/2024",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "bd0ee74f-8fa5-572d-ba90-32ee8b740a81",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript3PL_SampleTrackingTrackingEntity"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "d53de1fa-1ff9-559a-b642-2c758e923b59",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript3PL_SampleTrackingQty"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "d0cd1bb7-914e-500e-98e7-1e20b360beec",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript3PL_SampleTrackingStep200"
+    }
+  ],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "CUSTOM",
+    "ProcessStepMetadata": [
+      {
+        "Name": "TrackingEntity",
+        "Description": "TrackingEntity",
+        "ProcessIndex": 2,
+        "NextIndex": 3,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript3PL_SampleTrackingTrackingEntity",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Qty",
+        "Description": "Qty Taken",
+        "ProcessIndex": 3,
+        "NextIndex": 4,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript3PL_SampleTrackingQty",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Step200",
+        "Description": "Step200",
+        "ProcessIndex": 200,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript3PL_SampleTrackingStep200",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Comment",
+        "Description": "Comment",
+        "ProcessIndex": 4,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "DocumentReference",
+        "Description": "DocumentReference",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "Sampler",
+        "Description": "Sampler Name",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      }
+    ]
+  },
+  "PostDeployArtifacts": [
+    {
+      "ArtifactType": "POST_DEPLOY_SCRIPT",
+      "ArtifactIdentifier": "dad9e63c-54be-55f4-8dda-aa2ce8c3bdcb",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PostDeployScript"
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

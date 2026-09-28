@@ -1,0 +1,13 @@
+{
+  "Identifier": "7f2463a3-395a-58e8-a7ff-ddacf80e1d2e",
+  "Name": "FT_RECEIVE_MasterItem",
+  "Description": "WebTemplate for process template FT_RECEIVE / step MasterItem",
+  "Type": "WEBTEMPLATE",
+  "Version": 0,
+  "LastModified": "20/05/2026",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

@@ -1,0 +1,13 @@
+{
+  "Identifier": "b2b7657c-a059-50a0-a228-59a22600728a",
+  "Name": "RECEIVE RETURN_CarryingEntity",
+  "Description": "WebTemplate for process template RECEIVE RETURN / step CarryingEntity",
+  "Type": "WEBTEMPLATE",
+  "Version": 0,
+  "LastModified": "12/02/2025",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

@@ -1,0 +1,13 @@
+{
+  "Identifier": "c7ed2400-1970-5086-b0bb-cb284c4696fc",
+  "Name": "TAKEONITEMSEARCH_ExpiryDate",
+  "Description": "WebTemplate for process template TAKEONITEMSEARCH / step ExpiryDate",
+  "Type": "WEBTEMPLATE",
+  "Version": 1,
+  "LastModified": "30/05/2026",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

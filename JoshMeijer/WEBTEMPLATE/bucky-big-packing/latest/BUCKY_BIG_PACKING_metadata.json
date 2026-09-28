@@ -1,0 +1,13 @@
+{
+  "Identifier": "f989ba36-c58b-5f39-a602-6ddbc0a8e9bf",
+  "Name": "BUCKY_BIG_PACKING",
+  "Description": "WebTemplate for process template BUCKY_BIG_PACKING",
+  "Type": "WEBTEMPLATE",
+  "Version": 0,
+  "LastModified": "02/02/2026",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

@@ -1,0 +1,13 @@
+{
+  "Identifier": "145f4f04-712a-57d0-8c66-d7b517dc531c",
+  "Name": "PACKING_Qty",
+  "Description": "WebTemplate for process template PACKING / step Qty",
+  "Type": "WEBTEMPLATE",
+  "Version": 0,
+  "LastModified": "10/05/2026",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

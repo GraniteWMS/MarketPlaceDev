@@ -1,0 +1,130 @@
+{
+  "Identifier": "d1088421-e5fe-42e4-afb9-6017e0a427ee",
+  "Name": "PEPKOR_RECEIVING",
+  "Description": "PEPKOR_RECEIVING\n\nPepkor's standard receiving",
+  "Type": "PROCESS",
+  "Version": 0,
+  "LastModified": "13/05/2026",
+  "Tags": [
+    "Manufacturing",
+    "Retail",
+    "Automotive",
+    "Agricultural",
+    "Textile",
+    "Electronics",
+    "Construction",
+    "E-commerce",
+    "Logistics",
+    "Pharmaceutical",
+    "Cold Storage"
+  ],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "072172e5-75a8-5386-b4c5-143b196c5fa8",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Custom_VW_DocumentERPLocations"
+    },
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "f5f01f1c-b3db-51bc-be0f-1d71bde3fb44",
+      "ArtifactVersion": 1,
+      "ArtifactName": "WebTemplate_Receiving_Document"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "ef7518c4-da77-58cb-963d-bf3baed8c87f",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_Receiving_Qty"
+    }
+  ],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "RECEIVING",
+    "ProcessStepMetadata": [
+      {
+        "Name": "Location",
+        "Description": "Receiving Location",
+        "ProcessIndex": 100,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": false,
+        "DefaultValue": "RECEIVING",
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "Document",
+        "Description": "Enter PO #",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": false,
+        "PreScript": ""
+      },
+      {
+        "Name": "MasterItem",
+        "Description": "Enter Item Code or Scan EAN",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Qty",
+        "Description": "Enter Qty to Receive",
+        "ProcessIndex": 3,
+        "NextIndex": 4,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_Receiving_Qty",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "NoEntities",
+        "Description": "Number of TrackingEntities",
+        "ProcessIndex": 4,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "SerialNumber",
+        "Description": "Enter Serial Number",
+        "ProcessIndex": 2,
+        "NextIndex": 3,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      }
+    ]
+  },
+  "PostDeployArtifacts": [
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "9a608b4d-f347-5e7e-a75f-98eb3888e90f",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PEPKOR_RECEIVING"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "819ae304-2acc-525e-bf17-edd8bba54009",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PEPKOR_RECEIVING_Document"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "9431c075-7416-53e3-885d-9405ff622287",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PEPKOR_RECEIVING_Qty"
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

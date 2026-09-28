@@ -1,0 +1,19 @@
+{
+  "Identifier": "80aa7dc5-40e1-5f48-8ce4-e30ba2edb596",
+  "Name": "LOOKUP_MULTIWORD_BARCODE",
+  "Description": "WebTemplate for process template LOOKUP_MULTIWORD_BARCODE",
+  "Type": "WEBTEMPLATE",
+  "Version": 1,
+  "LastModified": "22/09/2025",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "SQL_STORED_PROCEDURE",
+      "ArtifactIdentifier": "aeb1ca00-d539-56ad-9fe0-02b3ce9c2e90",
+      "ArtifactVersion": 1
+    }
+  ],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

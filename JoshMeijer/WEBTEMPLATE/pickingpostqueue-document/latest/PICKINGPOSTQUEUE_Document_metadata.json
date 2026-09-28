@@ -1,0 +1,19 @@
+{
+  "Identifier": "f767c2cd-13c2-5e4c-8080-91ba109e88c3",
+  "Name": "PICKINGPOSTQUEUE_Document",
+  "Description": "WebTemplate for process template PICKINGPOSTQUEUE / step Document",
+  "Type": "WEBTEMPLATE",
+  "Version": 0,
+  "LastModified": "02/04/2026",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "a3064b57-5417-5270-a311-b48de13d2bbe",
+      "ArtifactVersion": 1
+    }
+  ],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

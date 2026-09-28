@@ -1,0 +1,112 @@
+{
+  "Identifier": "b1609540-97bf-4ff3-bbbf-6d77bf4fc43e",
+  "Name": "RD_TAKEON",
+  "Description": "Retail Distribution -Takeon (Location_Code)\n\nRD in front of the process name implies Retail Distribution.  All incoming stock is distributed to Retail outlets before the balance is putaway.\n\nThe model uses Location_ItemCode for TrackingEntities.  No Quantity -we scan an Alias in every process and transact Qty=1.  Alias resolves to ItemCode in all cases.  We also use a Store code (System Static Data) and A TransferCompletepercentage value in SystemStaticData to prvent posting is not enough has been scanned on the Transfer",
+  "Type": "PROCESS",
+  "Version": 1,
+  "LastModified": "09/10/2025",
+  "Tags": [
+    "Retail"
+  ],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "fe2b69f5-199b-55c2-bb6a-84b9ca3d0ce1",
+      "ArtifactVersion": 1,
+      "ArtifactName": "MasterItemAlias_View"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "b1547766-a8cc-59e1-8880-9d676d12f9d1",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PrescriptTakeon_LOC_MIMasterItem"
+    },
+    {
+      "ArtifactType": "SQL_STORED_PROCEDURE",
+      "ArtifactIdentifier": "994ed5e6-91f4-52ef-9d36-010d692ab7ad",
+      "ArtifactVersion": 1,
+      "ArtifactName": "ValidateLocation"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "07e28cea-cb42-5d0a-b6d2-80106937c4d7",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PrescriptTakeon_LOC_MILocation"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "072590a9-18de-56c2-b5dd-87ae2c5db270",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PrescriptTakeon_LOC_MIQty"
+    },
+    {
+      "ArtifactType": "DATA",
+      "ArtifactIdentifier": "c1f8188a-ca19-558d-87eb-1e45aec13d2a",
+      "ArtifactVersion": 1,
+      "ArtifactName": "DataDependency_SystemStaticData_c1f8188aca19558d87eb1e45aec13d2a"
+    },
+    {
+      "ArtifactType": "DATA",
+      "ArtifactIdentifier": "65817240-8b45-5c5e-853c-96182d6846d9",
+      "ArtifactVersion": 1,
+      "ArtifactName": "DataDependency_SystemStaticData_658172408b455c5e853c96182d6846d9"
+    },
+    {
+      "ArtifactType": "DATA",
+      "ArtifactIdentifier": "747429ee-eff6-526f-b5d5-d6da2ddf7dcb",
+      "ArtifactVersion": 1,
+      "ArtifactName": "DataDependency_SystemStaticData_747429eeeff6526fb5d5d6da2ddf7dcb"
+    }
+  ],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "TAKEON",
+    "ProcessStepMetadata": [
+      {
+        "Name": "MasterItem",
+        "Description": "Item Code",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "PrescriptTakeon_LOC_MIMasterItem",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Location",
+        "Description": "Location",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "DefaultValue": "",
+        "PreScript": "PrescriptTakeon_LOC_MILocation",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Qty",
+        "Description": "Qty",
+        "ProcessIndex": 2,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "PrescriptTakeon_LOC_MIQty",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "UseBarcode",
+        "Description": "UseBarcode",
+        "ProcessIndex": 100,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": false,
+        "DefaultValue": "",
+        "PreScript": "",
+        "hasWebTemplate": true
+      }
+    ]
+  },
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

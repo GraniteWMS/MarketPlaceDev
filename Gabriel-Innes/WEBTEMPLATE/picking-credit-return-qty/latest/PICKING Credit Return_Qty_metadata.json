@@ -1,0 +1,19 @@
+{
+  "Identifier": "4bc11afe-ce42-5983-bd56-56abf9a841b4",
+  "Name": "PICKING Credit Return_Qty",
+  "Description": "WebTemplate for process template PICKING Credit Return / step Qty",
+  "Type": "WEBTEMPLATE",
+  "Version": 0,
+  "LastModified": "12/02/2025",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "SQL_STORED_PROCEDURE",
+      "ArtifactIdentifier": "195776a7-e594-5b88-b590-c79157436ef5",
+      "ArtifactVersion": 1
+    }
+  ],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

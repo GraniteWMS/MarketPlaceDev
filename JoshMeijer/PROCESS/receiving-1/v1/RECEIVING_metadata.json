@@ -1,0 +1,131 @@
+{
+  "Identifier": "2de7f32c-ef01-4eae-ba24-e78a36eb83d7",
+  "Name": "RECEIVING",
+  "Description": "PO Receiving with SAGE\n\nStandard PO Receiving with Batch, Manufacture Date, Expiry Date included.  Webtemplate at process level allows selection of items on PO.\nA good standard Receiving process that seems to be missing.  Includes Webtemplates",
+  "Type": "PROCESS",
+  "Version": 1,
+  "LastModified": "08/09/2026",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "f531da1d-4217-5f13-a70d-705da3d80702",
+      "ArtifactVersion": 1,
+      "ArtifactName": "WebTemplate_Receiving_Document"
+    }
+  ],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "RECEIVING",
+    "ProcessStepMetadata": [
+      {
+        "Name": "Location",
+        "Description": "Receiving Location",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": false,
+        "DefaultValue": "REC",
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "Document",
+        "Description": "Enter PO Document",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": false,
+        "PreScript": ""
+      },
+      {
+        "Name": "MasterItem",
+        "Description": "Select Item To Receive",
+        "ProcessIndex": 2,
+        "NextIndex": 3,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "Batch",
+        "Description": "Enter Batch",
+        "ProcessIndex": 3,
+        "NextIndex": 4,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "ExpiryDate",
+        "Description": "Enter Expiry Date (YYYYMMDD)",
+        "ProcessIndex": 5,
+        "NextIndex": 6,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "Qty",
+        "Description": "Enter Qty per Tracking Barcode with this Batch",
+        "ProcessIndex": 6,
+        "NextIndex": 7,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "NoEntities",
+        "Description": "Number Of Barcodes With Same Information",
+        "ProcessIndex": 7,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "Print",
+        "Description": "Print",
+        "ProcessIndex": 99,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "DefaultValue": "",
+        "PreScript": "",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "ManufactureDate",
+        "Description": "Enter Manufacture Date (YYYYMMDD)",
+        "ProcessIndex": 4,
+        "NextIndex": 5,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      }
+    ]
+  },
+  "PostDeployArtifacts": [
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "eb96036f-06b8-57cd-8767-ebfac37887fd",
+      "ArtifactVersion": 1,
+      "ArtifactName": "RECEIVING"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "80d9b388-d01c-5eb2-a25f-1ac73d81db6f",
+      "ArtifactVersion": 1,
+      "ArtifactName": "RECEIVING_Document"
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

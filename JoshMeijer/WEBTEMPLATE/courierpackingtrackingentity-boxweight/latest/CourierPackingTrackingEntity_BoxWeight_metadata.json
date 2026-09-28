@@ -1,0 +1,13 @@
+{
+  "Identifier": "f18c7261-a32f-5b05-9d57-7d7106d2aeab",
+  "Name": "CourierPackingTrackingEntity_BoxWeight",
+  "Description": "WebTemplate for process template CourierPackingTrackingEntity / step BoxWeight",
+  "Type": "WEBTEMPLATE",
+  "Version": 0,
+  "LastModified": "13/07/2026",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

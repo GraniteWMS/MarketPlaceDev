@@ -1,0 +1,19 @@
+{
+  "Identifier": "0e8888dd-7657-5edd-96fe-301f16f8c27d",
+  "Name": "CONFIRMTRANSFER_BUTTANUTT_MasterItem",
+  "Description": "WebTemplate for process template CONFIRMTRANSFER_BUTTANUTT / step MasterItem",
+  "Type": "WEBTEMPLATE",
+  "Version": 1,
+  "LastModified": "21/03/2026",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "458815f8-d104-5b0f-859d-b368262b952b",
+      "ArtifactVersion": 1
+    }
+  ],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

@@ -1,0 +1,99 @@
+{
+  "Identifier": "63460a2e-2a50-4c72-ad6f-bb6ae240d1a8",
+  "Name": "UNMANUFACTURE_BUTTANUTT",
+  "Description": "UNMANUFACTURE_BUTTANUTT\n\nIt is a scanner manufacture reversal process",
+  "Type": "PROCESS",
+  "Version": 0,
+  "LastModified": "21/03/2026",
+  "Tags": [
+    "Manufacturing"
+  ],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "806f6bae-5ebc-50eb-a955-a31959af7f06",
+      "ArtifactVersion": 1,
+      "ArtifactName": "WebTemplate_UnmanufactureTransaction_TransactionID"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "f0bce82b-e1f8-5cfe-9be7-ddad22b37b67",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_UnmanufactureTransaction_TransactionID"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "5bba3ca6-734d-577c-a791-4f3c648e44f3",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_UnmanufactureTransaction_Step200"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "1d5171e5-c44e-5ecf-a959-ed94953f4d1a",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_UnmanufactureTransaction_Confirmation"
+    }
+  ],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "CUSTOM",
+    "ProcessStepMetadata": [
+      {
+        "Name": "Document",
+        "Description": "Enter Document",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": false,
+        "PreScript": ""
+      },
+      {
+        "Name": "TransactionID",
+        "Description": "Select Transaction ID",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_UnmanufactureTransaction_TransactionID",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Step200",
+        "Description": "Reverses the Transaction",
+        "ProcessIndex": 200,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_UnmanufactureTransaction_Step200",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Confirmation",
+        "Description": "Are You Sure You Want To Reverse This Transaction?",
+        "ProcessIndex": 2,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_UnmanufactureTransaction_Confirmation",
+        "hasWebTemplate": true
+      }
+    ]
+  },
+  "PostDeployArtifacts": [
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "2592c30c-18ca-508f-94b9-a483ce40be11",
+      "ArtifactVersion": 1,
+      "ArtifactName": "UNMANUFACTURE_BUTTANUTT_Document"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "5c226a22-262f-53ab-8c98-fc434323a0b8",
+      "ArtifactVersion": 1,
+      "ArtifactName": "UNMANUFACTURE_BUTTANUTT_TransactionID"
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

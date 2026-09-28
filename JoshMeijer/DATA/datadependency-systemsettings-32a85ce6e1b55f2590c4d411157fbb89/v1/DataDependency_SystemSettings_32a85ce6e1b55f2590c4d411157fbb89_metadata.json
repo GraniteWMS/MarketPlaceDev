@@ -1,0 +1,17 @@
+{
+  "Identifier": "32a85ce6-e1b5-5f25-90c4-d411157fbb89",
+  "Name": "DataDependency_SystemSettings_32a85ce6e1b55f2590c4d411157fbb89",
+  "Description": "",
+  "Type": "DATA",
+  "Version": 1,
+  "LastModified": "07/04/2026",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "TypeSpecificAttributes": {
+    "Table": "dbo.SystemSettings",
+    "KeyColumn": "Application",
+    "KeyValues": [
+      "Granite.Function.StocktakeExport.Export"
+    ]
+  }
+}

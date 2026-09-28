@@ -1,0 +1,177 @@
+{
+  "Identifier": "2e3b37f4-ca41-4265-966a-19ec27c5e917",
+  "Name": "CIM_PICKING",
+  "Description": "CIM PICKING\n\nSAPB1 with prefix. And if someone want to filter specific to user assigned lines\n\nN/a",
+  "Type": "PROCESS",
+  "Version": 0,
+  "LastModified": "18/05/2026",
+  "Tags": [
+    "Electronics",
+    "Construction",
+    "E-commerce",
+    "Logistics",
+    "Pharmaceutical",
+    "Cold Storage",
+    "Textile",
+    "Agricultural",
+    "Automotive",
+    "Retail",
+    "Manufacturing"
+  ],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "SQL_STORED_PROCEDURE",
+      "ArtifactIdentifier": "ab925070-d153-5011-9196-26eb19702863",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Custom_GetRecommendedBarcode"
+    },
+    {
+      "ArtifactType": "USER_TABLE",
+      "ArtifactIdentifier": "ac108210-3e5f-5015-913c-bc9ee92b6f59",
+      "ArtifactVersion": 1,
+      "ArtifactName": "OptionalFieldValues_DocumentDetail"
+    },
+    {
+      "ArtifactType": "SQL_STORED_PROCEDURE",
+      "ArtifactIdentifier": "880800e6-55c4-5163-b7c0-05f4ea0215c9",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Custom_AssignDocumentDetailPicker_ByRecommendedWarehouse"
+    },
+    {
+      "ArtifactType": "USER_TABLE",
+      "ArtifactIdentifier": "e1a38868-da25-55fd-b9cc-0903894443bd",
+      "ArtifactVersion": 1,
+      "ArtifactName": "OptionalFieldValues_Location"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "aea2aaf3-e912-5287-9cdf-b4ab77be3b6f",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PrescriptPickingDocument"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "bed3c6db-9cfb-5ca6-9c56-61a895d73b9e",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PrescriptPickingTrackingEntity"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "a573d499-7497-57cc-9e74-d3a7db063dfa",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PrescriptPickingStep200"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "283236d3-a3d9-50cd-bd79-585f7b793700",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PrescriptPickingPickerLocation"
+    }
+  ],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "PICKING",
+    "ProcessStepMetadata": [
+      {
+        "Name": "Document",
+        "Description": "Scan/Enter Sales Order Number",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "DefaultValue": "",
+        "PreScript": "PrescriptPickingDocument",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Location",
+        "Description": "Scan/Enter Picking Location",
+        "ProcessIndex": 100,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "DefaultValue": "",
+        "PreScript": "",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "TrackingEntity",
+        "Description": "Scan/Enter Tracking Entity Barcode",
+        "ProcessIndex": 2,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "DefaultValue": "",
+        "PreScript": "PrescriptPickingTrackingEntity",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Qty",
+        "Description": "Enter Picked Qty",
+        "ProcessIndex": 100,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "DefaultValue": "",
+        "PreScript": "",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "STEP200",
+        "Description": "STEP200",
+        "ProcessIndex": 200,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "DefaultValue": "",
+        "PreScript": "PrescriptPickingStep200",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "PickerLocation",
+        "Description": "Please select your location",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "DefaultValue": "",
+        "PreScript": "PrescriptPickingPickerLocation",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Picker",
+        "Description": "Picker",
+        "ProcessIndex": 100,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "DefaultValue": "",
+        "PreScript": "",
+        "hasWebTemplate": true
+      }
+    ]
+  },
+  "PostDeployArtifacts": [
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "7e3868f5-8188-5f07-8a22-e22ce06888d6",
+      "ArtifactVersion": 1,
+      "ArtifactName": "CIM_PICKING"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "023a5724-ea5b-52a9-ab6a-f06e3e9e9d73",
+      "ArtifactVersion": 1,
+      "ArtifactName": "CIM_PICKING_PickerLocation"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "c85b0f61-b816-57a0-aca7-6e920e323148",
+      "ArtifactVersion": 1,
+      "ArtifactName": "CIM_PICKING_Document"
+    }
+  ],
+  "DependsOnClr": true,
+  "SqlClrAssemblyVersion": "7.0.0.0",
+  "Deprecated": false
+}

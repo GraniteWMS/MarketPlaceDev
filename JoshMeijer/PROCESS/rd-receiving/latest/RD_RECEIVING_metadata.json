@@ -1,0 +1,110 @@
+{
+  "Identifier": "86aa353d-1416-4ae8-8bea-0d6269c3d39f",
+  "Name": "RD_RECEIVING",
+  "Description": "Retail Distribution Receiving against PO\n\nRetail Distribution Model - Receiving against PO.  Only Scan Location once then Item Alias.  Always resolve to ITem Code. No Qty entered.\n\nTrackingentity is always Location_ItemCode\nWhen receiving -we receive to Locations (Checking Bins).  Then we distribute to retail stores before putaway of the remaining stock.",
+  "Type": "PROCESS",
+  "Version": 0,
+  "LastModified": "09/10/2025",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "da1f5771-d891-5e87-a08a-48647c00be37",
+      "ArtifactVersion": 1,
+      "ArtifactName": "webtemplate_POtoReceive"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "b36603b6-5bcd-5f29-aaaa-f0b679b3ce49",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_Receiving_Location"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "f5dab6ad-ad9a-5fce-938e-c28f083375eb",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_Receiving_Document"
+    },
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "7f91c06f-1331-5941-9d46-b64985f6c050",
+      "ArtifactVersion": 1,
+      "ArtifactName": "MasterItemAlias_View"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "b213e273-077e-5460-8d29-25ba15a7c0a7",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_Receiving_MasterItem"
+    }
+  ],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "RECEIVING",
+    "ProcessStepMetadata": [
+      {
+        "Name": "Location",
+        "Description": "Receiving Location",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": false,
+        "PreScript": "Prescript_Receiving_Location",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Document",
+        "Description": "Purchase Order",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "DefaultValue": "",
+        "PreScript": "Prescript_Receiving_Document",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "MasterItem",
+        "Description": "Scan or Select MasterItem from PO",
+        "ProcessIndex": 2,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_Receiving_MasterItem",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Qty",
+        "Description": "Qty Received",
+        "ProcessIndex": 100,
+        "NextIndex": 100,
+        "isActive": true,
+        "Required": true,
+        "DefaultValue": "1",
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "UseBarcode",
+        "Description": "UseBarcode",
+        "ProcessIndex": 100,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": false,
+        "DefaultValue": "",
+        "PreScript": "",
+        "hasWebTemplate": true
+      }
+    ]
+  },
+  "PostDeployArtifacts": [
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "b0a2b0cf-a7c2-55e3-80e7-264b5f44931a",
+      "ArtifactVersion": 1,
+      "ArtifactName": "RD_RECEIVING_Document"
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

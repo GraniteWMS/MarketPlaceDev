@@ -1,0 +1,32 @@
+{
+  "Name": "GENERATE_LOAD_SHEET",
+  "Description": "GENERATE LOAD SHEET",
+  "Type": "CUSTOM",
+  "IsActive": true,
+  "IntegrationIsActive": false,
+  "IntegrationPost": false,
+  "Steps": [
+    {
+      "Name": "Type",
+      "Description": "Email or Print Load sheet",
+      "ProcessIndex": 0,
+      "NextIndex": 1,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "PrescriptGenerateLoadSheetType",
+      "WebTemplateArtifact": "bf3fd0f9-e4a0-54e0-aef5-e026a9a8c86c"
+    },
+    {
+      "Name": "LoadSheet",
+      "Description": "Load Sheet Number",
+      "ProcessIndex": 1,
+      "NextIndex": 0,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "PrescriptGenerateLoadSheetLoadSheet",
+      "WebTemplateArtifact": "ac56a133-8bb0-5d7b-ae9c-e4a772ca5a3c"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "Identifier": "8181fdfa-9fb3-5ed9-beea-545c05420f2c",
+  "Name": "VSERV_PICKING_Document",
+  "Description": "WebTemplate for process template VSERV_PICKING / step Document",
+  "Type": "WEBTEMPLATE",
+  "Version": 0,
+  "LastModified": "09/02/2026",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "e807b1fc-2392-5b4e-b40a-a8f4703bdddd",
+      "ArtifactVersion": 1
+    }
+  ],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

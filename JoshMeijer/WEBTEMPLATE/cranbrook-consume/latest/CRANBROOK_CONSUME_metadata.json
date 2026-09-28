@@ -1,0 +1,13 @@
+{
+  "Identifier": "f4b53c33-3645-53f4-9157-52a9448738bb",
+  "Name": "CRANBROOK_CONSUME",
+  "Description": "WebTemplate for process template CRANBROOK_CONSUME",
+  "Type": "WEBTEMPLATE",
+  "Version": 0,
+  "LastModified": "25/06/2026",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

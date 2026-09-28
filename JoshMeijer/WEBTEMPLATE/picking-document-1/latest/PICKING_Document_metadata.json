@@ -1,0 +1,19 @@
+{
+  "Identifier": "6ee7b009-5c4e-51dc-87a0-5f493a8e77ba",
+  "Name": "PICKING_Document",
+  "Description": "WebTemplate for process template PICKING / step Document",
+  "Type": "WEBTEMPLATE",
+  "Version": 0,
+  "LastModified": "22/04/2024",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "e685e7a7-579a-5df3-8e9b-51285d0a57ed",
+      "ArtifactVersion": 1
+    }
+  ],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

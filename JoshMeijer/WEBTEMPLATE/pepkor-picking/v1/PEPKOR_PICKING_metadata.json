@@ -1,0 +1,13 @@
+{
+  "Identifier": "30a552ec-d4a8-58ad-9676-9ca70407a4a4",
+  "Name": "PEPKOR_PICKING",
+  "Description": "WebTemplate for process template PEPKOR_PICKING",
+  "Type": "WEBTEMPLATE",
+  "Version": 1,
+  "LastModified": "13/05/2026",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

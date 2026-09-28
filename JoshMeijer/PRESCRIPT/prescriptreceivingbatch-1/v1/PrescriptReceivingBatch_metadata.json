@@ -1,0 +1,10 @@
+{
+  "Identifier": "2d2e5ebe-f79d-576f-a3bf-186f471329e3",
+  "Name": "PrescriptReceivingBatch",
+  "Description": "",
+  "Type": "PRESCRIPT",
+  "Version": 1,
+  "LastModified": "18/05/2026",
+  "Tags": [],
+  "ArtifactDependencies": []
+}

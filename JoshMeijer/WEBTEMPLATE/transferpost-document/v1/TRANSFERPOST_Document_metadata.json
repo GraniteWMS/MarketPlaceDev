@@ -1,0 +1,19 @@
+{
+  "Identifier": "84b3eda0-5cf5-5835-b77a-9020ba3667d3",
+  "Name": "TRANSFERPOST_Document",
+  "Description": "WebTemplate for process template TRANSFERPOST / step Document",
+  "Type": "WEBTEMPLATE",
+  "Version": 1,
+  "LastModified": "10/09/2026",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "508dadef-36ee-559c-8573-e52771818415",
+      "ArtifactVersion": 1
+    }
+  ],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

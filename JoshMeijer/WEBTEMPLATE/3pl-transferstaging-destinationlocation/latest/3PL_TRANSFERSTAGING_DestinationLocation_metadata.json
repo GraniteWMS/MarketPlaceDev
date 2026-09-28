@@ -1,0 +1,19 @@
+{
+  "Identifier": "e9b5839f-1ccb-55d4-b505-e8718a6065ae",
+  "Name": "3PL_TRANSFERSTAGING_DestinationLocation",
+  "Description": "WebTemplate for process template 3PL_TRANSFERSTAGING / step DestinationLocation",
+  "Type": "WEBTEMPLATE",
+  "Version": 0,
+  "LastModified": "13/08/2025",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "3e88cdd5-4b6b-5cef-a8b1-0447e368ef44",
+      "ArtifactVersion": 1
+    }
+  ],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

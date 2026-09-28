@@ -1,0 +1,19 @@
+{
+  "Identifier": "47c8f497-3e6f-59c1-83c2-9fbf4f50f456",
+  "Name": "VSERV_RECEIVINGFOOD_Document",
+  "Description": "WebTemplate for process template VSERV_RECEIVINGFOOD / step Document",
+  "Type": "WEBTEMPLATE",
+  "Version": 1,
+  "LastModified": "09/02/2026",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "1991c591-e06f-568a-a652-31ed0247d5db",
+      "ArtifactVersion": 1
+    }
+  ],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

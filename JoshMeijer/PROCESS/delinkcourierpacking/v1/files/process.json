@@ -1,0 +1,42 @@
+{
+  "Name": "DELINKCOURIERPACKING",
+  "Description": "DELINKCOURIERPACKING",
+  "Type": "CUSTOM",
+  "IsActive": true,
+  "IntegrationIsActive": false,
+  "IntegrationPost": false,
+  "Steps": [
+    {
+      "Name": "BoxBarcode",
+      "Description": "Scan/Enter courier box barcode",
+      "ProcessIndex": 0,
+      "NextIndex": 1,
+      "IsActive": true,
+      "Required": false,
+      "IsBusinessRule": false,
+      "PreScript": "PrescriptDelinkCourierPackingBoxBarcode"
+    },
+    {
+      "Name": "Document",
+      "Description": "Scan/Enter order that you want to remove",
+      "ProcessIndex": 1,
+      "NextIndex": 2,
+      "IsActive": true,
+      "Required": false,
+      "IsBusinessRule": false,
+      "PreScript": "PrescriptDelinkCourierPackingDocument",
+      "WebTemplateArtifact": "fb9f91ca-2aba-54fe-9501-df9fc0496e13"
+    },
+    {
+      "Name": "Confirmation",
+      "Description": "Cofirm if you are happy with the removal",
+      "ProcessIndex": 2,
+      "NextIndex": 1,
+      "IsActive": true,
+      "Required": false,
+      "IsBusinessRule": false,
+      "PreScript": "PrescriptDelinkCourierPackingzConfirmation",
+      "WebTemplateArtifact": "e2f52ac0-1def-54f5-b2b5-8957719bf897"
+    }
+  ]
+}

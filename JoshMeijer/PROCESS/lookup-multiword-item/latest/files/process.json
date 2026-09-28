@@ -1,0 +1,29 @@
+{
+  "Name": "LOOKUP_MULTIWORD_ITEM",
+  "Description": "LOOKUP_MULTIWORD_ITEM_DESC",
+  "Type": "CUSTOM",
+  "IsActive": true,
+  "IntegrationIsActive": false,
+  "IntegrationPost": false,
+  "WebTemplateArtifact": "231433be-56f7-5409-a94d-61e224649268",
+  "Steps": [
+    {
+      "Name": "Search",
+      "Description": "Select words to search",
+      "ProcessIndex": 0,
+      "NextIndex": 1,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false
+    },
+    {
+      "Name": "Result",
+      "Description": "Press Enter to Restart",
+      "ProcessIndex": 1,
+      "NextIndex": 0,
+      "IsActive": true,
+      "Required": false,
+      "IsBusinessRule": false
+    }
+  ]
+}

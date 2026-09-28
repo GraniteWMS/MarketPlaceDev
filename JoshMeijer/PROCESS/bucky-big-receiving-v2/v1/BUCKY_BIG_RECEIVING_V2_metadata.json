@@ -1,0 +1,186 @@
+{
+  "Identifier": "19813a2e-fcb7-4880-bbe5-21753b74dec4",
+  "Name": "BUCKY_BIG_RECEIVING_V2",
+  "Description": "BUCKY_BIG_RECEIVING_V2\n\nIf you need to group a bunch of POs together to receive them as if they were a single document, then this is for you.\n\nThe documents need to be linked together somehow by a shared value. In this case I use the RouteName field but you can use anything, just remember to change the scripts and views. It is set to CLR print the pallet and tracking entity barcodes. It generates a single tracking entity barcode per receive, unless you specify a UseBarcode.",
+  "Type": "PROCESS",
+  "Version": 1,
+  "LastModified": "27/01/2026",
+  "Tags": [
+    "Manufacturing",
+    "Retail",
+    "Automotive",
+    "Agricultural",
+    "Textile",
+    "Electronics",
+    "Construction",
+    "E-commerce",
+    "Logistics",
+    "Pharmaceutical",
+    "Cold Storage"
+  ],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "c8538d66-e997-5656-b868-f155d779ed1b",
+      "ArtifactVersion": 1,
+      "ArtifactName": "WebTemplate_BigReceiving_LinkReference"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "3d2edf3a-567e-5fc2-95c2-9b58bd9f20c3",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_BigReceiving_LinkReference"
+    },
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "1ff56502-bc40-55d3-bb2a-65737c9bd1f7",
+      "ArtifactVersion": 1,
+      "ArtifactName": "MasterItemAlias_View"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "ae138da9-487e-5dbe-addf-b43fdc223531",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_BigReceiving_MasterItem"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "a6d15f67-c916-5da3-8b04-6f89e7d4a73f",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_BigReceiving_ReceivingLocation"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "bb3b2697-8212-5c44-8464-c2e7b4c463e9",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_BigReceiving_Qty"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "228b2783-10c7-597a-a2f2-4c4a383a72ad",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_BigReceiving_Step200"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "fd0a3773-c16c-5117-8406-169c3606cade",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_BigReceiving_CarryingEntity"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "b05bbc75-e78c-54b6-b432-7b0786f75d8f",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_BigReceiving_Batch"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "2ded822e-eb9c-5876-9de3-09731a5f9df4",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_BigReceiving_ExpiryDate"
+    }
+  ],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "CUSTOM",
+    "ProcessStepMetadata": [
+      {
+        "Name": "Document",
+        "Description": "Enter Reference That Links Documents",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_BigReceiving_LinkReference",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "MasterItem",
+        "Description": "Enter Item Code or Alias",
+        "ProcessIndex": 2,
+        "NextIndex": 3,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_BigReceiving_MasterItem",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "ReceivingLocation",
+        "Description": "Enter Receiving Location",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_BigReceiving_ReceivingLocation",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Qty",
+        "Description": "Enter Quantity to Receive",
+        "ProcessIndex": 6,
+        "NextIndex": 6,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_BigReceiving_Qty",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Step200",
+        "Description": "CLR Receives Against All Documents",
+        "ProcessIndex": 200,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_BigReceiving_Step200",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "CarryingEntity",
+        "Description": "Scan Pallet or Select New",
+        "ProcessIndex": 5,
+        "NextIndex": 6,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_BigReceiving_CarryingEntity",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Batch",
+        "Description": "Enter Batch",
+        "ProcessIndex": 3,
+        "NextIndex": 4,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_BigReceiving_Batch",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "ExpiryDate",
+        "Description": "Enter Expiry Date (YYYYMMDD)",
+        "ProcessIndex": 4,
+        "NextIndex": 5,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_BigReceiving_ExpiryDate",
+        "hasWebTemplate": true
+      }
+    ]
+  },
+  "PostDeployArtifacts": [
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "86e10fd3-04db-5364-9fac-42a3b840f445",
+      "ArtifactVersion": 1,
+      "ArtifactName": "BUCKY_BIG_RECEIVING_V2"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "7e47f7a3-4042-528c-8e05-9a0a73c87674",
+      "ArtifactVersion": 1,
+      "ArtifactName": "BUCKY_BIG_RECEIVING_V2_Document"
+    }
+  ],
+  "DependsOnClr": true,
+  "SqlClrAssemblyVersion": "7.0.0.0",
+  "Deprecated": false
+}

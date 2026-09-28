@@ -1,0 +1,13 @@
+{
+  "Identifier": "cddb724b-6982-57dc-9d35-dc0a5053c643",
+  "Name": "Receiving_Consolidated_Qty",
+  "Description": "WebTemplate for process template Receiving_Consolidated / step Qty",
+  "Type": "WEBTEMPLATE",
+  "Version": 0,
+  "LastModified": "05/08/2026",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

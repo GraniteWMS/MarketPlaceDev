@@ -1,0 +1,78 @@
+{
+  "Identifier": "66370f4e-0491-43d2-89ec-776e5c38c762",
+  "Name": "REPLENISHTOBARCODE_BUTTANUTT",
+  "Description": "REPLENISHTOBARCODE_BUTTANUTT\n\nReplenishes to existing barcode. There is a rule to check that you are not replenishing to a barcode in a different ERP Location",
+  "Type": "PROCESS",
+  "Version": 1,
+  "LastModified": "21/03/2026",
+  "Tags": [
+    "Electronics",
+    "Construction",
+    "E-commerce",
+    "Logistics",
+    "Pharmaceutical",
+    "Cold Storage",
+    "Manufacturing",
+    "Retail",
+    "Automotive",
+    "Agricultural",
+    "Textile"
+  ],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "9d6ba4c9-0307-550e-94f8-8da90a97efbd",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_ReplenishToBarcode_ToTrackingEntity"
+    }
+  ],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "REPLENISH",
+    "ProcessStepMetadata": [
+      {
+        "Name": "FromTrackingEntity",
+        "Description": "Scan Barcode You Are Replenishing From",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "Location",
+        "Description": "To Location",
+        "ProcessIndex": 100,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "ToTrackingEntity",
+        "Description": "Scan Barcode You Are Replenishing To",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_ReplenishToBarcode_ToTrackingEntity",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Qty",
+        "Description": "Qty to Replenish",
+        "ProcessIndex": 2,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      }
+    ]
+  },
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

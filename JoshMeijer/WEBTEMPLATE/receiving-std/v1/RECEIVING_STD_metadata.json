@@ -1,0 +1,13 @@
+{
+  "Identifier": "43b0b998-6f91-528c-b1b1-cea316c6521d",
+  "Name": "RECEIVING_STD",
+  "Description": "WebTemplate for process template RECEIVING_STD",
+  "Type": "WEBTEMPLATE",
+  "Version": 1,
+  "LastModified": "01/09/2026",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

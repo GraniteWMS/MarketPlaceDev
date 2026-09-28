@@ -1,0 +1,13 @@
+{
+  "Identifier": "d3f24171-1200-5624-aeec-ab783ef17d08",
+  "Name": "TAKEONMANUFACTURE_ConfirmPallet",
+  "Description": "WebTemplate for process template TAKEONMANUFACTURE / step ConfirmPallet",
+  "Type": "WEBTEMPLATE",
+  "Version": 0,
+  "LastModified": "07/09/2025",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

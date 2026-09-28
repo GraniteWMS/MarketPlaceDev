@@ -1,0 +1,13 @@
+{
+  "Identifier": "5f7050bf-7b02-57e8-b48b-c58aca17b54c",
+  "Name": "AGRILINEPACKING_MasterItem",
+  "Description": "WebTemplate for process template AGRILINEPACKING / step MasterItem",
+  "Type": "WEBTEMPLATE",
+  "Version": 1,
+  "LastModified": "23/06/2026",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

@@ -1,0 +1,19 @@
+{
+  "Identifier": "4c37bb1c-58cf-58f4-9b12-e3eb29855919",
+  "Name": "RD_TRANSFERPOSTOVERRIDE_Confirmation",
+  "Description": "WebTemplate for process template RD_TRANSFERPOSTOVERRIDE / step Confirmation",
+  "Type": "WEBTEMPLATE",
+  "Version": 0,
+  "LastModified": "09/10/2025",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "SQL_STORED_PROCEDURE",
+      "ArtifactIdentifier": "644fdb18-9a9e-5e1d-9e1d-49616329d549",
+      "ArtifactVersion": 1
+    }
+  ],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

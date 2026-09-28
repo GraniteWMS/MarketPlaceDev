@@ -1,0 +1,14 @@
+{{ 
+    navigateToStepButton({
+        stepName: "CustomPallet",
+    }) 
+}}
+<br>
+
+<script>
+    document
+        .querySelectorAll("button[onclick*=\"navigateToStep("CustomPallet"\"]")
+        .forEach(function (button) {
+            button.innerText = "Scan Next Pallet";
+        });
+</script>

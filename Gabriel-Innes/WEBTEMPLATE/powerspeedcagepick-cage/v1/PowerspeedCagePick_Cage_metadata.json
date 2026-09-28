@@ -1,0 +1,19 @@
+{
+  "Identifier": "a3a81a5d-6ba7-5d33-b18e-d8cadc1ed553",
+  "Name": "PowerspeedCagePick_Cage",
+  "Description": "WebTemplate for process template PowerspeedCagePick / step Cage",
+  "Type": "WEBTEMPLATE",
+  "Version": 1,
+  "LastModified": "03/07/2025",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "6f94d3b5-682b-5f2f-9f17-fa0541a27365",
+      "ArtifactVersion": 1
+    }
+  ],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

@@ -1,0 +1,51 @@
+{
+  "Name": "ADJUSTTOQTY-V7CLRWithPOST",
+  "Description": "ADJUST TO QTY (V7Clr and ClrPost)",
+  "Type": "CUSTOM",
+  "IsActive": true,
+  "IntegrationIsActive": true,
+  "IntegrationPost": true,
+  "WebTemplateArtifact": "d1068585-f806-58f7-897e-0dbb9de414a1",
+  "Steps": [
+    {
+      "Name": "TrackingEntity",
+      "Description": "TrackingEntity",
+      "ProcessIndex": 0,
+      "NextIndex": 1,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "PrescriptAdjustToQtyTrackingEntity"
+    },
+    {
+      "Name": "Qty",
+      "Description": "Qty",
+      "ProcessIndex": 1,
+      "NextIndex": 0,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "PrescriptAdjustToQtyQty"
+    },
+    {
+      "Name": "Step200",
+      "Description": "Do the Adjustment with CLR",
+      "ProcessIndex": 200,
+      "NextIndex": 0,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "PrescriptAdjustToQtyStep200"
+    },
+    {
+      "Name": "Step201",
+      "Description": "Post to ERP using CLR",
+      "ProcessIndex": 201,
+      "NextIndex": 201,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "PrescriptAdjustmentToQty_Step201"
+    }
+  ]
+}

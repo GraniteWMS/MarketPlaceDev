@@ -1,0 +1,76 @@
+{
+  "Name": "STOCKTAKENOLOCATIONNOQTYFUNCTION",
+  "Description": "STOCKTAKENOLOCATIONNOQTYFUNCTION",
+  "Type": "STOCKTAKECOUNT",
+  "IsActive": true,
+  "IntegrationIsActive": false,
+  "IntegrationPost": false,
+  "Steps": [
+    {
+      "Name": "CustomPallet",
+      "Description": "Scan/Enter Pallet Number",
+      "ProcessIndex": 0,
+      "NextIndex": 1,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "PrescriptStocktakeCustomPallet"
+    },
+    {
+      "Name": "Session",
+      "Description": "Session",
+      "ProcessIndex": 1,
+      "NextIndex": 2,
+      "IsActive": true,
+      "Required": false,
+      "IsBusinessRule": false,
+      "WebTemplateArtifact": "3e5e4087-8c63-5ead-a4bc-629347e9958d"
+    },
+    {
+      "Name": "Count",
+      "Description": "Count",
+      "ProcessIndex": 2,
+      "NextIndex": 3,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false
+    },
+    {
+      "Name": "Location",
+      "Description": "Scan/Enter Location",
+      "ProcessIndex": 3,
+      "NextIndex": 4,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false
+    },
+    {
+      "Name": "TrackingEntity",
+      "Description": "Scan/Enter TrackingEntity",
+      "ProcessIndex": 4,
+      "NextIndex": 5,
+      "IsActive": true,
+      "Required": false,
+      "IsBusinessRule": false,
+      "PreScript": "PrescriptStocktakeOverrideTrackingEntity"
+    },
+    {
+      "Name": "PalletConfirmation",
+      "Description": "PalletConfirmation",
+      "ProcessIndex": 5,
+      "NextIndex": 6,
+      "IsActive": true,
+      "Required": false,
+      "IsBusinessRule": false
+    },
+    {
+      "Name": "Qty",
+      "Description": "Qty",
+      "ProcessIndex": 6,
+      "NextIndex": 4,
+      "IsActive": true,
+      "Required": false,
+      "IsBusinessRule": false
+    }
+  ]
+}

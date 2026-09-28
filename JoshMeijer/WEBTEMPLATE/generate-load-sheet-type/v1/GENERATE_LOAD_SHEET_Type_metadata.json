@@ -1,0 +1,13 @@
+{
+  "Identifier": "bf3fd0f9-e4a0-54e0-aef5-e026a9a8c86c",
+  "Name": "GENERATE_LOAD_SHEET_Type",
+  "Description": "WebTemplate for process template GENERATE_LOAD_SHEET / step Type",
+  "Type": "WEBTEMPLATE",
+  "Version": 1,
+  "LastModified": "07/08/2024",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

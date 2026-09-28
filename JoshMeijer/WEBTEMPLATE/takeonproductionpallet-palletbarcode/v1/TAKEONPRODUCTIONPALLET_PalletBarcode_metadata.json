@@ -1,0 +1,13 @@
+{
+  "Identifier": "2c35925d-696f-5a22-bf5c-7d241f099e72",
+  "Name": "TAKEONPRODUCTIONPALLET_PalletBarcode",
+  "Description": "WebTemplate for process template TAKEONPRODUCTIONPALLET / step PalletBarcode",
+  "Type": "WEBTEMPLATE",
+  "Version": 1,
+  "LastModified": "08/09/2026",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

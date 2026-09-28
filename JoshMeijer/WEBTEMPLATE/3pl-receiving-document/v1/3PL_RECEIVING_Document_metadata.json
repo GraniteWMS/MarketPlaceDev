@@ -1,0 +1,19 @@
+{
+  "Identifier": "af36cf5e-4ce2-588a-b2f6-b0863d2eb571",
+  "Name": "3PL_RECEIVING_Document",
+  "Description": "WebTemplate for process template 3PL_RECEIVING / step Document",
+  "Type": "WEBTEMPLATE",
+  "Version": 1,
+  "LastModified": "04/08/2025",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "673e76f9-2794-5a38-8b9d-6985520fe6f9",
+      "ArtifactVersion": 1
+    }
+  ],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

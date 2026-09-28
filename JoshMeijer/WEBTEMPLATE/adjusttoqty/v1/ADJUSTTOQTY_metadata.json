@@ -1,0 +1,13 @@
+{
+  "Identifier": "44fc7e85-f2ad-5f34-b024-328c39ceecd9",
+  "Name": "ADJUSTTOQTY",
+  "Description": "WebTemplate for process template ADJUSTTOQTY",
+  "Type": "WEBTEMPLATE",
+  "Version": 1,
+  "LastModified": "08/09/2026",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

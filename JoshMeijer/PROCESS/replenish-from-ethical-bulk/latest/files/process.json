@@ -1,0 +1,68 @@
+{
+  "Name": "REPLENISH_FROM_ETHICAL_BULK",
+  "Description": "REPLENISH_FROM_ETHICAL_BULK",
+  "Type": "REPLENISH",
+  "IsActive": true,
+  "IntegrationIsActive": false,
+  "IntegrationPost": false,
+  "Steps": [
+    {
+      "Name": "MasterItem",
+      "Description": "Scan EAN Barcode",
+      "ProcessIndex": 0,
+      "NextIndex": 1,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "Prescript_ReplenishFromEthicalReceivingBox_MasterItem"
+    },
+    {
+      "Name": "Box",
+      "Description": "Scan Receiving Box",
+      "ProcessIndex": 1,
+      "NextIndex": 2,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "Prescript_ReplenishFromEthicalReceivingBox_Box"
+    },
+    {
+      "Name": "FromTrackingEntity",
+      "Description": "Select Stock",
+      "ProcessIndex": 2,
+      "NextIndex": 3,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "WebTemplateArtifact": "576eece4-85b5-56b8-9e1d-95cb2cdf0c8b"
+    },
+    {
+      "Name": "Location",
+      "Description": "Scan Rack Location",
+      "ProcessIndex": 3,
+      "NextIndex": 4,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "Prescript_ReplenishFromEthicalReceivingBox_Location"
+    },
+    {
+      "Name": "Qty",
+      "Description": "Qty to Move",
+      "ProcessIndex": 4,
+      "NextIndex": 2,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false
+    },
+    {
+      "Name": "ToTrackingEntity",
+      "Description": "To TrackingEntity",
+      "ProcessIndex": 100,
+      "NextIndex": 0,
+      "IsActive": true,
+      "Required": false,
+      "IsBusinessRule": false
+    }
+  ]
+}

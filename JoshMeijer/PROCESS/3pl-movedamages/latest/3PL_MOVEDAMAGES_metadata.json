@@ -1,0 +1,73 @@
+{
+  "Identifier": "5e09d9fd-c4e3-4a1d-b9f8-b949e2bec601",
+  "Name": "3PL_MOVEDAMAGES",
+  "Description": "MOVE TO DAMAGES\n\nWhen a  pallet is damaged, move it to damages location -may reference a Document (e.g Receiving) as well.\n\nLocation Damages is defaulted",
+  "Type": "PROCESS",
+  "Version": 0,
+  "LastModified": "13/07/2024",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "MOVE",
+    "ProcessStepMetadata": [
+      {
+        "Name": "TrackingEntity",
+        "Description": "Scan Pallet",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "Location",
+        "Description": "To Location",
+        "ProcessIndex": 100,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "DefaultValue": "DAMAGES",
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "Comment",
+        "Description": "Damage Reason",
+        "ProcessIndex": 2,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "Document",
+        "Description": "Document (Optional)",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      }
+    ]
+  },
+  "PostDeployArtifacts": [
+    {
+      "ArtifactType": "POST_DEPLOY_SCRIPT",
+      "ArtifactIdentifier": "f5149357-3cae-5c56-aaef-0f27afad7305",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PostDeployScript"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "548d27fb-bf51-520c-8f82-cdb51d4f5e79",
+      "ArtifactVersion": 1,
+      "ArtifactName": "3PL_MOVEDAMAGES_Comment"
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

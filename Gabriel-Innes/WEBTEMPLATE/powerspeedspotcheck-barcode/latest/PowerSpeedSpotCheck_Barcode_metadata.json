@@ -1,0 +1,19 @@
+{
+  "Identifier": "0c9b9256-13ea-5d8e-ad83-120e69a66816",
+  "Name": "PowerSpeedSpotCheck_Barcode",
+  "Description": "WebTemplate for process template PowerSpeedSpotCheck / step Barcode",
+  "Type": "WEBTEMPLATE",
+  "Version": 0,
+  "LastModified": "15/05/2025",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "SQL_STORED_PROCEDURE",
+      "ArtifactIdentifier": "ad5a8dcd-0d64-59b1-bedd-70eadd5b688b",
+      "ArtifactVersion": 1
+    }
+  ],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

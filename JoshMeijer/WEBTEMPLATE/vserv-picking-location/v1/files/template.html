@@ -1,0 +1,1 @@
+{{ "SELECT Barcode, [Name] FROM WebTemplate_Picking_Location ORDER BY Barcode ASC" | dbSelect({}) | basicTable({selectOnColumn:"Barcode", enableSearch:true}) }}

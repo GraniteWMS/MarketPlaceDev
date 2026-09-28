@@ -1,0 +1,69 @@
+{
+  "Name": "PEPKOR_RECEIVING",
+  "Description": "PEPKOR_RECEIVING",
+  "Type": "RECEIVING",
+  "IsActive": true,
+  "IntegrationIsActive": false,
+  "IntegrationPost": false,
+  "WebTemplateArtifact": "9a608b4d-f347-5e7e-a75f-98eb3888e90f",
+  "Steps": [
+    {
+      "Name": "Document",
+      "Description": "Enter PO #",
+      "ProcessIndex": 0,
+      "NextIndex": 1,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "WebTemplateArtifact": "819ae304-2acc-525e-bf17-edd8bba54009"
+    },
+    {
+      "Name": "MasterItem",
+      "Description": "Enter Item Code or Scan EAN",
+      "ProcessIndex": 1,
+      "NextIndex": 2,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false
+    },
+    {
+      "Name": "SerialNumber",
+      "Description": "Enter Serial Number",
+      "ProcessIndex": 2,
+      "NextIndex": 3,
+      "IsActive": true,
+      "Required": false,
+      "IsBusinessRule": false
+    },
+    {
+      "Name": "Qty",
+      "Description": "Enter Qty to Receive",
+      "ProcessIndex": 3,
+      "NextIndex": 4,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "Prescript_Receiving_Qty",
+      "WebTemplateArtifact": "9431c075-7416-53e3-885d-9405ff622287"
+    },
+    {
+      "Name": "NoEntities",
+      "Description": "Number of TrackingEntities",
+      "ProcessIndex": 4,
+      "NextIndex": 1,
+      "IsActive": true,
+      "Required": false,
+      "IsBusinessRule": false
+    },
+    {
+      "Name": "Location",
+      "Description": "Receiving Location",
+      "ProcessIndex": 100,
+      "NextIndex": 0,
+      "IsActive": true,
+      "Required": false,
+      "IsBusinessRule": false,
+      "DefaultValue": "RECEIVING"
+    }
+  ]
+}

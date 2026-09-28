@@ -1,0 +1,72 @@
+{
+  "Name": "BUCKY_BIG_PACKING",
+  "Description": "BUCKY_BIG_PACKING",
+  "Type": "CUSTOM",
+  "IsActive": true,
+  "IntegrationIsActive": false,
+  "IntegrationPost": false,
+  "WebTemplateArtifact": "f989ba36-c58b-5f39-a602-6ddbc0a8e9bf",
+  "Steps": [
+    {
+      "Name": "Document",
+      "Description": "Enter Reference That Links Documents",
+      "ProcessIndex": 0,
+      "NextIndex": 1,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "Prescript_BigPacking_LinkReference",
+      "WebTemplateArtifact": "cf49b0f3-24c0-553d-bb61-214e37ba1e20"
+    },
+    {
+      "Name": "PackLocation",
+      "Description": "Enter Packing Location",
+      "ProcessIndex": 1,
+      "NextIndex": 2,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "Prescript_BigPacking_PackLocation"
+    },
+    {
+      "Name": "CarryingEntity",
+      "Description": "Scan Box or Select New",
+      "ProcessIndex": 2,
+      "NextIndex": 3,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "Prescript_BigPacking_CarryingEntity"
+    },
+    {
+      "Name": "MasterItem",
+      "Description": "Enter Item Code or Alias",
+      "ProcessIndex": 3,
+      "NextIndex": 4,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "Prescript_BigPacking_MasterItem"
+    },
+    {
+      "Name": "Qty",
+      "Description": "Enter Quantity to Pack",
+      "ProcessIndex": 4,
+      "NextIndex": 3,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "Prescript_BigPacking_Qty"
+    },
+    {
+      "Name": "Step200",
+      "Description": "CLR Packs Against All Documents",
+      "ProcessIndex": 200,
+      "NextIndex": 0,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "Prescript_BigPacking_Step200"
+    }
+  ]
+}

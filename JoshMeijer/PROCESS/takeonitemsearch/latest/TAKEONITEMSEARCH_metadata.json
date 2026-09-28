@@ -1,0 +1,210 @@
+{
+  "Identifier": "dda2a0fb-1cc6-4e06-987a-8d5c7d7ec718",
+  "Name": "TAKEONITEMSEARCH",
+  "Description": "TAKEON ITEM SEARCH\n\nGeneric TAKEON process allowing for \n1. MasterItem search by Code or Description - limiting the number of records returned to the MasterItem step webtemplate table.  \n2. Dynamic step navigation based on MasterItem rules (EnforceBatchNumber, EnforceExpiryDate, EnforceSerialNumber), allowing the steps to be shown based on rules - if not set then don't ask for it\n\nMasterItem search is executed by a SQL table function \nMasterItem step webtemplate display also uses the SQL table function, and currently returns the Enforce fields - to no longer display these, remove these columns from the function  \nRule for number of records is currently in the MasterItemSearch prescript, but this can also be stored in SystemStaticData",
+  "Type": "PROCESS",
+  "Version": 0,
+  "LastModified": "30/05/2026",
+  "Tags": [
+    "Manufacturing",
+    "Retail",
+    "Automotive",
+    "Agricultural",
+    "Textile",
+    "Electronics",
+    "Construction",
+    "E-commerce",
+    "Logistics",
+    "Pharmaceutical"
+  ],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "949d8bdd-bef0-576b-a9b8-366442f76b2b",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_TakeonItemSearch_MasterItem"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "d70654f0-c503-5b79-8b96-f5ff3868a566",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_TakeonItemSearch_Location"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "fc16bd4e-a856-54df-91a5-04ed4b760d96",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_TakeonItemSearch_Batch"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "a7a022a6-ed79-5b45-b531-384462d3abb7",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_TakeonItemSearch_ExpiryDate"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "6ed2ceb7-e61a-5c55-9208-3338dd88a6a1",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_TakeonItemSearch_SerialNumber"
+    },
+    {
+      "ArtifactType": "SQL_INLINE_TABLE_VALUED_FUNCTION",
+      "ArtifactIdentifier": "63a54596-98da-5bb1-82f0-37d725465b63",
+      "ArtifactVersion": 1,
+      "ArtifactName": "FN_MasterItem_Search"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "fddcb079-e86f-51e6-abd3-c575d0ca0e89",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_TakeonItemSearch_MasterItemSearch"
+    },
+    {
+      "ArtifactType": "SQL_STORED_PROCEDURE",
+      "ArtifactIdentifier": "15ae6989-c02a-5f2d-b684-672e5e94fdc4",
+      "ArtifactVersion": 1,
+      "ArtifactName": "WebTemplate_SP_MasterItemSearch"
+    }
+  ],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "TAKEON",
+    "ProcessStepMetadata": [
+      {
+        "Name": "MasterItem",
+        "Description": "MasterItem",
+        "ProcessIndex": 2,
+        "NextIndex": 3,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_TakeonItemSearch_MasterItem",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Location",
+        "Description": "Location",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "DefaultValue": "",
+        "PreScript": "Prescript_TakeonItemSearch_Location",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Batch",
+        "Description": "Batch",
+        "ProcessIndex": 3,
+        "NextIndex": 4,
+        "isActive": true,
+        "Required": false,
+        "PreScript": "Prescript_TakeonItemSearch_Batch",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "ExpiryDate",
+        "Description": "ExpiryDate (YYYYMMDD)",
+        "ProcessIndex": 4,
+        "NextIndex": 5,
+        "isActive": true,
+        "Required": false,
+        "PreScript": "Prescript_TakeonItemSearch_ExpiryDate",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Qty",
+        "Description": "Qty",
+        "ProcessIndex": 6,
+        "NextIndex": 7,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": false,
+        "PreScript": ""
+      },
+      {
+        "Name": "NoEntities",
+        "Description": "Number of Entities",
+        "ProcessIndex": 7,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": false,
+        "PreScript": ""
+      },
+      {
+        "Name": "SerialNumber",
+        "Description": "SerialNumber",
+        "ProcessIndex": 5,
+        "NextIndex": 6,
+        "isActive": true,
+        "Required": false,
+        "PreScript": "Prescript_TakeonItemSearch_SerialNumber",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "MasterItemSearch",
+        "Description": "MasterItem Search (Use values seperated by spaces)",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_TakeonItemSearch_MasterItemSearch",
+        "hasWebTemplate": false
+      }
+    ]
+  },
+  "PostDeployArtifacts": [
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "56b7fa30-a070-5b15-a291-6a43895a42be",
+      "ArtifactVersion": 1,
+      "ArtifactName": "TAKEONITEMSEARCH"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "953938b6-d5a5-52af-80b7-b935e43e6ec8",
+      "ArtifactVersion": 1,
+      "ArtifactName": "TAKEONITEMSEARCH_MasterItemSearch"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "91396348-95c9-5ac7-bf28-45c22de8c123",
+      "ArtifactVersion": 1,
+      "ArtifactName": "TAKEONITEMSEARCH_MasterItem"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "6c44d207-6158-59b7-9728-06b00ea4a570",
+      "ArtifactVersion": 1,
+      "ArtifactName": "TAKEONITEMSEARCH_Batch"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "c7ed2400-1970-5086-b0bb-cb284c4696fc",
+      "ArtifactVersion": 1,
+      "ArtifactName": "TAKEONITEMSEARCH_ExpiryDate"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "80310f8e-98a4-5fc1-ad85-682f25e84412",
+      "ArtifactVersion": 1,
+      "ArtifactName": "TAKEONITEMSEARCH_SerialNumber"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "a79d3738-9ad7-5e13-8577-0e107029c7eb",
+      "ArtifactVersion": 1,
+      "ArtifactName": "TAKEONITEMSEARCH_Qty"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "85a2160d-8b55-55ff-8bfb-411ac72558c0",
+      "ArtifactVersion": 1,
+      "ArtifactName": "TAKEONITEMSEARCH_NoEntities"
+    }
+  ],
+  "DependsOnClr": true,
+  "SqlClrAssemblyVersion": "7.0.0.0",
+  "Deprecated": false
+}

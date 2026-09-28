@@ -1,0 +1,13 @@
+{
+  "Identifier": "44fe5293-b6c8-55c1-88b7-54fd27150a4a",
+  "Name": "CIM_RECEIVING",
+  "Description": "WebTemplate for process template CIM_RECEIVING",
+  "Type": "WEBTEMPLATE",
+  "Version": 0,
+  "LastModified": "18/05/2026",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

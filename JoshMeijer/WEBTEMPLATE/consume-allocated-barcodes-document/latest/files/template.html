@@ -1,0 +1,5 @@
+{{ "SELECT DocumentNumber, ProductDescription, Batch, CreateDate 
+FROM WebTemplate_Manufacture_Document 
+INNER JOIN Custom_VW_UserGroups ON Custom_VW_UserGroups.[User] = @UserName
+WHERE Warehouse = Custom_VW_UserGroups.UserGroup
+ORDER BY DocumentNumber DESC" | dbSelect({UserName}) | basicTable({selectOnColumn:"DocumentNumber", enableSearch:true}) }}

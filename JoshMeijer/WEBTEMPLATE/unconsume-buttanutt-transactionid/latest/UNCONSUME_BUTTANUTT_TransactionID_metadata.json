@@ -1,0 +1,19 @@
+{
+  "Identifier": "9731360e-67b5-5b2f-b55f-61d31d3e6ac3",
+  "Name": "UNCONSUME_BUTTANUTT_TransactionID",
+  "Description": "WebTemplate for process template UNCONSUME_BUTTANUTT / step TransactionID",
+  "Type": "WEBTEMPLATE",
+  "Version": 0,
+  "LastModified": "21/03/2026",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "c678995a-e507-5bf6-8b5b-7e8f1c2bd195",
+      "ArtifactVersion": 1
+    }
+  ],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

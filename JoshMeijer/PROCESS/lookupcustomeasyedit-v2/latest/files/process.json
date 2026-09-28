@@ -1,0 +1,41 @@
+{
+  "Name": "LOOKUPCUSTOMEASYEDIT_V2",
+  "Description": "LOOKUPCUSTOMEASYEDIT_V2",
+  "Type": "CUSTOM",
+  "IsActive": true,
+  "IntegrationIsActive": false,
+  "IntegrationPost": false,
+  "Steps": [
+    {
+      "Name": "Type",
+      "Description": "Type",
+      "ProcessIndex": 0,
+      "NextIndex": 1,
+      "IsActive": true,
+      "Required": false,
+      "IsBusinessRule": false,
+      "DefaultValue": "MasterItem",
+      "WebTemplateArtifact": "f711ef49-0c2a-5349-a4e7-fe851df7ceab"
+    },
+    {
+      "Name": "LookupValue",
+      "Description": "ENTER/SCAN Barcode",
+      "ProcessIndex": 1,
+      "NextIndex": 2,
+      "IsActive": true,
+      "Required": false,
+      "IsBusinessRule": false,
+      "PreScript": "PrescriptLookupMasterItemLookUpValue"
+    },
+    {
+      "Name": "Display",
+      "Description": "Display",
+      "ProcessIndex": 2,
+      "NextIndex": 1,
+      "IsActive": true,
+      "Required": false,
+      "IsBusinessRule": false,
+      "WebTemplateArtifact": "79b04ac8-5318-5c51-a491-892e1fb3d58f"
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "Identifier": "450415fe-31d7-5e80-a161-74e10ab9b5ee",
+  "Name": "PROCUREMENT_MANUFACTURE_BUTTANUTT",
+  "Description": "WebTemplate for process template PROCUREMENT_MANUFACTURE_BUTTANUTT",
+  "Type": "WEBTEMPLATE",
+  "Version": 0,
+  "LastModified": "21/03/2026",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

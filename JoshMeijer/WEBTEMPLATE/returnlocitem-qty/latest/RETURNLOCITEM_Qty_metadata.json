@@ -1,0 +1,13 @@
+{
+  "Identifier": "1ebc91f8-4f3b-526a-8f34-48d6696e4df7",
+  "Name": "RETURNLOCITEM_Qty",
+  "Description": "WebTemplate for process template RETURNLOCITEM / step Qty",
+  "Type": "WEBTEMPLATE",
+  "Version": 0,
+  "LastModified": "08/05/2026",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

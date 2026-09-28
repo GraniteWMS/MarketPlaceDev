@@ -1,0 +1,13 @@
+{
+  "Identifier": "cf244083-330b-5beb-949a-3d83b48d5032",
+  "Name": "VSERV_RECEIVINGFOOD_CarryingEntity",
+  "Description": "WebTemplate for process template VSERV_RECEIVINGFOOD / step CarryingEntity",
+  "Type": "WEBTEMPLATE",
+  "Version": 0,
+  "LastModified": "09/02/2026",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

@@ -1,0 +1,13 @@
+{
+  "Identifier": "043f72fa-7bed-5d92-80c1-516efc93d650",
+  "Name": "AGRILINE_PACKINGCUSTOM_TEST_NoBoxes",
+  "Description": "WebTemplate for process template AGRILINE_PACKINGCUSTOM_TEST / step NoBoxes",
+  "Type": "WEBTEMPLATE",
+  "Version": 1,
+  "LastModified": "07/07/2026",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

@@ -1,0 +1,72 @@
+{
+  "Name": "PowerspeedCagePick",
+  "Description": "PowerspeedCagePick",
+  "Type": "PICKING",
+  "IsActive": true,
+  "IntegrationIsActive": false,
+  "IntegrationPost": false,
+  "WebTemplateArtifact": "fccb355f-2373-5161-a53d-1f4c881b1404",
+  "Steps": [
+    {
+      "Name": "Cage",
+      "Description": "Cage",
+      "ProcessIndex": 0,
+      "NextIndex": 1,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "WebTemplateArtifact": "a3a81a5d-6ba7-5d33-b18e-d8cadc1ed553"
+    },
+    {
+      "Name": "Document",
+      "Description": "Document Number",
+      "ProcessIndex": 1,
+      "NextIndex": 2,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "WebTemplateArtifact": "68179454-a2a1-5157-b042-17e264dcc806"
+    },
+    {
+      "Name": "Comment",
+      "Description": "Box Number",
+      "ProcessIndex": 2,
+      "NextIndex": 3,
+      "IsActive": true,
+      "Required": false,
+      "IsBusinessRule": false,
+      "PreScript": "PrescriptPickingComment"
+    },
+    {
+      "Name": "TrackingEntity",
+      "Description": "TrackingEntity (Granite Barcode)",
+      "ProcessIndex": 3,
+      "NextIndex": 4,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "PrescriptCagePickTrackingEntity",
+      "WebTemplateArtifact": "69040693-2550-5731-81e8-d2c5f469c1a2"
+    },
+    {
+      "Name": "Qty",
+      "Description": "Qty",
+      "ProcessIndex": 4,
+      "NextIndex": 3,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "PrescriptCagePickQty",
+      "WebTemplateArtifact": "6459402e-2015-5821-842a-a34a19b19a4b"
+    },
+    {
+      "Name": "Location",
+      "Description": "Location",
+      "ProcessIndex": 100,
+      "NextIndex": 100,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false
+    }
+  ]
+}

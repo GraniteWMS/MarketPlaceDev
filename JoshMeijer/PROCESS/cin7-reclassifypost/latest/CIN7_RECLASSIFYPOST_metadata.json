@@ -1,0 +1,49 @@
+{
+  "Identifier": "95501fab-7761-469b-9e21-5a21870b4ebb",
+  "Name": "CIN7_RECLASSIFYPOST",
+  "Description": "CIN7_RECLASSIFYPOST\n\nIf you wish to batch post a bunch of reclassifications to Cin7",
+  "Type": "PROCESS",
+  "Version": 0,
+  "LastModified": "12/07/2026",
+  "Tags": [
+    "Electronics",
+    "Construction",
+    "E-commerce",
+    "Logistics",
+    "Pharmaceutical",
+    "Cold Storage",
+    "Manufacturing",
+    "Retail",
+    "Automotive",
+    "Agricultural",
+    "Textile"
+  ],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "8820949f-f1b0-5a95-894f-458c4e96b066",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_ReclassifyPost_DocumentReference"
+    }
+  ],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "CUSTOM",
+    "ProcessStepMetadata": [
+      {
+        "Name": "DocumentReference",
+        "Description": "DocumentReference",
+        "ProcessIndex": 0,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_ReclassifyPost_DocumentReference",
+        "hasWebTemplate": true
+      }
+    ]
+  },
+  "PostDeployArtifacts": [],
+  "DependsOnClr": true,
+  "SqlClrAssemblyVersion": "7.0.0.0",
+  "Deprecated": false
+}

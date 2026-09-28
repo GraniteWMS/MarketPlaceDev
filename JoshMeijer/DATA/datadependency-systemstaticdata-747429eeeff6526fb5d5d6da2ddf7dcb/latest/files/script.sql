@@ -1,0 +1,2 @@
+INSERT INTO [SystemStaticData] ([Key],[Description],[Group],[Value],[isEncrypted]) 
+VALUES('TransferPostCompletePercentage','The Percentage completeness required to be able to post a transfer.  Can be overridden','Rules','10','False')

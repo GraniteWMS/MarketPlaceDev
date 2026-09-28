@@ -1,0 +1,13 @@
+{
+  "Identifier": "c6b77b2d-0ed8-5d76-bd9c-3dc42ba146be",
+  "Name": "RECEIVE RETURN",
+  "Description": "WebTemplate for process template RECEIVE RETURN",
+  "Type": "WEBTEMPLATE",
+  "Version": 0,
+  "LastModified": "18/03/2025",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

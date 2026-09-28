@@ -1,0 +1,31 @@
+{
+  "Name": "PUTAWAY",
+  "Description": "PUTAWAY",
+  "Type": "MOVE",
+  "IsActive": true,
+  "IntegrationIsActive": false,
+  "IntegrationPost": false,
+  "Steps": [
+    {
+      "Name": "Location",
+      "Description": "To Location",
+      "ProcessIndex": 0,
+      "NextIndex": 1,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "WebTemplateArtifact": "f3e82667-735a-5053-94fb-aed1585ea654"
+    },
+    {
+      "Name": "TrackingEntity",
+      "Description": "Scan Tracking Barcode",
+      "ProcessIndex": 1,
+      "NextIndex": 1,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "PrescriptPutawayItemLocationValidation",
+      "WebTemplateArtifact": "d98e2bac-fee9-512f-b75a-d2376874e07e"
+    }
+  ]
+}

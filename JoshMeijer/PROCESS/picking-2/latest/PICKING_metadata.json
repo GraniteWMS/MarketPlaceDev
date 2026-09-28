@@ -1,0 +1,123 @@
+{
+  "Identifier": "c6f0eb00-6ff6-4592-8444-0ac636cc2a7b",
+  "Name": "PICKING",
+  "Description": "PICKING\n\nImproved Picking process with a Webtemplate to show PICKSTAGING locations and a Webtemplate to Show Orders to Pick\n\nIf you specifically require orders to be released, change the Webtemplate of SOtoPICK to exclude ENTERED Orders.  This is recommended.   The Dispatch Staging Locations should have a LOCATION Type of PICKSTAGING.  This type is added as a PostDeploy Value to Types.",
+  "Type": "PROCESS",
+  "Version": 0,
+  "LastModified": "22/04/2024",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "e685e7a7-579a-5df3-8e9b-51285d0a57ed",
+      "ArtifactVersion": 1,
+      "ArtifactName": "webtemplate_SOtoPick"
+    },
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "7a3d34b6-7605-5ca6-b132-d6a82214b44c",
+      "ArtifactVersion": 1,
+      "ArtifactName": "WebTemplate_PickStagingLocations"
+    },
+    {
+      "ArtifactType": "SQL_STORED_PROCEDURE",
+      "ArtifactIdentifier": "f124edeb-2d95-59ed-8b9e-4cac3d71223f",
+      "ArtifactVersion": 1,
+      "ArtifactName": "FIFOPickingRecommendation"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "c0213a51-8b87-5e12-ad67-94578953a75d",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PrescriptPickingDocument"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "2f38b7ef-09c0-5d5c-9de0-b2bcc3e42fb4",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PrescriptPickingStep200"
+    }
+  ],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "PICKING",
+    "ProcessStepMetadata": [
+      {
+        "Name": "Document",
+        "Description": "Document",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "PrescriptPickingDocument",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Location",
+        "Description": "Staging Location",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": false,
+        "PreScript": ""
+      },
+      {
+        "Name": "TrackingEntity",
+        "Description": "TrackingEntity",
+        "ProcessIndex": 2,
+        "NextIndex": 3,
+        "isActive": true,
+        "Required": true,
+        "DefaultValue": "",
+        "PreScript": "",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Qty",
+        "Description": "Qty",
+        "ProcessIndex": 3,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "DefaultValue": "",
+        "PreScript": "",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Step200",
+        "Description": "Step200",
+        "ProcessIndex": 200,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "DefaultValue": "",
+        "PreScript": "PrescriptPickingStep200",
+        "hasWebTemplate": true
+      }
+    ]
+  },
+  "PostDeployArtifacts": [
+    {
+      "ArtifactType": "DATA",
+      "ArtifactIdentifier": "2ee18879-fc2b-53aa-b04e-eebc0b695a0a",
+      "ArtifactVersion": 1,
+      "ArtifactName": "DataDependency_Type_2ee18879fc2b53aab04eeebc0b695a0a"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "6f5172f8-d8dd-50f9-a082-77a599c5219d",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PICKING_Location"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "6ee7b009-5c4e-51dc-87a0-5f493a8e77ba",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PICKING_Document"
+    }
+  ],
+  "DependsOnClr": true,
+  "SqlClrAssemblyVersion": "7.0.0.0",
+  "Deprecated": false
+}

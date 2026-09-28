@@ -1,0 +1,19 @@
+{
+  "Identifier": "5179c2c9-b205-5675-92f4-89a2e9826461",
+  "Name": "PACKING_Document",
+  "Description": "WebTemplate for process template PACKING / step Document",
+  "Type": "WEBTEMPLATE",
+  "Version": 1,
+  "LastModified": "10/05/2026",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "f02ed109-9bd6-5b21-b88f-07ce2ee78933",
+      "ArtifactVersion": 1
+    }
+  ],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

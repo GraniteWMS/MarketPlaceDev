@@ -1,0 +1,19 @@
+{
+  "Identifier": "2c5aec13-d5f3-5b49-a0bf-28c35f7b6278",
+  "Name": "CREATE_TASK_TaskDescription",
+  "Description": "WebTemplate for process template CREATE_TASK / step TaskDescription",
+  "Type": "WEBTEMPLATE",
+  "Version": 0,
+  "LastModified": "04/06/2025",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "6b37cc4b-8243-590c-bfac-d8240e226f87",
+      "ArtifactVersion": 1
+    }
+  ],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

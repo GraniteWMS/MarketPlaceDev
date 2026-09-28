@@ -1,0 +1,19 @@
+{
+  "Identifier": "d1b92d83-df4c-50b4-8a21-889bc8b60e38",
+  "Name": "RD_LOOKUP",
+  "Description": "WebTemplate for process template RD_LOOKUP",
+  "Type": "WEBTEMPLATE",
+  "Version": 0,
+  "LastModified": "09/10/2025",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "SQL_STORED_PROCEDURE",
+      "ArtifactIdentifier": "6bd2f1e3-ab22-527c-93a1-999442e014fe",
+      "ArtifactVersion": 1
+    }
+  ],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

@@ -1,0 +1,13 @@
+{
+  "Identifier": "5c8d39ce-9cfe-5215-b660-ce2b4f4867e5",
+  "Name": "ALFRED_RECEIVINGSELECTABLE_BATCH",
+  "Description": "WebTemplate for process template ALFRED_RECEIVINGSELECTABLE_BATCH",
+  "Type": "WEBTEMPLATE",
+  "Version": 0,
+  "LastModified": "20/03/2026",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

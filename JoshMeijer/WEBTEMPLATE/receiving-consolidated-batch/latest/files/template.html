@@ -1,0 +1,16 @@
+{{ "SELECT EnforceBatchNumber FROM MasterItem WHERE Code = @MasterItem" | dbScalar({MasterItem}) |> to => enforceBatch }}
+{{#if enforceBatch === 0}}
+	{{ 
+      navigateToStep({
+          stepName: "ExpiryDate",
+          stepInputOverride: ""
+      }) 
+	}}
+{{/if}}
+
+	{{ 
+        navigateToStepButton({
+            stepName: "MasterItem",
+            buttonText: "Change Item"
+        }) 
+    }}

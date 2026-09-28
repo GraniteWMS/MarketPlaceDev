@@ -1,0 +1,19 @@
+{
+  "Identifier": "a28e8eeb-ed35-5f66-a4d9-71f2020784fb",
+  "Name": "QC_FGInspection",
+  "Description": "WebTemplate for process template QC_FGInspection",
+  "Type": "WEBTEMPLATE",
+  "Version": 1,
+  "LastModified": "19/06/2024",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "SQL_STORED_PROCEDURE",
+      "ArtifactIdentifier": "bd9f7536-6bc3-52a6-8788-a28ae0535c9b",
+      "ArtifactVersion": 1
+    }
+  ],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

@@ -1,0 +1,1 @@
+{{ "SELECT [Session], CreatedDate FROM WebTemplate_StockTakeCount_Session ORDER BY CreatedDate DESC" | dbSelect({}) | basicTable({selectOnColumn:"Session", enableSearch:true}) }}

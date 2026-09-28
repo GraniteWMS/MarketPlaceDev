@@ -1,0 +1,5 @@
+{{#if Cage === "CAGE Y" }}
+        {{ "EXEC WebtemplateCagePickTrackingEntitiesWithBarcode @Document = @Document, @Cage = @Cage " | dbSelect({Document, Cage}) | basicTable({selectOnColumn:"TrackingEntity", enableSearch:false}) }}
+{{else}}
+        {{ "EXEC WebtemplateCagePickTrackingEntities @Document = @Document, @Cage = @Cage " | dbSelect({Document, Cage}) | basicTable({selectOnColumn:"", enableSearch:false}) }}
+{{/if}}

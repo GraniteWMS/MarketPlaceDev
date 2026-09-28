@@ -1,0 +1,13 @@
+{
+  "Identifier": "c85b0f61-b816-57a0-aca7-6e920e323148",
+  "Name": "CIM_PICKING_Document",
+  "Description": "WebTemplate for process template CIM_PICKING / step Document",
+  "Type": "WEBTEMPLATE",
+  "Version": 1,
+  "LastModified": "18/05/2026",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

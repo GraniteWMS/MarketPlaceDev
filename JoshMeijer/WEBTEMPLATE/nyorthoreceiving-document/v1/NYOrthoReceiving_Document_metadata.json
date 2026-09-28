@@ -1,0 +1,19 @@
+{
+  "Identifier": "f47c82a7-6590-5c29-9070-49fb624a757e",
+  "Name": "NYOrthoReceiving_Document",
+  "Description": "WebTemplate for process template NYOrthoReceiving / step Document",
+  "Type": "WEBTEMPLATE",
+  "Version": 1,
+  "LastModified": "15/04/2024",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "d473e4ae-dc0d-59a8-8ae3-02a81d6a60ff",
+      "ArtifactVersion": 1
+    }
+  ],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

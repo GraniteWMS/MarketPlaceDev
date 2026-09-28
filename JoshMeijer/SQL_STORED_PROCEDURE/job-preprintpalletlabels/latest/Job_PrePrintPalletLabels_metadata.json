@@ -1,0 +1,10 @@
+{
+  "Identifier": "94ca2dd3-7af0-5d29-930a-53a625208813",
+  "Name": "Job_PrePrintPalletLabels",
+  "Description": "",
+  "Type": "SQL_STORED_PROCEDURE",
+  "Version": 0,
+  "LastModified": "10/05/2026",
+  "Tags": [],
+  "ArtifactDependencies": []
+}

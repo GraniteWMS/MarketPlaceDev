@@ -1,0 +1,83 @@
+{
+  "Identifier": "7656cde6-b5ce-491e-91cb-f178f4eeb536",
+  "Name": "RD_TRANSFERPOST",
+  "Description": "Retail Distribution Transfer POST - With Percentage Rule Check\n\nAfter we scan transfers we post them.  The Transfer Order does not exist in the Retail System - This is effectively Dynamic Creation of the Transfer Document in the Retail System.\n\nTransfer Orders are generated in Granite (Actually by an Import from EXCEL).  We then pick the Transfers and Posting is actually mapped to Dynamic post integration method, Creating the Transfer document in the POS system.  There is a System Static setting that gets checked to not allow posting if the Transfer is not picked to a certain completion level.",
+  "Type": "PROCESS",
+  "Version": 0,
+  "LastModified": "09/10/2025",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "8e4ea6ab-b659-51e9-825b-5f51a71cf03d",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Integration_Transactions"
+    },
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "4b135fc1-caa9-51bc-9aa0-78c41f16fc12",
+      "ArtifactVersion": 1,
+      "ArtifactName": "webtemplate_TransfertoPost"
+    },
+    {
+      "ArtifactType": "SQL_STORED_PROCEDURE",
+      "ArtifactIdentifier": "0fa6684d-4caf-5ae1-8720-fbc30ffede44",
+      "ArtifactVersion": 1,
+      "ArtifactName": "WebTemplate_TransferPostDetail"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "a6d7cf34-79d1-53f3-ad8b-c0a8cc66013a",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_TransferPost_Document"
+    },
+    {
+      "ArtifactType": "DATA",
+      "ArtifactIdentifier": "fe37721b-5255-5752-a103-0511fa2fa90d",
+      "ArtifactVersion": 1,
+      "ArtifactName": "DataDependency_SystemStaticData_fe37721b52555752a1030511fa2fa90d"
+    }
+  ],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "TRANSFERPOST",
+    "ProcessStepMetadata": [
+      {
+        "Name": "Document",
+        "Description": "Document",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_TransferPost_Document",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Confirmation",
+        "Description": "Confirmation",
+        "ProcessIndex": 1,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": false,
+        "PreScript": ""
+      }
+    ]
+  },
+  "PostDeployArtifacts": [
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "e7ea8470-d1f8-5eae-8f29-035c8facf037",
+      "ArtifactVersion": 1,
+      "ArtifactName": "RD_TRANSFERPOST_Document"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "eb0bce76-dd46-5ca5-9896-13b9676276af",
+      "ArtifactVersion": 1,
+      "ArtifactName": "RD_TRANSFERPOST_Confirmation"
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

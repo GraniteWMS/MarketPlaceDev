@@ -1,0 +1,50 @@
+{
+  "Name": "SCOREBOARD",
+  "Description": "SCOREBOARD",
+  "Type": "CUSTOM",
+  "IsActive": true,
+  "IntegrationIsActive": false,
+  "IntegrationPost": false,
+  "Steps": [
+    {
+      "Name": "ScoreReceive",
+      "Description": "Receiving Score",
+      "ProcessIndex": 0,
+      "NextIndex": 1,
+      "IsActive": true,
+      "Required": false,
+      "IsBusinessRule": false,
+      "WebTemplateArtifact": "87f40bed-bf14-58f8-a08e-7f09cac8f77a"
+    },
+    {
+      "Name": "ScorePutaway",
+      "Description": "Putaway Score",
+      "ProcessIndex": 1,
+      "NextIndex": 2,
+      "IsActive": true,
+      "Required": false,
+      "IsBusinessRule": false,
+      "WebTemplateArtifact": "62c41ae7-1122-5a8f-895e-9031a58a942c"
+    },
+    {
+      "Name": "ScoreTransfer",
+      "Description": "Transfer Pick Score",
+      "ProcessIndex": 2,
+      "NextIndex": 3,
+      "IsActive": true,
+      "Required": false,
+      "IsBusinessRule": false,
+      "WebTemplateArtifact": "70f3b7f0-836c-5bfc-9cac-8cda27cccae9"
+    },
+    {
+      "Name": "ScoreLoadOut",
+      "Description": "Load Out Score",
+      "ProcessIndex": 3,
+      "NextIndex": 0,
+      "IsActive": true,
+      "Required": false,
+      "IsBusinessRule": false,
+      "WebTemplateArtifact": "4e49a537-8ca0-56c9-8395-a73293741480"
+    }
+  ]
+}

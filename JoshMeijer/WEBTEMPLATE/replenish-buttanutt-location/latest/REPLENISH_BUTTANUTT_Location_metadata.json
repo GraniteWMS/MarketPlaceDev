@@ -1,0 +1,19 @@
+{
+  "Identifier": "816e9186-2faf-5b32-93a5-29809ffdc629",
+  "Name": "REPLENISH_BUTTANUTT_Location",
+  "Description": "WebTemplate for process template REPLENISH_BUTTANUTT / step Location",
+  "Type": "WEBTEMPLATE",
+  "Version": 0,
+  "LastModified": "21/03/2026",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "4b2cc92e-b98b-59d9-8998-83541018fb47",
+      "ArtifactVersion": 1
+    }
+  ],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

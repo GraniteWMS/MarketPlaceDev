@@ -1,0 +1,13 @@
+{
+  "Identifier": "d421f0b9-36ab-5651-9df4-eec7bcf65e50",
+  "Name": "CIM_ASSIGNDELIVERYNOTE_Type",
+  "Description": "WebTemplate for process template CIM_ASSIGNDELIVERYNOTE / step Type",
+  "Type": "WEBTEMPLATE",
+  "Version": 0,
+  "LastModified": "18/05/2026",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

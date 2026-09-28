@@ -1,0 +1,19 @@
+{
+  "Identifier": "2af87a2e-b788-5459-b5ed-f2b6ab658246",
+  "Name": "PEPKOR_PICKING_Document",
+  "Description": "WebTemplate for process template PEPKOR_PICKING / step Document",
+  "Type": "WEBTEMPLATE",
+  "Version": 1,
+  "LastModified": "13/05/2026",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "fa68ae92-d096-551b-ac54-4ff4f033ac61",
+      "ArtifactVersion": 1
+    }
+  ],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

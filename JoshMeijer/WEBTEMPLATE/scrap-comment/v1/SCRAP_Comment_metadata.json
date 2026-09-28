@@ -1,0 +1,13 @@
+{
+  "Identifier": "4f48b102-2d88-5613-860d-cc405ba14938",
+  "Name": "SCRAP_Comment",
+  "Description": "WebTemplate for process template SCRAP / step Comment",
+  "Type": "WEBTEMPLATE",
+  "Version": 1,
+  "LastModified": "27/03/2024",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

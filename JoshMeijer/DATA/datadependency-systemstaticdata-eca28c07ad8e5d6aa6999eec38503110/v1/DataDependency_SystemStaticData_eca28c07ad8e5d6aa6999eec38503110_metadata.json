@@ -1,0 +1,17 @@
+{
+  "Identifier": "eca28c07-ad8e-5d6a-a699-9eec38503110",
+  "Name": "DataDependency_SystemStaticData_eca28c07ad8e5d6aa6999eec38503110",
+  "Description": "",
+  "Type": "DATA",
+  "Version": 1,
+  "LastModified": "20/05/2026",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "TypeSpecificAttributes": {
+    "Table": "SystemStaticData",
+    "KeyColumn": "Key",
+    "KeyValues": [
+      "LabelTypeEAN"
+    ]
+  }
+}

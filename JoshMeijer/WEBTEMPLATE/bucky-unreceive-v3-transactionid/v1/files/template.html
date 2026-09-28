@@ -1,0 +1,1 @@
+{{ "SELECT TransactionID, [Date], [ItemCode], ReceivedQty, Pallet, [User] FROM WebTemplate_UnreceiveTransaction_TransactionID WHERE DocumentNumber = @Document ORDER BY TransactionID DESC" | dbSelect({Document}) | basicTable({selectOnColumn:"TransactionID", enableSearch:true}) }}

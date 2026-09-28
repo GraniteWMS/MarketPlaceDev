@@ -1,0 +1,134 @@
+{
+  "Identifier": "c5004598-cf70-46f1-9b79-252ad5c0458b",
+  "Name": "BUTTANUTT_STOCKTAKECOUNT_V2",
+  "Description": "BUTTANUTT_STOCKTAKECOUNT_V2\n\nIt comes with a webdesktop function that will auto generate a stock on hand csv file and send it to specified email addresses",
+  "Type": "PROCESS",
+  "Version": 1,
+  "LastModified": "29/03/2026",
+  "Tags": [
+    "Manufacturing",
+    "Retail",
+    "Automotive",
+    "Agricultural",
+    "Textile",
+    "Electronics",
+    "Construction",
+    "E-commerce",
+    "Logistics",
+    "Pharmaceutical",
+    "Cold Storage"
+  ],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "979e844b-f173-58b7-a848-9e53a6d13825",
+      "ArtifactVersion": 1,
+      "ArtifactName": "WebTemplate_StockTakeCount_Session"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "550a6192-de11-5545-81fa-9d4bdc74e569",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_StockTakeCount_TrackingEntity"
+    },
+    {
+      "ArtifactType": "USER_TABLE_TYPE",
+      "ArtifactIdentifier": "76044eca-d90b-5969-a3f0-b1ccac7f6ab2",
+      "ArtifactVersion": 1,
+      "ArtifactName": "ScriptInputIdentities"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "f840fd8e-0671-5a75-baa9-c35412341a36",
+      "ArtifactVersion": 1,
+      "ArtifactName": "WebDesktopFunction_GenerateStockOnHandFile"
+    },
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "c5abb86b-7a06-5dc8-930e-d6bc4f97dfef",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Custom_Report_Stock_All"
+    }
+  ],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "STOCKTAKECOUNT",
+    "ProcessStepMetadata": [
+      {
+        "Name": "Session",
+        "Description": "Session",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": false,
+        "DefaultValue": "",
+        "PreScript": "",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Count",
+        "Description": "Count",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "DefaultValue": "",
+        "PreScript": "",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Location",
+        "Description": "Location",
+        "ProcessIndex": 100,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "DefaultValue": "Procurement",
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "TrackingEntity",
+        "Description": "TrackingEntity",
+        "ProcessIndex": 2,
+        "NextIndex": 3,
+        "isActive": true,
+        "Required": false,
+        "PreScript": "Prescript_StockTakeCount_TrackingEntity",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Qty",
+        "Description": "Qty",
+        "ProcessIndex": 3,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      }
+    ]
+  },
+  "PostDeployArtifacts": [
+    {
+      "ArtifactType": "DATA",
+      "ArtifactIdentifier": "7d9eb6a3-6c6f-5487-bdd3-653eb76f9f7d",
+      "ArtifactVersion": 1,
+      "ArtifactName": "DataDependency_Functions_7d9eb6a36c6f5487bdd3653eb76f9f7d"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "627d22fa-7a6b-5c2e-9741-c771fa07bc9c",
+      "ArtifactVersion": 1,
+      "ArtifactName": "BUTTANUTT_STOCKTAKECOUNT_V2_Session"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "80fc12c1-6d7f-5c04-9d68-a42ca51072da",
+      "ArtifactVersion": 1,
+      "ArtifactName": "BUTTANUTT_STOCKTAKECOUNT_V2_Count"
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

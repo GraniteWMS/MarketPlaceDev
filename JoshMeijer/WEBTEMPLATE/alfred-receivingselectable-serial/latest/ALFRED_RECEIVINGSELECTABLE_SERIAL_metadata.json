@@ -1,0 +1,13 @@
+{
+  "Identifier": "af3338ee-5ef3-5c55-8a9b-43a25eddec64",
+  "Name": "ALFRED_RECEIVINGSELECTABLE_SERIAL",
+  "Description": "WebTemplate for process template ALFRED_RECEIVINGSELECTABLE_SERIAL",
+  "Type": "WEBTEMPLATE",
+  "Version": 0,
+  "LastModified": "20/03/2026",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

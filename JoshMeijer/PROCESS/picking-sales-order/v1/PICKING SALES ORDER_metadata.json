@@ -1,0 +1,116 @@
+{
+  "Identifier": "94023fd7-c12e-455e-883b-d89ad0ea1fdb",
+  "Name": "PICKING SALES ORDER",
+  "Description": "PICKING SALES ORDER\n\nA streamlined picking process that allows users to focus on the essentials.\nComes with dedicated datagrids.",
+  "Type": "PROCESS",
+  "Version": 1,
+  "LastModified": "29/01/2025",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "851c7729-7424-5417-991e-f1e421f64818",
+      "ArtifactVersion": 1,
+      "ArtifactName": "WebtemplatePickingDocument"
+    },
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "53d1f2c0-cb5c-54b5-aa62-535b2e379803",
+      "ArtifactVersion": 1,
+      "ArtifactName": "WebtemplatePickingTrackingEntity"
+    },
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "b79a9cd0-fcce-5150-b31b-e6fdf3be6f3b",
+      "ArtifactVersion": 1,
+      "ArtifactName": "WebtemplatePickingQty"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "d8068080-b9bc-5f09-8b37-c24aface4725",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PrescriptPickingDocument"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "35dd3ed7-918f-526d-b0a0-9f2d5862839e",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PrescriptPickingTrackingEntity"
+    },
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "b21f0fe3-9fe9-547c-aa3d-089f2e546085",
+      "ArtifactVersion": 1,
+      "ArtifactName": "DataGrid_PickingSalesOrderTransactions"
+    }
+  ],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "PICKING",
+    "ProcessStepMetadata": [
+      {
+        "Name": "Document",
+        "Description": "Sales Order Number",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "PrescriptPickingDocument",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Location",
+        "Description": "Location",
+        "ProcessIndex": 100,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "DefaultValue": "CHECKING",
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "TrackingEntity",
+        "Description": "TrackingEntity",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "PrescriptPickingTrackingEntity",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Qty",
+        "Description": "Qty",
+        "ProcessIndex": 2,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": false,
+        "PreScript": ""
+      }
+    ]
+  },
+  "PostDeployArtifacts": [
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "abb10344-9be5-5120-aba8-059e554ac809",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PICKING SALES ORDER_Document"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "cae97223-5057-5028-9dc5-d51ba1ff109d",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PICKING SALES ORDER_TrackingEntity"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "74203985-b7c6-5250-8a0b-375204331eb7",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PICKING SALES ORDER_Qty"
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

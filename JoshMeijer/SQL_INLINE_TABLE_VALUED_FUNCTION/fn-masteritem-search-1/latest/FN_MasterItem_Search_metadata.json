@@ -1,0 +1,10 @@
+{
+  "Identifier": "63a54596-98da-5bb1-82f0-37d725465b63",
+  "Name": "FN_MasterItem_Search",
+  "Description": "",
+  "Type": "SQL_INLINE_TABLE_VALUED_FUNCTION",
+  "Version": 0,
+  "LastModified": "30/05/2026",
+  "Tags": [],
+  "ArtifactDependencies": []
+}

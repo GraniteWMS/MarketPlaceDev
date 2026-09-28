@@ -1,0 +1,51 @@
+{
+  "Name": "RD_ADJUSTTOQTY",
+  "Description": "Retail Distribution ADJUST TO QTY Entered",
+  "Type": "CUSTOM",
+  "IsActive": true,
+  "IntegrationIsActive": false,
+  "IntegrationPost": false,
+  "WebTemplateArtifact": "efdc951a-9ac8-594b-a583-27edd6dbf51a",
+  "Steps": [
+    {
+      "Name": "Location",
+      "Description": "Scan Location",
+      "ProcessIndex": 0,
+      "NextIndex": 1,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "PrescriptAdjustToQtyLocation"
+    },
+    {
+      "Name": "TrackingEntity",
+      "Description": "Select or Scan Item",
+      "ProcessIndex": 1,
+      "NextIndex": 2,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "PrescriptAdjustToQtyTrackingEntity"
+    },
+    {
+      "Name": "Qty",
+      "Description": "Qty",
+      "ProcessIndex": 2,
+      "NextIndex": 0,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "PrescriptAdjustToQtyQty"
+    },
+    {
+      "Name": "Step200",
+      "Description": "Step200",
+      "ProcessIndex": 200,
+      "NextIndex": 0,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "PrescriptAdjustToQtyStep200"
+    }
+  ]
+}

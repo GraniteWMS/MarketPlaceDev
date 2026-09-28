@@ -1,0 +1,13 @@
+{
+  "Identifier": "b3d64b31-efe0-5c49-8fa0-77c944a3f9fe",
+  "Name": "CUSTOMLOOKUP",
+  "Description": "WebTemplate for process template CUSTOMLOOKUP",
+  "Type": "WEBTEMPLATE",
+  "Version": 1,
+  "LastModified": "18/03/2026",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

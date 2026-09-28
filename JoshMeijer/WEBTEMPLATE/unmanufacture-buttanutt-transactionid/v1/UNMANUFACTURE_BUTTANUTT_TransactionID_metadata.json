@@ -1,0 +1,19 @@
+{
+  "Identifier": "5c226a22-262f-53ab-8c98-fc434323a0b8",
+  "Name": "UNMANUFACTURE_BUTTANUTT_TransactionID",
+  "Description": "WebTemplate for process template UNMANUFACTURE_BUTTANUTT / step TransactionID",
+  "Type": "WEBTEMPLATE",
+  "Version": 1,
+  "LastModified": "21/03/2026",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "806f6bae-5ebc-50eb-a955-a31959af7f06",
+      "ArtifactVersion": 1
+    }
+  ],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

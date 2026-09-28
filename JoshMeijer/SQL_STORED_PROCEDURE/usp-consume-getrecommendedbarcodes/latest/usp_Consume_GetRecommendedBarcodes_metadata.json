@@ -1,0 +1,10 @@
+{
+  "Identifier": "3b48e526-2cd7-5c97-abeb-12aff876ace8",
+  "Name": "usp_Consume_GetRecommendedBarcodes",
+  "Description": "",
+  "Type": "SQL_STORED_PROCEDURE",
+  "Version": 0,
+  "LastModified": "25/06/2026",
+  "Tags": [],
+  "ArtifactDependencies": []
+}

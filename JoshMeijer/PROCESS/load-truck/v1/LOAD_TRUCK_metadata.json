@@ -1,0 +1,78 @@
+{
+  "Identifier": "668b4527-918a-4e8b-954b-9000bfa47961",
+  "Name": "LOAD_TRUCK",
+  "Description": "LOAD TRUCK\n\nUsed to move tracking entities created by Load Prep process onto a truck location",
+  "Type": "PROCESS",
+  "Version": 1,
+  "LastModified": "07/08/2024",
+  "Tags": [
+    "Logistics"
+  ],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "9087427a-332c-520a-990d-2c438716767b",
+      "ArtifactVersion": 1,
+      "ArtifactName": "WebTemplate_LoadTruckLocations"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "d7bb4036-7d8c-503a-9c2a-3de4f0b93c50",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PrescriptLoadTruckTrackingEntity"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "c8b5afbc-201d-56b5-abce-748abaf0f956",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PrescriptLoadTruckStep200"
+    }
+  ],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "MOVE",
+    "ProcessStepMetadata": [
+      {
+        "Name": "TrackingEntity",
+        "Description": "Scan Parcel Barcode",
+        "ProcessIndex": 1,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "PrescriptLoadTruckTrackingEntity",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Location",
+        "Description": "To Location",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": false,
+        "PreScript": ""
+      },
+      {
+        "Name": "Step200",
+        "Description": "Update TE InStock=0",
+        "ProcessIndex": 200,
+        "NextIndex": 200,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "PrescriptLoadTruckStep200",
+        "hasWebTemplate": true
+      }
+    ]
+  },
+  "PostDeployArtifacts": [
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "13afbb87-2bec-5c64-9a58-32c7c35b7749",
+      "ArtifactVersion": 1,
+      "ArtifactName": "LOAD_TRUCK_Location"
+    }
+  ],
+  "DependsOnClr": true,
+  "SqlClrAssemblyVersion": "7.0.0.0",
+  "Deprecated": false
+}

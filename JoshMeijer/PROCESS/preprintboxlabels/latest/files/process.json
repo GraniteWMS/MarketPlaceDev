@@ -1,0 +1,20 @@
+{
+  "Name": "PREPRINTBOXLABELS",
+  "Description": "Preprint Packing Box labels",
+  "Type": "CUSTOM",
+  "IsActive": true,
+  "IntegrationIsActive": false,
+  "IntegrationPost": false,
+  "Steps": [
+    {
+      "Name": "NumberOfLabels",
+      "Description": "Qty. Labels to Print",
+      "ProcessIndex": 0,
+      "NextIndex": 0,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "Prescript_PREPRINTBOXLABELS_NumberOfLabels"
+    }
+  ]
+}

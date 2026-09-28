@@ -1,0 +1,19 @@
+{
+  "Identifier": "f3c56b78-99ae-57de-965a-035552c2823b",
+  "Name": "3PL_RELEASELOADOUT_Document",
+  "Description": "WebTemplate for process template 3PL_RELEASELOADOUT / step Document",
+  "Type": "WEBTEMPLATE",
+  "Version": 1,
+  "LastModified": "08/08/2025",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "7d635d30-9f02-5b36-b1c7-a2e44b7207f3",
+      "ArtifactVersion": 1
+    }
+  ],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

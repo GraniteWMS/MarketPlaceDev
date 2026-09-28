@@ -1,0 +1,114 @@
+{
+  "Identifier": "044bc39d-e93d-4fb2-ba09-282a2a109c1e",
+  "Name": "ADJUSTTOQTY_V72",
+  "Description": "ADJUST TO Qty V7.2\n\nCUSTOM Adjust To Qty.   ASKS if you want to Integrate and uses CLR for the Integration.  V7.2 Update to support CLR Change on Adjustment where a Document Number and DocumentLine are required.\n\nCLR_Adjustment has changed between V7.0 and V7.2 to add extra properties.",
+  "Type": "PROCESS",
+  "Version": 1,
+  "LastModified": "10/09/2026",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "53fc2f8b-d862-53fd-9f35-9637155c82ec",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PrescriptAdjustToQtyTrackingEntity"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "fab505b4-3949-52ba-9e8e-0d04f08b06db",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PrescriptAdjustToQtyQty"
+    },
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "284b208e-3dbc-56fc-a274-5d034927487e",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Integration_Transactions"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "5a9c4d38-d402-522d-96a8-3268643c622f",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PrescriptAdjustToQtyStep201"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "093956ac-8bc1-591c-8dee-dc2700a0c609",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PrescriptAdjustToQtyStep200"
+    }
+  ],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "CUSTOM",
+    "ProcessStepMetadata": [
+      {
+        "Name": "TrackingEntity",
+        "Description": "TrackingEntity",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "DefaultValue": "",
+        "PreScript": "PrescriptAdjustToQtyTrackingEntity",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Qty",
+        "Description": "Qty",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "PrescriptAdjustToQtyQty",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Step201",
+        "Description": "Post to ERP using CLR",
+        "ProcessIndex": 201,
+        "NextIndex": 201,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "PrescriptAdjustToQtyStep201",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "ERPAction",
+        "Description": "Confirm Integration Action",
+        "ProcessIndex": 2,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "Step200",
+        "Description": "CLR Adjustment",
+        "ProcessIndex": 200,
+        "NextIndex": 200,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "PrescriptAdjustToQtyStep200",
+        "hasWebTemplate": true
+      }
+    ]
+  },
+  "PostDeployArtifacts": [
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "f7f86b67-b51b-514c-84e7-e25c765b766b",
+      "ArtifactVersion": 1,
+      "ArtifactName": "ADJUSTTOQTY_V72"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "43d9e731-2396-5447-9992-fb8caf40fffc",
+      "ArtifactVersion": 1,
+      "ArtifactName": "ADJUSTTOQTY_V72_ERPAction"
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

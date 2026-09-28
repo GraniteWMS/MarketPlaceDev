@@ -1,0 +1,13 @@
+{
+  "Identifier": "930707ba-b27a-5569-b881-8f8a9a657f5e",
+  "Name": "3PL_TAKEON",
+  "Description": "WebTemplate for process template 3PL_TAKEON",
+  "Type": "WEBTEMPLATE",
+  "Version": 1,
+  "LastModified": "22/01/2025",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

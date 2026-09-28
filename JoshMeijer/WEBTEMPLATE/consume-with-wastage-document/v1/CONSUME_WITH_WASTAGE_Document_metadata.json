@@ -1,0 +1,19 @@
+{
+  "Identifier": "d60c3f84-d323-58af-969a-e941ce882ef3",
+  "Name": "CONSUME_WITH_WASTAGE_Document",
+  "Description": "WebTemplate for process template CONSUME_WITH_WASTAGE / step Document",
+  "Type": "WEBTEMPLATE",
+  "Version": 1,
+  "LastModified": "18/03/2026",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "ff2d2676-c641-5b27-8348-1d4fce5aef3c",
+      "ArtifactVersion": 1
+    }
+  ],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

@@ -1,0 +1,17 @@
+{
+  "Identifier": "26d89818-7cc3-5cc8-b9fc-270db00ebea2",
+  "Name": "DataDependency_FunctionParameterLookup_26d898187cc35cc8b9fc270db00ebea2",
+  "Description": "",
+  "Type": "DATA",
+  "Version": 1,
+  "LastModified": "07/04/2026",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "TypeSpecificAttributes": {
+    "Table": "dbo.FunctionParameterLookup",
+    "KeyColumn": "FunctionName",
+    "KeyValues": [
+      "STOCKTAKE EXPORT"
+    ]
+  }
+}

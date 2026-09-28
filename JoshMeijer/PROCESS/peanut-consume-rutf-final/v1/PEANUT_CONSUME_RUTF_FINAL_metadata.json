@@ -1,0 +1,133 @@
+{
+  "Identifier": "a0c9a3dc-94f9-40e5-85d0-f6e88760dd61",
+  "Name": "PEANUT_CONSUME_RUTF_FINAL",
+  "Description": "PEANUT_CONSUME_RUTF_FINAL\n\nIt calculates the wastage quantity based on the line comment and then does a CLR Takeon of the wastage stock for reworking",
+  "Type": "PROCESS",
+  "Version": 1,
+  "LastModified": "31/05/2026",
+  "Tags": [
+    "Manufacturing"
+  ],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "5d7ab0ef-d9c6-52a2-99d0-dedff4c0d907",
+      "ArtifactVersion": 1,
+      "ArtifactName": "WebTemplate_PeanutManufacture_Document"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "aa445f00-66bf-5570-b922-ce74c4bb5ba5",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_PeanutConsume_Document"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "560abc2d-fcd3-5ecc-a7b2-ecd0ae215a69",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_PeanutConsume_TrackingEntity"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "6e1b74b6-3605-5c1f-bda3-bdbd5827fe33",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_PeanutRUTFConsume_Qty"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "132996ec-5982-5588-b4ac-53c24d32b4db",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_PeanutRUTFConsume_Comment"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "c135be80-f942-577a-8959-bc28cafb3705",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_PeanutRUTFConsume_Step200"
+    }
+  ],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "CONSUME",
+    "ProcessStepMetadata": [
+      {
+        "Name": "Document",
+        "Description": "Enter FG Document",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_PeanutConsume_Document",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Location",
+        "Description": "Location",
+        "ProcessIndex": 100,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "DefaultValue": "Peanut Warehouse",
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "TrackingEntity",
+        "Description": "Scan Barcode To Consume",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_PeanutConsume_TrackingEntity",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Qty",
+        "Description": "Qty To Consume",
+        "ProcessIndex": 2,
+        "NextIndex": 3,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_PeanutRUTFConsume_Qty",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Comment",
+        "Description": "Confirm Wastage Qty",
+        "ProcessIndex": 3,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": false,
+        "PreScript": "Prescript_PeanutRUTFConsume_Comment",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Step200",
+        "Description": "Step200",
+        "ProcessIndex": 200,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_PeanutRUTFConsume_Step200",
+        "hasWebTemplate": true
+      }
+    ]
+  },
+  "PostDeployArtifacts": [
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "c812a141-c01a-55df-b316-22dafd7bd04d",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PEANUT_CONSUME_RUTF_FINAL"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "bb96755e-8de2-57da-89c8-b3996107b4f5",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PEANUT_CONSUME_RUTF_FINAL_Document"
+    }
+  ],
+  "DependsOnClr": true,
+  "SqlClrAssemblyVersion": "7.0.0.0",
+  "Deprecated": false
+}

@@ -1,0 +1,13 @@
+{
+  "Identifier": "926f92be-699b-5ee3-9223-1f33107c754a",
+  "Name": "FilterDocumentReceiving_Document",
+  "Description": "WebTemplate for process template FilterDocumentReceiving / step Document",
+  "Type": "WEBTEMPLATE",
+  "Version": 0,
+  "LastModified": "05/02/2026",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

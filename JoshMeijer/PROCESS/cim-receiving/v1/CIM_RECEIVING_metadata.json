@@ -1,0 +1,192 @@
+{
+  "Identifier": "ec76819b-031c-43d5-84ee-0881540ab405",
+  "Name": "CIM_RECEIVING",
+  "Description": "CIM RECEIVING\n\nFor someone using SAP B1 for the prefix\n\nN/a",
+  "Type": "PROCESS",
+  "Version": 1,
+  "LastModified": "18/05/2026",
+  "Tags": [
+    "Manufacturing",
+    "Retail",
+    "Automotive",
+    "Agricultural",
+    "Textile",
+    "Electronics",
+    "Construction",
+    "E-commerce",
+    "Logistics",
+    "Pharmaceutical",
+    "Cold Storage"
+  ],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "05713005-d2d8-5d03-821e-8d7f0ffff809",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PrescriptReceivingDocument"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "333865e2-0f36-58d9-a2f4-6c7b7e1a790a",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PrescriptReceivingMasterItem"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "2d2e5ebe-f79d-576f-a3bf-186f471329e3",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PrescriptReceivingBatch"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "bf175d30-43ab-5327-b9bb-8dc868a3169a",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PrescriptReceivingExpiryDate"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "4db2d713-d509-5ff7-9c77-344351f4ede5",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PrescriptReceivingQty"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "7e0ba078-d145-556f-81d8-0d0683822e2f",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PrescriptReceivingNoEntities"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "7624b59d-4335-50d4-b063-fa0f15126670",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PrescriptReceivingManufactureDate"
+    }
+  ],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "RECEIVING",
+    "ProcessStepMetadata": [
+      {
+        "Name": "Location",
+        "Description": "Scan/Enter Receiving Location",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": false,
+        "DefaultValue": "",
+        "PreScript": "",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Document",
+        "Description": "Scan/Enter Purchase Order Number",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "DefaultValue": "",
+        "PreScript": "PrescriptReceivingDocument",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "MasterItem",
+        "Description": "Scan/Enter Item Code",
+        "ProcessIndex": 2,
+        "NextIndex": 3,
+        "isActive": true,
+        "Required": true,
+        "DefaultValue": "",
+        "PreScript": "PrescriptReceivingMasterItem",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Batch",
+        "Description": "Enter Item Batch Number",
+        "ProcessIndex": 3,
+        "NextIndex": 4,
+        "isActive": true,
+        "Required": false,
+        "DefaultValue": "",
+        "PreScript": "PrescriptReceivingBatch",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "ExpiryDate",
+        "Description": "Enter ExpiryDate (YYYYMMDD)",
+        "ProcessIndex": 5,
+        "NextIndex": 6,
+        "isActive": true,
+        "Required": false,
+        "DefaultValue": "",
+        "PreScript": "PrescriptReceivingExpiryDate",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Qty",
+        "Description": "Enter Qty per Tracking Barcode",
+        "ProcessIndex": 6,
+        "NextIndex": 7,
+        "isActive": true,
+        "Required": true,
+        "DefaultValue": "",
+        "PreScript": "PrescriptReceivingQty",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "NoEntities",
+        "Description": "Number of Tracking Barcode to Create",
+        "ProcessIndex": 7,
+        "NextIndex": 3,
+        "isActive": true,
+        "Required": false,
+        "DefaultValue": "",
+        "PreScript": "PrescriptReceivingNoEntities",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Print",
+        "Description": "Print",
+        "ProcessIndex": 99,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "DefaultValue": "",
+        "PreScript": "",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "ManufactureDate",
+        "Description": "Enter ManufactureDate (YYYYMMDD)",
+        "ProcessIndex": 4,
+        "NextIndex": 5,
+        "isActive": true,
+        "Required": false,
+        "DefaultValue": "",
+        "PreScript": "PrescriptReceivingManufactureDate",
+        "hasWebTemplate": true
+      }
+    ]
+  },
+  "PostDeployArtifacts": [
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "44fe5293-b6c8-55c1-88b7-54fd27150a4a",
+      "ArtifactVersion": 1,
+      "ArtifactName": "CIM_RECEIVING"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "821493de-253a-55a3-bcbb-934bb56be755",
+      "ArtifactVersion": 1,
+      "ArtifactName": "CIM_RECEIVING_Location"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "74960d97-90b8-565d-ba66-3c1a64bcb2f7",
+      "ArtifactVersion": 1,
+      "ArtifactName": "CIM_RECEIVING_Document"
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

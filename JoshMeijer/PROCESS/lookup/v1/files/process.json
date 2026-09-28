@@ -1,0 +1,28 @@
+{
+  "Name": "LOOKUP",
+  "Description": "LOOKUP",
+  "Type": "LOOKUP",
+  "IsActive": true,
+  "IntegrationIsActive": false,
+  "IntegrationPost": false,
+  "Steps": [
+    {
+      "Name": "Type",
+      "Description": "Type",
+      "ProcessIndex": 0,
+      "NextIndex": 1,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false
+    },
+    {
+      "Name": "LookupValue",
+      "Description": "LookupValue",
+      "ProcessIndex": 1,
+      "NextIndex": 1,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false
+    }
+  ]
+}

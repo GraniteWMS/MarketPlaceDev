@@ -1,0 +1,10 @@
+{
+  "Identifier": "24a7936f-7772-56e8-aa69-5a1d4c292625",
+  "Name": "FN_GetOptionalField",
+  "Description": "",
+  "Type": "SQL_SCALAR_FUNCTION",
+  "Version": 1,
+  "LastModified": "17/03/2026",
+  "Tags": [],
+  "ArtifactDependencies": []
+}

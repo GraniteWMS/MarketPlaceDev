@@ -1,0 +1,17 @@
+{
+  "Identifier": "81939306-3798-59f7-bb63-86c609439eea",
+  "Name": "DataDependency_SystemStaticData_81939306379859f7bb6386c609439eea",
+  "Description": "",
+  "Type": "DATA",
+  "Version": 0,
+  "LastModified": "08/09/2026",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "TypeSpecificAttributes": {
+    "Table": "SystemStaticData",
+    "KeyColumn": "Key",
+    "KeyValues": [
+      "CCF_SSCCLabelName"
+    ]
+  }
+}

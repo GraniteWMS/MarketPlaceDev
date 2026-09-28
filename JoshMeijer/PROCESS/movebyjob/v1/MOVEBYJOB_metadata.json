@@ -1,0 +1,90 @@
+{
+  "Identifier": "46c31736-c671-47cf-9ea0-df8131e17c1a",
+  "Name": "MOVEBYJOB",
+  "Description": "MOVEBYJOB (Started/ReadyForProduction)\n\nTo move all barcodes by job to started or readyforproduction",
+  "Type": "PROCESS",
+  "Version": 1,
+  "LastModified": "18/03/2026",
+  "Tags": [
+    "Manufacturing"
+  ],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "SQL_STORED_PROCEDURE",
+      "ArtifactIdentifier": "df5f462c-03ed-5ecb-b46e-cfc9c0490fbc",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Custom_Integration_EVOAPP"
+    },
+    {
+      "ArtifactType": "SQL_STORED_PROCEDURE",
+      "ArtifactIdentifier": "1a143c78-c236-521c-93c4-55dfed90c581",
+      "ArtifactVersion": 1,
+      "ArtifactName": "custom_post_to_EVOApp"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "82af3c27-cdd0-5264-a854-f2e2252d162f",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PrescriptMovebyjobConfirm"
+    }
+  ],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "CUSTOM",
+    "ProcessStepMetadata": [
+      {
+        "Name": "Document",
+        "Description": "Scan PatternLabel or Enter Job Number",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Confirm",
+        "Description": "All barcodes below will be moved. Confirm",
+        "ProcessIndex": 2,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "PrescriptMovebyjobConfirm",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Location",
+        "Description": "Select TO Location",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      }
+    ]
+  },
+  "PostDeployArtifacts": [
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "eaf3e243-db3f-597c-8940-5283e5a97d11",
+      "ArtifactVersion": 1,
+      "ArtifactName": "MOVEBYJOB_Location"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "abeacd52-6033-547d-8f68-b1d1b4e8c3eb",
+      "ArtifactVersion": 1,
+      "ArtifactName": "MOVEBYJOB_Document"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "48838b6c-ea31-54e7-9aa1-04449c6f7b9f",
+      "ArtifactVersion": 1,
+      "ArtifactName": "MOVEBYJOB_Confirm"
+    }
+  ],
+  "DependsOnClr": true,
+  "SqlClrAssemblyVersion": "7.0.0.0",
+  "Deprecated": false
+}

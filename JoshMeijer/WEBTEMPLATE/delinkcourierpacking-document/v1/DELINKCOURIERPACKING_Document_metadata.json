@@ -1,0 +1,13 @@
+{
+  "Identifier": "fb9f91ca-2aba-54fe-9501-df9fc0496e13",
+  "Name": "DELINKCOURIERPACKING_Document",
+  "Description": "WebTemplate for process template DELINKCOURIERPACKING / step Document",
+  "Type": "WEBTEMPLATE",
+  "Version": 1,
+  "LastModified": "13/07/2026",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

@@ -1,0 +1,79 @@
+{
+  "Name": "STOCKTAKECOUNTALIAS",
+  "Description": "STOCKTAKECOUNTALIAS",
+  "Type": "STOCKTAKECOUNT",
+  "IsActive": true,
+  "IntegrationIsActive": false,
+  "IntegrationPost": false,
+  "Steps": [
+    {
+      "Name": "Session",
+      "Description": "Session",
+      "ProcessIndex": 0,
+      "NextIndex": 1,
+      "IsActive": true,
+      "Required": false,
+      "IsBusinessRule": false
+    },
+    {
+      "Name": "Count",
+      "Description": "Count",
+      "ProcessIndex": 1,
+      "NextIndex": 2,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "WebTemplateArtifact": "e27dd4cd-fe1c-5c8c-938b-7a5c3d243af3"
+    },
+    {
+      "Name": "Location",
+      "Description": "Location",
+      "ProcessIndex": 2,
+      "NextIndex": 3,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "WebTemplateArtifact": "0d56addb-0801-5386-9093-ca1cd03641b3"
+    },
+    {
+      "Name": "Entity",
+      "Description": "TrackingEntity",
+      "ProcessIndex": 3,
+      "NextIndex": 4,
+      "IsActive": true,
+      "Required": false,
+      "IsBusinessRule": false,
+      "PreScript": "PrescriptStocktakeTrackingEntity",
+      "WebTemplateArtifact": "e2d16469-8188-530d-a610-4098b6e6ef1b"
+    },
+    {
+      "Name": "TrackingEntity",
+      "Description": "Scan Alias Barcode",
+      "ProcessIndex": 4,
+      "NextIndex": 5,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "PrescriptStockTakeCountAlias"
+    },
+    {
+      "Name": "PalletConfirmation",
+      "Description": "PalletConfirmation",
+      "ProcessIndex": 5,
+      "NextIndex": 5,
+      "IsActive": true,
+      "Required": false,
+      "IsBusinessRule": false
+    },
+    {
+      "Name": "Qty",
+      "Description": "Qty",
+      "ProcessIndex": 100,
+      "NextIndex": 2,
+      "IsActive": true,
+      "Required": false,
+      "IsBusinessRule": false,
+      "DefaultValue": "1"
+    }
+  ]
+}

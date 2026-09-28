@@ -1,0 +1,79 @@
+{
+  "Name": "RECEIVE RETURN",
+  "Description": "RECEIVE RETURN",
+  "Type": "RECEIVING",
+  "IsActive": true,
+  "IntegrationIsActive": false,
+  "IntegrationPost": false,
+  "WebTemplateArtifact": "c6b77b2d-0ed8-5d76-bd9c-3dc42ba146be",
+  "Steps": [
+    {
+      "Name": "Document",
+      "Description": "Purchase Order Number",
+      "ProcessIndex": 0,
+      "NextIndex": 1,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "PrescriptReceiveReturnDocument",
+      "WebTemplateArtifact": "9b9fc0ff-9c55-5206-877d-b657738f73bd"
+    },
+    {
+      "Name": "CarryingEntity",
+      "Description": "CarryingEntity (Pallet Barcode)",
+      "ProcessIndex": 1,
+      "NextIndex": 2,
+      "IsActive": true,
+      "Required": false,
+      "IsBusinessRule": false,
+      "PreScript": "PrescriptPalletizeCarryingEntity",
+      "WebTemplateArtifact": "5242d842-257e-5e8e-a0d8-c1367fbea595"
+    },
+    {
+      "Name": "MasterItem",
+      "Description": "MasterItem (Item Code/Alias)",
+      "ProcessIndex": 2,
+      "NextIndex": 3,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false
+    },
+    {
+      "Name": "Qty",
+      "Description": "Qty Per TrackingEntity",
+      "ProcessIndex": 3,
+      "NextIndex": 4,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false
+    },
+    {
+      "Name": "NoEntities",
+      "Description": "Number of TrackingEntities",
+      "ProcessIndex": 4,
+      "NextIndex": 2,
+      "IsActive": true,
+      "Required": false,
+      "IsBusinessRule": false
+    },
+    {
+      "Name": "Print",
+      "Description": "Print",
+      "ProcessIndex": 99,
+      "NextIndex": 0,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false
+    },
+    {
+      "Name": "Location",
+      "Description": "Receiving Location",
+      "ProcessIndex": 100,
+      "NextIndex": 0,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "DefaultValue": "RETURN"
+    }
+  ]
+}

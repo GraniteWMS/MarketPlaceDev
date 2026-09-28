@@ -1,0 +1,156 @@
+{
+  "Identifier": "0ae933fc-910c-4d9d-81d3-0cee0a34200b",
+  "Name": "TAKEONMANUFACTUREPALLET",
+  "Description": "TAKEON MANUFACTURE TO PALLET\n\nGoes with process Assign Production Line, and TakeonManufacture.  This one assigns a pallet and then makes to that pallet.  The Custom_ProductionLineAssignments table holds setup for a line.\nThe webtemplate when you print a new pack label for the pallet also shows what is on the pallet until the pallet is full (Optional Fields on MasterItem)\n\nScript inserts two Optional Fields for MasterItems.  It also has webtemplates and a Pallet.ZPL label and LABEL_PALLET view which is updated to use the first TrackingEntity linked to it to print MasterItem information on the Pallet Label.  The pallet Label can be printed using CLR_PRINTLABEL when the Pallet is full..   ZPL Label definition is here: ^XA\n^PW812\n^FO40,40^FB800^A0N,50,54^FH\\^FDPALLET LABEL^FS\n^FO40,120^FB760,3,,L^A0N,50,54^FH\\^FD@MasterItemDescription^FS\n^FO260,320^BY3,3,3^FH\\^BQN,2,10^FDQA,@Barcode^FS\n^FO260,540^FB800^A0N,50,54^FH\\^FD@Barcode^FS\n^FO40,700^FB760,3,,L^A0N,50,54^FH\\^FD@CreatedDate^FS\n^XZ",
+  "Type": "PROCESS",
+  "Version": 0,
+  "LastModified": "07/09/2025",
+  "Tags": [
+    "Manufacturing"
+  ],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "USER_TABLE",
+      "ArtifactIdentifier": "3aeefa33-c2b7-50fa-bbcb-6b8850676fbb",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Custom_ProductionLineAssignments"
+    },
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "d34404b4-23dc-5b4b-92ed-a73871cb87ca",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Webtemplate_AssignProductionProductionLine"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "baf96140-bc03-5995-88de-c87299c54e16",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PrescriptTakeonManufactureLocation"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "daf6ccc0-db48-5b33-bdc3-f06e2df76dfa",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PrescriptTakeonManPalletConfirmPallet"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "39f82497-b3a4-513e-8361-0b54f9b79bd0",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PrescriptTakeonManPalletStep200"
+    }
+  ],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "TAKEON",
+    "ProcessStepMetadata": [
+      {
+        "Name": "MasterItem",
+        "Description": "MasterItem",
+        "ProcessIndex": 100,
+        "NextIndex": 100,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "Location",
+        "Description": "Location",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "PrescriptTakeonManufactureLocation",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Batch",
+        "Description": "LOT",
+        "ProcessIndex": 100,
+        "NextIndex": 100,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "Qty",
+        "Description": "Total Pallet Qty in units",
+        "ProcessIndex": 100,
+        "NextIndex": 100,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "Print",
+        "Description": "Print",
+        "ProcessIndex": 99,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "SerialNumber",
+        "Description": "Job Number",
+        "ProcessIndex": 100,
+        "NextIndex": 100,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "ConfirmPallet",
+        "Description": "Print next Box label",
+        "ProcessIndex": 2,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": false,
+        "PreScript": "PrescriptTakeonManPalletConfirmPallet",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "CarryingEntity",
+        "Description": "New Pallet Label (Click New)",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "Step200",
+        "Description": "Check for Pallet complete and print",
+        "ProcessIndex": 200,
+        "NextIndex": 200,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "PrescriptTakeonManPalletStep200",
+        "hasWebTemplate": true
+      }
+    ]
+  },
+  "PostDeployArtifacts": [
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "93952f72-a5c5-59e5-bac1-f831bdbe96c5",
+      "ArtifactVersion": 1,
+      "ArtifactName": "TAKEONMANUFACTUREPALLET_Location"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "85708484-b405-525b-aaaa-53043063cabc",
+      "ArtifactVersion": 1,
+      "ArtifactName": "TAKEONMANUFACTUREPALLET_ConfirmPallet"
+    }
+  ],
+  "DependsOnClr": true,
+  "SqlClrAssemblyVersion": "7.0.0.0",
+  "Deprecated": false
+}

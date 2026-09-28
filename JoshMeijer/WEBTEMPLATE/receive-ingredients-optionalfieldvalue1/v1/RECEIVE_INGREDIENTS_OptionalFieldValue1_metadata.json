@@ -1,0 +1,19 @@
+{
+  "Identifier": "c052447f-947b-5d3d-8ae8-6e2590b4703c",
+  "Name": "RECEIVE_INGREDIENTS_OptionalFieldValue1",
+  "Description": "WebTemplate for process template RECEIVE_INGREDIENTS / step OptionalFieldValue1",
+  "Type": "WEBTEMPLATE",
+  "Version": 1,
+  "LastModified": "31/07/2025",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "951e6763-e9b2-5249-bc60-1e56a7f1282c",
+      "ArtifactVersion": 1
+    }
+  ],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

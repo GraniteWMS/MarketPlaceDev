@@ -1,0 +1,13 @@
+{
+  "Identifier": "abeacd52-6033-547d-8f68-b1d1b4e8c3eb",
+  "Name": "MOVEBYJOB_Document",
+  "Description": "WebTemplate for process template MOVEBYJOB / step Document",
+  "Type": "WEBTEMPLATE",
+  "Version": 1,
+  "LastModified": "18/03/2026",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

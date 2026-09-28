@@ -1,0 +1,19 @@
+{
+  "Identifier": "ff9c9288-d71d-5efc-8768-e5f4d55690b0",
+  "Name": "3PLSTOCKTAKECOUNT_TrackingEntity",
+  "Description": "WebTemplate for process template 3PLSTOCKTAKECOUNT / step TrackingEntity",
+  "Type": "WEBTEMPLATE",
+  "Version": 0,
+  "LastModified": "24/06/2024",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "SQL_STORED_PROCEDURE",
+      "ArtifactIdentifier": "46b4656f-a91c-57d3-9788-3dc12a9a8158",
+      "ArtifactVersion": 1
+    }
+  ],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

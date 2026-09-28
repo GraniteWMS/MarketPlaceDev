@@ -1,0 +1,19 @@
+{
+  "Identifier": "7bbbfb1e-a262-5a21-b1bb-4fd82a98fbf4",
+  "Name": "3PLSTOCKTAKECOUNT_Location",
+  "Description": "WebTemplate for process template 3PLSTOCKTAKECOUNT / step Location",
+  "Type": "WEBTEMPLATE",
+  "Version": 0,
+  "LastModified": "24/06/2024",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "SQL_STORED_PROCEDURE",
+      "ArtifactIdentifier": "9140d67e-6cb4-5899-b0b4-28a8f8c986b5",
+      "ArtifactVersion": 1
+    }
+  ],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

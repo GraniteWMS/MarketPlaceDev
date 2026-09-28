@@ -1,0 +1,19 @@
+{
+  "Identifier": "1a7ce571-0833-5b10-96f7-09388f200e74",
+  "Name": "CONSUME_ALLOCATED_BARCODES_Batch",
+  "Description": "WebTemplate for process template CONSUME_ALLOCATED_BARCODES / step Batch",
+  "Type": "WEBTEMPLATE",
+  "Version": 1,
+  "LastModified": "07/06/2026",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "44b52d18-ed63-55b7-86cd-f596c6f951ba",
+      "ArtifactVersion": 1
+    }
+  ],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

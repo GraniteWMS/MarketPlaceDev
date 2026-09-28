@@ -1,0 +1,126 @@
+{
+  "Identifier": "97035b2b-b395-43b8-98b4-19bbedc2c272",
+  "Name": "VSERV_RECEIVINGFOOD",
+  "Description": "VSERV_RECEIVINGFOOD\n\nAutomatically sets the expiry date to the last day of the month.",
+  "Type": "PROCESS",
+  "Version": 0,
+  "LastModified": "09/02/2026",
+  "Tags": [
+    "Pharmaceutical",
+    "Agricultural"
+  ],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "1991c591-e06f-568a-a652-31ed0247d5db",
+      "ArtifactVersion": 1,
+      "ArtifactName": "WebTemplate_Receiving_Document"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "294b5517-f70f-59b3-a19e-fc0def246f93",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_ReceivingFood_ExpiryDate"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "2360aaf6-b67f-5e33-8453-6b6460cb27c1",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_ReceivingFood_CarryingEntity"
+    }
+  ],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "RECEIVING",
+    "ProcessStepMetadata": [
+      {
+        "Name": "Location",
+        "Description": "Receiving Location",
+        "ProcessIndex": 100,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": false,
+        "DefaultValue": "FOOD RECEIVING",
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "Document",
+        "Description": "Document",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": false,
+        "PreScript": ""
+      },
+      {
+        "Name": "MasterItem",
+        "Description": "MasterItem",
+        "ProcessIndex": 2,
+        "NextIndex": 3,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "ExpiryDate",
+        "Description": "ExpiryDate (YYYYMM)",
+        "ProcessIndex": 3,
+        "NextIndex": 4,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_ReceivingFood_ExpiryDate",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Qty",
+        "Description": "Qty",
+        "ProcessIndex": 4,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "Print",
+        "Description": "Print",
+        "ProcessIndex": 99,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "DefaultValue": "",
+        "PreScript": "",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "CarryingEntity",
+        "Description": "Pallet Number",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": false,
+        "PreScript": "Prescript_ReceivingFood_CarryingEntity",
+        "hasWebTemplate": false
+      }
+    ]
+  },
+  "PostDeployArtifacts": [
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "47c8f497-3e6f-59c1-83c2-9fbf4f50f456",
+      "ArtifactVersion": 1,
+      "ArtifactName": "VSERV_RECEIVINGFOOD_Document"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "cf244083-330b-5beb-949a-3d83b48d5032",
+      "ArtifactVersion": 1,
+      "ArtifactName": "VSERV_RECEIVINGFOOD_CarryingEntity"
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

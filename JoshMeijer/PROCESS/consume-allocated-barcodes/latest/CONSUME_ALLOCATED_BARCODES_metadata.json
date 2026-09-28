@@ -1,0 +1,176 @@
+{
+  "Identifier": "a0450dd4-d732-4984-948c-1dcffc1fd46d",
+  "Name": "CONSUME_ALLOCATED_BARCODES",
+  "Description": "CONSUME_ALLOCATED_BARCODES\n\nIt is meant to be used in conjunction with the ALLOCATE_BARCODES_TO_WORKORDER process. You can use this process to see which barcodes have been allocated to the workorder batch, and consume the allocated quantities",
+  "Type": "PROCESS",
+  "Version": 0,
+  "LastModified": "07/06/2026",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "1520bba3-1828-57bd-82d4-7e260467e66c",
+      "ArtifactVersion": 1,
+      "ArtifactName": "WebTemplate_Manufacture_Document"
+    },
+    {
+      "ArtifactType": "USER_TABLE",
+      "ArtifactIdentifier": "4fad336d-fbe3-518b-855b-64e5d217f771",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Custom_TrackingEntityAllocation"
+    },
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "1fe4262d-6f13-53f5-832f-c13665cb39ca",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Custom_VW_AllocatedBarcodes"
+    },
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "2c5dabda-bdac-5c1c-a583-4b7bccf25700",
+      "ArtifactVersion": 1,
+      "ArtifactName": "WebTemplate_AllocateBarcodeToWorkOrder_TrackingEntity"
+    },
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "44b52d18-ed63-55b7-86cd-f596c6f951ba",
+      "ArtifactVersion": 1,
+      "ArtifactName": "WebTemplate_AllocateBarcodeToWorkOrder_Batch"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "ccf7fc9e-476e-525d-977a-fa5dfa3bf3bc",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_ConsumePeanutAllocated_TrackingEntity"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "6ce3f93e-aab5-5d59-b4eb-864d37d63f61",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_PeanutConsume_Qty"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "3368df78-d574-5b47-8016-a0662d3e34e8",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_ConsumePeanutAllocated_Step200"
+    }
+  ],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "CONSUME",
+    "ProcessStepMetadata": [
+      {
+        "Name": "Document",
+        "Description": "Enter FG Document",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Location",
+        "Description": "Location",
+        "ProcessIndex": 100,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "DefaultValue": "Peanut Warehouse",
+        "PreScript": "",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "TrackingEntity",
+        "Description": "Scan Barcode To Consume",
+        "ProcessIndex": 2,
+        "NextIndex": 3,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_ConsumePeanutAllocated_TrackingEntity",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Qty",
+        "Description": "Qty To Consume",
+        "ProcessIndex": 3,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_PeanutConsume_Qty",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Comment",
+        "Description": "Comment",
+        "ProcessIndex": 100,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": false,
+        "DefaultValue": "",
+        "PreScript": "",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "ActionQtyAllowance",
+        "Description": "ActionQtyAllowance",
+        "ProcessIndex": 100,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "DefaultValue": "11",
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "Batch",
+        "Description": "Select Batch",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": false,
+        "PreScript": ""
+      },
+      {
+        "Name": "Step200",
+        "Description": "Step200",
+        "ProcessIndex": 200,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_ConsumePeanutAllocated_Step200",
+        "hasWebTemplate": true
+      }
+    ]
+  },
+  "PostDeployArtifacts": [
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "e33c1c00-0947-56d0-8826-c542f0c50aa1",
+      "ArtifactVersion": 1,
+      "ArtifactName": "CONSUME_ALLOCATED_BARCODES"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "08a23e92-feb9-5f20-9e49-ae7c914e4834",
+      "ArtifactVersion": 1,
+      "ArtifactName": "CONSUME_ALLOCATED_BARCODES_Document"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "1a7ce571-0833-5b10-96f7-09388f200e74",
+      "ArtifactVersion": 1,
+      "ArtifactName": "CONSUME_ALLOCATED_BARCODES_Batch"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "94692c06-f689-5fc9-a753-d37ed5d2d083",
+      "ArtifactVersion": 1,
+      "ArtifactName": "CONSUME_ALLOCATED_BARCODES_TrackingEntity"
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

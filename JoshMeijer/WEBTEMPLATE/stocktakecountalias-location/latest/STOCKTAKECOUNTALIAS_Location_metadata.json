@@ -1,0 +1,24 @@
+{
+  "Identifier": "0d56addb-0801-5386-9093-ca1cd03641b3",
+  "Name": "STOCKTAKECOUNTALIAS_Location",
+  "Description": "WebTemplate for process template STOCKTAKECOUNTALIAS / step Location",
+  "Type": "WEBTEMPLATE",
+  "Version": 0,
+  "LastModified": "29/01/2025",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "USER_TABLE",
+      "ArtifactIdentifier": "50083429-d66f-59d4-84ed-aa394f519312",
+      "ArtifactVersion": 1
+    },
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "d08640ac-b5fa-531d-aa14-a61097d5dfb0",
+      "ArtifactVersion": 1
+    }
+  ],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

@@ -1,0 +1,133 @@
+{
+  "Identifier": "9ff38829-a9ff-4011-bdd6-861b8724ef31",
+  "Name": "RECEIVINGLOCITEM",
+  "Description": "RECEIVING with Loc_Item\n\nThis is an improvement over the ones in the catalogue previously.  This one works - used in Motor parts warehouse.\nThe webtemplate is modified to remove decimals.\nThe process selects a Receiving location or putaway cart (Location.Category = RECEIVING or CART)\nThe MasterItem can be an alias - it also manipulates the scanned code to work for parts.\n\nMasterItem step has code to manipulate the scanned barcode to find alias in multiple cases.",
+  "Type": "PROCESS",
+  "Version": 0,
+  "LastModified": "10/05/2026",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "97b74da2-34b8-5ba2-995f-1158b461b2d0",
+      "ArtifactVersion": 1,
+      "ArtifactName": "webtemplate_ReceivingLocations"
+    },
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "72fc74c4-bcf6-5747-9c9a-09c506d81cc1",
+      "ArtifactVersion": 1,
+      "ArtifactName": "webtemplate_POtoReceive"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "7376f186-89a0-5098-9361-be4f77ca368e",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_Receiving_Location"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "596bb9a9-4bc9-5607-890a-494f2bbe4143",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_Receiving_Document"
+    },
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "007fa117-0003-5f2f-8177-31dfdd33409b",
+      "ArtifactVersion": 1,
+      "ArtifactName": "MasterItemAlias_View"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "3a5d9481-c2f3-57f2-914e-b5501d03cfd4",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_Receiving_MasterItem"
+    }
+  ],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "RECEIVING",
+    "ProcessStepMetadata": [
+      {
+        "Name": "Location",
+        "Description": "Receiving Location or Cart",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": false,
+        "PreScript": "Prescript_Receiving_Location",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Document",
+        "Description": "Purchase Order",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "DefaultValue": "",
+        "PreScript": "Prescript_Receiving_Document",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "MasterItem",
+        "Description": "Scan or Select MasterItem from PO",
+        "ProcessIndex": 2,
+        "NextIndex": 3,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_Receiving_MasterItem",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Qty",
+        "Description": "Qty Received",
+        "ProcessIndex": 3,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": false,
+        "PreScript": ""
+      },
+      {
+        "Name": "UseBarcode",
+        "Description": "UseBarcode",
+        "ProcessIndex": 100,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": false,
+        "DefaultValue": "",
+        "PreScript": "",
+        "hasWebTemplate": true
+      }
+    ]
+  },
+  "PostDeployArtifacts": [
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "08f3ea6c-4d4c-54cf-bc19-d4d64f21dc9a",
+      "ArtifactVersion": 1,
+      "ArtifactName": "RECEIVINGLOCITEM"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "ee0594e7-5c48-5182-b524-865cefab30e2",
+      "ArtifactVersion": 1,
+      "ArtifactName": "RECEIVINGLOCITEM_Document"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "203fdb43-fef8-5b46-b11b-f5faf44fcdcf",
+      "ArtifactVersion": 1,
+      "ArtifactName": "RECEIVINGLOCITEM_Location"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "bcafdfd0-00a7-5aee-974d-26512904c61e",
+      "ArtifactVersion": 1,
+      "ArtifactName": "RECEIVINGLOCITEM_Qty"
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

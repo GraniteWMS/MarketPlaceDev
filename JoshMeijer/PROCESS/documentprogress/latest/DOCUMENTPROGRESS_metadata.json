@@ -1,0 +1,39 @@
+{
+  "Identifier": "cc15e546-c320-4b11-b4d1-89d7d5620ceb",
+  "Name": "DOCUMENTPROGRESS",
+  "Description": "DOCUMENTPROGRESS\n\nThis is the default (empty) DOCUMENTPROGRESS process.",
+  "Type": "PROCESS",
+  "Version": 0,
+  "LastModified": "19/03/2024",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "DOCUMENTPROGRESS",
+    "ProcessStepMetadata": [
+      {
+        "Name": "Type",
+        "Description": "Document Type",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "FilterDocument",
+        "Description": "Filter Document",
+        "ProcessIndex": 1,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      }
+    ]
+  },
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

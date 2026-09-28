@@ -1,0 +1,13 @@
+{
+  "Identifier": "1207ca87-c41f-5f52-b389-9cf3c60adac8",
+  "Name": "FT_RECEIVE_LabelType",
+  "Description": "WebTemplate for process template FT_RECEIVE / step LabelType",
+  "Type": "WEBTEMPLATE",
+  "Version": 1,
+  "LastModified": "20/05/2026",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

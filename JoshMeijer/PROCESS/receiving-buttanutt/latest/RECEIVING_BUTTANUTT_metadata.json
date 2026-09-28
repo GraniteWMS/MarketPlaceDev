@@ -1,0 +1,133 @@
+{
+  "Identifier": "1e414057-07a0-4bea-b551-3a5a3c9792f7",
+  "Name": "RECEIVING_BUTTANUTT",
+  "Description": "RECEIVING_BUTTANUTT\n\nIts a basic receiving process with quality of life improvements, like selectable item codes on each line and the spacing is fixed so there is not messed up UI on the scanner",
+  "Type": "PROCESS",
+  "Version": 0,
+  "LastModified": "21/03/2026",
+  "Tags": [
+    "Manufacturing",
+    "Retail",
+    "Automotive",
+    "Textile",
+    "Agricultural",
+    "Electronics",
+    "Construction",
+    "E-commerce",
+    "Logistics",
+    "Pharmaceutical",
+    "Cold Storage"
+  ],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "7177e4ef-abe0-5ba8-9b3c-73d11055fe05",
+      "ArtifactVersion": 1,
+      "ArtifactName": "WebTemplate_Receiving_Document"
+    }
+  ],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "RECEIVING",
+    "ProcessStepMetadata": [
+      {
+        "Name": "Location",
+        "Description": "Receiving Location",
+        "ProcessIndex": 100,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": false,
+        "DefaultValue": "Procurement",
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "Document",
+        "Description": "Enter PO Document",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": false,
+        "PreScript": ""
+      },
+      {
+        "Name": "MasterItem",
+        "Description": "Select SKU To Receive",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "Batch",
+        "Description": "Enter Batch",
+        "ProcessIndex": 2,
+        "NextIndex": 3,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "ExpiryDate",
+        "Description": "Enter Expiry Date (YYYYMMDD)",
+        "ProcessIndex": 3,
+        "NextIndex": 4,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "Qty",
+        "Description": "Enter Qty To Receive",
+        "ProcessIndex": 4,
+        "NextIndex": 5,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "NoEntities",
+        "Description": "Number Of Barcodes With Same Qty",
+        "ProcessIndex": 5,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "Print",
+        "Description": "Print",
+        "ProcessIndex": 99,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "DefaultValue": "",
+        "PreScript": "",
+        "hasWebTemplate": true
+      }
+    ]
+  },
+  "PostDeployArtifacts": [
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "bfd0e5ad-c19d-5d8f-8b23-1d2ae8241e61",
+      "ArtifactVersion": 1,
+      "ArtifactName": "RECEIVING_BUTTANUTT"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "a23785f3-fa10-5a88-8d42-4391aea305c2",
+      "ArtifactVersion": 1,
+      "ArtifactName": "RECEIVING_BUTTANUTT_Document"
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

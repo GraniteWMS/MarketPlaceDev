@@ -1,0 +1,13 @@
+{
+  "Identifier": "b20ee149-5375-5c67-8115-7ee5e38f6115",
+  "Name": "Takeon_Consolidated_Qty",
+  "Description": "WebTemplate for process template Takeon_Consolidated / step Qty",
+  "Type": "WEBTEMPLATE",
+  "Version": 1,
+  "LastModified": "05/08/2026",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

@@ -1,0 +1,17 @@
+{
+  "Identifier": "a3eb0686-7d23-5e0e-9af3-deeea19bcbff",
+  "Name": "DataDependency_Custom_CourierBoxType_a3eb06867d235e0e9af3deeea19bcbff",
+  "Description": "",
+  "Type": "DATA",
+  "Version": 1,
+  "LastModified": "13/07/2026",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "TypeSpecificAttributes": {
+    "Table": "dbo.Custom_CourierBoxType",
+    "KeyColumn": "Code",
+    "KeyValues": [
+      "BOX_LARGE"
+    ]
+  }
+}

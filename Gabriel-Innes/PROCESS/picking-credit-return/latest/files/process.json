@@ -1,0 +1,64 @@
+{
+  "Name": "PICKING Credit Return",
+  "Description": "Picking Credit Return",
+  "Type": "PICKING",
+  "IsActive": true,
+  "IntegrationIsActive": false,
+  "IntegrationPost": false,
+  "WebTemplateArtifact": "35b037d7-2ab9-58eb-ad95-b615332f8df0",
+  "Steps": [
+    {
+      "Name": "Document",
+      "Description": "Document Number",
+      "ProcessIndex": 0,
+      "NextIndex": 1,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "PrescriptPickingCRDocument",
+      "WebTemplateArtifact": "02485f8a-697c-5d83-b001-ba5b44c1b3d8"
+    },
+    {
+      "Name": "Cage",
+      "Description": "Cage",
+      "ProcessIndex": 1,
+      "NextIndex": 2,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "WebTemplateArtifact": "7e620fdb-8aec-55d4-9f47-3a7a8da529d8"
+    },
+    {
+      "Name": "TrackingEntity",
+      "Description": "TrackingEntity (Granite Barcode)",
+      "ProcessIndex": 2,
+      "NextIndex": 3,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "PrescriptPickingCRTrackingEntity",
+      "WebTemplateArtifact": "9eb49e0f-e15b-5d72-8dd3-c8bf8cfb0f2b"
+    },
+    {
+      "Name": "Qty",
+      "Description": "Qty",
+      "ProcessIndex": 3,
+      "NextIndex": 2,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "PrescriptPickingCRQty",
+      "WebTemplateArtifact": "4bc11afe-ce42-5983-bd56-56abf9a841b4"
+    },
+    {
+      "Name": "Location",
+      "Description": "Location",
+      "ProcessIndex": 100,
+      "NextIndex": 100,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "DefaultValue": "RETURN"
+    }
+  ]
+}

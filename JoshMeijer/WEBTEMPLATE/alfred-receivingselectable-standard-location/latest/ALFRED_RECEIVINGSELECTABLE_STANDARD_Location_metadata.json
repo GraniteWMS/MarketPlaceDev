@@ -1,0 +1,13 @@
+{
+  "Identifier": "91607f6a-9877-5b74-852f-525408477637",
+  "Name": "ALFRED_RECEIVINGSELECTABLE_STANDARD_Location",
+  "Description": "WebTemplate for process template ALFRED_RECEIVINGSELECTABLE_STANDARD / step Location",
+  "Type": "WEBTEMPLATE",
+  "Version": 0,
+  "LastModified": "20/03/2026",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

@@ -1,0 +1,31 @@
+{
+  "Name": "RD_TRANSFERPOST",
+  "Description": "Retail Distribution Transfer POST - With Percentage Rule Check",
+  "Type": "TRANSFERPOST",
+  "IsActive": true,
+  "IntegrationIsActive": true,
+  "IntegrationPost": false,
+  "Steps": [
+    {
+      "Name": "Document",
+      "Description": "Document",
+      "ProcessIndex": 0,
+      "NextIndex": 1,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "Prescript_TransferPost_Document",
+      "WebTemplateArtifact": "e7ea8470-d1f8-5eae-8f29-035c8facf037"
+    },
+    {
+      "Name": "Confirmation",
+      "Description": "Confirmation",
+      "ProcessIndex": 1,
+      "NextIndex": 0,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "WebTemplateArtifact": "eb0bce76-dd46-5ca5-9896-13b9676276af"
+    }
+  ]
+}

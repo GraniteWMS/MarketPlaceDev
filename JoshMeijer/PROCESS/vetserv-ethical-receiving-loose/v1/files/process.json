@@ -1,0 +1,71 @@
+{
+  "Name": "VETSERV_ETHICAL_RECEIVING_LOOSE",
+  "Description": "VETSERV_ETHICAL_RECEIVING_LOOSE",
+  "Type": "RECEIVING",
+  "IsActive": true,
+  "IntegrationIsActive": false,
+  "IntegrationPost": false,
+  "WebTemplateArtifact": "2450214a-f6b7-5031-a953-bb60e9220147",
+  "Steps": [
+    {
+      "Name": "Document",
+      "Description": "Select PO Document",
+      "ProcessIndex": 0,
+      "NextIndex": 1,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false
+    },
+    {
+      "Name": "CarryingEntity",
+      "Description": "Scan Receiving Box (Optional)",
+      "ProcessIndex": 1,
+      "NextIndex": 2,
+      "IsActive": true,
+      "Required": false,
+      "IsBusinessRule": false,
+      "PreScript": "Prescript_ReceivingEthicalLoose_CarryingEntity",
+      "WebTemplateArtifact": "d4acaeb0-1b17-538b-a44c-52ea98abcf45"
+    },
+    {
+      "Name": "MasterItem",
+      "Description": "Scan EAN Barcode",
+      "ProcessIndex": 2,
+      "NextIndex": 3,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "Prescript_ReceivingEthicalLoose_MasterItem"
+    },
+    {
+      "Name": "Qty",
+      "Description": "Enter Qty To Receive",
+      "ProcessIndex": 3,
+      "NextIndex": 2,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "Prescript_ReceivingEthicalLoose_Qty",
+      "WebTemplateArtifact": "e499cca1-8328-512b-aaab-be2cec5c4371"
+    },
+    {
+      "Name": "Location",
+      "Description": "Receiving Location",
+      "ProcessIndex": 100,
+      "NextIndex": 0,
+      "IsActive": true,
+      "Required": false,
+      "IsBusinessRule": false,
+      "DefaultValue": "ETHICAL RECEIVING"
+    },
+    {
+      "Name": "UseBarcode",
+      "Description": "UseBarcode",
+      "ProcessIndex": 100,
+      "NextIndex": 0,
+      "IsActive": true,
+      "Required": false,
+      "IsBusinessRule": false
+    }
+  ]
+}

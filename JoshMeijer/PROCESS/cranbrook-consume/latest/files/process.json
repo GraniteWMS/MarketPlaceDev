@@ -1,0 +1,61 @@
+{
+  "Name": "CRANBROOK_CONSUME",
+  "Description": "CRANBROOK_COSNUME",
+  "Type": "CONSUME",
+  "IsActive": true,
+  "IntegrationIsActive": false,
+  "IntegrationPost": false,
+  "WebTemplateArtifact": "f4b53c33-3645-53f4-9157-52a9448738bb",
+  "Steps": [
+    {
+      "Name": "Document",
+      "Description": "ENTER DOCUMENT NUMBER",
+      "ProcessIndex": 0,
+      "NextIndex": 1,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "PreScript_Consume_Document"
+    },
+    {
+      "Name": "TrackingEntity",
+      "Description": "SCAN RAW MATERIAL BARCODE",
+      "ProcessIndex": 1,
+      "NextIndex": 2,
+      "IsActive": true,
+      "Required": false,
+      "IsBusinessRule": false,
+      "PreScript": "Prescript_Consume_TrackingEntity"
+    },
+    {
+      "Name": "Qty",
+      "Description": "ENTER QUANTITY (KG)",
+      "ProcessIndex": 2,
+      "NextIndex": 1,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "PRESCRIPT_Consume_Qty"
+    },
+    {
+      "Name": "Location",
+      "Description": "Scan Machine Number",
+      "ProcessIndex": 100,
+      "NextIndex": 0,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "DefaultValue": "PROD"
+    },
+    {
+      "Name": "Step200",
+      "Description": "Step200",
+      "ProcessIndex": 200,
+      "NextIndex": 0,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "PreScript_Consume_Step200"
+    }
+  ]
+}

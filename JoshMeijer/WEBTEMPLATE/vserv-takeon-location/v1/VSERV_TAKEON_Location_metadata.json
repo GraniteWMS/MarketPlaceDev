@@ -1,0 +1,19 @@
+{
+  "Identifier": "7adf9a9b-1121-58c3-bbb1-3ab74321bdc9",
+  "Name": "VSERV_TAKEON_Location",
+  "Description": "WebTemplate for process template VSERV_TAKEON / step Location",
+  "Type": "WEBTEMPLATE",
+  "Version": 1,
+  "LastModified": "09/02/2026",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "9f129e47-6baa-5cba-b8c6-d927e0ffeeea",
+      "ArtifactVersion": 1
+    }
+  ],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

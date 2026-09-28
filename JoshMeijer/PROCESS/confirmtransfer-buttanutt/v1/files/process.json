@@ -1,0 +1,78 @@
+{
+  "Name": "CONFIRMTRANSFER_BUTTANUTT",
+  "Description": "CONFIRMTRANSFER_BUTTANUTT",
+  "Type": "PACKING",
+  "IsActive": true,
+  "IntegrationIsActive": false,
+  "IntegrationPost": false,
+  "Steps": [
+    {
+      "Name": "Document",
+      "Description": "Enter Transfer Document",
+      "ProcessIndex": 0,
+      "NextIndex": 1,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "Prescript_ConfirmTransfer_Document",
+      "WebTemplateArtifact": "04fad68f-3949-53f8-8e9a-6e87694b25db"
+    },
+    {
+      "Name": "MasterItem",
+      "Description": "Scan Transferred Barcode",
+      "ProcessIndex": 1,
+      "NextIndex": 2,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "Prescript_ConfirmTransfer_MasterItem",
+      "WebTemplateArtifact": "0e8888dd-7657-5edd-96fe-301f16f8c27d"
+    },
+    {
+      "Name": "Qty",
+      "Description": "Confirm Qty Transfrred",
+      "ProcessIndex": 2,
+      "NextIndex": 1,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false
+    },
+    {
+      "Name": "CarryingEntity",
+      "Description": "Uses Transfer Number",
+      "ProcessIndex": 100,
+      "NextIndex": 0,
+      "IsActive": true,
+      "Required": false,
+      "IsBusinessRule": false
+    },
+    {
+      "Name": "Comment",
+      "Description": "Comment",
+      "ProcessIndex": 100,
+      "NextIndex": 0,
+      "IsActive": true,
+      "Required": false,
+      "IsBusinessRule": false
+    },
+    {
+      "Name": "Location",
+      "Description": "Transfer To Location",
+      "ProcessIndex": 100,
+      "NextIndex": 0,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false
+    },
+    {
+      "Name": "Step200",
+      "Description": "Updates Barcode To Be Off Hold",
+      "ProcessIndex": 200,
+      "NextIndex": 0,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "Prescript_ConfirmTransfer_Step200"
+    }
+  ]
+}

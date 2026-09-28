@@ -1,0 +1,19 @@
+{
+  "Identifier": "dad7b1e5-323c-5a11-999a-3547ba5fb4b4",
+  "Name": "BUCKY_UNRECEIVE_V3_TransactionID",
+  "Description": "WebTemplate for process template BUCKY_UNRECEIVE_V3 / step TransactionID",
+  "Type": "WEBTEMPLATE",
+  "Version": 1,
+  "LastModified": "02/02/2026",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "a4c0ec21-a6ce-5d99-b8a7-cd5c5bfe7700",
+      "ArtifactVersion": 1
+    }
+  ],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

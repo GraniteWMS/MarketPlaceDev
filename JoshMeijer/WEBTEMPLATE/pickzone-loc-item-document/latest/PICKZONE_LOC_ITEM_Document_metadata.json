@@ -1,0 +1,19 @@
+{
+  "Identifier": "81e1e712-9199-586a-99ca-ae4286c17fc2",
+  "Name": "PICKZONE_LOC_ITEM_Document",
+  "Description": "WebTemplate for process template PICKZONE_LOC_ITEM / step Document",
+  "Type": "WEBTEMPLATE",
+  "Version": 0,
+  "LastModified": "04/05/2026",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "54c9da9a-7ac8-5210-8e23-327f81703d87",
+      "ArtifactVersion": 1
+    }
+  ],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

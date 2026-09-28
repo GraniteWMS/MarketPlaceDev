@@ -1,0 +1,13 @@
+{
+  "Identifier": "34fffec3-1929-5423-a669-4f010e93c05c",
+  "Name": "PICKZONE_LOC_ITEM1BY1_Qty",
+  "Description": "WebTemplate for process template PICKZONE_LOC_ITEM1BY1 / step Qty",
+  "Type": "WEBTEMPLATE",
+  "Version": 1,
+  "LastModified": "04/05/2026",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

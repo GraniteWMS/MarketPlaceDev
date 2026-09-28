@@ -1,0 +1,123 @@
+{
+  "Identifier": "45c80993-7c90-4b98-80ea-b27eea1e2839",
+  "Name": "REPLENISH_FROM_ETHICAL_BULK",
+  "Description": "REPLENISH_FROM_ETHICAL_BULK\n\nReplenish stock without having to scan TE barcode",
+  "Type": "PROCESS",
+  "Version": 0,
+  "LastModified": "12/06/2026",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "49a7202f-807e-5edc-8354-79e942db325f",
+      "ArtifactVersion": 1,
+      "ArtifactName": "WebTemplate_ReplenishFromEthicalReceivingBox_FromTrackingEntity"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "40e35cd3-c0c8-5544-b3fb-f45cefe1e34f",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_ReplenishFromEthicalReceivingBox_Location"
+    },
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "fae62ff8-ecd1-5633-a595-b7ee3c11b6e9",
+      "ArtifactVersion": 1,
+      "ArtifactName": "MasterItemAlias_View"
+    },
+    {
+      "ArtifactType": "SQL_STORED_PROCEDURE",
+      "ArtifactIdentifier": "74e4df47-e82f-5f21-845d-a935a242ac00",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Common_SP_GetMasterItemLinkedToAlias"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "3e95804e-3c31-5a79-9ba5-a6ca513a1d94",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_ReplenishFromEthicalReceivingBox_MasterItem"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "7e7d8b77-5f87-559d-9561-94325cf4748a",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_ReplenishFromEthicalReceivingBox_Box"
+    }
+  ],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "REPLENISH",
+    "ProcessStepMetadata": [
+      {
+        "Name": "FromTrackingEntity",
+        "Description": "Select Stock",
+        "ProcessIndex": 2,
+        "NextIndex": 3,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Location",
+        "Description": "Scan Rack Location",
+        "ProcessIndex": 3,
+        "NextIndex": 4,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_ReplenishFromEthicalReceivingBox_Location",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "ToTrackingEntity",
+        "Description": "To TrackingEntity",
+        "ProcessIndex": 100,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "Qty",
+        "Description": "Qty to Move",
+        "ProcessIndex": 4,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "MasterItem",
+        "Description": "Scan EAN Barcode",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_ReplenishFromEthicalReceivingBox_MasterItem",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Box",
+        "Description": "Scan Receiving Box",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_ReplenishFromEthicalReceivingBox_Box",
+        "hasWebTemplate": true
+      }
+    ]
+  },
+  "PostDeployArtifacts": [
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "576eece4-85b5-56b8-9e1d-95cb2cdf0c8b",
+      "ArtifactVersion": 1,
+      "ArtifactName": "REPLENISH_FROM_ETHICAL_BULK_FromTrackingEntity"
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

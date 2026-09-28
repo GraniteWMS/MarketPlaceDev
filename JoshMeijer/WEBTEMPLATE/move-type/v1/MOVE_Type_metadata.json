@@ -1,0 +1,13 @@
+{
+  "Identifier": "325f2e41-4302-5e6c-a7ed-5eaa65db2dae",
+  "Name": "MOVE_Type",
+  "Description": "WebTemplate for process template MOVE / step Type",
+  "Type": "WEBTEMPLATE",
+  "Version": 1,
+  "LastModified": "17/03/2026",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

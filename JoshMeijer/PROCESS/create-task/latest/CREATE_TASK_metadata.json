@@ -1,0 +1,153 @@
+{
+  "Identifier": "aa14f1a8-e226-49af-a595-885b33c17f77",
+  "Name": "CREATE_TASK",
+  "Description": "CREATE_TASK\n\nA simple way to assign tasks to users",
+  "Type": "PROCESS",
+  "Version": 0,
+  "LastModified": "04/06/2025",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "6b37cc4b-8243-590c-bfac-d8240e226f87",
+      "ArtifactVersion": 1,
+      "ArtifactName": "WebTemplate_CommonTasks"
+    },
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "c95e8cb9-d7ce-51d6-a064-84992d11eae5",
+      "ArtifactVersion": 1,
+      "ArtifactName": "WebTemplate_Users"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "887f5b91-0c33-5eb5-8746-4b2b2d57c54f",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PrescriptCreateTaskTrackingEntity"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "23a4d448-4662-52b3-9119-de5ad48adf86",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PrescriptCreateTaskLocation"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "0bba36e4-dc2b-54ae-83d3-052407460fdf",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PrescriptCreateTaskAssignedUser"
+    },
+    {
+      "ArtifactType": "USER_TABLE",
+      "ArtifactIdentifier": "7c598f3a-bf7a-537f-b5b1-3a7bbdf239b6",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Custom_TaskList"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "53a63c6a-a32e-5557-afd0-ed692d7ade5a",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PrescriptCreateTaskConfirmation"
+    },
+    {
+      "ArtifactType": "DATA",
+      "ArtifactIdentifier": "f0444ef5-d6e2-55bb-af52-3cd9cda8f7a2",
+      "ArtifactVersion": 1,
+      "ArtifactName": "DataDependency_SystemStaticData_f0444ef5d6e255bbaf523cd9cda8f7a2"
+    }
+  ],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "CUSTOM",
+    "ProcessStepMetadata": [
+      {
+        "Name": "TaskName",
+        "Description": "Enter Task Name",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": false,
+        "PreScript": ""
+      },
+      {
+        "Name": "TaskDescription",
+        "Description": "Enter Description",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": false,
+        "PreScript": ""
+      },
+      {
+        "Name": "TrackingEntity",
+        "Description": "TrackingEntity",
+        "ProcessIndex": 2,
+        "NextIndex": 3,
+        "isActive": true,
+        "Required": false,
+        "PreScript": "PrescriptCreateTaskTrackingEntity",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Location",
+        "Description": "Location",
+        "ProcessIndex": 3,
+        "NextIndex": 4,
+        "isActive": true,
+        "Required": false,
+        "PreScript": "PrescriptCreateTaskLocation",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "AssignedUser",
+        "Description": "Assign User",
+        "ProcessIndex": 4,
+        "NextIndex": 5,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "PrescriptCreateTaskAssignedUser",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Confirmation",
+        "Description": "Create task?",
+        "ProcessIndex": 5,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "PrescriptCreateTaskConfirmation",
+        "hasWebTemplate": true
+      }
+    ]
+  },
+  "PostDeployArtifacts": [
+    {
+      "ArtifactType": "POST_DEPLOY_SCRIPT",
+      "ArtifactIdentifier": "f294a77d-8e76-50eb-953a-71a2cdbb92eb",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PostDeployScript"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "beb21537-2323-592c-a5b9-d0fc7b17f2cc",
+      "ArtifactVersion": 1,
+      "ArtifactName": "CREATE_TASK_TaskName"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "2c5aec13-d5f3-5b49-a0bf-28c35f7b6278",
+      "ArtifactVersion": 1,
+      "ArtifactName": "CREATE_TASK_TaskDescription"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "33a04698-c336-53ea-ab32-8af6fea4ea9a",
+      "ArtifactVersion": 1,
+      "ArtifactName": "CREATE_TASK_AssignedUser"
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

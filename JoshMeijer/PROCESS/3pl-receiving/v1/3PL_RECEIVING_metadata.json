@@ -1,0 +1,223 @@
+{
+  "Identifier": "e82136e6-b105-4e26-a10b-a9c26f2c8b07",
+  "Name": "3PL_RECEIVING",
+  "Description": "INBOUND RECEIVING\n\nStandard Receiving with extra validations",
+  "Type": "PROCESS",
+  "Version": 1,
+  "LastModified": "04/08/2025",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "0cfa0647-a6b3-512d-8db6-7c85141e5181",
+      "ArtifactVersion": 1,
+      "ArtifactName": "WebTemplate_StagingLocations"
+    },
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "673e76f9-2794-5a38-8b9d-6985520fe6f9",
+      "ArtifactVersion": 1,
+      "ArtifactName": "webtemplate_POtoReceive"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "7cb636b3-a089-51df-aa58-ae25b3f6938f",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript3PLReceiving_Document"
+    },
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "2f2472a7-b346-594c-9787-71133853f343",
+      "ArtifactVersion": 1,
+      "ArtifactName": "MasterItemAlias_View"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "a4bd3e67-acbe-5e6a-b483-6d6606ed6e57",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript3PLReceiving_MasterItem"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "1945f9c7-5c95-53ef-9ff2-cd984581e4d2",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript3PLReceiving_Qty"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "7c3fd7b2-ab8a-52a9-a037-992e84056a85",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript3PLReceiving_Noentities"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "574af64a-154c-5799-8f10-a72d0f7ae43f",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript3PLReceiving_Batch"
+    }
+  ],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "RECEIVING",
+    "ProcessStepMetadata": [
+      {
+        "Name": "Location",
+        "Description": "Staging Location",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": false,
+        "PreScript": ""
+      },
+      {
+        "Name": "Document",
+        "Description": "INBOUND Container/Delivery",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript3PLReceiving_Document",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "MasterItem",
+        "Description": "Scan or Select item Code",
+        "ProcessIndex": 2,
+        "NextIndex": 3,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript3PLReceiving_MasterItem",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Qty",
+        "Description": "Qty per Pallet",
+        "ProcessIndex": 4,
+        "NextIndex": 5,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript3PLReceiving_Qty",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "NoLabels",
+        "Description": "Number of Box Labels",
+        "ProcessIndex": 100,
+        "NextIndex": 100,
+        "isActive": true,
+        "Required": false,
+        "DefaultValue": "2",
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "Confirmation",
+        "Description": "Confirmation",
+        "ProcessIndex": 7,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": false,
+        "PreScript": ""
+      },
+      {
+        "Name": "NoEntities",
+        "Description": "Number of Identical Pallets",
+        "ProcessIndex": 5,
+        "NextIndex": 6,
+        "isActive": true,
+        "Required": false,
+        "PreScript": "Prescript3PLReceiving_Noentities",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "UseBarcode",
+        "Description": "UseBarcode",
+        "ProcessIndex": 100,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": false,
+        "DefaultValue": "",
+        "PreScript": "",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Batch",
+        "Description": "Batch",
+        "ProcessIndex": 3,
+        "NextIndex": 4,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript3PLReceiving_Batch",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Print",
+        "Description": "Print",
+        "ProcessIndex": 99,
+        "NextIndex": 99,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "Comment",
+        "Description": "Comment",
+        "ProcessIndex": 6,
+        "NextIndex": 7,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      }
+    ]
+  },
+  "PostDeployArtifacts": [
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "b557fd31-c7d5-553d-86be-077b02f02da0",
+      "ArtifactVersion": 1,
+      "ArtifactName": "3PL_RECEIVING"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "af36cf5e-4ce2-588a-b2f6-b0863d2eb571",
+      "ArtifactVersion": 1,
+      "ArtifactName": "3PL_RECEIVING_Document"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "1f2406e7-5b76-5ce5-9d70-11ef29da37f9",
+      "ArtifactVersion": 1,
+      "ArtifactName": "3PL_RECEIVING_Location"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "b2977dce-2649-5e8a-9159-64ecff814d8b",
+      "ArtifactVersion": 1,
+      "ArtifactName": "3PL_RECEIVING_Batch"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "de779f7f-28df-52a6-9316-b67090ab6b1c",
+      "ArtifactVersion": 1,
+      "ArtifactName": "3PL_RECEIVING_Qty"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "dc2625a7-d7ce-58ee-b6b7-5044817e0683",
+      "ArtifactVersion": 1,
+      "ArtifactName": "3PL_RECEIVING_Comment"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "ca26d8e4-f619-58ea-a872-9ec876a04705",
+      "ArtifactVersion": 1,
+      "ArtifactName": "3PL_RECEIVING_Confirmation"
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

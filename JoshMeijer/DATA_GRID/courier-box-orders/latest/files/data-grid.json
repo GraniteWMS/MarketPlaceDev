@@ -1,0 +1,9 @@
+{
+  "Group": "Courier",
+  "Name": "Courier Box Orders",
+  "SQLView": "Custom_DG_CourierPackingBoxOrderReport",
+  "GridDefinition": "@GridDefinition",
+  "PageSize": 100000,
+  "IsApplicationGrid": false,
+  "IsCustomGrid": true
+}

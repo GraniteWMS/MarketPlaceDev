@@ -1,0 +1,10 @@
+{
+  "Identifier": "5e4336de-3976-541e-bb4a-ac6926bb2ecd",
+  "Name": "WebtemplateSpotCheckSession",
+  "Description": "",
+  "Type": "SQL_STORED_PROCEDURE",
+  "Version": 1,
+  "LastModified": "15/05/2025",
+  "Tags": [],
+  "ArtifactDependencies": []
+}

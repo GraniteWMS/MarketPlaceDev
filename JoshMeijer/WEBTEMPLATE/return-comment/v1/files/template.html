@@ -1,0 +1,2 @@
+{{ ['GOOD STOCK', 'EXPIRED STOCK', 'SHORT DATED', 'RECALLED STOCK', 'DAMAGED PACKAGING -REPACK', 'RECOVERABLE CONTENT', 'DAMAGED STOCK -DESTROY', 'DAMAGED PACKAGING  -DESTROY', 'DESTROY'] | map => { Value: it } | createButtonList({ columnName: 'Value' }) }}
+{{ hideTextBox() }}

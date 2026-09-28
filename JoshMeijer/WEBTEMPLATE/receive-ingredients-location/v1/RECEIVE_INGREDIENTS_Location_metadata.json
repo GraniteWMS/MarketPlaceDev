@@ -1,0 +1,19 @@
+{
+  "Identifier": "1fb6e1bc-f22d-594a-943b-1377d04d5959",
+  "Name": "RECEIVE_INGREDIENTS_Location",
+  "Description": "WebTemplate for process template RECEIVE_INGREDIENTS / step Location",
+  "Type": "WEBTEMPLATE",
+  "Version": 1,
+  "LastModified": "31/07/2025",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "a18639bf-a686-519a-a1aa-71fcf8015969",
+      "ArtifactVersion": 1
+    }
+  ],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

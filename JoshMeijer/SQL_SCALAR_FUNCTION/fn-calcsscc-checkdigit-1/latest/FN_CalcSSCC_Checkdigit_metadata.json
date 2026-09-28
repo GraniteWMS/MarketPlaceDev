@@ -1,0 +1,10 @@
+{
+  "Identifier": "08160bab-c9ae-57ff-8338-42bcdd07fa0f",
+  "Name": "FN_CalcSSCC_Checkdigit",
+  "Description": "",
+  "Type": "SQL_SCALAR_FUNCTION",
+  "Version": 0,
+  "LastModified": "08/09/2026",
+  "Tags": [],
+  "ArtifactDependencies": []
+}

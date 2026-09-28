@@ -1,0 +1,13 @@
+{
+  "Identifier": "b047e52a-0705-564b-b9c0-179266af0749",
+  "Name": "CIM_ASSIGNDELIVERYNOTE_Location",
+  "Description": "WebTemplate for process template CIM_ASSIGNDELIVERYNOTE / step Location",
+  "Type": "WEBTEMPLATE",
+  "Version": 1,
+  "LastModified": "18/05/2026",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

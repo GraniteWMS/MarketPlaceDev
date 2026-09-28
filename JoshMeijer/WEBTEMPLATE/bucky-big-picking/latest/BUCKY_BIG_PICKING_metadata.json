@@ -1,0 +1,13 @@
+{
+  "Identifier": "67d97797-4d82-5d6e-86e5-de6f1af160f7",
+  "Name": "BUCKY_BIG_PICKING",
+  "Description": "WebTemplate for process template BUCKY_BIG_PICKING",
+  "Type": "WEBTEMPLATE",
+  "Version": 0,
+  "LastModified": "02/02/2026",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

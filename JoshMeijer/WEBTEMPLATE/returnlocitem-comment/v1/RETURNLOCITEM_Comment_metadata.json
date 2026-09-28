@@ -1,0 +1,13 @@
+{
+  "Identifier": "db43f1da-ba25-54c9-b42e-6c75f0296c35",
+  "Name": "RETURNLOCITEM_Comment",
+  "Description": "WebTemplate for process template RETURNLOCITEM / step Comment",
+  "Type": "WEBTEMPLATE",
+  "Version": 1,
+  "LastModified": "08/05/2026",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

@@ -1,0 +1,19 @@
+{
+  "Identifier": "b713539b-adf2-5f56-aaf8-f9cac23dbcca",
+  "Name": "PUTAWAYLOC_ITEM_FromLocation",
+  "Description": "WebTemplate for process template PUTAWAYLOC_ITEM / step FromLocation",
+  "Type": "WEBTEMPLATE",
+  "Version": 0,
+  "LastModified": "07/04/2026",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "4484dff2-017a-5500-9ddc-7706b73aaee0",
+      "ArtifactVersion": 1
+    }
+  ],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

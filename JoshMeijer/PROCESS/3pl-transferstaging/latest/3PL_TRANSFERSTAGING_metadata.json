@@ -1,0 +1,136 @@
+{
+  "Identifier": "258f84a9-9c73-4a8a-8be4-f01b282fd2d5",
+  "Name": "3PL_TRANSFERSTAGING",
+  "Description": "Transfer Pallets to Staging\n\nTransfer full pallets to Staging, based on a transfer request Document having been captured",
+  "Type": "PROCESS",
+  "Version": 0,
+  "LastModified": "13/08/2025",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "2a2afa71-88ed-58ff-81b7-0921ab35f6db",
+      "ArtifactVersion": 1,
+      "ArtifactName": "webtemplate_TransfertoStage"
+    },
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "3e88cdd5-4b6b-5cef-a8b1-0447e368ef44",
+      "ArtifactVersion": 1,
+      "ArtifactName": "WebTemplate_StagingLocations"
+    },
+    {
+      "ArtifactType": "SQL_STORED_PROCEDURE",
+      "ArtifactIdentifier": "d1202d30-b150-54c5-9f7b-f044268e4d05",
+      "ArtifactVersion": 1,
+      "ArtifactName": "FIFOPickingRecommendation"
+    },
+    {
+      "ArtifactType": "SQL_STORED_PROCEDURE",
+      "ArtifactIdentifier": "0773df55-7837-53c6-af0e-32861283d8eb",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Utility_CopyDocument"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "85bdbabe-2a66-5fb5-af41-317f51ca8747",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript3PL_TransferStagingDocument"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "99e575ff-a866-523c-8056-4f22759657ee",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript3PL_TransferStagingTrackingEntity"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "8f2243b6-f242-5941-a2af-afaaca3ef086",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript3PL_TransferStagingStep200"
+    }
+  ],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "TRANSFER",
+    "ProcessStepMetadata": [
+      {
+        "Name": "Document",
+        "Description": "Document",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript3PL_TransferStagingDocument",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "DestinationLocation",
+        "Description": "Staging Location",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": false,
+        "PreScript": ""
+      },
+      {
+        "Name": "TrackingEntity",
+        "Description": "TrackingEntity",
+        "ProcessIndex": 2,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript3PL_TransferStagingTrackingEntity",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Qty",
+        "Description": "Qty",
+        "ProcessIndex": 100,
+        "NextIndex": 100,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "Step200",
+        "Description": "Step200",
+        "ProcessIndex": 200,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript3PL_TransferStagingStep200",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Type",
+        "Description": "Type",
+        "ProcessIndex": 100,
+        "NextIndex": 100,
+        "isActive": true,
+        "Required": true,
+        "DefaultValue": "TRANSFER",
+        "hasWebTemplate": true,
+        "PreScript": ""
+      }
+    ]
+  },
+  "PostDeployArtifacts": [
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "e9b5839f-1ccb-55d4-b505-e8718a6065ae",
+      "ArtifactVersion": 1,
+      "ArtifactName": "3PL_TRANSFERSTAGING_DestinationLocation"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "3b648bbb-1232-55fe-93bb-7f97794cc5b0",
+      "ArtifactVersion": 1,
+      "ArtifactName": "3PL_TRANSFERSTAGING_Document"
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

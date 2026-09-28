@@ -1,0 +1,71 @@
+{
+  "Identifier": "a606ebcc-83d1-406d-9679-90910a3a9b85",
+  "Name": "3PL_RELEASELOADOUT",
+  "Description": "3PL_Release Loadout\n\nRelease and copy Transfer to Order for outbound",
+  "Type": "PROCESS",
+  "Version": 0,
+  "LastModified": "08/08/2025",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "7d635d30-9f02-5b36-b1c7-a2e44b7207f3",
+      "ArtifactVersion": 1,
+      "ArtifactName": "webtemplate_OutboundToRelease"
+    },
+    {
+      "ArtifactType": "SQL_STORED_PROCEDURE",
+      "ArtifactIdentifier": "298eb521-e28d-53c1-b72b-e86dab80189c",
+      "ArtifactVersion": 1,
+      "ArtifactName": "FIFOPickingRecommendation"
+    },
+    {
+      "ArtifactType": "SQL_STORED_PROCEDURE",
+      "ArtifactIdentifier": "b7ceb7e7-a770-55fc-b1da-33fbcd652d79",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Utility_CopyDocument"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "c569c88a-cc0e-5a74-8b0b-da322668f8af",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_3PL_ReleaseLoadoutConfirmation"
+    }
+  ],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "CUSTOM",
+    "ProcessStepMetadata": [
+      {
+        "Name": "Document",
+        "Description": "Document",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": false,
+        "PreScript": ""
+      },
+      {
+        "Name": "Confirmation",
+        "Description": "Confirmation",
+        "ProcessIndex": 1,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_3PL_ReleaseLoadoutConfirmation",
+        "hasWebTemplate": true
+      }
+    ]
+  },
+  "PostDeployArtifacts": [
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "f3c56b78-99ae-57de-965a-035552c2823b",
+      "ArtifactVersion": 1,
+      "ArtifactName": "3PL_RELEASELOADOUT_Document"
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

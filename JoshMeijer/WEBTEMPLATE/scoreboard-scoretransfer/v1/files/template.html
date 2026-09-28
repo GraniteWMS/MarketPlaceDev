@@ -1,0 +1,4 @@
+{{ "SELECT * FROM webtemplate_ScoreboardTransferPick  ORDER BY Date DESC, [Transfer Picks] DESC" | dbSelect() | basicTable({enableSearch:false}) }}
+
+{{ ['NEXT'] | map => { Value: it } | createButtonList({ columnName: 'Value' }) }}
+{{ hideTextBox() }}

@@ -1,0 +1,13 @@
+{
+  "Identifier": "d8ee9b05-4264-5433-96bf-ed5cb0032e11",
+  "Name": "3PL_LOADOUTDOC_Document",
+  "Description": "WebTemplate for process template 3PL_LOADOUTDOC / step Document",
+  "Type": "WEBTEMPLATE",
+  "Version": 1,
+  "LastModified": "17/06/2024",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

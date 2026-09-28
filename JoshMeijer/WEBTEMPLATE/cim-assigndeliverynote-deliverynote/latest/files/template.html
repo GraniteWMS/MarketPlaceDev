@@ -1,0 +1,18 @@
+{{ " SELECT DISTINCT RIGHT(DN.Number, LEN(DN.Number) - 1) AS Number, DN.Status AS DocumentStatus, AssignedDate, AssignedBy 
+    FROM dbo.[Document] PS
+    INNER JOIN dbo.[Type] T
+        ON PS.[Type] = T.[Name]
+    INNER JOIN dbo.[Status] S
+        ON PS.[Status] = S.[Name]
+    LEFT JOIN dbo.DocumentDetail DD
+        ON PS.ID = DD.Document_id
+    LEFT JOIN dbo.DocumentDetail DD_SO
+        ON DD.LinkedDetail_id = DD_SO.ID
+    LEFT JOIN dbo.[Document] DN
+        ON DD_SO.Document_id = DN.ID
+    LEFT JOIN dbo.DeliveryNoteLoadingBay DLB
+        ON DLB.Document_id = DN.ID
+    WHERE T.[Name] = "PICKSLIP"
+      AND S.[Name] <> "COMPLETE" 
+      AND DLB.LoadingBay = @Location
+      AND PS.Number = @PickSlip" | dbSelect({Location, PickSlip}) | basicTable({selectOnColumn:"Number", enableSearch:true}) }}

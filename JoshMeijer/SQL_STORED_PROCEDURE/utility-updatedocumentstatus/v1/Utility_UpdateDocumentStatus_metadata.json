@@ -1,0 +1,10 @@
+{
+  "Identifier": "48c6b7a4-8759-5bc0-8b24-d80f737a1dbe",
+  "Name": "Utility_UpdateDocumentStatus",
+  "Description": "",
+  "Type": "SQL_STORED_PROCEDURE",
+  "Version": 1,
+  "LastModified": "30/07/2024",
+  "Tags": [],
+  "ArtifactDependencies": []
+}

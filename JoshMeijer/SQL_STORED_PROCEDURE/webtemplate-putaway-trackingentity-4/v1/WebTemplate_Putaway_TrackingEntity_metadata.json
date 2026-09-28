@@ -1,0 +1,10 @@
+{
+  "Identifier": "167d582e-8073-5410-b838-e2be40a80242",
+  "Name": "WebTemplate_Putaway_TrackingEntity",
+  "Description": "",
+  "Type": "SQL_STORED_PROCEDURE",
+  "Version": 1,
+  "LastModified": "09/10/2025",
+  "Tags": [],
+  "ArtifactDependencies": []
+}

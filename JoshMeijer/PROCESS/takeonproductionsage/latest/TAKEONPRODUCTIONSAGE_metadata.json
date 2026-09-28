@@ -1,0 +1,187 @@
+{
+  "Identifier": "4b0e961b-531c-4143-a7b5-fc11516c5b3c",
+  "Name": "TAKEONPRODUCTIONSAGE",
+  "Description": "Label From Production with SAGE Assembly\n\nWebtemplates and validation allows only items with BOMS.\nAlso Sets the Manufacture Date and can set the LOT number in the Prescript for the MasterItem.\nIntegration method is MANUFACTURE, which creates an Assembly in SAGE 300 ACCPAC\n\nNew Views to show SAGE BOM Header and Detail (Called Integration_ACCPAC_BOMH/BOMD) for Future additional Integration\nLocation is Detaulted to PROD (Add this Location)",
+  "Type": "PROCESS",
+  "Version": 0,
+  "LastModified": "08/09/2026",
+  "Tags": [
+    "Manufacturing"
+  ],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "b67a4007-3677-5765-aa5b-a7cc67ff40d1",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Integration_Accpac_BomH"
+    },
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "c81b8d7f-a306-55be-be2f-2e3ffa296b6e",
+      "ArtifactVersion": 1,
+      "ArtifactName": "WebTemplate_MasterItemswithBOMS"
+    },
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "b6acb74a-d418-55a6-8b03-e2de8f21a178",
+      "ArtifactVersion": 1,
+      "ArtifactName": "WebTemplate_Locations"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "91251efc-874a-5b01-8410-19939abf6b91",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PrescriptTakeonProductionMasterItem"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "69e67d1c-3f88-5c95-a429-f55395359c9e",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PrescriptTakeonProductionQty"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "230cb4d3-f9f1-5abb-80cc-ae691bb37d8e",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PrescriptTakeonNoEntities"
+    },
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "18f0e9e0-923e-5443-9e4c-59a5f9b271b6",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Integration_Accpac_BomD"
+    }
+  ],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "TAKEON",
+    "ProcessStepMetadata": [
+      {
+        "Name": "MasterItem",
+        "Description": "MasterItem Code or Vendor code",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "PrescriptTakeonProductionMasterItem",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Location",
+        "Description": "Location",
+        "ProcessIndex": 100,
+        "NextIndex": 100,
+        "isActive": true,
+        "Required": false,
+        "DefaultValue": "PROD",
+        "hasWebTemplate": false,
+        "PreScript": ""
+      },
+      {
+        "Name": "Qty",
+        "Description": "Qty per Tracking Barcode",
+        "ProcessIndex": 5,
+        "NextIndex": 6,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "PrescriptTakeonProductionQty",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "NoEntities",
+        "Description": "Number of Identical TrackingBarcodes",
+        "ProcessIndex": 6,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": false,
+        "PreScript": "PrescriptTakeonNoEntities",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Print",
+        "Description": "Print",
+        "ProcessIndex": 99,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "DefaultValue": "",
+        "PreScript": "",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Batch",
+        "Description": "Batch / Lot",
+        "ProcessIndex": 4,
+        "NextIndex": 5,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "NoLabels",
+        "Description": "NoLabels",
+        "ProcessIndex": 100,
+        "NextIndex": 100,
+        "isActive": true,
+        "Required": true,
+        "DefaultValue": "1",
+        "PreScript": "",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "ManufactureDate",
+        "Description": "ManufactureDate (YYYYMMDD)",
+        "ProcessIndex": 3,
+        "NextIndex": 4,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "Reference",
+        "Description": "Work Order/Reference",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "Comment",
+        "Description": "Select Bill of Materials",
+        "ProcessIndex": 2,
+        "NextIndex": 3,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": false,
+        "PreScript": ""
+      }
+    ]
+  },
+  "PostDeployArtifacts": [
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "f2259adf-621a-5f08-b28c-3288fb4d710f",
+      "ArtifactVersion": 1,
+      "ArtifactName": "TAKEONPRODUCTIONSAGE_MasterItem"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "f8466380-7d7a-5d74-8ae3-20149cd90096",
+      "ArtifactVersion": 1,
+      "ArtifactName": "TAKEONPRODUCTIONSAGE_Location"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "d081bf9b-911e-5b0e-9836-c3166f86cef3",
+      "ArtifactVersion": 1,
+      "ArtifactName": "TAKEONPRODUCTIONSAGE_Comment"
+    }
+  ],
+  "DependsOnClr": true,
+  "SqlClrAssemblyVersion": "7.0.0.0",
+  "Deprecated": false
+}

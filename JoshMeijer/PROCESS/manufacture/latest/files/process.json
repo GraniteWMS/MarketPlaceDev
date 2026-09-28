@@ -1,0 +1,172 @@
+{
+  "Name": "MANUFACTURE",
+  "Description": "MANUFACTURE",
+  "Type": "MANUFACTURE",
+  "IsActive": true,
+  "IntegrationIsActive": false,
+  "IntegrationPost": false,
+  "Steps": [
+    {
+      "Name": "CarryingEntity",
+      "Description": "CarryingEntity",
+      "ProcessIndex": 0,
+      "NextIndex": 0,
+      "IsActive": false,
+      "Required": false,
+      "IsBusinessRule": false
+    },
+    {
+      "Name": "Comment",
+      "Description": "Comment",
+      "ProcessIndex": 0,
+      "NextIndex": 0,
+      "IsActive": false,
+      "Required": false,
+      "IsBusinessRule": false
+    },
+    {
+      "Name": "Document",
+      "Description": "Manufacturing Document",
+      "ProcessIndex": 0,
+      "NextIndex": 1,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false
+    },
+    {
+      "Name": "IntegrationReference",
+      "Description": "IntegrationReference",
+      "ProcessIndex": 0,
+      "NextIndex": 0,
+      "IsActive": false,
+      "Required": false,
+      "IsBusinessRule": false
+    },
+    {
+      "Name": "ManufactureDate",
+      "Description": "ManufactureDate (YYYYMMDD)",
+      "ProcessIndex": 0,
+      "NextIndex": 0,
+      "IsActive": false,
+      "Required": false,
+      "IsBusinessRule": false
+    },
+    {
+      "Name": "Reference",
+      "Description": "Reference",
+      "ProcessIndex": 0,
+      "NextIndex": 0,
+      "IsActive": false,
+      "Required": false,
+      "IsBusinessRule": false
+    },
+    {
+      "Name": "SerialNumber",
+      "Description": "SerialNumber",
+      "ProcessIndex": 0,
+      "NextIndex": 0,
+      "IsActive": false,
+      "Required": false,
+      "IsBusinessRule": false
+    },
+    {
+      "Name": "UOM",
+      "Description": "UOM",
+      "ProcessIndex": 0,
+      "NextIndex": 0,
+      "IsActive": false,
+      "Required": false,
+      "IsBusinessRule": false
+    },
+    {
+      "Name": "UseBarcode",
+      "Description": "UseBarcode",
+      "ProcessIndex": 0,
+      "NextIndex": 0,
+      "IsActive": false,
+      "Required": false,
+      "IsBusinessRule": false
+    },
+    {
+      "Name": "MasterItem",
+      "Description": "MasterItem",
+      "ProcessIndex": 1,
+      "NextIndex": 2,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false
+    },
+    {
+      "Name": "Location",
+      "Description": "Location",
+      "ProcessIndex": 2,
+      "NextIndex": 3,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false
+    },
+    {
+      "Name": "Batch",
+      "Description": "Batch",
+      "ProcessIndex": 3,
+      "NextIndex": 4,
+      "IsActive": true,
+      "Required": false,
+      "IsBusinessRule": false
+    },
+    {
+      "Name": "ExpiryDate",
+      "Description": "ExpiryDate (YYYYMMDD)",
+      "ProcessIndex": 4,
+      "NextIndex": 5,
+      "IsActive": true,
+      "Required": false,
+      "IsBusinessRule": false
+    },
+    {
+      "Name": "Qty",
+      "Description": "Qty per TrackingEntity",
+      "ProcessIndex": 5,
+      "NextIndex": 6,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false
+    },
+    {
+      "Name": "NoEntities",
+      "Description": "Number of Identical TrackingEntities",
+      "ProcessIndex": 6,
+      "NextIndex": 7,
+      "IsActive": true,
+      "Required": false,
+      "IsBusinessRule": false
+    },
+    {
+      "Name": "NoLabels",
+      "Description": "Number of Label copies",
+      "ProcessIndex": 7,
+      "NextIndex": 8,
+      "IsActive": true,
+      "Required": false,
+      "IsBusinessRule": false
+    },
+    {
+      "Name": "Confirmation",
+      "Description": "Confirmation",
+      "ProcessIndex": 8,
+      "NextIndex": 1,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false
+    },
+    {
+      "Name": "Print",
+      "Description": "Print",
+      "ProcessIndex": 99,
+      "NextIndex": 0,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false
+    }
+  ]
+}

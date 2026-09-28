@@ -1,0 +1,66 @@
+{
+  "Identifier": "380b1365-a42b-4544-985b-04c5651e178c",
+  "Name": "DYNAMICREVERSAL",
+  "Description": "DynamicPick reversal\n\nIf you have a dynamic pick and need to reverse.  It could also work relatively easily on normal picking too.\n\nCustom process for scanner",
+  "Type": "PROCESS",
+  "Version": 0,
+  "LastModified": "19/09/2025",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "2f334a19-e4e5-5b7a-9a5d-83371a3a0b6d",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PrescriptDynamicReversalConfirmation"
+    }
+  ],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "CUSTOM",
+    "ProcessStepMetadata": [
+      {
+        "Name": "Document",
+        "Description": "Enter Order Number",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "TrackingEntity",
+        "Description": "Scan Tracking Entity",
+        "ProcessIndex": 2,
+        "NextIndex": 3,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "Confirmation",
+        "Description": "Confirm Reversal",
+        "ProcessIndex": 3,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "PrescriptDynamicReversalConfirmation",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Comment",
+        "Description": "Reason for Reversal",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      }
+    ]
+  },
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

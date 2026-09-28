@@ -1,0 +1,71 @@
+{
+  "Identifier": "75f9211b-d5b8-4946-a5fe-36afbfa65b29",
+  "Name": "RD_RUNSPLITS",
+  "Description": "Retail Distribution -Import Excel Splits to Creat Store Transfers\n\nIn Retail Distribution, A Purchase order for bulk Stock needs to be split between Retail Stores by Transfer.  We have an Excel input with the Item Codes, Quantity ordered, and then multiple columns representing each store and how much of the item is to be transferred.  The Stored Proc creates a Transfer Document for Each Store (Column)\n\nThe work is done by importing an Excel Sheet into a table for the retail stores and then generating Transfer Documents.  ChatGPT assisted with the code.  It is comprehensive and even Archives the Import File and handles errors in the file.,",
+  "Type": "PROCESS",
+  "Version": 1,
+  "LastModified": "09/10/2025",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "SQL_STORED_PROCEDURE",
+      "ArtifactIdentifier": "2d5033c5-5174-5a4b-a846-09a4e993c284",
+      "ArtifactVersion": 1,
+      "ArtifactName": "WebTemplate_FilesToSplit"
+    },
+    {
+      "ArtifactType": "USER_TABLE",
+      "ArtifactIdentifier": "e3204320-a2b6-57de-b14a-7be18238f11c",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Import_Distribution_Raw"
+    },
+    {
+      "ArtifactType": "SQL_STORED_PROCEDURE",
+      "ArtifactIdentifier": "54fecef4-b406-50ff-8a1a-448d06c78d37",
+      "ArtifactVersion": 1,
+      "ArtifactName": "ImportAndCreateTransfers"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "2ae6f89c-5fc4-54e0-8d97-51f18c07a343",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_Runsplits_Confirmation"
+    }
+  ],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "CUSTOM",
+    "ProcessStepMetadata": [
+      {
+        "Name": "FileName",
+        "Description": "FileName",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": false,
+        "PreScript": ""
+      },
+      {
+        "Name": "Confirmation",
+        "Description": "Confirm",
+        "ProcessIndex": 1,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_Runsplits_Confirmation",
+        "hasWebTemplate": true
+      }
+    ]
+  },
+  "PostDeployArtifacts": [
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "31a7e539-5b0a-5c0b-84cc-e4463d5fa633",
+      "ArtifactVersion": 1,
+      "ArtifactName": "RD_RUNSPLITS_FileName"
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

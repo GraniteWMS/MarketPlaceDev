@@ -1,0 +1,19 @@
+{
+  "Identifier": "6483fb3c-e22d-5073-a0fe-418c96a855f6",
+  "Name": "VSERV_PICKING_Location",
+  "Description": "WebTemplate for process template VSERV_PICKING / step Location",
+  "Type": "WEBTEMPLATE",
+  "Version": 1,
+  "LastModified": "09/02/2026",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "c22650e6-10b7-504e-91b1-01f3d58dc990",
+      "ArtifactVersion": 1
+    }
+  ],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

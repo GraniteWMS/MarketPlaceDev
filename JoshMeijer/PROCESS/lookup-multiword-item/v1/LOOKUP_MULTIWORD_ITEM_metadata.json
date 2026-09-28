@@ -1,0 +1,54 @@
+{
+  "Identifier": "b22d2be8-a1b0-4095-8ec6-6ffabdfc46d9",
+  "Name": "LOOKUP_MULTIWORD_ITEM",
+  "Description": "LOOKUP_MULTIWORD_ITEM_DESC\n\nWhen staff on the floor need to do a quick search for an item and remember parts of the description and need to find the relevant codes/s",
+  "Type": "PROCESS",
+  "Version": 1,
+  "LastModified": "22/09/2025",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "SQL_STORED_PROCEDURE",
+      "ArtifactIdentifier": "b41a44fd-0b74-5fa7-b2c6-f98f0eca81e7",
+      "ArtifactVersion": 1,
+      "ArtifactName": "SP_Search_Item_Multiword"
+    }
+  ],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "CUSTOM",
+    "ProcessStepMetadata": [
+      {
+        "Name": "Result",
+        "Description": "Press Enter to Restart",
+        "ProcessIndex": 1,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": false,
+        "DefaultValue": "",
+        "PreScript": "",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Search",
+        "Description": "Select words to search",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      }
+    ]
+  },
+  "PostDeployArtifacts": [
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "231433be-56f7-5409-a94d-61e224649268",
+      "ArtifactVersion": 1,
+      "ArtifactName": "LOOKUP_MULTIWORD_ITEM"
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

@@ -1,0 +1,83 @@
+{
+  "Identifier": "4b289d44-3ee7-49e0-a368-e78446af56cc",
+  "Name": "BUCKY_UNCONSUME_V2",
+  "Description": "BUCKY_UNCONSUME_V2\n\nUseful for when you need to do consume reversals on the scanner.\n\nThe Step200 script does most of the work. There is a table variable called \"@TransactionIDsToReverse\". You can insert however many transactions you want into this variable as you wish. For example you could insert all the consume transactions for a particular master item on the document.",
+  "Type": "PROCESS",
+  "Version": 1,
+  "LastModified": "27/01/2026",
+  "Tags": [
+    "Manufacturing"
+  ],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "1f0dd906-f9f4-59ff-8ede-4a4ba2ab23d2",
+      "ArtifactVersion": 1,
+      "ArtifactName": "WebTemplate_UnconsumeTransaction_TransactionID"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "a3470055-4c5e-5eaf-8262-8b9049fd4c0b",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_UnconsumeTransaction_TransactionID"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "3b28ea83-5c9e-5491-8e5e-7340cf628e16",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_UnconsumeTransaction_Step200"
+    }
+  ],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "CUSTOM",
+    "ProcessStepMetadata": [
+      {
+        "Name": "Document",
+        "Description": "Enter Document",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": false,
+        "PreScript": ""
+      },
+      {
+        "Name": "TransactionID",
+        "Description": "Select Transaction ID",
+        "ProcessIndex": 1,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_UnconsumeTransaction_TransactionID",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Step200",
+        "Description": "Reverses the Transaction",
+        "ProcessIndex": 200,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_UnconsumeTransaction_Step200",
+        "hasWebTemplate": true
+      }
+    ]
+  },
+  "PostDeployArtifacts": [
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "31f36107-10ca-51bc-9806-0d88ddde9653",
+      "ArtifactVersion": 1,
+      "ArtifactName": "BUCKY_UNCONSUME_V2_Document"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "025523f8-8bf7-5589-8424-c0634badf27d",
+      "ArtifactVersion": 1,
+      "ArtifactName": "BUCKY_UNCONSUME_V2_TransactionID"
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

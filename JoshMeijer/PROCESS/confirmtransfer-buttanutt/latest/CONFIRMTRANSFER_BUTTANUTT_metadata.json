@@ -1,0 +1,145 @@
+{
+  "Identifier": "d9e43679-48df-4eca-981e-0e034a72d599",
+  "Name": "CONFIRMTRANSFER_BUTTANUTT",
+  "Description": "CONFIRMTRANSFER_BUTTANUTT\n\nA packing process for transfer documents that allows you to confirm the barcodes and their quantities scanned against a transfer. The step 200 updates the barcode to be off hold.\n\nThe transaction comment will contain the confirmed barcode, due to PACK processes generating a using a virtual barcode.",
+  "Type": "PROCESS",
+  "Version": 0,
+  "LastModified": "21/03/2026",
+  "Tags": [
+    "Manufacturing",
+    "Retail",
+    "Automotive",
+    "Agricultural",
+    "Textile",
+    "Electronics",
+    "Construction",
+    "E-commerce",
+    "Logistics",
+    "Pharmaceutical",
+    "Cold Storage"
+  ],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "8cf1200a-da53-5450-a819-bf7ad9351df5",
+      "ArtifactVersion": 1,
+      "ArtifactName": "WebTemplate_ConfirmTransfer_Document"
+    },
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "458815f8-d104-5b0f-859d-b368262b952b",
+      "ArtifactVersion": 1,
+      "ArtifactName": "WebTemplate_ConfirmTransfer_MasterItem"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "cc45fb82-9c1d-510a-b2a1-0ab07f8db31a",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_ConfirmTransfer_Document"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "618e6a75-7a6b-53fc-ba2e-e2cc202a10f4",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_ConfirmTransfer_MasterItem"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "068096bd-bac0-587d-bcc9-63fde0da33fb",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_ConfirmTransfer_Step200"
+    }
+  ],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "PACKING",
+    "ProcessStepMetadata": [
+      {
+        "Name": "Document",
+        "Description": "Enter Transfer Document",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_ConfirmTransfer_Document",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Location",
+        "Description": "Transfer To Location",
+        "ProcessIndex": 100,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "CarryingEntity",
+        "Description": "Uses Transfer Number",
+        "ProcessIndex": 100,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "MasterItem",
+        "Description": "Scan Transferred Barcode",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_ConfirmTransfer_MasterItem",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Qty",
+        "Description": "Confirm Qty Transfrred",
+        "ProcessIndex": 2,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "Comment",
+        "Description": "Comment",
+        "ProcessIndex": 100,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "Step200",
+        "Description": "Updates Barcode To Be Off Hold",
+        "ProcessIndex": 200,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_ConfirmTransfer_Step200",
+        "hasWebTemplate": true
+      }
+    ]
+  },
+  "PostDeployArtifacts": [
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "04fad68f-3949-53f8-8e9a-6e87694b25db",
+      "ArtifactVersion": 1,
+      "ArtifactName": "CONFIRMTRANSFER_BUTTANUTT_Document"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "0e8888dd-7657-5edd-96fe-301f16f8c27d",
+      "ArtifactVersion": 1,
+      "ArtifactName": "CONFIRMTRANSFER_BUTTANUTT_MasterItem"
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

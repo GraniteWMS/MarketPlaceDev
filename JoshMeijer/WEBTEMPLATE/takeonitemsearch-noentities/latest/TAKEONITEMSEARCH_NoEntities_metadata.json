@@ -1,0 +1,13 @@
+{
+  "Identifier": "85a2160d-8b55-55ff-8bfb-411ac72558c0",
+  "Name": "TAKEONITEMSEARCH_NoEntities",
+  "Description": "WebTemplate for process template TAKEONITEMSEARCH / step NoEntities",
+  "Type": "WEBTEMPLATE",
+  "Version": 0,
+  "LastModified": "30/05/2026",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

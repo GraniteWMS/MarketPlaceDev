@@ -1,0 +1,10 @@
+{
+  "Identifier": "6bd2f1e3-ab22-527c-93a1-999442e014fe",
+  "Name": "GetLookupData",
+  "Description": "",
+  "Type": "SQL_STORED_PROCEDURE",
+  "Version": 0,
+  "LastModified": "09/10/2025",
+  "Tags": [],
+  "ArtifactDependencies": []
+}

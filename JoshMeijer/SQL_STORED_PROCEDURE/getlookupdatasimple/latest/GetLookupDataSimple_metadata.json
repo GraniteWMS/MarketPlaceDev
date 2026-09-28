@@ -1,0 +1,10 @@
+{
+  "Identifier": "a26eea34-ca14-5888-acbd-b5d85bdf0234",
+  "Name": "GetLookupDataSimple",
+  "Description": "",
+  "Type": "SQL_STORED_PROCEDURE",
+  "Version": 0,
+  "LastModified": "07/05/2026",
+  "Tags": [],
+  "ArtifactDependencies": []
+}

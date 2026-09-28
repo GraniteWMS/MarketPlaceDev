@@ -1,0 +1,13 @@
+{
+  "Identifier": "a13b8492-5aa0-5d6a-a937-6f0e27ee2859",
+  "Name": "FilterDocumentReceiving_Location",
+  "Description": "WebTemplate for process template FilterDocumentReceiving / step Location",
+  "Type": "WEBTEMPLATE",
+  "Version": 1,
+  "LastModified": "05/02/2026",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

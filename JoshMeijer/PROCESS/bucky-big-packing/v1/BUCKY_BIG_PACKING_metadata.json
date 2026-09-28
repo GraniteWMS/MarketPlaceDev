@@ -1,0 +1,148 @@
+{
+  "Identifier": "38841fa3-73fc-4561-bc90-9d3b25673686",
+  "Name": "BUCKY_BIG_PACKING",
+  "Description": "BUCKY_BIG_PACKING\n\nIf you need to group a bunch of SOs together to pack them as if they were a single document, then this is for you.\n\nThe documents need to be linked together somehow by a shared value. In this case I use the RouteName field but you can use anything, just remember to change the scripts and views. It is set to CLR print the pallet/box barcode.",
+  "Type": "PROCESS",
+  "Version": 1,
+  "LastModified": "02/02/2026",
+  "Tags": [
+    "Manufacturing",
+    "Retail",
+    "Automotive",
+    "Agricultural",
+    "Textile",
+    "Electronics",
+    "Construction",
+    "E-commerce",
+    "Logistics",
+    "Pharmaceutical",
+    "Cold Storage"
+  ],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "aee5b180-ef1d-5e2a-85bb-8a259ddf45e1",
+      "ArtifactVersion": 1,
+      "ArtifactName": "WebTemplate_BigPacking_LinkReference"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "35c363e7-d983-5d26-9d6b-eeda6c866513",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_BigPacking_LinkReference"
+    },
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "c8f9048b-a812-5f81-839e-14a116a4afdd",
+      "ArtifactVersion": 1,
+      "ArtifactName": "MasterItemAlias_View"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "893cbd65-364d-5cc7-bca3-2f6d1e14a906",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_BigPacking_MasterItem"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "728cff56-70ac-5cc6-b685-127b02cf50c7",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_BigPacking_PackLocation"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "99fca1f1-4ab6-5835-ac53-df1152ce70a2",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_BigPacking_Step200"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "d5702453-f3c5-5ce0-977a-4a59025acca2",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_BigPacking_CarryingEntity"
+    }
+  ],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "CUSTOM",
+    "ProcessStepMetadata": [
+      {
+        "Name": "Document",
+        "Description": "Enter Reference That Links Documents",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_BigPacking_LinkReference",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "MasterItem",
+        "Description": "Enter Item Code or Alias",
+        "ProcessIndex": 3,
+        "NextIndex": 4,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_BigPacking_MasterItem",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "PackLocation",
+        "Description": "Enter Packing Location",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_BigPacking_PackLocation",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Qty",
+        "Description": "Enter Quantity to Pack",
+        "ProcessIndex": 4,
+        "NextIndex": 3,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_BigPacking_Qty",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Step200",
+        "Description": "CLR Packs Against All Documents",
+        "ProcessIndex": 200,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_BigPacking_Step200",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "CarryingEntity",
+        "Description": "Scan Box or Select New",
+        "ProcessIndex": 2,
+        "NextIndex": 3,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_BigPacking_CarryingEntity",
+        "hasWebTemplate": true
+      }
+    ]
+  },
+  "PostDeployArtifacts": [
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "f989ba36-c58b-5f39-a602-6ddbc0a8e9bf",
+      "ArtifactVersion": 1,
+      "ArtifactName": "BUCKY_BIG_PACKING"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "cf49b0f3-24c0-553d-bb61-214e37ba1e20",
+      "ArtifactVersion": 1,
+      "ArtifactName": "BUCKY_BIG_PACKING_Document"
+    }
+  ],
+  "DependsOnClr": true,
+  "SqlClrAssemblyVersion": "7.0.0.0",
+  "Deprecated": false
+}

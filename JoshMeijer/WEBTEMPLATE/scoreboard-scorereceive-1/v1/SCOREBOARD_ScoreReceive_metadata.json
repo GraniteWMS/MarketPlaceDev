@@ -1,0 +1,19 @@
+{
+  "Identifier": "87f40bed-bf14-58f8-a08e-7f09cac8f77a",
+  "Name": "SCOREBOARD_ScoreReceive",
+  "Description": "WebTemplate for process template SCOREBOARD / step ScoreReceive",
+  "Type": "WEBTEMPLATE",
+  "Version": 1,
+  "LastModified": "13/07/2024",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "a421b4f7-2ddf-59fd-b95c-bb61fd0b1a25",
+      "ArtifactVersion": 1
+    }
+  ],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

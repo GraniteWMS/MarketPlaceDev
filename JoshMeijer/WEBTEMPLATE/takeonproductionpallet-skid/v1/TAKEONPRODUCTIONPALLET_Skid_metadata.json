@@ -1,0 +1,13 @@
+{
+  "Identifier": "d03baf0b-f21f-5d29-8023-2b5c1916adcc",
+  "Name": "TAKEONPRODUCTIONPALLET_Skid",
+  "Description": "WebTemplate for process template TAKEONPRODUCTIONPALLET / step Skid",
+  "Type": "WEBTEMPLATE",
+  "Version": 1,
+  "LastModified": "08/09/2026",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

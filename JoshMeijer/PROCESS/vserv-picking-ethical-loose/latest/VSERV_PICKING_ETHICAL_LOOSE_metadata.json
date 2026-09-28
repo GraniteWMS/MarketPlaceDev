@@ -1,0 +1,148 @@
+{
+  "Identifier": "5b29d4a3-7079-483c-8e5d-7ce0ee5a9762",
+  "Name": "VSERV_PICKING_ETHICAL_LOOSE",
+  "Description": "VSERV_PICKING_ETHICAL_LOOSE\n\nForces you to scan the alias code to confirm the pick",
+  "Type": "PROCESS",
+  "Version": 0,
+  "LastModified": "12/06/2026",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "5aa7e4ad-f90b-529c-9f12-ac4c8b32f6fb",
+      "ArtifactVersion": 1,
+      "ArtifactName": "WebTemplate_PickingEthical_Comment"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "aacee67a-d746-5f5b-837f-7725d1d8617d",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_PickingEthicalLoose_Document"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "c393889c-6d1a-52b0-b932-9993242b9b0f",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_PickingEthicalLoose_Location"
+    },
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "1642351f-ceb8-58dc-8360-afae1bb21f16",
+      "ArtifactVersion": 1,
+      "ArtifactName": "MasterItemAlias_View"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "91e079f9-ad41-50e6-b365-133af9dbbf0b",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_PickingEthicalLoose_TrackingEntity"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "d0c2fd30-7778-5e5d-896c-782dc92e9cb6",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_PickingEthicalLoose_Step200"
+    },
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "cd4376bc-caa4-51e2-933e-10f9d0ef21f3",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Custom_VW_Ethical_PickingQuantitiesNotPacked"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "39eba883-a1d9-5de3-900f-e914943d4843",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_PickingEthical_Comment"
+    }
+  ],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "PICKING",
+    "ProcessStepMetadata": [
+      {
+        "Name": "Document",
+        "Description": "Enter Picking Order",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_PickingEthicalLoose_Document",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Location",
+        "Description": "Enter Racking Location",
+        "ProcessIndex": 2,
+        "NextIndex": 3,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_PickingEthicalLoose_Location",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "TrackingEntity",
+        "Description": "Scan EAN Barcode",
+        "ProcessIndex": 3,
+        "NextIndex": 3,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_PickingEthicalLoose_TrackingEntity",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Qty",
+        "Description": "Qty",
+        "ProcessIndex": 100,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "DefaultValue": "1",
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "Step200",
+        "Description": "Step200",
+        "ProcessIndex": 200,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_PickingEthicalLoose_Step200",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Comment",
+        "Description": "Enter Picking Crate (PC) Barcode",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_PickingEthical_Comment",
+        "hasWebTemplate": false
+      }
+    ]
+  },
+  "PostDeployArtifacts": [
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "b3e5544d-2999-5414-8886-b91d14926497",
+      "ArtifactVersion": 1,
+      "ArtifactName": "VSERV_PICKING_ETHICAL_LOOSE"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "1fcbdd25-a31f-5d86-825c-ddce250a29fd",
+      "ArtifactVersion": 1,
+      "ArtifactName": "VSERV_PICKING_ETHICAL_LOOSE_Comment"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "50fe42f6-d3fb-55ad-91e0-5b686062a4ae",
+      "ArtifactVersion": 1,
+      "ArtifactName": "VSERV_PICKING_ETHICAL_LOOSE_TrackingEntity"
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

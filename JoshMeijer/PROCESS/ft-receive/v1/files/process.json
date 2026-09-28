@@ -1,0 +1,83 @@
+{
+  "Name": "FT_RECEIVE",
+  "Description": "FT_RECEIVE",
+  "Type": "RECEIVING",
+  "IsActive": true,
+  "IntegrationIsActive": false,
+  "IntegrationPost": false,
+  "WebTemplateArtifact": "94f38c37-d95b-5e1a-adba-817d7694d421",
+  "Steps": [
+    {
+      "Name": "Document",
+      "Description": "Document",
+      "ProcessIndex": 0,
+      "NextIndex": 1,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "WebTemplateArtifact": "c2afd228-b0fc-50c3-91e4-3439ff68db49"
+    },
+    {
+      "Name": "LabelType",
+      "Description": "Select Label Type",
+      "ProcessIndex": 1,
+      "NextIndex": 2,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "Prescript_Receive_LabelType",
+      "WebTemplateArtifact": "1207ca87-c41f-5f52-b389-9cf3c60adac8"
+    },
+    {
+      "Name": "EANBarcode",
+      "Description": "Scan Unit or Carton Barcode",
+      "ProcessIndex": 2,
+      "NextIndex": 3,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "Prescript_Receive_EANBarcode",
+      "WebTemplateArtifact": "1fab6f98-e06c-5f49-b543-c046404b91a1"
+    },
+    {
+      "Name": "MasterItem",
+      "Description": "Select / Enter Stock Code",
+      "ProcessIndex": 3,
+      "NextIndex": 4,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "Prescript_Receive_MasterItem",
+      "WebTemplateArtifact": "7f2463a3-395a-58e8-a7ff-ddacf80e1d2e"
+    },
+    {
+      "Name": "Qty",
+      "Description": "Enter Qty",
+      "ProcessIndex": 4,
+      "NextIndex": 2,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "WebTemplateArtifact": "7999e2b6-dea1-54ef-9642-29c65633a45a"
+    },
+    {
+      "Name": "Location",
+      "Description": "Receiving Location",
+      "ProcessIndex": 100,
+      "NextIndex": 0,
+      "IsActive": true,
+      "Required": false,
+      "IsBusinessRule": false,
+      "DefaultValue": "REC"
+    },
+    {
+      "Name": "UseBarcode",
+      "Description": "UseBarcode",
+      "ProcessIndex": 100,
+      "NextIndex": 0,
+      "IsActive": true,
+      "Required": false,
+      "IsBusinessRule": false
+    }
+  ]
+}

@@ -1,0 +1,2 @@
+<p>Add the following to the stock take session:</p>
+{{ "EXEC WebtemplateSpotCheckConfirmation @Cage = @Cage, @Barcode = @Barcode" | dbSelect({Cage, Barcode}) | basicTable({enableSearch:false}) }}

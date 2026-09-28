@@ -1,0 +1,182 @@
+{
+  "Identifier": "e80ccbf1-6078-414f-9aae-4dcf587701cc",
+  "Name": "Receiving_Consolidated",
+  "Description": "Receiving\n\nConsolidate Batch, Serial and generic receiving into one process rather than separate\n\nUses the Enforce rules per item to skip steps.",
+  "Type": "PROCESS",
+  "Version": 0,
+  "LastModified": "05/08/2026",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "d8806787-12b7-5e43-8422-a8170bcd5a2f",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Webtemplate_ReceivingDocuments"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "2d65f7d0-fcb1-514a-b38d-5107b39b1883",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PrescriptReceivingBatch"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "8a22064f-eeef-5744-9ccc-63955e686a85",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PrescriptReceivingExpiryDate"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "bf037539-5a70-520a-9823-544e33e22f69",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PrescriptReceivingSerialNumber"
+    }
+  ],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "RECEIVING",
+    "ProcessStepMetadata": [
+      {
+        "Name": "Location",
+        "Description": "Receiving Location",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": false,
+        "DefaultValue": "REC",
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "Document",
+        "Description": "Document",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "DefaultValue": "",
+        "PreScript": "",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "MasterItem",
+        "Description": "MasterItem",
+        "ProcessIndex": 2,
+        "NextIndex": 3,
+        "isActive": true,
+        "Required": true,
+        "DefaultValue": "",
+        "PreScript": "",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Batch",
+        "Description": "Batch",
+        "ProcessIndex": 3,
+        "NextIndex": 4,
+        "isActive": true,
+        "Required": false,
+        "PreScript": "PrescriptReceivingBatch",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "ExpiryDate",
+        "Description": "ExpiryDate (YYYYMMDD)",
+        "ProcessIndex": 4,
+        "NextIndex": 5,
+        "isActive": true,
+        "Required": false,
+        "PreScript": "PrescriptReceivingExpiryDate",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Qty",
+        "Description": "Qty",
+        "ProcessIndex": 6,
+        "NextIndex": 7,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": false,
+        "PreScript": ""
+      },
+      {
+        "Name": "Print",
+        "Description": "Print",
+        "ProcessIndex": 99,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "DefaultValue": "",
+        "PreScript": "",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "SerialNumber",
+        "Description": "SerialNumber",
+        "ProcessIndex": 5,
+        "NextIndex": 6,
+        "isActive": true,
+        "Required": false,
+        "PreScript": "PrescriptReceivingSerialNumber",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Confirmation",
+        "Description": "Confirmation",
+        "ProcessIndex": 7,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": false,
+        "PreScript": ""
+      }
+    ]
+  },
+  "PostDeployArtifacts": [
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "6a636a3c-8cbf-5aa9-aa2c-23685a63db6b",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Receiving_Consolidated"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "341aa6dc-fd4a-5cee-a10e-d933adb58978",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Receiving_Consolidated_Document"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "2bebe2f0-c004-5b81-ad93-1f7ab1666316",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Receiving_Consolidated_Batch"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "78e2d805-b495-5ecf-a70b-fcad5d1d4ef7",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Receiving_Consolidated_ExpiryDate"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "85286e39-50f0-5041-a3b1-f59201ef46ad",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Receiving_Consolidated_SerialNumber"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "cddb724b-6982-57dc-9d35-dc0a5053c643",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Receiving_Consolidated_Qty"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "2a3f1801-6c3d-51b9-91e1-9c8c02e052be",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Receiving_Consolidated_Confirmation"
+    }
+  ],
+  "DependsOnClr": true,
+  "SqlClrAssemblyVersion": "7.0.0.0",
+  "Deprecated": false
+}

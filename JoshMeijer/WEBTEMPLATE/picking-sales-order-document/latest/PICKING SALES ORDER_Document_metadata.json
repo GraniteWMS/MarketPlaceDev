@@ -1,0 +1,19 @@
+{
+  "Identifier": "abb10344-9be5-5120-aba8-059e554ac809",
+  "Name": "PICKING SALES ORDER_Document",
+  "Description": "WebTemplate for process template PICKING SALES ORDER / step Document",
+  "Type": "WEBTEMPLATE",
+  "Version": 0,
+  "LastModified": "29/01/2025",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "851c7729-7424-5417-991e-f1e421f64818",
+      "ArtifactVersion": 1
+    }
+  ],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

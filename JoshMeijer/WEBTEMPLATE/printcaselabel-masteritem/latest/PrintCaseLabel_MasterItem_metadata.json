@@ -1,0 +1,19 @@
+{
+  "Identifier": "fe2cefe2-5057-5331-a7a4-80fbe2ee2f9c",
+  "Name": "PrintCaseLabel_MasterItem",
+  "Description": "WebTemplate for process template PrintCaseLabel / step MasterItem",
+  "Type": "WEBTEMPLATE",
+  "Version": 0,
+  "LastModified": "28/10/2025",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "3ea1fce6-4661-5823-9f07-b29ab9865ac5",
+      "ArtifactVersion": 1
+    }
+  ],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

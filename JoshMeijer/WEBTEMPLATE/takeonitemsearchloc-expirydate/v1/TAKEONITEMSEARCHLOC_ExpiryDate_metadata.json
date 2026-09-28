@@ -1,0 +1,13 @@
+{
+  "Identifier": "44094186-5f3b-522b-a4aa-47c9f69b1c0f",
+  "Name": "TAKEONITEMSEARCHLOC_ExpiryDate",
+  "Description": "WebTemplate for process template TAKEONITEMSEARCHLOC / step ExpiryDate",
+  "Type": "WEBTEMPLATE",
+  "Version": 1,
+  "LastModified": "30/05/2026",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

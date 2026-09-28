@@ -1,0 +1,86 @@
+{
+  "Identifier": "f96b16ff-a932-4dbb-82e7-3acc23199dbf",
+  "Name": "GENERATE_LOAD_SHEET",
+  "Description": "GENERATE LOAD SHEET\n\nUsed to either print or email the LoadSheet SSRS report from the process app.",
+  "Type": "PROCESS",
+  "Version": 1,
+  "LastModified": "07/08/2024",
+  "Tags": [
+    "Logistics"
+  ],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "7538c720-5cac-560b-ac2c-173ffeb5c7b5",
+      "ArtifactVersion": 1,
+      "ArtifactName": "WebTemplate_LoadSheetNumbers"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "c0e86841-77d2-5b81-9ddd-8a77f3be9a61",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PrescriptGenerateLoadSheetType"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "4a72f47b-6152-5279-8799-35a16e2815b6",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PrescriptGenerateLoadSheetLoadSheet"
+    },
+    {
+      "ArtifactType": "DATA",
+      "ArtifactIdentifier": "8e563791-0789-575e-89a1-dccf64428a53",
+      "ArtifactVersion": 1,
+      "ArtifactName": "DataDependency_SystemStaticData_8e5637910789575e89a1dccf64428a53"
+    },
+    {
+      "ArtifactType": "DATA",
+      "ArtifactIdentifier": "e5e7f053-154c-5cac-a5d5-63a98b098a0a",
+      "ArtifactVersion": 1,
+      "ArtifactName": "DataDependency_SystemStaticData_e5e7f053154c5caca5d563a98b098a0a"
+    }
+  ],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "CUSTOM",
+    "ProcessStepMetadata": [
+      {
+        "Name": "Type",
+        "Description": "Email or Print Load sheet",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "PrescriptGenerateLoadSheetType",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "LoadSheet",
+        "Description": "Load Sheet Number",
+        "ProcessIndex": 1,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "PrescriptGenerateLoadSheetLoadSheet",
+        "hasWebTemplate": false
+      }
+    ]
+  },
+  "PostDeployArtifacts": [
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "bf3fd0f9-e4a0-54e0-aef5-e026a9a8c86c",
+      "ArtifactVersion": 1,
+      "ArtifactName": "GENERATE_LOAD_SHEET_Type"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "ac56a133-8bb0-5d7b-ae9c-e4a772ca5a3c",
+      "ArtifactVersion": 1,
+      "ArtifactName": "GENERATE_LOAD_SHEET_LoadSheet"
+    }
+  ],
+  "DependsOnClr": true,
+  "SqlClrAssemblyVersion": "7.0.0.0",
+  "Deprecated": false
+}

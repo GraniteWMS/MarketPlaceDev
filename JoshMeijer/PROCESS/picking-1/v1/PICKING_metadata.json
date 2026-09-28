@@ -1,0 +1,156 @@
+{
+  "Identifier": "8f5b2787-8f6b-452f-b841-5f6f968dfa4a",
+  "Name": "PICKING",
+  "Description": "SO PICKING (SAGE) V7.2\n\nAn Updated Picking process as of Sep 2026 with some webtemplates and SAGE enhancements.  Also prints Picked Labels using LABEL_MasterItem.\n\nLABEL_MASTERITEM is updated to join with INFORMATION_ACCPAC_SALESORDERHEADER to print customer details on the PICKED label.  The Qty Picked determines the number of labels so a label can be printed for each item picked.\nCurrent limitation -add Transactional details to the Picked Label so the last PickTX for the MasterItem determines the information printed.  If more than one user is picking that item it will mess up.",
+  "Type": "PROCESS",
+  "Version": 1,
+  "LastModified": "10/09/2026",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "d094a2a8-f6d9-51d3-91cd-41774769c719",
+      "ArtifactVersion": 1,
+      "ArtifactName": "webtemplate_SOtoPick"
+    },
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "d40e13d0-f223-562d-b615-7c021b4f5fbb",
+      "ArtifactVersion": 1,
+      "ArtifactName": "WebTemplate_PickStagingLocations"
+    },
+    {
+      "ArtifactType": "SQL_STORED_PROCEDURE",
+      "ArtifactIdentifier": "941feada-adfa-5216-a2fe-32216cd81c62",
+      "ArtifactVersion": 1,
+      "ArtifactName": "FIFOPickingRecommendation"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "5d444b84-eddd-5917-840f-d539e79a93a3",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PrescriptPickingDocument"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "8417c21c-fad7-526e-a0c1-48ddd83c1eeb",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PrescriptPickingStep200"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "4f5fe25d-85eb-5e8f-a8c5-c784706711c4",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PrescriptPickingStep201PickLabelPrint"
+    },
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "02438bff-f75c-5d98-8333-7eefb731168b",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Information_Accpac_SalesOrderDetail"
+    },
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "4172071e-7670-50d8-8d02-b7c826902bba",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Information_Accpac_SalesOrderHeader"
+    },
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "685e8156-6b0e-543c-9102-c6fde20cf8c6",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Information_ACCPAC_SalesOrderHeader"
+    },
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "a8ae0c11-8be4-59e1-b6c8-34aaec476106",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Label_MasterItem"
+    }
+  ],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "PICKING",
+    "ProcessStepMetadata": [
+      {
+        "Name": "Document",
+        "Description": "Document",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "PrescriptPickingDocument",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Location",
+        "Description": "Staging Location",
+        "ProcessIndex": 100,
+        "NextIndex": 100,
+        "isActive": true,
+        "Required": true,
+        "DefaultValue": "DIS",
+        "hasWebTemplate": false,
+        "PreScript": ""
+      },
+      {
+        "Name": "TrackingEntity",
+        "Description": "Scan Tracking Barcode",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "Qty",
+        "Description": "Qty you are picking",
+        "ProcessIndex": 2,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "Step200",
+        "Description": "Step200",
+        "ProcessIndex": 200,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "DefaultValue": "",
+        "PreScript": "PrescriptPickingStep200",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Step201",
+        "Description": "Step201-LabelPrint",
+        "ProcessIndex": 201,
+        "NextIndex": 201,
+        "isActive": true,
+        "Required": false,
+        "PreScript": "PrescriptPickingStep201PickLabelPrint",
+        "hasWebTemplate": true
+      }
+    ]
+  },
+  "PostDeployArtifacts": [
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "acca22e7-7e9c-523d-88e9-5039ee1c197f",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PICKING_Document"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "5b6430d1-ca9a-5e2f-afc5-e7dc89dfcac4",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PICKING_Location"
+    }
+  ],
+  "DependsOnClr": true,
+  "SqlClrAssemblyVersion": "7.0.0.0",
+  "Deprecated": false
+}

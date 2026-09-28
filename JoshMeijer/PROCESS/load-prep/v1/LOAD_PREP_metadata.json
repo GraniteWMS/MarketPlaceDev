@@ -1,0 +1,140 @@
+{
+  "Identifier": "699a10ea-3516-47c9-8a37-f2365ae64b24",
+  "Name": "LOAD_PREP",
+  "Description": "LOAD PREP\n\nUsed to create tracking entities that can be scanned onto a truck location and transactions that can be reported on\n\nCurrently customised to work with specific items. can be changed to meet any item requirements",
+  "Type": "PROCESS",
+  "Version": 1,
+  "LastModified": "07/08/2024",
+  "Tags": [
+    "Logistics"
+  ],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "bfa91492-714f-504d-a8bb-fc7f3a6be856",
+      "ArtifactVersion": 1,
+      "ArtifactName": "WebTemplate_LoadPrepDocuments"
+    },
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "46cf4348-804b-5c6c-866d-38f969d6315b",
+      "ArtifactVersion": 1,
+      "ArtifactName": "WebTemplate_LoadTruckLocations"
+    },
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "2873c96c-503f-51c0-9407-6b7f31ae639a",
+      "ArtifactVersion": 1,
+      "ArtifactName": "WebTemplate_LoadPrepItems"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "5b0de6c8-8742-5a73-a5f3-885b58f65a65",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PrescriptLoadPrepQty"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "6ed1d02a-1362-501d-8ec1-ca1494578857",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PrescriptLoadPrepDocument"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "fc47cc2f-8406-5b2c-b598-0a0b8c4d3b81",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PrescriptLoadPrepLoadTruck"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "9e3c389b-a624-509d-bbdf-142b1a7ae13b",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PrescriptLoadPrepMasterItem"
+    },
+    {
+      "ArtifactType": "DATA",
+      "ArtifactIdentifier": "52c4adbe-55c3-5ba6-856e-afd5611f84a8",
+      "ArtifactVersion": 1,
+      "ArtifactName": "DataDependency_MasterItem_52c4adbe55c35ba6856eafd5611f84a8"
+    }
+  ],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "CUSTOM",
+    "ProcessStepMetadata": [
+      {
+        "Name": "Qty",
+        "Description": "Qty of Packages / Rods",
+        "ProcessIndex": 4,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "PrescriptLoadPrepQty",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Document",
+        "Description": "Document",
+        "ProcessIndex": 2,
+        "NextIndex": 3,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "PrescriptLoadPrepDocument",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "LoadTruck",
+        "Description": "LoadTruck",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "PrescriptLoadPrepLoadTruck",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "LoadNumber",
+        "Description": "LoadNumber",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "MasterItem",
+        "Description": "MasterItem",
+        "ProcessIndex": 3,
+        "NextIndex": 4,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "PrescriptLoadPrepMasterItem",
+        "hasWebTemplate": false
+      }
+    ]
+  },
+  "PostDeployArtifacts": [
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "b0827e4e-445d-5a02-a587-9470a0f38a93",
+      "ArtifactVersion": 1,
+      "ArtifactName": "LOAD_PREP_LoadTruck"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "8e78e720-916c-53d6-b584-4521fecaaf4e",
+      "ArtifactVersion": 1,
+      "ArtifactName": "LOAD_PREP_Document"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "56fea8ef-737c-5c45-82e2-55144527316a",
+      "ArtifactVersion": 1,
+      "ArtifactName": "LOAD_PREP_MasterItem"
+    }
+  ],
+  "DependsOnClr": true,
+  "SqlClrAssemblyVersion": "7.0.0.0",
+  "Deprecated": false
+}

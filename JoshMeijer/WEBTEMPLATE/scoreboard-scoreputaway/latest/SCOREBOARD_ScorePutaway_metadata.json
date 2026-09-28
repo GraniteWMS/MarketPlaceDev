@@ -1,0 +1,19 @@
+{
+  "Identifier": "ba0b0803-93b2-5298-8134-6bd6fd9b9d2a",
+  "Name": "SCOREBOARD_ScorePutaway",
+  "Description": "WebTemplate for process template SCOREBOARD / step ScorePutaway",
+  "Type": "WEBTEMPLATE",
+  "Version": 0,
+  "LastModified": "08/05/2026",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "72697a5a-91ca-5111-bc70-14408935d4fd",
+      "ArtifactVersion": 1
+    }
+  ],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

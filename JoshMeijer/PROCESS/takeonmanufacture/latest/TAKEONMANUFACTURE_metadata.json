@@ -1,0 +1,133 @@
+{
+  "Identifier": "72360865-fbe7-4973-9803-454994fc245e",
+  "Name": "TAKEONMANUFACTURE",
+  "Description": "TAKEON MANUFACTURE\n\nGoes together with Assign Production Line.  This process allows operator to select a Production Line from a Webtemplate showing what lines are currently running.  If they log in with printer L1, it limits them to only see what is running on Line 1.  The idea is they select the Line, and print the next label.  All other information such as current Batch, MasterItem, Qty are defaulted from the current Line setup table.\n\nPrinters are defined as L1, L2, L3 for production LINE1, Line2, Line3.   Custom_ProductionLineAssignments table is defined to house current production line set.",
+  "Type": "PROCESS",
+  "Version": 0,
+  "LastModified": "07/09/2025",
+  "Tags": [
+    "Manufacturing"
+  ],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "USER_TABLE",
+      "ArtifactIdentifier": "2bdc42c7-c31c-54bf-a54c-5fab14c8cf89",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Custom_ProductionLineAssignments"
+    },
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "54a9e0b7-8f70-5297-98ee-6211847d40e3",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Webtemplate_AssignProductionProductionLine"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "a5a10c23-1c51-54d2-9ff8-de7142de085c",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PrescriptTakeonManufactureLocation"
+    }
+  ],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "TAKEON",
+    "ProcessStepMetadata": [
+      {
+        "Name": "MasterItem",
+        "Description": "MasterItem",
+        "ProcessIndex": 100,
+        "NextIndex": 100,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "Location",
+        "Description": "Location",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "PrescriptTakeonManufactureLocation",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Batch",
+        "Description": "LOT",
+        "ProcessIndex": 100,
+        "NextIndex": 100,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "Qty",
+        "Description": "Total Pallet Qty in units",
+        "ProcessIndex": 100,
+        "NextIndex": 100,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "Print",
+        "Description": "Print",
+        "ProcessIndex": 99,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "SerialNumber",
+        "Description": "SerialNumber",
+        "ProcessIndex": 100,
+        "NextIndex": 100,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "Reference",
+        "Description": "Reference",
+        "ProcessIndex": 100,
+        "NextIndex": 100,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "ConfirmPallet",
+        "Description": "Confirm Pallet",
+        "ProcessIndex": 1,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      }
+    ]
+  },
+  "PostDeployArtifacts": [
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "3d8d1f60-af70-5240-85f8-c99c8c07eafa",
+      "ArtifactVersion": 1,
+      "ArtifactName": "TAKEONMANUFACTURE_Location"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "d3f24171-1200-5624-aeec-ab783ef17d08",
+      "ArtifactVersion": 1,
+      "ArtifactName": "TAKEONMANUFACTURE_ConfirmPallet"
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

@@ -1,0 +1,66 @@
+{
+  "Name": "REPLENISH_BUTTANUTT",
+  "Description": "REPLENISH_BUTTANUTT",
+  "Type": "REPLENISH",
+  "IsActive": true,
+  "IntegrationIsActive": false,
+  "IntegrationPost": false,
+  "Steps": [
+    {
+      "Name": "FromTrackingEntity",
+      "Description": "Scan Barcode You Are Replenishing From",
+      "ProcessIndex": 0,
+      "NextIndex": 1,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false
+    },
+    {
+      "Name": "Location",
+      "Description": "Where Are You Replenishing To",
+      "ProcessIndex": 1,
+      "NextIndex": 2,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "Prescript_Replenish_Location",
+      "WebTemplateArtifact": "816e9186-2faf-5b32-93a5-29809ffdc629"
+    },
+    {
+      "Name": "Qty",
+      "Description": "Qty To Replenish Per Barcode",
+      "ProcessIndex": 2,
+      "NextIndex": 3,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false
+    },
+    {
+      "Name": "NoEntities",
+      "Description": "Number Of Barcodes With Same Qty",
+      "ProcessIndex": 3,
+      "NextIndex": 0,
+      "IsActive": true,
+      "Required": false,
+      "IsBusinessRule": false
+    },
+    {
+      "Name": "Print",
+      "Description": "Print",
+      "ProcessIndex": 99,
+      "NextIndex": 99,
+      "IsActive": true,
+      "Required": false,
+      "IsBusinessRule": false
+    },
+    {
+      "Name": "ToTrackingEntity",
+      "Description": "To TrackingEntity",
+      "ProcessIndex": 100,
+      "NextIndex": 0,
+      "IsActive": true,
+      "Required": false,
+      "IsBusinessRule": false
+    }
+  ]
+}

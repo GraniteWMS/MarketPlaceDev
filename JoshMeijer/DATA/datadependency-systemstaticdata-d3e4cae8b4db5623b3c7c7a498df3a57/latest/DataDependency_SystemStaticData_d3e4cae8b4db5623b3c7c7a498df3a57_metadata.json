@@ -1,0 +1,17 @@
+{
+  "Identifier": "d3e4cae8-b4db-5623-b3c7-c7a498df3a57",
+  "Name": "DataDependency_SystemStaticData_d3e4cae8b4db5623b3c7c7a498df3a57",
+  "Description": "",
+  "Type": "DATA",
+  "Version": 0,
+  "LastModified": "11/09/2024",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "TypeSpecificAttributes": {
+    "Table": "SystemStaticData",
+    "KeyColumn": "Key",
+    "KeyValues": [
+      "SuggestionQty"
+    ]
+  }
+}

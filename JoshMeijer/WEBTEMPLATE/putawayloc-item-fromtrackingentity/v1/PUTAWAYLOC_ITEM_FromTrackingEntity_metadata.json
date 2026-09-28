@@ -1,0 +1,19 @@
+{
+  "Identifier": "a02f1664-7c4d-534c-b6eb-901e7a5460bf",
+  "Name": "PUTAWAYLOC_ITEM_FromTrackingEntity",
+  "Description": "WebTemplate for process template PUTAWAYLOC_ITEM / step FromTrackingEntity",
+  "Type": "WEBTEMPLATE",
+  "Version": 1,
+  "LastModified": "07/04/2026",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "SQL_STORED_PROCEDURE",
+      "ArtifactIdentifier": "8b21295f-01b4-5057-9113-864a7254e02f",
+      "ArtifactVersion": 1
+    }
+  ],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

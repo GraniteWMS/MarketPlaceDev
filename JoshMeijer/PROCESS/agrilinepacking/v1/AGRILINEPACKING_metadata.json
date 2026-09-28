@@ -1,0 +1,189 @@
+{
+  "Identifier": "1d1fec3a-9c78-4e2a-86c3-0e6690a2173c",
+  "Name": "AGRILINEPACKING",
+  "Description": "AGRILINEPACKING\n\nUploaded to test and fix locally",
+  "Type": "PROCESS",
+  "Version": 1,
+  "LastModified": "23/06/2026",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "USER_TABLE",
+      "ArtifactIdentifier": "709ea410-d8a2-5f76-b5cc-3fcbbd5d77ed",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Custom_CarryingEntityAllocation"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "280fda46-fd32-58f7-aa9c-ca4b7b842b75",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_Packing_CarryingEntity"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "bf9a6b0a-823b-5e08-a8b8-60af09559ea2",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_Packing_BoxCode"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "e82e0cb1-8a77-5cdd-812c-143e8f257328",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_Packing_Height"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "73fdbcd8-8a93-5f21-8002-c56e03608df6",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_Packing_Step200"
+    }
+  ],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "PACKING",
+    "ProcessStepMetadata": [
+      {
+        "Name": "Document",
+        "Description": "Order document Number",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": false,
+        "PreScript": ""
+      },
+      {
+        "Name": "Location",
+        "Description": "Check and Pack Location",
+        "ProcessIndex": 100,
+        "NextIndex": 100,
+        "isActive": true,
+        "Required": true,
+        "DefaultValue": "DIS",
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "CarryingEntity",
+        "Description": "CarryingEntity",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_Packing_CarryingEntity",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "MasterItem",
+        "Description": "Scan item code to pack",
+        "ProcessIndex": 6,
+        "NextIndex": 6,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": false,
+        "PreScript": ""
+      },
+      {
+        "Name": "Qty",
+        "Description": "Qty",
+        "ProcessIndex": 100,
+        "NextIndex": 100,
+        "isActive": true,
+        "Required": true,
+        "DefaultValue": "1",
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "BoxCode",
+        "Description": "Scan existing Box Barcode or select Custom",
+        "ProcessIndex": 2,
+        "NextIndex": 3,
+        "isActive": true,
+        "Required": false,
+        "PreScript": "Prescript_Packing_BoxCode",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Length",
+        "Description": "Length",
+        "ProcessIndex": 3,
+        "NextIndex": 4,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": false,
+        "PreScript": ""
+      },
+      {
+        "Name": "Width",
+        "Description": "Width",
+        "ProcessIndex": 4,
+        "NextIndex": 5,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "Height",
+        "Description": "Height",
+        "ProcessIndex": 5,
+        "NextIndex": 6,
+        "isActive": true,
+        "Required": false,
+        "PreScript": "Prescript_Packing_Height",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Step200",
+        "Description": "Step200",
+        "ProcessIndex": 200,
+        "NextIndex": 200,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_Packing_Step200",
+        "hasWebTemplate": true
+      }
+    ]
+  },
+  "PostDeployArtifacts": [
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "ce9668ea-cd9a-54bd-90dd-63d5d2d0b1bd",
+      "ArtifactVersion": 1,
+      "ArtifactName": "AGRILINEPACKING"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "6816c0bc-f480-5712-a1a6-901a6466cdaa",
+      "ArtifactVersion": 1,
+      "ArtifactName": "AGRILINEPACKING_Document"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "44db2fea-c39d-5045-a58e-3ddd73a4a216",
+      "ArtifactVersion": 1,
+      "ArtifactName": "AGRILINEPACKING_CarryingEntity"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "5a8b9822-2d63-55db-bfbe-93f4e119c143",
+      "ArtifactVersion": 1,
+      "ArtifactName": "AGRILINEPACKING_BoxCode"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "3cf581a5-5426-5f91-bb82-8b3f4d617ebf",
+      "ArtifactVersion": 1,
+      "ArtifactName": "AGRILINEPACKING_Length"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "5f7050bf-7b02-57e8-b48b-c58aca17b54c",
+      "ArtifactVersion": 1,
+      "ArtifactName": "AGRILINEPACKING_MasterItem"
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

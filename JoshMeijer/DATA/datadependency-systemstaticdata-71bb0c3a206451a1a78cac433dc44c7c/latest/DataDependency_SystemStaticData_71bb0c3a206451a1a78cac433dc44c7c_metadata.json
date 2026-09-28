@@ -1,0 +1,17 @@
+{
+  "Identifier": "71bb0c3a-2064-51a1-a78c-ac433dc44c7c",
+  "Name": "DataDependency_SystemStaticData_71bb0c3a206451a1a78cac433dc44c7c",
+  "Description": "",
+  "Type": "DATA",
+  "Version": 0,
+  "LastModified": "15/04/2024",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "TypeSpecificAttributes": {
+    "Table": "SystemStaticData",
+    "KeyColumn": "Key",
+    "KeyValues": [
+      "PackingListPrinterStation1"
+    ]
+  }
+}

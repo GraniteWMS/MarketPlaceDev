@@ -1,0 +1,93 @@
+{
+  "Identifier": "000394ab-e515-416e-9cfa-3d0484940f5e",
+  "Name": "BUCKY_UNMANUFACTURE",
+  "Description": "BUCKY_UNMANUFACTURE\n\nUseful for reversing a manufacture transaction on the scanner. Has strong built-in, tested rules and functionality.",
+  "Type": "PROCESS",
+  "Version": 0,
+  "LastModified": "27/01/2026",
+  "Tags": [
+    "Manufacturing",
+    "Retail",
+    "Automotive",
+    "Agricultural",
+    "Textile",
+    "Electronics",
+    "Construction",
+    "E-commerce",
+    "Logistics",
+    "Pharmaceutical",
+    "Cold Storage"
+  ],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "b6b7f031-0744-5138-95d1-696225636b6e",
+      "ArtifactVersion": 1,
+      "ArtifactName": "WebTemplate_UnmanufactureTransaction_TransactionID"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "338ec6f5-fb12-5e00-b9ab-6e46bb332155",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_UnmanufactureTransaction_TransactionID"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "1ccce7f2-9163-5912-b469-d63b345fa2ef",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_UnmanufactureTransaction_Step200"
+    }
+  ],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "CUSTOM",
+    "ProcessStepMetadata": [
+      {
+        "Name": "Document",
+        "Description": "Enter Document",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": false,
+        "PreScript": ""
+      },
+      {
+        "Name": "TransactionID",
+        "Description": "Select Transaction ID",
+        "ProcessIndex": 1,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_UnmanufactureTransaction_TransactionID",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Step200",
+        "Description": "Reverses the Transaction",
+        "ProcessIndex": 200,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_UnmanufactureTransaction_Step200",
+        "hasWebTemplate": true
+      }
+    ]
+  },
+  "PostDeployArtifacts": [
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "68358d89-a6e8-5b01-af14-a9a629035de2",
+      "ArtifactVersion": 1,
+      "ArtifactName": "BUCKY_UNMANUFACTURE_Document"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "8ee6dcd5-5cbf-595b-934b-a04f5d79db52",
+      "ArtifactVersion": 1,
+      "ArtifactName": "BUCKY_UNMANUFACTURE_TransactionID"
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

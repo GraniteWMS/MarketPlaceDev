@@ -1,0 +1,42 @@
+{
+  "Name": "ADDEANBARCODE_V2",
+  "Description": "ADDEANBARCODE_V2",
+  "Type": "CUSTOM",
+  "IsActive": true,
+  "IntegrationMethod": "False",
+  "IntegrationIsActive": false,
+  "IntegrationPost": false,
+  "Steps": [
+    {
+      "Name": "MasterItem",
+      "Description": "Enter MasterItem",
+      "ProcessIndex": 0,
+      "NextIndex": 1,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "PrescriptAddEANBarcodeMasterItem",
+      "WebTemplateArtifact": "71145e4b-1603-5027-b634-a2482622f2f0"
+    },
+    {
+      "Name": "EANBarcode",
+      "Description": "Scan EAN Barcode",
+      "ProcessIndex": 1,
+      "NextIndex": 2,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "PrescriptAddEANBarcodeEANBarcode"
+    },
+    {
+      "Name": "Confirmation",
+      "Description": "Confirm to add Product Code to Sage Item",
+      "ProcessIndex": 2,
+      "NextIndex": 0,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "PrescriptAddEANBarcodeConfirmation"
+    }
+  ]
+}

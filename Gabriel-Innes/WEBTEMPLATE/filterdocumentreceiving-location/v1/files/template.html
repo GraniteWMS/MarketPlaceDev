@@ -1,0 +1,27 @@
+{{
+    "
+        SELECT Barcode, Name 
+        FROM [Location]
+        WHERE [Type] = @Type
+        ORDER BY Barcode
+    "
+    |> dbSelect({ Type: "RECEIVING" })
+    |> to => locations
+}}
+
+{{#if locations}}
+    <ul class="list-unstyled">
+    {{#each location in locations}}
+        <li class="card mb-2">
+            <div class="card-body">
+                <div>
+                    <button type="button" class="btn btn-link p-0" onclick="ProceedNext("{{location.Barcode}}")">{{location.Barcode}}</button>
+                </div>
+                <div>{{location.Name}}</div>
+            </div>
+        </li>
+    {{/each}}
+    </ul>
+{{else}}
+    <p>No receiving locations found.</p>
+{{/if}}

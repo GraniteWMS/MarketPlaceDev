@@ -1,0 +1,19 @@
+{
+  "Identifier": "6b39a480-137e-514a-bd45-cf22fe79667b",
+  "Name": "LOOKUPCUSTOM",
+  "Description": "WebTemplate for process template LOOKUPCUSTOM",
+  "Type": "WEBTEMPLATE",
+  "Version": 0,
+  "LastModified": "23/04/2026",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "SQL_STORED_PROCEDURE",
+      "ArtifactIdentifier": "362cb9fe-7d55-544f-a526-91a9dcf3da1f",
+      "ArtifactVersion": 1
+    }
+  ],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

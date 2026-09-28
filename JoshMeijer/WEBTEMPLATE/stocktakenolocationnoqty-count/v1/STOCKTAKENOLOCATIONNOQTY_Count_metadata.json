@@ -1,0 +1,13 @@
+{
+  "Identifier": "9349c887-aa53-552d-9be4-62aebcfff1da",
+  "Name": "STOCKTAKENOLOCATIONNOQTY_Count",
+  "Description": "WebTemplate for process template STOCKTAKENOLOCATIONNOQTY / step Count",
+  "Type": "WEBTEMPLATE",
+  "Version": 1,
+  "LastModified": "22/09/2026",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

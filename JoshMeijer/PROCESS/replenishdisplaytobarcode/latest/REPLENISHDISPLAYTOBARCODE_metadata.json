@@ -1,0 +1,104 @@
+{
+  "Identifier": "3ae16c1e-5d1f-40a7-850a-6c1a44ed7e69",
+  "Name": "REPLENISHDISPLAYTOBARCODE",
+  "Description": "REPLENISH DISPLAY TO BARCODE\n\nTrackingEntities that can be replenished to are displayed on the ToTrackingEntity step, prescript enforces existing TrackingEntity scan and throws ToTrackingEntities location into the ToLocation step.",
+  "Type": "PROCESS",
+  "Version": 0,
+  "LastModified": "30/09/2025",
+  "Tags": [
+    "Manufacturing",
+    "Retail",
+    "Logistics",
+    "Automotive",
+    "Agricultural",
+    "Textile",
+    "Electronics",
+    "Construction",
+    "E-commerce",
+    "Pharmaceutical",
+    "Cold Storage"
+  ],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "SQL_STORED_PROCEDURE",
+      "ArtifactIdentifier": "0078c667-675e-5948-826c-2a94dadd5305",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Webtemplate_Replenish_ToTrackingEntity"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "3df0587f-2d4b-5dd7-80aa-2e2feba79d39",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_Replenish_ToTrackingEntity"
+    }
+  ],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "REPLENISH",
+    "ProcessStepMetadata": [
+      {
+        "Name": "FromTrackingEntity",
+        "Description": "FromTrackingEntity",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "DefaultValue": "",
+        "PreScript": "",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Location",
+        "Description": "To Location",
+        "ProcessIndex": 100,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "ToTrackingEntity",
+        "Description": "To TrackingEntity",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": false,
+        "PreScript": "Prescript_Replenish_ToTrackingEntity",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Qty",
+        "Description": "Qty to Replenish",
+        "ProcessIndex": 2,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "Print",
+        "Description": "Print",
+        "ProcessIndex": 99,
+        "NextIndex": 99,
+        "isActive": true,
+        "Required": false,
+        "DefaultValue": "",
+        "PreScript": "",
+        "hasWebTemplate": true
+      }
+    ]
+  },
+  "PostDeployArtifacts": [
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "571b7c99-3f63-59d9-8cee-5a8a3368a743",
+      "ArtifactVersion": 1,
+      "ArtifactName": "REPLENISHDISPLAYTOBARCODE_ToTrackingEntity"
+    }
+  ],
+  "DependsOnClr": true,
+  "SqlClrAssemblyVersion": "7.0.0.0",
+  "Deprecated": false
+}

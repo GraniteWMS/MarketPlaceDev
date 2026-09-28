@@ -1,0 +1,13 @@
+{
+  "Identifier": "34c71719-bf9d-5a50-94e5-2ba5764aba08",
+  "Name": "FilterDocumentReceiving_MasterItem",
+  "Description": "WebTemplate for process template FilterDocumentReceiving / step MasterItem",
+  "Type": "WEBTEMPLATE",
+  "Version": 1,
+  "LastModified": "05/02/2026",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

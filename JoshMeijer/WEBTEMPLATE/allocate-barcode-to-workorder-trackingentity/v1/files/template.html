@@ -1,0 +1,1 @@
+{{ "SELECT ID AS [Select To Deallocate], Barcode, AllocatedQty, SKU, [User] FROM WebTemplate_AllocateBarcodeToWorkOrder_TrackingEntity WHERE Batch = @Batch" | dbSelect({Batch}) | basicTable({selectOnColumn:"Select To Deallocate"}) }}

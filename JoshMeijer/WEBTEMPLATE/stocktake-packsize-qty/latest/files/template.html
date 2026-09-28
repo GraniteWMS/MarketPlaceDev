@@ -1,0 +1,21 @@
+{{#if TrackingEntity}}
+    {{ 
+        "SELECT te.Qty, CAST(ofv.Value AS decimal(19,4)) AS PackSize 
+         FROM TrackingEntity te 
+         LEFT JOIN OptionalFieldValues_MasterItem ofv ON ofv.BelongsTo_id = te.MasterItem_id 
+         LEFT JOIN OptionalFields opf ON opf.ID = ofv.OptionalField_id AND opf.Name = "PackSize"
+         WHERE te.Barcode = @TrackingEntity" 
+        |> dbSingle({TrackingEntity}) |> to => packCheck 
+    }}
+    {{#if packCheck.Qty == packCheck.PackSize}}
+        <div id="autoSkipQty" style="display:none">{{ packCheck.Qty | toInt }}</div>
+        <script>
+          setTimeout(function() {
+            var el = document.getElementById("autoSkipQty");
+            if (el && el.innerText.trim()) {
+              ProceedNext(el.innerText.trim());
+            }
+          }, 300);
+        </script>
+    {{/if}}
+{{/if}}

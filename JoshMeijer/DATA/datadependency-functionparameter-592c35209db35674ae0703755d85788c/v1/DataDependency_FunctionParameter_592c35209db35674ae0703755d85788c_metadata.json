@@ -1,0 +1,17 @@
+{
+  "Identifier": "592c3520-9db3-5674-ae07-03755d85788c",
+  "Name": "DataDependency_FunctionParameter_592c35209db35674ae0703755d85788c",
+  "Description": "",
+  "Type": "DATA",
+  "Version": 1,
+  "LastModified": "07/04/2026",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "TypeSpecificAttributes": {
+    "Table": "dbo.FunctionParameter",
+    "KeyColumn": "FunctionName",
+    "KeyValues": [
+      "STOCKTAKE EXPORT"
+    ]
+  }
+}

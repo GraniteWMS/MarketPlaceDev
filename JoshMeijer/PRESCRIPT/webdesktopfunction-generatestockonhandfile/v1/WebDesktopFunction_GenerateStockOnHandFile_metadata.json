@@ -1,0 +1,10 @@
+{
+  "Identifier": "f840fd8e-0671-5a75-baa9-c35412341a36",
+  "Name": "WebDesktopFunction_GenerateStockOnHandFile",
+  "Description": "",
+  "Type": "PRESCRIPT",
+  "Version": 1,
+  "LastModified": "29/03/2026",
+  "Tags": [],
+  "ArtifactDependencies": []
+}

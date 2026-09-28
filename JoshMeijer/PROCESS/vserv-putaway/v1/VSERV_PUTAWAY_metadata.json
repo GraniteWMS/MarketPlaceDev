@@ -1,0 +1,76 @@
+{
+  "Identifier": "54bb4b67-cc5b-4a5d-b91a-87903c950f93",
+  "Name": "VSERV_PUTAWAY",
+  "Description": "VSERV_PUTAWAY\n\nEnsures you are always putting away from receiving to a type Bulk location",
+  "Type": "PROCESS",
+  "Version": 1,
+  "LastModified": "09/02/2026",
+  "Tags": [
+    "Retail",
+    "Automotive",
+    "Agricultural",
+    "Textile",
+    "Electronics",
+    "Construction",
+    "E-commerce",
+    "Logistics",
+    "Pharmaceutical",
+    "Cold Storage"
+  ],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "86f3c3be-3cbd-5e85-9360-112846eab8d0",
+      "ArtifactVersion": 1,
+      "ArtifactName": "WebTemplate_Putaway_Location"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "67fe6bac-d987-549c-8597-52fc96c50681",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_Putaway_TrackingEntity"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "8e09c7cb-716d-5272-ab51-7a230ca612e6",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_Putaway_Location"
+    }
+  ],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "MOVE",
+    "ProcessStepMetadata": [
+      {
+        "Name": "TrackingEntity",
+        "Description": "TrackingEntity",
+        "ProcessIndex": 1,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_Putaway_TrackingEntity",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Location",
+        "Description": "To Bulk Location",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_Putaway_Location",
+        "hasWebTemplate": false
+      }
+    ]
+  },
+  "PostDeployArtifacts": [
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "1803df8d-7d82-5d49-a4e5-dd515d994aee",
+      "ArtifactVersion": 1,
+      "ArtifactName": "VSERV_PUTAWAY_Location"
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

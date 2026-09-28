@@ -1,0 +1,19 @@
+{
+  "Identifier": "f8aa363c-98ec-5ec5-90cc-37699257a6bd",
+  "Name": "ASSIGNPRODUCTIONLINE_ProductionLine",
+  "Description": "WebTemplate for process template ASSIGNPRODUCTIONLINE / step ProductionLine",
+  "Type": "WEBTEMPLATE",
+  "Version": 0,
+  "LastModified": "07/09/2025",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "ec670dc0-4c79-53a3-8d48-5bb1487b7235",
+      "ArtifactVersion": 1
+    }
+  ],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

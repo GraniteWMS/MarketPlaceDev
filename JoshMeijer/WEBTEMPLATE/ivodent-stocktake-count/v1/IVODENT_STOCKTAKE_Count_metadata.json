@@ -1,0 +1,13 @@
+{
+  "Identifier": "c2c52abf-8c60-5018-8033-ccb601523e6c",
+  "Name": "IVODENT_STOCKTAKE_Count",
+  "Description": "WebTemplate for process template IVODENT_STOCKTAKE / step Count",
+  "Type": "WEBTEMPLATE",
+  "Version": 1,
+  "LastModified": "11/06/2026",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

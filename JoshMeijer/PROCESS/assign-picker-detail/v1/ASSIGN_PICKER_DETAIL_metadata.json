@@ -1,0 +1,121 @@
+{
+  "Identifier": "f01fe81c-a57c-4a48-a706-4fec129cad52",
+  "Name": "ASSIGN_PICKER_DETAIL",
+  "Description": "ASSIGN PICKER TO DOCUMENT LINE\n\nAbility to select a specific line / item code from the document and allocate a picker to execute\n\nUsing OptionalFieldValues_DocumentDetail to store the assigned picker \nUsing FN_GetOptionalField to list exisiting assigned values",
+  "Type": "PROCESS",
+  "Version": 1,
+  "LastModified": "17/03/2026",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "817f1098-6f4b-5be8-b5dd-3bfd0d880c8c",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PrescriptAssignPickerDetailType"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "3763ca56-7cef-5ee8-b3ef-288781a27192",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PrescriptAssignPickerDetailDocument"
+    },
+    {
+      "ArtifactType": "USER_TABLE",
+      "ArtifactIdentifier": "a94ccdeb-f689-58bb-b806-c6d28fe9ff7e",
+      "ArtifactVersion": 1,
+      "ArtifactName": "OptionalFieldValues_Document"
+    },
+    {
+      "ArtifactType": "USER_TABLE",
+      "ArtifactIdentifier": "da9eb5a8-6ea2-55a0-8c8a-6479a7e2622a",
+      "ArtifactVersion": 1,
+      "ArtifactName": "OptionalFieldValues_DocumentDetail"
+    },
+    {
+      "ArtifactType": "USER_TABLE",
+      "ArtifactIdentifier": "54a585fd-6a64-5202-8dff-4d5798680bea",
+      "ArtifactVersion": 1,
+      "ArtifactName": "OptionalFieldValues_Location"
+    },
+    {
+      "ArtifactType": "SQL_SCALAR_FUNCTION",
+      "ArtifactIdentifier": "24a7936f-7772-56e8-aa69-5a1d4c292625",
+      "ArtifactVersion": 1,
+      "ArtifactName": "FN_GetOptionalField"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "71ef519e-8516-5778-bd1c-281180c546cb",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PrescriptAssignPickerDetailLine"
+    },
+    {
+      "ArtifactType": "SQL_STORED_PROCEDURE",
+      "ArtifactIdentifier": "ce174e8b-8a17-5663-8a77-b3dbfaa8753f",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Webtemplate_AssignPickerDetail_Line"
+    }
+  ],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "CUSTOM",
+    "ProcessStepMetadata": [
+      {
+        "Name": "Type",
+        "Description": "Type",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "PrescriptAssignPickerDetailType",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "PickerName",
+        "Description": "Picker",
+        "ProcessIndex": 2,
+        "NextIndex": 3,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "Document",
+        "Description": "Document",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "PrescriptAssignPickerDetailDocument",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Line",
+        "Description": "Select Document Line",
+        "ProcessIndex": 3,
+        "NextIndex": 3,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "PrescriptAssignPickerDetailLine",
+        "hasWebTemplate": true
+      }
+    ]
+  },
+  "PostDeployArtifacts": [
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "2c0c5cc4-eb2a-5a51-8126-22323d7f2854",
+      "ArtifactVersion": 1,
+      "ArtifactName": "ASSIGN_PICKER_DETAIL"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "b75a72e7-72cc-5da8-9cf8-7900d42bc087",
+      "ArtifactVersion": 1,
+      "ArtifactName": "ASSIGN_PICKER_DETAIL_Type"
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

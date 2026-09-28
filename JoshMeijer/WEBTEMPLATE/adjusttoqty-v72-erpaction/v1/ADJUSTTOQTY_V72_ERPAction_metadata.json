@@ -1,0 +1,13 @@
+{
+  "Identifier": "43d9e731-2396-5447-9992-fb8caf40fffc",
+  "Name": "ADJUSTTOQTY_V72_ERPAction",
+  "Description": "WebTemplate for process template ADJUSTTOQTY_V72 / step ERPAction",
+  "Type": "WEBTEMPLATE",
+  "Version": 1,
+  "LastModified": "10/09/2026",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

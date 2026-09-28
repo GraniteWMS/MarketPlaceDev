@@ -1,0 +1,69 @@
+{
+  "Name": "TRANSFER_BUTTANUTT",
+  "Description": "TRANSFER_BUTTANUTT",
+  "Type": "TRANSFER",
+  "IsActive": true,
+  "IntegrationIsActive": false,
+  "IntegrationPost": false,
+  "Steps": [
+    {
+      "Name": "Document",
+      "Description": "Enter Transfer Document",
+      "ProcessIndex": 0,
+      "NextIndex": 1,
+      "IsActive": true,
+      "Required": false,
+      "IsBusinessRule": false,
+      "PreScript": "Prescript_Transfer_Document",
+      "WebTemplateArtifact": "3bca8e8a-3845-5b0b-bfd7-67624bd9d03b"
+    },
+    {
+      "Name": "TrackingEntity",
+      "Description": "Scan Barcode",
+      "ProcessIndex": 1,
+      "NextIndex": 2,
+      "IsActive": true,
+      "Required": false,
+      "IsBusinessRule": false,
+      "PreScript": "Prescript_Transfer_TrackingEntity"
+    },
+    {
+      "Name": "Qty",
+      "Description": "Enter Qty To Transfer",
+      "ProcessIndex": 2,
+      "NextIndex": 1,
+      "IsActive": true,
+      "Required": false,
+      "IsBusinessRule": false
+    },
+    {
+      "Name": "DestinationLocation",
+      "Description": "DestinationLocation",
+      "ProcessIndex": 100,
+      "NextIndex": 0,
+      "IsActive": true,
+      "Required": false,
+      "IsBusinessRule": false
+    },
+    {
+      "Name": "Type",
+      "Description": "Type",
+      "ProcessIndex": 100,
+      "NextIndex": 0,
+      "IsActive": true,
+      "Required": false,
+      "IsBusinessRule": false,
+      "DefaultValue": "TRANSFER"
+    },
+    {
+      "Name": "Step200",
+      "Description": "Updates Barcode To Be On Hold",
+      "ProcessIndex": 200,
+      "NextIndex": 0,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "Prescript_Transfer_Step200"
+    }
+  ]
+}

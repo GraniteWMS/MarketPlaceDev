@@ -1,0 +1,19 @@
+{
+  "Identifier": "e8d2a4db-1a92-5021-b8fd-e210af1a6033",
+  "Name": "UNCONSUME_BUTTANUTT_Document",
+  "Description": "WebTemplate for process template UNCONSUME_BUTTANUTT / step Document",
+  "Type": "WEBTEMPLATE",
+  "Version": 0,
+  "LastModified": "21/03/2026",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "c678995a-e507-5bf6-8b5b-7e8f1c2bd195",
+      "ArtifactVersion": 1
+    }
+  ],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

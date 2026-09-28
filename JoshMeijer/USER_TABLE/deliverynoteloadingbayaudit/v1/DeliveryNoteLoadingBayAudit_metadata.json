@@ -1,0 +1,10 @@
+{
+  "Identifier": "b5ba29b9-0d8e-5d26-bc4f-89a7019e87c0",
+  "Name": "DeliveryNoteLoadingBayAudit",
+  "Description": "",
+  "Type": "USER_TABLE",
+  "Version": 1,
+  "LastModified": "18/05/2026",
+  "Tags": [],
+  "ArtifactDependencies": []
+}

@@ -1,0 +1,80 @@
+{
+  "Name": "CIM_PICKING",
+  "Description": "CIM PICKING",
+  "Type": "PICKING",
+  "IsActive": true,
+  "IntegrationIsActive": false,
+  "IntegrationPost": false,
+  "WebTemplateArtifact": "7e3868f5-8188-5f07-8a22-e22ce06888d6",
+  "Steps": [
+    {
+      "Name": "PickerLocation",
+      "Description": "Please select your location",
+      "ProcessIndex": 0,
+      "NextIndex": 1,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "PrescriptPickingPickerLocation",
+      "WebTemplateArtifact": "023a5724-ea5b-52a9-ab6a-f06e3e9e9d73"
+    },
+    {
+      "Name": "Document",
+      "Description": "Scan/Enter Sales Order Number",
+      "ProcessIndex": 1,
+      "NextIndex": 2,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "PrescriptPickingDocument",
+      "WebTemplateArtifact": "c85b0f61-b816-57a0-aca7-6e920e323148"
+    },
+    {
+      "Name": "TrackingEntity",
+      "Description": "Scan/Enter Tracking Entity Barcode",
+      "ProcessIndex": 2,
+      "NextIndex": 2,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "PrescriptPickingTrackingEntity"
+    },
+    {
+      "Name": "Location",
+      "Description": "Scan/Enter Picking Location",
+      "ProcessIndex": 100,
+      "NextIndex": 0,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false
+    },
+    {
+      "Name": "Picker",
+      "Description": "Picker",
+      "ProcessIndex": 100,
+      "NextIndex": 0,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false
+    },
+    {
+      "Name": "Qty",
+      "Description": "Enter Picked Qty",
+      "ProcessIndex": 100,
+      "NextIndex": 0,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false
+    },
+    {
+      "Name": "STEP200",
+      "Description": "STEP200",
+      "ProcessIndex": 200,
+      "NextIndex": 0,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "PrescriptPickingStep200"
+    }
+  ]
+}

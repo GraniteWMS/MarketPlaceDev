@@ -1,0 +1,233 @@
+{
+  "Identifier": "11c81e73-94c7-4606-b313-e19616671ea6",
+  "Name": "QC_FGInspection",
+  "Description": "QC Data Capture\n\nQC Datacapture",
+  "Type": "PROCESS",
+  "Version": 1,
+  "LastModified": "19/06/2024",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "SQL_STORED_PROCEDURE",
+      "ArtifactIdentifier": "bd9f7536-6bc3-52a6-8788-a28ae0535c9b",
+      "ArtifactVersion": 1,
+      "ArtifactName": "webTemplate_MOItemToMake"
+    },
+    {
+      "ArtifactType": "USER_TABLE",
+      "ArtifactIdentifier": "5e3be448-94d9-5251-84cc-32645f33d36d",
+      "ArtifactVersion": 1,
+      "ArtifactName": "custom_DocumentTrackingLog"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "9fb68d01-27b1-5a87-be07-6f1a04c39dd8",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PrescriptQC_FGInspectionDocument"
+    },
+    {
+      "ArtifactType": "USER_TABLE",
+      "ArtifactIdentifier": "d59bed1b-f742-565e-a011-59abeb9fc11e",
+      "ArtifactVersion": 1,
+      "ArtifactName": "QC_FGInspection"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "5450ec60-aa3b-53f2-b4d2-129d0737c458",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PrescriptQC_FGInspectionConfirmation"
+    }
+  ],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "CUSTOM",
+    "ProcessStepMetadata": [
+      {
+        "Name": "Document",
+        "Description": "MO Number",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "PrescriptQC_FGInspectionDocument",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Gauge",
+        "Description": "Gauge",
+        "ProcessIndex": 2,
+        "NextIndex": 3,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "Batch",
+        "Description": "Lot Number",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "Tolerance",
+        "Description": "Enter Tolerance as a decimal (e.g .032)",
+        "ProcessIndex": 3,
+        "NextIndex": 4,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "Value_X",
+        "Description": "Enter a Value for X",
+        "ProcessIndex": 4,
+        "NextIndex": 5,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "Value_Y",
+        "Description": "Enter a Value for Y",
+        "ProcessIndex": 5,
+        "NextIndex": 6,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "Value_Flange",
+        "Description": "Flange",
+        "ProcessIndex": 6,
+        "NextIndex": 7,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "Value_HolePosition",
+        "Description": "Hole Position",
+        "ProcessIndex": 7,
+        "NextIndex": 8,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "Value_HoleSpacing",
+        "Description": "Hole Spacing",
+        "ProcessIndex": 8,
+        "NextIndex": 9,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "Value_HoleCentering",
+        "Description": "Hole Centering",
+        "ProcessIndex": 9,
+        "NextIndex": 10,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "Value_Length",
+        "Description": "Length",
+        "ProcessIndex": 10,
+        "NextIndex": 11,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "Value_Angle",
+        "Description": "Angle",
+        "ProcessIndex": 11,
+        "NextIndex": 12,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "Value_PaintCoating",
+        "Description": "PaintCoating",
+        "ProcessIndex": 12,
+        "NextIndex": 13,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "Value_AnodizedCoating",
+        "Description": "Anodized Coating",
+        "ProcessIndex": 13,
+        "NextIndex": 14,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "Value_PowderCoating",
+        "Description": "Powder Coating",
+        "ProcessIndex": 14,
+        "NextIndex": 15,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "Comment",
+        "Description": "Remarks",
+        "ProcessIndex": 15,
+        "NextIndex": 16,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "Value_AcceptReject",
+        "Description": "QC Accept or Reject",
+        "ProcessIndex": 16,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "PrescriptQC_FGInspectionConfirmation",
+        "hasWebTemplate": true
+      }
+    ]
+  },
+  "PostDeployArtifacts": [
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "a28e8eeb-ed35-5f66-a4d9-71f2020784fb",
+      "ArtifactVersion": 1,
+      "ArtifactName": "QC_FGInspection"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "399d3ee2-7d2c-5cb2-b5c2-b85290834f0a",
+      "ArtifactVersion": 1,
+      "ArtifactName": "QC_FGInspection_Value_AcceptReject"
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

@@ -1,0 +1,17 @@
+{
+  "Identifier": "f0444ef5-d6e2-55bb-af52-3cd9cda8f7a2",
+  "Name": "DataDependency_SystemStaticData_f0444ef5d6e255bbaf523cd9cda8f7a2",
+  "Description": "",
+  "Type": "DATA",
+  "Version": 1,
+  "LastModified": "04/06/2025",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "TypeSpecificAttributes": {
+    "Table": "SystemStaticData",
+    "KeyColumn": "Key",
+    "KeyValues": [
+      "Recount TE"
+    ]
+  }
+}

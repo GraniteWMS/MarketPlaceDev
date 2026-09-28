@@ -1,0 +1,19 @@
+{
+  "Identifier": "7f5496ed-7f86-5cac-a5c6-5c7a8c2517bf",
+  "Name": "BUCKY_UNMANUFACTURE_V3_TransactionID",
+  "Description": "WebTemplate for process template BUCKY_UNMANUFACTURE_V3 / step TransactionID",
+  "Type": "WEBTEMPLATE",
+  "Version": 1,
+  "LastModified": "02/02/2026",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "bd0bef84-463f-5349-808c-99b5e32a6692",
+      "ArtifactVersion": 1
+    }
+  ],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

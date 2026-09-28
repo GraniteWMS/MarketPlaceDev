@@ -1,0 +1,30 @@
+{
+  "Name": "CHANGE_LOAD_SHEET",
+  "Description": "CHANGE LOAD SHEET",
+  "Type": "CUSTOM",
+  "IsActive": true,
+  "IntegrationIsActive": false,
+  "IntegrationPost": false,
+  "Steps": [
+    {
+      "Name": "LoadNumber",
+      "Description": "Load Number",
+      "ProcessIndex": 0,
+      "NextIndex": 1,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "WebTemplateArtifact": "e41e7ffe-9529-5fb5-9388-e05088012a3d"
+    },
+    {
+      "Name": "TrackingEntity",
+      "Description": "Barcode",
+      "ProcessIndex": 1,
+      "NextIndex": 1,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "PrescriptChangeLoadSheetBarcode"
+    }
+  ]
+}

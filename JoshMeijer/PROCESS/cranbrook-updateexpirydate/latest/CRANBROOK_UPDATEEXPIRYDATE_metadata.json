@@ -1,0 +1,74 @@
+{
+  "Identifier": "2cc0c079-ce8e-4902-8bfd-d9f6195fc1c4",
+  "Name": "CRANBROOK_UPDATEEXPIRYDATE",
+  "Description": "Update Expiry Date\n\nIf you want the user to be able to update the expiry date from the scanner\n\nIt write to the Audit table",
+  "Type": "PROCESS",
+  "Version": 0,
+  "LastModified": "20/05/2026",
+  "Tags": [
+    "Manufacturing",
+    "Retail",
+    "Automotive",
+    "Agricultural",
+    "Textile",
+    "Electronics",
+    "Construction",
+    "E-commerce",
+    "Logistics",
+    "Pharmaceutical",
+    "Cold Storage"
+  ],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "b9a4d9e6-cbe4-5d1d-b16a-0eb448db89de",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PrescriptUpdateExpiryDateTrackingEntity"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "01a1af47-d7c2-54c7-939a-012867a7cc9c",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PrescriptUpdateExpiryDateExpiryDate"
+    }
+  ],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "CUSTOM",
+    "ProcessStepMetadata": [
+      {
+        "Name": "TrackingEntity",
+        "Description": "Scan Barcode To Update",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "PrescriptUpdateExpiryDateTrackingEntity",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "ExpiryDateCus",
+        "Description": "Enter New ExpiryDate (YYYYMMDD)",
+        "ProcessIndex": 2,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": false,
+        "PreScript": "PrescriptUpdateExpiryDateExpiryDate",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Comment",
+        "Description": "Reason for Update",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      }
+    ]
+  },
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

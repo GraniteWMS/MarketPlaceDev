@@ -1,0 +1,13 @@
+{
+  "Identifier": "023a5724-ea5b-52a9-ab6a-f06e3e9e9d73",
+  "Name": "CIM_PICKING_PickerLocation",
+  "Description": "WebTemplate for process template CIM_PICKING / step PickerLocation",
+  "Type": "WEBTEMPLATE",
+  "Version": 1,
+  "LastModified": "18/05/2026",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

@@ -1,0 +1,13 @@
+{
+  "Identifier": "069e05fc-354e-52d7-9a23-4dbd0190c8b0",
+  "Name": "PRINT_TRACKINGENTITIES_CODEBATCH_Location",
+  "Description": "WebTemplate for process template PRINT_TRACKINGENTITIES_CODEBATCH / step Location",
+  "Type": "WEBTEMPLATE",
+  "Version": 1,
+  "LastModified": "13/07/2024",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

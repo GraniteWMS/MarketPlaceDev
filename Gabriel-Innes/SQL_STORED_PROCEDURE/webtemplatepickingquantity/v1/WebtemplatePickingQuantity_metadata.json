@@ -1,0 +1,10 @@
+{
+  "Identifier": "10f82c53-02e1-5de2-b0fc-ff793a6fd395",
+  "Name": "WebtemplatePickingQuantity",
+  "Description": "",
+  "Type": "SQL_STORED_PROCEDURE",
+  "Version": 1,
+  "LastModified": "03/07/2025",
+  "Tags": [],
+  "ArtifactDependencies": []
+}

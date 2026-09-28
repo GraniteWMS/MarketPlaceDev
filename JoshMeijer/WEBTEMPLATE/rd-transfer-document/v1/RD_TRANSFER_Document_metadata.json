@@ -1,0 +1,19 @@
+{
+  "Identifier": "2a500545-ae92-5e7c-addc-e9fac69ffc15",
+  "Name": "RD_TRANSFER_Document",
+  "Description": "WebTemplate for process template RD_TRANSFER / step Document",
+  "Type": "WEBTEMPLATE",
+  "Version": 1,
+  "LastModified": "09/10/2025",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "394f06e0-aa8c-5d0f-ac48-5086e1e48455",
+      "ArtifactVersion": 1
+    }
+  ],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

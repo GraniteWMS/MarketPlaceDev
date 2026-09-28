@@ -1,0 +1,167 @@
+{
+  "Name": "QC_FGInspection",
+  "Description": "QC Data Capture",
+  "Type": "CUSTOM",
+  "IsActive": true,
+  "IntegrationIsActive": false,
+  "IntegrationPost": false,
+  "WebTemplateArtifact": "a28e8eeb-ed35-5f66-a4d9-71f2020784fb",
+  "Steps": [
+    {
+      "Name": "Document",
+      "Description": "MO Number",
+      "ProcessIndex": 0,
+      "NextIndex": 1,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "PrescriptQC_FGInspectionDocument"
+    },
+    {
+      "Name": "Batch",
+      "Description": "Lot Number",
+      "ProcessIndex": 1,
+      "NextIndex": 2,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false
+    },
+    {
+      "Name": "Gauge",
+      "Description": "Gauge",
+      "ProcessIndex": 2,
+      "NextIndex": 3,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false
+    },
+    {
+      "Name": "Tolerance",
+      "Description": "Enter Tolerance as a decimal (e.g .032)",
+      "ProcessIndex": 3,
+      "NextIndex": 4,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false
+    },
+    {
+      "Name": "Value_X",
+      "Description": "Enter a Value for X",
+      "ProcessIndex": 4,
+      "NextIndex": 5,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false
+    },
+    {
+      "Name": "Value_Y",
+      "Description": "Enter a Value for Y",
+      "ProcessIndex": 5,
+      "NextIndex": 6,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false
+    },
+    {
+      "Name": "Value_Flange",
+      "Description": "Flange",
+      "ProcessIndex": 6,
+      "NextIndex": 7,
+      "IsActive": true,
+      "Required": false,
+      "IsBusinessRule": false
+    },
+    {
+      "Name": "Value_HolePosition",
+      "Description": "Hole Position",
+      "ProcessIndex": 7,
+      "NextIndex": 8,
+      "IsActive": true,
+      "Required": false,
+      "IsBusinessRule": false
+    },
+    {
+      "Name": "Value_HoleSpacing",
+      "Description": "Hole Spacing",
+      "ProcessIndex": 8,
+      "NextIndex": 9,
+      "IsActive": true,
+      "Required": false,
+      "IsBusinessRule": false
+    },
+    {
+      "Name": "Value_HoleCentering",
+      "Description": "Hole Centering",
+      "ProcessIndex": 9,
+      "NextIndex": 10,
+      "IsActive": true,
+      "Required": false,
+      "IsBusinessRule": false
+    },
+    {
+      "Name": "Value_Length",
+      "Description": "Length",
+      "ProcessIndex": 10,
+      "NextIndex": 11,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false
+    },
+    {
+      "Name": "Value_Angle",
+      "Description": "Angle",
+      "ProcessIndex": 11,
+      "NextIndex": 12,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false
+    },
+    {
+      "Name": "Value_PaintCoating",
+      "Description": "PaintCoating",
+      "ProcessIndex": 12,
+      "NextIndex": 13,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false
+    },
+    {
+      "Name": "Value_AnodizedCoating",
+      "Description": "Anodized Coating",
+      "ProcessIndex": 13,
+      "NextIndex": 14,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false
+    },
+    {
+      "Name": "Value_PowderCoating",
+      "Description": "Powder Coating",
+      "ProcessIndex": 14,
+      "NextIndex": 15,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false
+    },
+    {
+      "Name": "Comment",
+      "Description": "Remarks",
+      "ProcessIndex": 15,
+      "NextIndex": 16,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false
+    },
+    {
+      "Name": "Value_AcceptReject",
+      "Description": "QC Accept or Reject",
+      "ProcessIndex": 16,
+      "NextIndex": 0,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "PrescriptQC_FGInspectionConfirmation",
+      "WebTemplateArtifact": "399d3ee2-7d2c-5cb2-b5c2-b85290834f0a"
+    }
+  ]
+}

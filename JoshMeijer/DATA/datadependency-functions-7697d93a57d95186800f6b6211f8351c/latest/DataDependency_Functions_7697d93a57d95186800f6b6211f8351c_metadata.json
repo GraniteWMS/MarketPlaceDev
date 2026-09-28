@@ -1,0 +1,17 @@
+{
+  "Identifier": "7697d93a-57d9-5186-800f-6b6211f8351c",
+  "Name": "DataDependency_Functions_7697d93a57d95186800f6b6211f8351c",
+  "Description": "",
+  "Type": "DATA",
+  "Version": 0,
+  "LastModified": "07/04/2026",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "TypeSpecificAttributes": {
+    "Table": "dbo.Functions",
+    "KeyColumn": "Name",
+    "KeyValues": [
+      "STOCKTAKE EXPORT"
+    ]
+  }
+}

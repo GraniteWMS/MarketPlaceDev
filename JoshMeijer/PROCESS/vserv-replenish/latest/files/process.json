@@ -1,0 +1,49 @@
+{
+  "Name": "VSERV_REPLENISH",
+  "Description": "VSERV_REPLENISH",
+  "Type": "REPLENISH",
+  "IsActive": true,
+  "IntegrationIsActive": false,
+  "IntegrationPost": false,
+  "Steps": [
+    {
+      "Name": "FromTrackingEntity",
+      "Description": "FromTrackingEntity",
+      "ProcessIndex": 0,
+      "NextIndex": 1,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "Prescript_Replenish_FromTrackingEntity"
+    },
+    {
+      "Name": "Location",
+      "Description": "To Location",
+      "ProcessIndex": 1,
+      "NextIndex": 2,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "Prescript_Replenish_Location",
+      "WebTemplateArtifact": "aedcb65e-969b-546f-8441-7123f727efe9"
+    },
+    {
+      "Name": "Qty",
+      "Description": "Qty to Replenish",
+      "ProcessIndex": 2,
+      "NextIndex": 0,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false
+    },
+    {
+      "Name": "ToTrackingEntity",
+      "Description": "To TrackingEntity",
+      "ProcessIndex": 100,
+      "NextIndex": 0,
+      "IsActive": true,
+      "Required": false,
+      "IsBusinessRule": false
+    }
+  ]
+}

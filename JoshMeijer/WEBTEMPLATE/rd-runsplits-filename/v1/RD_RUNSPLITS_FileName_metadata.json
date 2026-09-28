@@ -1,0 +1,19 @@
+{
+  "Identifier": "31a7e539-5b0a-5c0b-84cc-e4463d5fa633",
+  "Name": "RD_RUNSPLITS_FileName",
+  "Description": "WebTemplate for process template RD_RUNSPLITS / step FileName",
+  "Type": "WEBTEMPLATE",
+  "Version": 1,
+  "LastModified": "09/10/2025",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "SQL_STORED_PROCEDURE",
+      "ArtifactIdentifier": "2d5033c5-5174-5a4b-a846-09a4e993c284",
+      "ArtifactVersion": 1
+    }
+  ],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

@@ -1,0 +1,55 @@
+{
+  "Name": "MOVE",
+  "Description": "MOVE",
+  "Type": "MOVE",
+  "IsActive": true,
+  "IntegrationIsActive": false,
+  "IntegrationPost": false,
+  "Steps": [
+    {
+      "Name": "Comment",
+      "Description": "Comment",
+      "ProcessIndex": 0,
+      "NextIndex": 0,
+      "IsActive": false,
+      "Required": false,
+      "IsBusinessRule": false
+    },
+    {
+      "Name": "Confirmation",
+      "Description": "Confirmation",
+      "ProcessIndex": 0,
+      "NextIndex": 0,
+      "IsActive": false,
+      "Required": false,
+      "IsBusinessRule": false
+    },
+    {
+      "Name": "IntegrationReference",
+      "Description": "IntegrationReference",
+      "ProcessIndex": 0,
+      "NextIndex": 1,
+      "IsActive": false,
+      "Required": false,
+      "IsBusinessRule": false
+    },
+    {
+      "Name": "TrackingEntity",
+      "Description": "TrackingEntity",
+      "ProcessIndex": 0,
+      "NextIndex": 1,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false
+    },
+    {
+      "Name": "Location",
+      "Description": "To Location",
+      "ProcessIndex": 1,
+      "NextIndex": 0,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false
+    }
+  ]
+}

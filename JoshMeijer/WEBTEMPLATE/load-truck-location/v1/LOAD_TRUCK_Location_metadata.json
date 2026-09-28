@@ -1,0 +1,19 @@
+{
+  "Identifier": "13afbb87-2bec-5c64-9a58-32c7c35b7749",
+  "Name": "LOAD_TRUCK_Location",
+  "Description": "WebTemplate for process template LOAD_TRUCK / step Location",
+  "Type": "WEBTEMPLATE",
+  "Version": 1,
+  "LastModified": "07/08/2024",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "9087427a-332c-520a-990d-2c438716767b",
+      "ArtifactVersion": 1
+    }
+  ],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

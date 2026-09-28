@@ -1,0 +1,168 @@
+{
+  "Identifier": "4656ad3a-3334-454d-803b-316a0ade3766",
+  "Name": "RD_TRANSFER",
+  "Description": "Retail Distribution - Transfer Pickign\n\nRetail Distribution Model - Transfer orders to Retail Outlets.  Only Scan Location once then Item Alias.  Always resolve to Item Code. No Qty entered.   When we receive we use a Checking Bin Location.  For every Received Purchase order we have Transfer orders to Retail Outlets to distribute the bought in Stock.  The balance gets putaway.  This is the Transfer Pick.  TrackingEntities are Location_ItemCode\n\nTrackingentity is always Location_ItemCode.  Qty is never entered - always 1.  We scan each garment UPC code",
+  "Type": "PROCESS",
+  "Version": 0,
+  "LastModified": "09/10/2025",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "394f06e0-aa8c-5d0f-ac48-5086e1e48455",
+      "ArtifactVersion": 1,
+      "ArtifactName": "webtemplate_TransfertoPick"
+    },
+    {
+      "ArtifactType": "SQL_STORED_PROCEDURE",
+      "ArtifactIdentifier": "e0da1741-fbc8-53dc-b11e-1d30ec1d7fb6",
+      "ArtifactVersion": 1,
+      "ArtifactName": "FIFOPickingRecommendation"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "6d0d78af-f240-516c-be6e-cd8b01d78118",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_Transfer_Document"
+    },
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "6ad08127-7ecb-5a7a-ab6f-554ab67a35a1",
+      "ArtifactVersion": 1,
+      "ArtifactName": "MasterItemAlias_View"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "103dd2f4-9011-574a-9ea1-aafa1167a25b",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_Transfer_TrackingEntity"
+    },
+    {
+      "ArtifactType": "SQL_STORED_PROCEDURE",
+      "ArtifactIdentifier": "2ab6f701-1e1c-57bc-8844-f930ffe42c83",
+      "ArtifactVersion": 1,
+      "ArtifactName": "ValidateLocation"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "052aea1c-d507-5839-a752-153c6a91c411",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_Transfer_FromLocation"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "4ec71523-7834-5a47-aac0-b3bf7f095fd1",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_Transfer_Step200"
+    }
+  ],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "TRANSFER",
+    "ProcessStepMetadata": [
+      {
+        "Name": "Type",
+        "Description": "Type",
+        "ProcessIndex": 100,
+        "NextIndex": 100,
+        "isActive": true,
+        "Required": false,
+        "DefaultValue": "TRANSFER",
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "Document",
+        "Description": "Document",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": false,
+        "PreScript": "Prescript_Transfer_Document",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "DestinationLocation",
+        "Description": "Destination Store",
+        "ProcessIndex": 100,
+        "NextIndex": 100,
+        "isActive": true,
+        "Required": false,
+        "DefaultValue": "",
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "IntransitLocation",
+        "Description": "IntransitLocation",
+        "ProcessIndex": 100,
+        "NextIndex": 100,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "TrackingEntity",
+        "Description": "Scan Item",
+        "ProcessIndex": 2,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": false,
+        "PreScript": "Prescript_Transfer_TrackingEntity",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Qty",
+        "Description": "Qty to Transfer",
+        "ProcessIndex": 100,
+        "NextIndex": 100,
+        "isActive": true,
+        "Required": false,
+        "DefaultValue": "1",
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "UseBarcode",
+        "Description": "UseBarcode",
+        "ProcessIndex": 100,
+        "NextIndex": 100,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "FromLocation",
+        "Description": "From Location",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_Transfer_FromLocation",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Step200",
+        "Description": "Update FIFOPick locations",
+        "ProcessIndex": 200,
+        "NextIndex": 200,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_Transfer_Step200",
+        "hasWebTemplate": true
+      }
+    ]
+  },
+  "PostDeployArtifacts": [
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "2a500545-ae92-5e7c-addc-e9fac69ffc15",
+      "ArtifactVersion": 1,
+      "ArtifactName": "RD_TRANSFER_Document"
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

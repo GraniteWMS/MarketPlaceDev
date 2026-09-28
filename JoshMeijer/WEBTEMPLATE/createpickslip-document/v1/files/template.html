@@ -1,0 +1,37 @@
+<style>
+    .gwms-new-pickslip-button {
+        width: 100%;
+        padding: 14px 18px;
+        margin: 8px 0;
+        background-color: #001f3f;
+        color: yellow;
+        border: 2px solid #001f3f;
+        border-radius: 6px;
+        font-size: 20px;
+        font-weight: 700;
+        text-align: center;
+        cursor: pointer;
+    }
+
+    .gwms-new-pickslip-button:active {
+        transform: scale(0.98);
+    }
+</style>
+
+<button
+    type="button"
+    class="gwms-new-pickslip-button"
+    onclick="closeAndBack()">
+    PICKSLIP CREATION COMPLETE
+</button>
+
+{{"EXEC WebTemplate_Pickslipsummaryinfo @Number = @Pickslip" |dbSelect({Pickslip})|basicTable({})}}
+
+<script>
+function closeAndBack() {
+
+    setTimeout(function () {
+        Previous();
+    }, 200);
+}
+</script>

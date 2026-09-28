@@ -1,0 +1,31 @@
+{
+  "Name": "VSERV_PUTAWAY",
+  "Description": "VSERV_PUTAWAY",
+  "Type": "MOVE",
+  "IsActive": true,
+  "IntegrationIsActive": false,
+  "IntegrationPost": false,
+  "Steps": [
+    {
+      "Name": "Location",
+      "Description": "To Bulk Location",
+      "ProcessIndex": 0,
+      "NextIndex": 1,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "Prescript_Putaway_Location",
+      "WebTemplateArtifact": "1803df8d-7d82-5d49-a4e5-dd515d994aee"
+    },
+    {
+      "Name": "TrackingEntity",
+      "Description": "TrackingEntity",
+      "ProcessIndex": 1,
+      "NextIndex": 0,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "Prescript_Putaway_TrackingEntity"
+    }
+  ]
+}

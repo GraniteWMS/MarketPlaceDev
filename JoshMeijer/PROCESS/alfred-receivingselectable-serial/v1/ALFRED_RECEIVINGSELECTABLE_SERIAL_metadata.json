@@ -1,0 +1,134 @@
+{
+  "Identifier": "8bb2e9a1-60ff-4744-a4c1-9cd2c5d58231",
+  "Name": "ALFRED_RECEIVINGSELECTABLE_SERIAL",
+  "Description": "ALFRED_RECEIVINGSELECTABLE_SERIAL\n\nThis process is already configured to use the serial number as the barcode, and the quantity is defaulted to 1.\n\nN/A",
+  "Type": "PROCESS",
+  "Version": 1,
+  "LastModified": "20/03/2026",
+  "Tags": [
+    "Automotive",
+    "Manufacturing",
+    "Retail",
+    "Agricultural",
+    "Textile",
+    "Electronics",
+    "Construction",
+    "E-commerce",
+    "Logistics",
+    "Pharmaceutical",
+    "Cold Storage"
+  ],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "9b82a4b0-9425-5b43-8b74-6e0265766b2c",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PrescriptRECEIVINGSERIALSerialNumber"
+    }
+  ],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "RECEIVING",
+    "ProcessStepMetadata": [
+      {
+        "Name": "Location",
+        "Description": "Receiving Location",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": false,
+        "DefaultValue": "",
+        "PreScript": "",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "SerialNumber",
+        "Description": "Enter Serial Number",
+        "ProcessIndex": 3,
+        "NextIndex": 3,
+        "isActive": true,
+        "Required": false,
+        "DefaultValue": "",
+        "PreScript": "PrescriptRECEIVINGSERIALSerialNumber",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "UseBarcode",
+        "Description": "UseBarcode",
+        "ProcessIndex": 100,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": false,
+        "DefaultValue": "",
+        "PreScript": "",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Document",
+        "Description": "Enter Receiving Document",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "DefaultValue": "",
+        "PreScript": "",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "MasterItem",
+        "Description": "Select / Search MasterItem",
+        "ProcessIndex": 2,
+        "NextIndex": 3,
+        "isActive": true,
+        "Required": true,
+        "DefaultValue": "",
+        "PreScript": "",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Qty",
+        "Description": "Enter Units per barcode",
+        "ProcessIndex": 100,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "DefaultValue": "1",
+        "PreScript": "",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Print",
+        "Description": "Print",
+        "ProcessIndex": 99,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "DefaultValue": "",
+        "PreScript": "",
+        "hasWebTemplate": true
+      }
+    ]
+  },
+  "PostDeployArtifacts": [
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "af3338ee-5ef3-5c55-8a9b-43a25eddec64",
+      "ArtifactVersion": 1,
+      "ArtifactName": "ALFRED_RECEIVINGSELECTABLE_SERIAL"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "9dc84497-26db-5a7f-ada7-dcdf5c4fd016",
+      "ArtifactVersion": 1,
+      "ArtifactName": "ALFRED_RECEIVINGSELECTABLE_SERIAL_Location"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "be1a498f-b568-5352-8769-024c8f510ca2",
+      "ArtifactVersion": 1,
+      "ArtifactName": "ALFRED_RECEIVINGSELECTABLE_SERIAL_Document"
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

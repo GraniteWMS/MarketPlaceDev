@@ -1,0 +1,51 @@
+{
+  "Name": "SMART_UNCHECKING",
+  "Description": "Allows you to reverse any pack transaction created with SMART_CHECKING",
+  "Type": "CUSTOM",
+  "IsActive": true,
+  "IntegrationIsActive": false,
+  "IntegrationPost": false,
+  "WebTemplateArtifact": "568f5339-fc6c-5b38-a36c-21083ed56d2e",
+  "Steps": [
+    {
+      "Name": "Document",
+      "Description": "Enter Document Number",
+      "ProcessIndex": 0,
+      "NextIndex": 1,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "Prescript_Uncheck_Document"
+    },
+    {
+      "Name": "Type",
+      "Description": "Type",
+      "ProcessIndex": 1,
+      "NextIndex": 2,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "WebTemplateArtifact": "ced23b01-c0fe-5638-8420-521ecb20595c"
+    },
+    {
+      "Name": "Barcode",
+      "Description": "Scan Barcode",
+      "ProcessIndex": 2,
+      "NextIndex": 2,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "Prescript_Uncheck_Barcode"
+    },
+    {
+      "Name": "Step200",
+      "Description": "Step200",
+      "ProcessIndex": 200,
+      "NextIndex": 200,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "Prescript_Uncheck_Step200"
+    }
+  ]
+}

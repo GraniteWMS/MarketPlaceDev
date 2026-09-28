@@ -1,0 +1,13 @@
+{
+  "Identifier": "11e7c491-45e5-5616-ac2b-fd7295224d44",
+  "Name": "VSERV_PACKING",
+  "Description": "WebTemplate for process template VSERV_PACKING",
+  "Type": "WEBTEMPLATE",
+  "Version": 0,
+  "LastModified": "09/02/2026",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

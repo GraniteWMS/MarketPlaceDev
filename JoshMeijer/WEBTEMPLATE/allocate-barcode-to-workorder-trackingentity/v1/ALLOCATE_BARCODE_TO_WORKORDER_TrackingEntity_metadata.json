@@ -1,0 +1,19 @@
+{
+  "Identifier": "ffac5185-1779-55c3-89dd-4e3694b4602f",
+  "Name": "ALLOCATE_BARCODE_TO_WORKORDER_TrackingEntity",
+  "Description": "WebTemplate for process template ALLOCATE_BARCODE_TO_WORKORDER / step TrackingEntity",
+  "Type": "WEBTEMPLATE",
+  "Version": 1,
+  "LastModified": "07/06/2026",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "b6dd80b6-9bc2-5707-96f7-2221c37b9feb",
+      "ArtifactVersion": 1
+    }
+  ],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

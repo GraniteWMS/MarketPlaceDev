@@ -1,0 +1,19 @@
+{
+  "Identifier": "b0827e4e-445d-5a02-a587-9470a0f38a93",
+  "Name": "LOAD_PREP_LoadTruck",
+  "Description": "WebTemplate for process template LOAD_PREP / step LoadTruck",
+  "Type": "WEBTEMPLATE",
+  "Version": 1,
+  "LastModified": "07/08/2024",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "46cf4348-804b-5c6c-866d-38f969d6315b",
+      "ArtifactVersion": 1
+    }
+  ],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

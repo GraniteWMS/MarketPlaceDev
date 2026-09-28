@@ -1,0 +1,8 @@
+{
+  "Group": "Tasks",
+  "Name": "TaskList",
+  "SQLView": "Datagrid_TaskList",
+  "GridDefinition": "[{\"field\":\"TaskName\",\"width\":100,\"filter\":\"agTextColumnFilter\"},{\"field\":\"TaskDescription\",\"width\":150,\"filter\":\"agTextColumnFilter\"},{\"field\":\"User\",\"width\":80,\"filter\":\"agTextColumnFilter\"},{\"field\":\"TrackingEntity\",\"width\":100,\"filter\":\"agTextColumnFilter\"},{\"field\":\"Location\",\"width\":100,\"filter\":\"agTextColumnFilter\"},{\"field\":\"Status\",\"width\":100,\"filter\":\"agTextColumnFilter\"}]",
+  "IsApplicationGrid": false,
+  "IsCustomGrid": true
+}

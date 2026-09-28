@@ -1,0 +1,78 @@
+{
+  "Identifier": "0e403fb1-e48d-46c3-8b2d-87edaae5bf1e",
+  "Name": "VSERV_PUTAWAY_ETHICAL_LOOSE",
+  "Description": "VSERV_PUTAWAY_ETHICAL_LOOSE\n\nTransfers stock without having to scan a TE barcode",
+  "Type": "PROCESS",
+  "Version": 0,
+  "LastModified": "12/06/2026",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "c051a562-d012-522c-adec-29ceaaa3fb93",
+      "ArtifactVersion": 1,
+      "ArtifactName": "MasterItemAlias_View"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "6948ff58-05ef-5b46-bbc2-3f088d6357fc",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_PutawayEthicalLoose_FromTrackingEntity"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "3bd3d322-788d-5aba-956d-3f0ea26124f5",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_PutawayEthicalLoose_Location"
+    }
+  ],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "REPLENISH",
+    "ProcessStepMetadata": [
+      {
+        "Name": "FromTrackingEntity",
+        "Description": "Scan EAN Barcode",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_PutawayEthicalLoose_FromTrackingEntity",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Location",
+        "Description": "Scan Rack Location",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_PutawayEthicalLoose_Location",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "ToTrackingEntity",
+        "Description": "To TrackingEntity",
+        "ProcessIndex": 100,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "Qty",
+        "Description": "Qty to Put Away",
+        "ProcessIndex": 2,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      }
+    ]
+  },
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

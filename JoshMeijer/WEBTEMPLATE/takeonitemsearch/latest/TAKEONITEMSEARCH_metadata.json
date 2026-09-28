@@ -1,0 +1,13 @@
+{
+  "Identifier": "56b7fa30-a070-5b15-a291-6a43895a42be",
+  "Name": "TAKEONITEMSEARCH",
+  "Description": "WebTemplate for process template TAKEONITEMSEARCH",
+  "Type": "WEBTEMPLATE",
+  "Version": 0,
+  "LastModified": "30/05/2026",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

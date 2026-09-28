@@ -1,0 +1,13 @@
+{
+  "Identifier": "6c44d207-6158-59b7-9728-06b00ea4a570",
+  "Name": "TAKEONITEMSEARCH_Batch",
+  "Description": "WebTemplate for process template TAKEONITEMSEARCH / step Batch",
+  "Type": "WEBTEMPLATE",
+  "Version": 0,
+  "LastModified": "30/05/2026",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

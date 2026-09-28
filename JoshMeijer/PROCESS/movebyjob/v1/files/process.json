@@ -1,0 +1,41 @@
+{
+  "Name": "MOVEBYJOB",
+  "Description": "MOVEBYJOB (Started/ReadyForProduction)",
+  "Type": "CUSTOM",
+  "IsActive": true,
+  "IntegrationIsActive": false,
+  "IntegrationPost": false,
+  "Steps": [
+    {
+      "Name": "Location",
+      "Description": "Select TO Location",
+      "ProcessIndex": 0,
+      "NextIndex": 1,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "WebTemplateArtifact": "eaf3e243-db3f-597c-8940-5283e5a97d11"
+    },
+    {
+      "Name": "Document",
+      "Description": "Scan PatternLabel or Enter Job Number",
+      "ProcessIndex": 1,
+      "NextIndex": 2,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "WebTemplateArtifact": "abeacd52-6033-547d-8f68-b1d1b4e8c3eb"
+    },
+    {
+      "Name": "Confirm",
+      "Description": "All barcodes below will be moved. Confirm",
+      "ProcessIndex": 2,
+      "NextIndex": 0,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "PrescriptMovebyjobConfirm",
+      "WebTemplateArtifact": "48838b6c-ea31-54e7-9aa1-04449c6f7b9f"
+    }
+  ]
+}

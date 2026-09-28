@@ -1,0 +1,13 @@
+{
+  "Identifier": "8d167854-ab46-5de7-be58-f78bbc80eafe",
+  "Name": "Agriline_CustomPack_Prototype_MasterItem",
+  "Description": "WebTemplate for process template Agriline_CustomPack_Prototype / step MasterItem",
+  "Type": "WEBTEMPLATE",
+  "Version": 1,
+  "LastModified": "04/06/2026",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

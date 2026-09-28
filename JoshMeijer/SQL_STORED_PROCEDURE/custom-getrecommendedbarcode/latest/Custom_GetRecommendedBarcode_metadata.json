@@ -1,0 +1,10 @@
+{
+  "Identifier": "ab925070-d153-5011-9196-26eb19702863",
+  "Name": "Custom_GetRecommendedBarcode",
+  "Description": "",
+  "Type": "SQL_STORED_PROCEDURE",
+  "Version": 0,
+  "LastModified": "18/05/2026",
+  "Tags": [],
+  "ArtifactDependencies": []
+}

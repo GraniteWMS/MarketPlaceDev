@@ -1,0 +1,13 @@
+{
+  "Identifier": "3cf581a5-5426-5f91-bb82-8b3f4d617ebf",
+  "Name": "AGRILINEPACKING_Length",
+  "Description": "WebTemplate for process template AGRILINEPACKING / step Length",
+  "Type": "WEBTEMPLATE",
+  "Version": 1,
+  "LastModified": "23/06/2026",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

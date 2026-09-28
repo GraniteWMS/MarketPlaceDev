@@ -1,0 +1,138 @@
+{
+  "Identifier": "319f57e7-53ea-4709-a1c0-e9bc4e48e0b3",
+  "Name": "ALFRED_RECEIVINGSELECTABLE_BATCH",
+  "Description": "ALFRED_RECEIVINGSELECTABLE_BATCH\n\nThe receiving process is configured as standard, with no batch or serial tracking.\n\nN/A",
+  "Type": "PROCESS",
+  "Version": 0,
+  "LastModified": "20/03/2026",
+  "Tags": [
+    "Electronics",
+    "Construction",
+    "E-commerce",
+    "Logistics",
+    "Pharmaceutical",
+    "Cold Storage",
+    "Textile",
+    "Agricultural",
+    "Automotive",
+    "Retail",
+    "Manufacturing"
+  ],
+  "ArtifactDependencies": [],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "RECEIVING",
+    "ProcessStepMetadata": [
+      {
+        "Name": "Location",
+        "Description": "Receiving Location",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": false,
+        "DefaultValue": "",
+        "PreScript": "",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Document",
+        "Description": "Enter Receiving Document",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "DefaultValue": "",
+        "PreScript": "",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "MasterItem",
+        "Description": "Select / Search MasterItem",
+        "ProcessIndex": 2,
+        "NextIndex": 3,
+        "isActive": true,
+        "Required": true,
+        "DefaultValue": "",
+        "PreScript": "",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Batch",
+        "Description": "Batch",
+        "ProcessIndex": 3,
+        "NextIndex": 4,
+        "isActive": true,
+        "Required": false,
+        "DefaultValue": "",
+        "PreScript": "",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "ExpiryDate",
+        "Description": "ExpiryDate (YYYYMMDD)",
+        "ProcessIndex": 4,
+        "NextIndex": 5,
+        "isActive": true,
+        "Required": false,
+        "DefaultValue": "",
+        "PreScript": "",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Qty",
+        "Description": "Enter Units per barcode",
+        "ProcessIndex": 5,
+        "NextIndex": 6,
+        "isActive": true,
+        "Required": true,
+        "DefaultValue": "",
+        "PreScript": "",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "NoEntities",
+        "Description": "Number of barcodes",
+        "ProcessIndex": 6,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": false,
+        "DefaultValue": "",
+        "PreScript": "",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Print",
+        "Description": "Print",
+        "ProcessIndex": 99,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "DefaultValue": "",
+        "PreScript": "",
+        "hasWebTemplate": true
+      }
+    ]
+  },
+  "PostDeployArtifacts": [
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "5c8d39ce-9cfe-5215-b660-ce2b4f4867e5",
+      "ArtifactVersion": 1,
+      "ArtifactName": "ALFRED_RECEIVINGSELECTABLE_BATCH"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "cc49fc6f-61f6-50b2-a8cf-f736550f10e3",
+      "ArtifactVersion": 1,
+      "ArtifactName": "ALFRED_RECEIVINGSELECTABLE_BATCH_Location"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "2369bd1b-b1f7-544c-bd64-d5296d2dba35",
+      "ArtifactVersion": 1,
+      "ArtifactName": "ALFRED_RECEIVINGSELECTABLE_BATCH_Document"
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

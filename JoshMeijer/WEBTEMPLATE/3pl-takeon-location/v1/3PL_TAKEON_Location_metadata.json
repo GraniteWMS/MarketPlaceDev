@@ -1,0 +1,19 @@
+{
+  "Identifier": "11a57b96-6875-5485-95e7-e6f2e9eb77dd",
+  "Name": "3PL_TAKEON_Location",
+  "Description": "WebTemplate for process template 3PL_TAKEON / step Location",
+  "Type": "WEBTEMPLATE",
+  "Version": 1,
+  "LastModified": "22/01/2025",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "4608ddad-99ef-5cac-a3b6-2fff40d207d2",
+      "ArtifactVersion": 1
+    }
+  ],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

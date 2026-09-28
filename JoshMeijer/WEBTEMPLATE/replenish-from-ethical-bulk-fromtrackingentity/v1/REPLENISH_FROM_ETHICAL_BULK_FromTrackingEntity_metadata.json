@@ -1,0 +1,19 @@
+{
+  "Identifier": "576eece4-85b5-56b8-9e1d-95cb2cdf0c8b",
+  "Name": "REPLENISH_FROM_ETHICAL_BULK_FromTrackingEntity",
+  "Description": "WebTemplate for process template REPLENISH_FROM_ETHICAL_BULK / step FromTrackingEntity",
+  "Type": "WEBTEMPLATE",
+  "Version": 1,
+  "LastModified": "12/06/2026",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "49a7202f-807e-5edc-8354-79e942db325f",
+      "ArtifactVersion": 1
+    }
+  ],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

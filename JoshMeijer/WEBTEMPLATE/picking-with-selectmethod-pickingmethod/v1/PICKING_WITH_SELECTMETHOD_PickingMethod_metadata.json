@@ -1,0 +1,13 @@
+{
+  "Identifier": "ae5bb71d-c8a4-52e9-b284-c34279d20204",
+  "Name": "PICKING_WITH_SELECTMETHOD_PickingMethod",
+  "Description": "WebTemplate for process template PICKING_WITH_SELECTMETHOD / step PickingMethod",
+  "Type": "WEBTEMPLATE",
+  "Version": 1,
+  "LastModified": "22/03/2024",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

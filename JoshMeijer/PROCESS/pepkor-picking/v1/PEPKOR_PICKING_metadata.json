@@ -1,0 +1,125 @@
+{
+  "Identifier": "5eabfe27-84bc-4237-b85c-06c4278e9f29",
+  "Name": "PEPKOR_PICKING",
+  "Description": "PEPKOR_PICKING\n\nStandard Pepkor picking process",
+  "Type": "PROCESS",
+  "Version": 1,
+  "LastModified": "13/05/2026",
+  "Tags": [
+    "Electronics",
+    "Construction",
+    "E-commerce",
+    "Logistics",
+    "Cold Storage",
+    "Pharmaceutical",
+    "Manufacturing",
+    "Automotive",
+    "Retail",
+    "Agricultural",
+    "Textile"
+  ],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "1ef71d5d-a4a7-57d5-a2f7-1616b3b7fdac",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Custom_VW_DocumentERPLocations"
+    },
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "fa68ae92-d096-551b-ac54-4ff4f033ac61",
+      "ArtifactVersion": 1,
+      "ArtifactName": "WebTemplate_Picking_Document"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "f9fd82a3-37d3-5296-8837-dc7c3030225b",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_Picking_Document"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "9540c8db-d2ab-5c3b-a6c6-270593b8868e",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_Picking_TrackingEntity"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "08710836-a1f4-54a4-addd-417f956e1238",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_Picking_Step200"
+    }
+  ],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "PICKING",
+    "ProcessStepMetadata": [
+      {
+        "Name": "Document",
+        "Description": "Enter SO #",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_Picking_Document",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Location",
+        "Description": "Location",
+        "ProcessIndex": 100,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "TrackingEntity",
+        "Description": "Scan Barcode",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_Picking_TrackingEntity",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Qty",
+        "Description": "Enter Qty To Pick",
+        "ProcessIndex": 2,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "Step200",
+        "Description": "Step200",
+        "ProcessIndex": 200,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_Picking_Step200",
+        "hasWebTemplate": true
+      }
+    ]
+  },
+  "PostDeployArtifacts": [
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "30a552ec-d4a8-58ad-9676-9ca70407a4a4",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PEPKOR_PICKING"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "2af87a2e-b788-5459-b5ed-f2b6ab658246",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PEPKOR_PICKING_Document"
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

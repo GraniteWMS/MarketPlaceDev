@@ -1,0 +1,17 @@
+{
+  "Identifier": "bef12360-461b-57b2-9bbb-76a92ab01135",
+  "Name": "StocktakeExport",
+  "Description": "Stocktake Import",
+  "Type": "EMAIL_TEMPLATE",
+  "Version": 0,
+  "LastModified": "07/04/2026",
+  "Tags": [
+    "email",
+    "template"
+  ],
+  "ArtifactDependencies": [],
+  "DatabaseVersion": "8.0.0.0",
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

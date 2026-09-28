@@ -1,0 +1,10 @@
+{
+  "Identifier": "dad9e63c-54be-55f4-8dda-aa2ce8c3bdcb",
+  "Name": "PostDeployScript",
+  "Description": "",
+  "Type": "POST_DEPLOY_SCRIPT",
+  "Version": 1,
+  "LastModified": "13/07/2024",
+  "Tags": [],
+  "ArtifactDependencies": []
+}

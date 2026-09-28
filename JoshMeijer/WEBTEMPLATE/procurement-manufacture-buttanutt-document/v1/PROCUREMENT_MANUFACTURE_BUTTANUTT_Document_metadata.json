@@ -1,0 +1,19 @@
+{
+  "Identifier": "a952b35e-1636-524d-94f7-7b5c5ef2e63e",
+  "Name": "PROCUREMENT_MANUFACTURE_BUTTANUTT_Document",
+  "Description": "WebTemplate for process template PROCUREMENT_MANUFACTURE_BUTTANUTT / step Document",
+  "Type": "WEBTEMPLATE",
+  "Version": 1,
+  "LastModified": "21/03/2026",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "2865ce3f-828a-5d02-930b-b7d5e4398075",
+      "ArtifactVersion": 1
+    }
+  ],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

@@ -1,0 +1,19 @@
+{
+  "Identifier": "9e2bf197-3778-5d9c-ad09-942b1ef5d29e",
+  "Name": "BUCKY_UNPICK_TransactionID",
+  "Description": "WebTemplate for process template BUCKY_UNPICK / step TransactionID",
+  "Type": "WEBTEMPLATE",
+  "Version": 1,
+  "LastModified": "27/01/2026",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "32ca163e-955f-57df-bb85-dec9a59df741",
+      "ArtifactVersion": 1
+    }
+  ],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

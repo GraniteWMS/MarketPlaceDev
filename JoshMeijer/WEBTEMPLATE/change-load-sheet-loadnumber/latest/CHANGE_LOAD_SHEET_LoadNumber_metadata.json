@@ -1,0 +1,19 @@
+{
+  "Identifier": "e41e7ffe-9529-5fb5-9388-e05088012a3d",
+  "Name": "CHANGE_LOAD_SHEET_LoadNumber",
+  "Description": "WebTemplate for process template CHANGE_LOAD_SHEET / step LoadNumber",
+  "Type": "WEBTEMPLATE",
+  "Version": 0,
+  "LastModified": "07/08/2024",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "c2751945-ab4a-5821-a857-7ade07701510",
+      "ArtifactVersion": 1
+    }
+  ],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

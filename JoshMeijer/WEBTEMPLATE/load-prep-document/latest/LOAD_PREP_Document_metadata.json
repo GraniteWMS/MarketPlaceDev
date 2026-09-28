@@ -1,0 +1,19 @@
+{
+  "Identifier": "8e78e720-916c-53d6-b584-4521fecaaf4e",
+  "Name": "LOAD_PREP_Document",
+  "Description": "WebTemplate for process template LOAD_PREP / step Document",
+  "Type": "WEBTEMPLATE",
+  "Version": 0,
+  "LastModified": "07/08/2024",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "bfa91492-714f-504d-a8bb-fc7f3a6be856",
+      "ArtifactVersion": 1
+    }
+  ],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

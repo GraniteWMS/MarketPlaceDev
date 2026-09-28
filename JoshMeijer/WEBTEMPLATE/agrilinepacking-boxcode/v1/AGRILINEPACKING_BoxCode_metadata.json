@@ -1,0 +1,13 @@
+{
+  "Identifier": "5a8b9822-2d63-55db-bfbe-93f4e119c143",
+  "Name": "AGRILINEPACKING_BoxCode",
+  "Description": "WebTemplate for process template AGRILINEPACKING / step BoxCode",
+  "Type": "WEBTEMPLATE",
+  "Version": 1,
+  "LastModified": "23/06/2026",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

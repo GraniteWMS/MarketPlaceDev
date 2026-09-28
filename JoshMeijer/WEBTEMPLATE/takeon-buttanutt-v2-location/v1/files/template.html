@@ -1,0 +1,1 @@
+{{ "SELECT [Location], [Description] FROM WebTemplate_Takeon_Location ORDER BY [Location]" | dbSelect({}) | basicTable({selectOnColumn:"Location", enableSearch:true}) }}

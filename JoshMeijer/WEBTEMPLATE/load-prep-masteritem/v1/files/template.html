@@ -1,0 +1,3 @@
+{{ "SELECT ItemCode, ItemDescription 
+    FROM WebTemplate_LoadPrepItems
+    WHERE Document = @Document" | dbSelect({Document}) | basicTable({selectOnColumn:"ItemCode", enableSearch:false}) }}

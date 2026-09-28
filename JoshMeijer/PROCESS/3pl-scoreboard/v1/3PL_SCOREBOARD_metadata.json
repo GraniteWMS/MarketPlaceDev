@@ -1,0 +1,109 @@
+{
+  "Identifier": "b8e1821c-1c8f-46c1-a2a3-cd00720336e3",
+  "Name": "3PL_SCOREBOARD",
+  "Description": "Scoreboard\n\nOn scanner -Gamify the process to improve throughput at start of a project",
+  "Type": "PROCESS",
+  "Version": 1,
+  "LastModified": "04/08/2025",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "2de05f77-44ce-53f6-98f5-54c29425178b",
+      "ArtifactVersion": 1,
+      "ArtifactName": "webtemplate_ScoreboardPutaway"
+    },
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "db9b137e-0730-5b72-83ad-464f9b98494b",
+      "ArtifactVersion": 1,
+      "ArtifactName": "webtemplate_ScoreboardLoadOut"
+    },
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "20e7a3c4-02f8-5194-ae48-65bb925ebd10",
+      "ArtifactVersion": 1,
+      "ArtifactName": "webtemplate_ScoreboardTransferPick"
+    },
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "09a4bf3c-d71a-5eee-b9cd-c00b83cde87d",
+      "ArtifactVersion": 1,
+      "ArtifactName": "webtemplate_ScoreboardReceiving"
+    }
+  ],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "CUSTOM",
+    "ProcessStepMetadata": [
+      {
+        "Name": "ScorePutaway",
+        "Description": "Putaway Score",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "ScoreLoadOut",
+        "Description": "Load Out Score",
+        "ProcessIndex": 3,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "ScoreTransfer",
+        "Description": "Transfer Pick Score",
+        "ProcessIndex": 2,
+        "NextIndex": 3,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "ScoreReceive",
+        "Description": "Receiving Score",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      }
+    ]
+  },
+  "PostDeployArtifacts": [
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "90681bb7-2bb6-54b1-a8df-bdb2d471b486",
+      "ArtifactVersion": 1,
+      "ArtifactName": "3PL_SCOREBOARD_ScoreReceive"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "6837836a-bbc4-58fe-8b2a-6fdbc687d8c6",
+      "ArtifactVersion": 1,
+      "ArtifactName": "3PL_SCOREBOARD_ScorePutaway"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "f84abc01-432d-5863-a4fb-8cad39f5de2c",
+      "ArtifactVersion": 1,
+      "ArtifactName": "3PL_SCOREBOARD_ScoreTransfer"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "65dcc0ef-1a21-5b04-9548-f2e68918a971",
+      "ArtifactVersion": 1,
+      "ArtifactName": "3PL_SCOREBOARD_ScoreLoadOut"
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

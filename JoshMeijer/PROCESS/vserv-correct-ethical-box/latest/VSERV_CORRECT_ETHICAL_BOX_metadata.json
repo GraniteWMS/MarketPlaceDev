@@ -1,0 +1,62 @@
+{
+  "Identifier": "f0f86c72-2ca5-4a5f-b29d-c7fd18ca69b6",
+  "Name": "VSERV_CORRECT_ETHICAL_BOX",
+  "Description": "VSERV_CORRECT_ETHICAL_BOX\n\nIt adjusts the TE Qty linked to a carrying entity if there is only one TE on the carrying entity",
+  "Type": "PROCESS",
+  "Version": 0,
+  "LastModified": "12/06/2026",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "b1b375bf-397a-5eab-babb-35ffe9f677b0",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_CorrectEthicalBox_TrackingEntity"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "ebc49921-8958-538e-9892-751e32b83c2d",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_AdjustToQty_Qty"
+    }
+  ],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "ADJUSTMENT",
+    "ProcessStepMetadata": [
+      {
+        "Name": "TrackingEntity",
+        "Description": "Scan Ethical (ETHL) Box",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_CorrectEthicalBox_TrackingEntity",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Type",
+        "Description": "Type",
+        "ProcessIndex": 100,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "Qty",
+        "Description": "Enter Corrected Qty",
+        "ProcessIndex": 1,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_AdjustToQty_Qty",
+        "hasWebTemplate": true
+      }
+    ]
+  },
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

@@ -1,0 +1,10 @@
+{
+  "Identifier": "8a804f2a-530d-5df0-ae25-6a58c1c06e07",
+  "Name": "FN_GetProductionToLocations",
+  "Description": "",
+  "Type": "SQL_SCALAR_FUNCTION",
+  "Version": 1,
+  "LastModified": "17/03/2026",
+  "Tags": [],
+  "ArtifactDependencies": []
+}

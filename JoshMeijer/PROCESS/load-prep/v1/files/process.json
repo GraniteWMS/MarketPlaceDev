@@ -1,0 +1,62 @@
+{
+  "Name": "LOAD_PREP",
+  "Description": "LOAD PREP",
+  "Type": "CUSTOM",
+  "IsActive": true,
+  "IntegrationIsActive": false,
+  "IntegrationPost": false,
+  "Steps": [
+    {
+      "Name": "LoadTruck",
+      "Description": "LoadTruck",
+      "ProcessIndex": 0,
+      "NextIndex": 1,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "PrescriptLoadPrepLoadTruck",
+      "WebTemplateArtifact": "b0827e4e-445d-5a02-a587-9470a0f38a93"
+    },
+    {
+      "Name": "LoadNumber",
+      "Description": "LoadNumber",
+      "ProcessIndex": 1,
+      "NextIndex": 2,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false
+    },
+    {
+      "Name": "Document",
+      "Description": "Document",
+      "ProcessIndex": 2,
+      "NextIndex": 3,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "PrescriptLoadPrepDocument",
+      "WebTemplateArtifact": "8e78e720-916c-53d6-b584-4521fecaaf4e"
+    },
+    {
+      "Name": "MasterItem",
+      "Description": "MasterItem",
+      "ProcessIndex": 3,
+      "NextIndex": 4,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "PrescriptLoadPrepMasterItem",
+      "WebTemplateArtifact": "56fea8ef-737c-5c45-82e2-55144527316a"
+    },
+    {
+      "Name": "Qty",
+      "Description": "Qty of Packages / Rods",
+      "ProcessIndex": 4,
+      "NextIndex": 2,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "PrescriptLoadPrepQty"
+    }
+  ]
+}

@@ -1,0 +1,101 @@
+{
+  "Identifier": "6213fba8-67be-4e1a-ae1d-0a66fa68fd29",
+  "Name": "RD_ADJUSTTOQTY",
+  "Description": "Retail Distribution ADJUST TO QTY Entered\n\nRetail Distribution - Adjust a location to increase or decrease the Qty in that Location.  TE = Location_ItemCode\nQty entered instead of Adjust by Qty.  This allows them to simple adjust to the counted Qty.\n\nSpecial Code to Resolve Item Code Alias Barcode (Strip Checkdigit for some items).  Calculate Qty to Adjust to for CLR.",
+  "Type": "PROCESS",
+  "Version": 1,
+  "LastModified": "09/10/2025",
+  "Tags": [
+    "Retail"
+  ],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "07effcf5-b3e7-59ca-8759-0ddea386a67e",
+      "ArtifactVersion": 1,
+      "ArtifactName": "MasterItemAlias_View"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "bb9f1f60-f7ad-57e9-be17-e82a6e5503d1",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PrescriptAdjustToQtyTrackingEntity"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "ef7ff07a-b29e-5c0c-a30d-67d0ec65efc2",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PrescriptAdjustToQtyQty"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "e16fca25-f6d9-510c-b29d-aca28d0bb7d8",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PrescriptAdjustToQtyStep200"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "b6dfe372-5fb0-52aa-9b7f-59230424f607",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PrescriptAdjustToQtyLocation"
+    }
+  ],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "CUSTOM",
+    "ProcessStepMetadata": [
+      {
+        "Name": "TrackingEntity",
+        "Description": "Select or Scan Item",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "PrescriptAdjustToQtyTrackingEntity",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Qty",
+        "Description": "Qty",
+        "ProcessIndex": 2,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "PrescriptAdjustToQtyQty",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Step200",
+        "Description": "Step200",
+        "ProcessIndex": 200,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "DefaultValue": "",
+        "PreScript": "PrescriptAdjustToQtyStep200",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Location",
+        "Description": "Scan Location",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "PrescriptAdjustToQtyLocation",
+        "hasWebTemplate": true
+      }
+    ]
+  },
+  "PostDeployArtifacts": [
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "efdc951a-9ac8-594b-a583-27edd6dbf51a",
+      "ArtifactVersion": 1,
+      "ArtifactName": "RD_ADJUSTTOQTY"
+    }
+  ],
+  "DependsOnClr": true,
+  "SqlClrAssemblyVersion": "7.0.0.0",
+  "Deprecated": false
+}

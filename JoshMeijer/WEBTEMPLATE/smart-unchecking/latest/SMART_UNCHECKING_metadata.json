@@ -1,0 +1,13 @@
+{
+  "Identifier": "568f5339-fc6c-5b38-a36c-21083ed56d2e",
+  "Name": "SMART_UNCHECKING",
+  "Description": "WebTemplate for process template SMART_UNCHECKING",
+  "Type": "WEBTEMPLATE",
+  "Version": 0,
+  "LastModified": "03/08/2024",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

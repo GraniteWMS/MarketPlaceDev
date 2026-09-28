@@ -1,0 +1,29 @@
+{
+  "Identifier": "8772e2e4-2780-423b-8e61-ad2ab4ebed5b",
+  "Name": "CONSUMEPOST",
+  "Description": "CONSUMEPOST\n\nThis is the default (empty) CONSUMEPOST process.",
+  "Type": "PROCESS",
+  "Version": 0,
+  "LastModified": "19/03/2024",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "CONSUMEPOST",
+    "ProcessStepMetadata": [
+      {
+        "Name": "Document",
+        "Description": "Document",
+        "ProcessIndex": 0,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      }
+    ]
+  },
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

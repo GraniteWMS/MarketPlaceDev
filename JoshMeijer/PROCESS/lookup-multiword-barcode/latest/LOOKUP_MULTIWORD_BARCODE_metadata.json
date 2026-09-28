@@ -1,0 +1,54 @@
+{
+  "Identifier": "028bddde-e75c-4d1d-961c-1bdd93a566ef",
+  "Name": "LOOKUP_MULTIWORD_BARCODE",
+  "Description": "LOOKUP BARCODES USING MULTIWORD IN DESC\n\nWhen staff on the floor need to do a quick search for an Tracking Entity Barcodes with items matching description and only remember parts of the description and need to find the relevant codes/s",
+  "Type": "PROCESS",
+  "Version": 0,
+  "LastModified": "22/09/2025",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "SQL_STORED_PROCEDURE",
+      "ArtifactIdentifier": "aeb1ca00-d539-56ad-9fe0-02b3ce9c2e90",
+      "ArtifactVersion": 1,
+      "ArtifactName": "SP_Search_TE_Multiword"
+    }
+  ],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "CUSTOM",
+    "ProcessStepMetadata": [
+      {
+        "Name": "Result",
+        "Description": "Press Enter to Restart",
+        "ProcessIndex": 1,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": false,
+        "DefaultValue": "",
+        "PreScript": "",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Search",
+        "Description": "Select words to search",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      }
+    ]
+  },
+  "PostDeployArtifacts": [
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "80aa7dc5-40e1-5f48-8ce4-e30ba2edb596",
+      "ArtifactVersion": 1,
+      "ArtifactName": "LOOKUP_MULTIWORD_BARCODE"
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

@@ -1,0 +1,10 @@
+{
+  "Identifier": "735b5624-99c7-5434-adba-addf089835c8",
+  "Name": "WebTemplate_PurchaseOrderPostDetail",
+  "Description": "",
+  "Type": "SQL_STORED_PROCEDURE",
+  "Version": 1,
+  "LastModified": "24/06/2026",
+  "Tags": [],
+  "ArtifactDependencies": []
+}

@@ -1,0 +1,19 @@
+{
+  "Identifier": "68179454-a2a1-5157-b042-17e264dcc806",
+  "Name": "PowerspeedCagePick_Document",
+  "Description": "WebTemplate for process template PowerspeedCagePick / step Document",
+  "Type": "WEBTEMPLATE",
+  "Version": 1,
+  "LastModified": "03/07/2025",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "6f94d3b5-682b-5f2f-9f17-fa0541a27365",
+      "ArtifactVersion": 1
+    }
+  ],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

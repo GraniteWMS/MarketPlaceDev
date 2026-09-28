@@ -1,0 +1,13 @@
+{
+  "Identifier": "88d7cc1e-6481-535b-b16c-1ea780075bcc",
+  "Name": "ACUMATICAPACKINGPOST_Shipment",
+  "Description": "WebTemplate for process template ACUMATICAPACKINGPOST / step Shipment",
+  "Type": "WEBTEMPLATE",
+  "Version": 1,
+  "LastModified": "01/06/2026",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

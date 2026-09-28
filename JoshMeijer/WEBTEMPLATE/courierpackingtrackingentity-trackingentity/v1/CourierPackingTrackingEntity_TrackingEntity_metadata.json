@@ -1,0 +1,13 @@
+{
+  "Identifier": "47a1eeb1-6292-5396-b54b-dd4b31d8c098",
+  "Name": "CourierPackingTrackingEntity_TrackingEntity",
+  "Description": "WebTemplate for process template CourierPackingTrackingEntity / step TrackingEntity",
+  "Type": "WEBTEMPLATE",
+  "Version": 1,
+  "LastModified": "13/07/2026",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

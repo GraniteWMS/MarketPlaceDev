@@ -1,0 +1,72 @@
+{
+  "Name": "PEANUT_CONSUME_RUTF_FINAL",
+  "Description": "PEANUT_CONSUME_RUTF_FINAL",
+  "Type": "CONSUME",
+  "IsActive": true,
+  "IntegrationIsActive": false,
+  "IntegrationPost": false,
+  "WebTemplateArtifact": "c812a141-c01a-55df-b316-22dafd7bd04d",
+  "Steps": [
+    {
+      "Name": "Document",
+      "Description": "Enter FG Document",
+      "ProcessIndex": 0,
+      "NextIndex": 1,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "Prescript_PeanutConsume_Document",
+      "WebTemplateArtifact": "bb96755e-8de2-57da-89c8-b3996107b4f5"
+    },
+    {
+      "Name": "TrackingEntity",
+      "Description": "Scan Barcode To Consume",
+      "ProcessIndex": 1,
+      "NextIndex": 2,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "Prescript_PeanutConsume_TrackingEntity"
+    },
+    {
+      "Name": "Qty",
+      "Description": "Qty To Consume",
+      "ProcessIndex": 2,
+      "NextIndex": 3,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "Prescript_PeanutRUTFConsume_Qty"
+    },
+    {
+      "Name": "Comment",
+      "Description": "Confirm Wastage Qty",
+      "ProcessIndex": 3,
+      "NextIndex": 1,
+      "IsActive": true,
+      "Required": false,
+      "IsBusinessRule": false,
+      "PreScript": "Prescript_PeanutRUTFConsume_Comment"
+    },
+    {
+      "Name": "Location",
+      "Description": "Location",
+      "ProcessIndex": 100,
+      "NextIndex": 0,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "DefaultValue": "Peanut Warehouse"
+    },
+    {
+      "Name": "Step200",
+      "Description": "Step200",
+      "ProcessIndex": 200,
+      "NextIndex": 0,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "Prescript_PeanutRUTFConsume_Step200"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "Identifier": "1f2406e7-5b76-5ce5-9d70-11ef29da37f9",
+  "Name": "3PL_RECEIVING_Location",
+  "Description": "WebTemplate for process template 3PL_RECEIVING / step Location",
+  "Type": "WEBTEMPLATE",
+  "Version": 0,
+  "LastModified": "04/08/2025",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "0cfa0647-a6b3-512d-8db6-7c85141e5181",
+      "ArtifactVersion": 1
+    }
+  ],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

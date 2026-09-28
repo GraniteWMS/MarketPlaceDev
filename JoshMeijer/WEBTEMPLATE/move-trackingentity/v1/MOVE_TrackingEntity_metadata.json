@@ -1,0 +1,19 @@
+{
+  "Identifier": "5c6ee2c7-cdc0-5236-a3f7-d37e320b452d",
+  "Name": "MOVE_TrackingEntity",
+  "Description": "WebTemplate for process template MOVE / step TrackingEntity",
+  "Type": "WEBTEMPLATE",
+  "Version": 1,
+  "LastModified": "17/03/2026",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "c7f1cc2e-4ce0-54a6-8478-38967747cbad",
+      "ArtifactVersion": 1
+    }
+  ],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

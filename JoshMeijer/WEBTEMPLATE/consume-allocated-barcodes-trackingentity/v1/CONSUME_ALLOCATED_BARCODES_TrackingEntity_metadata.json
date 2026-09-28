@@ -1,0 +1,19 @@
+{
+  "Identifier": "94692c06-f689-5fc9-a753-d37ed5d2d083",
+  "Name": "CONSUME_ALLOCATED_BARCODES_TrackingEntity",
+  "Description": "WebTemplate for process template CONSUME_ALLOCATED_BARCODES / step TrackingEntity",
+  "Type": "WEBTEMPLATE",
+  "Version": 1,
+  "LastModified": "07/06/2026",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "2c5dabda-bdac-5c1c-a583-4b7bccf25700",
+      "ArtifactVersion": 1
+    }
+  ],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

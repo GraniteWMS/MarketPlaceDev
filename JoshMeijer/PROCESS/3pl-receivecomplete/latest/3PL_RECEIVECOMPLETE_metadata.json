@@ -1,0 +1,65 @@
+{
+  "Identifier": "09064fed-6da3-4318-8b62-d6dbaabcd6ca",
+  "Name": "3PL_RECEIVECOMPLETE",
+  "Description": "Notify Receive Complete\n\nAfter Receiving, instead of a post, notify by email that the Receiving is completed.\n\nEnsure Email is setup with templates etc.",
+  "Type": "PROCESS",
+  "Version": 0,
+  "LastModified": "04/08/2025",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "7b842254-5d93-5eb5-99e1-a12277fa128b",
+      "ArtifactVersion": 1,
+      "ArtifactName": "webtemplate_InboundDocumentToComplete"
+    },
+    {
+      "ArtifactType": "USER_TABLE",
+      "ArtifactIdentifier": "979d0f45-5b9f-5fd5-b94c-9a0d1989e9f7",
+      "ArtifactVersion": 1,
+      "ArtifactName": "custom_DocumentTrackingLog"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "fe6c7b93-24fd-5f17-806d-2954080a726d",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_3PL_ReceiveCompleteConfirmation"
+    }
+  ],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "CUSTOM",
+    "ProcessStepMetadata": [
+      {
+        "Name": "Document",
+        "Description": "Document",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": false,
+        "PreScript": ""
+      },
+      {
+        "Name": "Confirmation",
+        "Description": "Confirmation",
+        "ProcessIndex": 1,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_3PL_ReceiveCompleteConfirmation",
+        "hasWebTemplate": true
+      }
+    ]
+  },
+  "PostDeployArtifacts": [
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "0948a079-3dd7-56bd-a1db-50cecdc1d65c",
+      "ArtifactVersion": 1,
+      "ArtifactName": "3PL_RECEIVECOMPLETE_Document"
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

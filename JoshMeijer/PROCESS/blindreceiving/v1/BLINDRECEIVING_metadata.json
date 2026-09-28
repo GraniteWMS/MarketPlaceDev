@@ -1,0 +1,125 @@
+{
+  "Identifier": "fc6a3219-e69f-44ef-a506-879c72df5cf6",
+  "Name": "BLINDRECEIVING",
+  "Description": "BLIND RECEIVING\n\nThis allows you to receive against a blank receiving document, similar to other dynamic document processes.\nLines are added to the document as you receive stock.\n\nThis process requires a blank RECEIVING type document to be created before you can receive against it.",
+  "Type": "PROCESS",
+  "Version": 1,
+  "LastModified": "18/11/2024",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "cd997186-507b-56fd-8b3c-9800fadddc9f",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PrescriptBlindReceivingDocument"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "480dcd81-bd36-5a27-826b-5fd1f2389d47",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PrescriptBlindReceivingCarryingEntity"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "69c87bf4-1ea2-51fb-b37e-3e0f699d6414",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PrescriptBlindReceivingMasterItem"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "3c958c41-79e0-59de-bb5b-b35d6df734d1",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PrescriptBlindReceivingQty"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "aa474e07-f3ff-5ec3-a3d3-9bce5209c163",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PrescriptBlindReceivingNoEntities"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "ab23f4d3-15b1-50eb-aa9e-b12f591023bb",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PrescriptBlindReceivingLocation"
+    }
+  ],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "CUSTOM",
+    "ProcessStepMetadata": [
+      {
+        "Name": "Document",
+        "Description": "Document",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "PrescriptBlindReceivingDocument",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "CarryingEntity",
+        "Description": "CarryingEntity (NEW for new barcode)",
+        "ProcessIndex": 2,
+        "NextIndex": 3,
+        "isActive": true,
+        "Required": false,
+        "PreScript": "PrescriptBlindReceivingCarryingEntity",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "MasterItem",
+        "Description": "MasterItem",
+        "ProcessIndex": 3,
+        "NextIndex": 4,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "PrescriptBlindReceivingMasterItem",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Qty",
+        "Description": "Qty",
+        "ProcessIndex": 4,
+        "NextIndex": 5,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "PrescriptBlindReceivingQty",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "NoEntities",
+        "Description": "Number of TrackingEntities",
+        "ProcessIndex": 5,
+        "NextIndex": 3,
+        "isActive": true,
+        "Required": true,
+        "DefaultValue": "1",
+        "PreScript": "PrescriptBlindReceivingNoEntities",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Location",
+        "Description": "Location",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "PrescriptBlindReceivingLocation",
+        "hasWebTemplate": true
+      }
+    ]
+  },
+  "PostDeployArtifacts": [
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "09c77809-cdc6-567d-9b54-8be6686b1c97",
+      "ArtifactVersion": 1,
+      "ArtifactName": "BLINDRECEIVING"
+    }
+  ],
+  "DependsOnClr": true,
+  "SqlClrAssemblyVersion": "7.0.0.0",
+  "Deprecated": false
+}

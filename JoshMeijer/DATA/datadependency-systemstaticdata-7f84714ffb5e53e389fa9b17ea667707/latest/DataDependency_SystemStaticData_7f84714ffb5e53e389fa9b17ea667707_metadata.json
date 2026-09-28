@@ -1,0 +1,17 @@
+{
+  "Identifier": "7f84714f-fb5e-53e3-89fa-9b17ea667707",
+  "Name": "DataDependency_SystemStaticData_7f84714ffb5e53e389fa9b17ea667707",
+  "Description": "",
+  "Type": "DATA",
+  "Version": 0,
+  "LastModified": "09/02/2026",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "TypeSpecificAttributes": {
+    "Table": "SystemStaticData",
+    "KeyColumn": "Key",
+    "KeyValues": [
+      "ActivateFEFO"
+    ]
+  }
+}

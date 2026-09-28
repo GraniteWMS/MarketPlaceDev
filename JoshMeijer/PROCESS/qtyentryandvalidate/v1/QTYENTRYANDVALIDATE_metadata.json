@@ -1,0 +1,37 @@
+{
+  "Identifier": "3ff816f6-80ea-42d9-a7e5-3bb010ee4c4e",
+  "Name": "QTYENTRYANDVALIDATE",
+  "Description": "Enhancement to Qty field to include a calculator in the webtemplate\n\nEnhancement of the Qty validate that Nicole posted.  This includes a webtemplate on step to implement a calculator.  \nThere is a Video of this on LOOM that I shared.\n\nhttps://www.loom.com/share/19d7a81361454981b3365fa67f930151",
+  "Type": "PROCESS",
+  "Version": 1,
+  "LastModified": "20/04/2026",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "CUSTOM",
+    "ProcessStepMetadata": [
+      {
+        "Name": "Qty",
+        "Description": "Qty",
+        "ProcessIndex": 0,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "DefaultValue": "",
+        "PreScript": "PrescriptDeploy1Qty",
+        "hasWebTemplate": false
+      }
+    ]
+  },
+  "PostDeployArtifacts": [
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "692d531b-5aa1-5ed7-a0b1-638078e1e876",
+      "ArtifactVersion": 1,
+      "ArtifactName": "QTYENTRYANDVALIDATE_Qty"
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

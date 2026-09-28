@@ -1,0 +1,1 @@
+{{ "SELECT ItemCode, ItemDescription FROM WebTemplate_Takeon_MasterItem ORDER BY ItemCode" | dbSelect({}) | basicTable({selectOnColumn:"ItemCode", enableSearch:true}) }}

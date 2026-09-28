@@ -1,0 +1,10 @@
+{
+  "Identifier": "7a165800-2aa0-5dc7-806a-bf2fe304f65b",
+  "Name": "WebtemplateCagePickTrackingEntities",
+  "Description": "",
+  "Type": "SQL_STORED_PROCEDURE",
+  "Version": 1,
+  "LastModified": "03/07/2025",
+  "Tags": [],
+  "ArtifactDependencies": []
+}

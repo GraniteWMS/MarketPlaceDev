@@ -1,0 +1,180 @@
+{
+  "Identifier": "ca64aa88-f901-4f87-b310-4764c1a8cf47",
+  "Name": "PICKINGOLDSCHOOL",
+  "Description": "PICKINGOLDSCHOOL\n\nBulk/Pickface hybrid. Allow pick from TrackingEntity barcodes or MasterItem/Alias codes. Picktype allows for filtering in the document step webtemplate.",
+  "Type": "PROCESS",
+  "Version": 0,
+  "LastModified": "18/03/2026",
+  "Tags": [
+    "Retail",
+    "E-commerce",
+    "Logistics"
+  ],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "SQL_STORED_PROCEDURE",
+      "ArtifactIdentifier": "a6eb10b5-5a15-5c40-9338-6c10b1cfb574",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Webtemplate_Picking_Document"
+    },
+    {
+      "ArtifactType": "USER_TABLE",
+      "ArtifactIdentifier": "822a7925-ffd2-5bdd-994b-389e53568039",
+      "ArtifactVersion": 1,
+      "ArtifactName": "OptionalFieldValues_DocumentDetail"
+    },
+    {
+      "ArtifactType": "SQL_STORED_PROCEDURE",
+      "ArtifactIdentifier": "0aa4a10e-5eab-5bfc-b081-3bd007434de5",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Utility_Document_PickSequence"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "7863cce9-1551-537f-bc8d-a87f3a8bc6ed",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_Picking_Document"
+    },
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "b1c39072-29ff-52d9-80a6-3385b2c3ac13",
+      "ArtifactVersion": 1,
+      "ArtifactName": "MasterItemAlias_View"
+    },
+    {
+      "ArtifactType": "SQL_STORED_PROCEDURE",
+      "ArtifactIdentifier": "ae338ceb-33b3-5130-aa5a-3161868ab61a",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Utility_TrackingEntity_Determine"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "793281b3-3061-5e29-a7ab-cb7b3d78a867",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_Picking_TrackingEntity"
+    },
+    {
+      "ArtifactType": "SQL_STORED_PROCEDURE",
+      "ArtifactIdentifier": "895c5bb2-9c55-562b-9fe4-b187072ce924",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Utility_CheckQtyLimit"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "648c9514-fce9-5f20-a8ef-c7e6400490b6",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_Generic_QtyValidate"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "a8e82655-3e01-5ffe-b10b-fbafb1d46fe1",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_Picking_FromLocation"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "ea7223c1-dc31-5a4d-8d5a-f824d8993013",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_Picking_Step200"
+    }
+  ],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "PICKING",
+    "ProcessStepMetadata": [
+      {
+        "Name": "Document",
+        "Description": "Document",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_Picking_Document",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Location",
+        "Description": "Trolley ",
+        "ProcessIndex": 100,
+        "NextIndex": 3,
+        "isActive": true,
+        "Required": true,
+        "DefaultValue": "PT01",
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "TrackingEntity",
+        "Description": "TrackingEntity",
+        "ProcessIndex": 3,
+        "NextIndex": 4,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_Picking_TrackingEntity",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Qty",
+        "Description": "Qty",
+        "ProcessIndex": 4,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_Generic_QtyValidate",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "FromLocation",
+        "Description": "FromLocation",
+        "ProcessIndex": 2,
+        "NextIndex": 3,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_Picking_FromLocation",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "PickType",
+        "Description": "PickType",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "Step200",
+        "Description": "Step200",
+        "ProcessIndex": 200,
+        "NextIndex": 200,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_Picking_Step200",
+        "hasWebTemplate": true
+      }
+    ]
+  },
+  "PostDeployArtifacts": [
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "d77eef26-f694-5c23-b18b-092fb780785b",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PICKINGOLDSCHOOL"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "fdf3623e-6237-502a-9a86-05895e14f05c",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PICKINGOLDSCHOOL_PickType"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "4f66b49e-2ffc-5aec-93f6-06be71d821fb",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PICKINGOLDSCHOOL_Document"
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

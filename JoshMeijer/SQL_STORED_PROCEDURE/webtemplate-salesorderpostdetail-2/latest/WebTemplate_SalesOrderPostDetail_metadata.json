@@ -1,0 +1,10 @@
+{
+  "Identifier": "4a0c8d84-7526-5053-b1d1-ea11abccf525",
+  "Name": "WebTemplate_SalesOrderPostDetail",
+  "Description": "",
+  "Type": "SQL_STORED_PROCEDURE",
+  "Version": 0,
+  "LastModified": "10/09/2026",
+  "Tags": [],
+  "ArtifactDependencies": []
+}

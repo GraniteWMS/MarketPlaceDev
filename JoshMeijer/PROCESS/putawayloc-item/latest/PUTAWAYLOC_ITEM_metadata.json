@@ -1,0 +1,131 @@
+{
+  "Identifier": "8dc28a2d-a673-40e7-ba16-22e1c67c1b81",
+  "Name": "PUTAWAYLOC_ITEM",
+  "Description": "Putaway (TE=Loc_Item)\n\nImplements TrackingEntity = Loc_Item Code properly - fixes previous versions.  When Receiving, you put the stock into Receiving locations or trolleys.  Then When putting away, Replenish from the trolley or Receiving to the Location.\nThis version has a webtemplate showing what has to be putaway in the chosen Receiving or Trolley location\n\nAlways use Locations with Categories and Types.  In this set of processes for LOC_ITEM, the Locations have Types RECEIVING, STORAGE, and Categories are used for ZONES",
+  "Type": "PROCESS",
+  "Version": 0,
+  "LastModified": "07/04/2026",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "SQL_STORED_PROCEDURE",
+      "ArtifactIdentifier": "8b21295f-01b4-5057-9113-864a7254e02f",
+      "ArtifactVersion": 1,
+      "ArtifactName": "WebTemplate_Putaway_ShowItems"
+    },
+    {
+      "ArtifactType": "SQL_STORED_PROCEDURE",
+      "ArtifactIdentifier": "7d634520-0d19-5b9c-806a-f9de3f37d6ff",
+      "ArtifactVersion": 1,
+      "ArtifactName": "WebTemplate_Putaway_TrackingEntity"
+    },
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "4484dff2-017a-5500-9ddc-7706b73aaee0",
+      "ArtifactVersion": 1,
+      "ArtifactName": "WebTemplate_Locations_Receiving"
+    },
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "2ab02b34-c75a-53d6-8b00-42b24289a946",
+      "ArtifactVersion": 1,
+      "ArtifactName": "MasterItemAlias_View"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "430c511f-cb58-5a66-b6b7-ac30db085edd",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_PutawayLocItem_FromTrackingEntity"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "4b43c0aa-95eb-5ceb-b1c0-c4462d422abc",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_PutawayLocItem_ToLocation"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "a9dc3ffe-41db-51ed-8369-ee307015c97b",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_PutawayLocItem_FromLocation"
+    }
+  ],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "REPLENISH",
+    "ProcessStepMetadata": [
+      {
+        "Name": "FromTrackingEntity",
+        "Description": "Scan Item",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_PutawayLocItem_FromTrackingEntity",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Location",
+        "Description": "To Location",
+        "ProcessIndex": 2,
+        "NextIndex": 3,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_PutawayLocItem_ToLocation",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "ToTrackingEntity",
+        "Description": "To TrackingEntity",
+        "ProcessIndex": 100,
+        "NextIndex": 100,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "Qty",
+        "Description": "Qty to Replenish",
+        "ProcessIndex": 3,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "FromLocation",
+        "Description": "From Location",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_PutawayLocItem_FromLocation",
+        "hasWebTemplate": false
+      }
+    ]
+  },
+  "PostDeployArtifacts": [
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "b713539b-adf2-5f56-aaf8-f9cac23dbcca",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PUTAWAYLOC_ITEM_FromLocation"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "a02f1664-7c4d-534c-b6eb-901e7a5460bf",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PUTAWAYLOC_ITEM_FromTrackingEntity"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "a6efc91a-637e-5899-951c-5694bc519f53",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PUTAWAYLOC_ITEM_Location"
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

@@ -1,0 +1,78 @@
+{
+  "Name": "VSERV_PACKING_ETHICAL",
+  "Description": "VSERV_PACKING_ETHICAL",
+  "Type": "CUSTOM",
+  "IsActive": true,
+  "IntegrationIsActive": false,
+  "IntegrationPost": false,
+  "Steps": [
+    {
+      "Name": "CarryingEntity",
+      "Description": "Enter Picking Crate",
+      "ProcessIndex": 0,
+      "NextIndex": 1,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "Prescript_PackingEthical_CarryingEntity",
+      "WebTemplateArtifact": "3bc6e1ca-b3d7-5bb0-8bd8-7c2c0c0d253d"
+    },
+    {
+      "Name": "Qty",
+      "Description": "Enter Number Of Items",
+      "ProcessIndex": 1,
+      "NextIndex": 2,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "Prescript_PackingEthical_Qty"
+    },
+    {
+      "Name": "Box",
+      "Description": "# of Boxes",
+      "ProcessIndex": 2,
+      "NextIndex": 3,
+      "IsActive": true,
+      "Required": false,
+      "IsBusinessRule": false
+    },
+    {
+      "Name": "Packet",
+      "Description": "# of Packets",
+      "ProcessIndex": 3,
+      "NextIndex": 4,
+      "IsActive": true,
+      "Required": false,
+      "IsBusinessRule": false
+    },
+    {
+      "Name": "IceBox",
+      "Description": "# of Ice Boxes",
+      "ProcessIndex": 4,
+      "NextIndex": 5,
+      "IsActive": true,
+      "Required": false,
+      "IsBusinessRule": false
+    },
+    {
+      "Name": "Other",
+      "Description": "# of Others",
+      "ProcessIndex": 5,
+      "NextIndex": 0,
+      "IsActive": true,
+      "Required": false,
+      "IsBusinessRule": false,
+      "PreScript": "Prescript_PackingEthical_Other"
+    },
+    {
+      "Name": "Step200",
+      "Description": "Step200",
+      "ProcessIndex": 200,
+      "NextIndex": 0,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "Prescript_PackingEthical_Step200"
+    }
+  ]
+}

@@ -1,0 +1,137 @@
+{
+  "Identifier": "c6cf25e9-1c15-4aab-a169-fa5bf2d0413d",
+  "Name": "PICKINGPOST",
+  "Description": "PICKINGPOST V7.2 ACCPAC\n\nIncludes some webtemplates to show what is posting, updates to DocumentTrackingLog, and Gets the Shipment number from SAGE to insert into DocumentTracking Log.\nAlso prints  a LOADSHEET (SSRS).\nCould also email this -have commented out in Step200\nCan also send a ShortShipped Email - Also commented out",
+  "Type": "PROCESS",
+  "Version": 0,
+  "LastModified": "10/09/2026",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "c6016901-15cf-587f-bdcf-701a590f0bbd",
+      "ArtifactVersion": 1,
+      "ArtifactName": "WebTemplate_SOtoPOST"
+    },
+    {
+      "ArtifactType": "SQL_STORED_PROCEDURE",
+      "ArtifactIdentifier": "4a0c8d84-7526-5053-b1d1-ea11abccf525",
+      "ArtifactVersion": 1,
+      "ArtifactName": "WebTemplate_SalesOrderPostDetail"
+    },
+    {
+      "ArtifactType": "USER_TABLE",
+      "ArtifactIdentifier": "0df36605-e29d-5ae5-96a0-590fc4662f8a",
+      "ArtifactVersion": 1,
+      "ArtifactName": "custom_DocumentTrackingLog"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "0af7eca9-764d-5fa5-be29-41b19604a8bb",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PrescriptPickingPostStep200"
+    },
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "89f91981-ae52-5407-a24f-4ecb2a4e54f7",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Loadsheet_Detail"
+    },
+    {
+      "ArtifactType": "SQL_STORED_PROCEDURE",
+      "ArtifactIdentifier": "bd5c27f7-ce3d-509a-afe4-c645a1a8fb31",
+      "ArtifactVersion": 1,
+      "ArtifactName": "SSRS_Loadsheet_Detail"
+    },
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "75405efe-747d-5be2-b1af-0e346732a09c",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Information_Accpac_SalesOrderHeader"
+    },
+    {
+      "ArtifactType": "SQL_STORED_PROCEDURE",
+      "ArtifactIdentifier": "1c098efb-e46e-5581-9e02-bf977b0349c4",
+      "ArtifactVersion": 1,
+      "ArtifactName": "SSRS_Loadsheet_Header"
+    },
+    {
+      "ArtifactType": "DATA",
+      "ArtifactIdentifier": "260fd2a0-c3d4-5a18-b95e-b479b993d32c",
+      "ArtifactVersion": 1,
+      "ArtifactName": "DataDependency_SystemStaticData_260fd2a0c3d45a18b95eb479b993d32c"
+    }
+  ],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "PICKINGPOST",
+    "ProcessStepMetadata": [
+      {
+        "Name": "Document",
+        "Description": "Order Number",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": false,
+        "PreScript": ""
+      },
+      {
+        "Name": "Confirmation",
+        "Description": "Confirm Details To Post",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": false,
+        "PreScript": ""
+      },
+      {
+        "Name": "Step200",
+        "Description": "Print Shipment Summary Label",
+        "ProcessIndex": 200,
+        "NextIndex": 200,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "PrescriptPickingPostStep200",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Pallets",
+        "Description": "Number of Shipping pallets",
+        "ProcessIndex": 2,
+        "NextIndex": 3,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "Comment",
+        "Description": "Driver, truck or courier waybill",
+        "ProcessIndex": 3,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "",
+        "hasWebTemplate": true
+      }
+    ]
+  },
+  "PostDeployArtifacts": [
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "881fb082-2aa4-5d70-b2b9-2452e61cdec5",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PICKINGPOST_Document"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "18aff9fc-454e-5293-a6b0-b8b06ec2af63",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PICKINGPOST_Confirmation"
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

@@ -1,0 +1,169 @@
+{
+  "Identifier": "a209ef9d-12a5-4479-8bfa-cb00e75b75b9",
+  "Name": "FUNCTIONEVOEXPORT",
+  "Description": "FUNCTION EVO EXPORT\n\nIf you are doing stocktake and want to generate a stocktake file to import into EVO\n\nChange SystemSetting values, Modify views according to client needs, Delete process and processstep created",
+  "Type": "PROCESS",
+  "Version": 0,
+  "LastModified": "07/04/2026",
+  "Tags": [
+    "Manufacturing",
+    "Retail",
+    "Automotive",
+    "Agricultural",
+    "Textile",
+    "Electronics",
+    "Construction",
+    "E-commerce",
+    "Logistics",
+    "Pharmaceutical",
+    "Cold Storage"
+  ],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "DATA",
+      "ArtifactIdentifier": "7697d93a-57d9-5186-800f-6b6211f8351c",
+      "ArtifactVersion": 1,
+      "ArtifactName": "DataDependency_Functions_7697d93a57d95186800f6b6211f8351c"
+    },
+    {
+      "ArtifactType": "DATA",
+      "ArtifactIdentifier": "592c3520-9db3-5674-ae07-03755d85788c",
+      "ArtifactVersion": 1,
+      "ArtifactName": "DataDependency_FunctionParameter_592c35209db35674ae0703755d85788c"
+    },
+    {
+      "ArtifactType": "DATA",
+      "ArtifactIdentifier": "592c3520-9db3-5674-ae07-03755d85788c",
+      "ArtifactVersion": 1,
+      "ArtifactName": "DataDependency_FunctionParameter_592c35209db35674ae0703755d85788c"
+    },
+    {
+      "ArtifactType": "DATA",
+      "ArtifactIdentifier": "592c3520-9db3-5674-ae07-03755d85788c",
+      "ArtifactVersion": 1,
+      "ArtifactName": "DataDependency_FunctionParameter_592c35209db35674ae0703755d85788c"
+    },
+    {
+      "ArtifactType": "DATA",
+      "ArtifactIdentifier": "26d89818-7cc3-5cc8-b9fc-270db00ebea2",
+      "ArtifactVersion": 1,
+      "ArtifactName": "DataDependency_FunctionParameterLookup_26d898187cc35cc8b9fc270db00ebea2"
+    },
+    {
+      "ArtifactType": "DATA",
+      "ArtifactIdentifier": "26d89818-7cc3-5cc8-b9fc-270db00ebea2",
+      "ArtifactVersion": 1,
+      "ArtifactName": "DataDependency_FunctionParameterLookup_26d898187cc35cc8b9fc270db00ebea2"
+    },
+    {
+      "ArtifactType": "DATA",
+      "ArtifactIdentifier": "26d89818-7cc3-5cc8-b9fc-270db00ebea2",
+      "ArtifactVersion": 1,
+      "ArtifactName": "DataDependency_FunctionParameterLookup_26d898187cc35cc8b9fc270db00ebea2"
+    },
+    {
+      "ArtifactType": "DATA",
+      "ArtifactIdentifier": "26d89818-7cc3-5cc8-b9fc-270db00ebea2",
+      "ArtifactVersion": 1,
+      "ArtifactName": "DataDependency_FunctionParameterLookup_26d898187cc35cc8b9fc270db00ebea2"
+    },
+    {
+      "ArtifactType": "PRE_DEPLOY_SCRIPT",
+      "ArtifactIdentifier": "304e678a-60b5-5324-b878-be201f7531f7",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PreDeployScript"
+    },
+    {
+      "ArtifactType": "USER_TABLE_TYPE",
+      "ArtifactIdentifier": "32d4a68d-0690-5d92-bcc7-aef994242cf7",
+      "ArtifactVersion": 1,
+      "ArtifactName": "ScriptInputIdentities"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "72665ab3-0a6b-52de-b458-f76c88723e30",
+      "ArtifactVersion": 1,
+      "ArtifactName": "FunctionStocktakeEvoImport"
+    },
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "2bfd2503-bd10-5902-9b79-00c62d110a6c",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Custom_Report_Stock_All"
+    },
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "4a9ac239-6087-53bd-b523-cc218ba0d402",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Custom_vw_Stocktake_Files"
+    },
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "0bed0424-23cf-55b6-a965-bed616423966",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Custom_Stock_All_Session"
+    },
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "83f41ca1-818d-5ff1-867c-6ed93448a287",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Custom_Stock_All_Warehouse"
+    }
+  ],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "CUSTOM",
+    "ProcessStepMetadata": [
+      {
+        "Name": "FUNCTIONEVOEXPORT",
+        "Description": "FUNCTIONEVOEXPORT",
+        "ProcessIndex": 0,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      }
+    ]
+  },
+  "PostDeployArtifacts": [
+    {
+      "ArtifactType": "DATA",
+      "ArtifactIdentifier": "32a85ce6-e1b5-5f25-90c4-d411157fbb89",
+      "ArtifactVersion": 1,
+      "ArtifactName": "DataDependency_SystemSettings_32a85ce6e1b55f2590c4d411157fbb89"
+    },
+    {
+      "ArtifactType": "DATA",
+      "ArtifactIdentifier": "99b04997-cd8b-55e6-ac83-dd3f6a44964d",
+      "ArtifactVersion": 1,
+      "ArtifactName": "DataDependency_SystemSettings_99b04997cd8b55e6ac83dd3f6a44964d"
+    },
+    {
+      "ArtifactType": "DATA",
+      "ArtifactIdentifier": "99b04997-cd8b-55e6-ac83-dd3f6a44964d",
+      "ArtifactVersion": 1,
+      "ArtifactName": "DataDependency_SystemSettings_99b04997cd8b55e6ac83dd3f6a44964d"
+    },
+    {
+      "ArtifactType": "DATA",
+      "ArtifactIdentifier": "99b04997-cd8b-55e6-ac83-dd3f6a44964d",
+      "ArtifactVersion": 1,
+      "ArtifactName": "DataDependency_SystemSettings_99b04997cd8b55e6ac83dd3f6a44964d"
+    },
+    {
+      "ArtifactType": "EMAIL_TEMPLATE",
+      "ArtifactIdentifier": "bef12360-461b-57b2-9bbb-76a92ab01135",
+      "ArtifactVersion": 1,
+      "ArtifactName": "StocktakeExport"
+    },
+    {
+      "ArtifactType": "POST_DEPLOY_SCRIPT",
+      "ArtifactIdentifier": "366574a1-726f-5807-898b-238b5caeafeb",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PostDeployScript"
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

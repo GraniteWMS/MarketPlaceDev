@@ -1,0 +1,58 @@
+{
+  "Name": "ANCHOR_SAMPLESTOCK",
+  "Description": "ANCHOR_SAMPLESTOCK",
+  "Type": "ADJUSTMENT",
+  "IsActive": true,
+  "IntegrationMethod": "ISSUE",
+  "IntegrationIsActive": true,
+  "IntegrationPost": true,
+  "Steps": [
+    {
+      "Name": "Reference",
+      "Description": "Enter a Reference (Not Required)",
+      "ProcessIndex": 0,
+      "NextIndex": 1,
+      "IsActive": true,
+      "Required": false,
+      "IsBusinessRule": false
+    },
+    {
+      "Name": "TrackingEntity",
+      "Description": "Scan/Enter TrackingEntity",
+      "ProcessIndex": 1,
+      "NextIndex": 2,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false
+    },
+    {
+      "Name": "Qty",
+      "Description": "Enter Qty",
+      "ProcessIndex": 2,
+      "NextIndex": 1,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false
+    },
+    {
+      "Name": "Comment",
+      "Description": "GL Account",
+      "ProcessIndex": 100,
+      "NextIndex": 0,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "DefaultValue": "7000"
+    },
+    {
+      "Name": "Type",
+      "Description": "Type",
+      "ProcessIndex": 100,
+      "NextIndex": 0,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "DefaultValue": "QtyDecrease"
+    }
+  ]
+}

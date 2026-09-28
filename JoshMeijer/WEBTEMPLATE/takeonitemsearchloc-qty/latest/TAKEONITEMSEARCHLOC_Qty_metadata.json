@@ -1,0 +1,13 @@
+{
+  "Identifier": "7cca2e1e-3681-598b-81db-e5ed1e65ca63",
+  "Name": "TAKEONITEMSEARCHLOC_Qty",
+  "Description": "WebTemplate for process template TAKEONITEMSEARCHLOC / step Qty",
+  "Type": "WEBTEMPLATE",
+  "Version": 0,
+  "LastModified": "30/05/2026",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

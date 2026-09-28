@@ -1,0 +1,126 @@
+{
+  "Identifier": "0b2bc637-3d9c-44ab-8eab-d679b40f044b",
+  "Name": "ADJUSTTOQTY",
+  "Description": "Adjust To Quantity (CLR with Integration)\n\nUser Sepcifies the Quantity on the TE,  Adjustment calculates the TYPE and the Qty to Adjust to.\nA Confirmation step ERPACTION, asks if the user wants to adjust to Granite Only or SAGE.\nCLR Drives the Adjustment and the Post.\nNB -A Comment cannot be used as the Integration to SAGE uses comment to Group the Adjustments and this will fail\n\nNB -A Comment cannot be used as the Integration to SAGE uses comment to Group the Adjustments and this will fail",
+  "Type": "PROCESS",
+  "Version": 1,
+  "LastModified": "08/09/2026",
+  "Tags": [
+    "Manufacturing",
+    "Retail",
+    "Automotive",
+    "Agricultural",
+    "Textile",
+    "Electronics",
+    "Construction",
+    "E-commerce",
+    "Logistics",
+    "Pharmaceutical",
+    "Cold Storage"
+  ],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "e5444dc5-b936-5353-a161-8c94e9c31a5b",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PrescriptAdjustToQtyTrackingEntity"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "8350f602-978f-5c17-bee1-f970e5b1fdb6",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PrescriptAdjustToQtyQty"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "eaffeaea-20d9-57b8-b7a0-09112784928a",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PrescriptAdjustToQtyStep200"
+    },
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "ca25a1a6-09c7-5b8a-86e6-8a91a3361fe3",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Integration_Transactions"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "df6ae688-d119-5b53-a3f6-e0ce49f22dc4",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PrescriptAdjustmentToQty_Step201"
+    }
+  ],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "CUSTOM",
+    "ProcessStepMetadata": [
+      {
+        "Name": "TrackingEntity",
+        "Description": "TrackingEntity",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "DefaultValue": "",
+        "PreScript": "PrescriptAdjustToQtyTrackingEntity",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Qty",
+        "Description": "Qty",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "PrescriptAdjustToQtyQty",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Step200",
+        "Description": "Do the Adjustment with CLR",
+        "ProcessIndex": 200,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "PrescriptAdjustToQtyStep200",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Step201",
+        "Description": "Post to ERP using CLR",
+        "ProcessIndex": 201,
+        "NextIndex": 201,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "PrescriptAdjustmentToQty_Step201",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "ERPAction",
+        "Description": "Confirm Integration Action",
+        "ProcessIndex": 2,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      }
+    ]
+  },
+  "PostDeployArtifacts": [
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "44fc7e85-f2ad-5f34-b024-328c39ceecd9",
+      "ArtifactVersion": 1,
+      "ArtifactName": "ADJUSTTOQTY"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "fd19c3f0-8d2d-55d3-98d4-86d942faaaaa",
+      "ArtifactVersion": 1,
+      "ArtifactName": "ADJUSTTOQTY_ERPAction"
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

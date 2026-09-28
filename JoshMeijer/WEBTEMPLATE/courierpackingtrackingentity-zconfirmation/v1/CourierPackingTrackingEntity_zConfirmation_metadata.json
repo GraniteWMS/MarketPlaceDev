@@ -1,0 +1,13 @@
+{
+  "Identifier": "d1bb60c4-8a62-50e0-b96a-fd3270a9d055",
+  "Name": "CourierPackingTrackingEntity_zConfirmation",
+  "Description": "WebTemplate for process template CourierPackingTrackingEntity / step zConfirmation",
+  "Type": "WEBTEMPLATE",
+  "Version": 1,
+  "LastModified": "13/07/2026",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

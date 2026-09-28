@@ -1,0 +1,13 @@
+{
+  "Identifier": "a7f21049-d843-5a01-8d90-81a09ffc6607",
+  "Name": "PACKING_MasterItem",
+  "Description": "WebTemplate for process template PACKING / step MasterItem",
+  "Type": "WEBTEMPLATE",
+  "Version": 1,
+  "LastModified": "10/05/2026",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

@@ -1,0 +1,146 @@
+{
+  "Identifier": "4559e739-ef83-44be-98c6-c0e353098318",
+  "Name": "STOCKTAKECOUNTALIAS",
+  "Description": "STOCKTAKECOUNTALIAS\n\nAllow users to scan MasterItemAlias to identify stock in pickface",
+  "Type": "PROCESS",
+  "Version": 1,
+  "LastModified": "29/01/2025",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "USER_TABLE",
+      "ArtifactIdentifier": "50083429-d66f-59d4-84ed-aa394f519312",
+      "ArtifactVersion": 1,
+      "ArtifactName": "CountNumbers"
+    },
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "d08640ac-b5fa-531d-aa14-a61097d5dfb0",
+      "ArtifactVersion": 1,
+      "ArtifactName": "WebtemplateStockTake"
+    },
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "9f4df65f-32f9-5433-ac7c-8f7efcb07861",
+      "ArtifactVersion": 1,
+      "ArtifactName": "WebTemplateStocktake"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "d56ede65-fc01-589a-a8f1-fb5fce581127",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PrescriptStocktakeTrackingEntity"
+    },
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "b554ea83-db4f-5361-994f-2976a535df89",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Custom_StockTakeCountAlias"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "e269473b-07df-5ce0-b945-aca613f0de38",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PrescriptStockTakeCountAlias"
+    }
+  ],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "STOCKTAKECOUNT",
+    "ProcessStepMetadata": [
+      {
+        "Name": "Session",
+        "Description": "Session",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "Count",
+        "Description": "Count",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "Location",
+        "Description": "Location",
+        "ProcessIndex": 2,
+        "NextIndex": 3,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": false,
+        "PreScript": ""
+      },
+      {
+        "Name": "Entity",
+        "Description": "TrackingEntity",
+        "ProcessIndex": 3,
+        "NextIndex": 4,
+        "isActive": true,
+        "Required": false,
+        "PreScript": "PrescriptStocktakeTrackingEntity",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "PalletConfirmation",
+        "Description": "PalletConfirmation",
+        "ProcessIndex": 5,
+        "NextIndex": 5,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "Qty",
+        "Description": "Qty",
+        "ProcessIndex": 100,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": false,
+        "DefaultValue": "1",
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "TrackingEntity",
+        "Description": "Scan Alias Barcode",
+        "ProcessIndex": 4,
+        "NextIndex": 5,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "PrescriptStockTakeCountAlias",
+        "hasWebTemplate": true
+      }
+    ]
+  },
+  "PostDeployArtifacts": [
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "e27dd4cd-fe1c-5c8c-938b-7a5c3d243af3",
+      "ArtifactVersion": 1,
+      "ArtifactName": "STOCKTAKECOUNTALIAS_Count"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "0d56addb-0801-5386-9093-ca1cd03641b3",
+      "ArtifactVersion": 1,
+      "ArtifactName": "STOCKTAKECOUNTALIAS_Location"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "e2d16469-8188-530d-a610-4098b6e6ef1b",
+      "ArtifactVersion": 1,
+      "ArtifactName": "STOCKTAKECOUNTALIAS_Entity"
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

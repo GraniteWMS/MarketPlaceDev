@@ -1,0 +1,19 @@
+{
+  "Identifier": "09da6783-de22-560b-9cfd-4af8f957a180",
+  "Name": "BUCKY_BIG_RECEIVING_Document",
+  "Description": "WebTemplate for process template BUCKY_BIG_RECEIVING / step Document",
+  "Type": "WEBTEMPLATE",
+  "Version": 1,
+  "LastModified": "27/01/2026",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "c5abea31-9554-5b7e-a6b4-1e7d76a20d37",
+      "ArtifactVersion": 1
+    }
+  ],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

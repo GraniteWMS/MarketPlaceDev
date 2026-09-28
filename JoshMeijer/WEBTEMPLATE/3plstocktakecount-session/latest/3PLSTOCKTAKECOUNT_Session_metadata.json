@@ -1,0 +1,19 @@
+{
+  "Identifier": "649d0109-7c58-5378-8a70-a5a61bb9ac2a",
+  "Name": "3PLSTOCKTAKECOUNT_Session",
+  "Description": "WebTemplate for process template 3PLSTOCKTAKECOUNT / step Session",
+  "Type": "WEBTEMPLATE",
+  "Version": 0,
+  "LastModified": "24/06/2024",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "1b4e045c-4437-5716-8b63-d0fc562c09e3",
+      "ArtifactVersion": 1
+    }
+  ],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

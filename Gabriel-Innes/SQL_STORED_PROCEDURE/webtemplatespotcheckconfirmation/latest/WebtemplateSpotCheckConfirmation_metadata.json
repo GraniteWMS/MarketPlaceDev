@@ -1,0 +1,10 @@
+{
+  "Identifier": "195fc078-adc4-5f8e-b8be-1de817e4cc67",
+  "Name": "WebtemplateSpotCheckConfirmation",
+  "Description": "",
+  "Type": "SQL_STORED_PROCEDURE",
+  "Version": 0,
+  "LastModified": "15/05/2025",
+  "Tags": [],
+  "ArtifactDependencies": []
+}

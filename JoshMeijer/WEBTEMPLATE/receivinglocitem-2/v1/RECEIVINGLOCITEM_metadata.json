@@ -1,0 +1,13 @@
+{
+  "Identifier": "ea28d283-2b6c-5838-ab55-11952bbc32dd",
+  "Name": "RECEIVINGLOCITEM",
+  "Description": "WebTemplate for process template RECEIVINGLOCITEM",
+  "Type": "WEBTEMPLATE",
+  "Version": 1,
+  "LastModified": "11/05/2026",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

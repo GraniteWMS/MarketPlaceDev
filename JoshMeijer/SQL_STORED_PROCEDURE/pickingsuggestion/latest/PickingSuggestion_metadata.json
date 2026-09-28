@@ -1,0 +1,10 @@
+{
+  "Identifier": "37ab4238-0780-5cb3-8336-b47d7c68d990",
+  "Name": "PickingSuggestion",
+  "Description": "",
+  "Type": "SQL_STORED_PROCEDURE",
+  "Version": 0,
+  "LastModified": "11/09/2024",
+  "Tags": [],
+  "ArtifactDependencies": []
+}

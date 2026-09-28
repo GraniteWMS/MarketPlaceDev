@@ -1,0 +1,31 @@
+{
+  "Name": "ACUMATICAPACKINGPOST",
+  "Description": "ACUMATICAPACKINGPOST",
+  "Type": "CUSTOM",
+  "IsActive": true,
+  "IntegrationMethod": "PACK",
+  "IntegrationIsActive": true,
+  "IntegrationPost": false,
+  "Steps": [
+    {
+      "Name": "Document",
+      "Description": "Document",
+      "ProcessIndex": 0,
+      "NextIndex": 1,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false
+    },
+    {
+      "Name": "Shipment",
+      "Description": "Shipment",
+      "ProcessIndex": 1,
+      "NextIndex": 0,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "Prescript_PackingPost_Document",
+      "WebTemplateArtifact": "88d7cc1e-6481-535b-b16c-1ea780075bcc"
+    }
+  ]
+}

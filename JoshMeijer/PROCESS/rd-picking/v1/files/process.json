@@ -1,0 +1,71 @@
+{
+  "Name": "RD_PICKING",
+  "Description": "Retail Distribution -Picking Ecommerce",
+  "Type": "PICKING",
+  "IsActive": true,
+  "IntegrationIsActive": false,
+  "IntegrationPost": false,
+  "Steps": [
+    {
+      "Name": "Document",
+      "Description": "Document",
+      "ProcessIndex": 0,
+      "NextIndex": 1,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "Prescript_Picking_Document",
+      "WebTemplateArtifact": "748fbf88-b4ba-51b1-8d3d-924295089526"
+    },
+    {
+      "Name": "FromLocation",
+      "Description": "FromLocation",
+      "ProcessIndex": 1,
+      "NextIndex": 2,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "Prescript_Picking_FromLocation"
+    },
+    {
+      "Name": "TrackingEntity",
+      "Description": "TrackingEntity",
+      "ProcessIndex": 2,
+      "NextIndex": 2,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "Prescript_Picking_TrackingEntity"
+    },
+    {
+      "Name": "Location",
+      "Description": "Staging Location",
+      "ProcessIndex": 100,
+      "NextIndex": 100,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "DefaultValue": "DIS"
+    },
+    {
+      "Name": "Qty",
+      "Description": "Qty in Eaches",
+      "ProcessIndex": 100,
+      "NextIndex": 100,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "DefaultValue": "1"
+    },
+    {
+      "Name": "Step200",
+      "Description": "Update FIFO recommendation",
+      "ProcessIndex": 200,
+      "NextIndex": 0,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "PrescriptPickingStep200"
+    }
+  ]
+}

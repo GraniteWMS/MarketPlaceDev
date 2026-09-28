@@ -1,0 +1,10 @@
+{
+  "Identifier": "19feaaa3-fc4a-5a7b-bf24-95c3be98d7f5",
+  "Name": "Utility_ParseSupplierBarcode",
+  "Description": "",
+  "Type": "SQL_STORED_PROCEDURE",
+  "Version": 1,
+  "LastModified": "11/06/2026",
+  "Tags": [],
+  "ArtifactDependencies": []
+}

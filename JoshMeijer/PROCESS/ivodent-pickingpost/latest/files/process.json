@@ -1,0 +1,20 @@
+{
+  "Name": "IVODENT_PICKINGPOST",
+  "Description": "IVODENT_PICKINGPOST",
+  "Type": "PICKINGPOST",
+  "IsActive": true,
+  "IntegrationIsActive": true,
+  "IntegrationPost": false,
+  "Steps": [
+    {
+      "Name": "Document",
+      "Description": "Document",
+      "ProcessIndex": 0,
+      "NextIndex": 0,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "PrescriptPickingPostDocument_PostServiceItems"
+    }
+  ]
+}

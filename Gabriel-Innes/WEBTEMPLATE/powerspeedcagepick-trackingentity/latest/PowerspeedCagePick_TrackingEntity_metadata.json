@@ -1,0 +1,24 @@
+{
+  "Identifier": "69040693-2550-5731-81e8-d2c5f469c1a2",
+  "Name": "PowerspeedCagePick_TrackingEntity",
+  "Description": "WebTemplate for process template PowerspeedCagePick / step TrackingEntity",
+  "Type": "WEBTEMPLATE",
+  "Version": 0,
+  "LastModified": "03/07/2025",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "SQL_STORED_PROCEDURE",
+      "ArtifactIdentifier": "760e3398-5df7-5afd-b55f-10abfc28c758",
+      "ArtifactVersion": 1
+    },
+    {
+      "ArtifactType": "SQL_STORED_PROCEDURE",
+      "ArtifactIdentifier": "7a165800-2aa0-5dc7-806a-bf2fe304f65b",
+      "ArtifactVersion": 1
+    }
+  ],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

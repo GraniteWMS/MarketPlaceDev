@@ -1,0 +1,13 @@
+{
+  "Identifier": "2369bd1b-b1f7-544c-bd64-d5296d2dba35",
+  "Name": "ALFRED_RECEIVINGSELECTABLE_BATCH_Document",
+  "Description": "WebTemplate for process template ALFRED_RECEIVINGSELECTABLE_BATCH / step Document",
+  "Type": "WEBTEMPLATE",
+  "Version": 0,
+  "LastModified": "20/03/2026",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

@@ -1,0 +1,19 @@
+{
+  "Identifier": "cf49b0f3-24c0-553d-bb61-214e37ba1e20",
+  "Name": "BUCKY_BIG_PACKING_Document",
+  "Description": "WebTemplate for process template BUCKY_BIG_PACKING / step Document",
+  "Type": "WEBTEMPLATE",
+  "Version": 1,
+  "LastModified": "02/02/2026",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "aee5b180-ef1d-5e2a-85bb-8a259ddf45e1",
+      "ArtifactVersion": 1
+    }
+  ],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

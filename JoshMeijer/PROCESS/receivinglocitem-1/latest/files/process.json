@@ -1,0 +1,62 @@
+{
+  "Name": "RECEIVINGLOCITEM",
+  "Description": "RECEIVING with Loc_Item",
+  "Type": "RECEIVING",
+  "IsActive": true,
+  "IntegrationIsActive": true,
+  "IntegrationPost": false,
+  "WebTemplateArtifact": "08f3ea6c-4d4c-54cf-bc19-d4d64f21dc9a",
+  "Steps": [
+    {
+      "Name": "Document",
+      "Description": "Purchase Order",
+      "ProcessIndex": 0,
+      "NextIndex": 1,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "Prescript_Receiving_Document",
+      "WebTemplateArtifact": "ee0594e7-5c48-5182-b524-865cefab30e2"
+    },
+    {
+      "Name": "Location",
+      "Description": "Receiving Location or Cart",
+      "ProcessIndex": 1,
+      "NextIndex": 2,
+      "IsActive": true,
+      "Required": false,
+      "IsBusinessRule": false,
+      "PreScript": "Prescript_Receiving_Location",
+      "WebTemplateArtifact": "203fdb43-fef8-5b46-b11b-f5faf44fcdcf"
+    },
+    {
+      "Name": "MasterItem",
+      "Description": "Scan or Select MasterItem from PO",
+      "ProcessIndex": 2,
+      "NextIndex": 3,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "Prescript_Receiving_MasterItem"
+    },
+    {
+      "Name": "Qty",
+      "Description": "Qty Received",
+      "ProcessIndex": 3,
+      "NextIndex": 2,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "WebTemplateArtifact": "bcafdfd0-00a7-5aee-974d-26512904c61e"
+    },
+    {
+      "Name": "UseBarcode",
+      "Description": "UseBarcode",
+      "ProcessIndex": 100,
+      "NextIndex": 0,
+      "IsActive": true,
+      "Required": false,
+      "IsBusinessRule": false
+    }
+  ]
+}

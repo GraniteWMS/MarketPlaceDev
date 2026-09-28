@@ -1,0 +1,10 @@
+{
+  "Identifier": "0773df55-7837-53c6-af0e-32861283d8eb",
+  "Name": "Utility_CopyDocument",
+  "Description": "",
+  "Type": "SQL_STORED_PROCEDURE",
+  "Version": 1,
+  "LastModified": "13/08/2025",
+  "Tags": [],
+  "ArtifactDependencies": []
+}

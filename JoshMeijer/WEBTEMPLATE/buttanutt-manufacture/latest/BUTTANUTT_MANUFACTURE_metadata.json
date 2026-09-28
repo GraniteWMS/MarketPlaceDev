@@ -1,0 +1,13 @@
+{
+  "Identifier": "5fccc4b3-cbe6-593f-a35b-1bb24a5adbf1",
+  "Name": "BUTTANUTT_MANUFACTURE",
+  "Description": "WebTemplate for process template BUTTANUTT_MANUFACTURE",
+  "Type": "WEBTEMPLATE",
+  "Version": 0,
+  "LastModified": "24/02/2026",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

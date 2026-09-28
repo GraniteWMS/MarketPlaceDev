@@ -1,0 +1,108 @@
+{
+  "Identifier": "8be5d32d-e880-4870-a6ec-1e79e5ca263c",
+  "Name": "PACKING",
+  "Description": "PACKING to Ship\n\nSome webtemplates to improve the look and feel.  Includes Qty keypad, includes a prescript on MasterItem to handle additional alias processing like stripping checkdigit and removing spaces.\nBOX Number NEW is hidden - have to scna a preprinted box number from a roll of labels - Paired with a process to print more box number labels using Label printQueue and a scheduled Job.  Process PRINTBOXLABELS",
+  "Type": "PROCESS",
+  "Version": 0,
+  "LastModified": "10/05/2026",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "f02ed109-9bd6-5b21-b88f-07ce2ee78933",
+      "ArtifactVersion": 1,
+      "ArtifactName": "webtemplate_SOtoPack"
+    },
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "49390a1d-bfe8-5135-98f1-9142cb976089",
+      "ArtifactVersion": 1,
+      "ArtifactName": "MasterItemAlias_View"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "13315744-71bf-581f-b434-1d203a02c113",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_Packing_MasterItem"
+    }
+  ],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "PACKING",
+    "ProcessStepMetadata": [
+      {
+        "Name": "Document",
+        "Description": "Order document Number",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": false,
+        "PreScript": ""
+      },
+      {
+        "Name": "Location",
+        "Description": "Check and Pack Location",
+        "ProcessIndex": 100,
+        "NextIndex": 100,
+        "isActive": true,
+        "Required": true,
+        "DefaultValue": "DIS",
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "CarryingEntity",
+        "Description": "Scan BOX or PALLET",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "MasterItem",
+        "Description": "MasterItem (Code or Barcode)",
+        "ProcessIndex": 2,
+        "NextIndex": 3,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_Packing_MasterItem",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Qty",
+        "Description": "Qty",
+        "ProcessIndex": 3,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": false,
+        "PreScript": ""
+      }
+    ]
+  },
+  "PostDeployArtifacts": [
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "5179c2c9-b205-5675-92f4-89a2e9826461",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PACKING_Document"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "a7f21049-d843-5a01-8d90-81a09ffc6607",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PACKING_MasterItem"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "145f4f04-712a-57d0-8c66-d7b517dc531c",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PACKING_Qty"
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

@@ -1,0 +1,86 @@
+{
+  "Identifier": "d287793e-e76c-4d15-a50e-ac9f13290652",
+  "Name": "PRINTMASTERITEM",
+  "Description": "Print an Item Label\n\nUses CLR (v7) for printing an item label.  Also allows selection of the label format.  This version also includes a modification to the Label_MasterItem View to bring in the bin location of the oldest stock.\nThis version implements 3 different label file layouts\n\nThe view LABEL_MASTERITEM is defined with a BIN field.  This specific view I am publishing has an additional column  called LATEST - it is derived from the Integration_Accpac_masterItem view which brings in a customer part number - you would need to remove this.  Also check the printing prescript on confirm.",
+  "Type": "PROCESS",
+  "Version": 0,
+  "LastModified": "05/05/2026",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "204a8ba4-cbcb-5d26-b04a-0eb8ddcf7a7e",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_PrintMasterItem_Confirm"
+    },
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "d4c0b1b5-1ab0-5581-b2a9-2d3a83561e21",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Integration_Accpac_MasterItem"
+    },
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "915aca81-2d1f-5989-bbc2-564eb4a97df0",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Label_MasterItem"
+    }
+  ],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "CUSTOM",
+    "ProcessStepMetadata": [
+      {
+        "Name": "Confirmation",
+        "Description": "Confirm",
+        "ProcessIndex": 3,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_PrintMasterItem_Confirm",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "MasterItem",
+        "Description": "Enter Item Code",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "Qty",
+        "Description": "Number of labels to Print",
+        "ProcessIndex": 2,
+        "NextIndex": 3,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "LabelFormat",
+        "Description": "Select LabelFormat",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      }
+    ]
+  },
+  "PostDeployArtifacts": [
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "70485119-32c2-5c35-9487-0a21307d387f",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PRINTMASTERITEM_LabelFormat"
+    }
+  ],
+  "DependsOnClr": true,
+  "SqlClrAssemblyVersion": "7.0.0.0",
+  "Deprecated": false
+}

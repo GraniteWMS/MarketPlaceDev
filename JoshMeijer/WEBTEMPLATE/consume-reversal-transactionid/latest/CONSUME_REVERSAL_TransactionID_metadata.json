@@ -1,0 +1,19 @@
+{
+  "Identifier": "2315fd8d-0688-593d-982d-17302a19114f",
+  "Name": "CONSUME_REVERSAL_TransactionID",
+  "Description": "WebTemplate for process template CONSUME_REVERSAL / step TransactionID",
+  "Type": "WEBTEMPLATE",
+  "Version": 0,
+  "LastModified": "28/03/2024",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "13154111-f00e-5fd8-a487-64ce97a1c8ab",
+      "ArtifactVersion": 1
+    }
+  ],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

@@ -1,0 +1,19 @@
+{
+  "Identifier": "26b7c08e-4f24-5d4a-ab73-a093b84375dd",
+  "Name": "PICKINGPOSTQUEUE_Confirmation",
+  "Description": "WebTemplate for process template PICKINGPOSTQUEUE / step Confirmation",
+  "Type": "WEBTEMPLATE",
+  "Version": 0,
+  "LastModified": "02/04/2026",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "SQL_STORED_PROCEDURE",
+      "ArtifactIdentifier": "4f40ba60-7ab3-58b8-a1d3-5d7bb8675d6f",
+      "ArtifactVersion": 1
+    }
+  ],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

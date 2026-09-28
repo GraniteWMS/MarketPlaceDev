@@ -1,0 +1,131 @@
+{
+  "Identifier": "970cdc84-53a0-4b53-bb63-3599b5881bd8",
+  "Name": "VETSERV_ETHICAL_RECEIVING_LOOSE",
+  "Description": "VETSERV_ETHICAL_RECEIVING_LOOSE\n\nIt receives stock without printing a tracking entity label",
+  "Type": "PROCESS",
+  "Version": 1,
+  "LastModified": "12/06/2026",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "714569e2-bd21-5557-8ac2-e1b177ddad51",
+      "ArtifactVersion": 1,
+      "ArtifactName": "MasterItemAlias_View"
+    },
+    {
+      "ArtifactType": "SQL_STORED_PROCEDURE",
+      "ArtifactIdentifier": "d933f829-d200-59dc-a4ee-a68100ebd8b7",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Common_SP_GetMasterItemLinkedToAlias"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "c21c3882-856c-5bf9-b340-0cfc00d7be05",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_ReceivingEthicalLoose_MasterItem"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "2e173879-549d-5adc-9e77-b4ec39d3a79d",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_ReceivingEthicalLoose_Qty"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "53c2756f-01db-511f-933b-1e945d0f111b",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_ReceivingEthicalLoose_CarryingEntity"
+    }
+  ],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "RECEIVING",
+    "ProcessStepMetadata": [
+      {
+        "Name": "Location",
+        "Description": "Receiving Location",
+        "ProcessIndex": 100,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": false,
+        "DefaultValue": "ETHICAL RECEIVING",
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "Document",
+        "Description": "Select PO Document",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "MasterItem",
+        "Description": "Scan EAN Barcode",
+        "ProcessIndex": 2,
+        "NextIndex": 3,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_ReceivingEthicalLoose_MasterItem",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Qty",
+        "Description": "Enter Qty To Receive",
+        "ProcessIndex": 3,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_ReceivingEthicalLoose_Qty",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "CarryingEntity",
+        "Description": "Scan Receiving Box (Optional)",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": false,
+        "PreScript": "Prescript_ReceivingEthicalLoose_CarryingEntity",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "UseBarcode",
+        "Description": "UseBarcode",
+        "ProcessIndex": 100,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      }
+    ]
+  },
+  "PostDeployArtifacts": [
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "2450214a-f6b7-5031-a953-bb60e9220147",
+      "ArtifactVersion": 1,
+      "ArtifactName": "VETSERV_ETHICAL_RECEIVING_LOOSE"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "d4acaeb0-1b17-538b-a44c-52ea98abcf45",
+      "ArtifactVersion": 1,
+      "ArtifactName": "VETSERV_ETHICAL_RECEIVING_LOOSE_CarryingEntity"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "e499cca1-8328-512b-aaab-be2cec5c4371",
+      "ArtifactVersion": 1,
+      "ArtifactName": "VETSERV_ETHICAL_RECEIVING_LOOSE_Qty"
+    }
+  ],
+  "DependsOnClr": true,
+  "SqlClrAssemblyVersion": "7.0.0.0",
+  "Deprecated": false
+}

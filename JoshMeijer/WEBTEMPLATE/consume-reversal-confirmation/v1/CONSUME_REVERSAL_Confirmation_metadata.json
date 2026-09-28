@@ -1,0 +1,19 @@
+{
+  "Identifier": "aa972303-dbca-5070-9a04-27ce2456f909",
+  "Name": "CONSUME_REVERSAL_Confirmation",
+  "Description": "WebTemplate for process template CONSUME_REVERSAL / step Confirmation",
+  "Type": "WEBTEMPLATE",
+  "Version": 1,
+  "LastModified": "28/03/2024",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "13154111-f00e-5fd8-a487-64ce97a1c8ab",
+      "ArtifactVersion": 1
+    }
+  ],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

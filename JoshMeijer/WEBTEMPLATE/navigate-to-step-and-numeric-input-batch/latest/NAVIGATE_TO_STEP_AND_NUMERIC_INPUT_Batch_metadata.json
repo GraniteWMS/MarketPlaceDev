@@ -1,0 +1,13 @@
+{
+  "Identifier": "e11644e0-1613-5caf-95ca-d104e57648de",
+  "Name": "NAVIGATE_TO_STEP_AND_NUMERIC_INPUT_Batch",
+  "Description": "WebTemplate for process template NAVIGATE_TO_STEP_AND_NUMERIC_INPUT / step Batch",
+  "Type": "WEBTEMPLATE",
+  "Version": 0,
+  "LastModified": "05/05/2026",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

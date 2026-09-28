@@ -1,0 +1,56 @@
+{
+  "Identifier": "8ae14e1a-7b98-4e2f-a173-fc7f8ea1acf1",
+  "Name": "QUALITYCONTROL",
+  "Description": "QUALITYCONTROL\n\nThis is the default (empty) QUALITYCONTROL process.",
+  "Type": "PROCESS",
+  "Version": 1,
+  "LastModified": "27/03/2024",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "QUALITYCONTROL",
+    "ProcessStepMetadata": [
+      {
+        "Name": "Type",
+        "Description": "Type",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "Comment",
+        "Description": "Comment",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "TrackingEntity",
+        "Description": "TrackingEntity",
+        "ProcessIndex": 2,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      }
+    ]
+  },
+  "PostDeployArtifacts": [
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "2debf577-a782-5985-9dd8-7906edc4e9c8",
+      "ArtifactVersion": 1,
+      "ArtifactName": "QUALITYCONTROL_Comment"
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

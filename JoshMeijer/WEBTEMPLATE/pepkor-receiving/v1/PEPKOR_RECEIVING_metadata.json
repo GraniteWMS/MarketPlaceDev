@@ -1,0 +1,13 @@
+{
+  "Identifier": "9a608b4d-f347-5e7e-a75f-98eb3888e90f",
+  "Name": "PEPKOR_RECEIVING",
+  "Description": "WebTemplate for process template PEPKOR_RECEIVING",
+  "Type": "WEBTEMPLATE",
+  "Version": 1,
+  "LastModified": "13/05/2026",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

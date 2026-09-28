@@ -1,0 +1,49 @@
+{
+  "Name": "TRANSFERPOST",
+  "Description": "TRANSFER Check and Post to SAGE",
+  "Type": "TRANSFERPOST",
+  "IsActive": true,
+  "IntegrationIsActive": true,
+  "IntegrationPost": true,
+  "Steps": [
+    {
+      "Name": "Document",
+      "Description": "Document",
+      "ProcessIndex": 0,
+      "NextIndex": 1,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "WebTemplateArtifact": "84b3eda0-5cf5-5835-b77a-9020ba3667d3"
+    },
+    {
+      "Name": "Confirmation",
+      "Description": "Confirm details to Post",
+      "ProcessIndex": 1,
+      "NextIndex": 2,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "WebTemplateArtifact": "5a0bbe05-3755-5e4c-9348-b22b54a3d63e"
+    },
+    {
+      "Name": "Comment",
+      "Description": "Driver, truck or courier waybill",
+      "ProcessIndex": 2,
+      "NextIndex": 0,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false
+    },
+    {
+      "Name": "Step200",
+      "Description": "Print Shipment Delivery Report",
+      "ProcessIndex": 200,
+      "NextIndex": 200,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "PrescriptTransferPostStep200"
+    }
+  ]
+}

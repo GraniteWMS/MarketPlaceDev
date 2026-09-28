@@ -1,0 +1,1 @@
+{{ "SELECT DISTINCT DocumentNumber FROM WebTemplate_UnmanufactureTransaction_TransactionID ORDER BY DocumentNumber DESC" | dbSelect({}) | basicTable({selectOnColumn:"DocumentNumber", enableSearch:true}) }}

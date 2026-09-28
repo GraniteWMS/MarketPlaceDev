@@ -1,0 +1,90 @@
+{
+  "Identifier": "adb7471c-e0b0-4c5d-b0c4-1894c62bb077",
+  "Name": "RECEIVINGPOST",
+  "Description": "Receiving Post to SAGE\n\nReceiving post with confirmation step",
+  "Type": "PROCESS",
+  "Version": 0,
+  "LastModified": "24/06/2026",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "560b3826-f068-509d-b336-b982e8ba5d63",
+      "ArtifactVersion": 1,
+      "ArtifactName": "WebTemplate_POtoPOST"
+    },
+    {
+      "ArtifactType": "SQL_STORED_PROCEDURE",
+      "ArtifactIdentifier": "735b5624-99c7-5434-adba-addf089835c8",
+      "ArtifactVersion": 1,
+      "ArtifactName": "WebTemplate_PurchaseOrderPostDetail"
+    },
+    {
+      "ArtifactType": "USER_TABLE",
+      "ArtifactIdentifier": "418925a2-b91c-55cf-b2b8-72f0a8edbe96",
+      "ArtifactVersion": 1,
+      "ArtifactName": "custom_DocumentTrackingLog"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "77f4fccb-959b-5e02-a6dd-fddea621ae05",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PrescriptReceivingPostStep200"
+    }
+  ],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "RECEIVINGPOST",
+    "ProcessStepMetadata": [
+      {
+        "Name": "Document",
+        "Description": "Document",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "DefaultValue": "",
+        "PreScript": "",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Confirmation",
+        "Description": "Confirm the Details to Post",
+        "ProcessIndex": 1,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "DefaultValue": "",
+        "PreScript": "",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Step200",
+        "Description": "Insert Confirm Label to Print in Receiving",
+        "ProcessIndex": 200,
+        "NextIndex": 200,
+        "isActive": true,
+        "Required": true,
+        "DefaultValue": "",
+        "PreScript": "PrescriptReceivingPostStep200",
+        "hasWebTemplate": true
+      }
+    ]
+  },
+  "PostDeployArtifacts": [
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "2cd512d8-f849-5354-9b5d-7ef704ae2391",
+      "ArtifactVersion": 1,
+      "ArtifactName": "RECEIVINGPOST_Document"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "7d3b36ac-0c07-53bf-b24c-ff3218bef913",
+      "ArtifactVersion": 1,
+      "ArtifactName": "RECEIVINGPOST_Confirmation"
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

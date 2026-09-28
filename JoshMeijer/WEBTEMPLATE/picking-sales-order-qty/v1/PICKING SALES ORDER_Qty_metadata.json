@@ -1,0 +1,19 @@
+{
+  "Identifier": "74203985-b7c6-5250-8a0b-375204331eb7",
+  "Name": "PICKING SALES ORDER_Qty",
+  "Description": "WebTemplate for process template PICKING SALES ORDER / step Qty",
+  "Type": "WEBTEMPLATE",
+  "Version": 1,
+  "LastModified": "29/01/2025",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "b79a9cd0-fcce-5150-b31b-e6fdf3be6f3b",
+      "ArtifactVersion": 1
+    }
+  ],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

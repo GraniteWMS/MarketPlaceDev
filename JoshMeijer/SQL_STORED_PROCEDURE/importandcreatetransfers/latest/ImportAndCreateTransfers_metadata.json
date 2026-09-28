@@ -1,0 +1,10 @@
+{
+  "Identifier": "54fecef4-b406-50ff-8a1a-448d06c78d37",
+  "Name": "ImportAndCreateTransfers",
+  "Description": "",
+  "Type": "SQL_STORED_PROCEDURE",
+  "Version": 0,
+  "LastModified": "09/10/2025",
+  "Tags": [],
+  "ArtifactDependencies": []
+}

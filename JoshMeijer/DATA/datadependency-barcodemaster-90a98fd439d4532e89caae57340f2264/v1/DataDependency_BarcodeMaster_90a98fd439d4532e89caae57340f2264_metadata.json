@@ -1,0 +1,17 @@
+{
+  "Identifier": "90a98fd4-39d4-532e-89ca-ae57340f2264",
+  "Name": "DataDependency_BarcodeMaster_90a98fd439d4532e89caae57340f2264",
+  "Description": "",
+  "Type": "DATA",
+  "Version": 1,
+  "LastModified": "09/02/2026",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "TypeSpecificAttributes": {
+    "Table": "dbo.BarcodeMaster",
+    "KeyColumn": "Name",
+    "KeyValues": [
+      "LOOSE"
+    ]
+  }
+}

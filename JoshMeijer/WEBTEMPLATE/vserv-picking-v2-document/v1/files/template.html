@@ -1,0 +1,5 @@
+{{ "SELECT DocumentNumber, [User], RouteName, Customer,  CreateDate 
+FROM WebTemplate_Picking_Document 
+WHERE OrderType = @Queue ORDER BY SeqNumber, CreateDate ASC"
+| dbSelect({Queue}) 
+| basicTable({selectOnColumn:"DocumentNumber", enableSearch:true}) }}

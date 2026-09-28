@@ -1,0 +1,19 @@
+{
+  "Identifier": "9b9fc0ff-9c55-5206-877d-b657738f73bd",
+  "Name": "RECEIVE RETURN_Document",
+  "Description": "WebTemplate for process template RECEIVE RETURN / step Document",
+  "Type": "WEBTEMPLATE",
+  "Version": 1,
+  "LastModified": "18/03/2025",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "27fc972e-a958-511f-a3a4-5890dd89c117",
+      "ArtifactVersion": 1
+    }
+  ],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

@@ -1,0 +1,132 @@
+{
+  "Identifier": "a211487f-2057-4780-8f5a-6cb2533a461a",
+  "Name": "BUCKY_BIG_PICKING",
+  "Description": "BUCKY_BIG_PICKING\n\nIf you need to group a bunch of SOs together to pick them as if they were a single document, then this is for you.\n\nThe documents need to be linked together somehow by a shared value. In this case I use the RouteName field but you can use anything, just remember to change the scripts and views.",
+  "Type": "PROCESS",
+  "Version": 1,
+  "LastModified": "02/02/2026",
+  "Tags": [
+    "Electronics",
+    "Construction",
+    "E-commerce",
+    "Logistics",
+    "Pharmaceutical",
+    "Cold Storage",
+    "Manufacturing",
+    "Retail",
+    "Agricultural",
+    "Automotive",
+    "Textile"
+  ],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "c74c1208-02f1-5a04-8752-89bd555649b7",
+      "ArtifactVersion": 1,
+      "ArtifactName": "WebTemplate_BigPicking_LinkReference"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "41bf766b-1487-57c9-9246-b70ac410e94c",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_BigPicking_LinkReference"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "34b3160e-da12-5f09-bf53-f93f19b1ef41",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_BigPicking_PickLocation"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "3e385f59-f133-5010-9134-96456b3dd6be",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_BigPicking_Qty"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "8d8e2854-0394-570a-a211-5f094e5b3efb",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_BigPicking_Step200"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "07cb3307-7edd-5ed3-8366-036673ba667e",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_BigPicking_TrackingEntity"
+    }
+  ],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "CUSTOM",
+    "ProcessStepMetadata": [
+      {
+        "Name": "Document",
+        "Description": "Enter Reference That Links Documents",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_BigPicking_LinkReference",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "PickLocation",
+        "Description": "Enter Picking Location",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_BigPicking_PickLocation",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Qty",
+        "Description": "Enter Quantity to Pick",
+        "ProcessIndex": 3,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_BigPicking_Qty",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Step200",
+        "Description": "CLR Picks Against All Documents",
+        "ProcessIndex": 200,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_BigPicking_Step200",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "TrackingEntity",
+        "Description": "Scan Tracking Entity Barcode",
+        "ProcessIndex": 2,
+        "NextIndex": 3,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_BigPicking_TrackingEntity",
+        "hasWebTemplate": true
+      }
+    ]
+  },
+  "PostDeployArtifacts": [
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "67d97797-4d82-5d6e-86e5-de6f1af160f7",
+      "ArtifactVersion": 1,
+      "ArtifactName": "BUCKY_BIG_PICKING"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "42616677-34ee-51c9-9848-b2608c4cabab",
+      "ArtifactVersion": 1,
+      "ArtifactName": "BUCKY_BIG_PICKING_Document"
+    }
+  ],
+  "DependsOnClr": true,
+  "SqlClrAssemblyVersion": "7.0.0.0",
+  "Deprecated": false
+}

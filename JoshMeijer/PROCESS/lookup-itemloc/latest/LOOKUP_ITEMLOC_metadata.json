@@ -1,0 +1,72 @@
+{
+  "Identifier": "b4348d3e-3f2d-4fe3-971e-bbba639085df",
+  "Name": "LOOKUP_ITEMLOC",
+  "Description": "Lookup by Location or Item\n\nThis is a really nice clean lookup that allows scanning or entering a location or an Item.   \nIt then displays a grid of Location.Category as Zone, Bin, Item, Desc, Qty\n\nThe process has a webtemplate and the webtemplate calls a Stored Procedure GetLookupDataSimple.\nThe stored procedure has some special handling of Alias (Which you may need to customize).  \nThe handling does some trimming of checkdigits and alternate modifications of the barcode scanned to get the MasterItem code.",
+  "Type": "PROCESS",
+  "Version": 0,
+  "LastModified": "07/05/2026",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "b17b7992-f039-532a-8ad8-d0b90c4890b4",
+      "ArtifactVersion": 1,
+      "ArtifactName": "MasterItemAlias_View"
+    },
+    {
+      "ArtifactType": "SQL_STORED_PROCEDURE",
+      "ArtifactIdentifier": "a26eea34-ca14-5888-acbd-b5d85bdf0234",
+      "ArtifactVersion": 1,
+      "ArtifactName": "GetLookupDataSimple"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "6fdedd74-5b56-5412-b932-0c2523c423c5",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PrescriptLookupScanned"
+    }
+  ],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "CUSTOM",
+    "ProcessStepMetadata": [
+      {
+        "Name": "Result",
+        "Description": "Press Enter to Restart",
+        "ProcessIndex": 1,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": false,
+        "DefaultValue": "",
+        "PreScript": "",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Scanned",
+        "Description": "Scan a Barcode (Location, Item, SKU)",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "PrescriptLookupScanned",
+        "hasWebTemplate": true
+      }
+    ]
+  },
+  "PostDeployArtifacts": [
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "67af14fa-86b3-5613-9e50-828c38049cd2",
+      "ArtifactVersion": 1,
+      "ArtifactName": "LOOKUP_ITEMLOC"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "48531c99-e799-5cb6-815f-eea1b1756801",
+      "ArtifactVersion": 1,
+      "ArtifactName": "LOOKUP_ITEMLOC_Result"
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

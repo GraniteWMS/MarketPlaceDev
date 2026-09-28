@@ -1,0 +1,51 @@
+{
+  "Name": "ASSIGN_PICKER_DETAIL",
+  "Description": "ASSIGN PICKER TO DOCUMENT LINE",
+  "Type": "CUSTOM",
+  "IsActive": true,
+  "IntegrationIsActive": false,
+  "IntegrationPost": false,
+  "WebTemplateArtifact": "2c0c5cc4-eb2a-5a51-8126-22323d7f2854",
+  "Steps": [
+    {
+      "Name": "Type",
+      "Description": "Type",
+      "ProcessIndex": 0,
+      "NextIndex": 1,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "PrescriptAssignPickerDetailType",
+      "WebTemplateArtifact": "b75a72e7-72cc-5da8-9cf8-7900d42bc087"
+    },
+    {
+      "Name": "Document",
+      "Description": "Document",
+      "ProcessIndex": 1,
+      "NextIndex": 2,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "PrescriptAssignPickerDetailDocument"
+    },
+    {
+      "Name": "PickerName",
+      "Description": "Picker",
+      "ProcessIndex": 2,
+      "NextIndex": 3,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false
+    },
+    {
+      "Name": "Line",
+      "Description": "Select Document Line",
+      "ProcessIndex": 3,
+      "NextIndex": 3,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "PrescriptAssignPickerDetailLine"
+    }
+  ]
+}

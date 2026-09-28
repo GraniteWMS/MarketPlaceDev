@@ -1,0 +1,225 @@
+{{#if Document}}
+    {{#if MasterItem}}
+        {{
+            "SELECT LineNumber, MasterItem.Code as ItemCode, MasterItem.Description as ItemDescription, ISNULL(PackedQty, 0) PackedQty, ISNULL(ActionQty, 0) ActionQty,
+            DocumentDetail.UOM, FromLocation, IntransitLocation, ToLocation, 
+            Comment, Instruction, DocumentDetail.SerialNumber, DocumentDetail.Batch, DocumentDetail.ExpiryDate
+            FROM Document INNER JOIN
+            DocumentDetail ON Document.ID = DocumentDetail.Document_id INNER JOIN
+            MasterItem ON DocumentDetail.Item_id = MasterItem.ID LEFT JOIN
+            MasterItemAlias_View ON MasterItem.ID = MasterItemAlias_View.MasterItem_id LEFT JOIN
+            TrackingEntity ON Item_id = TrackingEntity.MasterItem_id
+            WHERE Document.Number = @Document AND 
+            (MasterItem.Code = @MasterItem OR 
+            MasterItem.FormattedCode = @MasterItem OR 
+            MasterItemAlias_View.Code = @MasterItem OR 
+            TrackingEntity.Barcode = @MasterItem)"
+            | dbSelect({Document, MasterItem})
+            | to => documentDetails
+        }}
+    {{else}}
+        {{
+            "SELECT LineNumber, Code as ItemCode, MasterItem.Description as ItemDescription, ISNULL(PackedQty, 0) PackedQty, ISNULL(ActionQty, 0) ActionQty,
+            DocumentDetail.UOM, FromLocation, IntransitLocation, ToLocation, 
+            Comment, Instruction, SerialNumber, Batch, ExpiryDate
+            FROM Document INNER JOIN
+            DocumentDetail ON Document.ID = DocumentDetail.Document_id INNER JOIN
+            MasterItem ON DocumentDetail.Item_id = MasterItem.ID
+            WHERE Document.Number = @Document"
+            | dbSelect({Document})
+            | to => documentDetails
+        }}
+    {{/if}}
+    {{#if documentDetails.Count > 0}}
+    <ul id="document-lines-list" class="list-group" style="padding: 0 !important;margin: 0 !important;">
+        {{#each documentDetail in documentDetails}}
+            {{#if documentDetail.PackedQty >= documentDetail.ActionQty}}
+                <li class="list-group-item completed" style="position:inherit;padding: 0 !important;margin: 0 !important;">
+            {{else}}
+                <li class="list-group-item" style="position:inherit;padding: 0 !important;margin: 0 !important;">
+            {{/if}}
+                <span class="packed-qty" style="display: none;">{{documentDetail.PackedQty}}</span>
+                <span class="action-qty" style="display: none;">{{documentDetail.ActionQty}}</span>
+                    <div class="d-flex justify-content-between">
+                        <h6 class="mb-1"><p style="font-weight:300;display:inline">({{documentDetail.LineNumber}})</p>{{documentDetail.ItemCode}}</h6>
+                        <div class="progress" style="height: inherit;width:110px;float:right;{{#if documentDetail.ActionQty == documentDetail.PackedQty}}background-color:#008CC9;{{/if}}">
+                            <div class="progress-bar" role="progressbar" style="font-size: medium;text-align:start; overflow: visible;width:100%;background-color: whitesmoke;color: black;">
+                                {{documentDetail.PackedQty}}-{{documentDetail.ActionQty}}
+                            </div>
+                        </div>
+                    </div>
+                    <small class="list-group-item-text" style="-ms-word-wrap: break-word; word-wrap: break-word;">{{documentDetail.ItemDescription}}</small>
+                    <span style="float:right;position:inherit;width:110px;border-radius:8px;">{{documentDetail.UOM}}</span>
+
+                    {{#if documentDetail.FromLocation}}
+                    <header class="list-group-item-text nopadding">
+                        <p style="font-weight:100; display:inline">From Location</p>
+                        <p style="font-weight:600; display:inline; word-wrap: break-word;">{{documentDetail.FromLocation}}</p>
+                    </header>
+                    {{/if}}
+
+                    {{#if documentDetail.IntransitLocation}}
+                    <header class="list-group-item-text nopadding">
+                        <p style="font-weight:100; display:inline">Transit Location</p>
+                        <p style="font-weight:600; display:inline; word-wrap: break-word;">{{documentDetail.IntransitLocation}}</p>
+                    </header>
+                    {{/if}}
+
+                    {{#if documentDetail.ToLocation}}
+                    <header class="list-group-item-text nopadding">
+                        <p style="font-weight:100; display:inline">To Location</p>
+                        <p style="font-weight:600; display:inline; word-wrap: break-word;">{{documentDetail.ToLocation}}</p>
+                    </header>
+                    {{/if}}
+
+                    {{#if documentDetail.Comment}}
+                    <header class="list-group-item-text nopadding">
+                        <p style="font-weight:100; display:inline">Comment </p>
+                        <p style="font-weight:600; font-style:italic;display:inline;word-wrap: break-word;">{{documentDetail.Comment}}</p>
+                    </header>
+                    {{/if}}
+
+                    {{#if documentDetail.SerialNumber}}
+                    <header class="list-group-item-text nopadding">
+                        <p style="display:inline">Serial </p>
+                        <p style="display:inline">{{documentDetail.SerialNumber}}</p>
+                    </header>
+                    {{/if}}
+
+                    {{#if documentDetail.Batch}}
+                    <header class="list-group-item-text nopadding">
+                        <p style="display:inline">Batch </p>
+                        <p style="display:inline">{{documentDetail.Batch}}</p>
+                    </header>
+                    {{/if}}
+
+                    {{#if documentDetail.ExpiryDate}}
+                    <header class="list-group-item-text nopadding">
+                        <p style="display:inline">Expiry </p>
+                        <p style="display:inline">{{documentDetail.ExpiryDate}}</p>
+                    </header>
+                    {{/if}}
+                </li>
+            {{/each}}
+        </ul>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <a class="btn btn-sm btn-outline-primary" href="#" onclick="prevPage();">Previous</a>
+                </div>
+                <div class=" col d-flex justify-content-center">
+                    <a class="btn btn-sm btn-outline-primary" style="float:right;position:relative;margin: 0 auto;" href="#" onclick="toggleShowCompleted();">Completed Show/Hide</a>
+                </div>
+                <div class="col">
+                    <a class="btn btn-sm btn-outline-primary" style="float: right;" href="#" onclick="nextPage();">Next</a>
+                </div>
+            </div>
+        </div>
+        <style>
+            .notOnPage {
+                display: none;
+            }
+            .completed {
+                display: none;
+            }
+        </style>
+
+        <span id="current-page" style="display: none;">1</span>
+        <span id="show-completed" style="display: none;">false</span>
+        <script>    
+            function getListItems() {
+                return document.querySelectorAll("#document-lines-list li");
+            }
+
+            function getTotalPages() {
+                var itemsPerPage = getItemsPerPage();
+                return Math.ceil(getListItems().length / itemsPerPage);
+            }
+
+            function getItemsPerPage() {
+                return 5;
+            }
+
+            function getCurrentPage() {
+                var result = document.querySelector("#current-page").textContent;
+                return parseInt(result);
+            }
+            function setCurrentPage(page) {
+                document.querySelector("#current-page").textContent = page;
+            }
+
+            function getShowCompleted() {
+                var result = document.querySelector("#show-completed").textContent === "true";
+                return result;
+            }   
+
+            function setShowCompleted(show) {            
+                document.querySelector("#show-completed").textContent = show;
+            }
+
+            function showPage(page) {
+                var completeLines = 0;
+                const listItems = getListItems();
+                const itemsPerPage = getItemsPerPage();
+
+                listItems.forEach((item, index) => {
+                    item.classList.add("notOnPage");
+
+                    if (item.classList.contains("completed")) {
+                        completeLines++;
+                        return;
+                    }
+
+                    if (index - completeLines >= (page - 1) * itemsPerPage && index - completeLines < page * itemsPerPage) {
+                        item.classList.remove("notOnPage");
+                    }
+                });
+            }
+
+            function toggleShowCompleted() {
+                var showCompleted = getShowCompleted();
+                showCompleted = !showCompleted;
+                setShowCompleted(showCompleted);
+
+                const listItems = getListItems();
+
+                listItems.forEach((item) => {
+                    const actionQty = parseFloat(item.querySelector(".packed-qty").textContent);
+                    const qty = parseFloat(item.querySelector(".action-qty").textContent);
+            
+                    if (showCompleted && actionQty >= qty) {
+                        item.classList.remove("completed");
+                    } else if (!showCompleted && actionQty >= qty) {
+                        item.classList.add("completed");
+                    }
+                });
+
+                const currentPage = getCurrentPage();
+                showPage(currentPage);
+            }
+
+            function nextPage() {
+                var currentPage = getCurrentPage();
+                var totalPages = getTotalPages();
+
+                if (currentPage < totalPages) {
+                    currentPage++;
+                    setCurrentPage(currentPage);
+                    showPage(currentPage);
+                }
+            }
+
+            function prevPage() {
+                var currentPage = getCurrentPage();
+
+                if (currentPage > 1) {
+                    currentPage--;
+                    setCurrentPage(currentPage);
+                    showPage(currentPage);
+                }
+            }
+
+            showPage(1);
+        </script>
+    {{/if}}         
+{{/if}}

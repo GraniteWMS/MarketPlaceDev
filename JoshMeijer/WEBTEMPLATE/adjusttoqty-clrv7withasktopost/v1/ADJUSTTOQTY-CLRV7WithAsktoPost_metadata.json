@@ -1,0 +1,13 @@
+{
+  "Identifier": "c8b7da70-9e24-58cb-8225-f8c79c1a8540",
+  "Name": "ADJUSTTOQTY-CLRV7WithAsktoPost",
+  "Description": "WebTemplate for process template ADJUSTTOQTY-CLRV7WithAsktoPost",
+  "Type": "WEBTEMPLATE",
+  "Version": 1,
+  "LastModified": "30/07/2026",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

@@ -1,0 +1,72 @@
+{
+  "Identifier": "50eb2805-db10-43bf-a4e9-e1a5845830f9",
+  "Name": "PICKING_EVOLUTION_RESERVERED_QTY_CHECK",
+  "Description": "Checks reserved quantity in Evolution before allowing pick\n\nSome clients reserve quantities for items Evolution. These quantities can be reserved for specific documents and the client will not want users to be able to pick against other documents that would dip into this quantity. Only if the quantity is reserved for the document being picked is it allowed.\n\nThey prescript makes use of 2 custom views that point to the Evolution database. The script does the following:\n-Checks if there is a reserved qty in Evolution for the item being picked.\n-Checks if the qty entered on the step would dip into this reserved qty if the document were posted.\n-If it would, it then checks if the qty is reserved in Evolution for the document being picked in Granite.\n-If it is, the pick is allowed, else it stops the user with a clear error message.",
+  "Type": "PROCESS",
+  "Version": 0,
+  "LastModified": "30/07/2024",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "81c4416b-18ba-5e65-8b7d-7ed1bf62cc99",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_Picking_Qty"
+    },
+    {
+      "ArtifactType": "PRE_DEPLOY_SCRIPT",
+      "ArtifactIdentifier": "7fa36ce8-fe15-5fd8-a7ea-cbc69af20da7",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PreDeployScript"
+    }
+  ],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "PICKING",
+    "ProcessStepMetadata": [
+      {
+        "Name": "Document",
+        "Description": "Document",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "Location",
+        "Description": "Location",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "TrackingEntity",
+        "Description": "TrackingEntity",
+        "ProcessIndex": 2,
+        "NextIndex": 3,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "Qty",
+        "Description": "Qty",
+        "ProcessIndex": 3,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_Picking_Qty",
+        "hasWebTemplate": true
+      }
+    ]
+  },
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

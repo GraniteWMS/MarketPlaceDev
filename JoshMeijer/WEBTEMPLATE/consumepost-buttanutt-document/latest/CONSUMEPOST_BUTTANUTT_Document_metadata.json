@@ -1,0 +1,19 @@
+{
+  "Identifier": "3073e134-4827-570d-9404-7b3c2a867110",
+  "Name": "CONSUMEPOST_BUTTANUTT_Document",
+  "Description": "WebTemplate for process template CONSUMEPOST_BUTTANUTT / step Document",
+  "Type": "WEBTEMPLATE",
+  "Version": 0,
+  "LastModified": "21/03/2026",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "c23b5fff-a76e-58f7-9b38-15938dc0bcd1",
+      "ArtifactVersion": 1
+    }
+  ],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

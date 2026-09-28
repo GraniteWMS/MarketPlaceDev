@@ -1,0 +1,13 @@
+{
+  "Identifier": "8f14b462-6dfa-5491-aea3-6bc117445191",
+  "Name": "BUTTANUTT_CONSUME",
+  "Description": "WebTemplate for process template BUTTANUTT_CONSUME",
+  "Type": "WEBTEMPLATE",
+  "Version": 1,
+  "LastModified": "24/02/2026",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

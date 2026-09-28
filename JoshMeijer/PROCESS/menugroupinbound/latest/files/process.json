@@ -1,0 +1,9 @@
+{
+  "Name": "MenuGroupINBOUND",
+  "Description": "---------INBOUND----------",
+  "Type": "CUSTOM",
+  "IsActive": true,
+  "IntegrationIsActive": false,
+  "IntegrationPost": false,
+  "Steps": []
+}

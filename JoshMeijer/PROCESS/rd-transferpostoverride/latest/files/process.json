@@ -1,0 +1,30 @@
+{
+  "Name": "RD_TRANSFERPOSTOVERRIDE",
+  "Description": "Retail Distribution (Override Completeness rule)",
+  "Type": "TRANSFERPOST",
+  "IsActive": true,
+  "IntegrationIsActive": true,
+  "IntegrationPost": false,
+  "Steps": [
+    {
+      "Name": "Document",
+      "Description": "Document",
+      "ProcessIndex": 0,
+      "NextIndex": 1,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "WebTemplateArtifact": "20a0594a-dd58-50b3-abdd-7316982936ba"
+    },
+    {
+      "Name": "Confirmation",
+      "Description": "Confirmation",
+      "ProcessIndex": 1,
+      "NextIndex": 0,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "WebTemplateArtifact": "4c37bb1c-58cf-58f4-9b12-e3eb29855919"
+    }
+  ]
+}

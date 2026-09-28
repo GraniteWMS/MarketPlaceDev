@@ -1,0 +1,13 @@
+{
+  "Identifier": "d233bd96-8a62-514e-955d-eb0c2a591eb1",
+  "Name": "ACUMATICAPACK_Qty",
+  "Description": "WebTemplate for process template ACUMATICAPACK / step Qty",
+  "Type": "WEBTEMPLATE",
+  "Version": 1,
+  "LastModified": "01/06/2026",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

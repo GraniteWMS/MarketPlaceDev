@@ -1,0 +1,40 @@
+{
+  "Name": "LOAD_TRUCK",
+  "Description": "LOAD TRUCK",
+  "Type": "MOVE",
+  "IsActive": true,
+  "IntegrationIsActive": false,
+  "IntegrationPost": false,
+  "Steps": [
+    {
+      "Name": "Location",
+      "Description": "To Location",
+      "ProcessIndex": 0,
+      "NextIndex": 1,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "WebTemplateArtifact": "13afbb87-2bec-5c64-9a58-32c7c35b7749"
+    },
+    {
+      "Name": "TrackingEntity",
+      "Description": "Scan Parcel Barcode",
+      "ProcessIndex": 1,
+      "NextIndex": 1,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "PrescriptLoadTruckTrackingEntity"
+    },
+    {
+      "Name": "Step200",
+      "Description": "Update TE InStock=0",
+      "ProcessIndex": 200,
+      "NextIndex": 200,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "PrescriptLoadTruckStep200"
+    }
+  ]
+}

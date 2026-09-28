@@ -1,0 +1,84 @@
+{
+  "Identifier": "cac0b6f4-5c41-40a1-9582-720538cf345d",
+  "Name": "VSERV_REPLENISH_ETHICAL_BOX",
+  "Description": "VSERV_REPLENISH_ETHICAL_BOX\n\nAllows you to replenish from one carrying entity to another.",
+  "Type": "PROCESS",
+  "Version": 1,
+  "LastModified": "26/06/2026",
+  "Tags": [
+    "Manufacturing",
+    "Retail",
+    "Automotive",
+    "Agricultural",
+    "Electronics",
+    "Textile",
+    "Construction",
+    "E-commerce",
+    "Logistics",
+    "Pharmaceutical",
+    "Cold Storage"
+  ],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "bad66c18-aedc-5dd5-af4c-f449a2de1ece",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_ReplenishEthicalBox_FromTrackingEntity"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "aa1e16c9-ed57-5ebd-94ae-75b0ea6e65fa",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_ReplenishEthicalBox_ToTrackingEntity"
+    }
+  ],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "REPLENISH",
+    "ProcessStepMetadata": [
+      {
+        "Name": "FromTrackingEntity",
+        "Description": "Scan Ethical (ETHL) Box",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_ReplenishEthicalBox_FromTrackingEntity",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Location",
+        "Description": "To Location",
+        "ProcessIndex": 100,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "ToTrackingEntity",
+        "Description": "Which Box Is The Stock Going To?",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_ReplenishEthicalBox_ToTrackingEntity",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Qty",
+        "Description": "Qty to Replenish",
+        "ProcessIndex": 2,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      }
+    ]
+  },
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

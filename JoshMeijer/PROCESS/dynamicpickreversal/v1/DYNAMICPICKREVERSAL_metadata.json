@@ -1,0 +1,72 @@
+{
+  "Identifier": "b4dc8232-015a-4495-9fda-7a2baa4e6c57",
+  "Name": "DYNAMICPICKREVERSAL",
+  "Description": "Dynamic Pick Reversal\n\nScanner based Dynamic Pick Reversal - Deletes the line off the Document and Returns pick to Stock using the original picked TrackingEntity.\n\nOn the original Pick Transaction it sets DocumentLineID to NULL to allow the deletion of the line, but the original pick and pick reversal transactions are maintained.",
+  "Type": "PROCESS",
+  "Version": 1,
+  "LastModified": "31/07/2025",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "be9cd482-4cb0-5db0-96ad-b5518aad4830",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PrescriptDynamicReversalDocument"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "06e3f857-03c8-5dac-808a-9c55838ac193",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PrescriptDynamicReversalConfirmation"
+    }
+  ],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "CUSTOM",
+    "ProcessStepMetadata": [
+      {
+        "Name": "Document",
+        "Description": "Order Number",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "PrescriptDynamicReversalDocument",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Comment",
+        "Description": "Comment",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "TrackingEntity",
+        "Description": "Tracking Entity",
+        "ProcessIndex": 2,
+        "NextIndex": 3,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "Confirmation",
+        "Description": "Confirmation",
+        "ProcessIndex": 3,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "PrescriptDynamicReversalConfirmation",
+        "hasWebTemplate": true
+      }
+    ]
+  },
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

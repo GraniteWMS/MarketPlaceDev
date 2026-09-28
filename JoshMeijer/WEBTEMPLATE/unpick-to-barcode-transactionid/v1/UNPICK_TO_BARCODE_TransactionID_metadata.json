@@ -1,0 +1,19 @@
+{
+  "Identifier": "1b6ca9ae-a669-50f7-9136-969977888e62",
+  "Name": "UNPICK_TO_BARCODE_TransactionID",
+  "Description": "WebTemplate for process template UNPICK_TO_BARCODE / step TransactionID",
+  "Type": "WEBTEMPLATE",
+  "Version": 1,
+  "LastModified": "17/02/2026",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "a2d8d189-25b5-5cf3-87a5-a9927b536265",
+      "ArtifactVersion": 1
+    }
+  ],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

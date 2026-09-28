@@ -1,0 +1,32 @@
+{
+  "Name": "COMPLET_TASK",
+  "Description": "COMPLET_TASK",
+  "Type": "CUSTOM",
+  "IsActive": true,
+  "IntegrationIsActive": false,
+  "IntegrationPost": false,
+  "Steps": [
+    {
+      "Name": "TaskName",
+      "Description": "Task Name",
+      "ProcessIndex": 0,
+      "NextIndex": 1,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "PrescriptCompleteTasksTaskName",
+      "WebTemplateArtifact": "3b79441b-2584-598f-87ef-e05cb5c243d1"
+    },
+    {
+      "Name": "Confirmation",
+      "Description": "Confirm",
+      "ProcessIndex": 1,
+      "NextIndex": 0,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "PrescriptCompleteTasksConfirmation",
+      "WebTemplateArtifact": "97b4a4e0-33ce-5160-be96-04fee8a02484"
+    }
+  ]
+}

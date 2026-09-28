@@ -1,0 +1,19 @@
+{
+  "Identifier": "ac56a133-8bb0-5d7b-ae9c-e4a772ca5a3c",
+  "Name": "GENERATE_LOAD_SHEET_LoadSheet",
+  "Description": "WebTemplate for process template GENERATE_LOAD_SHEET / step LoadSheet",
+  "Type": "WEBTEMPLATE",
+  "Version": 0,
+  "LastModified": "07/08/2024",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "7538c720-5cac-560b-ac2c-173ffeb5c7b5",
+      "ArtifactVersion": 1
+    }
+  ],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

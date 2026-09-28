@@ -1,0 +1,10 @@
+{
+  "Identifier": "b758e4c3-3b1b-578d-b269-91682146909d",
+  "Name": "Prescript_Receive_EANBarcode",
+  "Description": "",
+  "Type": "PRESCRIPT",
+  "Version": 0,
+  "LastModified": "20/05/2026",
+  "Tags": [],
+  "ArtifactDependencies": []
+}

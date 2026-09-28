@@ -1,0 +1,13 @@
+{
+  "Identifier": "09c77809-cdc6-567d-9b54-8be6686b1c97",
+  "Name": "BLINDRECEIVING",
+  "Description": "WebTemplate for process template BLINDRECEIVING",
+  "Type": "WEBTEMPLATE",
+  "Version": 0,
+  "LastModified": "18/11/2024",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

@@ -1,0 +1,13 @@
+{
+  "Identifier": "de779f7f-28df-52a6-9316-b67090ab6b1c",
+  "Name": "3PL_RECEIVING_Qty",
+  "Description": "WebTemplate for process template 3PL_RECEIVING / step Qty",
+  "Type": "WEBTEMPLATE",
+  "Version": 0,
+  "LastModified": "04/08/2025",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

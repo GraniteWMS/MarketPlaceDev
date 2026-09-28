@@ -1,0 +1,13 @@
+{
+  "Identifier": "1cd6d743-8562-5dac-a6c2-b060a8593144",
+  "Name": "VSERV_PICKING_V2",
+  "Description": "WebTemplate for process template VSERV_PICKING_V2",
+  "Type": "WEBTEMPLATE",
+  "Version": 0,
+  "LastModified": "12/05/2026",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

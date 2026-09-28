@@ -1,0 +1,13 @@
+{
+  "Identifier": "4c7c7b19-00be-5dc0-b664-df48485423eb",
+  "Name": "TAKEONITEMSEARCHLOC_NoEntities",
+  "Description": "WebTemplate for process template TAKEONITEMSEARCHLOC / step NoEntities",
+  "Type": "WEBTEMPLATE",
+  "Version": 0,
+  "LastModified": "30/05/2026",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

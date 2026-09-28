@@ -1,0 +1,52 @@
+{
+  "Identifier": "a32b40f9-f44c-4f08-8dc0-6aaff922ab53",
+  "Name": "VSERV_MOVE_ETHICAL_BOX",
+  "Description": "VSERV_MOVE_ETHICAL_BOX\n\nMoves a carrying entity to a different location",
+  "Type": "PROCESS",
+  "Version": 0,
+  "LastModified": "12/06/2026",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "e3fd83c8-4464-5ad2-8a02-9a5acc72f8e7",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_MoveEthicalBox_TrackingEntity"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "5ff33153-52b1-5407-a767-a20aef65dfab",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_MoveEthicalBox_Location"
+    }
+  ],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "MOVE",
+    "ProcessStepMetadata": [
+      {
+        "Name": "TrackingEntity",
+        "Description": "Scan Ethical (ETHL) Stock Box",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_MoveEthicalBox_TrackingEntity",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Location",
+        "Description": "Location",
+        "ProcessIndex": 1,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_MoveEthicalBox_Location",
+        "hasWebTemplate": true
+      }
+    ]
+  },
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

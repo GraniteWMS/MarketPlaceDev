@@ -1,0 +1,13 @@
+{
+  "Identifier": "1daa1717-603b-53e5-95cf-1ea393990e53",
+  "Name": "RECEIVE_INGREDIENTS",
+  "Description": "WebTemplate for process template RECEIVE_INGREDIENTS",
+  "Type": "WEBTEMPLATE",
+  "Version": 0,
+  "LastModified": "31/07/2025",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

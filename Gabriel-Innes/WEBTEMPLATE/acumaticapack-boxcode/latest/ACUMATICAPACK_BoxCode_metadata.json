@@ -1,0 +1,13 @@
+{
+  "Identifier": "23a407e4-d9de-5815-a7c6-502ee3a93f43",
+  "Name": "ACUMATICAPACK_BoxCode",
+  "Description": "WebTemplate for process template ACUMATICAPACK / step BoxCode",
+  "Type": "WEBTEMPLATE",
+  "Version": 0,
+  "LastModified": "01/06/2026",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

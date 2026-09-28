@@ -1,0 +1,19 @@
+{
+  "Name": "FUNCTIONEVOEXPORT",
+  "Description": "FUNCTION EVO EXPORT",
+  "Type": "CUSTOM",
+  "IsActive": true,
+  "IntegrationIsActive": false,
+  "IntegrationPost": false,
+  "Steps": [
+    {
+      "Name": "FUNCTIONEVOEXPORT",
+      "Description": "FUNCTIONEVOEXPORT",
+      "ProcessIndex": 0,
+      "NextIndex": 0,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false
+    }
+  ]
+}

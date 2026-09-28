@@ -1,0 +1,16 @@
+{{ "SELECT
+    RIGHT(D.Number, LEN(D.Number)-1) AS Number,
+    D.TradingPartnerDescription,
+    CONVERT(decimal(19,2),
+        (SUM(DD.ActionQty) / NULLIF(SUM(DD.Qty), 0)) * 100.0
+    ) AS PercentageComplete
+FROM Document D WITH (NOLOCK)
+INNER JOIN DocumentDetail DD WITH (NOLOCK)
+    ON D.ID = DD.Document_id
+WHERE D.[Type] = "ORDER" AND D.Number LIKE "S%"
+  AND D.Status NOT IN ("COMPLETE","CANCELLED")
+GROUP BY
+    D.Number,
+    D.TradingPartnerDescription
+HAVING
+    (SUM(DD.ActionQty) / NULLIF(SUM(DD.Qty), 0)) * 100.0 < 100.0" | dbSelect({}) | basicTable({selectOnColumn:"Number", enableSearch:true}) }}

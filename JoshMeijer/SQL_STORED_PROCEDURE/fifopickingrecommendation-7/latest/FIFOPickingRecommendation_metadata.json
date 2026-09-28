@@ -1,0 +1,10 @@
+{
+  "Identifier": "d92fd50c-b2c6-5b47-ac55-8165f9c53d16",
+  "Name": "FIFOPickingRecommendation",
+  "Description": "",
+  "Type": "SQL_STORED_PROCEDURE",
+  "Version": 0,
+  "LastModified": "04/05/2026",
+  "Tags": [],
+  "ArtifactDependencies": []
+}

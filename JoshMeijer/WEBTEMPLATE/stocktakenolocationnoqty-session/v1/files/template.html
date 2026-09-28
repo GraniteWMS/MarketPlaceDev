@@ -1,0 +1,1 @@
+{{ "SELECT top 20 Name, CreateDate FROM StocktakeSession WHERE Active = 1 ORDER BY CreateDate DESC" | dbSelect({}) | basicTable({selectOnColumn:"Name", enableSearch:true}) }}

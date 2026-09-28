@@ -1,0 +1,116 @@
+{
+  "Identifier": "30d1f4fe-3bd0-4931-bf43-0365999abdc1",
+  "Name": "PICKINGFULLORPARTIALTE",
+  "Description": "PICKING FULL OR PARTIAL TE\n\nThis allows the user to select whether they want to pick the full trackingEntity or enter qty based on a config step with a lookup.",
+  "Type": "PROCESS",
+  "Version": 1,
+  "LastModified": "04/09/2026",
+  "Tags": [
+    "Manufacturing",
+    "Retail",
+    "Automotive",
+    "Agricultural",
+    "E-commerce",
+    "Textile",
+    "Electronics",
+    "Construction",
+    "Logistics",
+    "Pharmaceutical",
+    "Cold Storage"
+  ],
+  "ArtifactDependencies": [],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "PICKING",
+    "ProcessStepMetadata": [
+      {
+        "Name": "Document",
+        "Description": "Document",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "DefaultValue": "",
+        "PreScript": "",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Location",
+        "Description": "Location",
+        "ProcessIndex": 100,
+        "NextIndex": 100,
+        "isActive": true,
+        "Required": true,
+        "DefaultValue": "DISPATCH",
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "TrackingEntity",
+        "Description": "TrackingEntity",
+        "ProcessIndex": 2,
+        "NextIndex": 3,
+        "isActive": true,
+        "Required": true,
+        "DefaultValue": "",
+        "PreScript": "",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Qty",
+        "Description": "Qty",
+        "ProcessIndex": 3,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "DefaultValue": "",
+        "PreScript": "",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "PickConfig",
+        "Description": "PickConfig",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      }
+    ]
+  },
+  "PostDeployArtifacts": [
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "b6562ac1-9ad5-51d2-abdf-b63be56a002d",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PICKINGFULLORPARTIALTE"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "d3b95784-7b26-5144-904c-644d8015e593",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PICKINGFULLORPARTIALTE_Document"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "2664f9af-e3ca-5f7f-be39-48e99a7facb8",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PICKINGFULLORPARTIALTE_PickConfig"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "6065b0d2-61e1-538a-8b77-7e0b82c0bb8d",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PICKINGFULLORPARTIALTE_TrackingEntity"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "558106e7-7bff-5675-a8c0-3c05ba1eaf13",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PICKINGFULLORPARTIALTE_Qty"
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

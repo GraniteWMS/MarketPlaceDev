@@ -1,0 +1,164 @@
+{
+  "Identifier": "9801badf-2cff-4ab0-ac36-1dabeb33f847",
+  "Name": "NYOrthoReceiving",
+  "Description": "Receiving with Item Selection\n\nIt is a comprehensive Receiving process with PO Item selection in the Process Webtemplate",
+  "Type": "PROCESS",
+  "Version": 0,
+  "LastModified": "15/04/2024",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "d473e4ae-dc0d-59a8-8ae3-02a81d6a60ff",
+      "ArtifactVersion": 1,
+      "ArtifactName": "webtemplate_POtoReceive"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "6180e1bf-41eb-5f88-91ca-c332cc3757c5",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_Receiving_Document"
+    },
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "d83353b9-de6a-5819-b069-d641321e30f0",
+      "ArtifactVersion": 1,
+      "ArtifactName": "MasterItemAlias_View"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "1bcb08f3-49cb-531c-9f59-59d9f44b9638",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_Receiving_MasterItem"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "3bf0b562-f6dc-5da0-8fa0-4e47f5069c4c",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_Receiving_Qty"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "a64e60e6-f62d-5577-8aed-54bf96b890ab",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_Receiving_Comment"
+    },
+    {
+      "ArtifactType": "DATA",
+      "ArtifactIdentifier": "71bb0c3a-2064-51a1-a78c-ac433dc44c7c",
+      "ArtifactVersion": 1,
+      "ArtifactName": "DataDependency_SystemStaticData_71bb0c3a206451a1a78cac433dc44c7c"
+    }
+  ],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "RECEIVING",
+    "ProcessStepMetadata": [
+      {
+        "Name": "Location",
+        "Description": "Receiving Location",
+        "ProcessIndex": 100,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": false,
+        "DefaultValue": "WHSE",
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "Document",
+        "Description": "Purchase Order",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_Receiving_Document",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "MasterItem",
+        "Description": "Scan or Select MasterItem from PO",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_Receiving_MasterItem",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Qty",
+        "Description": "Qty In Box",
+        "ProcessIndex": 3,
+        "NextIndex": 4,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_Receiving_Qty",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "NoLabels",
+        "Description": "Number of Box Labels",
+        "ProcessIndex": 100,
+        "NextIndex": 100,
+        "isActive": true,
+        "Required": false,
+        "DefaultValue": "0",
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "Confirmation",
+        "Description": "Confirmation",
+        "ProcessIndex": 4,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": false,
+        "PreScript": ""
+      },
+      {
+        "Name": "Comment",
+        "Description": "NumberOfBoxes",
+        "ProcessIndex": 2,
+        "NextIndex": 3,
+        "isActive": true,
+        "Required": false,
+        "PreScript": "Prescript_Receiving_Comment",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "UseBarcode",
+        "Description": "UseBarcode",
+        "ProcessIndex": 100,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      }
+    ]
+  },
+  "PostDeployArtifacts": [
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "36c9eb69-2aca-51a9-8caa-1351f0245732",
+      "ArtifactVersion": 1,
+      "ArtifactName": "NYOrthoReceiving"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "f47c82a7-6590-5c29-9070-49fb624a757e",
+      "ArtifactVersion": 1,
+      "ArtifactName": "NYOrthoReceiving_Document"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "da833f33-e2ee-54eb-9e2f-3c25c083a81c",
+      "ArtifactVersion": 1,
+      "ArtifactName": "NYOrthoReceiving_Confirmation"
+    }
+  ],
+  "DependsOnClr": true,
+  "SqlClrAssemblyVersion": "7.0.0.0",
+  "Deprecated": false
+}

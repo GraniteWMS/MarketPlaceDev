@@ -1,0 +1,13 @@
+{
+  "Identifier": "f602c1c1-b419-5c5b-bc36-732a967bac85",
+  "Name": "BUCKY_BIG_RECEIVING",
+  "Description": "WebTemplate for process template BUCKY_BIG_RECEIVING",
+  "Type": "WEBTEMPLATE",
+  "Version": 0,
+  "LastModified": "27/01/2026",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

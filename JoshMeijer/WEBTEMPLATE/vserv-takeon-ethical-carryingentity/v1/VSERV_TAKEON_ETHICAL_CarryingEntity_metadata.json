@@ -1,0 +1,13 @@
+{
+  "Identifier": "db9da792-9c18-5de9-9326-65d151f72b5c",
+  "Name": "VSERV_TAKEON_ETHICAL_CarryingEntity",
+  "Description": "WebTemplate for process template VSERV_TAKEON_ETHICAL / step CarryingEntity",
+  "Type": "WEBTEMPLATE",
+  "Version": 1,
+  "LastModified": "12/06/2026",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

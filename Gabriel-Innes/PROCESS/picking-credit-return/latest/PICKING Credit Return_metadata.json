@@ -1,0 +1,156 @@
+{
+  "Identifier": "5678f1ea-034a-421b-a136-dcddea5793ba",
+  "Name": "PICKING Credit Return",
+  "Description": "Picking Credit Return\n\nA picking process that will only recommend stock that is in one specific location. Used to pick credit returns at Powerspeed.",
+  "Type": "PROCESS",
+  "Version": 0,
+  "LastModified": "12/02/2025",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "5f978d3d-d35b-5d26-b48b-cd929a56a3ae",
+      "ArtifactVersion": 1,
+      "ArtifactName": "WebtemplatePickingDocument"
+    },
+    {
+      "ArtifactType": "SQL_STORED_PROCEDURE",
+      "ArtifactIdentifier": "4b8d0805-ba06-5648-a8d9-3064324f6d4f",
+      "ArtifactVersion": 1,
+      "ArtifactName": "WebtemplatePickingTrackingEntitiesWithBarcode"
+    },
+    {
+      "ArtifactType": "SQL_STORED_PROCEDURE",
+      "ArtifactIdentifier": "5c027db8-4536-5649-9d00-d10554599d0e",
+      "ArtifactVersion": 1,
+      "ArtifactName": "WebtemplatePickingTrackingEntities"
+    },
+    {
+      "ArtifactType": "SQL_STORED_PROCEDURE",
+      "ArtifactIdentifier": "195776a7-e594-5b88-b590-c79157436ef5",
+      "ArtifactVersion": 1,
+      "ArtifactName": "WebtemplatePickingQuantity"
+    },
+    {
+      "ArtifactType": "SQL_STORED_PROCEDURE",
+      "ArtifactIdentifier": "aae9a925-9d3d-53a6-ad70-3274b7fe2b24",
+      "ArtifactVersion": 1,
+      "ArtifactName": "WebtemplatePickingCage"
+    },
+    {
+      "ArtifactType": "SQL_STORED_PROCEDURE",
+      "ArtifactIdentifier": "bfbfebc6-deab-5502-9ea0-a99492951253",
+      "ArtifactVersion": 1,
+      "ArtifactName": "FIFOPickingReturns"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "c4961123-25bf-5de2-9173-a79562c33cdc",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PrescriptPickingCRDocument"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "8f565077-6daa-52a4-971b-670bfc9b50a7",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PrescriptPickingCRTrackingEntity"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "1b0c14e2-20eb-5b73-9226-ab83ce1186a6",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PrescriptPickingCRQty"
+    }
+  ],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "PICKING",
+    "ProcessStepMetadata": [
+      {
+        "Name": "Document",
+        "Description": "Document Number",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "PrescriptPickingCRDocument",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Location",
+        "Description": "Location",
+        "ProcessIndex": 100,
+        "NextIndex": 100,
+        "isActive": true,
+        "Required": true,
+        "DefaultValue": "RETURN",
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "TrackingEntity",
+        "Description": "TrackingEntity (Granite Barcode)",
+        "ProcessIndex": 2,
+        "NextIndex": 3,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "PrescriptPickingCRTrackingEntity",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Qty",
+        "Description": "Qty",
+        "ProcessIndex": 3,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "PrescriptPickingCRQty",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Cage",
+        "Description": "Cage",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "",
+        "hasWebTemplate": false
+      }
+    ]
+  },
+  "PostDeployArtifacts": [
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "35b037d7-2ab9-58eb-ad95-b615332f8df0",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PICKING Credit Return"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "02485f8a-697c-5d83-b001-ba5b44c1b3d8",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PICKING Credit Return_Document"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "7e620fdb-8aec-55d4-9f47-3a7a8da529d8",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PICKING Credit Return_Cage"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "9eb49e0f-e15b-5d72-8dd3-c8bf8cfb0f2b",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PICKING Credit Return_TrackingEntity"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "4bc11afe-ce42-5983-bd56-56abf9a841b4",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PICKING Credit Return_Qty"
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

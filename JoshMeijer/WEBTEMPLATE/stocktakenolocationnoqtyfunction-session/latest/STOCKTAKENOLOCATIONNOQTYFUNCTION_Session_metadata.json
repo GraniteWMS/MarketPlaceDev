@@ -1,0 +1,13 @@
+{
+  "Identifier": "3e5e4087-8c63-5ead-a4bc-629347e9958d",
+  "Name": "STOCKTAKENOLOCATIONNOQTYFUNCTION_Session",
+  "Description": "WebTemplate for process template STOCKTAKENOLOCATIONNOQTYFUNCTION / step Session",
+  "Type": "WEBTEMPLATE",
+  "Version": 0,
+  "LastModified": "22/09/2026",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

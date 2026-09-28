@@ -1,0 +1,13 @@
+{
+  "Identifier": "3d1846dd-8675-52a0-9523-5be04184edd3",
+  "Name": "LOOKUPCUSTOMEASYEDIT_V3_LookupValue",
+  "Description": "WebTemplate for process template LOOKUPCUSTOMEASYEDIT_V3 / step LookupValue",
+  "Type": "WEBTEMPLATE",
+  "Version": 0,
+  "LastModified": "25/08/2026",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

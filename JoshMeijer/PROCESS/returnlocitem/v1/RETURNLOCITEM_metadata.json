@@ -1,0 +1,137 @@
+{
+  "Identifier": "559181f9-634c-4502-9b08-eb631a38f7e5",
+  "Name": "RETURNLOCITEM",
+  "Description": "Return from Customer (LOC_ITEM)\n\nThe TrackingEntity step takes the MasterItem or Alias as input.  I have code to strip the scanned codeto accomodate some funnies on Scanning a masterITem\nThe Qty step has an onscreen keypad for easy entry.\nThe Location Step uses a webtemplate to select Locations of Type RECEIVING or CART\nThe Reason step is a processStepLookup -can add or edit the reasons.\n\nIf you have an RMA system in place you could use the Reference step to validate it against the ERP RMA number\nAn additional improvement would be to have a button to Send Email for the current Reference. (Not implemented)",
+  "Type": "PROCESS",
+  "Version": 1,
+  "LastModified": "08/05/2026",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "05615712-cf51-5ce0-8053-ba9bbd4226e9",
+      "ArtifactVersion": 1,
+      "ArtifactName": "webtemplate_ReceivingLocations"
+    },
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "d0507af2-54d9-5715-86c6-6adcec800f03",
+      "ArtifactVersion": 1,
+      "ArtifactName": "MasterItemAlias_View"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "e55c9479-82c6-521e-9a19-c0e9bc752702",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PrescriptRETURNLOCITEM_MasterItem"
+    },
+    {
+      "ArtifactType": "SQL_STORED_PROCEDURE",
+      "ArtifactIdentifier": "c94d0bc0-a2a2-52a3-8eaa-42b32f2acfef",
+      "ArtifactVersion": 1,
+      "ArtifactName": "ValidateLocation"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "888650bb-bbc9-5094-a711-3ce4f70f7512",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PrescriptRETURNLOCITEM_Location"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "eaff5357-b3b4-5d7f-b1e0-255d7a590954",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PrescriptRETURNLOCITEM_Qty"
+    }
+  ],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "TAKEON",
+    "ProcessStepMetadata": [
+      {
+        "Name": "MasterItem",
+        "Description": "Item Code",
+        "ProcessIndex": 2,
+        "NextIndex": 3,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "PrescriptRETURNLOCITEM_MasterItem",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Location",
+        "Description": "Location",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "DefaultValue": "REC",
+        "PreScript": "PrescriptRETURNLOCITEM_Location",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Qty",
+        "Description": "Qty",
+        "ProcessIndex": 3,
+        "NextIndex": 4,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "PrescriptRETURNLOCITEM_Qty",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "UseBarcode",
+        "Description": "UseBarcode",
+        "ProcessIndex": 100,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": false,
+        "DefaultValue": "",
+        "PreScript": "",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Reference",
+        "Description": "RMA Number",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "Comment",
+        "Description": "Comment/Reason",
+        "ProcessIndex": 4,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      }
+    ]
+  },
+  "PostDeployArtifacts": [
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "212972e7-70bf-5642-8ee5-b09dd73b39c6",
+      "ArtifactVersion": 1,
+      "ArtifactName": "RETURNLOCITEM_Location"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "1ebc91f8-4f3b-526a-8f34-48d6696e4df7",
+      "ArtifactVersion": 1,
+      "ArtifactName": "RETURNLOCITEM_Qty"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "db43f1da-ba25-54c9-b42e-6c75f0296c35",
+      "ArtifactVersion": 1,
+      "ArtifactName": "RETURNLOCITEM_Comment"
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

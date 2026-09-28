@@ -1,0 +1,195 @@
+{
+  "Identifier": "8d032003-5e10-43b7-a1fb-9c621a04a9b8",
+  "Name": "ACUMATICAPACK",
+  "Description": "ACUMATICAPACK\n\nTo specify the MasterItem and Dimensions associated with a Carrying Entity that is going to be posted to Acumatica",
+  "Type": "PROCESS",
+  "Version": 0,
+  "LastModified": "01/06/2026",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "63eb4e3b-a274-5c43-a542-f35990c5c2b3",
+      "ArtifactVersion": 1,
+      "ArtifactName": "webtemplate_SOtoPack"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "4921fe7d-8048-5100-a02c-da32150a0389",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_Packing_BoxCode"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "9426a1e3-8d1b-5b86-a2f4-c46529ceb5d1",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_Packing_Height"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "dffa5950-11ab-5765-b979-e2431c202fa1",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_Packing_Step200"
+    }
+  ],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "PACKING",
+    "ProcessStepMetadata": [
+      {
+        "Name": "Document",
+        "Description": "Order document Number",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": false,
+        "PreScript": ""
+      },
+      {
+        "Name": "Location",
+        "Description": "Check and Pack Location",
+        "ProcessIndex": 100,
+        "NextIndex": 100,
+        "isActive": true,
+        "Required": true,
+        "DefaultValue": "DIS",
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "CarryingEntity",
+        "Description": "Scan BOX or PALLET",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": false,
+        "PreScript": ""
+      },
+      {
+        "Name": "MasterItem",
+        "Description": "MasterItem (Code or Barcode)",
+        "ProcessIndex": 6,
+        "NextIndex": 6,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": false,
+        "PreScript": ""
+      },
+      {
+        "Name": "Qty",
+        "Description": "Qty",
+        "ProcessIndex": 100,
+        "NextIndex": 100,
+        "isActive": true,
+        "Required": true,
+        "DefaultValue": "1",
+        "hasWebTemplate": false,
+        "PreScript": ""
+      },
+      {
+        "Name": "BoxCode",
+        "Description": "BoxCode",
+        "ProcessIndex": 2,
+        "NextIndex": 3,
+        "isActive": true,
+        "Required": false,
+        "PreScript": "Prescript_Packing_BoxCode",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Length",
+        "Description": "Length",
+        "ProcessIndex": 3,
+        "NextIndex": 4,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": false,
+        "PreScript": ""
+      },
+      {
+        "Name": "Width",
+        "Description": "Width",
+        "ProcessIndex": 4,
+        "NextIndex": 5,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "Height",
+        "Description": "Height",
+        "ProcessIndex": 5,
+        "NextIndex": 6,
+        "isActive": true,
+        "Required": false,
+        "PreScript": "Prescript_Packing_Height",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Step200",
+        "Description": "Step200",
+        "ProcessIndex": 200,
+        "NextIndex": 200,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_Packing_Step200",
+        "hasWebTemplate": true
+      }
+    ]
+  },
+  "PostDeployArtifacts": [
+    {
+      "ArtifactType": "POST_DEPLOY_SCRIPT",
+      "ArtifactIdentifier": "faece894-2989-55c4-8494-a1c4185c61fc",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PostDeployScript"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "78bc286f-a3a0-51fc-bf17-8c2345327b3d",
+      "ArtifactVersion": 1,
+      "ArtifactName": "ACUMATICAPACK"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "bc431d3d-3790-5d90-9d74-b2c6174359bb",
+      "ArtifactVersion": 1,
+      "ArtifactName": "ACUMATICAPACK_Document"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "18eb83a7-166b-5baa-b996-024d37dd9758",
+      "ArtifactVersion": 1,
+      "ArtifactName": "ACUMATICAPACK_CarryingEntity"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "d233bd96-8a62-514e-955d-eb0c2a591eb1",
+      "ArtifactVersion": 1,
+      "ArtifactName": "ACUMATICAPACK_Qty"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "23a407e4-d9de-5815-a7c6-502ee3a93f43",
+      "ArtifactVersion": 1,
+      "ArtifactName": "ACUMATICAPACK_BoxCode"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "e357c8fa-1d64-5e17-9303-b236fed2f69b",
+      "ArtifactVersion": 1,
+      "ArtifactName": "ACUMATICAPACK_Length"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "9411d0ce-5dfb-5223-a2f3-f78467b1066e",
+      "ArtifactVersion": 1,
+      "ArtifactName": "ACUMATICAPACK_MasterItem"
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

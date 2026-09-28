@@ -1,0 +1,13 @@
+{
+  "Identifier": "f3e82667-735a-5053-94fb-aed1585ea654",
+  "Name": "PUTAWAY_Location",
+  "Description": "WebTemplate for process template PUTAWAY / step Location",
+  "Type": "WEBTEMPLATE",
+  "Version": 0,
+  "LastModified": "31/03/2026",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

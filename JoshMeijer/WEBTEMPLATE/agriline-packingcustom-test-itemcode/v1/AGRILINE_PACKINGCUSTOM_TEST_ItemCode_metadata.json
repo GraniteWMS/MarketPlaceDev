@@ -1,0 +1,13 @@
+{
+  "Identifier": "5b9630df-d9e6-51a6-80dd-8779f4fec4fc",
+  "Name": "AGRILINE_PACKINGCUSTOM_TEST_ItemCode",
+  "Description": "WebTemplate for process template AGRILINE_PACKINGCUSTOM_TEST / step ItemCode",
+  "Type": "WEBTEMPLATE",
+  "Version": 1,
+  "LastModified": "07/07/2026",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

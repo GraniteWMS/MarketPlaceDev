@@ -1,0 +1,116 @@
+{
+  "Identifier": "ebce5d34-146f-46ec-8514-983c700216ad",
+  "Name": "ALFRED_RECEIVINGSELECTABLE_STANDARD",
+  "Description": "ALFRED-RECEIVINGSELECTABLE_STANDARD\n\nThe receiving process is configured as standard, with no batch or serial tracking.\n\nN/A",
+  "Type": "PROCESS",
+  "Version": 0,
+  "LastModified": "20/03/2026",
+  "Tags": [
+    "Manufacturing",
+    "Retail",
+    "Automotive",
+    "Agricultural",
+    "Textile",
+    "Electronics",
+    "Construction",
+    "E-commerce",
+    "Logistics",
+    "Pharmaceutical",
+    "Cold Storage"
+  ],
+  "ArtifactDependencies": [],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "RECEIVING",
+    "ProcessStepMetadata": [
+      {
+        "Name": "Location",
+        "Description": "Receiving Location",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": false,
+        "DefaultValue": "",
+        "PreScript": "",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Document",
+        "Description": "Enter Receiving Document",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "DefaultValue": "",
+        "PreScript": "",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "MasterItem",
+        "Description": "Select / Search MasterItem",
+        "ProcessIndex": 2,
+        "NextIndex": 3,
+        "isActive": true,
+        "Required": true,
+        "DefaultValue": "",
+        "PreScript": "",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Qty",
+        "Description": "Enter Units per barcode",
+        "ProcessIndex": 3,
+        "NextIndex": 4,
+        "isActive": true,
+        "Required": true,
+        "DefaultValue": "",
+        "PreScript": "",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "NoEntities",
+        "Description": "Number of barcodes",
+        "ProcessIndex": 4,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": false,
+        "DefaultValue": "",
+        "PreScript": "",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Print",
+        "Description": "Print",
+        "ProcessIndex": 99,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "DefaultValue": "",
+        "PreScript": "",
+        "hasWebTemplate": true
+      }
+    ]
+  },
+  "PostDeployArtifacts": [
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "271ef409-3f9a-528f-b659-7ef5cabbf3a8",
+      "ArtifactVersion": 1,
+      "ArtifactName": "ALFRED_RECEIVINGSELECTABLE_STANDARD"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "91607f6a-9877-5b74-852f-525408477637",
+      "ArtifactVersion": 1,
+      "ArtifactName": "ALFRED_RECEIVINGSELECTABLE_STANDARD_Location"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "756629bb-2b38-5939-8e91-eb84f3930b5c",
+      "ArtifactVersion": 1,
+      "ArtifactName": "ALFRED_RECEIVINGSELECTABLE_STANDARD_Document"
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

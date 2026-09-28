@@ -1,0 +1,141 @@
+{
+  "Identifier": "42f4d15e-af2c-4ef0-b5b2-3e21e5ed6781",
+  "Name": "TAKEON",
+  "Description": "Initial Takeon\n\nIncludes Webtemplate to select or search location and masteritem.  Also has prescripts to limit size of Qty and NoEntities.   Default NoLabels step to 1.   Includes Batch and Expiry steps",
+  "Type": "PROCESS",
+  "Version": 0,
+  "LastModified": "12/07/2024",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "f3d85ff6-38bb-5ec2-a71b-663ca10b1221",
+      "ArtifactVersion": 1,
+      "ArtifactName": "WebTemplate_MasterItems"
+    },
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "c2ad4da5-f976-5a5e-ab88-3341bd481f05",
+      "ArtifactVersion": 1,
+      "ArtifactName": "WebTemplate_Locations"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "f14ce972-e8e2-5b51-8d59-7d6dd6a296ac",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PrescriptTakeonQty"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "57c83de9-4e16-5dfe-8ee0-0c8a390779f3",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PrescriptTakeonNoEntities"
+    }
+  ],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "TAKEON",
+    "ProcessStepMetadata": [
+      {
+        "Name": "MasterItem",
+        "Description": "MasterItem",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "DefaultValue": "",
+        "PreScript": "",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Location",
+        "Description": "Location",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": false,
+        "DefaultValue": "",
+        "PreScript": "",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Qty",
+        "Description": "Qty per TrackingEntity",
+        "ProcessIndex": 4,
+        "NextIndex": 5,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "PrescriptTakeonQty",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "NoEntities",
+        "Description": "Number of Identical TrackingEntities",
+        "ProcessIndex": 5,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": false,
+        "PreScript": "PrescriptTakeonNoEntities",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Print",
+        "Description": "Print",
+        "ProcessIndex": 99,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "DefaultValue": "",
+        "PreScript": "",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Batch",
+        "Description": "Batch / Lot",
+        "ProcessIndex": 2,
+        "NextIndex": 3,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "NoLabels",
+        "Description": "NoLabels",
+        "ProcessIndex": 100,
+        "NextIndex": 100,
+        "isActive": true,
+        "Required": true,
+        "DefaultValue": "1",
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "ExpiryDate",
+        "Description": "ExpiryDate (YYYYMMDD)",
+        "ProcessIndex": 3,
+        "NextIndex": 4,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      }
+    ]
+  },
+  "PostDeployArtifacts": [
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "7d3f9c1f-4d29-526e-a0bc-b83f14153d8e",
+      "ArtifactVersion": 1,
+      "ArtifactName": "TAKEON_Location"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "d0b7b940-b90c-5e72-a107-2f5cb2a8e932",
+      "ArtifactVersion": 1,
+      "ArtifactName": "TAKEON_MasterItem"
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

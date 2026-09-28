@@ -1,0 +1,80 @@
+{
+  "Name": "REPLENISHTOPRODUCTION",
+  "Description": "Split and Move to Production",
+  "Type": "REPLENISH",
+  "IsActive": true,
+  "IntegrationIsActive": true,
+  "IntegrationPost": true,
+  "Steps": [
+    {
+      "Name": "Reference",
+      "Description": "Work Order/Reference",
+      "ProcessIndex": 0,
+      "NextIndex": 1,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false
+    },
+    {
+      "Name": "FromTrackingEntity",
+      "Description": "FromTrackingEntity",
+      "ProcessIndex": 1,
+      "NextIndex": 2,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "PrescriptReplenishToProductionTrackingEntity",
+      "WebTemplateArtifact": "6f4d153b-232f-51f3-bcb6-f45792e5851b"
+    },
+    {
+      "Name": "Qty",
+      "Description": "Qty to Issue",
+      "ProcessIndex": 2,
+      "NextIndex": 3,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "PrescriptReplenishToProductionQty"
+    },
+    {
+      "Name": "Comment",
+      "Description": "Comment",
+      "ProcessIndex": 3,
+      "NextIndex": 4,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "WebTemplateArtifact": "5ebf7ed1-2a00-5634-aff8-1208afeb7896"
+    },
+    {
+      "Name": "Confirmation",
+      "Description": "Confirmation",
+      "ProcessIndex": 4,
+      "NextIndex": 1,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "WebTemplateArtifact": "f22e9b29-c043-54eb-b8f1-75bfa5535844"
+    },
+    {
+      "Name": "Location",
+      "Description": "Location",
+      "ProcessIndex": 100,
+      "NextIndex": 100,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "DefaultValue": "PROD",
+      "WebTemplateArtifact": "67725e6d-e762-5737-b53d-79e77400c310"
+    },
+    {
+      "Name": "ToTrackingEntity",
+      "Description": "To TrackingEntity",
+      "ProcessIndex": 100,
+      "NextIndex": 100,
+      "IsActive": true,
+      "Required": false,
+      "IsBusinessRule": false
+    }
+  ]
+}

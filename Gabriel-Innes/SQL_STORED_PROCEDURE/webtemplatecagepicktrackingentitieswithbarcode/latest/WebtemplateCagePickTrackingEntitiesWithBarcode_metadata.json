@@ -1,0 +1,10 @@
+{
+  "Identifier": "760e3398-5df7-5afd-b55f-10abfc28c758",
+  "Name": "WebtemplateCagePickTrackingEntitiesWithBarcode",
+  "Description": "",
+  "Type": "SQL_STORED_PROCEDURE",
+  "Version": 0,
+  "LastModified": "03/07/2025",
+  "Tags": [],
+  "ArtifactDependencies": []
+}

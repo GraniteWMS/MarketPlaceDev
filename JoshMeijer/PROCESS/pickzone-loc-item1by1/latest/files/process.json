@@ -1,0 +1,84 @@
+{
+  "Name": "PICKZONE_LOC_ITEM1BY1",
+  "Description": "PICKZONE_LOC_ITEM1BY1",
+  "Type": "PICKING",
+  "IsActive": true,
+  "IntegrationIsActive": false,
+  "IntegrationPost": false,
+  "WebTemplateArtifact": "f7cf797e-6887-569a-baca-0756a9807168",
+  "Steps": [
+    {
+      "Name": "Document",
+      "Description": "Document",
+      "ProcessIndex": 0,
+      "NextIndex": 1,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "Prescript_Picking_Document",
+      "WebTemplateArtifact": "efb77599-e374-59c9-8ce4-ce1c56a3bdac"
+    },
+    {
+      "Name": "LocationZone",
+      "Description": "Select Location Zone",
+      "ProcessIndex": 1,
+      "NextIndex": 2,
+      "IsActive": true,
+      "Required": false,
+      "IsBusinessRule": false,
+      "WebTemplateArtifact": "0d948b75-954c-5f79-8d42-23a8bea1d98b"
+    },
+    {
+      "Name": "FromLocation",
+      "Description": "FromLocation",
+      "ProcessIndex": 2,
+      "NextIndex": 3,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "Prescript_Picking_FromLocation",
+      "WebTemplateArtifact": "2e7ec15e-8241-576e-a176-39f73f88d254"
+    },
+    {
+      "Name": "TrackingEntity",
+      "Description": "Scan Item Barcode",
+      "ProcessIndex": 3,
+      "NextIndex": 4,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "Prescript_Picking_TrackingEntity"
+    },
+    {
+      "Name": "Qty",
+      "Description": "Qty in Eaches",
+      "ProcessIndex": 4,
+      "NextIndex": 2,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "Prescript_Picking_Qty",
+      "WebTemplateArtifact": "34fffec3-1929-5423-a669-4f010e93c05c"
+    },
+    {
+      "Name": "Location",
+      "Description": "Staging Location",
+      "ProcessIndex": 100,
+      "NextIndex": 100,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "DefaultValue": "DIS"
+    },
+    {
+      "Name": "Step200",
+      "Description": "Update FIFO recommendation",
+      "ProcessIndex": 200,
+      "NextIndex": 0,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "Prescript_PickingStep200"
+    }
+  ]
+}

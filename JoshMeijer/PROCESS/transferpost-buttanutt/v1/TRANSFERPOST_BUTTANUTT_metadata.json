@@ -1,0 +1,62 @@
+{
+  "Identifier": "b9b0acd6-4abf-43f6-8ded-362fe3c26819",
+  "Name": "TRANSFERPOST_BUTTANUTT",
+  "Description": "TRANSFERPOST_BUTTANUTT\n\nIn Cin7, this process updates a transfer to in in status INTRANSIT",
+  "Type": "PROCESS",
+  "Version": 1,
+  "LastModified": "21/03/2026",
+  "Tags": [
+    "Electronics",
+    "Construction",
+    "E-commerce",
+    "Logistics",
+    "Pharmaceutical",
+    "Cold Storage",
+    "Manufacturing",
+    "Retail",
+    "Agricultural",
+    "Textile",
+    "Automotive"
+  ],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "8f99e7ed-ecc5-5010-96f8-b60f87fd628a",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Integration_Transactions_TRANSFERPOST"
+    },
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "d6ec9d4e-42f6-50f8-ada1-879d7e5c1c8a",
+      "ArtifactVersion": 1,
+      "ArtifactName": "WebTemplate_TransferPost_Document"
+    }
+  ],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "TRANSFERPOST",
+    "ProcessStepMetadata": [
+      {
+        "Name": "Document",
+        "Description": "Document",
+        "ProcessIndex": 0,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "DefaultValue": "",
+        "PreScript": "",
+        "hasWebTemplate": false
+      }
+    ]
+  },
+  "PostDeployArtifacts": [
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "7178e203-7230-590e-ae02-4190008962a5",
+      "ArtifactVersion": 1,
+      "ArtifactName": "TRANSFERPOST_BUTTANUTT_Document"
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

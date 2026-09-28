@@ -1,0 +1,19 @@
+{
+  "Identifier": "ef4699a4-0ad4-51e4-aaa2-6dada7cc081f",
+  "Name": "BATCHCHANGE_Batch",
+  "Description": "WebTemplate for process template BATCHCHANGE / step Batch",
+  "Type": "WEBTEMPLATE",
+  "Version": 1,
+  "LastModified": "04/08/2025",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "69b3b915-07ab-5605-8262-fe430eedbe37",
+      "ArtifactVersion": 1
+    }
+  ],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

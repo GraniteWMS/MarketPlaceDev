@@ -1,0 +1,13 @@
+{
+  "Identifier": "695146da-a2fc-56d8-8861-18851681d254",
+  "Name": "TAKEONITEMSEARCHLOC_Batch",
+  "Description": "WebTemplate for process template TAKEONITEMSEARCHLOC / step Batch",
+  "Type": "WEBTEMPLATE",
+  "Version": 1,
+  "LastModified": "30/05/2026",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

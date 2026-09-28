@@ -1,0 +1,92 @@
+{
+  "Identifier": "16b8bd0d-f1ed-47e5-a2b6-3861f12e68cd",
+  "Name": "VSERV_DISPATCH",
+  "Description": "VSERV_DISPATCH\n\nIf you need another loading process after PACKING. This custom process writes the Driver Name and Registration in the transactions when it moves the packed carrying entity to a Dispatch location",
+  "Type": "PROCESS",
+  "Version": 0,
+  "LastModified": "09/02/2026",
+  "Tags": [
+    "Electronics",
+    "Construction",
+    "E-commerce",
+    "Logistics",
+    "Pharmaceutical",
+    "Cold Storage",
+    "Textile",
+    "Agricultural",
+    "Automotive",
+    "Retail",
+    "Manufacturing"
+  ],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "9d188a4c-68fb-53d1-8a29-cb7cb8ef678e",
+      "ArtifactVersion": 1,
+      "ArtifactName": "WebTemplate_Dispatch_CarryingEntity"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "bb4d2a22-feee-572a-9d97-e3baec940e88",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_Dispatch_CarryingEntity"
+    }
+  ],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "CUSTOM",
+    "ProcessStepMetadata": [
+      {
+        "Name": "CarryingEntity",
+        "Description": "Box or Loose Items",
+        "ProcessIndex": 2,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_Dispatch_CarryingEntity",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Comment",
+        "Description": "Vehicle Registration",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "Reference",
+        "Description": "Driver Name",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "Location",
+        "Description": "Dispatch Location",
+        "ProcessIndex": 100,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "DefaultValue": "DISPATCH",
+        "hasWebTemplate": true,
+        "PreScript": ""
+      }
+    ]
+  },
+  "PostDeployArtifacts": [
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "7d2db46d-bab0-541a-bcf1-e5a02b0ac97b",
+      "ArtifactVersion": 1,
+      "ArtifactName": "VSERV_DISPATCH_CarryingEntity"
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

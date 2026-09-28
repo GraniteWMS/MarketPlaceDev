@@ -1,0 +1,68 @@
+{
+  "Identifier": "e8df307b-390a-4283-8eba-5b6625f8ea27",
+  "Name": "PUTAWAY",
+  "Description": "PUTAWAY\n\nTo move stock from a receiving area into designated storage locations, with validation that ensures tracking entities are placed in the correct location based on item code. Prevents mis-shelving by enforcing that the destination location barcode matches the item being put away.\n\nThis process is built on the MOVE type with a PreScript (PrescriptPutawayItemLocationValidation) on the Location step that validates the destination location's Barcode starts with the tracking entity's MasterItem.Code. This assumes a naming convention where location barcodes are prefixed with the item code (e.g. location barcode CWF010-1 for item CWF010). If the client uses a different location naming convention, the PreScript must be adjusted — the validation field can be changed from Barcode to Name or another field as needed.",
+  "Type": "PROCESS",
+  "Version": 0,
+  "LastModified": "31/03/2026",
+  "Tags": [
+    "Manufacturing",
+    "Pharmaceutical"
+  ],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "e29bc811-9c1b-5365-a358-fc802812ab25",
+      "ArtifactVersion": 1,
+      "ArtifactName": "webtemplate_StockInReceiving"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "e4fd97b4-034e-5641-8ade-04b54079379a",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PrescriptPutawayItemLocationValidation"
+    }
+  ],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "MOVE",
+    "ProcessStepMetadata": [
+      {
+        "Name": "TrackingEntity",
+        "Description": "Scan Tracking Barcode",
+        "ProcessIndex": 1,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "PrescriptPutawayItemLocationValidation",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Location",
+        "Description": "To Location",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": false,
+        "PreScript": ""
+      }
+    ]
+  },
+  "PostDeployArtifacts": [
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "f3e82667-735a-5053-94fb-aed1585ea654",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PUTAWAY_Location"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "d98e2bac-fee9-512f-b75a-d2376874e07e",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PUTAWAY_TrackingEntity"
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

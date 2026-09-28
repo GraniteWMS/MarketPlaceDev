@@ -1,0 +1,121 @@
+{
+  "Identifier": "b6b232bf-c659-4bd6-8ec4-894a401ed29e",
+  "Name": "TRANSFERPOST",
+  "Description": "TRANSFER Check and Post to SAGE\n\nHas Webtemplates to show documents to Post and What is going to be posted with a Confirmation.\nHas a Comment for Waybill/Driver/Truck and records to DocumentTrackingLog.\nHas Step200 to Print Delivery Note (SSRS-TransferSheet).\nCan email delivery report but commented out for now.\n\nRelies on Integration_ACCPAC_TransferHeader for data to print on SSRS",
+  "Type": "PROCESS",
+  "Version": 1,
+  "LastModified": "10/09/2026",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "508dadef-36ee-559c-8573-e52771818415",
+      "ArtifactVersion": 1,
+      "ArtifactName": "WebTemplate_TransfertoPOST"
+    },
+    {
+      "ArtifactType": "SQL_STORED_PROCEDURE",
+      "ArtifactIdentifier": "d5290b49-70e8-5ee2-a02e-d28a22d3d24b",
+      "ArtifactVersion": 1,
+      "ArtifactName": "WebTemplate_TransferPostDetail"
+    },
+    {
+      "ArtifactType": "USER_TABLE",
+      "ArtifactIdentifier": "1cf48738-31e4-5c20-aeda-85d87deb79de",
+      "ArtifactVersion": 1,
+      "ArtifactName": "custom_DocumentTrackingLog"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "436c27ee-868a-5e13-9140-b125b18a3ce7",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PrescriptTransferPostStep200"
+    },
+    {
+      "ArtifactType": "SQL_STORED_PROCEDURE",
+      "ArtifactIdentifier": "fe364881-aa09-5619-b678-84c81b46cfc2",
+      "ArtifactVersion": 1,
+      "ArtifactName": "SSRS_Transfersheet_Detail"
+    },
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "80bc0960-f14b-59c6-b510-a6a8eddf5828",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Integration_Accpac_TransferHeader"
+    },
+    {
+      "ArtifactType": "SQL_STORED_PROCEDURE",
+      "ArtifactIdentifier": "5e5a0701-2330-5475-bb58-e49dbbab3950",
+      "ArtifactVersion": 1,
+      "ArtifactName": "SSRS_TransferSheet_Header"
+    },
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "b0228df8-34a0-52f9-a922-1e6928431feb",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Integration_Accpac_TransferDetail"
+    }
+  ],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "TRANSFERPOST",
+    "ProcessStepMetadata": [
+      {
+        "Name": "Document",
+        "Description": "Document",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": false,
+        "PreScript": ""
+      },
+      {
+        "Name": "Confirmation",
+        "Description": "Confirm details to Post",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": false,
+        "PreScript": ""
+      },
+      {
+        "Name": "Comment",
+        "Description": "Driver, truck or courier waybill",
+        "ProcessIndex": 2,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "Step200",
+        "Description": "Print Shipment Delivery Report",
+        "ProcessIndex": 200,
+        "NextIndex": 200,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "PrescriptTransferPostStep200",
+        "hasWebTemplate": true
+      }
+    ]
+  },
+  "PostDeployArtifacts": [
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "84b3eda0-5cf5-5835-b77a-9020ba3667d3",
+      "ArtifactVersion": 1,
+      "ArtifactName": "TRANSFERPOST_Document"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "5a0bbe05-3755-5e4c-9348-b22b54a3d63e",
+      "ArtifactVersion": 1,
+      "ArtifactName": "TRANSFERPOST_Confirmation"
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

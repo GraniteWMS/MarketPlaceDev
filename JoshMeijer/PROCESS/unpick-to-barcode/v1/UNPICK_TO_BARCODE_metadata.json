@@ -1,0 +1,132 @@
+{
+  "Identifier": "2d484511-feec-47ef-adb7-d05918882868",
+  "Name": "UNPICK_TO_BARCODE",
+  "Description": "UNPICK_TO_BARCODE\n\nIf you want to unpick a transaction but wish to create a new tracking entity with the reversed quantity or replenish to an existing one",
+  "Type": "PROCESS",
+  "Version": 1,
+  "LastModified": "17/02/2026",
+  "Tags": [
+    "Manufacturing",
+    "Retail",
+    "Automotive",
+    "Agricultural",
+    "Textile",
+    "Electronics",
+    "Construction",
+    "E-commerce",
+    "Logistics",
+    "Pharmaceutical",
+    "Cold Storage"
+  ],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "a2d8d189-25b5-5cf3-87a5-a9927b536265",
+      "ArtifactVersion": 1,
+      "ArtifactName": "WebTemplate_UnpickTransaction_TransactionID"
+    },
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "b9c08d9b-4479-5606-b3a9-07c351839783",
+      "ArtifactVersion": 1,
+      "ArtifactName": "WebTemplate_UnpickTransactionToBarcode_Location"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "397553e8-447b-5571-85bf-d27420d400e1",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_UnpickTransactionToBarcode_TransactionID"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "0fb8b824-e2e5-59ce-9e74-cf67495d065f",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_UnpickTransactionToBarcode_Step200"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "b7105178-14ec-5ffc-ac34-534c620863c0",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_UnpickTransactionToBarcode_Location"
+    }
+  ],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "CUSTOM",
+    "ProcessStepMetadata": [
+      {
+        "Name": "Document",
+        "Description": "Enter Document",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": false,
+        "PreScript": ""
+      },
+      {
+        "Name": "TransactionID",
+        "Description": "Select Transaction ID",
+        "ProcessIndex": 2,
+        "NextIndex": 3,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_UnpickTransactionToBarcode_TransactionID",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Step200",
+        "Description": "Reverses the Transaction",
+        "ProcessIndex": 200,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_UnpickTransactionToBarcode_Step200",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "UseBarcode",
+        "Description": "Enter Barcode To Replenish",
+        "ProcessIndex": 3,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "Location",
+        "Description": "Enter Unpick Location",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_UnpickTransactionToBarcode_Location",
+        "hasWebTemplate": false
+      }
+    ]
+  },
+  "PostDeployArtifacts": [
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "a0f8702e-5046-55fb-9e2a-993c6240b7b1",
+      "ArtifactVersion": 1,
+      "ArtifactName": "UNPICK_TO_BARCODE_Document"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "48eb5ae9-ccd6-5086-a60d-397a8d389bf4",
+      "ArtifactVersion": 1,
+      "ArtifactName": "UNPICK_TO_BARCODE_Location"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "1b6ca9ae-a669-50f7-9136-969977888e62",
+      "ArtifactVersion": 1,
+      "ArtifactName": "UNPICK_TO_BARCODE_TransactionID"
+    }
+  ],
+  "DependsOnClr": true,
+  "SqlClrAssemblyVersion": "7.0.0.0",
+  "Deprecated": false
+}

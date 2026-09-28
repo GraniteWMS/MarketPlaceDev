@@ -1,0 +1,17 @@
+{
+  "Identifier": "f4e14309-27e2-46ed-b3c9-0e51c33fbd8f",
+  "Name": "MenuGroupINBOUND",
+  "Description": "INBOUND\n\nCreate a separator on the scanner menu",
+  "Type": "PROCESS",
+  "Version": 1,
+  "LastModified": "15/04/2024",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "CUSTOM"
+  },
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

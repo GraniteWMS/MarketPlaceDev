@@ -1,0 +1,117 @@
+{
+  "Identifier": "0f4ca460-1b35-4990-8819-3f0398abce16",
+  "Name": "RD_REPLENISH",
+  "Description": "Retail Distribution -Move to Location\n\nRetail Distribution.  We need to move stock from One location to another.  TE is Location_ItemCode for both From and To TrackingEntity.  We dont enter Qty (1) it is defaulted.  We always scan Alias and resolve to Item Code.  There are some special cases of ItemBarcodes that are stripped of Checkdigits etc.\n\nOn startup, I allowed moves where Stock did not pre-exist using a CLR_Takeon, but that is commented out in the prescripts now.",
+  "Type": "PROCESS",
+  "Version": 0,
+  "LastModified": "09/10/2025",
+  "Tags": [
+    "Retail"
+  ],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "SQL_STORED_PROCEDURE",
+      "ArtifactIdentifier": "e3e9cf97-e3f5-5233-8e29-43fa15079b09",
+      "ArtifactVersion": 1,
+      "ArtifactName": "WebTemplate_Putaway_TrackingEntity"
+    },
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "7f443754-c04c-5061-bbe8-ecc9864e8522",
+      "ArtifactVersion": 1,
+      "ArtifactName": "MasterItemAlias_View"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "42de9c7a-d670-51a3-b406-9cc7657bdb54",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_Replenish_FromTrackingEntity"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "2c3f2f78-1cce-5ef0-8e98-bb386d8816cb",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_Replenish_ToLocation"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "0a919100-0059-593c-9556-39c8ff64a2e4",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_Replenish_ToTrackingEntity"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "969bf38e-b0b7-558b-a548-ba88e05f2a3d",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_Replenish_FromLocation"
+    }
+  ],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "REPLENISH",
+    "ProcessStepMetadata": [
+      {
+        "Name": "FromTrackingEntity",
+        "Description": "Scan Item",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_Replenish_FromTrackingEntity",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Location",
+        "Description": "To Location",
+        "ProcessIndex": 2,
+        "NextIndex": 3,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_Replenish_ToLocation",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "ToTrackingEntity",
+        "Description": "Scan Item Again",
+        "ProcessIndex": 3,
+        "NextIndex": 3,
+        "isActive": true,
+        "Required": false,
+        "PreScript": "Prescript_Replenish_ToTrackingEntity",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Qty",
+        "Description": "Qty to Replenish",
+        "ProcessIndex": 100,
+        "NextIndex": 100,
+        "isActive": true,
+        "Required": true,
+        "DefaultValue": "1",
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "FromLocation",
+        "Description": "From Location",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_Replenish_FromLocation",
+        "hasWebTemplate": true
+      }
+    ]
+  },
+  "PostDeployArtifacts": [
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "04c67524-f3bd-57dd-b13d-64d138554480",
+      "ArtifactVersion": 1,
+      "ArtifactName": "RD_REPLENISH_Location"
+    }
+  ],
+  "DependsOnClr": true,
+  "SqlClrAssemblyVersion": "7.0.0.0",
+  "Deprecated": false
+}

@@ -1,0 +1,52 @@
+{
+  "Name": "CIM_ASSIGNDELIVERYNOTE",
+  "Description": "CIM ASSIGN DELIVERYNOTE TO LOADING BAY",
+  "Type": "CUSTOM",
+  "IsActive": true,
+  "IntegrationIsActive": false,
+  "IntegrationPost": false,
+  "Steps": [
+    {
+      "Name": "Location",
+      "Description": "Select Loading Bay",
+      "ProcessIndex": 0,
+      "NextIndex": 1,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "WebTemplateArtifact": "b047e52a-0705-564b-b9c0-179266af0749"
+    },
+    {
+      "Name": "PickSlip",
+      "Description": "Add new or Select Existing Pickslip",
+      "ProcessIndex": 1,
+      "NextIndex": 2,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "PrescriptAssignDeliveryNotePickSlip",
+      "WebTemplateArtifact": "e5f61fa2-f85f-5730-b6fd-b9f72ab8353e"
+    },
+    {
+      "Name": "Type",
+      "Description": "Add/Remove or Loading Bay",
+      "ProcessIndex": 2,
+      "NextIndex": 3,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "WebTemplateArtifact": "d421f0b9-36ab-5651-9df4-eec7bcf65e50"
+    },
+    {
+      "Name": "DeliveryNote",
+      "Description": "DeliveryNote",
+      "ProcessIndex": 3,
+      "NextIndex": 2,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "PrescriptAssignDeliveryNoteDeliveryNote",
+      "WebTemplateArtifact": "0c85dbdb-f596-5cfc-8889-fca0edf3f753"
+    }
+  ]
+}

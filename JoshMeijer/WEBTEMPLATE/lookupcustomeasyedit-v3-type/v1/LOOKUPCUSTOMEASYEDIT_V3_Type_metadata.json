@@ -1,0 +1,13 @@
+{
+  "Identifier": "38f37471-e364-5fa3-8e6e-f62c2323b5ca",
+  "Name": "LOOKUPCUSTOMEASYEDIT_V3_Type",
+  "Description": "WebTemplate for process template LOOKUPCUSTOMEASYEDIT_V3 / step Type",
+  "Type": "WEBTEMPLATE",
+  "Version": 1,
+  "LastModified": "25/08/2026",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

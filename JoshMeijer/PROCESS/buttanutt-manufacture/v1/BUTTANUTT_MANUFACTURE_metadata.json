@@ -1,0 +1,128 @@
+{
+  "Identifier": "7ef09d8b-74eb-4a08-9ca5-2654ac499406",
+  "Name": "BUTTANUTT_MANUFACTURE",
+  "Description": "BUTTANUTT_MANUFACTURE\n\nIt defaults the manufacturing location to the ToLocation on the document",
+  "Type": "PROCESS",
+  "Version": 1,
+  "LastModified": "24/02/2026",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "5cc77d6b-8c37-56a4-995c-33abe0b93d07",
+      "ArtifactVersion": 1,
+      "ArtifactName": "WebTemplate_Manufacture_Document"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "b3c02cc8-903c-5d66-a3b9-8e218fe803ee",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_Manufacture_Document"
+    }
+  ],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "MANUFACTURE",
+    "ProcessStepMetadata": [
+      {
+        "Name": "Document",
+        "Description": "Manufacturing Document",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_Manufacture_Document",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "MasterItem",
+        "Description": "MasterItem",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "DefaultValue": "",
+        "PreScript": "",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Location",
+        "Description": "Location",
+        "ProcessIndex": 100,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "DefaultValue": "",
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "Batch",
+        "Description": "Batch",
+        "ProcessIndex": 2,
+        "NextIndex": 3,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "ExpiryDate",
+        "Description": "ExpiryDate (YYYYMMDD)",
+        "ProcessIndex": 3,
+        "NextIndex": 4,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "Qty",
+        "Description": "Qty per TrackingEntity",
+        "ProcessIndex": 4,
+        "NextIndex": 5,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "NoEntities",
+        "Description": "Number of Identical TrackingEntities",
+        "ProcessIndex": 5,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "Print",
+        "Description": "Print",
+        "ProcessIndex": 99,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "DefaultValue": "",
+        "PreScript": "",
+        "hasWebTemplate": true
+      }
+    ]
+  },
+  "PostDeployArtifacts": [
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "5fccc4b3-cbe6-593f-a35b-1bb24a5adbf1",
+      "ArtifactVersion": 1,
+      "ArtifactName": "BUTTANUTT_MANUFACTURE"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "2ce4a98e-d8fc-54d5-9e9c-d5e97133a9ea",
+      "ArtifactVersion": 1,
+      "ArtifactName": "BUTTANUTT_MANUFACTURE_Document"
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

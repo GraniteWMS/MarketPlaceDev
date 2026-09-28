@@ -1,0 +1,52 @@
+{
+  "Identifier": "762cbbaf-9142-4db0-bdb7-fae31513babe",
+  "Name": "CONSUMEPOST_BUTTANUTT",
+  "Description": "CONSUMEPOST_BUTTANUTT\n\nProvides a web template list of jobs that can be posted",
+  "Type": "PROCESS",
+  "Version": 1,
+  "LastModified": "21/03/2026",
+  "Tags": [
+    "Manufacturing"
+  ],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "ab69b91b-4fd4-5d48-95b0-5422a8d2f73a",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Integration_Transactions"
+    },
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "c23b5fff-a76e-58f7-9b38-15938dc0bcd1",
+      "ArtifactVersion": 1,
+      "ArtifactName": "WebTemplate_ConsumePost_Document"
+    }
+  ],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "CONSUMEPOST",
+    "ProcessStepMetadata": [
+      {
+        "Name": "Document",
+        "Description": "Document",
+        "ProcessIndex": 0,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "DefaultValue": "",
+        "PreScript": "",
+        "hasWebTemplate": false
+      }
+    ]
+  },
+  "PostDeployArtifacts": [
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "3073e134-4827-570d-9404-7b3c2a867110",
+      "ArtifactVersion": 1,
+      "ArtifactName": "CONSUMEPOST_BUTTANUTT_Document"
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

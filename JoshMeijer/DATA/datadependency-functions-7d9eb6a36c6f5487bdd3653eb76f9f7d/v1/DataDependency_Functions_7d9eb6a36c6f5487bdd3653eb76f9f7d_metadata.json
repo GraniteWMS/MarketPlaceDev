@@ -1,0 +1,17 @@
+{
+  "Identifier": "7d9eb6a3-6c6f-5487-bdd3-653eb76f9f7d",
+  "Name": "DataDependency_Functions_7d9eb6a36c6f5487bdd3653eb76f9f7d",
+  "Description": "",
+  "Type": "DATA",
+  "Version": 1,
+  "LastModified": "29/03/2026",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "TypeSpecificAttributes": {
+    "Table": "dbo.Functions",
+    "KeyColumn": "Name",
+    "KeyValues": [
+      "GenerateStockOnHandFile"
+    ]
+  }
+}

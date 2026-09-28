@@ -1,0 +1,29 @@
+{
+  "Identifier": "a96bb93e-b943-4c71-b019-d4d40976288b",
+  "Name": "RECEIVINGPOSTMULTIPLE",
+  "Description": "RECEIVINGPOSTMULTIPLE\n\nThis is the default (empty) RECEIVINGPOSTMULTIPLE process.",
+  "Type": "PROCESS",
+  "Version": 0,
+  "LastModified": "19/03/2024",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "RECEIVINGPOST",
+    "ProcessStepMetadata": [
+      {
+        "Name": "Document",
+        "Description": "Document",
+        "ProcessIndex": 0,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      }
+    ]
+  },
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

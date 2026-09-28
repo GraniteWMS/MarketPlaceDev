@@ -1,0 +1,13 @@
+{
+  "Identifier": "eb96036f-06b8-57cd-8767-ebfac37887fd",
+  "Name": "RECEIVING",
+  "Description": "WebTemplate for process template RECEIVING",
+  "Type": "WEBTEMPLATE",
+  "Version": 1,
+  "LastModified": "08/09/2026",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

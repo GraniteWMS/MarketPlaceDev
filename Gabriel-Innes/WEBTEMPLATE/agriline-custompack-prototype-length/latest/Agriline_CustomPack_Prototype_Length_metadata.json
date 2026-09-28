@@ -1,0 +1,13 @@
+{
+  "Identifier": "04744f0f-00d9-5e50-83e9-ede9b75f0e58",
+  "Name": "Agriline_CustomPack_Prototype_Length",
+  "Description": "WebTemplate for process template Agriline_CustomPack_Prototype / step Length",
+  "Type": "WEBTEMPLATE",
+  "Version": 0,
+  "LastModified": "04/06/2026",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

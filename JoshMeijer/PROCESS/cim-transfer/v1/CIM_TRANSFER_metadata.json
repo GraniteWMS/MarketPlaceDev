@@ -1,0 +1,158 @@
+{
+  "Identifier": "9a5ef4a2-c78e-4115-808f-bb15f61fe055",
+  "Name": "CIM_TRANSFER",
+  "Description": "CIM TRANSFER\n\nSomeone using SAPB1 for prefix\n\nN/a",
+  "Type": "PROCESS",
+  "Version": 1,
+  "LastModified": "18/05/2026",
+  "Tags": [
+    "Electronics",
+    "Construction",
+    "E-commerce",
+    "Logistics",
+    "Pharmaceutical",
+    "Cold Storage"
+  ],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "USER_TABLE",
+      "ArtifactIdentifier": "6f9a9808-83f8-5e83-b4f6-dc712a5f42dc",
+      "ArtifactVersion": 1,
+      "ArtifactName": "OptionalFieldValues_Location"
+    },
+    {
+      "ArtifactType": "SQL_STORED_PROCEDURE",
+      "ArtifactIdentifier": "6ab82f3a-ec34-5d3a-bc67-542380615702",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Custom_GetRecommendedBarcode"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "01e869f0-0dd0-5bb3-bb94-dea5e983082c",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PrescriptTransferDocument"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "70ce2fe9-a628-59b5-bcad-9602a84200d6",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PrescriptTransferTrackingEntity"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "2d6e19fb-d585-5752-ac32-a00c22979989",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PrescriptTransferStep200"
+    }
+  ],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "TRANSFER",
+    "ProcessStepMetadata": [
+      {
+        "Name": "Type",
+        "Description": "Type",
+        "ProcessIndex": 100,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": false,
+        "DefaultValue": "TRANSFER",
+        "PreScript": "",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Document",
+        "Description": "Scan/Enter Transfer Number",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": false,
+        "DefaultValue": "",
+        "PreScript": "PrescriptTransferDocument",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "DestinationLocation",
+        "Description": "DestinationLocation",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": false,
+        "DefaultValue": "",
+        "PreScript": "",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "IntransitLocation",
+        "Description": "IntransitLocation",
+        "ProcessIndex": 2,
+        "NextIndex": 3,
+        "isActive": true,
+        "Required": false,
+        "DefaultValue": "",
+        "PreScript": "",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "TrackingEntity",
+        "Description": "Scan/Enter Tracking Entity Barcode",
+        "ProcessIndex": 3,
+        "NextIndex": 3,
+        "isActive": true,
+        "Required": false,
+        "DefaultValue": "",
+        "PreScript": "PrescriptTransferTrackingEntity",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Qty",
+        "Description": "Enter Qty for Tracking Barcode to Transfer",
+        "ProcessIndex": 100,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": false,
+        "DefaultValue": "",
+        "PreScript": "",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Print",
+        "Description": "Print",
+        "ProcessIndex": 99,
+        "NextIndex": 99,
+        "isActive": true,
+        "Required": false,
+        "DefaultValue": "",
+        "PreScript": "",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Step200",
+        "Description": "Step200",
+        "ProcessIndex": 200,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": false,
+        "DefaultValue": "",
+        "PreScript": "PrescriptTransferStep200",
+        "hasWebTemplate": true
+      }
+    ]
+  },
+  "PostDeployArtifacts": [
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "79a81a88-91de-53bc-bfe1-5611af47c3aa",
+      "ArtifactVersion": 1,
+      "ArtifactName": "CIM_TRANSFER"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "0471ed8b-1fad-5343-9975-c190a731c016",
+      "ArtifactVersion": 1,
+      "ArtifactName": "CIM_TRANSFER_Document"
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

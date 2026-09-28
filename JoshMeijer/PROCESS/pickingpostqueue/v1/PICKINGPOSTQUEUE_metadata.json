@@ -1,0 +1,78 @@
+{
+  "Identifier": "44d5745d-9cb5-4fd2-8476-cb6de16f8bb7",
+  "Name": "PICKINGPOSTQUEUE",
+  "Description": "Picking Post to Queue\n\nIf integration takes more than 30seconds, the scanner times out, but integration can still be successful.  In some sites the user wants to post and immediately move on, not waiting for the post response.   This process inserts the posting requirement into a table IntegrationDocumentPostingQueue.  A separate Scheduled Job should pick up the record, post it, and update Status and Response message.   A DatGrid should be made available to show the results.\n\nThe process will Create the Table IntegrationDocumentPostingQueue.  At this stage, I have not created the Scheduled Job yet.",
+  "Type": "PROCESS",
+  "Version": 1,
+  "LastModified": "02/04/2026",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "a3064b57-5417-5270-a311-b48de13d2bbe",
+      "ArtifactVersion": 1,
+      "ArtifactName": "WebTemplate_SOtoPOST"
+    },
+    {
+      "ArtifactType": "SQL_STORED_PROCEDURE",
+      "ArtifactIdentifier": "4f40ba60-7ab3-58b8-a1d3-5d7bb8675d6f",
+      "ArtifactVersion": 1,
+      "ArtifactName": "WebTemplate_SalesOrderPostDetail"
+    },
+    {
+      "ArtifactType": "USER_TABLE",
+      "ArtifactIdentifier": "c84b1657-573f-59bb-8ec5-bb328f11caf5",
+      "ArtifactVersion": 1,
+      "ArtifactName": "IntegrationDocumentPostingQueue"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "294de66e-4365-5e08-8b45-63b8b534575e",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PrescriptPickingPostQueueConfirmation"
+    }
+  ],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "CUSTOM",
+    "ProcessStepMetadata": [
+      {
+        "Name": "Document",
+        "Description": "Document",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "DefaultValue": "",
+        "PreScript": "",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Confirmation",
+        "Description": "Confirm Details To Post",
+        "ProcessIndex": 1,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "PrescriptPickingPostQueueConfirmation",
+        "hasWebTemplate": false
+      }
+    ]
+  },
+  "PostDeployArtifacts": [
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "f767c2cd-13c2-5e4c-8080-91ba109e88c3",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PICKINGPOSTQUEUE_Document"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "26b7c08e-4f24-5d4a-ab73-a093b84375dd",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PICKINGPOSTQUEUE_Confirmation"
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

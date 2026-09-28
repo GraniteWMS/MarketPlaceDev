@@ -1,0 +1,19 @@
+{
+  "Identifier": "9c4bd84f-71fc-557e-a981-e8b70caa679b",
+  "Name": "VSERV_TAKEON_MasterItem",
+  "Description": "WebTemplate for process template VSERV_TAKEON / step MasterItem",
+  "Type": "WEBTEMPLATE",
+  "Version": 1,
+  "LastModified": "09/02/2026",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "0b628a17-0ad0-541f-b787-05ac0600903a",
+      "ArtifactVersion": 1
+    }
+  ],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

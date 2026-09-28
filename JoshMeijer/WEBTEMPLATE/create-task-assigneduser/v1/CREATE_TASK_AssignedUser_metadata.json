@@ -1,0 +1,19 @@
+{
+  "Identifier": "33a04698-c336-53ea-ab32-8af6fea4ea9a",
+  "Name": "CREATE_TASK_AssignedUser",
+  "Description": "WebTemplate for process template CREATE_TASK / step AssignedUser",
+  "Type": "WEBTEMPLATE",
+  "Version": 1,
+  "LastModified": "04/06/2025",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "c95e8cb9-d7ce-51d6-a064-84992d11eae5",
+      "ArtifactVersion": 1
+    }
+  ],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

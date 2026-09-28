@@ -1,0 +1,129 @@
+{
+  "Identifier": "a260d9c1-e89f-4779-89ea-444baf6e01b3",
+  "Name": "CIM_PACKING",
+  "Description": "CIM PACKING\n\nSAP B1 with prefix\n\nN/a",
+  "Type": "PROCESS",
+  "Version": 0,
+  "LastModified": "18/05/2026",
+  "Tags": [
+    "Manufacturing",
+    "Retail",
+    "Automotive",
+    "Agricultural",
+    "Textile",
+    "Electronics",
+    "Construction",
+    "E-commerce",
+    "Logistics",
+    "Pharmaceutical",
+    "Cold Storage"
+  ],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "335bdc10-cbd4-51d7-bf37-1093e80c98bf",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PrescriptPackingDocument"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "13d9780d-a6d5-5f9f-8529-da69a35c2e5c",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PrescriptPackingMasterItem"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "f36d7395-e156-5161-99ee-6db6da3415bd",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PrescriptPackingQty"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "6be13b4b-c98c-55bb-9159-ff7ccadf9914",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PrescriptPackingStep200"
+    }
+  ],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "PACKING",
+    "ProcessStepMetadata": [
+      {
+        "Name": "Document",
+        "Description": "Scan/Enter Sales Order Number",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "DefaultValue": "",
+        "PreScript": "PrescriptPackingDocument",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Location",
+        "Description": "Scan/Enter Packing Location",
+        "ProcessIndex": 100,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "DefaultValue": "",
+        "PreScript": "",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "CarryingEntity",
+        "Description": "BOX or PALLET",
+        "ProcessIndex": 100,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": false,
+        "DefaultValue": "",
+        "PreScript": "",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "MasterItem",
+        "Description": "Scan/Enter Tracking Barcode",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "DefaultValue": "",
+        "PreScript": "PrescriptPackingMasterItem",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Qty",
+        "Description": "Enter Packed Qty",
+        "ProcessIndex": 2,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "DefaultValue": "",
+        "PreScript": "PrescriptPackingQty",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "STEP200",
+        "Description": "STEP200",
+        "ProcessIndex": 200,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": false,
+        "DefaultValue": "",
+        "PreScript": "PrescriptPackingStep200",
+        "hasWebTemplate": true
+      }
+    ]
+  },
+  "PostDeployArtifacts": [
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "4b6da5d7-016d-565a-ae74-1a2e62cdc645",
+      "ArtifactVersion": 1,
+      "ArtifactName": "CIM_PACKING_Document"
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

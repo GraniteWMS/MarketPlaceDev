@@ -1,0 +1,48 @@
+{
+  "Name": "VSERV_REPLENISH_ETHICAL_BOX",
+  "Description": "VSERV_REPLENISH_ETHICAL_BOX",
+  "Type": "REPLENISH",
+  "IsActive": true,
+  "IntegrationIsActive": false,
+  "IntegrationPost": false,
+  "Steps": [
+    {
+      "Name": "FromTrackingEntity",
+      "Description": "Scan Ethical (ETHL) Box",
+      "ProcessIndex": 0,
+      "NextIndex": 1,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "Prescript_ReplenishEthicalBox_FromTrackingEntity"
+    },
+    {
+      "Name": "ToTrackingEntity",
+      "Description": "Which Box Is The Stock Going To?",
+      "ProcessIndex": 1,
+      "NextIndex": 2,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "Prescript_ReplenishEthicalBox_ToTrackingEntity"
+    },
+    {
+      "Name": "Qty",
+      "Description": "Qty to Replenish",
+      "ProcessIndex": 2,
+      "NextIndex": 0,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false
+    },
+    {
+      "Name": "Location",
+      "Description": "To Location",
+      "ProcessIndex": 100,
+      "NextIndex": 0,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false
+    }
+  ]
+}

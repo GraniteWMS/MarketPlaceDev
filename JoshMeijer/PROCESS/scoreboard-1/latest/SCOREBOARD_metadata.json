@@ -1,0 +1,109 @@
+{
+  "Identifier": "64ff7261-66f1-431d-9cda-553b00b4f70c",
+  "Name": "SCOREBOARD",
+  "Description": "SCOREBOARD\n\nScore Board showing user transactions for receiving, putaway, transfer and loading.",
+  "Type": "PROCESS",
+  "Version": 0,
+  "LastModified": "13/07/2024",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "9e25f53c-6dd5-545d-8414-db228dd2e1b5",
+      "ArtifactVersion": 1,
+      "ArtifactName": "webtemplate_ScoreboardPutaway"
+    },
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "b8503ac0-1394-551c-9805-dcc6bb0bde33",
+      "ArtifactVersion": 1,
+      "ArtifactName": "webtemplate_ScoreboardLoadOut"
+    },
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "09a13fcf-89d4-5e0b-8daf-c919facba14c",
+      "ArtifactVersion": 1,
+      "ArtifactName": "webtemplate_ScoreboardTransferPick"
+    },
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "a421b4f7-2ddf-59fd-b95c-bb61fd0b1a25",
+      "ArtifactVersion": 1,
+      "ArtifactName": "webtemplate_ScoreboardReceiving"
+    }
+  ],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "CUSTOM",
+    "ProcessStepMetadata": [
+      {
+        "Name": "ScorePutaway",
+        "Description": "Putaway Score",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "ScoreLoadOut",
+        "Description": "Load Out Score",
+        "ProcessIndex": 3,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "ScoreTransfer",
+        "Description": "Transfer Pick Score",
+        "ProcessIndex": 2,
+        "NextIndex": 3,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "ScoreReceive",
+        "Description": "Receiving Score",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      }
+    ]
+  },
+  "PostDeployArtifacts": [
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "87f40bed-bf14-58f8-a08e-7f09cac8f77a",
+      "ArtifactVersion": 1,
+      "ArtifactName": "SCOREBOARD_ScoreReceive"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "62c41ae7-1122-5a8f-895e-9031a58a942c",
+      "ArtifactVersion": 1,
+      "ArtifactName": "SCOREBOARD_ScorePutaway"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "70f3b7f0-836c-5bfc-9cac-8cda27cccae9",
+      "ArtifactVersion": 1,
+      "ArtifactName": "SCOREBOARD_ScoreTransfer"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "4e49a537-8ca0-56c9-8395-a73293741480",
+      "ArtifactVersion": 1,
+      "ArtifactName": "SCOREBOARD_ScoreLoadOut"
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

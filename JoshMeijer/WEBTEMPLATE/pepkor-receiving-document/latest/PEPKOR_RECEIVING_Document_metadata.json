@@ -1,0 +1,19 @@
+{
+  "Identifier": "819ae304-2acc-525e-bf17-edd8bba54009",
+  "Name": "PEPKOR_RECEIVING_Document",
+  "Description": "WebTemplate for process template PEPKOR_RECEIVING / step Document",
+  "Type": "WEBTEMPLATE",
+  "Version": 0,
+  "LastModified": "13/05/2026",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "f5f01f1c-b3db-51bc-be0f-1d71bde3fb44",
+      "ArtifactVersion": 1
+    }
+  ],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

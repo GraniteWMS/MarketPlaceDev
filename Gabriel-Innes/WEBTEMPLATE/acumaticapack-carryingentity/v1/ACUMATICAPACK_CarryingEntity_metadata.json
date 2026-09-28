@@ -1,0 +1,13 @@
+{
+  "Identifier": "18eb83a7-166b-5baa-b996-024d37dd9758",
+  "Name": "ACUMATICAPACK_CarryingEntity",
+  "Description": "WebTemplate for process template ACUMATICAPACK / step CarryingEntity",
+  "Type": "WEBTEMPLATE",
+  "Version": 1,
+  "LastModified": "01/06/2026",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

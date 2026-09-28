@@ -1,0 +1,13 @@
+{
+  "Identifier": "cc49fc6f-61f6-50b2-a8cf-f736550f10e3",
+  "Name": "ALFRED_RECEIVINGSELECTABLE_BATCH_Location",
+  "Description": "WebTemplate for process template ALFRED_RECEIVINGSELECTABLE_BATCH / step Location",
+  "Type": "WEBTEMPLATE",
+  "Version": 0,
+  "LastModified": "20/03/2026",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

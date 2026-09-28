@@ -1,0 +1,92 @@
+{
+  "Identifier": "aef061d3-4fee-4698-b2c1-fc4bdc699882",
+  "Name": "BUCKY_UNPICK_V2",
+  "Description": "BUCKY_UNPICK_V2\n\nUseful for when you need to do pick reversals on the scanner.\n\nThe Step200 script does most of the work. There is a table variable called \"@TransactionIDsToReverse\". You can insert however many transactions you want into this variable as you wish. For example you could insert all the pick transactions for a particular master item on the document.",
+  "Type": "PROCESS",
+  "Version": 0,
+  "LastModified": "27/01/2026",
+  "Tags": [
+    "Retail",
+    "Automotive",
+    "Agricultural",
+    "Textile",
+    "Electronics",
+    "Construction",
+    "E-commerce",
+    "Logistics",
+    "Pharmaceutical",
+    "Cold Storage"
+  ],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "e4efdf30-98ab-5aca-9aaa-fa1d44e94e82",
+      "ArtifactVersion": 1,
+      "ArtifactName": "WebTemplate_UnpickTransaction_TransactionID"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "9330b100-b1df-57f3-99ab-cb87a0a645ed",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_UnpickTransaction_TransactionID"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "9f220545-2812-5499-b5c7-c78b77b297c5",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_UnpickTransaction_Step200"
+    }
+  ],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "CUSTOM",
+    "ProcessStepMetadata": [
+      {
+        "Name": "Document",
+        "Description": "Enter Document",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": false,
+        "PreScript": ""
+      },
+      {
+        "Name": "TransactionID",
+        "Description": "Select Transaction ID",
+        "ProcessIndex": 1,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_UnpickTransaction_TransactionID",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Step200",
+        "Description": "Reverses the Transaction",
+        "ProcessIndex": 200,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_UnpickTransaction_Step200",
+        "hasWebTemplate": true
+      }
+    ]
+  },
+  "PostDeployArtifacts": [
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "e50880b6-c8b9-5d0f-8739-a26d0ec5f3fa",
+      "ArtifactVersion": 1,
+      "ArtifactName": "BUCKY_UNPICK_V2_Document"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "f8618bf4-3bd6-5b68-af2a-2a54f2af86b8",
+      "ArtifactVersion": 1,
+      "ArtifactName": "BUCKY_UNPICK_V2_TransactionID"
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

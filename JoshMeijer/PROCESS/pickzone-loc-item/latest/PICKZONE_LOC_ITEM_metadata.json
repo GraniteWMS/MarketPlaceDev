@@ -1,0 +1,177 @@
+{
+  "Identifier": "d35e5d93-bf0b-449d-8bfa-d7b89fa07062",
+  "Name": "PICKZONE_LOC_ITEM",
+  "Description": "PICK ZONE - LOCATION_ITEM\n\nTrackingEntity is LOC_ITEM\nImplements Zone picking where a step is available for LocationZone\nScanner only show the next item to pick, not all items\nImplements a Qty button selector avoiding keyboard switching from Alphanumeric to Numeric\nAlso implements a SKIP to next line since we only show 1 line\n\nZones are implemented as Location Categories.  In FIFOPickRecommendation, the Zone is added to the Instruction with a separator.   In the process the step LocationZone fetches the available Zones and summaries this, for selection\nIt implements a SKIP on showing the next line to pick using LinePriority -if SKIP is entered on Qty, then it sets line priority to 99999 so that the skipped line is at bottom of list.\nThis only happens on the Skip - where I pass in a bit to FIFOPickInstruction indicating whether to update linepriorities that are set to 99999.  We only do this when calling from the Document Step, Not on Step200 - this allows us to maintain the LinePriority as 99999, unless I restart picking.  FIFOPickrecommendation is included in this publish",
+  "Type": "PROCESS",
+  "Version": 0,
+  "LastModified": "04/05/2026",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "8723c2a2-c933-57ab-a568-3bf670343ba2",
+      "ArtifactVersion": 1,
+      "ArtifactName": "MasterItemAlias_View"
+    },
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "54c9da9a-7ac8-5210-8e23-327f81703d87",
+      "ArtifactVersion": 1,
+      "ArtifactName": "webtemplate_SOtoPick"
+    },
+    {
+      "ArtifactType": "SQL_STORED_PROCEDURE",
+      "ArtifactIdentifier": "79974a6d-f48b-59a4-bd11-a63eed23c408",
+      "ArtifactVersion": 1,
+      "ArtifactName": "WebTemplate_Picking_ZonesonOrder"
+    },
+    {
+      "ArtifactType": "SQL_STORED_PROCEDURE",
+      "ArtifactIdentifier": "d92fd50c-b2c6-5b47-ac55-8165f9c53d16",
+      "ArtifactVersion": 1,
+      "ArtifactName": "FIFOPickingRecommendation"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "fbeb7f0f-60c5-5532-9c4c-247cc695cdee",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_Picking_Document"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "0ed614ab-950d-59bc-a10c-215598de86de",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_Picking_TrackingEntity"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "762c3aa1-fe40-513d-8ef5-9dcaa6ff8c21",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_Picking_Qty"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "aac2c0aa-cf6a-58cc-8617-e4abf043f314",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_PickingStep200"
+    },
+    {
+      "ArtifactType": "SQL_STORED_PROCEDURE",
+      "ArtifactIdentifier": "0486b65e-07a4-536b-b357-6a0fc6dde9c6",
+      "ArtifactVersion": 1,
+      "ArtifactName": "ValidateLocation"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "025a6e87-9fe8-51da-84bb-3bc664846900",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_Picking_FromLocation"
+    }
+  ],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "PICKING",
+    "ProcessStepMetadata": [
+      {
+        "Name": "Document",
+        "Description": "Document",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "DefaultValue": "",
+        "PreScript": "Prescript_Picking_Document",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Location",
+        "Description": "Staging Location",
+        "ProcessIndex": 100,
+        "NextIndex": 100,
+        "isActive": true,
+        "Required": true,
+        "DefaultValue": "DIS",
+        "PreScript": "",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "TrackingEntity",
+        "Description": "Scan Item Barcode",
+        "ProcessIndex": 3,
+        "NextIndex": 4,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_Picking_TrackingEntity",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Qty",
+        "Description": "Qty in Eaches",
+        "ProcessIndex": 4,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_Picking_Qty",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Step200",
+        "Description": "Update FIFO recommendation",
+        "ProcessIndex": 200,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_PickingStep200",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "FromLocation",
+        "Description": "FromLocation",
+        "ProcessIndex": 2,
+        "NextIndex": 3,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_Picking_FromLocation",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "LocationZone",
+        "Description": "Select Location Zone",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": false,
+        "PreScript": ""
+      }
+    ]
+  },
+  "PostDeployArtifacts": [
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "ef6085cf-9347-5d3a-afaf-1d645211cb5e",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PICKZONE_LOC_ITEM"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "81e1e712-9199-586a-99ca-ae4286c17fc2",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PICKZONE_LOC_ITEM_Document"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "263221f3-c222-5edc-8de1-35f10a1788f5",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PICKZONE_LOC_ITEM_LocationZone"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "845bab68-5601-54b9-b751-abbd1cbe1006",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PICKZONE_LOC_ITEM_Qty"
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

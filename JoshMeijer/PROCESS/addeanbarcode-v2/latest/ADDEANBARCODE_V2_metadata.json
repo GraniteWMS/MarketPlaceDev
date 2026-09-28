@@ -1,0 +1,91 @@
+{
+  "Identifier": "f1292720-c7d1-4ffc-b481-bf544323fef5",
+  "Name": "ADDEANBARCODE_V2",
+  "Description": "ADDEANBARCODE_V2\n\nImprovements made",
+  "Type": "PROCESS",
+  "Version": 0,
+  "LastModified": "29/06/2026",
+  "Tags": [
+    "Manufacturing",
+    "Retail",
+    "Automotive",
+    "Agricultural",
+    "Textile",
+    "Electronics",
+    "Construction",
+    "E-commerce",
+    "Logistics",
+    "Pharmaceutical",
+    "Cold Storage"
+  ],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "0912e353-79c5-5a31-9311-e805d07d1029",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PrescriptAddEANBarcodeMasterItem"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "346d303d-66c5-54aa-bd06-bb4ad315d0bf",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PrescriptAddEANBarcodeEANBarcode"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "0365ef23-ed26-513b-b1d2-c5fbdeab4868",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PrescriptAddEANBarcodeConfirmation"
+    }
+  ],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "CUSTOM",
+    "ProcessStepMetadata": [
+      {
+        "Name": "MasterItem",
+        "Description": "Enter MasterItem",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "DefaultValue": "",
+        "PreScript": "PrescriptAddEANBarcodeMasterItem",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "EANBarcode",
+        "Description": "Scan EAN Barcode",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "DefaultValue": "",
+        "PreScript": "PrescriptAddEANBarcodeEANBarcode",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Confirmation",
+        "Description": "Confirm to add Product Code to Sage Item",
+        "ProcessIndex": 2,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "DefaultValue": "",
+        "PreScript": "PrescriptAddEANBarcodeConfirmation",
+        "hasWebTemplate": true
+      }
+    ]
+  },
+  "PostDeployArtifacts": [
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "71145e4b-1603-5027-b634-a2482622f2f0",
+      "ArtifactVersion": 1,
+      "ArtifactName": "ADDEANBARCODE_V2_MasterItem"
+    }
+  ],
+  "DependsOnClr": true,
+  "SqlClrAssemblyVersion": "7.0.0.0",
+  "Deprecated": false
+}

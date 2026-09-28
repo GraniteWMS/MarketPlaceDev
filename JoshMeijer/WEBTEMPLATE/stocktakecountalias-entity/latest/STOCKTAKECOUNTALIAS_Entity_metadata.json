@@ -1,0 +1,24 @@
+{
+  "Identifier": "e2d16469-8188-530d-a610-4098b6e6ef1b",
+  "Name": "STOCKTAKECOUNTALIAS_Entity",
+  "Description": "WebTemplate for process template STOCKTAKECOUNTALIAS / step Entity",
+  "Type": "WEBTEMPLATE",
+  "Version": 0,
+  "LastModified": "29/01/2025",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "USER_TABLE",
+      "ArtifactIdentifier": "50083429-d66f-59d4-84ed-aa394f519312",
+      "ArtifactVersion": 1
+    },
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "d08640ac-b5fa-531d-aa14-a61097d5dfb0",
+      "ArtifactVersion": 1
+    }
+  ],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

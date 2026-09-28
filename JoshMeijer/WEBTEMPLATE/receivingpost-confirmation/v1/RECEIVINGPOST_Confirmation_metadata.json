@@ -1,0 +1,19 @@
+{
+  "Identifier": "7d3b36ac-0c07-53bf-b24c-ff3218bef913",
+  "Name": "RECEIVINGPOST_Confirmation",
+  "Description": "WebTemplate for process template RECEIVINGPOST / step Confirmation",
+  "Type": "WEBTEMPLATE",
+  "Version": 1,
+  "LastModified": "24/06/2026",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "SQL_STORED_PROCEDURE",
+      "ArtifactIdentifier": "735b5624-99c7-5434-adba-addf089835c8",
+      "ArtifactVersion": 1
+    }
+  ],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

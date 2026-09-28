@@ -1,0 +1,125 @@
+{
+  "Identifier": "8b2b7c91-190f-4567-a6ac-7ac50d138c40",
+  "Name": "TRANSFER_BUTTANUTT",
+  "Description": "TRANSFER_BUTTANUTT\n\nBarcodes transferred on this process are automatically put on hold after they are transferred. It CLR printed a new barcode if the full barcode qty is not transferred",
+  "Type": "PROCESS",
+  "Version": 0,
+  "LastModified": "21/03/2026",
+  "Tags": [
+    "Electronics",
+    "Construction",
+    "E-commerce",
+    "Logistics",
+    "Pharmaceutical",
+    "Cold Storage",
+    "Manufacturing",
+    "Retail",
+    "Automotive",
+    "Agricultural",
+    "Textile"
+  ],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "fbe5f9e5-e235-5fad-aac8-ac860060ee9d",
+      "ArtifactVersion": 1,
+      "ArtifactName": "WebTemplate_Transfer_Document"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "a307b692-bfaa-5fe0-b9f1-8848881222d5",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_Transfer_Document"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "5a111d3f-7604-57d3-846e-bd606f96ac95",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_Transfer_TrackingEntity"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "6fb7e17b-b207-5952-8f58-1601308be1bc",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_Transfer_Step200"
+    }
+  ],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "TRANSFER",
+    "ProcessStepMetadata": [
+      {
+        "Name": "Type",
+        "Description": "Type",
+        "ProcessIndex": 100,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": false,
+        "DefaultValue": "TRANSFER",
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "Document",
+        "Description": "Enter Transfer Document",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": false,
+        "PreScript": "Prescript_Transfer_Document",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "DestinationLocation",
+        "Description": "DestinationLocation",
+        "ProcessIndex": 100,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "TrackingEntity",
+        "Description": "Scan Barcode",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": false,
+        "PreScript": "Prescript_Transfer_TrackingEntity",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Qty",
+        "Description": "Enter Qty To Transfer",
+        "ProcessIndex": 2,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "Step200",
+        "Description": "Updates Barcode To Be On Hold",
+        "ProcessIndex": 200,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_Transfer_Step200",
+        "hasWebTemplate": true
+      }
+    ]
+  },
+  "PostDeployArtifacts": [
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "3bca8e8a-3845-5b0b-bfd7-67624bd9d03b",
+      "ArtifactVersion": 1,
+      "ArtifactName": "TRANSFER_BUTTANUTT_Document"
+    }
+  ],
+  "DependsOnClr": true,
+  "SqlClrAssemblyVersion": "7.0.0.0",
+  "Deprecated": false
+}

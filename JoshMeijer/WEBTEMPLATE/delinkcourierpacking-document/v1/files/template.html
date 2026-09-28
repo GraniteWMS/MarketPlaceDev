@@ -1,0 +1,37 @@
+{{
+"
+SELECT
+      D.Number AS SalesOrder
+    , D.TradingPartnerDescription AS Customer
+    , COUNT(DISTINCT CBTE.TrackingEntity_id) AS BarcodeCountInBox
+FROM dbo.Custom_CourierBox CB
+INNER JOIN dbo.Custom_CourierBoxDocument CBD
+    ON CBD.CourierBox_id = CB.ID
+INNER JOIN dbo.[Document] D
+    ON D.ID = CBD.Document_id
+LEFT JOIN dbo.Custom_CourierBoxTrackingEntity CBTE
+    ON CBTE.CourierBox_id = CB.ID
+LEFT JOIN
+(
+    SELECT DISTINCT
+          T.Document_id
+        , T.TrackingEntity_id
+    FROM dbo.[Transaction] T
+    WHERE UPPER(T.[Type]) = "PICK"
+      AND ISNULL(T.ReversalTransaction_id, 0) = 0
+      AND ISNULL(T.ActionQty, 0) > 0
+) PTE
+    ON PTE.Document_id = D.ID
+   AND PTE.TrackingEntity_id = CBTE.TrackingEntity_id
+WHERE CB.BoxBarcode = @BoxBarcode
+GROUP BY
+      D.Number
+    , D.TradingPartnerCode
+    , D.TradingPartnerDescription
+    , CBD.ScanDate
+    , CBD.ScannedUser
+ORDER BY CBD.ScanDate DESC
+"
+| dbSelect({BoxBarcode})
+| basicTable({selectOnColumn:"SalesOrder", enableSearch:false})
+}}

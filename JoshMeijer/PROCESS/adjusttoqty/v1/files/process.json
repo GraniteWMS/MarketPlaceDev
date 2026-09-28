@@ -1,0 +1,62 @@
+{
+  "Name": "ADJUSTTOQTY",
+  "Description": "Adjust To Quantity (CLR with Integration)",
+  "Type": "CUSTOM",
+  "IsActive": true,
+  "IntegrationMethod": "ADJUSTMENT",
+  "IntegrationIsActive": true,
+  "IntegrationPost": true,
+  "WebTemplateArtifact": "44fc7e85-f2ad-5f34-b024-328c39ceecd9",
+  "Steps": [
+    {
+      "Name": "TrackingEntity",
+      "Description": "TrackingEntity",
+      "ProcessIndex": 0,
+      "NextIndex": 1,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "PrescriptAdjustToQtyTrackingEntity"
+    },
+    {
+      "Name": "Qty",
+      "Description": "Qty",
+      "ProcessIndex": 1,
+      "NextIndex": 2,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "PrescriptAdjustToQtyQty"
+    },
+    {
+      "Name": "ERPAction",
+      "Description": "Confirm Integration Action",
+      "ProcessIndex": 2,
+      "NextIndex": 0,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "WebTemplateArtifact": "fd19c3f0-8d2d-55d3-98d4-86d942faaaaa"
+    },
+    {
+      "Name": "Step200",
+      "Description": "Do the Adjustment with CLR",
+      "ProcessIndex": 200,
+      "NextIndex": 0,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "PrescriptAdjustToQtyStep200"
+    },
+    {
+      "Name": "Step201",
+      "Description": "Post to ERP using CLR",
+      "ProcessIndex": 201,
+      "NextIndex": 201,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "PrescriptAdjustmentToQty_Step201"
+    }
+  ]
+}

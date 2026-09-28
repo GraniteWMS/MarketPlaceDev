@@ -1,0 +1,19 @@
+{
+  "Identifier": "881fb082-2aa4-5d70-b2b9-2452e61cdec5",
+  "Name": "PICKINGPOST_Document",
+  "Description": "WebTemplate for process template PICKINGPOST / step Document",
+  "Type": "WEBTEMPLATE",
+  "Version": 0,
+  "LastModified": "10/09/2026",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "c6016901-15cf-587f-bdcf-701a590f0bbd",
+      "ArtifactVersion": 1
+    }
+  ],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

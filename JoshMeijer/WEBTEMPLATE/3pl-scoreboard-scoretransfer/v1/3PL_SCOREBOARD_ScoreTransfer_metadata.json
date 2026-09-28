@@ -1,0 +1,19 @@
+{
+  "Identifier": "f84abc01-432d-5863-a4fb-8cad39f5de2c",
+  "Name": "3PL_SCOREBOARD_ScoreTransfer",
+  "Description": "WebTemplate for process template 3PL_SCOREBOARD / step ScoreTransfer",
+  "Type": "WEBTEMPLATE",
+  "Version": 1,
+  "LastModified": "04/08/2025",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "20e7a3c4-02f8-5194-ae48-65bb925ebd10",
+      "ArtifactVersion": 1
+    }
+  ],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

@@ -1,0 +1,77 @@
+{
+  "Identifier": "9b1dc65d-086d-4e1d-828a-de0e57f6da72",
+  "Name": "CREATEPICKSLIP",
+  "Description": "Create a Batch Pickslip\n\nUsing the scanner, we want to create a pickslip simply by scanning order documents\n\nUses Barcode Master PICKSLIP entry to generate pickslips using a button for NEW PICKSLIP.\nAllows you to scan or enter the document numbers and it adds the documents into the Pickslip.\nI add the Document Number on the Line Comment so that during Picking you can see the Order Number per line.",
+  "Type": "PROCESS",
+  "Version": 0,
+  "LastModified": "01/06/2026",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "SQL_STORED_PROCEDURE",
+      "ArtifactIdentifier": "710910b4-5c59-5868-a7ff-249bc2542af1",
+      "ArtifactVersion": 1,
+      "ArtifactName": "WebTemplate_Pickslipsummaryinfo"
+    },
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "a42d4e09-957d-5c4f-8afb-16714a26c3d6",
+      "ArtifactVersion": 1,
+      "ArtifactName": "webtemplate_ActivePickslips"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "d9ed32a7-57af-5577-bf96-4449b9611984",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PrescriptCreatePickslipDocument"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "11d6eb93-8412-55ce-8c69-5c0fbe3a1368",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PrescriptCreatePickslipPickslip"
+    }
+  ],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "CUSTOM",
+    "ProcessStepMetadata": [
+      {
+        "Name": "Document",
+        "Description": "Scan Orders to add to Batch",
+        "ProcessIndex": 1,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "PrescriptCreatePickslipDocument",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Pickslip",
+        "Description": "Pickslip",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "PrescriptCreatePickslipPickslip",
+        "hasWebTemplate": false
+      }
+    ]
+  },
+  "PostDeployArtifacts": [
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "bc49caef-1298-5f6d-b6a7-be15f3e3d7b0",
+      "ArtifactVersion": 1,
+      "ArtifactName": "CREATEPICKSLIP_Pickslip"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "ac38944a-8962-51a2-af5c-f2e84712c66b",
+      "ArtifactVersion": 1,
+      "ArtifactName": "CREATEPICKSLIP_Document"
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

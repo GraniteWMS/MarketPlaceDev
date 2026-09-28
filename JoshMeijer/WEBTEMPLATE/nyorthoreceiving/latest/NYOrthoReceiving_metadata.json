@@ -1,0 +1,13 @@
+{
+  "Identifier": "36c9eb69-2aca-51a9-8caa-1351f0245732",
+  "Name": "NYOrthoReceiving",
+  "Description": "WebTemplate for process template NYOrthoReceiving",
+  "Type": "WEBTEMPLATE",
+  "Version": 0,
+  "LastModified": "15/04/2024",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

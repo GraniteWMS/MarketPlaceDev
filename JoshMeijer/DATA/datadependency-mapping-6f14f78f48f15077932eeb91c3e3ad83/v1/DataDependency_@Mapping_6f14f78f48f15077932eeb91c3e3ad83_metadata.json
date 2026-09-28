@@ -1,0 +1,17 @@
+{
+  "Identifier": "6f14f78f-48f1-5077-932e-eb91c3e3ad83",
+  "Name": "DataDependency_@Mapping_6f14f78f48f15077932eeb91c3e3ad83",
+  "Description": "",
+  "Type": "DATA",
+  "Version": 1,
+  "LastModified": "22/09/2026",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "TypeSpecificAttributes": {
+    "Table": "@Mapping",
+    "KeyColumn": "ParentProcessStep",
+    "KeyValues": [
+      "Session"
+    ]
+  }
+}

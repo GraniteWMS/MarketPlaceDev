@@ -1,0 +1,66 @@
+{
+  "Identifier": "23641563-13ea-4889-b6f2-0eecbd19130a",
+  "Name": "DYNAMICREVERSAL",
+  "Description": "Dynamic Pick Reversal\n\nReverse dynamic pick transactions",
+  "Type": "PROCESS",
+  "Version": 0,
+  "LastModified": "28/10/2025",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "8c96a18f-1d52-585f-b3ad-8f3186d7be58",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PrescriptDynamicReversalConfirmation"
+    }
+  ],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "CUSTOM",
+    "ProcessStepMetadata": [
+      {
+        "Name": "Document",
+        "Description": "Enter Order Number",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "TrackingEntity",
+        "Description": "Scan Tracking Entity",
+        "ProcessIndex": 2,
+        "NextIndex": 3,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "Confirmation",
+        "Description": "Confirm Reversal",
+        "ProcessIndex": 3,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "PrescriptDynamicReversalConfirmation",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Comment",
+        "Description": "Reason for Reversal",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      }
+    ]
+  },
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

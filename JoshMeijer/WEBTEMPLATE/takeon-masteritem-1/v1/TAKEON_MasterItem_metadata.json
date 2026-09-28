@@ -1,0 +1,19 @@
+{
+  "Identifier": "fb688422-c5b5-5eea-a7dd-cf4706bc48b6",
+  "Name": "TAKEON_MasterItem",
+  "Description": "WebTemplate for process template TAKEON / step MasterItem",
+  "Type": "WEBTEMPLATE",
+  "Version": 1,
+  "LastModified": "22/04/2024",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "ef6183e6-545a-5f98-891d-b10cd19c1942",
+      "ArtifactVersion": 1
+    }
+  ],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

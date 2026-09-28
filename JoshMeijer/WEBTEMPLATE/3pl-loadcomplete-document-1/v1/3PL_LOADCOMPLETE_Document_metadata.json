@@ -1,0 +1,19 @@
+{
+  "Identifier": "c267cf03-6760-5643-9b43-756802ccb99a",
+  "Name": "3PL_LOADCOMPLETE_Document",
+  "Description": "WebTemplate for process template 3PL_LOADCOMPLETE / step Document",
+  "Type": "WEBTEMPLATE",
+  "Version": 1,
+  "LastModified": "04/08/2025",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "e2d24574-ec61-5780-8404-c27203ddcacf",
+      "ArtifactVersion": 1
+    }
+  ],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

@@ -1,0 +1,36 @@
+{
+  "Identifier": "196910b0-2154-49a6-b18d-a62c1e9061d8",
+  "Name": "IVODENT_PICKINGPOST",
+  "Description": "IVODENT_PICKINGPOST\n\nAuto picks service items",
+  "Type": "PROCESS",
+  "Version": 0,
+  "LastModified": "11/06/2026",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "127ed07f-c047-5727-bff7-1ebbf6387171",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PrescriptPickingPostDocument_PostServiceItems"
+    }
+  ],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "PICKINGPOST",
+    "ProcessStepMetadata": [
+      {
+        "Name": "Document",
+        "Description": "Document",
+        "ProcessIndex": 0,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "PrescriptPickingPostDocument_PostServiceItems",
+        "hasWebTemplate": true
+      }
+    ]
+  },
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

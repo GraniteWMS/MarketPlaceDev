@@ -1,0 +1,17 @@
+{
+  "Identifier": "9743fb6b-fe77-52eb-b463-12541b1527ef",
+  "Name": "DataDependency_SystemStaticData_9743fb6bfe7752ebb46312541b1527ef",
+  "Description": "",
+  "Type": "DATA",
+  "Version": 0,
+  "LastModified": "08/09/2026",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "TypeSpecificAttributes": {
+    "Table": "SystemStaticData",
+    "KeyColumn": "Key",
+    "KeyValues": [
+      "CCF_SSCCNumberofLabels"
+    ]
+  }
+}

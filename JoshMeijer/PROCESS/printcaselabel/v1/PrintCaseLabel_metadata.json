@@ -1,0 +1,154 @@
+{
+  "Identifier": "30d555b0-3637-4ebc-903c-24f34fe84d9d",
+  "Name": "PrintCaseLabel",
+  "Description": "Print GS128 case labels\n\nTo print case labels with GS128 barcode for Walmarts Egg industry/fresh produce traceability requirement.  The labels are simply case labels with some production variables -they are not Tracking Entity labels\n\nCLR is used to print.  Label_MasterItem is redefined to bring in Optional Fields and joined with custom_CurrentCaseLabelVariables to include these variables.\nThere is a published Document accompanying this process with instructions,",
+  "Type": "PROCESS",
+  "Version": 1,
+  "LastModified": "28/10/2025",
+  "Tags": [
+    "Manufacturing"
+  ],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "3ea1fce6-4661-5823-9f07-b29ab9865ac5",
+      "ArtifactVersion": 1,
+      "ArtifactName": "WebTemplate_MasterItems_WIP"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "a63f52d0-25d6-5e67-a367-b5b833199e79",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_PrintCaseLabel_MasterItem"
+    },
+    {
+      "ArtifactType": "SQL_SCALAR_FUNCTION",
+      "ArtifactIdentifier": "671410e0-5f48-52a3-b9f4-c48f7fada2e7",
+      "ArtifactVersion": 1,
+      "ArtifactName": "GetJulianDate"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "bb3189ca-c26c-54ef-8c80-04e4efeefe6b",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_PrintCaseLabel_BBDate"
+    },
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "c7b0aad7-ae7b-52a2-9f58-050079e1eee6",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Label_MasterItem"
+    },
+    {
+      "ArtifactType": "USER_TABLE",
+      "ArtifactIdentifier": "2f7fc1c7-9476-5cba-af73-7a6d7c5bb1e4",
+      "ArtifactVersion": 1,
+      "ArtifactName": "custom_CurrentCaseLabelVariables"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "8544391e-9cd4-5e33-8b28-68bd01131cb7",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_PrintCaseLabel_Step200"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "2aae7206-d3d7-5174-b325-e46cde6e3f88",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_PrintCaseLabel_ManufactureDate"
+    },
+    {
+      "ArtifactType": "DATA",
+      "ArtifactIdentifier": "b812d56e-8b2d-5f2f-a593-41582e351cd6",
+      "ArtifactVersion": 1,
+      "ArtifactName": "DataDependency_SystemStaticData_b812d56e8b2d5f2fa59341582e351cd6"
+    }
+  ],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "CUSTOM",
+    "ProcessStepMetadata": [
+      {
+        "Name": "MasterItem",
+        "Description": "Select Item Code",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_PrintCaseLabel_MasterItem",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "JulianDate",
+        "Description": "JulianDate",
+        "ProcessIndex": 2,
+        "NextIndex": 3,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "BBDate",
+        "Description": "BestBefore (YYYYMMDD)",
+        "ProcessIndex": 3,
+        "NextIndex": 4,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_PrintCaseLabel_BBDate",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "LotNumber",
+        "Description": "LotNumber",
+        "ProcessIndex": 100,
+        "NextIndex": 100,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "NumberOfLabels",
+        "Description": "Number of Labels",
+        "ProcessIndex": 4,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "Step200",
+        "Description": "InsertVariables",
+        "ProcessIndex": 200,
+        "NextIndex": 200,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_PrintCaseLabel_Step200",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "ManufactureDate",
+        "Description": "Manufacture Date (YYYYMMDD)",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_PrintCaseLabel_ManufactureDate",
+        "hasWebTemplate": true
+      }
+    ]
+  },
+  "PostDeployArtifacts": [
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "fe2cefe2-5057-5331-a7a4-80fbe2ee2f9c",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PrintCaseLabel_MasterItem"
+    }
+  ],
+  "DependsOnClr": true,
+  "SqlClrAssemblyVersion": "7.0.0.0",
+  "Deprecated": false
+}

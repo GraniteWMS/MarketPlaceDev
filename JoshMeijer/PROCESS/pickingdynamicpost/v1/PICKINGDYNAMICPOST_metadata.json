@@ -1,0 +1,29 @@
+{
+  "Identifier": "3ba30c3f-8b7e-4297-9baa-01055ecabd22",
+  "Name": "PICKINGDYNAMICPOST",
+  "Description": "PICKINGDYNAMICPOST\n\nThis is the default (empty) PICKINGDYNAMICPOST process.",
+  "Type": "PROCESS",
+  "Version": 1,
+  "LastModified": "19/03/2024",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "PICKINGDYNAMICPOST",
+    "ProcessStepMetadata": [
+      {
+        "Name": "Document",
+        "Description": "Document",
+        "ProcessIndex": 0,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      }
+    ]
+  },
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

@@ -1,0 +1,113 @@
+{
+  "Identifier": "1e4d0544-5871-4d75-b5db-e01587eb3137",
+  "Name": "PICKING_SUGGESTION_USER_DEFINED",
+  "Description": "Picking Suggestion Defined by User in the System Data screen\n\nA standard picking suggestion that can be used at most sites which allows the user to define how and what is suggested to the picker.\n\nCaters for suggestions centered around tracking entities. Does not cater to summarisation of data, eg Batch A in Location B has Qty 25 over 3 Tracking Entities.",
+  "Type": "PROCESS",
+  "Version": 0,
+  "LastModified": "11/09/2024",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "SQL_STORED_PROCEDURE",
+      "ArtifactIdentifier": "85f2c928-c2d6-5431-9ed1-f63e0a1525ba",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PickSequence"
+    },
+    {
+      "ArtifactType": "SQL_STORED_PROCEDURE",
+      "ArtifactIdentifier": "37ab4238-0780-5cb3-8336-b47d7c68d990",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PickingSuggestion"
+    },
+    {
+      "ArtifactType": "DATA",
+      "ArtifactIdentifier": "12d6a540-db4c-5e9a-977a-e26e1ec0034d",
+      "ArtifactVersion": 1,
+      "ArtifactName": "DataDependency_SystemStaticData_12d6a540db4c5e9a977ae26e1ec0034d"
+    },
+    {
+      "ArtifactType": "DATA",
+      "ArtifactIdentifier": "38c0de19-70df-5cbe-bf05-e33a0526aedd",
+      "ArtifactVersion": 1,
+      "ArtifactName": "DataDependency_SystemStaticData_38c0de1970df5cbebf05e33a0526aedd"
+    },
+    {
+      "ArtifactType": "DATA",
+      "ArtifactIdentifier": "e36f18ad-526d-528b-947b-170b5843aa9a",
+      "ArtifactVersion": 1,
+      "ArtifactName": "DataDependency_SystemStaticData_e36f18ad526d528b947b170b5843aa9a"
+    },
+    {
+      "ArtifactType": "DATA",
+      "ArtifactIdentifier": "3b44cbd2-779d-500a-842c-801b21fd9d4e",
+      "ArtifactVersion": 1,
+      "ArtifactName": "DataDependency_SystemStaticData_3b44cbd2779d500a842c801b21fd9d4e"
+    },
+    {
+      "ArtifactType": "DATA",
+      "ArtifactIdentifier": "d448c278-8558-568d-93a0-578f4afb7b97",
+      "ArtifactVersion": 1,
+      "ArtifactName": "DataDependency_SystemStaticData_d448c2788558568d93a0578f4afb7b97"
+    },
+    {
+      "ArtifactType": "DATA",
+      "ArtifactIdentifier": "47c3b7ec-56e4-5302-af99-d9f56037593b",
+      "ArtifactVersion": 1,
+      "ArtifactName": "DataDependency_SystemStaticData_47c3b7ec56e45302af99d9f56037593b"
+    },
+    {
+      "ArtifactType": "DATA",
+      "ArtifactIdentifier": "d3e4cae8-b4db-5623-b3c7-c7a498df3a57",
+      "ArtifactVersion": 1,
+      "ArtifactName": "DataDependency_SystemStaticData_d3e4cae8b4db5623b3c7c7a498df3a57"
+    },
+    {
+      "ArtifactType": "DATA",
+      "ArtifactIdentifier": "f4046f31-d56d-5402-b729-b291d72f4557",
+      "ArtifactVersion": 1,
+      "ArtifactName": "DataDependency_SystemStaticData_f4046f31d56d5402b729b291d72f4557"
+    },
+    {
+      "ArtifactType": "DATA",
+      "ArtifactIdentifier": "080731a3-1d16-53d3-b504-5cbc5dd3ad10",
+      "ArtifactVersion": 1,
+      "ArtifactName": "DataDependency_SystemStaticData_080731a31d1653d3b5045cbc5dd3ad10"
+    }
+  ],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "CUSTOM",
+    "ProcessStepMetadata": [
+      {
+        "Name": "PickingSuggestion",
+        "Description": "PickingSuggestion Script",
+        "ProcessIndex": 0,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "PickingSuggestion",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "PickSequence",
+        "Description": "PickSequence Script",
+        "ProcessIndex": 0,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "PickSequence",
+        "hasWebTemplate": true
+      }
+    ]
+  },
+  "PostDeployArtifacts": [
+    {
+      "ArtifactType": "POST_DEPLOY_SCRIPT",
+      "ArtifactIdentifier": "d3923bf6-8e95-5be1-883e-32b847a2b0a7",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PostDeployScript"
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

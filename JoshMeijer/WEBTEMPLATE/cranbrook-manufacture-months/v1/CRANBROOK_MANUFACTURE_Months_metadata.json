@@ -1,0 +1,13 @@
+{
+  "Identifier": "3d57f82a-5fc3-5945-acc6-b4aaaf103bb9",
+  "Name": "CRANBROOK_MANUFACTURE_Months",
+  "Description": "WebTemplate for process template CRANBROOK_MANUFACTURE / step Months",
+  "Type": "WEBTEMPLATE",
+  "Version": 1,
+  "LastModified": "25/06/2026",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

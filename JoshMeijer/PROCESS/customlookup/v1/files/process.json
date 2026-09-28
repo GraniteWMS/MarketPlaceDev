@@ -1,0 +1,40 @@
+{
+  "Name": "CUSTOMLOOKUP",
+  "Description": "CUSTOMLOOKUP",
+  "Type": "CUSTOM",
+  "IsActive": true,
+  "IntegrationIsActive": false,
+  "IntegrationPost": false,
+  "WebTemplateArtifact": "b3d64b31-efe0-5c49-8fa0-77c944a3f9fe",
+  "Steps": [
+    {
+      "Name": "Type",
+      "Description": "Type",
+      "ProcessIndex": 0,
+      "NextIndex": 1,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "WebTemplateArtifact": "895ab407-35ff-5237-aed3-4f4e86dd1af7"
+    },
+    {
+      "Name": "LookupValue",
+      "Description": "LookupValue",
+      "ProcessIndex": 1,
+      "NextIndex": 2,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false
+    },
+    {
+      "Name": "Done",
+      "Description": "Details",
+      "ProcessIndex": 2,
+      "NextIndex": 0,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "WebTemplateArtifact": "be2b8496-f1c3-55e5-ba5e-2e828fdec0a5"
+    }
+  ]
+}

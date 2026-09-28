@@ -1,0 +1,13 @@
+{
+  "Identifier": "4c23644d-b9cf-5b20-b627-5b739e7181ad",
+  "Name": "Takeon_Consolidated_MasterItem",
+  "Description": "WebTemplate for process template Takeon_Consolidated / step MasterItem",
+  "Type": "WEBTEMPLATE",
+  "Version": 0,
+  "LastModified": "05/08/2026",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

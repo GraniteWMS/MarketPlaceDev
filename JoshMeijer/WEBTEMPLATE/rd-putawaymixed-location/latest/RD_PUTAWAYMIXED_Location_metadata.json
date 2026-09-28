@@ -1,0 +1,19 @@
+{
+  "Identifier": "d65f40f1-6158-5c55-bebe-3235e8f0b0c0",
+  "Name": "RD_PUTAWAYMIXED_Location",
+  "Description": "WebTemplate for process template RD_PUTAWAYMIXED / step Location",
+  "Type": "WEBTEMPLATE",
+  "Version": 0,
+  "LastModified": "09/10/2025",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "SQL_STORED_PROCEDURE",
+      "ArtifactIdentifier": "167d582e-8073-5410-b838-e2be40a80242",
+      "ArtifactVersion": 1
+    }
+  ],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

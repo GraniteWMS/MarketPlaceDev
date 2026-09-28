@@ -1,0 +1,30 @@
+{{#if MasterItemSearch}}
+	{{ 
+    	navigateToStepButton({
+        	stepName: "MasterItemSearch",
+            buttonText: "Change Master Item Search"
+		}) 
+	}}   
+{{/if}} 
+<br>
+
+
+{{#if Location}}
+    {{ 
+        "SELECT TOP 1 Name, ERPLocation FROM Location WHERE Barcode = @Location"
+        |> dbSingle({Location}) |> to => location
+    }}
+    <div>
+        <small>Location</small>
+        <header class="gn-float-right">{{location.Name + " "}} <small style="font-style:normal">({{location.ERPLocation}})</small></header> 
+    </div>
+    </hr>
+{{/if}} 
+
+
+{{#if !MasterItem}} 
+	{{ "EXECUTE WebTemplate_SP_MasterItemSearch @MasterItemSearch " 
+       | dbSelect({MasterItemSearch}) | basicTable({selectOnColumn:"Code", enableSearch:true}) }} 
+
+	{{ hideTextBox() }} 
+{{/if}}

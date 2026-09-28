@@ -1,0 +1,117 @@
+{
+  "Identifier": "96a221d1-891c-4c13-be36-1d63cf1cbb0b",
+  "Name": "ADJUSTMENT-LOC_ITEM_TOQTY",
+  "Description": "ADJUST TO QTY\n\nAdjust to Qty on sites where Tracking Entity is Location_ItemCode.  Also does not use CLR.  Based on standard ADJUSTMENT\n\nCLR was avoided for old databases, and to use Standard Granite Adjustment logic.  Calculates Quantity to adjust and Type.  Specific for sites where the TE is a concat of Location and Item. Also supports Alias being used to get the Item Code.",
+  "Type": "PROCESS",
+  "Version": 1,
+  "LastModified": "20/12/2024",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "3f37de24-5343-5010-9e2b-eadb9c04e63a",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PrescriptAdjustmentTrackingEntity"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "c7369aaa-9d10-5feb-ab1d-2198776b5f63",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_Adjustment_Qty"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "d325c5b3-6074-5fda-aa3d-5142bf869513",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PrescriptAdjustmentLocation"
+    },
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "8e1ea0c4-0fd2-57b6-9b3d-ee221dfd71d0",
+      "ArtifactVersion": 1,
+      "ArtifactName": "MasterItemAlias_View"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "aa311774-b2eb-584d-9c7b-493bac8a4908",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PrescriptAdjustmentMasterItem"
+    }
+  ],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "ADJUSTMENT",
+    "ProcessStepMetadata": [
+      {
+        "Name": "TrackingEntity",
+        "Description": "Confirm the Loc_Item",
+        "ProcessIndex": 4,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "PrescriptAdjustmentTrackingEntity",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Type",
+        "Description": "Type",
+        "ProcessIndex": 100,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "Qty",
+        "Description": "Enter New Qty",
+        "ProcessIndex": 2,
+        "NextIndex": 3,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_Adjustment_Qty",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Comment",
+        "Description": "Comment or Reason",
+        "ProcessIndex": 3,
+        "NextIndex": 4,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "Location",
+        "Description": "Location",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "PrescriptAdjustmentLocation",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "MasterItem",
+        "Description": "Item Code or Alias",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "PrescriptAdjustmentMasterItem",
+        "hasWebTemplate": true
+      }
+    ]
+  },
+  "PostDeployArtifacts": [
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "b1d30de8-f8bb-53d9-af7c-ff050d238e8a",
+      "ArtifactVersion": 1,
+      "ArtifactName": "ADJUSTMENT-LOC_ITEM_TOQTY_Comment"
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

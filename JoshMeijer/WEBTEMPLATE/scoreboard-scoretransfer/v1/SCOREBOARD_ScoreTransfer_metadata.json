@@ -1,0 +1,19 @@
+{
+  "Identifier": "70f3b7f0-836c-5bfc-9cac-8cda27cccae9",
+  "Name": "SCOREBOARD_ScoreTransfer",
+  "Description": "WebTemplate for process template SCOREBOARD / step ScoreTransfer",
+  "Type": "WEBTEMPLATE",
+  "Version": 1,
+  "LastModified": "13/07/2024",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "09a13fcf-89d4-5e0b-8daf-c919facba14c",
+      "ArtifactVersion": 1
+    }
+  ],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

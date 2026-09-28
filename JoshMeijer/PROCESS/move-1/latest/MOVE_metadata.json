@@ -1,0 +1,138 @@
+{
+  "Identifier": "5424dd04-9c69-42a2-bd3e-50cfb41d2f42",
+  "Name": "MOVE",
+  "Description": "MOVE (Lists outstanding locations)\n\nLists locations a barcode still needs to pass through based on a predefined production path\n\nproduction path is picked up from a custom erp table",
+  "Type": "PROCESS",
+  "Version": 0,
+  "LastModified": "17/03/2026",
+  "Tags": [
+    "Manufacturing"
+  ],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "c7f1cc2e-4ce0-54a6-8478-38967747cbad",
+      "ArtifactVersion": 1,
+      "ArtifactName": "WebtemplateQualitycontrolTrackingEntity"
+    },
+    {
+      "ArtifactType": "SQL_STORED_PROCEDURE",
+      "ArtifactIdentifier": "261f4ea8-bc7d-50b2-b806-1d4a52069e29",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Custom_Integration_EVOAPP"
+    },
+    {
+      "ArtifactType": "SQL_STORED_PROCEDURE",
+      "ArtifactIdentifier": "df235c86-48ee-5f14-a54c-250d87c1050e",
+      "ArtifactVersion": 1,
+      "ArtifactName": "custom_post_to_EVOApp"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "f91a5b7b-b29c-58d6-8528-2ecc84c8ccdf",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PrescriptGenericQCConfirmation"
+    },
+    {
+      "ArtifactType": "USER_TABLE",
+      "ArtifactIdentifier": "93402893-95cc-5a77-af5f-ecac8cc89340",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Custom_ProductionSignatureMap"
+    },
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "c06e9863-6b86-5724-9b52-c46bad39140e",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Label_TrackingEntity"
+    },
+    {
+      "ArtifactType": "SQL_SCALAR_FUNCTION",
+      "ArtifactIdentifier": "8a804f2a-530d-5df0-ae25-6a58c1c06e07",
+      "ArtifactVersion": 1,
+      "ArtifactName": "FN_GetProductionToLocations"
+    }
+  ],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "CUSTOM",
+    "ProcessStepMetadata": [
+      {
+        "Name": "Type",
+        "Description": "Type",
+        "ProcessIndex": 3,
+        "NextIndex": 4,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "Comment",
+        "Description": "Comment",
+        "ProcessIndex": 4,
+        "NextIndex": 5,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "TrackingEntity",
+        "Description": "TrackingEntity",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": false,
+        "PreScript": ""
+      },
+      {
+        "Name": "Confirmation",
+        "Description": "Confirmation",
+        "ProcessIndex": 5,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": false,
+        "PreScript": "PrescriptGenericQCConfirmation",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Location",
+        "Description": "Location",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "DefaultValue": "CASTED",
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "OptionalFieldValue",
+        "Description": "Short Heat Number",
+        "ProcessIndex": 2,
+        "NextIndex": 3,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      }
+    ]
+  },
+  "PostDeployArtifacts": [
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "5c6ee2c7-cdc0-5236-a3f7-d37e320b452d",
+      "ArtifactVersion": 1,
+      "ArtifactName": "MOVE_TrackingEntity"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "325f2e41-4302-5e6c-a7ed-5eaa65db2dae",
+      "ArtifactVersion": 1,
+      "ArtifactName": "MOVE_Type"
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

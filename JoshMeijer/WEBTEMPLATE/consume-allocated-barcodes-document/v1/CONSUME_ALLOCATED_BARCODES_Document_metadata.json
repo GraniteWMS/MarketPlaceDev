@@ -1,0 +1,19 @@
+{
+  "Identifier": "08a23e92-feb9-5f20-9e49-ae7c914e4834",
+  "Name": "CONSUME_ALLOCATED_BARCODES_Document",
+  "Description": "WebTemplate for process template CONSUME_ALLOCATED_BARCODES / step Document",
+  "Type": "WEBTEMPLATE",
+  "Version": 1,
+  "LastModified": "07/06/2026",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "1520bba3-1828-57bd-82d4-7e260467e66c",
+      "ArtifactVersion": 1
+    }
+  ],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

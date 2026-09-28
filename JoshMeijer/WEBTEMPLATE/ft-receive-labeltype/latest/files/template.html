@@ -1,0 +1,8 @@
+{{ "SELECT DISTINCT [LabelType] AS [Type], [LabelTypeDescription] AS [Description], COUNT(DD_ID) [OpenLines]   
+	FROM [WebTemplate_Receiving_DocumentLines] 
+    WHERE [Number] = @Document 
+    GROUP BY [LabelType], [LabelTypeDescription] 
+    ORDER BY [LabelType] " 
+    | dbSelect({Document}) | basicTable({selectOnColumn:"Type", enableSearch:true}) }}
+    
+{{ hideTextBox() }}

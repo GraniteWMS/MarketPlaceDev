@@ -1,0 +1,19 @@
+{
+  "Identifier": "2b2f16b9-3768-5dfe-a88f-0dbfca286a56",
+  "Name": "TAKEON_BUTTANUTT_Location",
+  "Description": "WebTemplate for process template TAKEON_BUTTANUTT / step Location",
+  "Type": "WEBTEMPLATE",
+  "Version": 1,
+  "LastModified": "21/03/2026",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "1de72c29-ef5f-516d-bcd3-7a8aa96f2f0a",
+      "ArtifactVersion": 1
+    }
+  ],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

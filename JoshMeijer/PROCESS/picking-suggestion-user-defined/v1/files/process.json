@@ -1,0 +1,30 @@
+{
+  "Name": "PICKING_SUGGESTION_USER_DEFINED",
+  "Description": "Picking Suggestion Defined by User in the System Data screen",
+  "Type": "CUSTOM",
+  "IsActive": true,
+  "IntegrationIsActive": false,
+  "IntegrationPost": false,
+  "Steps": [
+    {
+      "Name": "PickSequence",
+      "Description": "PickSequence Script",
+      "ProcessIndex": 0,
+      "NextIndex": 0,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "PickSequence"
+    },
+    {
+      "Name": "PickingSuggestion",
+      "Description": "PickingSuggestion Script",
+      "ProcessIndex": 0,
+      "NextIndex": 0,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "PickingSuggestion"
+    }
+  ]
+}

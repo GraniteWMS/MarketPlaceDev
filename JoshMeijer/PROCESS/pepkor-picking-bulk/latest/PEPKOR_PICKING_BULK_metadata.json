@@ -1,0 +1,125 @@
+{
+  "Identifier": "afabc677-670c-45b6-9fa7-bfdb041a6259",
+  "Name": "PEPKOR_PICKING_BULK",
+  "Description": "PEPKOR_PICKING_BULK\n\nYou can scan a location and item code and it determines the TE barcode",
+  "Type": "PROCESS",
+  "Version": 0,
+  "LastModified": "13/05/2026",
+  "Tags": [
+    "Manufacturing",
+    "Retail",
+    "Automotive",
+    "Agricultural",
+    "Textile",
+    "Electronics",
+    "Construction",
+    "E-commerce",
+    "Pharmaceutical",
+    "Logistics",
+    "Cold Storage"
+  ],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "f6dd7b12-b553-5d90-845e-43244cc866e8",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_Picking_Document"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "a94c408b-a7dd-5bc4-84d9-291e7b455aff",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_PickingBulk_Location"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "f7b2d6f3-8f81-5055-8c29-0dd8ea680a9a",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_PickingBulk_TrackingEntity"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "8bb3a20e-5b68-5b36-a4ca-64bfa3bbbfc2",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_Picking_Step200"
+    },
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "0e6b9103-82f1-505a-8adf-f97b2fbabc36",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Custom_VW_DocumentERPLocations"
+    },
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "92ce87db-63a5-5168-a449-a5f5d7b86159",
+      "ArtifactVersion": 1,
+      "ArtifactName": "WebTemplate_Picking_Document"
+    }
+  ],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "PICKING",
+    "ProcessStepMetadata": [
+      {
+        "Name": "Document",
+        "Description": "Enter SO #",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_Picking_Document",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Location",
+        "Description": "Scan Bin Location",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_PickingBulk_Location",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "TrackingEntity",
+        "Description": "Scan Item Code",
+        "ProcessIndex": 2,
+        "NextIndex": 3,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_PickingBulk_TrackingEntity",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Qty",
+        "Description": "Enter Qty To Pick",
+        "ProcessIndex": 3,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "Step200",
+        "Description": "Step200",
+        "ProcessIndex": 200,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_Picking_Step200",
+        "hasWebTemplate": true
+      }
+    ]
+  },
+  "PostDeployArtifacts": [
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "b1639acb-bd10-5c78-b3df-bbb34c21662e",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PEPKOR_PICKING_BULK"
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

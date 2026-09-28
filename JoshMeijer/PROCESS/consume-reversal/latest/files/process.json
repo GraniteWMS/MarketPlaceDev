@@ -1,0 +1,51 @@
+{
+  "Name": "CONSUME_REVERSAL",
+  "Description": "CONSUME REVERSAL",
+  "Type": "CUSTOM",
+  "IsActive": true,
+  "IntegrationIsActive": false,
+  "IntegrationPost": false,
+  "Steps": [
+    {
+      "Name": "Document",
+      "Description": "Document",
+      "ProcessIndex": 0,
+      "NextIndex": 1,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "PrescriptConsumeReversalDocument"
+    },
+    {
+      "Name": "TrackingEntity",
+      "Description": "TrackingEntity",
+      "ProcessIndex": 1,
+      "NextIndex": 2,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "PrescriptConsumeReversalTrackingEntity"
+    },
+    {
+      "Name": "TransactionID",
+      "Description": "Select Transaction to reverse",
+      "ProcessIndex": 2,
+      "NextIndex": 3,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "WebTemplateArtifact": "2315fd8d-0688-593d-982d-17302a19114f"
+    },
+    {
+      "Name": "Confirmation",
+      "Description": "Confirmation",
+      "ProcessIndex": 3,
+      "NextIndex": 2,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "PrescriptConsumeReversalConfirmation",
+      "WebTemplateArtifact": "aa972303-dbca-5070-9a04-27ce2456f909"
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "Identifier": "94f38c37-d95b-5e1a-adba-817d7694d421",
+  "Name": "FT_RECEIVE",
+  "Description": "WebTemplate for process template FT_RECEIVE",
+  "Type": "WEBTEMPLATE",
+  "Version": 1,
+  "LastModified": "20/05/2026",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

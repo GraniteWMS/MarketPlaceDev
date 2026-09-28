@@ -1,0 +1,19 @@
+{
+  "Identifier": "aeb69d42-853e-5c48-8c82-2b8e4c605364",
+  "Name": "RD_RETURNTOWH_Location",
+  "Description": "WebTemplate for process template RD_RETURNTOWH / step Location",
+  "Type": "WEBTEMPLATE",
+  "Version": 1,
+  "LastModified": "09/10/2025",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "SQL_STORED_PROCEDURE",
+      "ArtifactIdentifier": "25c733f9-5f89-5707-b1e1-01d54bbb1f5a",
+      "ArtifactVersion": 1
+    }
+  ],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

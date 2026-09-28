@@ -1,0 +1,19 @@
+{
+  "Identifier": "2d2bd5ff-21a7-59aa-92ab-0accc1dcbeee",
+  "Name": "TAKEON_BUTTANUTT_MasterItem",
+  "Description": "WebTemplate for process template TAKEON_BUTTANUTT / step MasterItem",
+  "Type": "WEBTEMPLATE",
+  "Version": 1,
+  "LastModified": "21/03/2026",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "ce463861-c48c-581f-a39c-6533b28b2fba",
+      "ArtifactVersion": 1
+    }
+  ],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

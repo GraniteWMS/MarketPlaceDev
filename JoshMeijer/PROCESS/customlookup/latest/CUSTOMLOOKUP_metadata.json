@@ -1,0 +1,81 @@
+{
+  "Identifier": "b5697419-5c1d-4b4a-9779-eba9172776f0",
+  "Name": "CUSTOMLOOKUP",
+  "Description": "CUSTOMLOOKUP\n\nCustom configurable webtemplate. Works with all lookup types. Works with alias.\n\nIf you're using the MasterItemAlias_View you will need to change it in the webtemplate as its configured to the MasterItemAlias table.",
+  "Type": "PROCESS",
+  "Version": 0,
+  "LastModified": "18/03/2026",
+  "Tags": [
+    "Cold Storage",
+    "Pharmaceutical",
+    "Logistics",
+    "E-commerce",
+    "Construction",
+    "Electronics",
+    "Textile",
+    "Agricultural",
+    "Automotive",
+    "Retail",
+    "Manufacturing"
+  ],
+  "ArtifactDependencies": [],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "CUSTOM",
+    "ProcessStepMetadata": [
+      {
+        "Name": "Type",
+        "Description": "Type",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "LookupValue",
+        "Description": "LookupValue",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "Done",
+        "Description": "Details",
+        "ProcessIndex": 2,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      }
+    ]
+  },
+  "PostDeployArtifacts": [
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "b3d64b31-efe0-5c49-8fa0-77c944a3f9fe",
+      "ArtifactVersion": 1,
+      "ArtifactName": "CUSTOMLOOKUP"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "895ab407-35ff-5237-aed3-4f4e86dd1af7",
+      "ArtifactVersion": 1,
+      "ArtifactName": "CUSTOMLOOKUP_Type"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "be2b8496-f1c3-55e5-ba5e-2e828fdec0a5",
+      "ArtifactVersion": 1,
+      "ArtifactName": "CUSTOMLOOKUP_Done"
+    }
+  ],
+  "DependsOnClr": true,
+  "SqlClrAssemblyVersion": "7.0.0.0",
+  "Deprecated": false
+}

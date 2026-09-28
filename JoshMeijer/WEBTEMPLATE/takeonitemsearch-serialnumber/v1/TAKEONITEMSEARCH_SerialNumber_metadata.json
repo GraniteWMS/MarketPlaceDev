@@ -1,0 +1,13 @@
+{
+  "Identifier": "80310f8e-98a4-5fc1-ad85-682f25e84412",
+  "Name": "TAKEONITEMSEARCH_SerialNumber",
+  "Description": "WebTemplate for process template TAKEONITEMSEARCH / step SerialNumber",
+  "Type": "WEBTEMPLATE",
+  "Version": 1,
+  "LastModified": "30/05/2026",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

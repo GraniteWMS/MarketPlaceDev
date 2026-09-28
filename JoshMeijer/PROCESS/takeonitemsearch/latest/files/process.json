@@ -1,0 +1,96 @@
+{
+  "Name": "TAKEONITEMSEARCH",
+  "Description": "TAKEON ITEM SEARCH",
+  "Type": "TAKEON",
+  "IsActive": true,
+  "IntegrationIsActive": false,
+  "IntegrationPost": false,
+  "WebTemplateArtifact": "56b7fa30-a070-5b15-a291-6a43895a42be",
+  "Steps": [
+    {
+      "Name": "Location",
+      "Description": "Location",
+      "ProcessIndex": 0,
+      "NextIndex": 1,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "Prescript_TakeonItemSearch_Location"
+    },
+    {
+      "Name": "MasterItemSearch",
+      "Description": "MasterItem Search (Use values seperated by spaces)",
+      "ProcessIndex": 1,
+      "NextIndex": 2,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "Prescript_TakeonItemSearch_MasterItemSearch",
+      "WebTemplateArtifact": "953938b6-d5a5-52af-80b7-b935e43e6ec8"
+    },
+    {
+      "Name": "MasterItem",
+      "Description": "MasterItem",
+      "ProcessIndex": 2,
+      "NextIndex": 3,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "Prescript_TakeonItemSearch_MasterItem",
+      "WebTemplateArtifact": "91396348-95c9-5ac7-bf28-45c22de8c123"
+    },
+    {
+      "Name": "Batch",
+      "Description": "Batch",
+      "ProcessIndex": 3,
+      "NextIndex": 4,
+      "IsActive": true,
+      "Required": false,
+      "IsBusinessRule": false,
+      "PreScript": "Prescript_TakeonItemSearch_Batch",
+      "WebTemplateArtifact": "6c44d207-6158-59b7-9728-06b00ea4a570"
+    },
+    {
+      "Name": "ExpiryDate",
+      "Description": "ExpiryDate (YYYYMMDD)",
+      "ProcessIndex": 4,
+      "NextIndex": 5,
+      "IsActive": true,
+      "Required": false,
+      "IsBusinessRule": false,
+      "PreScript": "Prescript_TakeonItemSearch_ExpiryDate",
+      "WebTemplateArtifact": "c7ed2400-1970-5086-b0bb-cb284c4696fc"
+    },
+    {
+      "Name": "SerialNumber",
+      "Description": "SerialNumber",
+      "ProcessIndex": 5,
+      "NextIndex": 6,
+      "IsActive": true,
+      "Required": false,
+      "IsBusinessRule": false,
+      "PreScript": "Prescript_TakeonItemSearch_SerialNumber",
+      "WebTemplateArtifact": "80310f8e-98a4-5fc1-ad85-682f25e84412"
+    },
+    {
+      "Name": "Qty",
+      "Description": "Qty",
+      "ProcessIndex": 6,
+      "NextIndex": 7,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "WebTemplateArtifact": "a79d3738-9ad7-5e13-8577-0e107029c7eb"
+    },
+    {
+      "Name": "NoEntities",
+      "Description": "Number of Entities",
+      "ProcessIndex": 7,
+      "NextIndex": 2,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "WebTemplateArtifact": "85a2160d-8b55-55ff-8bfb-411ac72558c0"
+    }
+  ]
+}

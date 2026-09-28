@@ -1,0 +1,52 @@
+{
+  "Identifier": "84b5bd8e-12bf-4215-aa3d-8c483a5448ae",
+  "Name": "MANUFACTUREPOST_BUTTANUTT",
+  "Description": "MANUFACTUREPOST_BUTTANUTT\n\nProvides a web template list of jobs that can be posted",
+  "Type": "PROCESS",
+  "Version": 0,
+  "LastModified": "21/03/2026",
+  "Tags": [
+    "Manufacturing"
+  ],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "311e094c-c54f-505d-b99b-2995be1d3e32",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Integration_Transactions"
+    },
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "d40e6797-0e38-55d3-af4e-050cb5befba3",
+      "ArtifactVersion": 1,
+      "ArtifactName": "WebTemplate_ManufacturePost_Document"
+    }
+  ],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "MANUFACTUREPOST",
+    "ProcessStepMetadata": [
+      {
+        "Name": "Document",
+        "Description": "Document",
+        "ProcessIndex": 0,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "DefaultValue": "",
+        "PreScript": "",
+        "hasWebTemplate": false
+      }
+    ]
+  },
+  "PostDeployArtifacts": [
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "a4774781-a00c-5b5f-883c-2fd8bc2111de",
+      "ArtifactVersion": 1,
+      "ArtifactName": "MANUFACTUREPOST_BUTTANUTT_Document"
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

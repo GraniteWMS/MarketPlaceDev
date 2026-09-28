@@ -1,0 +1,58 @@
+{
+  "Identifier": "c98c91f6-f473-4e3e-aded-577da2bd7f4e",
+  "Name": "UNSCRAP_V7",
+  "Description": "UNSCRAP_V7\n\nIt updates an tracking entity's Instock field to True and writes a transaction",
+  "Type": "PROCESS",
+  "Version": 0,
+  "LastModified": "20/08/2026",
+  "Tags": [
+    "Manufacturing",
+    "Retail",
+    "Automotive",
+    "Agricultural",
+    "Textile",
+    "Electronics",
+    "Construction",
+    "E-commerce",
+    "Logistics",
+    "Pharmaceutical",
+    "Cold Storage"
+  ],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "56e6f74f-e8ff-5e36-9c29-483da5f911d4",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_Unscrap_Confirmation"
+    }
+  ],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "CUSTOM",
+    "ProcessStepMetadata": [
+      {
+        "Name": "TrackingEntity",
+        "Description": "Scan Barcode",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "Confirmation",
+        "Description": "Are You Sure?",
+        "ProcessIndex": 1,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_Unscrap_Confirmation",
+        "hasWebTemplate": true
+      }
+    ]
+  },
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

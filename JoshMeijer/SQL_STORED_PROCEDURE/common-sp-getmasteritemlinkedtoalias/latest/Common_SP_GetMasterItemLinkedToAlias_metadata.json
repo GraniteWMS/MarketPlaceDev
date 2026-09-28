@@ -1,0 +1,10 @@
+{
+  "Identifier": "74e4df47-e82f-5f21-845d-a935a242ac00",
+  "Name": "Common_SP_GetMasterItemLinkedToAlias",
+  "Description": "",
+  "Type": "SQL_STORED_PROCEDURE",
+  "Version": 0,
+  "LastModified": "12/06/2026",
+  "Tags": [],
+  "ArtifactDependencies": []
+}

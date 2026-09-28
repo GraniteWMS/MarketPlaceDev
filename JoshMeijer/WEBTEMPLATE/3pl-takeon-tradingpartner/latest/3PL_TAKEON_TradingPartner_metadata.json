@@ -1,0 +1,19 @@
+{
+  "Identifier": "e1b92e96-21d1-55e0-9169-ca0bf34aadab",
+  "Name": "3PL_TAKEON_TradingPartner",
+  "Description": "WebTemplate for process template 3PL_TAKEON / step TradingPartner",
+  "Type": "WEBTEMPLATE",
+  "Version": 0,
+  "LastModified": "22/01/2025",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "6892809f-69ae-5fa6-a44d-e2e20d214129",
+      "ArtifactVersion": 1
+    }
+  ],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

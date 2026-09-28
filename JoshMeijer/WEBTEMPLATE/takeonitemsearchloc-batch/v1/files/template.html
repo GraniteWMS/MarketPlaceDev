@@ -1,0 +1,53 @@
+{{#if MasterItemSearch}}
+	{{ 
+    	navigateToStepButton({
+        	stepName: "MasterItemSearch",
+            buttonText: "Change Master Item Search"
+		}) 
+	}}   
+{{/if}}    
+{{#if MasterItem}}
+	{{ 
+    	navigateToStepButton({
+        	stepName: "MasterItem",
+            buttonText: "Change Master Item"
+		}) 
+	}}   
+{{/if}} 
+<br>
+
+
+{{#if Location}}
+    {{ 
+        "SELECT TOP 1 Name, ERPLocation FROM Location WHERE Barcode = @Location"
+        |> dbSingle({Location}) |> to => location
+    }}
+    <div>
+        <small>Location</small>
+        <header class="gn-float-right">{{location.Name + " "}} <small style="font-style:normal">({{location.ERPLocation}})</small></header> 
+    </div>
+    </hr>
+{{/if}}
+{{#if MasterItem}}
+    {{ 
+        "SELECT TOP 1 Code, Description, EnforceBatchNumber, EnforceExpiryDate FROM MasterItem WHERE MasterItem.Code = @MasterItem"
+        |> dbSingle({MasterItem}) |> to => masterItem 
+    }}
+    <div>
+        <header>{{masterItem.Code}}</header>
+    </div>
+    <div>
+        <small style="-ms-word-wrap: break-word; word-wrap: break-word;">{{masterItem.Description}}</small>
+    </div>        
+    </hr>
+{{/if}}
+
+
+{{ "SELECT EnforceBatchNumber FROM MasterItem WHERE Code = @MasterItem " | dbSingle({MasterItem}) |> to => batchCheck }}
+{{#if batchCheck.EnforceBatchNumber === "0"}}
+	{{ 
+    	navigateToStep({
+        	stepName: "ExpiryDate"
+		}) 
+	}}
+{{/if}}

@@ -1,0 +1,1 @@
+{{ "SELECT * FROM webtemplate_BatchNumbers WHERE Code = @MasterItem" | dbSelect({MasterItem}) | basicTable({selectOnColumn:"Batch", enableSearch:true}) }}

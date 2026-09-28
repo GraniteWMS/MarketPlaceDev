@@ -1,0 +1,13 @@
+{
+  "Identifier": "85286e39-50f0-5041-a3b1-f59201ef46ad",
+  "Name": "Receiving_Consolidated_SerialNumber",
+  "Description": "WebTemplate for process template Receiving_Consolidated / step SerialNumber",
+  "Type": "WEBTEMPLATE",
+  "Version": 0,
+  "LastModified": "05/08/2026",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

@@ -1,0 +1,21 @@
+{
+  "Name": "QTYENTRYANDVALIDATE",
+  "Description": "Enhancement to Qty field to include a calculator in the webtemplate",
+  "Type": "CUSTOM",
+  "IsActive": false,
+  "IntegrationIsActive": false,
+  "IntegrationPost": false,
+  "Steps": [
+    {
+      "Name": "Qty",
+      "Description": "Qty",
+      "ProcessIndex": 0,
+      "NextIndex": 0,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "PrescriptDeploy1Qty",
+      "WebTemplateArtifact": "692d531b-5aa1-5ed7-a0b1-638078e1e876"
+    }
+  ]
+}

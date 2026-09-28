@@ -1,0 +1,19 @@
+{
+  "Identifier": "f4782146-84b2-592c-a2b2-fdd757a5efaa",
+  "Name": "LOOKUP_MULTIWORD_ORDER",
+  "Description": "WebTemplate for process template LOOKUP_MULTIWORD_ORDER",
+  "Type": "WEBTEMPLATE",
+  "Version": 1,
+  "LastModified": "22/09/2025",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "SQL_STORED_PROCEDURE",
+      "ArtifactIdentifier": "b46f357b-4ebf-5b40-949c-6659ad25a7b4",
+      "ArtifactVersion": 1
+    }
+  ],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

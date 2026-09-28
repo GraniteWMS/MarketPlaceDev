@@ -1,0 +1,13 @@
+{
+  "Identifier": "1fab6f98-e06c-5f49-b543-c046404b91a1",
+  "Name": "FT_RECEIVE_EANBarcode",
+  "Description": "WebTemplate for process template FT_RECEIVE / step EANBarcode",
+  "Type": "WEBTEMPLATE",
+  "Version": 0,
+  "LastModified": "20/05/2026",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

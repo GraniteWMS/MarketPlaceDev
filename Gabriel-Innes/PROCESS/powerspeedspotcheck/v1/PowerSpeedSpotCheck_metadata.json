@@ -1,0 +1,135 @@
+{
+  "Identifier": "e8e7ad4e-7758-4d31-bea0-3b4ebb698272",
+  "Name": "PowerSpeedSpotCheck",
+  "Description": "PowerspeedSpotCheck\n\nThis allows you to create a stock take session and add tracking entities to that session by entering a masteritem code, tracking entity barcode, location barcode, or location name.\n\nThis process filters on location category as powerspeed uses this as a Cage identifier",
+  "Type": "PROCESS",
+  "Version": 1,
+  "LastModified": "15/05/2025",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "f7f08172-dc77-5839-8123-11820b1a117a",
+      "ArtifactVersion": 1,
+      "ArtifactName": "WebtemplateSpotCheckCage"
+    },
+    {
+      "ArtifactType": "SQL_STORED_PROCEDURE",
+      "ArtifactIdentifier": "5e4336de-3976-541e-bb4a-ac6926bb2ecd",
+      "ArtifactVersion": 1,
+      "ArtifactName": "WebtemplateSpotCheckSession"
+    },
+    {
+      "ArtifactType": "SQL_STORED_PROCEDURE",
+      "ArtifactIdentifier": "ad5a8dcd-0d64-59b1-bedd-70eadd5b688b",
+      "ArtifactVersion": 1,
+      "ArtifactName": "WebtemplateSpotCheckBarcode"
+    },
+    {
+      "ArtifactType": "SQL_STORED_PROCEDURE",
+      "ArtifactIdentifier": "195fc078-adc4-5f8e-b8be-1de817e4cc67",
+      "ArtifactVersion": 1,
+      "ArtifactName": "WebtemplateSpotCheckConfirmation"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "af931a5c-79f9-577a-bf33-54165132e21c",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PrescriptSpotCheckCage"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "80f2d441-5e8a-593f-bf5f-4d7214c4517f",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PrescriptSpotCheckSession"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "0bf3ef30-afa3-5f1f-9dac-9f3aa99370a2",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PrescriptSpotCheckBarcode"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "b6f7b145-8a10-5cc1-a7cd-52fb3844d77b",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PrescriptSpotCheckConfirm"
+    }
+  ],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "CUSTOM",
+    "ProcessStepMetadata": [
+      {
+        "Name": "Cage",
+        "Description": "Cage",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "PrescriptSpotCheckCage",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Session",
+        "Description": "Session",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "DefaultValue": "",
+        "PreScript": "PrescriptSpotCheckSession",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Barcode",
+        "Description": "Location, Tracking Entity, MasterItem",
+        "ProcessIndex": 2,
+        "NextIndex": 3,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "PrescriptSpotCheckBarcode",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Confirmation",
+        "Description": "Confirmation",
+        "ProcessIndex": 3,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "PrescriptSpotCheckConfirm",
+        "hasWebTemplate": false
+      }
+    ]
+  },
+  "PostDeployArtifacts": [
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "e1599245-fe6d-59ef-afd9-79e3844efcc1",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PowerSpeedSpotCheck_Cage"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "ccf7df90-cbaa-5481-98f7-f20e927ed1ef",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PowerSpeedSpotCheck_Session"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "0c9b9256-13ea-5d8e-ad83-120e69a66816",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PowerSpeedSpotCheck_Barcode"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "c54e4b4c-9084-51b4-b63c-188228426afc",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PowerSpeedSpotCheck_Confirmation"
+    }
+  ],
+  "DependsOnClr": true,
+  "SqlClrAssemblyVersion": "7.0.0.0",
+  "Deprecated": false
+}

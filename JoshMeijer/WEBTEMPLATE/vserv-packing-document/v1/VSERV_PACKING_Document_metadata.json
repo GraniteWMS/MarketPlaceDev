@@ -1,0 +1,19 @@
+{
+  "Identifier": "92863d5a-b49d-5fd0-bbec-23ef65c52f51",
+  "Name": "VSERV_PACKING_Document",
+  "Description": "WebTemplate for process template VSERV_PACKING / step Document",
+  "Type": "WEBTEMPLATE",
+  "Version": 1,
+  "LastModified": "09/02/2026",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "511fdb69-755e-578e-a164-09c26043c62f",
+      "ArtifactVersion": 1
+    }
+  ],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

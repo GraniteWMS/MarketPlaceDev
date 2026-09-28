@@ -1,0 +1,128 @@
+{
+  "Identifier": "532202aa-788c-4c97-9e34-97934b935cdf",
+  "Name": "RECEIVE RETURN",
+  "Description": "RECEIVE RETURN\n\nThis is a custom process for Powerspeed. Uploaded to send to the server. Do not use.",
+  "Type": "PROCESS",
+  "Version": 0,
+  "LastModified": "18/03/2025",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "27fc972e-a958-511f-a3a4-5890dd89c117",
+      "ArtifactVersion": 1,
+      "ArtifactName": "WebtemplateReceivingDocument"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "47df922f-640c-5cba-b8c2-58e87980508a",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PrescriptReceiveReturnDocument"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "ae1a83cc-7734-5cc9-8061-0c64ac26ac1c",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PrescriptPalletizeCarryingEntity"
+    }
+  ],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "RECEIVING",
+    "ProcessStepMetadata": [
+      {
+        "Name": "Location",
+        "Description": "Receiving Location",
+        "ProcessIndex": 100,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "DefaultValue": "RETURN",
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "Document",
+        "Description": "Purchase Order Number",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "PrescriptReceiveReturnDocument",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "MasterItem",
+        "Description": "MasterItem (Item Code/Alias)",
+        "ProcessIndex": 2,
+        "NextIndex": 3,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "Qty",
+        "Description": "Qty Per TrackingEntity",
+        "ProcessIndex": 3,
+        "NextIndex": 4,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "NoEntities",
+        "Description": "Number of TrackingEntities",
+        "ProcessIndex": 4,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "Print",
+        "Description": "Print",
+        "ProcessIndex": 99,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "CarryingEntity",
+        "Description": "CarryingEntity (Pallet Barcode)",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": false,
+        "PreScript": "PrescriptPalletizeCarryingEntity",
+        "hasWebTemplate": false
+      }
+    ]
+  },
+  "PostDeployArtifacts": [
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "c6b77b2d-0ed8-5d76-bd9c-3dc42ba146be",
+      "ArtifactVersion": 1,
+      "ArtifactName": "RECEIVE RETURN"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "9b9fc0ff-9c55-5206-877d-b657738f73bd",
+      "ArtifactVersion": 1,
+      "ArtifactName": "RECEIVE RETURN_Document"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "5242d842-257e-5e8e-a0d8-c1367fbea595",
+      "ArtifactVersion": 1,
+      "ArtifactName": "RECEIVE RETURN_CarryingEntity"
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

@@ -1,0 +1,13 @@
+{
+  "Identifier": "b3e5544d-2999-5414-8886-b91d14926497",
+  "Name": "VSERV_PICKING_ETHICAL_LOOSE",
+  "Description": "WebTemplate for process template VSERV_PICKING_ETHICAL_LOOSE",
+  "Type": "WEBTEMPLATE",
+  "Version": 1,
+  "LastModified": "12/06/2026",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

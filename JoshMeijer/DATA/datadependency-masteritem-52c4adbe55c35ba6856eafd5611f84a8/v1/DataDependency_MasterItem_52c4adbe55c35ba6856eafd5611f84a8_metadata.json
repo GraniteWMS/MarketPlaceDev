@@ -1,0 +1,17 @@
+{
+  "Identifier": "52c4adbe-55c3-5ba6-856e-afd5611f84a8",
+  "Name": "DataDependency_MasterItem_52c4adbe55c35ba6856eafd5611f84a8",
+  "Description": "",
+  "Type": "DATA",
+  "Version": 1,
+  "LastModified": "07/08/2024",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "TypeSpecificAttributes": {
+    "Table": "MasterItem",
+    "KeyColumn": "Code",
+    "KeyValues": [
+      "Package"
+    ]
+  }
+}

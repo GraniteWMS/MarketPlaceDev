@@ -1,0 +1,2 @@
+INSERT INTO [SystemStaticData] ([Key],[Description],[Group],[Value],[isEncrypted]) 
+VALUES('CCF_SSCCLabelName','Label Name for the CCF SSCC label design in Bartender.  Saved in Granite Labels folder.','Labels','CCF_SSCC_ShipLabel.btw','False')

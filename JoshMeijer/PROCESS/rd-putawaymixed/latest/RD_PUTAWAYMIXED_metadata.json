@@ -1,0 +1,108 @@
+{
+  "Identifier": "d04c5b2e-2669-4a42-91cf-3da8dad5a0e6",
+  "Name": "RD_PUTAWAYMIXED",
+  "Description": "Retail Distribution -Putaway mixed Items\n\nRetail Distribution - After having picked all transfers we need to empty the Checking Bins.  This process handles the Putaway of the left over items.  Uses Location_Itemcode as the Tracking Entity.  No Qty, just scan Item UPC Code. Does the Split and Move from the Checking Bin to the putaway bin.  Webtemplate recommends last stock location and 3 empty bins.  Tracking Entity is Location_ItemCode.  Only scan, No Qty used\n\nUsed to use CLR to create stock in the From Location during Startup of the Site, removed the CLR after go live of Purchase Order Receiving - Still commented out in Prescript.",
+  "Type": "PROCESS",
+  "Version": 0,
+  "LastModified": "09/10/2025",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "SQL_STORED_PROCEDURE",
+      "ArtifactIdentifier": "167d582e-8073-5410-b838-e2be40a80242",
+      "ArtifactVersion": 1,
+      "ArtifactName": "WebTemplate_Putaway_TrackingEntity"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "c7abfe84-d9b7-5038-bfac-9c3f73c1c1b6",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_Replenish_ToLocation"
+    },
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "60f6cdd9-4124-5bd2-97d8-d61b77fa4a28",
+      "ArtifactVersion": 1,
+      "ArtifactName": "MasterItemAlias_View"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "fcd126d3-f01e-56d1-bdd3-9c9541b19c64",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_PutawayMixed_ToTrackingEntity"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "177891c7-c421-5fd2-a62c-7ebec63224c1",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_Replenish_FromLocation"
+    }
+  ],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "REPLENISH",
+    "ProcessStepMetadata": [
+      {
+        "Name": "FromTrackingEntity",
+        "Description": "Scan Item",
+        "ProcessIndex": 100,
+        "NextIndex": 100,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Location",
+        "Description": "To Location",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_Replenish_ToLocation",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "ToTrackingEntity",
+        "Description": "Scan Item ",
+        "ProcessIndex": 2,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": false,
+        "PreScript": "Prescript_PutawayMixed_ToTrackingEntity",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Qty",
+        "Description": "Qty to Replenish",
+        "ProcessIndex": 100,
+        "NextIndex": 100,
+        "isActive": true,
+        "Required": true,
+        "DefaultValue": "1",
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "FromLocation",
+        "Description": "From Location",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_Replenish_FromLocation",
+        "hasWebTemplate": true
+      }
+    ]
+  },
+  "PostDeployArtifacts": [
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "d65f40f1-6158-5c55-bebe-3235e8f0b0c0",
+      "ArtifactVersion": 1,
+      "ArtifactName": "RD_PUTAWAYMIXED_Location"
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

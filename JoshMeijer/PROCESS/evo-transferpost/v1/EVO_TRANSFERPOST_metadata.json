@@ -1,0 +1,87 @@
+{
+  "Identifier": "e3032e58-28c6-4f23-9a39-7b49355b2051",
+  "Name": "EVO_TRANSFERPOST",
+  "Description": "EVO_TRANSFERPOST\n\nSpecific for Evolution customers using IBTs.\n\nPlease update to customer evo db. And also update to the prefix the customer use for IBTs",
+  "Type": "PROCESS",
+  "Version": 1,
+  "LastModified": "06/07/2026",
+  "Tags": [
+    "Manufacturing",
+    "Retail",
+    "Automotive",
+    "Agricultural",
+    "Textile",
+    "Electronics",
+    "Construction",
+    "E-commerce",
+    "Logistics",
+    "Pharmaceutical",
+    "Cold Storage"
+  ],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "7518f5dc-f3e1-586b-b5d2-02ffa7a431ab",
+      "ArtifactVersion": 1,
+      "ArtifactName": "ERP_StockOnHand"
+    },
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "bd61b9d8-53db-5dfc-9885-9bd002c03b9b",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Report_App_Transactions"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "a62e41bc-1f4e-55b3-adb9-7de7db5eec7a",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PrescriptTransferPostDocument"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "4c5a9f16-1b77-5d31-8782-fcfaebcaaf23",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PrescriptTransferPostStep200"
+    }
+  ],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "TRANSFERPOST",
+    "ProcessStepMetadata": [
+      {
+        "Name": "Document",
+        "Description": "Enter Document Number",
+        "ProcessIndex": 0,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "PrescriptTransferPostDocument",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Confirmation",
+        "Description": "Confirm",
+        "ProcessIndex": 1,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "STEP200",
+        "Description": "STEP200",
+        "ProcessIndex": 200,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "PrescriptTransferPostStep200",
+        "hasWebTemplate": true
+      }
+    ]
+  },
+  "PostDeployArtifacts": [],
+  "DependsOnClr": true,
+  "SqlClrAssemblyVersion": "7.0.0.0",
+  "Deprecated": false
+}

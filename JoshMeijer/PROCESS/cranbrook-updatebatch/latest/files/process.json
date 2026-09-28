@@ -1,0 +1,30 @@
+{
+  "Name": "CRANBROOK_UPDATEBATCH",
+  "Description": "UPDATE BATCH",
+  "Type": "CUSTOM",
+  "IsActive": true,
+  "IntegrationIsActive": false,
+  "IntegrationPost": false,
+  "Steps": [
+    {
+      "Name": "TrackingEntity",
+      "Description": "Scan the Barcode You Want To Update",
+      "ProcessIndex": 0,
+      "NextIndex": 1,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "PrescriptUpdateBatchTrackingEntity"
+    },
+    {
+      "Name": "Batch",
+      "Description": "Enter New Batch Number",
+      "ProcessIndex": 1,
+      "NextIndex": 0,
+      "IsActive": true,
+      "Required": false,
+      "IsBusinessRule": false,
+      "PreScript": "PrescriptUpdateBatchBatch"
+    }
+  ]
+}

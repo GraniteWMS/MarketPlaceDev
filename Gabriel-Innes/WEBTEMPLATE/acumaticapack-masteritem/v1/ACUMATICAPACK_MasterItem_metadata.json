@@ -1,0 +1,13 @@
+{
+  "Identifier": "9411d0ce-5dfb-5223-a2f3-f78467b1066e",
+  "Name": "ACUMATICAPACK_MasterItem",
+  "Description": "WebTemplate for process template ACUMATICAPACK / step MasterItem",
+  "Type": "WEBTEMPLATE",
+  "Version": 1,
+  "LastModified": "01/06/2026",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

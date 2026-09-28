@@ -1,0 +1,19 @@
+{
+  "Identifier": "e55b8dc7-bd55-5f6f-bbdf-923b74c1d871",
+  "Name": "RD_RECEIVINGPOST_Document",
+  "Description": "WebTemplate for process template RD_RECEIVINGPOST / step Document",
+  "Type": "WEBTEMPLATE",
+  "Version": 0,
+  "LastModified": "09/10/2025",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "2d606722-b46b-597c-a6fb-55ef002856fe",
+      "ArtifactVersion": 1
+    }
+  ],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

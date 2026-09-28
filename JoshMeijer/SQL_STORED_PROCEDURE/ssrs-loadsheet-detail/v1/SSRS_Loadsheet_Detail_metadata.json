@@ -1,0 +1,10 @@
+{
+  "Identifier": "bd5c27f7-ce3d-509a-afe4-c645a1a8fb31",
+  "Name": "SSRS_Loadsheet_Detail",
+  "Description": "",
+  "Type": "SQL_STORED_PROCEDURE",
+  "Version": 1,
+  "LastModified": "10/09/2026",
+  "Tags": [],
+  "ArtifactDependencies": []
+}

@@ -1,0 +1,10 @@
+{
+  "Identifier": "855ff19d-8802-59a5-b15c-4414f437c41c",
+  "Name": "WebTemplate_SP_MasterItemSearch",
+  "Description": "",
+  "Type": "SQL_STORED_PROCEDURE",
+  "Version": 0,
+  "LastModified": "30/05/2026",
+  "Tags": [],
+  "ArtifactDependencies": []
+}

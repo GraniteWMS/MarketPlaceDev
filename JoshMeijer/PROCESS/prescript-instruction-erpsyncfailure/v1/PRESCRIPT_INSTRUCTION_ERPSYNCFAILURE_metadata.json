@@ -1,0 +1,36 @@
+{
+  "Identifier": "127ecdac-3e89-492d-ae9f-d860b2615423",
+  "Name": "PRESCRIPT_INSTRUCTION_ERPSYNCFAILURE",
+  "Description": "PRESCRIPT_INSTRUCTION_ERPSYNCFAILURE\n\nUse this prescript to show the reason that your document detail has failed to sync with the ERP.\n\nThis prescript assumes that you are using the scheduler injected jobs for your specific ERP system. It expects the reasons for ERP sync failure to be logged to the IntegrationLog table, and the ERPSyncFailed flag to be set when a failure occurs.",
+  "Type": "PROCESS",
+  "Version": 1,
+  "LastModified": "29/05/2025",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "c828e5eb-62aa-5557-ab21-2e6898ac6d8b",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_Generic_Document_UpdateInstruction"
+    }
+  ],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "CUSTOM",
+    "ProcessStepMetadata": [
+      {
+        "Name": "Document",
+        "Description": "Document",
+        "ProcessIndex": 0,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_Generic_Document_UpdateInstruction",
+        "hasWebTemplate": true
+      }
+    ]
+  },
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

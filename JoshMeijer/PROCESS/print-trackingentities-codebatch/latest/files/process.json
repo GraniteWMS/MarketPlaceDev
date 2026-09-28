@@ -1,0 +1,50 @@
+{
+  "Name": "PRINT_TRACKINGENTITIES_CODEBATCH",
+  "Description": "PRINT TRACKINGENTITIES BY CODE AND BATCH",
+  "Type": "CUSTOM",
+  "IsActive": true,
+  "IntegrationIsActive": false,
+  "IntegrationPost": false,
+  "Steps": [
+    {
+      "Name": "MasterItem",
+      "Description": "MasterItem Code",
+      "ProcessIndex": 0,
+      "NextIndex": 1,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "WebTemplateArtifact": "c61b27d6-bce2-555a-a02c-e145011bc95a"
+    },
+    {
+      "Name": "Batch",
+      "Description": "Select Batch",
+      "ProcessIndex": 1,
+      "NextIndex": 2,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "WebTemplateArtifact": "a9bfc2fc-4808-5d45-809c-dbbb12219e8f"
+    },
+    {
+      "Name": "Location",
+      "Description": "Location",
+      "ProcessIndex": 2,
+      "NextIndex": 3,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "WebTemplateArtifact": "069e05fc-354e-52d7-9a23-4dbd0190c8b0"
+    },
+    {
+      "Name": "Confirmation",
+      "Description": "Confirmation",
+      "ProcessIndex": 3,
+      "NextIndex": 0,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "PrescriptPrintTEbyItemcodBbatchConfirmation"
+    }
+  ]
+}

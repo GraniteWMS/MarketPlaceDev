@@ -1,0 +1,13 @@
+{
+  "Identifier": "271ef409-3f9a-528f-b659-7ef5cabbf3a8",
+  "Name": "ALFRED_RECEIVINGSELECTABLE_STANDARD",
+  "Description": "WebTemplate for process template ALFRED_RECEIVINGSELECTABLE_STANDARD",
+  "Type": "WEBTEMPLATE",
+  "Version": 1,
+  "LastModified": "20/03/2026",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

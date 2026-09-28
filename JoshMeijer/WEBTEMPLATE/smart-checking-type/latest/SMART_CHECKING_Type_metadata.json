@@ -1,0 +1,13 @@
+{
+  "Identifier": "a0a8423f-39f6-558b-921b-a7540527a82e",
+  "Name": "SMART_CHECKING_Type",
+  "Description": "WebTemplate for process template SMART_CHECKING / step Type",
+  "Type": "WEBTEMPLATE",
+  "Version": 0,
+  "LastModified": "03/08/2024",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

@@ -1,0 +1,7 @@
+{{ "SELECT @Box" | dbScalar({Box}) |> to => box }}
+
+{{#if box == "EXISTINGBOX" }}
+	{{navigateToStep({stepName:"MasterItem", submitFinalStep: false})}}
+{{/if}}
+
+{{ "SELECT [Boxes] FROM (VALUES ("CUSTOM")) AS T([Boxes])" | dbSelect({}) | createButtonList({"Boxes"}) }}

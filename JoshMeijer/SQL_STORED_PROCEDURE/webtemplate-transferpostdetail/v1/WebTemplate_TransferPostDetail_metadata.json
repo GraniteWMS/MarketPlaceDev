@@ -1,0 +1,10 @@
+{
+  "Identifier": "644fdb18-9a9e-5e1d-9e1d-49616329d549",
+  "Name": "WebTemplate_TransferPostDetail",
+  "Description": "",
+  "Type": "SQL_STORED_PROCEDURE",
+  "Version": 1,
+  "LastModified": "09/10/2025",
+  "Tags": [],
+  "ArtifactDependencies": []
+}

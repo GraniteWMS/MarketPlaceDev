@@ -1,0 +1,13 @@
+{
+  "Identifier": "399d3ee2-7d2c-5cb2-b5c2-b85290834f0a",
+  "Name": "QC_FGInspection_Value_AcceptReject",
+  "Description": "WebTemplate for process template QC_FGInspection / step Value_AcceptReject",
+  "Type": "WEBTEMPLATE",
+  "Version": 0,
+  "LastModified": "19/06/2024",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

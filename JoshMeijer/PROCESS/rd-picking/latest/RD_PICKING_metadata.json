@@ -1,0 +1,133 @@
+{
+  "Identifier": "39cc84e7-fa85-4f4b-89ac-cf3c3f727622",
+  "Name": "RD_PICKING",
+  "Description": "Retail Distribution -Picking Ecommerce\n\nIn Retail Distribution, Transfers are done to Stores, however, they usually also have e-commerce orders for picking directly in the warehouse.  This is the Picking process.  Always Scan Location, Item Code since the TE is Location_ItemCode.  Always resolve UPC Alias to Item Code.  Qty is always 1.  Scan each item picked.\n\nIn the Retail e-commerce system, the Order comes from Spotify to the Point of Sale System.  It is invoiced immediately.  In Granite, we get the order from the Retail System (Lightspeed).  We pick it, but dont need to post, since the stock is already out of the Retail System.",
+  "Type": "PROCESS",
+  "Version": 0,
+  "LastModified": "09/10/2025",
+  "Tags": [
+    "Retail"
+  ],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "85876c06-89a3-51f5-b9f4-59ae06849e4d",
+      "ArtifactVersion": 1,
+      "ArtifactName": "webtemplate_SOtoPick"
+    },
+    {
+      "ArtifactType": "SQL_STORED_PROCEDURE",
+      "ArtifactIdentifier": "b8649712-ca19-527d-8685-a440c86a2187",
+      "ArtifactVersion": 1,
+      "ArtifactName": "FIFOPickingRecommendation"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "d322d820-5c2a-5b19-86bd-9f5326481c73",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_Picking_Document"
+    },
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "62f9e8d6-24cf-5ab5-8b55-4b53371e809a",
+      "ArtifactVersion": 1,
+      "ArtifactName": "MasterItemAlias_View"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "c5f64754-9415-5134-9cf3-079589c78c38",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_Picking_TrackingEntity"
+    },
+    {
+      "ArtifactType": "SQL_STORED_PROCEDURE",
+      "ArtifactIdentifier": "a12f5a58-6d13-5caf-bf40-540cddad3b54",
+      "ArtifactVersion": 1,
+      "ArtifactName": "ValidateLocation"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "a369a0fb-1641-5312-9af3-9da414c6bc12",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_Picking_FromLocation"
+    }
+  ],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "PICKING",
+    "ProcessStepMetadata": [
+      {
+        "Name": "Document",
+        "Description": "Document",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_Picking_Document",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Location",
+        "Description": "Staging Location",
+        "ProcessIndex": 100,
+        "NextIndex": 100,
+        "isActive": true,
+        "Required": true,
+        "DefaultValue": "DIS",
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "TrackingEntity",
+        "Description": "TrackingEntity",
+        "ProcessIndex": 2,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_Picking_TrackingEntity",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Qty",
+        "Description": "Qty in Eaches",
+        "ProcessIndex": 100,
+        "NextIndex": 100,
+        "isActive": true,
+        "Required": true,
+        "DefaultValue": "1",
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "Step200",
+        "Description": "Update FIFO recommendation",
+        "ProcessIndex": 200,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "PrescriptPickingStep200",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "FromLocation",
+        "Description": "FromLocation",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_Picking_FromLocation",
+        "hasWebTemplate": true
+      }
+    ]
+  },
+  "PostDeployArtifacts": [
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "748fbf88-b4ba-51b1-8d3d-924295089526",
+      "ArtifactVersion": 1,
+      "ArtifactName": "RD_PICKING_Document"
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

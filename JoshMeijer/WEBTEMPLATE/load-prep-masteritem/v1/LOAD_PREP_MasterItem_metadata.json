@@ -1,0 +1,19 @@
+{
+  "Identifier": "56fea8ef-737c-5c45-82e2-55144527316a",
+  "Name": "LOAD_PREP_MasterItem",
+  "Description": "WebTemplate for process template LOAD_PREP / step MasterItem",
+  "Type": "WEBTEMPLATE",
+  "Version": 1,
+  "LastModified": "07/08/2024",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "2873c96c-503f-51c0-9407-6b7f31ae639a",
+      "ArtifactVersion": 1
+    }
+  ],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

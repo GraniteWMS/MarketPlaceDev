@@ -1,0 +1,39 @@
+{
+  "Name": "EVO_TRANSFERPOST",
+  "Description": "EVO_TRANSFERPOST",
+  "Type": "TRANSFERPOST",
+  "IsActive": false,
+  "IntegrationIsActive": false,
+  "IntegrationPost": false,
+  "Steps": [
+    {
+      "Name": "Document",
+      "Description": "Enter Document Number",
+      "ProcessIndex": 0,
+      "NextIndex": 0,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "PrescriptTransferPostDocument"
+    },
+    {
+      "Name": "Confirmation",
+      "Description": "Confirm",
+      "ProcessIndex": 1,
+      "NextIndex": 0,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false
+    },
+    {
+      "Name": "STEP200",
+      "Description": "STEP200",
+      "ProcessIndex": 200,
+      "NextIndex": 0,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "PrescriptTransferPostStep200"
+    }
+  ]
+}

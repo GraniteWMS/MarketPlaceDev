@@ -1,0 +1,19 @@
+{
+  "Identifier": "0d948b75-954c-5f79-8d42-23a8bea1d98b",
+  "Name": "PICKZONE_LOC_ITEM1BY1_LocationZone",
+  "Description": "WebTemplate for process template PICKZONE_LOC_ITEM1BY1 / step LocationZone",
+  "Type": "WEBTEMPLATE",
+  "Version": 0,
+  "LastModified": "04/05/2026",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "SQL_STORED_PROCEDURE",
+      "ArtifactIdentifier": "670e061a-ec6a-50d5-8f4a-0f0b0c835e06",
+      "ArtifactVersion": 1
+    }
+  ],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

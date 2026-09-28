@@ -1,0 +1,13 @@
+{
+  "Identifier": "b33a34fb-3076-5c70-8720-ddd15fc7eb14",
+  "Name": "ADJUSTTOQTY-V7Clr",
+  "Description": "WebTemplate for process template ADJUSTTOQTY-V7Clr",
+  "Type": "WEBTEMPLATE",
+  "Version": 0,
+  "LastModified": "30/07/2026",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

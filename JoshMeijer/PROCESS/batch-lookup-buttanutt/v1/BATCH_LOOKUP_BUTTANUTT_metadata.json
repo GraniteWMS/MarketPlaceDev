@@ -1,0 +1,83 @@
+{
+  "Identifier": "7a05c704-6fb1-4024-8a65-9585de7b1368",
+  "Name": "BATCH_LOOKUP_BUTTANUTT",
+  "Description": "BATCH_LOOKUP_BUTTANUTT\n\nThis shows all the barcodes and their details linked to a batch",
+  "Type": "PROCESS",
+  "Version": 1,
+  "LastModified": "21/03/2026",
+  "Tags": [
+    "Electronics",
+    "Construction",
+    "E-commerce",
+    "Logistics",
+    "Pharmaceutical",
+    "Cold Storage",
+    "Manufacturing",
+    "Retail",
+    "Agricultural",
+    "Automotive",
+    "Textile"
+  ],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "8c43f9e7-8698-5fde-b1f0-4437f81b7ed0",
+      "ArtifactVersion": 1,
+      "ArtifactName": "WebTemplate_BatchLookup_Batch"
+    },
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "3510cef7-6042-5613-9f13-4cda37d22a44",
+      "ArtifactVersion": 1,
+      "ArtifactName": "WebTemplate_BatchLookup_DetailsHeader"
+    },
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "6ae658be-e00c-5386-b5d5-1ec0f70b6d25",
+      "ArtifactVersion": 1,
+      "ArtifactName": "WebTemplate_BatchLookup_DetailsDetail"
+    }
+  ],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "CUSTOM",
+    "ProcessStepMetadata": [
+      {
+        "Name": "Batch",
+        "Description": "Enter Batch",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": false,
+        "PreScript": ""
+      },
+      {
+        "Name": "Detail",
+        "Description": "Batch Details",
+        "ProcessIndex": 1,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": false,
+        "PreScript": ""
+      }
+    ]
+  },
+  "PostDeployArtifacts": [
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "d7ee3bbd-cbba-556b-be92-6394959b76aa",
+      "ArtifactVersion": 1,
+      "ArtifactName": "BATCH_LOOKUP_BUTTANUTT_Batch"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "058af6f4-f346-5e32-a71e-d5f5f576e362",
+      "ArtifactVersion": 1,
+      "ArtifactName": "BATCH_LOOKUP_BUTTANUTT_Detail"
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

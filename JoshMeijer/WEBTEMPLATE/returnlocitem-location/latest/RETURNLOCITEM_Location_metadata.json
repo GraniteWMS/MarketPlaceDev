@@ -1,0 +1,19 @@
+{
+  "Identifier": "212972e7-70bf-5642-8ee5-b09dd73b39c6",
+  "Name": "RETURNLOCITEM_Location",
+  "Description": "WebTemplate for process template RETURNLOCITEM / step Location",
+  "Type": "WEBTEMPLATE",
+  "Version": 0,
+  "LastModified": "08/05/2026",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "05615712-cf51-5ce0-8053-ba9bbd4226e9",
+      "ArtifactVersion": 1
+    }
+  ],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

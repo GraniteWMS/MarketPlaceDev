@@ -1,0 +1,13 @@
+{
+  "Identifier": "d4acaeb0-1b17-538b-a44c-52ea98abcf45",
+  "Name": "VETSERV_ETHICAL_RECEIVING_LOOSE_CarryingEntity",
+  "Description": "WebTemplate for process template VETSERV_ETHICAL_RECEIVING_LOOSE / step CarryingEntity",
+  "Type": "WEBTEMPLATE",
+  "Version": 1,
+  "LastModified": "12/06/2026",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

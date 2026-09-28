@@ -1,0 +1,121 @@
+{
+  "Identifier": "a21fda24-f0d9-4c27-95f4-5d14d35a975e",
+  "Name": "PACKING",
+  "Description": "PACKING\n\nThis is specific to scanning trackingentities on Packing",
+  "Type": "PROCESS",
+  "Version": 0,
+  "LastModified": "03/02/2026",
+  "Tags": [
+    "Manufacturing",
+    "Retail",
+    "Automotive",
+    "Agricultural",
+    "Textile",
+    "Construction",
+    "E-commerce",
+    "Logistics",
+    "Pharmaceutical",
+    "Cold Storage"
+  ],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "1448c6ea-1ddd-52cc-8943-bc8e3f9a4526",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PrescriptPackingTrackingEntity"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "7e6ce1bc-0ef1-5090-83cd-42916a62b83a",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PrescriptPackingQty"
+    },
+    {
+      "ArtifactType": "USER_TABLE",
+      "ArtifactIdentifier": "b5a9dc10-c96b-5997-ba57-46f24cb25ec2",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PackingProcessLog"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "6ad7f064-bc4b-581b-8705-48e80489ca17",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PrescriptPackingStep200"
+    }
+  ],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "PACKING",
+    "ProcessStepMetadata": [
+      {
+        "Name": "Document",
+        "Description": "Document",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "DefaultValue": "",
+        "PreScript": "",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Location",
+        "Description": "Check and Pack Location",
+        "ProcessIndex": 100,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "DefaultValue": "DES",
+        "PreScript": "",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "CarryingEntity",
+        "Description": "BOX or PALLET",
+        "ProcessIndex": 100,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": false,
+        "DefaultValue": "",
+        "PreScript": "",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "MasterItem",
+        "Description": "MasterItem (Code, Barcode or TrackingEntity)",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "DefaultValue": "",
+        "PreScript": "PrescriptPackingTrackingEntity",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Qty",
+        "Description": "Qty",
+        "ProcessIndex": 2,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "DefaultValue": "",
+        "PreScript": "PrescriptPackingQty",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "STEP200",
+        "Description": "STEP200",
+        "ProcessIndex": 200,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": false,
+        "DefaultValue": "",
+        "PreScript": "PrescriptPackingStep200",
+        "hasWebTemplate": true
+      }
+    ]
+  },
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

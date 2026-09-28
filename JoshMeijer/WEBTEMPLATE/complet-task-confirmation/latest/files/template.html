@@ -1,0 +1,1 @@
+{{ "SELECT * FROM Webtemplate_TaskList WHERE TaskName = @TaskName"| dbSelect({TaskName}) | basicTable({})}}

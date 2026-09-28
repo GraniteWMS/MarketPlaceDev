@@ -1,0 +1,175 @@
+{
+  "Identifier": "151c05a5-ab3f-4ce7-b3af-9833a88a9927",
+  "Name": "3PL_TAKEON",
+  "Description": "TAKEON\n\nThis process requires a user to enter/ select a TradingPartner Code that corresponds with the 3PL customer that owns the stock that is being taken on\n\nThere is validation on the CarryingEntity step that prevents stock belonging to more than 1 3PL customer being put on the same pallet.\nThe MasterItem step contains similar validation that prevents more than 1 3PL customer's stock from being put into the same location if the location's category is either PICKING or BULK",
+  "Type": "PROCESS",
+  "Version": 1,
+  "LastModified": "22/01/2025",
+  "Tags": [
+    "Logistics"
+  ],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "SQL_SCALAR_FUNCTION",
+      "ArtifactIdentifier": "d0f52b72-2e0b-57e8-849e-2a87020628cf",
+      "ArtifactVersion": 1,
+      "ArtifactName": "FN_GetCustomerCode"
+    },
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "5fb89792-d660-5775-92d5-47729e7f0356",
+      "ArtifactVersion": 1,
+      "ArtifactName": "WebTemplate_MasterItems"
+    },
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "4608ddad-99ef-5cac-a3b6-2fff40d207d2",
+      "ArtifactVersion": 1,
+      "ArtifactName": "WebTemplate_Locations"
+    },
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "6892809f-69ae-5fa6-a44d-e2e20d214129",
+      "ArtifactVersion": 1,
+      "ArtifactName": "WebTemplate_TradingPartners"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "dc009c4d-72f9-5238-a568-918a0edccfa0",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PrescriptTakeonMasterItem"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "74244858-4f41-54a7-8471-e10813a6ccf6",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PrescriptTakeonQty"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "4d831469-b104-536a-b33e-9f2dbc7dc81f",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PrescriptTakeonNoEntities"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "2a15e54c-edaf-5f2d-8339-fb3daecb9d4e",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PrescriptTakeonTradingPartner"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "aa26def1-bce6-5fc1-b106-61d314676b8a",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PrescriptTakeonCarryingEntity"
+    }
+  ],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "TAKEON",
+    "ProcessStepMetadata": [
+      {
+        "Name": "MasterItem",
+        "Description": "MasterItem",
+        "ProcessIndex": 3,
+        "NextIndex": 4,
+        "isActive": true,
+        "Required": true,
+        "DefaultValue": "",
+        "PreScript": "PrescriptTakeonMasterItem",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Location",
+        "Description": "Location",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "DefaultValue": "",
+        "PreScript": "",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Qty",
+        "Description": "Qty per TrackingEntity",
+        "ProcessIndex": 4,
+        "NextIndex": 5,
+        "isActive": true,
+        "Required": true,
+        "DefaultValue": "",
+        "PreScript": "PrescriptTakeonQty",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "NoEntities",
+        "Description": "Number of TrackingEntities",
+        "ProcessIndex": 5,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "PrescriptTakeonNoEntities",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Print",
+        "Description": "Print",
+        "ProcessIndex": 99,
+        "NextIndex": 99,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "TradingPartner",
+        "Description": "Select Client",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "PrescriptTakeonTradingPartner",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "CarryingEntity",
+        "Description": "Pallet Barcode",
+        "ProcessIndex": 2,
+        "NextIndex": 3,
+        "isActive": true,
+        "Required": false,
+        "PreScript": "PrescriptTakeonCarryingEntity",
+        "hasWebTemplate": true
+      }
+    ]
+  },
+  "PostDeployArtifacts": [
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "930707ba-b27a-5569-b881-8f8a9a657f5e",
+      "ArtifactVersion": 1,
+      "ArtifactName": "3PL_TAKEON"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "11a57b96-6875-5485-95e7-e6f2e9eb77dd",
+      "ArtifactVersion": 1,
+      "ArtifactName": "3PL_TAKEON_Location"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "e1b92e96-21d1-55e0-9169-ca0bf34aadab",
+      "ArtifactVersion": 1,
+      "ArtifactName": "3PL_TAKEON_TradingPartner"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "8b43ad16-e89f-5467-85f0-1ceeb1378cbf",
+      "ArtifactVersion": 1,
+      "ArtifactName": "3PL_TAKEON_MasterItem"
+    }
+  ],
+  "DependsOnClr": true,
+  "SqlClrAssemblyVersion": "7.0.0.0",
+  "Deprecated": false
+}

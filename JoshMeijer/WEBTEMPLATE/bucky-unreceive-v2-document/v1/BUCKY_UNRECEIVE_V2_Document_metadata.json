@@ -1,0 +1,19 @@
+{
+  "Identifier": "eb865ffa-48ff-50d6-a98a-45bb3cb14165",
+  "Name": "BUCKY_UNRECEIVE_V2_Document",
+  "Description": "WebTemplate for process template BUCKY_UNRECEIVE_V2 / step Document",
+  "Type": "WEBTEMPLATE",
+  "Version": 1,
+  "LastModified": "27/01/2026",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "25ac74c6-bdf0-5622-b397-b0816a8e62f9",
+      "ArtifactVersion": 1
+    }
+  ],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

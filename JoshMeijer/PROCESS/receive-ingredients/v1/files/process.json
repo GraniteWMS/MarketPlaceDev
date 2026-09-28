@@ -1,0 +1,109 @@
+{
+  "Name": "RECEIVE_INGREDIENTS",
+  "Description": "RECEIVE INGREDIENTS",
+  "Type": "TAKEON",
+  "IsActive": true,
+  "IntegrationIsActive": false,
+  "IntegrationPost": false,
+  "WebTemplateArtifact": "1daa1717-603b-53e5-95cf-1ea393990e53",
+  "Steps": [
+    {
+      "Name": "Location",
+      "Description": "Receiving Location",
+      "ProcessIndex": 0,
+      "NextIndex": 1,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "WebTemplateArtifact": "1fb6e1bc-f22d-594a-943b-1377d04d5959"
+    },
+    {
+      "Name": "MasterItem",
+      "Description": "Select Item",
+      "ProcessIndex": 2,
+      "NextIndex": 3,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "Prescript_ReceiveIngredients_MasterItem",
+      "WebTemplateArtifact": "f27ad6f0-17f3-56e2-bf39-bbd58eac7c11"
+    },
+    {
+      "Name": "Batch",
+      "Description": "Batch Number",
+      "ProcessIndex": 3,
+      "NextIndex": 4,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false
+    },
+    {
+      "Name": "Qty",
+      "Description": "Qty per Pallet",
+      "ProcessIndex": 4,
+      "NextIndex": 5,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false
+    },
+    {
+      "Name": "NoEntities",
+      "Description": "Number of pallets",
+      "ProcessIndex": 5,
+      "NextIndex": 2,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "DefaultValue": "1"
+    },
+    {
+      "Name": "Print",
+      "Description": "Print",
+      "ProcessIndex": 99,
+      "NextIndex": 0,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false
+    },
+    {
+      "Name": "OptionalField1",
+      "Description": "OptionalField1",
+      "ProcessIndex": 100,
+      "NextIndex": 100,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "DefaultValue": "Supplier"
+    },
+    {
+      "Name": "OptionalFieldValue1",
+      "Description": "Select Supplier",
+      "ProcessIndex": 100,
+      "NextIndex": 100,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "WebTemplateArtifact": "c052447f-947b-5d3d-8ae8-6e2590b4703c"
+    },
+    {
+      "Name": "Step200",
+      "Description": "Update OptionalField",
+      "ProcessIndex": 200,
+      "NextIndex": 200,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "Prescript_ReceiveIngredients_Step200"
+    },
+    {
+      "Name": "Step201",
+      "Description": "Print Labels",
+      "ProcessIndex": 201,
+      "NextIndex": 201,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "Prescript_ReceiveIngredients_Step201"
+    }
+  ]
+}

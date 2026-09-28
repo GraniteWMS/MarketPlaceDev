@@ -1,0 +1,17 @@
+{
+  "Identifier": "8e563791-0789-575e-89a1-dccf64428a53",
+  "Name": "DataDependency_SystemStaticData_8e5637910789575e89a1dccf64428a53",
+  "Description": "",
+  "Type": "DATA",
+  "Version": 0,
+  "LastModified": "07/08/2024",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "TypeSpecificAttributes": {
+    "Table": "SystemStaticData",
+    "KeyColumn": "Key",
+    "KeyValues": [
+      "DocumentPrinter"
+    ]
+  }
+}

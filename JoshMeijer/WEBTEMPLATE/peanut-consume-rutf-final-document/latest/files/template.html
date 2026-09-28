@@ -1,0 +1,1 @@
+{{ "SELECT DocumentNumber, CreateDate FROM WebTemplate_PeanutManufacture_Document ORDER BY DocumentNumber DESC" | dbSelect({}) | basicTable({selectOnColumn:"DocumentNumber", enableSearch:true}) }}

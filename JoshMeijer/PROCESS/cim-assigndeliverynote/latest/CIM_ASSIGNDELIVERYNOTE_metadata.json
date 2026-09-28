@@ -1,0 +1,130 @@
+{
+  "Identifier": "c5643c4e-b59d-43e4-b351-8edab9978d23",
+  "Name": "CIM_ASSIGNDELIVERYNOTE",
+  "Description": "CIM ASSIGN DELIVERYNOTE TO LOADING BAY\n\nIf someone want to create a pickslip from the scanner\n\nn/a",
+  "Type": "PROCESS",
+  "Version": 0,
+  "LastModified": "18/05/2026",
+  "Tags": [
+    "Manufacturing",
+    "Retail",
+    "Automotive",
+    "Agricultural",
+    "Textile",
+    "Electronics",
+    "Construction",
+    "E-commerce",
+    "Logistics",
+    "Cold Storage",
+    "Pharmaceutical"
+  ],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "USER_TABLE",
+      "ArtifactIdentifier": "39b92189-f8bf-5be8-a5b2-cef728f1da25",
+      "ArtifactVersion": 1,
+      "ArtifactName": "DeliveryNoteLoadingBay"
+    },
+    {
+      "ArtifactType": "USER_TABLE",
+      "ArtifactIdentifier": "b5ba29b9-0d8e-5d26-bc4f-89a7019e87c0",
+      "ArtifactVersion": 1,
+      "ArtifactName": "DeliveryNoteLoadingBayAudit"
+    },
+    {
+      "ArtifactType": "SQL_STORED_PROCEDURE",
+      "ArtifactIdentifier": "d2519315-1c7f-5478-9680-fa25779add57",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Custom_DeliveryNoteLoadingBay_Set"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "401a99ab-ba87-59a6-a193-cf1fba8b2026",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PrescriptAssignDeliveryNoteDeliveryNote"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "5d316fcf-b509-50e4-af2d-0cc613a6ef70",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PrescriptAssignDeliveryNotePickSlip"
+    }
+  ],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "CUSTOM",
+    "ProcessStepMetadata": [
+      {
+        "Name": "Location",
+        "Description": "Select Loading Bay",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "DefaultValue": "",
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "Type",
+        "Description": "Add/Remove or Loading Bay",
+        "ProcessIndex": 2,
+        "NextIndex": 3,
+        "isActive": true,
+        "Required": true,
+        "DefaultValue": "",
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "DeliveryNote",
+        "Description": "DeliveryNote",
+        "ProcessIndex": 3,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "DefaultValue": "",
+        "PreScript": "PrescriptAssignDeliveryNoteDeliveryNote",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "PickSlip",
+        "Description": "Add new or Select Existing Pickslip",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "PrescriptAssignDeliveryNotePickSlip",
+        "hasWebTemplate": true
+      }
+    ]
+  },
+  "PostDeployArtifacts": [
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "b047e52a-0705-564b-b9c0-179266af0749",
+      "ArtifactVersion": 1,
+      "ArtifactName": "CIM_ASSIGNDELIVERYNOTE_Location"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "e5f61fa2-f85f-5730-b6fd-b9f72ab8353e",
+      "ArtifactVersion": 1,
+      "ArtifactName": "CIM_ASSIGNDELIVERYNOTE_PickSlip"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "d421f0b9-36ab-5651-9df4-eec7bcf65e50",
+      "ArtifactVersion": 1,
+      "ArtifactName": "CIM_ASSIGNDELIVERYNOTE_Type"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "0c85dbdb-f596-5cfc-8889-fca0edf3f753",
+      "ArtifactVersion": 1,
+      "ArtifactName": "CIM_ASSIGNDELIVERYNOTE_DeliveryNote"
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

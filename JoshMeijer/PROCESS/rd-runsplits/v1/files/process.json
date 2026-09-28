@@ -1,0 +1,30 @@
+{
+  "Name": "RD_RUNSPLITS",
+  "Description": "Retail Distribution -Import Excel Splits to Creat Store Transfers",
+  "Type": "CUSTOM",
+  "IsActive": true,
+  "IntegrationIsActive": false,
+  "IntegrationPost": false,
+  "Steps": [
+    {
+      "Name": "FileName",
+      "Description": "FileName",
+      "ProcessIndex": 0,
+      "NextIndex": 1,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "WebTemplateArtifact": "31a7e539-5b0a-5c0b-84cc-e4463d5fa633"
+    },
+    {
+      "Name": "Confirmation",
+      "Description": "Confirm",
+      "ProcessIndex": 1,
+      "NextIndex": 0,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "Prescript_Runsplits_Confirmation"
+    }
+  ]
+}

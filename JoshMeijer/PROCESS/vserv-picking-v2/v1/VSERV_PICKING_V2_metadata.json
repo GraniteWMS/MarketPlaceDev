@@ -1,0 +1,198 @@
+{
+  "Identifier": "40107643-369d-4c20-8724-cf0c55b91eee",
+  "Name": "VSERV_PICKING_V2",
+  "Description": "VSERV_PICKING_V2\n\nYou do not scan the tracking entity barcode directly. It is inferred from the Location, MasterItem and ExpiryDate",
+  "Type": "PROCESS",
+  "Version": 1,
+  "LastModified": "12/05/2026",
+  "Tags": [
+    "Manufacturing",
+    "Agricultural",
+    "Textile",
+    "Retail",
+    "Automotive",
+    "Cold Storage",
+    "Electronics",
+    "Construction",
+    "E-commerce",
+    "Logistics",
+    "Pharmaceutical"
+  ],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "201fa5aa-fd8b-5ed2-b827-1345819145a9",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Custom_VW_RouteNameSequence"
+    },
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "111c9c77-5352-51a3-ae9f-3cc6d1637ff1",
+      "ArtifactVersion": 1,
+      "ArtifactName": "WebTemplate_Picking_Document"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "79d72ebc-71c9-50f1-86b6-574c8c83b592",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_Picking_Document"
+    },
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "a97a681b-5a80-5426-ad42-6757861779e0",
+      "ArtifactVersion": 1,
+      "ArtifactName": "WebTemplate_Picking_Location"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "79d4d86f-24b5-5bcb-94c0-fa262ccb3fc8",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_Picking_Location"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "a85467d1-6317-574f-b71c-8403969c4f5a",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_Picking_TrackingEntity"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "e25cf114-ca1a-5862-962b-d0cbaa6b1dde",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_Picking_Step200"
+    },
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "cd5c52e9-2234-5659-a9dd-6d975e3d50d8",
+      "ArtifactVersion": 1,
+      "ArtifactName": "MasterItemAlias_View"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "01dc669a-4c26-53a9-bd00-e4ba3af9c9b8",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_Picking_MasterItem"
+    },
+    {
+      "ArtifactType": "DATA",
+      "ArtifactIdentifier": "b5529b68-1295-5f9d-a892-63f3a241c6d9",
+      "ArtifactVersion": 1,
+      "ArtifactName": "DataDependency_SystemStaticData_b5529b6812955f9da89263f3a241c6d9"
+    },
+    {
+      "ArtifactType": "DATA",
+      "ArtifactIdentifier": "13f92e8e-0f4a-58d1-922d-61cfd3a09750",
+      "ArtifactVersion": 1,
+      "ArtifactName": "DataDependency_SystemStaticData_13f92e8e0f4a58d1922d61cfd3a09750"
+    }
+  ],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "PICKING",
+    "ProcessStepMetadata": [
+      {
+        "Name": "Document",
+        "Description": "Enter Picking Order",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_Picking_Document",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Location",
+        "Description": "Where Are You Picking The Stock From?",
+        "ProcessIndex": 2,
+        "NextIndex": 3,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_Picking_Location",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Comment",
+        "Description": "ExpiryDate",
+        "ProcessIndex": 100,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "Qty",
+        "Description": "What Qty Are You Picking?",
+        "ProcessIndex": 5,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "TrackingEntity",
+        "Description": "Expiry Date (YYYYMM)",
+        "ProcessIndex": 4,
+        "NextIndex": 5,
+        "isActive": true,
+        "Required": false,
+        "PreScript": "Prescript_Picking_TrackingEntity",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Step200",
+        "Description": "Step200",
+        "ProcessIndex": 200,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "DefaultValue": "",
+        "PreScript": "Prescript_Picking_Step200",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Queue",
+        "Description": "Select Picking Queue",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "MasterItem",
+        "Description": "Scan EAN Barcode",
+        "ProcessIndex": 3,
+        "NextIndex": 4,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_Picking_MasterItem",
+        "hasWebTemplate": true
+      }
+    ]
+  },
+  "PostDeployArtifacts": [
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "1cd6d743-8562-5dac-a6c2-b060a8593144",
+      "ArtifactVersion": 1,
+      "ArtifactName": "VSERV_PICKING_V2"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "1d4d31eb-072b-56cb-a81c-ebbe75b5f52c",
+      "ArtifactVersion": 1,
+      "ArtifactName": "VSERV_PICKING_V2_Queue"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "cf35b01d-02bf-52db-931d-c876de980696",
+      "ArtifactVersion": 1,
+      "ArtifactName": "VSERV_PICKING_V2_Document"
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

@@ -1,0 +1,17 @@
+{
+  "Identifier": "0e7d102f-8eee-5f25-9f09-7777302653d6",
+  "Name": "DataDependency_SystemStaticData_0e7d102f8eee5f259f097777302653d6",
+  "Description": "",
+  "Type": "DATA",
+  "Version": 0,
+  "LastModified": "09/10/2025",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "TypeSpecificAttributes": {
+    "Table": "SystemStaticData",
+    "KeyColumn": "Key",
+    "KeyValues": [
+      "TransferPostCompletePercentage"
+    ]
+  }
+}

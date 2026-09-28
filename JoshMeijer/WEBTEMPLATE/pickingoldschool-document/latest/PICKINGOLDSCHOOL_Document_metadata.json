@@ -1,0 +1,19 @@
+{
+  "Identifier": "4f66b49e-2ffc-5aec-93f6-06be71d821fb",
+  "Name": "PICKINGOLDSCHOOL_Document",
+  "Description": "WebTemplate for process template PICKINGOLDSCHOOL / step Document",
+  "Type": "WEBTEMPLATE",
+  "Version": 0,
+  "LastModified": "18/03/2026",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "SQL_STORED_PROCEDURE",
+      "ArtifactIdentifier": "a6eb10b5-5a15-5c40-9338-6c10b1cfb574",
+      "ArtifactVersion": 1
+    }
+  ],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

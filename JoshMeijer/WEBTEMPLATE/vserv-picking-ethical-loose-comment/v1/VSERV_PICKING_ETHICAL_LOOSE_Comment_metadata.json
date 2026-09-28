@@ -1,0 +1,19 @@
+{
+  "Identifier": "1fcbdd25-a31f-5d86-825c-ddce250a29fd",
+  "Name": "VSERV_PICKING_ETHICAL_LOOSE_Comment",
+  "Description": "WebTemplate for process template VSERV_PICKING_ETHICAL_LOOSE / step Comment",
+  "Type": "WEBTEMPLATE",
+  "Version": 1,
+  "LastModified": "12/06/2026",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "5aa7e4ad-f90b-529c-9f12-ac4c8b32f6fb",
+      "ArtifactVersion": 1
+    }
+  ],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

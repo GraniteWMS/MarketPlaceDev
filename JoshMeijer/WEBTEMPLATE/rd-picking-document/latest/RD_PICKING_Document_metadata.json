@@ -1,0 +1,19 @@
+{
+  "Identifier": "748fbf88-b4ba-51b1-8d3d-924295089526",
+  "Name": "RD_PICKING_Document",
+  "Description": "WebTemplate for process template RD_PICKING / step Document",
+  "Type": "WEBTEMPLATE",
+  "Version": 0,
+  "LastModified": "09/10/2025",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "85876c06-89a3-51f5-b9f4-59ae06849e4d",
+      "ArtifactVersion": 1
+    }
+  ],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

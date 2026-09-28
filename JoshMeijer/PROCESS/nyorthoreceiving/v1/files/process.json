@@ -1,0 +1,91 @@
+{
+  "Name": "NYOrthoReceiving",
+  "Description": "Receiving with Item Selection",
+  "Type": "RECEIVING",
+  "IsActive": true,
+  "IntegrationIsActive": false,
+  "IntegrationPost": false,
+  "WebTemplateArtifact": "36c9eb69-2aca-51a9-8caa-1351f0245732",
+  "Steps": [
+    {
+      "Name": "Document",
+      "Description": "Purchase Order",
+      "ProcessIndex": 0,
+      "NextIndex": 1,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "Prescript_Receiving_Document",
+      "WebTemplateArtifact": "f47c82a7-6590-5c29-9070-49fb624a757e"
+    },
+    {
+      "Name": "MasterItem",
+      "Description": "Scan or Select MasterItem from PO",
+      "ProcessIndex": 1,
+      "NextIndex": 2,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "Prescript_Receiving_MasterItem"
+    },
+    {
+      "Name": "Comment",
+      "Description": "NumberOfBoxes",
+      "ProcessIndex": 2,
+      "NextIndex": 3,
+      "IsActive": true,
+      "Required": false,
+      "IsBusinessRule": false,
+      "PreScript": "Prescript_Receiving_Comment"
+    },
+    {
+      "Name": "Qty",
+      "Description": "Qty In Box",
+      "ProcessIndex": 3,
+      "NextIndex": 4,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "Prescript_Receiving_Qty"
+    },
+    {
+      "Name": "Confirmation",
+      "Description": "Confirmation",
+      "ProcessIndex": 4,
+      "NextIndex": 1,
+      "IsActive": true,
+      "Required": false,
+      "IsBusinessRule": false,
+      "WebTemplateArtifact": "da833f33-e2ee-54eb-9e2f-3c25c083a81c"
+    },
+    {
+      "Name": "Location",
+      "Description": "Receiving Location",
+      "ProcessIndex": 100,
+      "NextIndex": 0,
+      "IsActive": true,
+      "Required": false,
+      "IsBusinessRule": false,
+      "DefaultValue": "WHSE"
+    },
+    {
+      "Name": "NoLabels",
+      "Description": "Number of Box Labels",
+      "ProcessIndex": 100,
+      "NextIndex": 100,
+      "IsActive": true,
+      "Required": false,
+      "IsBusinessRule": false,
+      "DefaultValue": "0"
+    },
+    {
+      "Name": "UseBarcode",
+      "Description": "UseBarcode",
+      "ProcessIndex": 100,
+      "NextIndex": 0,
+      "IsActive": true,
+      "Required": false,
+      "IsBusinessRule": false
+    }
+  ]
+}

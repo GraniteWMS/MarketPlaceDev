@@ -1,0 +1,60 @@
+{
+  "Name": "PACKING",
+  "Description": "PACKING to Ship",
+  "Type": "PACKING",
+  "IsActive": true,
+  "IntegrationIsActive": false,
+  "IntegrationPost": false,
+  "Steps": [
+    {
+      "Name": "Document",
+      "Description": "Order document Number",
+      "ProcessIndex": 0,
+      "NextIndex": 1,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "WebTemplateArtifact": "5179c2c9-b205-5675-92f4-89a2e9826461"
+    },
+    {
+      "Name": "CarryingEntity",
+      "Description": "Scan BOX or PALLET",
+      "ProcessIndex": 1,
+      "NextIndex": 2,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false
+    },
+    {
+      "Name": "MasterItem",
+      "Description": "MasterItem (Code or Barcode)",
+      "ProcessIndex": 2,
+      "NextIndex": 3,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "Prescript_Packing_MasterItem",
+      "WebTemplateArtifact": "a7f21049-d843-5a01-8d90-81a09ffc6607"
+    },
+    {
+      "Name": "Qty",
+      "Description": "Qty",
+      "ProcessIndex": 3,
+      "NextIndex": 2,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "WebTemplateArtifact": "145f4f04-712a-57d0-8c66-d7b517dc531c"
+    },
+    {
+      "Name": "Location",
+      "Description": "Check and Pack Location",
+      "ProcessIndex": 100,
+      "NextIndex": 100,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "DefaultValue": "DIS"
+    }
+  ]
+}

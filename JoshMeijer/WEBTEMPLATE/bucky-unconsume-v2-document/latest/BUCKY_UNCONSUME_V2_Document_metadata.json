@@ -1,0 +1,19 @@
+{
+  "Identifier": "31f36107-10ca-51bc-9806-0d88ddde9653",
+  "Name": "BUCKY_UNCONSUME_V2_Document",
+  "Description": "WebTemplate for process template BUCKY_UNCONSUME_V2 / step Document",
+  "Type": "WEBTEMPLATE",
+  "Version": 0,
+  "LastModified": "27/01/2026",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "1f0dd906-f9f4-59ff-8ede-4a4ba2ab23d2",
+      "ArtifactVersion": 1
+    }
+  ],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

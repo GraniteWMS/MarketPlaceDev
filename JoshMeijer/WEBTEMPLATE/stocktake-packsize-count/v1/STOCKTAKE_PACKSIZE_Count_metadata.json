@@ -1,0 +1,13 @@
+{
+  "Identifier": "f6a35b75-00a9-52c9-9a7a-d0094619e24b",
+  "Name": "STOCKTAKE_PACKSIZE_Count",
+  "Description": "WebTemplate for process template STOCKTAKE_PACKSIZE / step Count",
+  "Type": "WEBTEMPLATE",
+  "Version": 1,
+  "LastModified": "08/06/2026",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

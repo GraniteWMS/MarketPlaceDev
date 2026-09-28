@@ -1,0 +1,10 @@
+{
+  "Identifier": "ce174e8b-8a17-5663-8a77-b3dbfaa8753f",
+  "Name": "Webtemplate_AssignPickerDetail_Line",
+  "Description": "",
+  "Type": "SQL_STORED_PROCEDURE",
+  "Version": 1,
+  "LastModified": "17/03/2026",
+  "Tags": [],
+  "ArtifactDependencies": []
+}

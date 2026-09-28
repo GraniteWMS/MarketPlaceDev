@@ -1,0 +1,19 @@
+{
+  "Identifier": "67af14fa-86b3-5613-9e50-828c38049cd2",
+  "Name": "LOOKUP_ITEMLOC",
+  "Description": "WebTemplate for process template LOOKUP_ITEMLOC",
+  "Type": "WEBTEMPLATE",
+  "Version": 1,
+  "LastModified": "07/05/2026",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "SQL_STORED_PROCEDURE",
+      "ArtifactIdentifier": "a26eea34-ca14-5888-acbd-b5d85bdf0234",
+      "ArtifactVersion": 1
+    }
+  ],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

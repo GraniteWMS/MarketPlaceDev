@@ -1,0 +1,19 @@
+{
+  "Identifier": "bbfc2d1d-cb84-565c-b66a-45464eebc0db",
+  "Name": "3PL_PICKING_Location",
+  "Description": "WebTemplate for process template 3PL_PICKING / step Location",
+  "Type": "WEBTEMPLATE",
+  "Version": 0,
+  "LastModified": "04/08/2025",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "bf7ef25d-fd96-51f0-b7f4-44d64dbca55c",
+      "ArtifactVersion": 1
+    }
+  ],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

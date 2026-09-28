@@ -1,0 +1,10 @@
+{
+  "Identifier": "5e86b459-3c70-56d2-8bd4-684233c7e3be",
+  "Name": "Sample Transactions",
+  "Description": "Data grid: Transactions/Sample Transactions",
+  "Type": "DATA_GRID",
+  "Version": 1,
+  "LastModified": "13/07/2024",
+  "Tags": [],
+  "ArtifactDependencies": []
+}

@@ -1,0 +1,50 @@
+{
+  "Name": "SCOREBOARD",
+  "Description": "SCOREBOARD 2026",
+  "Type": "CUSTOM",
+  "IsActive": true,
+  "IntegrationIsActive": false,
+  "IntegrationPost": false,
+  "Steps": [
+    {
+      "Name": "ScoreReceive",
+      "Description": "Receiving Score",
+      "ProcessIndex": 0,
+      "NextIndex": 1,
+      "IsActive": true,
+      "Required": false,
+      "IsBusinessRule": false,
+      "WebTemplateArtifact": "9de1818c-4fc9-5c1e-aaff-5cc12376d7bf"
+    },
+    {
+      "Name": "ScorePutaway",
+      "Description": "Putaway Score",
+      "ProcessIndex": 1,
+      "NextIndex": 2,
+      "IsActive": true,
+      "Required": false,
+      "IsBusinessRule": false,
+      "WebTemplateArtifact": "ba0b0803-93b2-5298-8134-6bd6fd9b9d2a"
+    },
+    {
+      "Name": "ScorePicked",
+      "Description": "Picking Score",
+      "ProcessIndex": 2,
+      "NextIndex": 3,
+      "IsActive": true,
+      "Required": false,
+      "IsBusinessRule": false,
+      "WebTemplateArtifact": "39f049c7-52cb-562b-9c04-20df61b5456a"
+    },
+    {
+      "Name": "ScoreLoadOut",
+      "Description": "Packing Score",
+      "ProcessIndex": 3,
+      "NextIndex": 0,
+      "IsActive": true,
+      "Required": false,
+      "IsBusinessRule": false,
+      "WebTemplateArtifact": "97bfa636-1e66-55cc-a099-d69c4e924e45"
+    }
+  ]
+}

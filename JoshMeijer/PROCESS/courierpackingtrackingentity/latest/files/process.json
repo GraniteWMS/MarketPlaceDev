@@ -1,0 +1,84 @@
+{
+  "Name": "CourierPackingTrackingEntity",
+  "Description": "CourierPackingTrackingEntity",
+  "Type": "CUSTOM",
+  "IsActive": true,
+  "IntegrationIsActive": false,
+  "IntegrationPost": false,
+  "Steps": [
+    {
+      "Name": "BoxBarcode",
+      "Description": "Scan/Enter courier box barcode",
+      "ProcessIndex": 0,
+      "NextIndex": 1,
+      "IsActive": true,
+      "Required": false,
+      "IsBusinessRule": false,
+      "PreScript": "PrescriptCourierPackingBoxBarcode"
+    },
+    {
+      "Name": "BoxType",
+      "Description": "Select courier box type",
+      "ProcessIndex": 1,
+      "NextIndex": 2,
+      "IsActive": true,
+      "Required": false,
+      "IsBusinessRule": false,
+      "PreScript": "PrescriptCourierPackingBoxType"
+    },
+    {
+      "Name": "Document",
+      "Description": "Scan/Enter order into courier box",
+      "ProcessIndex": 2,
+      "NextIndex": 3,
+      "IsActive": true,
+      "Required": false,
+      "IsBusinessRule": false,
+      "PreScript": "PrescriptCourierPackingDocument",
+      "WebTemplateArtifact": "350ccb90-e17e-5acc-b5e0-224aa551d482"
+    },
+    {
+      "Name": "BoxWeight",
+      "Description": "Capture final box weight",
+      "ProcessIndex": 3,
+      "NextIndex": 4,
+      "IsActive": true,
+      "Required": false,
+      "IsBusinessRule": false,
+      "PreScript": "PrescriptCourierPackingBoxWeight",
+      "WebTemplateArtifact": "f18c7261-a32f-5b05-9d57-7d7106d2aeab"
+    },
+    {
+      "Name": "zConfirmation",
+      "Description": "Finalise courier box",
+      "ProcessIndex": 4,
+      "NextIndex": 5,
+      "IsActive": true,
+      "Required": false,
+      "IsBusinessRule": false,
+      "PreScript": "PrescriptCourierPackingzConfirmation",
+      "WebTemplateArtifact": "d1bb60c4-8a62-50e0-b96a-fd3270a9d055"
+    },
+    {
+      "Name": "TrackingEntity",
+      "Description": "Scan tracking entity into box",
+      "ProcessIndex": 5,
+      "NextIndex": 5,
+      "IsActive": true,
+      "Required": false,
+      "IsBusinessRule": false,
+      "PreScript": "PrescriptCourierPackingTrackingEntity",
+      "WebTemplateArtifact": "47a1eeb1-6292-5396-b54b-dd4b31d8c098"
+    },
+    {
+      "Name": "BarcodeCount",
+      "Description": "BarcodeCount",
+      "ProcessIndex": 100,
+      "NextIndex": 0,
+      "IsActive": true,
+      "Required": false,
+      "IsBusinessRule": false,
+      "DefaultValue": "0"
+    }
+  ]
+}

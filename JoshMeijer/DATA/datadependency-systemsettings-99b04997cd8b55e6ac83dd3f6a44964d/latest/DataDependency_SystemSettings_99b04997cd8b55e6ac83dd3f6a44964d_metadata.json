@@ -1,0 +1,17 @@
+{
+  "Identifier": "99b04997-cd8b-55e6-ac83-dd3f6a44964d",
+  "Name": "DataDependency_SystemSettings_99b04997cd8b55e6ac83dd3f6a44964d",
+  "Description": "",
+  "Type": "DATA",
+  "Version": 0,
+  "LastModified": "07/04/2026",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "TypeSpecificAttributes": {
+    "Table": "dbo.SystemSettings",
+    "KeyColumn": "Application",
+    "KeyValues": [
+      "Granite.Function.StocktakeExport.Email"
+    ]
+  }
+}

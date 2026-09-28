@@ -1,0 +1,19 @@
+{
+  "Identifier": "231433be-56f7-5409-a94d-61e224649268",
+  "Name": "LOOKUP_MULTIWORD_ITEM",
+  "Description": "WebTemplate for process template LOOKUP_MULTIWORD_ITEM",
+  "Type": "WEBTEMPLATE",
+  "Version": 0,
+  "LastModified": "22/09/2025",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "SQL_STORED_PROCEDURE",
+      "ArtifactIdentifier": "b41a44fd-0b74-5fa7-b2c6-f98f0eca81e7",
+      "ArtifactVersion": 1
+    }
+  ],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

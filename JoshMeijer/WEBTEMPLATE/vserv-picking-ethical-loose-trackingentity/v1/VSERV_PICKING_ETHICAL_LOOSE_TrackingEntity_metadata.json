@@ -1,0 +1,13 @@
+{
+  "Identifier": "50fe42f6-d3fb-55ad-91e0-5b686062a4ae",
+  "Name": "VSERV_PICKING_ETHICAL_LOOSE_TrackingEntity",
+  "Description": "WebTemplate for process template VSERV_PICKING_ETHICAL_LOOSE / step TrackingEntity",
+  "Type": "WEBTEMPLATE",
+  "Version": 1,
+  "LastModified": "12/06/2026",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

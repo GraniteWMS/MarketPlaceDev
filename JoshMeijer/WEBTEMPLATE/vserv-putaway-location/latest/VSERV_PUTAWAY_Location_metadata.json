@@ -1,0 +1,19 @@
+{
+  "Identifier": "1803df8d-7d82-5d49-a4e5-dd515d994aee",
+  "Name": "VSERV_PUTAWAY_Location",
+  "Description": "WebTemplate for process template VSERV_PUTAWAY / step Location",
+  "Type": "WEBTEMPLATE",
+  "Version": 0,
+  "LastModified": "09/02/2026",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "86f3c3be-3cbd-5e85-9360-112846eab8d0",
+      "ArtifactVersion": 1
+    }
+  ],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

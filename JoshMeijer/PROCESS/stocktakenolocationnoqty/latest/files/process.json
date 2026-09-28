@@ -1,0 +1,69 @@
+{
+  "Name": "STOCKTAKENOLOCATIONNOQTY",
+  "Description": "STOCKTAKENOLOCATIONNOQTY",
+  "Type": "STOCKTAKECOUNT",
+  "IsActive": true,
+  "IntegrationIsActive": false,
+  "IntegrationPost": false,
+  "Steps": [
+    {
+      "Name": "Session",
+      "Description": "Session",
+      "ProcessIndex": 0,
+      "NextIndex": 1,
+      "IsActive": true,
+      "Required": false,
+      "IsBusinessRule": false,
+      "WebTemplateArtifact": "3127688b-eb52-55af-ab64-7667ee73279c"
+    },
+    {
+      "Name": "Count",
+      "Description": "Count",
+      "ProcessIndex": 1,
+      "NextIndex": 2,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "WebTemplateArtifact": "9349c887-aa53-552d-9be4-62aebcfff1da"
+    },
+    {
+      "Name": "Location",
+      "Description": "Scan/Enter Location",
+      "ProcessIndex": 2,
+      "NextIndex": 3,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false
+    },
+    {
+      "Name": "CustomPallet",
+      "Description": "Scan/Enter Pallet Number",
+      "ProcessIndex": 3,
+      "NextIndex": 4,
+      "IsActive": true,
+      "Required": false,
+      "IsBusinessRule": false,
+      "PreScript": "PrescriptStocktakeCustomPallet"
+    },
+    {
+      "Name": "TrackingEntity",
+      "Description": "Scan/Enter TrackingEntity",
+      "ProcessIndex": 4,
+      "NextIndex": 4,
+      "IsActive": true,
+      "Required": false,
+      "IsBusinessRule": false,
+      "PreScript": "PrescriptStocktakeTrackingEntity",
+      "WebTemplateArtifact": "766c9625-c16e-541e-8be0-5fdff78073bf"
+    },
+    {
+      "Name": "Qty",
+      "Description": "Qty",
+      "ProcessIndex": 100,
+      "NextIndex": 0,
+      "IsActive": true,
+      "Required": false,
+      "IsBusinessRule": false
+    }
+  ]
+}

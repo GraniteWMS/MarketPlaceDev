@@ -1,0 +1,65 @@
+{
+  "Identifier": "ed080fc4-9b80-4148-b8a2-bdfbdcc88278",
+  "Name": "3PL_LOADCOMPLETE",
+  "Description": "LOAD COMPLETE\n\nAfter Loading the truck we use a Load Complete process to send a load email and generate a load sheet.  This is specifically in a 3PL with Pallet management where the pallet is first Transferred to Staging, then the load to truck is a Full pallet Pick.\n\nUses the Report LoadComplete -to be found in CustomReports under 3PL pallet management folder.",
+  "Type": "PROCESS",
+  "Version": 0,
+  "LastModified": "13/07/2024",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "68d95373-27e4-5c83-af48-6db841a3f5d8",
+      "ArtifactVersion": 1,
+      "ArtifactName": "webtemplate_OutboundDocumentToComplete"
+    },
+    {
+      "ArtifactType": "USER_TABLE",
+      "ArtifactIdentifier": "b48d52d2-835d-5fd9-b2cc-0b11f0c1a4f5",
+      "ArtifactVersion": 1,
+      "ArtifactName": "custom_DocumentTrackingLog"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "8cf1ea8d-d5fb-57fb-a02f-2905522bbdbf",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_3PL_LoadCompleteConfirmation"
+    }
+  ],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "CUSTOM",
+    "ProcessStepMetadata": [
+      {
+        "Name": "Document",
+        "Description": "Document",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": false,
+        "PreScript": ""
+      },
+      {
+        "Name": "Confirmation",
+        "Description": "Confirmation",
+        "ProcessIndex": 1,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_3PL_LoadCompleteConfirmation",
+        "hasWebTemplate": true
+      }
+    ]
+  },
+  "PostDeployArtifacts": [
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "820ca109-21cc-5954-a905-15e6769dbdd7",
+      "ArtifactVersion": 1,
+      "ArtifactName": "3PL_LOADCOMPLETE_Document"
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

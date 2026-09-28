@@ -1,0 +1,10 @@
+{
+  "Identifier": "a4c0ec21-a6ce-5d99-b8a7-cd5c5bfe7700",
+  "Name": "WebTemplate_UnreceiveTransaction_TransactionID",
+  "Description": "",
+  "Type": "VIEW",
+  "Version": 1,
+  "LastModified": "02/02/2026",
+  "Tags": [],
+  "ArtifactDependencies": []
+}

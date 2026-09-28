@@ -1,0 +1,13 @@
+{
+  "Identifier": "b2977dce-2649-5e8a-9159-64ecff814d8b",
+  "Name": "3PL_RECEIVING_Batch",
+  "Description": "WebTemplate for process template 3PL_RECEIVING / step Batch",
+  "Type": "WEBTEMPLATE",
+  "Version": 0,
+  "LastModified": "04/08/2025",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

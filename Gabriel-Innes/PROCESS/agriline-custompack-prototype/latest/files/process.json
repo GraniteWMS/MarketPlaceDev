@@ -1,0 +1,78 @@
+{
+  "Name": "Agriline_CustomPack_Prototype",
+  "Description": "Agriline_CustomPack_Prototype",
+  "Type": "CUSTOM",
+  "IsActive": true,
+  "IntegrationMethod": "PACK",
+  "IntegrationIsActive": false,
+  "IntegrationPost": false,
+  "Steps": [
+    {
+      "Name": "Document",
+      "Description": "Document",
+      "ProcessIndex": 0,
+      "NextIndex": 1,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false
+    },
+    {
+      "Name": "Box",
+      "Description": "Box",
+      "ProcessIndex": 1,
+      "NextIndex": 2,
+      "IsActive": true,
+      "Required": false,
+      "IsBusinessRule": false,
+      "WebTemplateArtifact": "1eb39ba6-ef52-52db-8fe2-e1d97d6317a5"
+    },
+    {
+      "Name": "BoxCode",
+      "Description": "BoxCode",
+      "ProcessIndex": 2,
+      "NextIndex": 3,
+      "IsActive": true,
+      "Required": false,
+      "IsBusinessRule": false,
+      "WebTemplateArtifact": "a82bcc49-f68a-5a1e-97de-12fc3ef0b11a"
+    },
+    {
+      "Name": "Length",
+      "Description": "Length",
+      "ProcessIndex": 3,
+      "NextIndex": 4,
+      "IsActive": true,
+      "Required": false,
+      "IsBusinessRule": false,
+      "WebTemplateArtifact": "04744f0f-00d9-5e50-83e9-ede9b75f0e58"
+    },
+    {
+      "Name": "Width",
+      "Description": "Width",
+      "ProcessIndex": 4,
+      "NextIndex": 5,
+      "IsActive": true,
+      "Required": false,
+      "IsBusinessRule": false
+    },
+    {
+      "Name": "Height",
+      "Description": "Height",
+      "ProcessIndex": 5,
+      "NextIndex": 6,
+      "IsActive": true,
+      "Required": false,
+      "IsBusinessRule": false
+    },
+    {
+      "Name": "MasterItem",
+      "Description": "Masteritem",
+      "ProcessIndex": 6,
+      "NextIndex": 6,
+      "IsActive": true,
+      "Required": false,
+      "IsBusinessRule": false,
+      "WebTemplateArtifact": "8d167854-ab46-5de7-be58-f78bbc80eafe"
+    }
+  ]
+}

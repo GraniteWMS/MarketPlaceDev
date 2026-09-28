@@ -1,0 +1,109 @@
+{
+  "Identifier": "e37e1aaa-421a-4268-9ca9-8997d072f570",
+  "Name": "UNRECEIVE_BUTTANUTT",
+  "Description": "UNRECEIVE_BUTTANUTT\n\nIt is a receive reversal process for the scanner",
+  "Type": "PROCESS",
+  "Version": 0,
+  "LastModified": "21/03/2026",
+  "Tags": [
+    "Manufacturing",
+    "Retail",
+    "Agricultural",
+    "Automotive",
+    "Textile",
+    "Electronics",
+    "Construction",
+    "E-commerce",
+    "Logistics",
+    "Cold Storage",
+    "Pharmaceutical"
+  ],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "201658d1-f280-5a7f-b9fd-41ab374c5ca4",
+      "ArtifactVersion": 1,
+      "ArtifactName": "WebTemplate_UnreceiveTransaction_TransactionID"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "0c114d25-d149-583f-84c4-294583070a3f",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_UnreceiveTransaction_TransactionID"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "f7080b7b-b9c2-57da-a090-9b1153f83d50",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_UnreceiveTransaction_Step200"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "38023b31-9351-59ea-aede-0d6e468d554f",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_UnreceiveTransaction_Confirmation"
+    }
+  ],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "CUSTOM",
+    "ProcessStepMetadata": [
+      {
+        "Name": "Document",
+        "Description": "Enter Document",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": false,
+        "PreScript": ""
+      },
+      {
+        "Name": "TransactionID",
+        "Description": "Select Transaction ID",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_UnreceiveTransaction_TransactionID",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Step200",
+        "Description": "Reverses the Transaction",
+        "ProcessIndex": 200,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_UnreceiveTransaction_Step200",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Confirmation",
+        "Description": "Are you sure you want to reverse this transaction?",
+        "ProcessIndex": 2,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_UnreceiveTransaction_Confirmation",
+        "hasWebTemplate": true
+      }
+    ]
+  },
+  "PostDeployArtifacts": [
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "f18dc32d-8cdc-59ee-bdaf-ba0caed17bb7",
+      "ArtifactVersion": 1,
+      "ArtifactName": "UNRECEIVE_BUTTANUTT_Document"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "6f15e9ba-f587-57b1-8d7e-adec62beacb6",
+      "ArtifactVersion": 1,
+      "ArtifactName": "UNRECEIVE_BUTTANUTT_TransactionID"
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

@@ -1,0 +1,29 @@
+{
+  "Name": "LOOKUP_MULTIWORD_BARCODE",
+  "Description": "LOOKUP BARCODES USING MULTIWORD IN DESC",
+  "Type": "CUSTOM",
+  "IsActive": true,
+  "IntegrationIsActive": false,
+  "IntegrationPost": false,
+  "WebTemplateArtifact": "80aa7dc5-40e1-5f48-8ce4-e30ba2edb596",
+  "Steps": [
+    {
+      "Name": "Search",
+      "Description": "Select words to search",
+      "ProcessIndex": 0,
+      "NextIndex": 1,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false
+    },
+    {
+      "Name": "Result",
+      "Description": "Press Enter to Restart",
+      "ProcessIndex": 1,
+      "NextIndex": 0,
+      "IsActive": true,
+      "Required": false,
+      "IsBusinessRule": false
+    }
+  ]
+}

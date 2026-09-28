@@ -1,0 +1,1 @@
+{{"EXEC	[dbo].[webTemplate_3PLItemCodeBatchLocations] @Code = @MasterItem, @Batch = @Batch" |dbSelect({MasterItem,Batch})|basicTable({selectOnColumn:"Location", enableSearch:false})}}

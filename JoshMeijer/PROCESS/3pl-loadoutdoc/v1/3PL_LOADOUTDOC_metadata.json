@@ -1,0 +1,198 @@
+{
+  "Identifier": "14aeb39f-2761-44f6-a7a2-84149a864421",
+  "Name": "3PL_LOADOUTDOC",
+  "Description": "Scanner based Load Out Document creation\n\nIn order to publish a process for 3PL customers to enter load out instructions (orders), we only want them to have limited functionality.  Not entire Desktop, so we do it via a scanner process.\n\nThe process uses BarcodeMaster if a New Document button is clicked.  It uses A Step200 to crete the new Document.  Various webtemplates are defined for ensuring that the correct data is selected.  The column Principle is added to User Table and Document Table.  T?his could be refined.",
+  "Type": "PROCESS",
+  "Version": 1,
+  "LastModified": "17/06/2024",
+  "Tags": [
+    "Logistics"
+  ],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "bb2ae657-564b-5a75-9463-f3be1d86ffc9",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript3PL_LOADOUTDOC_Step200"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "171aa58f-b0a5-5251-a833-35d2b49e37eb",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript3PL_LOADOUTDOC_Document"
+    }
+  ],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "CUSTOM",
+    "ProcessStepMetadata": [
+      {
+        "Name": "Step200",
+        "Description": "Step200",
+        "ProcessIndex": 200,
+        "NextIndex": 200,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript3PL_LOADOUTDOC_Step200",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Document",
+        "Description": "Document Reference",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript3PL_LOADOUTDOC_Document",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "ExpectedDate",
+        "Description": "Booking Date",
+        "ProcessIndex": 2,
+        "NextIndex": 3,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": false,
+        "PreScript": ""
+      },
+      {
+        "Name": "ShipToLocation",
+        "Description": "ShipLocation",
+        "ProcessIndex": 4,
+        "NextIndex": 5,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "FromLocation",
+        "Description": "FromLocation",
+        "ProcessIndex": 5,
+        "NextIndex": 6,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "MasterItem",
+        "Description": "Item Code",
+        "ProcessIndex": 6,
+        "NextIndex": 7,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": false,
+        "PreScript": ""
+      },
+      {
+        "Name": "Batch",
+        "Description": "Batch",
+        "ProcessIndex": 7,
+        "NextIndex": 8,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": false,
+        "PreScript": ""
+      },
+      {
+        "Name": "Qty",
+        "Description": "Qty",
+        "ProcessIndex": 8,
+        "NextIndex": 9,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "Comment",
+        "Description": "Remarks",
+        "ProcessIndex": 9,
+        "NextIndex": 10,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "Confirmation",
+        "Description": "Confirmation",
+        "ProcessIndex": 10,
+        "NextIndex": 6,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Priority",
+        "Description": "Confirm Loadout Urgency",
+        "ProcessIndex": 3,
+        "NextIndex": 4,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "Principle",
+        "Description": "Principle",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": false,
+        "PreScript": ""
+      }
+    ]
+  },
+  "PostDeployArtifacts": [
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "ad1356fc-fa3e-5a65-aca5-1bcb842125af",
+      "ArtifactVersion": 1,
+      "ArtifactName": "3PL_LOADOUTDOC"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "3f9358b3-fe6e-5abb-a2c9-bba634658d2d",
+      "ArtifactVersion": 1,
+      "ArtifactName": "3PL_LOADOUTDOC_Principle"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "d8ee9b05-4264-5433-96bf-ed5cb0032e11",
+      "ArtifactVersion": 1,
+      "ArtifactName": "3PL_LOADOUTDOC_Document"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "3a92e731-70f7-5285-82f1-b2e2c12bbf12",
+      "ArtifactVersion": 1,
+      "ArtifactName": "3PL_LOADOUTDOC_ExpectedDate"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "601420ce-7d77-5bc7-8481-00022efd64cd",
+      "ArtifactVersion": 1,
+      "ArtifactName": "3PL_LOADOUTDOC_Priority"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "05d5b7eb-d0d4-5d6b-93f2-2a3afcb1e3a3",
+      "ArtifactVersion": 1,
+      "ArtifactName": "3PL_LOADOUTDOC_MasterItem"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "00817da9-ba02-50d1-b3f0-9fea8449c986",
+      "ArtifactVersion": 1,
+      "ArtifactName": "3PL_LOADOUTDOC_Batch"
+    }
+  ],
+  "DependsOnClr": true,
+  "SqlClrAssemblyVersion": "7.0.0.0",
+  "Deprecated": false
+}

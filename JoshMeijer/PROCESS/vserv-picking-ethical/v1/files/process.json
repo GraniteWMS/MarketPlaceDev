@@ -1,0 +1,83 @@
+{
+  "Name": "VSERV_PICKING_ETHICAL",
+  "Description": "VSERV_PICKING_ETHICAL",
+  "Type": "PICKING",
+  "IsActive": true,
+  "IntegrationIsActive": false,
+  "IntegrationPost": false,
+  "WebTemplateArtifact": "38cb4014-e289-5332-8683-17196eea2dfa",
+  "Steps": [
+    {
+      "Name": "Document",
+      "Description": "Enter Picking Order",
+      "ProcessIndex": 0,
+      "NextIndex": 1,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "Prescript_PickingEthical_Document",
+      "WebTemplateArtifact": "4f825b49-13fb-5af6-af8c-822732cb836b"
+    },
+    {
+      "Name": "Comment",
+      "Description": "Enter Picking Crate (PC) Barcode",
+      "ProcessIndex": 1,
+      "NextIndex": 2,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "Prescript_PickingEthical_Comment",
+      "WebTemplateArtifact": "c9df1128-28af-59b1-88a9-37b3063b1285"
+    },
+    {
+      "Name": "TrackingEntity",
+      "Description": "Scan Ethical (ETHL) Stock Box",
+      "ProcessIndex": 2,
+      "NextIndex": 3,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "Prescript_PickingEthical_TrackingEntity",
+      "WebTemplateArtifact": "5859a1ae-8b67-587b-ba7a-204ed318282f"
+    },
+    {
+      "Name": "ConfirmItem",
+      "Description": "Scan EAN Barcode",
+      "ProcessIndex": 3,
+      "NextIndex": 3,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "Prescript_PickingEthical_ConfirmItem"
+    },
+    {
+      "Name": "Location",
+      "Description": "Location",
+      "ProcessIndex": 100,
+      "NextIndex": 0,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false
+    },
+    {
+      "Name": "Qty",
+      "Description": "Qty",
+      "ProcessIndex": 100,
+      "NextIndex": 0,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "DefaultValue": "1"
+    },
+    {
+      "Name": "Step200",
+      "Description": "Step200",
+      "ProcessIndex": 200,
+      "NextIndex": 0,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "Prescript_PickingEthical_Step200"
+    }
+  ]
+}

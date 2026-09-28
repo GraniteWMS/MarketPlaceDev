@@ -1,0 +1,71 @@
+{
+  "Name": "CREATE_TASK",
+  "Description": "CREATE_TASK",
+  "Type": "CUSTOM",
+  "IsActive": true,
+  "IntegrationIsActive": false,
+  "IntegrationPost": false,
+  "Steps": [
+    {
+      "Name": "TaskName",
+      "Description": "Enter Task Name",
+      "ProcessIndex": 0,
+      "NextIndex": 1,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "WebTemplateArtifact": "beb21537-2323-592c-a5b9-d0fc7b17f2cc"
+    },
+    {
+      "Name": "TaskDescription",
+      "Description": "Enter Description",
+      "ProcessIndex": 1,
+      "NextIndex": 2,
+      "IsActive": true,
+      "Required": false,
+      "IsBusinessRule": false,
+      "WebTemplateArtifact": "2c5aec13-d5f3-5b49-a0bf-28c35f7b6278"
+    },
+    {
+      "Name": "TrackingEntity",
+      "Description": "TrackingEntity",
+      "ProcessIndex": 2,
+      "NextIndex": 3,
+      "IsActive": true,
+      "Required": false,
+      "IsBusinessRule": false,
+      "PreScript": "PrescriptCreateTaskTrackingEntity"
+    },
+    {
+      "Name": "Location",
+      "Description": "Location",
+      "ProcessIndex": 3,
+      "NextIndex": 4,
+      "IsActive": true,
+      "Required": false,
+      "IsBusinessRule": false,
+      "PreScript": "PrescriptCreateTaskLocation"
+    },
+    {
+      "Name": "AssignedUser",
+      "Description": "Assign User",
+      "ProcessIndex": 4,
+      "NextIndex": 5,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "PrescriptCreateTaskAssignedUser",
+      "WebTemplateArtifact": "33a04698-c336-53ea-ab32-8af6fea4ea9a"
+    },
+    {
+      "Name": "Confirmation",
+      "Description": "Create task?",
+      "ProcessIndex": 5,
+      "NextIndex": 0,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "PrescriptCreateTaskConfirmation"
+    }
+  ]
+}

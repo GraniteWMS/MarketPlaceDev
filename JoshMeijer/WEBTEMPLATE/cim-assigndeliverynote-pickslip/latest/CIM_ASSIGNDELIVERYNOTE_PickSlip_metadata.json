@@ -1,0 +1,13 @@
+{
+  "Identifier": "e5f61fa2-f85f-5730-b6fd-b9f72ab8353e",
+  "Name": "CIM_ASSIGNDELIVERYNOTE_PickSlip",
+  "Description": "WebTemplate for process template CIM_ASSIGNDELIVERYNOTE / step PickSlip",
+  "Type": "WEBTEMPLATE",
+  "Version": 0,
+  "LastModified": "18/05/2026",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

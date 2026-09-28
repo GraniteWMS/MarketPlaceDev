@@ -1,0 +1,13 @@
+{
+  "Identifier": "692d531b-5aa1-5ed7-a0b1-638078e1e876",
+  "Name": "QTYENTRYANDVALIDATE_Qty",
+  "Description": "WebTemplate for process template QTYENTRYANDVALIDATE / step Qty",
+  "Type": "WEBTEMPLATE",
+  "Version": 0,
+  "LastModified": "20/04/2026",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

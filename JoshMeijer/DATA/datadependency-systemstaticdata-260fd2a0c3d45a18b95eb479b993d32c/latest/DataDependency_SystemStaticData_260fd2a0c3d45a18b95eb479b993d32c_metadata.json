@@ -1,0 +1,17 @@
+{
+  "Identifier": "260fd2a0-c3d4-5a18-b95e-b479b993d32c",
+  "Name": "DataDependency_SystemStaticData_260fd2a0c3d45a18b95eb479b993d32c",
+  "Description": "",
+  "Type": "DATA",
+  "Version": 0,
+  "LastModified": "10/09/2026",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "TypeSpecificAttributes": {
+    "Table": "SystemStaticData",
+    "KeyColumn": "Key",
+    "KeyValues": [
+      "BOLPrinter"
+    ]
+  }
+}

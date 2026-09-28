@@ -1,0 +1,128 @@
+{
+  "Identifier": "45b45e67-703c-4201-bbf2-1763c692e190",
+  "Name": "TAKEON_BUTTANUTT_V2",
+  "Description": "TAKEON_BUTTANUTT_V2\n\nIt has selectable webtemplates for master item and location, as well as more descriptive process steps",
+  "Type": "PROCESS",
+  "Version": 0,
+  "LastModified": "21/03/2026",
+  "Tags": [
+    "Electronics",
+    "Construction",
+    "E-commerce",
+    "Logistics",
+    "Pharmaceutical",
+    "Cold Storage",
+    "Manufacturing",
+    "Agricultural",
+    "Textile",
+    "Automotive",
+    "Retail"
+  ],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "a4273daf-6719-5d6d-b149-5e0fe3727987",
+      "ArtifactVersion": 1,
+      "ArtifactName": "WebTemplate_Takeon_MasterItem"
+    },
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "81a11e05-9f2f-59ad-9ea9-29811a1c6818",
+      "ArtifactVersion": 1,
+      "ArtifactName": "WebTemplate_Takeon_Location"
+    }
+  ],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "TAKEON",
+    "ProcessStepMetadata": [
+      {
+        "Name": "MasterItem",
+        "Description": "Enter SKU",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": false,
+        "PreScript": ""
+      },
+      {
+        "Name": "Location",
+        "Description": "Enter Location Of Stock",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": false,
+        "PreScript": ""
+      },
+      {
+        "Name": "Batch",
+        "Description": "Enter Batch",
+        "ProcessIndex": 2,
+        "NextIndex": 3,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "ExpiryDate",
+        "Description": "Enter Expiry Date (YYYYMMDD)",
+        "ProcessIndex": 3,
+        "NextIndex": 4,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "Qty",
+        "Description": "Enter Qty",
+        "ProcessIndex": 4,
+        "NextIndex": 5,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "NoEntities",
+        "Description": "Enter Number Of Barcodes With Same Qty",
+        "ProcessIndex": 5,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "Print",
+        "Description": "Print",
+        "ProcessIndex": 99,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "DefaultValue": "",
+        "PreScript": "",
+        "hasWebTemplate": true
+      }
+    ]
+  },
+  "PostDeployArtifacts": [
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "c19157dd-e2b8-5cdf-928a-e0e8d8427bfd",
+      "ArtifactVersion": 1,
+      "ArtifactName": "TAKEON_BUTTANUTT_V2_Location"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "b5d870ec-8644-57a4-91d8-9bbb7ae478e4",
+      "ArtifactVersion": 1,
+      "ArtifactName": "TAKEON_BUTTANUTT_V2_MasterItem"
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

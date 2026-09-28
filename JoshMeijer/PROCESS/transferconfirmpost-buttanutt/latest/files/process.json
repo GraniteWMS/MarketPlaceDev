@@ -1,0 +1,21 @@
+{
+  "Name": "TRANSFERCONFIRMPOST_BUTTANUTT",
+  "Description": "TRANSFERCONFIRMPOST_BUTTANUTT",
+  "Type": "TRANSFERPOST",
+  "IsActive": true,
+  "IntegrationMethod": "UPDATETRANSFERTOCOMPLETED",
+  "IntegrationIsActive": true,
+  "IntegrationPost": false,
+  "Steps": [
+    {
+      "Name": "Document",
+      "Description": "Document",
+      "ProcessIndex": 0,
+      "NextIndex": 0,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "WebTemplateArtifact": "1ae2ae32-59ac-5f80-9684-1cea1bb04034"
+    }
+  ]
+}

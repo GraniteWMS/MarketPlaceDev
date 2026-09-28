@@ -1,0 +1,84 @@
+{
+  "Identifier": "1050e303-4f1a-46d0-97c8-77a44ed338fd",
+  "Name": "LOOKUPCUSTOMEASYEDIT",
+  "Description": "LOOKUPCUSTOMEASYEDIT\n\nThis make the modification of the Lookup Display for Inventory, MasterItem and Location easy and you can remove 0 showing barcodes etc\n\nOnly Webtemplate for easy modification",
+  "Type": "PROCESS",
+  "Version": 0,
+  "LastModified": "20/11/2025",
+  "Tags": [
+    "Manufacturing",
+    "Retail",
+    "Automotive",
+    "Agricultural",
+    "Textile",
+    "Electronics",
+    "Construction",
+    "E-commerce",
+    "Logistics",
+    "Cold Storage",
+    "Pharmaceutical"
+  ],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "b5ab9a22-8390-5a80-8d33-dd2b2fcb7af3",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PreScript_LookupMasterItem_LookUpValue"
+    }
+  ],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "CUSTOM",
+    "ProcessStepMetadata": [
+      {
+        "Name": "LookupValue",
+        "Description": "ENTER/SCAN Barcode",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": false,
+        "DefaultValue": "",
+        "PreScript": "PreScript_LookupMasterItem_LookUpValue",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Type",
+        "Description": "Type",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": false,
+        "DefaultValue": "MasterItem",
+        "hasWebTemplate": true,
+        "PreScript": ""
+      },
+      {
+        "Name": "Display",
+        "Description": "Display",
+        "ProcessIndex": 2,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": false,
+        "DefaultValue": "",
+        "PreScript": "",
+        "hasWebTemplate": true
+      }
+    ]
+  },
+  "PostDeployArtifacts": [
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "5842e400-4364-5707-b0cd-783b2ea3a8b3",
+      "ArtifactVersion": 1,
+      "ArtifactName": "LOOKUPCUSTOMEASYEDIT_Type"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "4172ba27-cd17-53a1-980e-a675d07bdc10",
+      "ArtifactVersion": 1,
+      "ArtifactName": "LOOKUPCUSTOMEASYEDIT_Display"
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

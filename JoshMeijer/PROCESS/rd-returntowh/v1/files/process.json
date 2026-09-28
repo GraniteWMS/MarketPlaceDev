@@ -1,0 +1,60 @@
+{
+  "Name": "RD_RETURNTOWH",
+  "Description": "Retail Distribution -Return To Warehouse",
+  "Type": "REPLENISH",
+  "IsActive": true,
+  "IntegrationIsActive": false,
+  "IntegrationPost": false,
+  "Steps": [
+    {
+      "Name": "Location",
+      "Description": "To Location",
+      "ProcessIndex": 0,
+      "NextIndex": 1,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "Prescript_Replenish_ToLocation",
+      "WebTemplateArtifact": "aeb69d42-853e-5c48-8c82-2b8e4c605364"
+    },
+    {
+      "Name": "ToTrackingEntity",
+      "Description": "Scan Item",
+      "ProcessIndex": 1,
+      "NextIndex": 1,
+      "IsActive": true,
+      "Required": false,
+      "IsBusinessRule": false,
+      "PreScript": "Prescript_ReturnToWH_ToTrackingEntity"
+    },
+    {
+      "Name": "FromLocation",
+      "Description": "From Location",
+      "ProcessIndex": 100,
+      "NextIndex": 100,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "DefaultValue": "STORES"
+    },
+    {
+      "Name": "FromTrackingEntity",
+      "Description": "Scan Item",
+      "ProcessIndex": 100,
+      "NextIndex": 100,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false
+    },
+    {
+      "Name": "Qty",
+      "Description": "Qty to Replenish",
+      "ProcessIndex": 100,
+      "NextIndex": 100,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "DefaultValue": "1"
+    }
+  ]
+}

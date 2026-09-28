@@ -1,0 +1,24 @@
+{
+  "Identifier": "9eb49e0f-e15b-5d72-8dd3-c8bf8cfb0f2b",
+  "Name": "PICKING Credit Return_TrackingEntity",
+  "Description": "WebTemplate for process template PICKING Credit Return / step TrackingEntity",
+  "Type": "WEBTEMPLATE",
+  "Version": 1,
+  "LastModified": "12/02/2025",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "SQL_STORED_PROCEDURE",
+      "ArtifactIdentifier": "4b8d0805-ba06-5648-a8d9-3064324f6d4f",
+      "ArtifactVersion": 1
+    },
+    {
+      "ArtifactType": "SQL_STORED_PROCEDURE",
+      "ArtifactIdentifier": "5c027db8-4536-5649-9d00-d10554599d0e",
+      "ArtifactVersion": 1
+    }
+  ],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

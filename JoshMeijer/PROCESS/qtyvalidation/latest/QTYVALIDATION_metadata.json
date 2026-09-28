@@ -1,0 +1,42 @@
+{
+  "Identifier": "03e34684-832f-44f6-85fe-d73b9d41fb01",
+  "Name": "QTYVALIDATION",
+  "Description": "QTYVALIDATION\n\nGeneric process step to cater for overall quantity validation. Checking for decimal, integer, big integer, varchar inputs. Also caters for checking if input is a Document, Barcode, Location, Code or Alias Code\nAlso caters for a maximum value, based on value defined in StaticData\n\nAdditional validation can also be used within the prescript, such as:\nIf Code UOM is each - call integer check, if Code UOM is KG - call decimal check.",
+  "Type": "PROCESS",
+  "Version": 0,
+  "LastModified": "03/09/2025",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "SQL_STORED_PROCEDURE",
+      "ArtifactIdentifier": "01d2be97-55e1-5690-884b-242cf5d2e658",
+      "ArtifactVersion": 1,
+      "ArtifactName": "UtilityValidationQty"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "fcf80da3-c4d4-5c34-807a-7f3619bee820",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PrescriptQTYVALIDATIONQty"
+    }
+  ],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "CUSTOM",
+    "ProcessStepMetadata": [
+      {
+        "Name": "Qty",
+        "Description": "Qty",
+        "ProcessIndex": 0,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "PrescriptQTYVALIDATIONQty",
+        "hasWebTemplate": true
+      }
+    ]
+  },
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

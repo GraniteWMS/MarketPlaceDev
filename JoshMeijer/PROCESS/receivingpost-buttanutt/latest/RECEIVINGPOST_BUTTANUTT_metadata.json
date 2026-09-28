@@ -1,0 +1,62 @@
+{
+  "Identifier": "b976fd0a-da73-491e-a871-c506aaac8cae",
+  "Name": "RECEIVINGPOST_BUTTANUTT",
+  "Description": "RECEIVINGPOST_BUTTANUTT\n\nIt has a selectable list of purchase orders that have not been posted yet",
+  "Type": "PROCESS",
+  "Version": 0,
+  "LastModified": "21/03/2026",
+  "Tags": [
+    "Electronics",
+    "Construction",
+    "E-commerce",
+    "Logistics",
+    "Pharmaceutical",
+    "Cold Storage",
+    "Manufacturing",
+    "Retail",
+    "Automotive",
+    "Agricultural",
+    "Textile"
+  ],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "3119a168-3d71-54df-ab2f-112831ec757a",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Integration_Transactions"
+    },
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "ff47efda-171f-5335-b820-151f39461bf7",
+      "ArtifactVersion": 1,
+      "ArtifactName": "WebTemplate_ReceivingPost_Document"
+    }
+  ],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "RECEIVINGPOST",
+    "ProcessStepMetadata": [
+      {
+        "Name": "Document",
+        "Description": "Document",
+        "ProcessIndex": 0,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "DefaultValue": "",
+        "PreScript": "",
+        "hasWebTemplate": false
+      }
+    ]
+  },
+  "PostDeployArtifacts": [
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "c9280f22-380b-51be-90f8-c8f32aee8e4e",
+      "ArtifactVersion": 1,
+      "ArtifactName": "RECEIVINGPOST_BUTTANUTT_Document"
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

@@ -1,0 +1,19 @@
+{
+  "Identifier": "5ebf7ed1-2a00-5634-aff8-1208afeb7896",
+  "Name": "REPLENISHTOPRODUCTION_Comment",
+  "Description": "WebTemplate for process template REPLENISHTOPRODUCTION / step Comment",
+  "Type": "WEBTEMPLATE",
+  "Version": 0,
+  "LastModified": "09/09/2026",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "SQL_STORED_PROCEDURE",
+      "ArtifactIdentifier": "3f0f86e1-53b3-5f7e-a5ca-151c78617d37",
+      "ArtifactVersion": 1
+    }
+  ],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

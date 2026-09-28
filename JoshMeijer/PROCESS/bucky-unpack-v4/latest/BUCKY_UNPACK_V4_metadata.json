@@ -1,0 +1,93 @@
+{
+  "Identifier": "25993d91-b1ba-4f8c-8496-cc6983d4bc71",
+  "Name": "BUCKY_UNPACK_V4",
+  "Description": "BUCKY_UNPACK_V4\n\nUseful for when you need to do pack reversals on the scanner.\n\nThe Step200 script does most of the work. There is a table variable called \"@TransactionIDsToReverse\". You can insert however many transactions you want into this variable as you wish. For example you could insert all the pack transactions for a particular master item on the document.",
+  "Type": "PROCESS",
+  "Version": 0,
+  "LastModified": "02/02/2026",
+  "Tags": [
+    "Manufacturing",
+    "Retail",
+    "Automotive",
+    "Agricultural",
+    "Textile",
+    "Electronics",
+    "Construction",
+    "E-commerce",
+    "Logistics",
+    "Pharmaceutical",
+    "Cold Storage"
+  ],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "4b476b42-0ce7-5aca-b970-0125f9c3d5b0",
+      "ArtifactVersion": 1,
+      "ArtifactName": "WebTemplate_UnpackTransaction_TransactionID"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "edcc763e-514f-5d65-a9d4-b2556681ad3f",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_UnpackTransaction_TransactionID"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "70ce0b8f-f216-5341-b7dc-6a3d39a5a611",
+      "ArtifactVersion": 1,
+      "ArtifactName": "Prescript_UnpackTransaction_Step200"
+    }
+  ],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "CUSTOM",
+    "ProcessStepMetadata": [
+      {
+        "Name": "Document",
+        "Description": "Enter Document",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": false,
+        "PreScript": ""
+      },
+      {
+        "Name": "TransactionID",
+        "Description": "Select Transaction ID",
+        "ProcessIndex": 1,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_UnpackTransaction_TransactionID",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Step200",
+        "Description": "Reverses the Transaction",
+        "ProcessIndex": 200,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_UnpackTransaction_Step200",
+        "hasWebTemplate": true
+      }
+    ]
+  },
+  "PostDeployArtifacts": [
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "dee0b2ec-7c72-5000-ab98-579b5be441d7",
+      "ArtifactVersion": 1,
+      "ArtifactName": "BUCKY_UNPACK_V4_Document"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "2d7edfca-8c3f-5c64-9fab-0f01bc59d509",
+      "ArtifactVersion": 1,
+      "ArtifactName": "BUCKY_UNPACK_V4_TransactionID"
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

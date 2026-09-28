@@ -1,0 +1,13 @@
+{
+  "Identifier": "0c85dbdb-f596-5cfc-8889-fca0edf3f753",
+  "Name": "CIM_ASSIGNDELIVERYNOTE_DeliveryNote",
+  "Description": "WebTemplate for process template CIM_ASSIGNDELIVERYNOTE / step DeliveryNote",
+  "Type": "WEBTEMPLATE",
+  "Version": 0,
+  "LastModified": "18/05/2026",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

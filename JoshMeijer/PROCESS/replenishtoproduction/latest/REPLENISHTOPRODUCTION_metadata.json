@@ -1,0 +1,137 @@
+{
+  "Identifier": "f4fb29cf-8cfd-44e1-8a19-e14d477bccea",
+  "Name": "REPLENISHTOPRODUCTION",
+  "Description": "Split and Move to Production\n\nMoving Stock to Production PROD Location from Raw material Warehouse.   Need to take a Quantity off the stock pallet, not the full pallet.\nIf the ERP Location of PROD is different it will integrate a Transfer.\nA Webtemplate shows what has been issued so far against the production Reference. \nThe Production Reference is not validated in this process\n\nThe Process Name REPLENISHTOPRODUCTION is referenced in the Display Webtemplate stored proc to show what has been transferred already against the reference.\nAssumes a Production Location has a Type of PRODUCTION or LINE in the Trackingentity Validation script.",
+  "Type": "PROCESS",
+  "Version": 0,
+  "LastModified": "09/09/2026",
+  "Tags": [
+    "Manufacturing"
+  ],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "SQL_STORED_PROCEDURE",
+      "ArtifactIdentifier": "3f0f86e1-53b3-5f7e-a5ca-151c78617d37",
+      "ArtifactVersion": 1,
+      "ArtifactName": "WebTemplate_ReplenishToProductionConfirmation"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "54ac8951-1738-50fc-94c1-cacede208552",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PrescriptReplenishToProductionTrackingEntity"
+    },
+    {
+      "ArtifactType": "PRESCRIPT",
+      "ArtifactIdentifier": "996b7b5f-3efa-5df6-93e1-099887510374",
+      "ArtifactVersion": 1,
+      "ArtifactName": "PrescriptReplenishToProductionQty"
+    }
+  ],
+  "DatabaseVersion": "8.0.0.0",
+  "TypeSpecificAttributes": {
+    "ProcessType": "REPLENISH",
+    "ProcessStepMetadata": [
+      {
+        "Name": "FromTrackingEntity",
+        "Description": "FromTrackingEntity",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "PrescriptReplenishToProductionTrackingEntity",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Location",
+        "Description": "Location",
+        "ProcessIndex": 100,
+        "NextIndex": 100,
+        "isActive": true,
+        "Required": true,
+        "DefaultValue": "PROD",
+        "hasWebTemplate": false,
+        "PreScript": ""
+      },
+      {
+        "Name": "ToTrackingEntity",
+        "Description": "To TrackingEntity",
+        "ProcessIndex": 100,
+        "NextIndex": 100,
+        "isActive": true,
+        "Required": false,
+        "DefaultValue": "",
+        "PreScript": "",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Qty",
+        "Description": "Qty to Issue",
+        "ProcessIndex": 2,
+        "NextIndex": 3,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "PrescriptReplenishToProductionQty",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Comment",
+        "Description": "Comment",
+        "ProcessIndex": 3,
+        "NextIndex": 4,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": false,
+        "PreScript": ""
+      },
+      {
+        "Name": "Confirmation",
+        "Description": "Confirmation",
+        "ProcessIndex": 4,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": false,
+        "PreScript": ""
+      },
+      {
+        "Name": "Reference",
+        "Description": "Work Order/Reference",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true,
+        "PreScript": ""
+      }
+    ]
+  },
+  "PostDeployArtifacts": [
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "6f4d153b-232f-51f3-bcb6-f45792e5851b",
+      "ArtifactVersion": 1,
+      "ArtifactName": "REPLENISHTOPRODUCTION_FromTrackingEntity"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "67725e6d-e762-5737-b53d-79e77400c310",
+      "ArtifactVersion": 1,
+      "ArtifactName": "REPLENISHTOPRODUCTION_Location"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "5ebf7ed1-2a00-5634-aff8-1208afeb7896",
+      "ArtifactVersion": 1,
+      "ArtifactName": "REPLENISHTOPRODUCTION_Comment"
+    },
+    {
+      "ArtifactType": "WEBTEMPLATE",
+      "ArtifactIdentifier": "f22e9b29-c043-54eb-b8f1-75bfa5535844",
+      "ArtifactVersion": 1,
+      "ArtifactName": "REPLENISHTOPRODUCTION_Confirmation"
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

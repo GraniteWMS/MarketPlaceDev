@@ -1,0 +1,13 @@
+{
+  "Identifier": "821493de-253a-55a3-bcbb-934bb56be755",
+  "Name": "CIM_RECEIVING_Location",
+  "Description": "WebTemplate for process template CIM_RECEIVING / step Location",
+  "Type": "WEBTEMPLATE",
+  "Version": 0,
+  "LastModified": "18/05/2026",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

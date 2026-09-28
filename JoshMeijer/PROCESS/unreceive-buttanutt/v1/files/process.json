@@ -1,0 +1,51 @@
+{
+  "Name": "UNRECEIVE_BUTTANUTT",
+  "Description": "UNRECEIVE_BUTTANUTT",
+  "Type": "CUSTOM",
+  "IsActive": true,
+  "IntegrationIsActive": false,
+  "IntegrationPost": false,
+  "Steps": [
+    {
+      "Name": "Document",
+      "Description": "Enter Document",
+      "ProcessIndex": 0,
+      "NextIndex": 1,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "WebTemplateArtifact": "f18dc32d-8cdc-59ee-bdaf-ba0caed17bb7"
+    },
+    {
+      "Name": "TransactionID",
+      "Description": "Select Transaction ID",
+      "ProcessIndex": 1,
+      "NextIndex": 2,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "Prescript_UnreceiveTransaction_TransactionID",
+      "WebTemplateArtifact": "6f15e9ba-f587-57b1-8d7e-adec62beacb6"
+    },
+    {
+      "Name": "Confirmation",
+      "Description": "Are you sure you want to reverse this transaction?",
+      "ProcessIndex": 2,
+      "NextIndex": 1,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "Prescript_UnreceiveTransaction_Confirmation"
+    },
+    {
+      "Name": "Step200",
+      "Description": "Reverses the Transaction",
+      "ProcessIndex": 200,
+      "NextIndex": 0,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "Prescript_UnreceiveTransaction_Step200"
+    }
+  ]
+}

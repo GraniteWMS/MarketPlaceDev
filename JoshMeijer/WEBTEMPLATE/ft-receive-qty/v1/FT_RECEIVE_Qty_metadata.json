@@ -1,0 +1,13 @@
+{
+  "Identifier": "7999e2b6-dea1-54ef-9642-29c65633a45a",
+  "Name": "FT_RECEIVE_Qty",
+  "Description": "WebTemplate for process template FT_RECEIVE / step Qty",
+  "Type": "WEBTEMPLATE",
+  "Version": 1,
+  "LastModified": "20/05/2026",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

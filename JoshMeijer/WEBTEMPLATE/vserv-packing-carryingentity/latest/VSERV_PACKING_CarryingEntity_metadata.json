@@ -1,0 +1,13 @@
+{
+  "Identifier": "fd0a16ac-f05a-5d09-b05d-135a39a23f1d",
+  "Name": "VSERV_PACKING_CarryingEntity",
+  "Description": "WebTemplate for process template VSERV_PACKING / step CarryingEntity",
+  "Type": "WEBTEMPLATE",
+  "Version": 0,
+  "LastModified": "09/02/2026",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

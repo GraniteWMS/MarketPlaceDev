@@ -1,0 +1,13 @@
+{
+  "Identifier": "9dc84497-26db-5a7f-ada7-dcdf5c4fd016",
+  "Name": "ALFRED_RECEIVINGSELECTABLE_SERIAL_Location",
+  "Description": "WebTemplate for process template ALFRED_RECEIVINGSELECTABLE_SERIAL / step Location",
+  "Type": "WEBTEMPLATE",
+  "Version": 1,
+  "LastModified": "20/03/2026",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

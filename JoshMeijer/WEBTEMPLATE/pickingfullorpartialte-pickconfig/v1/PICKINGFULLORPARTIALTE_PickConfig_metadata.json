@@ -1,0 +1,13 @@
+{
+  "Identifier": "2664f9af-e3ca-5f7f-be39-48e99a7facb8",
+  "Name": "PICKINGFULLORPARTIALTE_PickConfig",
+  "Description": "WebTemplate for process template PICKINGFULLORPARTIALTE / step PickConfig",
+  "Type": "WEBTEMPLATE",
+  "Version": 1,
+  "LastModified": "04/09/2026",
+  "Tags": [],
+  "ArtifactDependencies": [],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

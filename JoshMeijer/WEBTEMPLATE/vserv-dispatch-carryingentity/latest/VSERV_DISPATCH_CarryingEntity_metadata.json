@@ -1,0 +1,19 @@
+{
+  "Identifier": "7d2db46d-bab0-541a-bcf1-e5a02b0ac97b",
+  "Name": "VSERV_DISPATCH_CarryingEntity",
+  "Description": "WebTemplate for process template VSERV_DISPATCH / step CarryingEntity",
+  "Type": "WEBTEMPLATE",
+  "Version": 0,
+  "LastModified": "09/02/2026",
+  "Tags": [],
+  "ArtifactDependencies": [
+    {
+      "ArtifactType": "VIEW",
+      "ArtifactIdentifier": "9d188a4c-68fb-53d1-8a29-cb7cb8ef678e",
+      "ArtifactVersion": 1
+    }
+  ],
+  "PostDeployArtifacts": [],
+  "DependsOnClr": false,
+  "Deprecated": false
+}
