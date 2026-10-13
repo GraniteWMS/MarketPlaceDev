@@ -1,2 +1,0 @@
-INSERT INTO [SystemStaticData] ([Key],[Description],[Group],[Value],[isEncrypted]) 
-VALUES('TEOrderBy','Fields to order by. Include "Desc" for relevant fields. Prefix "TE." for TrackingEntity fields, "L." for Location fields ','PickingSuggestion','TE.ExpiryDate,TE.CreatedDate','False')

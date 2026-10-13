@@ -1,2 +1,0 @@
-INSERT INTO [SystemStaticData] ([Key],[Description],[Group],[Value],[isEncrypted]) 
-VALUES('SuggestionQty','How many TrackingEntities you want to suggest. (Minimum 1)','PickingSuggestion','2','False')

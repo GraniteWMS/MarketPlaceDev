@@ -1,2 +1,0 @@
-INSERT INTO [SystemStaticData] ([Key],[Description],[Group],[Value],[isEncrypted]) 
-VALUES('ExcludeLocations','Locations to be excluded from suggestions. Must use Location Barcode.','PickingSuggestion','DES,Returns','False')

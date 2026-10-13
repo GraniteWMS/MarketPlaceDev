@@ -1,4 +1,0 @@
-{{ "SELECT * FROM webtemplate_ScoreboardLoadOut  ORDER BY Date DESC, [Loaded Pallets] DESC" | dbSelect() | basicTable({enableSearch:false}) }}
-
-{{ ['FINISHED'] | map => { Value: it } | createButtonList({ columnName: 'Value' }) }}
-{{ hideTextBox() }}

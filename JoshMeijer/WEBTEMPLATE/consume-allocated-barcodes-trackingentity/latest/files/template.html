@@ -1,1 +1,0 @@
-{{ "SELECT Barcode, AllocatedQty, SKU FROM WebTemplate_AllocateBarcodeToWorkOrder_TrackingEntity WHERE Batch = @Batch" | dbSelect({Batch}) | basicTable({selectOnColumn:"Barcode"}) }}

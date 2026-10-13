@@ -1,1 +1,0 @@
-{{ "SELECT DocumentNumber, Vendor, RequiredByDate FROM WebTemplate_Receiving_Document ORDER BY RequiredByDate DESC" | dbSelect({}) | basicTable({selectOnColumn:"DocumentNumber", enableSearch:true}) }}

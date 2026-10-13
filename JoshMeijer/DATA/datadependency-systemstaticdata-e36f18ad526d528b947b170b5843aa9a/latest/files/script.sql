@@ -1,2 +1,0 @@
-INSERT INTO [SystemStaticData] ([Key],[Description],[Group],[Value],[isEncrypted]) 
-VALUES('ExcludeLocationCategories','Location Categories to be excluded from suggestions.','PickingSuggestion','','False')

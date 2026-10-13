@@ -1,2 +1,0 @@
-INSERT INTO [SystemStaticData] ([Key],[Description],[Group],[Value],[isEncrypted]) 
-VALUES('LineOrderBy','Fields to order by. Include "Desc" for relevant fields. Prefix "L." for Location fields. Limited to Location fields','PickingSuggestion','L.Barcode,L.Name','False')

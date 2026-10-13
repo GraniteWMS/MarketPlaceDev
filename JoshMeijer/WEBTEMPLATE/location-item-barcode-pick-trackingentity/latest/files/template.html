@@ -1,1 +1,0 @@
-{{ "SELECT LocationName, Qty FROM WebTemplate_LOCATION_ITEM_BARCODE_PICKING_TrackingEntity WHERE Code = @MasterItem" | dbSelect({MasterItem}) | basicTable({}) }}
