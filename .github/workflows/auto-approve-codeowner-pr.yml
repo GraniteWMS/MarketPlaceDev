@@ -17,40 +17,33 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Get changed files
-        id: changed-files
-        run: |
-          # Get the list of changed files in the PR
-          git fetch origin ${{ github.event.pull_request.base.ref }}
-          CHANGED_FILES=$(git diff --name-only origin/${{ github.event.pull_request.base.ref }}...${{ github.event.pull_request.head.sha }})
-          echo "Changed files:"
-          echo "$CHANGED_FILES"
-          echo "changed_files<<EOF" >> $GITHUB_OUTPUT
-          echo "$CHANGED_FILES" >> $GITHUB_OUTPUT
-          echo "EOF" >> $GITHUB_OUTPUT
-
       - name: Check if PR author is codeowner
         id: check-codeowner
+        # Everything attacker-influenced (branch names, author, file paths) is passed
+        # via env or read straight from git, never interpolated into the script text.
+        env:
+          PR_AUTHOR: ${{ github.event.pull_request.user.login }}
+          BASE_REF: ${{ github.event.pull_request.base.ref }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
         run: |
-          PR_AUTHOR="${{ github.event.pull_request.user.login }}"
-          CHANGED_FILES="${{ steps.changed-files.outputs.changed_files }}"
-          
           echo "PR Author: $PR_AUTHOR"
           echo "Checking CODEOWNERS file..."
-          
+
           # Read CODEOWNERS file
           if [ ! -f ".github/CODEOWNERS" ]; then
-            echo "is_codeowner=false" >> $GITHUB_OUTPUT
+            echo "is_codeowner=false" >> "$GITHUB_OUTPUT"
             echo "CODEOWNERS file not found"
             exit 0
           fi
-          
+
+          git fetch origin -- "$BASE_REF"
+
           IS_CODEOWNER=false
-          
-          # Check each changed file
-          while IFS= read -r file; do
+
+          # Check each changed file (NUL-delimited so odd characters in paths are safe)
+          while IFS= read -r -d '' file; do
             [ -z "$file" ] && continue
-            
+
             echo "Checking file: $file"
             
             # Get the directory path
@@ -72,17 +65,28 @@ jobs:
               if [[ "$file" == $pattern_dir/* ]] || [[ "$file" == $pattern ]]; then
                 echo "File $file matches pattern $pattern with owners: $owners"
                 
-                # Check if PR author is in the owners list
-                if echo "$owners" | grep -q "@$PR_AUTHOR"; then
+                # Check if PR author is in the owners list. Compare whole tokens,
+                # case-insensitively (logins are): a substring match would let a user
+                # named "josh" be treated as the owner "@josh-m".
+                author_is_owner=false
+                read -ra owner_list <<< "$owners"
+                for owner in "${owner_list[@]}"; do
+                  if [[ "${owner,,}" == "@${PR_AUTHOR,,}" ]]; then
+                    author_is_owner=true
+                    break
+                  fi
+                done
+
+                if [ "$author_is_owner" = "true" ]; then
                   echo "✅ PR author $PR_AUTHOR is a codeowner of $file"
                   IS_CODEOWNER=true
                   break 2
                 fi
               fi
             done < .github/CODEOWNERS
-          done <<< "$CHANGED_FILES"
-          
-          echo "is_codeowner=$IS_CODEOWNER" >> $GITHUB_OUTPUT
+          done < <(git diff --name-only -z "origin/${BASE_REF}...${HEAD_SHA}" --)
+
+          echo "is_codeowner=$IS_CODEOWNER" >> "$GITHUB_OUTPUT"
           
           if [ "$IS_CODEOWNER" = "true" ]; then
             echo "✅ PR author is a codeowner of at least one changed file"
