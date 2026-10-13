@@ -1,0 +1,97 @@
+{
+  "Identifier": "edd9802f-0069-40c3-97d1-00cd2d7200b0",
+  "Name": "REPLENISH_PICKFACE",
+  "Description": "REPLENISH PICKFACE\n\nIntended for use where pickface locations do not contain physical TrackingEntity barcodes. When you replenish to a location that already contains the MasterItem being replenished, it will add to the existing TrackingEntity. If the MasterItem does not yet exist in the pickface location, a new TrackingEntity will be created.\n\nPickface locations must have type PICKFACE assigned.\n\nEnsure your pickface locations type is set to PICKFACE. SQLCLR procedures must be deployed and configured to use this process.",
+  "Type": "PROCESS",
+  "Version": 1,
+  "LastModified": "09/02/2024",
+  "DatabaseVersion": "8.0.0.0",
+  "Tags": [],
+  "TypeSpecificAttributes": {
+    "ProcessType": "CUSTOM",
+    "ProcessName": "REPLENISH_PICKFACE",
+    "ProcessDescription": "REPLENISH PICKFACE",
+    "IntegrationIsActive": false,
+    "IntegrationPost": false,
+    "ProcessStepMetadata": [
+      {
+        "Name": "FromTrackingEntity",
+        "Description": "From Barcode",
+        "Process": "REPLENISH_PICKFACE",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "DefaultValue": null,
+        "PreScript": "PrescriptReplenishPickfaceFromTrackingEntity",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Location",
+        "Description": "To Location",
+        "Process": "REPLENISH_PICKFACE",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "DefaultValue": null,
+        "PreScript": "PrescriptReplenishPickfaceLocation",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Qty",
+        "Description": "Qty to Replenish",
+        "Process": "REPLENISH_PICKFACE",
+        "ProcessIndex": 2,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "DefaultValue": null,
+        "PreScript": "PrescriptReplenishPickfaceQty",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Step200",
+        "Description": "Step200",
+        "Process": "REPLENISH_PICKFACE",
+        "ProcessIndex": 200,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "DefaultValue": null,
+        "PreScript": "PrescriptReplenishPickfaceStep200",
+        "hasWebTemplate": false
+      }
+    ]
+  },
+  "Components": [
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.PrescriptReplenishPickfaceFromTrackingEntity",
+      "Path": "PRESCRIPT/dbo.PrescriptReplenishPickfaceFromTrackingEntity"
+    },
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.PrescriptReplenishPickfaceLocation",
+      "Path": "PRESCRIPT/dbo.PrescriptReplenishPickfaceLocation"
+    },
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.PrescriptReplenishPickfaceQty",
+      "Path": "PRESCRIPT/dbo.PrescriptReplenishPickfaceQty"
+    },
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.PrescriptReplenishPickfaceStep200",
+      "Path": "PRESCRIPT/dbo.PrescriptReplenishPickfaceStep200"
+    },
+    {
+      "Type": "PROCESS",
+      "Name": "REPLENISH_PICKFACE",
+      "Path": ""
+    }
+  ],
+  "DependsOnClr": true,
+  "SqlClrAssemblyVersion": "7.0.0.0",
+  "Deprecated": false
+}

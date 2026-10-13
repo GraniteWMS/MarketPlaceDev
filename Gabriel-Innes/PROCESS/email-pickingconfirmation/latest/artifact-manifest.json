@@ -1,0 +1,73 @@
+{
+  "Identifier": "14d8f629-6592-42af-a2f8-10b5935cfafb",
+  "Name": "EMAIL_PICKINGCONFIRMATION",
+  "Description": "EMAIL_PICKINGCONFIRMATION\n\nA simple process that uses the UtilityAPI to send an email confirming picked quantities. All that is needed is the document number.\n\nYou need to configure the email addresses that this will be sent to in the static data table. The template that this email uses is created in the post deploy script.",
+  "Type": "PROCESS",
+  "Version": 0,
+  "LastModified": "16/02/2024",
+  "DatabaseVersion": "8.0.0.0",
+  "Tags": [],
+  "TypeSpecificAttributes": {
+    "ProcessType": "CUSTOM",
+    "ProcessName": "EMAIL_PICKINGCONFIRMATION",
+    "ProcessDescription": "EMAIL_PICKINGCONFIRMATION",
+    "IntegrationIsActive": false,
+    "IntegrationPost": false,
+    "ProcessStepMetadata": [
+      {
+        "Name": "Document",
+        "Description": "Document",
+        "Process": "EMAIL_PICKINGCONFIRMATION",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "DefaultValue": null,
+        "PreScript": "",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Confirmation",
+        "Description": "Confirm",
+        "Process": "EMAIL_PICKINGCONFIRMATION",
+        "ProcessIndex": 1,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "DefaultValue": null,
+        "PreScript": "PrescriptEmailPickNotification",
+        "hasWebTemplate": false
+      }
+    ]
+  },
+  "Components": [
+    {
+      "Type": "VIEW",
+      "Name": "dbo.EmailTemplatePickedLines",
+      "Path": "VIEW/dbo.EmailTemplatePickedLines"
+    },
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.PrescriptEmailPickNotification",
+      "Path": "PRESCRIPT/dbo.PrescriptEmailPickNotification"
+    },
+    {
+      "Type": "EMAIL_TEMPLATE",
+      "Name": "PickingNotification",
+      "Path": "EMAIL_TEMPLATE/PickingNotification"
+    },
+    {
+      "Type": "DATA",
+      "Name": "dbo.SystemStaticData",
+      "Path": "DATA/dbo.SystemStaticData"
+    },
+    {
+      "Type": "PROCESS",
+      "Name": "EMAIL_PICKINGCONFIRMATION",
+      "Path": ""
+    }
+  ],
+  "DependsOnClr": true,
+  "SqlClrAssemblyVersion": "7.0.0.0",
+  "Deprecated": false
+}

@@ -1,0 +1,62 @@
+{
+  "Identifier": "9d366dcc-1ae2-4a83-a007-674be443bf54",
+  "Name": "PUTAWAY-DIRECTED",
+  "Description": "PUTAWAY-DIRECTED\n\nWhen the customer has a set Picking location and empty bulk locations and we want to display  the location to use for Putaway.\n\nIn order for this process to function correctly please setup your locations accordingly or amend the logic to your current location setup.\nThe SQL view webtemplate_StockInReceiving utilizes location types RECEIVING, while the Stored Procedure WebTemplate_Putaway_TrackingEntity operates with location types BULK.",
+  "Type": "PROCESS",
+  "Version": 0,
+  "LastModified": "26/03/2024",
+  "DatabaseVersion": "8.0.0.0",
+  "Tags": [],
+  "TypeSpecificAttributes": {
+    "ProcessType": "MOVE",
+    "ProcessName": "PUTAWAY-DIRECTED",
+    "ProcessDescription": "PUTAWAY-DIRECTED",
+    "IntegrationIsActive": false,
+    "IntegrationPost": false,
+    "ProcessStepMetadata": [
+      {
+        "Name": "TrackingEntity",
+        "Description": "Scan Tracking Barcode",
+        "Process": "PUTAWAY-DIRECTED",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "DefaultValue": null,
+        "PreScript": "",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Location",
+        "Description": "To Location",
+        "Process": "PUTAWAY-DIRECTED",
+        "ProcessIndex": 1,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "DefaultValue": null,
+        "PreScript": "",
+        "hasWebTemplate": true
+      }
+    ]
+  },
+  "Components": [
+    {
+      "Type": "VIEW",
+      "Name": "dbo.webtemplate_StockInReceiving",
+      "Path": "VIEW/dbo.webtemplate_StockInReceiving"
+    },
+    {
+      "Type": "SQL_STORED_PROCEDURE",
+      "Name": "dbo.WebTemplate_Putaway_TrackingEntity",
+      "Path": "SQL_STORED_PROCEDURE/dbo.WebTemplate_Putaway_TrackingEntity"
+    },
+    {
+      "Type": "PROCESS",
+      "Name": "PUTAWAY-DIRECTED",
+      "Path": ""
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

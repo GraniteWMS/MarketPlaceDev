@@ -1,0 +1,75 @@
+{
+  "Identifier": "35117555-e482-4184-8bcc-b196b66f0276",
+  "Name": "REINSTATE_TRACKINGENTITY",
+  "Description": "REINSTATE TRACKINGENTITY\n\nUsed to place a TrackingEntity back in stock after it has been scrapped or otherwise set to InStock false. Makes use of CLR to ensure a transaction is written when a TrackingEntity is reinstated.",
+  "Type": "PROCESS",
+  "Version": 0,
+  "LastModified": "09/02/2024",
+  "DatabaseVersion": "8.0.0.0",
+  "Tags": [],
+  "TypeSpecificAttributes": {
+    "ProcessType": "CUSTOM",
+    "ProcessName": "REINSTATE_TRACKINGENTITY",
+    "ProcessDescription": "REINSTATE TRACKINGENTITY",
+    "IntegrationIsActive": false,
+    "IntegrationPost": false,
+    "ProcessStepMetadata": [
+      {
+        "Name": "TrackingEntity",
+        "Description": "TrackingEntity",
+        "Process": "REINSTATE_TRACKINGENTITY",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "DefaultValue": null,
+        "PreScript": "PrescriptReinstateTrackingEntityTrackingEntity",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Confirm",
+        "Description": "Confirm",
+        "Process": "REINSTATE_TRACKINGENTITY",
+        "ProcessIndex": 1,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "DefaultValue": null,
+        "PreScript": "",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Step200",
+        "Description": "Step200",
+        "Process": "REINSTATE_TRACKINGENTITY",
+        "ProcessIndex": 200,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "DefaultValue": null,
+        "PreScript": "PrescriptReinstateTrackingEntityStep200",
+        "hasWebTemplate": false
+      }
+    ]
+  },
+  "Components": [
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.PrescriptReinstateTrackingEntityTrackingEntity",
+      "Path": "PRESCRIPT/dbo.PrescriptReinstateTrackingEntityTrackingEntity"
+    },
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.PrescriptReinstateTrackingEntityStep200",
+      "Path": "PRESCRIPT/dbo.PrescriptReinstateTrackingEntityStep200"
+    },
+    {
+      "Type": "PROCESS",
+      "Name": "REINSTATE_TRACKINGENTITY",
+      "Path": ""
+    }
+  ],
+  "DependsOnClr": true,
+  "SqlClrAssemblyVersion": "7.0.0.0",
+  "Deprecated": false
+}

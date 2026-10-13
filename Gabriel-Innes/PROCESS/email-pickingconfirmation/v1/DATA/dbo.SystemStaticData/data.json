@@ -1,0 +1,15 @@
+{
+  "Table": "dbo.SystemStaticData",
+  "KeyColumns": [
+    "Key"
+  ],
+  "Rows": [
+    {
+      "Key": "PickingConfirmation",
+      "Description": "List of emails to send the picking confirmation email to. Separate emails with ;",
+      "Group": "Prescript",
+      "Value": "email1@gmail.com;email2@gmail.com",
+      "isEncrypted": "False"
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "Identifier": "67480eef-cc25-4ce6-ac29-953dab841370",
+  "Name": "EXAMPLE_EMAIL_EXCELATTACHMENT",
+  "Description": "EXAMPLE_EMAIL_EXCELATTACHMENT\n\nThis template provides an illustration of utilizing SQL_CLR to send emails with excel attachments, although it should be noted that this process is not fully functional.\n\nWithin the stored procedure Prescript_Example_SendEmailWithExcelAttachment, the clr_SimpleEmail is employed to attach excel file and dispatch an email.",
+  "Type": "PROCESS",
+  "Version": 0,
+  "LastModified": "19/03/2024",
+  "DatabaseVersion": "8.0.0.0",
+  "Tags": [],
+  "TypeSpecificAttributes": {
+    "ProcessType": "CUSTOM",
+    "ProcessName": "EXAMPLE_EMAIL_EXCELATTACHMENT",
+    "ProcessDescription": "EXAMPLE_EMAIL_EXCELATTACHMENT",
+    "IntegrationIsActive": false,
+    "IntegrationPost": false,
+    "ProcessStepMetadata": [
+      {
+        "Name": "Example",
+        "Description": "Example",
+        "Process": "EXAMPLE_EMAIL_EXCELATTACHMENT",
+        "ProcessIndex": 0,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "DefaultValue": null,
+        "PreScript": "Prescript_Example_SendEmailWithExcelAttachment",
+        "hasWebTemplate": false
+      }
+    ]
+  },
+  "Components": [
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.Prescript_Example_SendEmailWithExcelAttachment",
+      "Path": "PRESCRIPT/dbo.Prescript_Example_SendEmailWithExcelAttachment"
+    },
+    {
+      "Type": "PROCESS",
+      "Name": "EXAMPLE_EMAIL_EXCELATTACHMENT",
+      "Path": ""
+    }
+  ],
+  "DependsOnClr": true,
+  "SqlClrAssemblyVersion": "7.0.0.0",
+  "Deprecated": false
+}
