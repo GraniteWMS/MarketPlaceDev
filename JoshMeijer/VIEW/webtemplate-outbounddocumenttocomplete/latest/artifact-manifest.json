@@ -1,0 +1,19 @@
+{
+  "Identifier": "e963a776-0c06-4a7c-b38e-b035935c2f56",
+  "Name": "webtemplate_OutboundDocumentToComplete",
+  "Description": "Smoketest view publish (unit redesign) - safe to close",
+  "Type": "VIEW",
+  "Version": 0,
+  "LastModified": "14/10/2026",
+  "DatabaseVersion": "8.0.0.0",
+  "Tags": [],
+  "Components": [
+    {
+      "Type": "VIEW",
+      "Name": "dbo.webtemplate_OutboundDocumentToComplete",
+      "Path": ""
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}
