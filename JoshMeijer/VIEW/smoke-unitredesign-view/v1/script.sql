@@ -1,0 +1,1 @@
+CREATE   VIEW [dbo].[Smoke_UnitRedesign_View] AS SELECT 1 AS SmokeVersion, 'unit redesign smoketest' AS Note
