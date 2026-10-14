@@ -1,0 +1,19 @@
+{
+  "Identifier": "e8c1ddf2-78a0-4f27-9b08-5a12a0c4e484",
+  "Name": "Smoke_UnitRedesign_View",
+  "Description": "Smoketest view for the unit redesign",
+  "Type": "VIEW",
+  "Version": 3,
+  "LastModified": "14/10/2026",
+  "DatabaseVersion": "8.0.0.0",
+  "Tags": [],
+  "Components": [
+    {
+      "Type": "VIEW",
+      "Name": "dbo.Smoke_UnitRedesign_View",
+      "Path": ""
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

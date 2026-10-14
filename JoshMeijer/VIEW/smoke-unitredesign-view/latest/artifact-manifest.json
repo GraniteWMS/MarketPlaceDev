@@ -15,6 +15,5 @@
     }
   ],
   "DependsOnClr": false,
-  "Deprecated": true,
-  "DeprecationReason": "Smoketest: superseded by v2"
+  "Deprecated": false
 }
