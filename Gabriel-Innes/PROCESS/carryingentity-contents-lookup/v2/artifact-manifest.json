@@ -1,0 +1,55 @@
+{
+  "Identifier": "f2b5b199-c8c2-4c89-ba9a-6d656fa40ac1",
+  "Name": "CARRYINGENTITY_CONTENTS_LOOKUP",
+  "Description": "smoketest",
+  "Type": "PROCESS",
+  "Version": 2,
+  "LastModified": "14/10/2026",
+  "DatabaseVersion": "8.0.0.0",
+  "Tags": [],
+  "TypeSpecificAttributes": {
+    "ProcessType": "CUSTOM",
+    "ProcessName": "CARRYINGENTITY_CONTENTS_LOOKUP",
+    "ProcessDescription": "CARRYINGENTITY_CONTENTS_LOOKUP",
+    "IntegrationIsActive": false,
+    "IntegrationPost": false,
+    "ProcessStepMetadata": [
+      {
+        "Name": "Barcode",
+        "Description": "Carrying Entity Barcode",
+        "Process": "CARRYINGENTITY_CONTENTS_LOOKUP",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "DefaultValue": "",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Confirmation",
+        "Description": "Confirm",
+        "Process": "CARRYINGENTITY_CONTENTS_LOOKUP",
+        "ProcessIndex": 1,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "DefaultValue": "",
+        "hasWebTemplate": false
+      }
+    ]
+  },
+  "Components": [
+    {
+      "Type": "SQL_STORED_PROCEDURE",
+      "Name": "dbo.WebtemplateCarryingEntityLookup",
+      "Path": "SQL_STORED_PROCEDURE/dbo.WebtemplateCarryingEntityLookup"
+    },
+    {
+      "Type": "PROCESS",
+      "Name": "CARRYINGENTITY_CONTENTS_LOOKUP",
+      "Path": ""
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}
