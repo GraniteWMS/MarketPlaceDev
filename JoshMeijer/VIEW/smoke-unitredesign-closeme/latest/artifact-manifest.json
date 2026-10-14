@@ -1,0 +1,19 @@
+{
+  "Identifier": "97d1e3ea-648a-4395-93ed-61ac269db7b3",
+  "Name": "Smoke_UnitRedesign_CloseMe",
+  "Description": "Smoketest: close this PR without merging",
+  "Type": "VIEW",
+  "Version": 0,
+  "LastModified": "14/10/2026",
+  "DatabaseVersion": "8.0.0.0",
+  "Tags": [],
+  "Components": [
+    {
+      "Type": "VIEW",
+      "Name": "dbo.Smoke_UnitRedesign_CloseMe",
+      "Path": ""
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}
