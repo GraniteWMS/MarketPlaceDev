@@ -18,5 +18,6 @@
     }
   ],
   "DependsOnClr": false,
-  "Deprecated": false
+  "Deprecated": true,
+  "DeprecationReason": "Smoke re-run: superseded by v2"
 }
