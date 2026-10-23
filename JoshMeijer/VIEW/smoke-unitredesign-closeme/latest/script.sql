@@ -1,1 +1,0 @@
-CREATE   VIEW [dbo].[Smoke_UnitRedesign_CloseMe] AS SELECT 1 AS X

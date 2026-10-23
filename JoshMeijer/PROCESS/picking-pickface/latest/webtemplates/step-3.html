@@ -1,1 +1,0 @@
-{{ "EXEC WebTemplate_PickingPickface_TrackingEntity @Document, @Location" | dbSelect({Document, Location}) | basicTable({selectOnColumn:"Barcode", enableSearch:true}) }}
