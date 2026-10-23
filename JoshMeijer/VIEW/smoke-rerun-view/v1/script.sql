@@ -1,0 +1,1 @@
+CREATE   VIEW [dbo].[Smoke_Rerun_View] AS SELECT 1 AS SmokeVersion, 'smoke rerun 2026-10-23' AS Note
