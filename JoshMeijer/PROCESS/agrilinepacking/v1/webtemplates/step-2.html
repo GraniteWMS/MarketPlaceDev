@@ -1,0 +1,10 @@
+<style> #btnNew { display:none } </style>
+{{ "SELECT TOP 1 ID FROM Custom_CarryingEntityAllocation WHERE DocumentNumber = @Document" | dbScalar({Document}) |> to => box }}
+
+{{#if box}}
+	{{ "SELECT [Boxes] FROM (VALUES ("Pack new box"),("Continue packing to last box")) AS T([Boxes])" | dbSelect({}) | createButtonList({"Boxes"}) }}
+{{else}}
+	{{ "SELECT [Boxes] FROM (VALUES ("Pack new box")) AS T([Boxes])" | dbSelect({}) | createButtonList({"Boxes"}) }}
+{{/if}}
+
+{{ hideTextBox() }}

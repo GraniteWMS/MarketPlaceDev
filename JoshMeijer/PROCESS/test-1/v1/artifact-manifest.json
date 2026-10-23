@@ -1,0 +1,118 @@
+{
+  "Identifier": "f5e9dac1-8f6c-4e2a-a629-2eef7acdffe6",
+  "Name": "test",
+  "Description": "test\n\nsdaf",
+  "Type": "PROCESS",
+  "Version": 1,
+  "LastModified": "19/06/2024",
+  "DatabaseVersion": "8.0.0.0",
+  "Tags": [],
+  "TypeSpecificAttributes": {
+    "ProcessType": "STOCKTAKECOUNT",
+    "ProcessName": "test",
+    "ProcessDescription": "test",
+    "IntegrationIsActive": false,
+    "IntegrationPost": false,
+    "ProcessStepMetadata": [
+      {
+        "Name": "Session",
+        "Description": "Session",
+        "Process": "test",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "PrescriptAdhocStockTake_Session",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Count",
+        "Description": "Count",
+        "Process": "test",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Location",
+        "Description": "Location",
+        "Process": "test",
+        "ProcessIndex": 2,
+        "NextIndex": 3,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "TrackingEntity",
+        "Description": "TrackingEntity",
+        "Process": "test",
+        "ProcessIndex": 3,
+        "NextIndex": 4,
+        "isActive": true,
+        "Required": false,
+        "PreScript": "PrescriptAdhocStockTake_TrackingEntity",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "PalletConfirmation",
+        "Description": "PalletConfirmation",
+        "Process": "test",
+        "ProcessIndex": 4,
+        "NextIndex": 5,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Qty",
+        "Description": "Qty",
+        "Process": "test",
+        "ProcessIndex": 5,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": false
+      }
+    ]
+  },
+  "Components": [
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.PrescriptAdhocStockTake_Session",
+      "Path": "PRESCRIPT/dbo.PrescriptAdhocStockTake_Session",
+      "DependsOn": []
+    },
+    {
+      "Type": "VIEW",
+      "Name": "dbo.webtemplate_PickingScores",
+      "Path": "VIEW/dbo.webtemplate_PickingScores",
+      "DependsOn": []
+    },
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.PrescriptAdhocStockTake_TrackingEntity",
+      "Path": "PRESCRIPT/dbo.PrescriptAdhocStockTake_TrackingEntity",
+      "DependsOn": []
+    },
+    {
+      "Type": "PROCESS",
+      "Name": "test",
+      "Path": "",
+      "DependsOn": [
+        {
+          "Type": "PRESCRIPT",
+          "Name": "dbo.PrescriptAdhocStockTake_Session"
+        },
+        {
+          "Type": "PRESCRIPT",
+          "Name": "dbo.PrescriptAdhocStockTake_TrackingEntity"
+        }
+      ]
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

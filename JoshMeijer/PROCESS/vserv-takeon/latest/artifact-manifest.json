@@ -1,0 +1,123 @@
+{
+  "Identifier": "e5ba7f25-006c-4213-85ff-1eadaea9f57a",
+  "Name": "VSERV_TAKEON",
+  "Description": "VSERV_TAKEON\n\nIf you need a takeon process that automatically knows to replenish to an existing tracking entity in the same location with the same expiry instead of always creating a new one.",
+  "Type": "PROCESS",
+  "Version": 0,
+  "LastModified": "09/02/2026",
+  "DatabaseVersion": "8.0.0.0",
+  "Tags": [
+    "Manufacturing",
+    "Retail",
+    "Automotive",
+    "Agricultural",
+    "Textile",
+    "Electronics",
+    "Construction",
+    "E-commerce",
+    "Logistics",
+    "Pharmaceutical",
+    "Cold Storage"
+  ],
+  "TypeSpecificAttributes": {
+    "ProcessType": "TAKEON",
+    "ProcessName": "VSERV_TAKEON",
+    "ProcessDescription": "VSERV_TAKEON",
+    "IntegrationIsActive": false,
+    "IntegrationPost": false,
+    "ProcessStepMetadata": [
+      {
+        "Name": "MasterItem",
+        "Description": "MasterItem",
+        "Process": "VSERV_TAKEON",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Location",
+        "Description": "Location",
+        "Process": "VSERV_TAKEON",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "ExpiryDate",
+        "Description": "ExpiryDate (YYYYMM)",
+        "Process": "VSERV_TAKEON",
+        "ProcessIndex": 2,
+        "NextIndex": 3,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_Takeon_ExpiryDate",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Qty",
+        "Description": "Qty",
+        "Process": "VSERV_TAKEON",
+        "ProcessIndex": 3,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "UseBarcode",
+        "Description": "UseBarcode",
+        "Process": "VSERV_TAKEON",
+        "ProcessIndex": 100,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": false
+      }
+    ]
+  },
+  "Components": [
+    {
+      "Type": "VIEW",
+      "Name": "dbo.WebTemplate_Takeon_MasterItem",
+      "Path": "VIEW/dbo.WebTemplate_Takeon_MasterItem",
+      "DependsOn": []
+    },
+    {
+      "Type": "VIEW",
+      "Name": "dbo.WebTemplate_Takeon_Location",
+      "Path": "VIEW/dbo.WebTemplate_Takeon_Location",
+      "DependsOn": []
+    },
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.Prescript_Takeon_ExpiryDate",
+      "Path": "PRESCRIPT/dbo.Prescript_Takeon_ExpiryDate",
+      "DependsOn": []
+    },
+    {
+      "Type": "PROCESS",
+      "Name": "VSERV_TAKEON",
+      "Path": "",
+      "DependsOn": [
+        {
+          "Type": "PRESCRIPT",
+          "Name": "dbo.Prescript_Takeon_ExpiryDate"
+        },
+        {
+          "Type": "VIEW",
+          "Name": "dbo.WebTemplate_Takeon_Location"
+        },
+        {
+          "Type": "VIEW",
+          "Name": "dbo.WebTemplate_Takeon_MasterItem"
+        }
+      ]
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

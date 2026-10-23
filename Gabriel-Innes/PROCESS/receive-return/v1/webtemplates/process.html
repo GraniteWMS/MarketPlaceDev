@@ -1,0 +1,141 @@
+{{#if Document}}
+    {{
+        "SELECT Number, SUM(ISNULL(ActionQty, 0)) / SUM(Qty) * 100 as Progress, Document.Description, 
+        TradingPartnerCode, TradingPartnerDescription, Document.ERPLocation
+        FROM Document INNER JOIN
+        DocumentDetail ON Document.ID = DocumentDetail.Document_id
+        WHERE Number = @Document
+        GROUP BY Number, Document.Description, 
+        TradingPartnerCode, TradingPartnerDescription, Document.ERPLocation"
+        |> dbSingle({Document}) 
+        |> to => document
+    }}
+    {{
+        "SELECT LineNumber, Code as ItemCode, DocumentDetail.Completed, ISNULL(ActionQty, 0) / Qty * 100 as ActionCompletion,
+        ActionQty, Qty, MasterItem.Description ItemDescription, DocumentDetail.UOM, FromLocation, IntransitLocation,
+        ToLocation, Comment, Instruction, SerialNumber, Batch, ExpiryDate
+        FROM Document INNER JOIN
+        DocumentDetail ON Document.ID = DocumentDetail.Document_id INNER JOIN
+        MasterItem ON DocumentDetail.Item_id = MasterItem.ID
+        WHERE Number = @Document
+        ORDER BY Completed "
+        |> dbSelect({Document}) 
+        |> to => documentDetails
+    }}
+
+    {{#if MasterItem}}
+    <div>
+        <large>Selected MasterItem:</large>
+        <large><b>{{MasterItem}}</b></large>
+    </div>
+    {{/if}}
+
+    {{#if document.Number}}
+    <div>
+        <small>Document</small>
+        <header class="gn-float-right">
+            <p style="display:inline">{{document.Number}}</p>
+            <p style="font-weight:200;display:inline">{{document.Progress}}% completed</p>
+        </header>
+    </div>
+    {{/if}}
+
+    {{#if document.Description}}
+    <div>
+        <small>Description</small>
+        <header class="gn-float-right">{{document.Description}}</header>
+    </div>
+    {{/if}}
+
+    {{#if document.TradingPartnerCode}}
+    <div>
+        <small>Trading Partner:</small>
+        <small><b>{{document.TradingPartnerCode}} {{document.TradingPartnerDescription}}</b></small>
+    </div>
+    {{/if}}
+    
+    {{#if document.ERPLocation}}
+    <div>
+        <small>ERPLocation</small>
+        <header class="gn-float-right">{{document.ERPLocation}}</header>
+    </div>
+    {{/if}}
+
+    
+{{/if}}
+{{#if documentDetails }}
+    {{#if documentDetails.Count > 0 }}
+    <ul class="list-group" style="padding: 0 !important;margin: 0 !important;">
+        {{#each documentDetail in documentDetails}}
+        <li class="list-group-item" style="position:inherit;padding: 0 !important;margin: 0 !important;">
+            <div class="d-flex justify-content-between">
+                <h6 class="mb-1"><p style="font-weight:300;display:inline">({{documentDetail.LineNumber}})</p>{{documentDetail.ItemCode}}</h6>
+                <div class="progress" style="height: inherit;width:110px;float:right;
+                    {{#if documentDetail.Completed}}background-color:#008CC9;{{/if}}">
+                    <div class="progress-bar" role="progressbar" style="font-size: medium;text-align:start; overflow: visible;width: {{documentDetail.ActionCompletion}}%;background-color: #008CC9;color: black;">
+                        {{documentDetail.ActionQty}}-{{documentDetail.Qty}}
+                    </div>
+                </div>
+            </div>
+            <small class="list-group-item-text" style="-ms-word-wrap: break-word; word-wrap: break-word;">{{documentDetail.ItemDescription}}</small>
+            <span style="float:right;position:inherit;width:110px;border-radius:8px;">{{documentDetail.UOM}}</span>
+
+            {{#if documentDetail.FromLocation}}
+            <header class="list-group-item-text nopadding">
+                <p style="font-weight:100; display:inline">From Location</p>
+                <p style="font-weight:600; display:inline; word-wrap: break-word;">{{documentDetail.FromLocation}}</p>
+            </header>
+            {{/if}}
+            
+            {{#if documentDetail.IntransitLocation}}
+            <header class="list-group-item-text nopadding">
+                <p style="font-weight:100; display:inline">Transit Location</p>
+                <p style="font-weight:600; display:inline; word-wrap: break-word;">{{documentDetail.IntransitLocation}}</p>
+            </header>
+            {{/if}}
+
+            {{#if documentDetail.ToLocation}}
+            <header class="list-group-item-text nopadding">
+                <p style="font-weight:100; display:inline">To Location</p>
+                <p style="font-weight:600; display:inline; word-wrap: break-word;">{{documentDetail.ToLocation}}</p>
+            </header>
+            {{/if}}
+            
+            {{#if documentDetail.Comment}}
+            <header class="list-group-item-text nopadding">
+                <p style="font-weight:100; display:inline">Comment </p>
+                <p style="font-weight:600; font-style:italic;display:inline;word-wrap: break-word;">{{documentDetail.Comment}}</p>
+            </header>
+            {{/if}}
+            
+            {{#if documentDetail.Instruction}}
+            <header class="list-group-item-text nopadding">
+                <p style="color: White; background-color:#7BB72E; font-weight:400;display:inline;word-wrap: break-word;">{{documentDetail.Instruction}}</p>
+            </header>
+            {{/if}}
+            
+            {{#if documentDetail.SerialNumber}}
+            <header class="list-group-item-text nopadding">
+                <p style="display:inline">Serial </p>
+                <p style="display:inline">{{documentDetail.SerialNumber}}</p>
+            </header>
+            {{/if}}
+            
+            {{#if documentDetail.Batch}}
+            <header class="list-group-item-text nopadding">
+                <p style="display:inline">Batch </p>
+                <p style="display:inline">{{documentDetail.Batch}}</p>
+            </header>
+            {{/if}}
+            
+            {{#if documentDetail.ExpiryDate}}
+            <header class="list-group-item-text nopadding">
+                <p style="display:inline">Expiry </p>
+                <p style="display:inline">{{documentDetail.ExpiryDate}}</p>
+            </header>
+            {{/if}}
+        </li>
+        {{/each}}
+    </ul>
+    {{/if}}
+{{/if}}

@@ -1,0 +1,12 @@
+<style>
+			th, td {
+				
+				border: 1px solid black;
+				text-align: center;
+			}
+
+</style>
+<template_body class = "table table-success table-striped">
+    {{ "EXEC WebtemplatePickingCage @Document = @Document " | dbSelect({Document}) |> to => res }} 
+    {{ res |> basicTable({ selectOnColumn:"Cage", enableSearch:"false", submitOnClick: "true"}) }}
+</template_body>

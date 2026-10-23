@@ -1,0 +1,146 @@
+{
+  "Identifier": "8dc28a2d-a673-40e7-ba16-22e1c67c1b81",
+  "Name": "PUTAWAYLOC_ITEM",
+  "Description": "Putaway (TE=Loc_Item)\n\nImplements TrackingEntity = Loc_Item Code properly - fixes previous versions.  When Receiving, you put the stock into Receiving locations or trolleys.  Then When putting away, Replenish from the trolley or Receiving to the Location.\nThis version has a webtemplate showing what has to be putaway in the chosen Receiving or Trolley location\n\nAlways use Locations with Categories and Types.  In this set of processes for LOC_ITEM, the Locations have Types RECEIVING, STORAGE, and Categories are used for ZONES",
+  "Type": "PROCESS",
+  "Version": 0,
+  "LastModified": "07/04/2026",
+  "DatabaseVersion": "8.0.0.0",
+  "Tags": [],
+  "TypeSpecificAttributes": {
+    "ProcessType": "REPLENISH",
+    "ProcessName": "PUTAWAYLOC_ITEM",
+    "ProcessDescription": "Putaway (TE=Loc_Item)",
+    "IntegrationIsActive": false,
+    "IntegrationPost": false,
+    "ProcessStepMetadata": [
+      {
+        "Name": "FromLocation",
+        "Description": "From Location",
+        "Process": "PUTAWAYLOC_ITEM",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_PutawayLocItem_FromLocation",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "FromTrackingEntity",
+        "Description": "Scan Item",
+        "Process": "PUTAWAYLOC_ITEM",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_PutawayLocItem_FromTrackingEntity",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Location",
+        "Description": "To Location",
+        "Process": "PUTAWAYLOC_ITEM",
+        "ProcessIndex": 2,
+        "NextIndex": 3,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_PutawayLocItem_ToLocation",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Qty",
+        "Description": "Qty to Replenish",
+        "Process": "PUTAWAYLOC_ITEM",
+        "ProcessIndex": 3,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "ToTrackingEntity",
+        "Description": "To TrackingEntity",
+        "Process": "PUTAWAYLOC_ITEM",
+        "ProcessIndex": 100,
+        "NextIndex": 100,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": false
+      }
+    ]
+  },
+  "Components": [
+    {
+      "Type": "SQL_STORED_PROCEDURE",
+      "Name": "dbo.WebTemplate_Putaway_ShowItems",
+      "Path": "SQL_STORED_PROCEDURE/dbo.WebTemplate_Putaway_ShowItems",
+      "DependsOn": []
+    },
+    {
+      "Type": "SQL_STORED_PROCEDURE",
+      "Name": "dbo.WebTemplate_Putaway_TrackingEntity",
+      "Path": "SQL_STORED_PROCEDURE/dbo.WebTemplate_Putaway_TrackingEntity",
+      "DependsOn": []
+    },
+    {
+      "Type": "VIEW",
+      "Name": "dbo.WebTemplate_Locations_Receiving",
+      "Path": "VIEW/dbo.WebTemplate_Locations_Receiving",
+      "DependsOn": []
+    },
+    {
+      "Type": "VIEW",
+      "Name": "dbo.MasterItemAlias_View",
+      "Path": "VIEW/dbo.MasterItemAlias_View",
+      "DependsOn": []
+    },
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.Prescript_PutawayLocItem_ToTrackingEntity",
+      "Path": "PRESCRIPT/dbo.Prescript_PutawayLocItem_ToTrackingEntity",
+      "DependsOn": [
+        {
+          "Type": "VIEW",
+          "Name": "dbo.MasterItemAlias_View"
+        }
+      ]
+    },
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.Prescript_PutawayLocItem_ToLocation",
+      "Path": "PRESCRIPT/dbo.Prescript_PutawayLocItem_ToLocation",
+      "DependsOn": []
+    },
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.Prescript_Replenish_FromLocation",
+      "Path": "PRESCRIPT/dbo.Prescript_Replenish_FromLocation",
+      "DependsOn": []
+    },
+    {
+      "Type": "PROCESS",
+      "Name": "PUTAWAYLOC_ITEM",
+      "Path": "",
+      "DependsOn": [
+        {
+          "Type": "PRESCRIPT",
+          "Name": "dbo.Prescript_PutawayLocItem_ToLocation"
+        },
+        {
+          "Type": "SQL_STORED_PROCEDURE",
+          "Name": "dbo.WebTemplate_Putaway_ShowItems"
+        },
+        {
+          "Type": "SQL_STORED_PROCEDURE",
+          "Name": "dbo.WebTemplate_Putaway_TrackingEntity"
+        },
+        {
+          "Type": "VIEW",
+          "Name": "dbo.WebTemplate_Locations_Receiving"
+        }
+      ]
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

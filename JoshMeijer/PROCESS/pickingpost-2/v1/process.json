@@ -1,0 +1,58 @@
+{
+  "Name": "PICKINGPOST",
+  "Description": "PICKINGPOST V7.2 ACCPAC",
+  "Type": "PICKINGPOST",
+  "IsActive": true,
+  "IntegrationIsActive": true,
+  "IntegrationPost": true,
+  "Steps": [
+    {
+      "Name": "Document",
+      "Description": "Order Number",
+      "ProcessIndex": 0,
+      "NextIndex": 1,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "WebTemplateFile": "webtemplates/step-1.html"
+    },
+    {
+      "Name": "Confirmation",
+      "Description": "Confirm Details To Post",
+      "ProcessIndex": 1,
+      "NextIndex": 2,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "WebTemplateFile": "webtemplates/step-2.html"
+    },
+    {
+      "Name": "Pallets",
+      "Description": "Number of Shipping pallets",
+      "ProcessIndex": 2,
+      "NextIndex": 3,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false
+    },
+    {
+      "Name": "Comment",
+      "Description": "Driver, truck or courier waybill",
+      "ProcessIndex": 3,
+      "NextIndex": 0,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false
+    },
+    {
+      "Name": "Step200",
+      "Description": "Print Shipment Summary Label",
+      "ProcessIndex": 200,
+      "NextIndex": 200,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "PrescriptPickingPostStep200"
+    }
+  ]
+}

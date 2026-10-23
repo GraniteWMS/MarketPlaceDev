@@ -1,0 +1,116 @@
+{
+  "Identifier": "e3032e58-28c6-4f23-9a39-7b49355b2051",
+  "Name": "EVO_TRANSFERPOST",
+  "Description": "EVO_TRANSFERPOST\n\nSpecific for Evolution customers using IBTs.\n\nPlease update to customer evo db. And also update to the prefix the customer use for IBTs",
+  "Type": "PROCESS",
+  "Version": 1,
+  "LastModified": "06/07/2026",
+  "DatabaseVersion": "8.0.0.0",
+  "Tags": [
+    "Manufacturing",
+    "Retail",
+    "Automotive",
+    "Agricultural",
+    "Textile",
+    "Electronics",
+    "Construction",
+    "E-commerce",
+    "Logistics",
+    "Pharmaceutical",
+    "Cold Storage"
+  ],
+  "TypeSpecificAttributes": {
+    "ProcessType": "TRANSFERPOST",
+    "ProcessName": "EVO_TRANSFERPOST",
+    "ProcessDescription": "EVO_TRANSFERPOST",
+    "IntegrationIsActive": false,
+    "IntegrationPost": false,
+    "ProcessStepMetadata": [
+      {
+        "Name": "Document",
+        "Description": "Enter Document Number",
+        "Process": "EVO_TRANSFERPOST",
+        "ProcessIndex": 0,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "PrescriptTransferPostDocument",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Confirmation",
+        "Description": "Confirm",
+        "Process": "EVO_TRANSFERPOST",
+        "ProcessIndex": 1,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "STEP200",
+        "Description": "STEP200",
+        "Process": "EVO_TRANSFERPOST",
+        "ProcessIndex": 200,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "PrescriptTransferPostStep200",
+        "hasWebTemplate": false
+      }
+    ]
+  },
+  "Components": [
+    {
+      "Type": "VIEW",
+      "Name": "dbo.ERP_StockOnHand",
+      "Path": "VIEW/dbo.ERP_StockOnHand",
+      "DependsOn": []
+    },
+    {
+      "Type": "VIEW",
+      "Name": "dbo.Report_App_Transactions",
+      "Path": "VIEW/dbo.Report_App_Transactions",
+      "DependsOn": []
+    },
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.PrescriptTransferPostDocument",
+      "Path": "PRESCRIPT/dbo.PrescriptTransferPostDocument",
+      "DependsOn": [
+        {
+          "Type": "VIEW",
+          "Name": "dbo.ERP_StockOnHand"
+        },
+        {
+          "Type": "VIEW",
+          "Name": "dbo.Report_App_Transactions"
+        }
+      ]
+    },
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.PrescriptTransferPostStep200",
+      "Path": "PRESCRIPT/dbo.PrescriptTransferPostStep200",
+      "DependsOn": []
+    },
+    {
+      "Type": "PROCESS",
+      "Name": "EVO_TRANSFERPOST",
+      "Path": "",
+      "DependsOn": [
+        {
+          "Type": "PRESCRIPT",
+          "Name": "dbo.PrescriptTransferPostDocument"
+        },
+        {
+          "Type": "PRESCRIPT",
+          "Name": "dbo.PrescriptTransferPostStep200"
+        }
+      ]
+    }
+  ],
+  "DependsOnClr": true,
+  "SqlClrAssemblyVersion": "7.0.0.0",
+  "Deprecated": false
+}

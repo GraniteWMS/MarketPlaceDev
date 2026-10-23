@@ -1,0 +1,4 @@
+{{"SELECT TE.Barcode, TE.Qty FROM TrackingEntity TE INNER JOIN CarryingEntity CE ON TE.BelongsToEntity_id= CE.ID WHERE CE.Barcode = @CarryingEntity and TE.InStock = 1 and TE.Qty > 0"  | dbSelect({CarryingEntity}) | basicTable({})}}
+
+{{ ['YES'] | map => { Value: it } | createButtonList({ columnName: 'Value' }) }}
+{{ hideTextBox() }}

@@ -1,0 +1,79 @@
+{
+  "Identifier": "6709e481-1bb1-43e5-81a3-46799a36cfba",
+  "Name": "FilterDocumentReceiving",
+  "Description": "FilterDocumentReceiving\n\nIt has a webtemplate on the document step to allow filtering by trading partner and expected date",
+  "Type": "PROCESS",
+  "Version": 0,
+  "LastModified": "05/02/2026",
+  "DatabaseVersion": "8.0.0.0",
+  "Tags": [],
+  "TypeSpecificAttributes": {
+    "ProcessType": "RECEIVING",
+    "ProcessName": "FilterDocumentReceiving",
+    "ProcessDescription": "FilterDocumentReceiving",
+    "IntegrationIsActive": false,
+    "IntegrationPost": false,
+    "ProcessStepMetadata": [
+      {
+        "Name": "Location",
+        "Description": "Receiving Location",
+        "Process": "FilterDocumentReceiving",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Document",
+        "Description": "Document",
+        "Process": "FilterDocumentReceiving",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "MasterItem",
+        "Description": "MasterItem",
+        "Process": "FilterDocumentReceiving",
+        "ProcessIndex": 2,
+        "NextIndex": 3,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Qty",
+        "Description": "Qty",
+        "Process": "FilterDocumentReceiving",
+        "ProcessIndex": 3,
+        "NextIndex": 4,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "NoEntities",
+        "Description": "Number of TrackingEntities",
+        "Process": "FilterDocumentReceiving",
+        "ProcessIndex": 4,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": false
+      }
+    ]
+  },
+  "Components": [
+    {
+      "Type": "PROCESS",
+      "Name": "FilterDocumentReceiving",
+      "Path": "",
+      "DependsOn": []
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

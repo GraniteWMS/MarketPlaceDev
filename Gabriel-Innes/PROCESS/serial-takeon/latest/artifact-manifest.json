@@ -1,0 +1,102 @@
+{
+  "Identifier": "b7c7caac-6a95-4bc9-832f-fa49f4ffa28b",
+  "Name": "SERIAL_TAKEON",
+  "Description": "SERIAL_TAKEON\n\nUtilizes MasterItem's EnforceSerialNumber setting to force the capture of SerialNumbers for items that require it. Also forces Qty to be 1 for the items that require a SerialNumber.\n\nSet MasterItem.EnforceSerialNumber on all products that need to be serialized.",
+  "Type": "PROCESS",
+  "Version": 0,
+  "LastModified": "14/03/2024",
+  "DatabaseVersion": "8.0.0.0",
+  "Tags": [],
+  "TypeSpecificAttributes": {
+    "ProcessType": "TAKEON",
+    "ProcessName": "SERIAL_TAKEON",
+    "ProcessDescription": "SERIAL_TAKEON",
+    "IntegrationIsActive": false,
+    "IntegrationPost": false,
+    "ProcessStepMetadata": [
+      {
+        "Name": "Location",
+        "Description": "Location",
+        "Process": "SERIAL_TAKEON",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "MasterItem",
+        "Description": "MasterItem",
+        "Process": "SERIAL_TAKEON",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "SerialNumber",
+        "Description": "SerialNumber",
+        "Process": "SERIAL_TAKEON",
+        "ProcessIndex": 2,
+        "NextIndex": 3,
+        "isActive": true,
+        "Required": false,
+        "PreScript": "PrescriptSerialTakeOnSerialNumber",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Qty",
+        "Description": "Qty",
+        "Process": "SERIAL_TAKEON",
+        "ProcessIndex": 3,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "PrescriptSerialTakeOnQty",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Print",
+        "Description": "Print",
+        "Process": "SERIAL_TAKEON",
+        "ProcessIndex": 99,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": false
+      }
+    ]
+  },
+  "Components": [
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.PrescriptSerialTakeOnQty",
+      "Path": "PRESCRIPT/dbo.PrescriptSerialTakeOnQty",
+      "DependsOn": []
+    },
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.PrescriptSerialTakeOnSerialNumber",
+      "Path": "PRESCRIPT/dbo.PrescriptSerialTakeOnSerialNumber",
+      "DependsOn": []
+    },
+    {
+      "Type": "PROCESS",
+      "Name": "SERIAL_TAKEON",
+      "Path": "",
+      "DependsOn": [
+        {
+          "Type": "PRESCRIPT",
+          "Name": "dbo.PrescriptSerialTakeOnQty"
+        },
+        {
+          "Type": "PRESCRIPT",
+          "Name": "dbo.PrescriptSerialTakeOnSerialNumber"
+        }
+      ]
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

@@ -1,0 +1,69 @@
+{
+  "Identifier": "41b15a4d-7397-49ec-9d72-e24807c854a1",
+  "Name": "sadf",
+  "Description": "sadf\n\nsadf",
+  "Type": "PROCESS",
+  "Version": 0,
+  "LastModified": "25/06/2025",
+  "DatabaseVersion": "8.0.0.0",
+  "Tags": [],
+  "TypeSpecificAttributes": {
+    "ProcessType": "DATACAPTURE",
+    "ProcessName": "sadf",
+    "ProcessDescription": "sadf",
+    "IntegrationIsActive": true,
+    "IntegrationPost": false,
+    "ProcessStepMetadata": [
+      {
+        "Name": "TrackingEntity",
+        "Description": "TrackingEntity",
+        "Process": "sadf",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "OptionalField",
+        "Description": "OptionalField",
+        "Process": "sadf",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "OptionalFieldValue",
+        "Description": "OptionalFieldValue",
+        "Process": "sadf",
+        "ProcessIndex": 2,
+        "NextIndex": 3,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Confirmation",
+        "Description": "Confirmation",
+        "Process": "sadf",
+        "ProcessIndex": 3,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": false
+      }
+    ]
+  },
+  "Components": [
+    {
+      "Type": "PROCESS",
+      "Name": "sadf",
+      "Path": "",
+      "DependsOn": []
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

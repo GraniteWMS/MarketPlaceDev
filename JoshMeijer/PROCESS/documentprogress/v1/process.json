@@ -1,0 +1,28 @@
+{
+  "Name": "DOCUMENTPROGRESS",
+  "Description": "DOCUMENTPROGRESS",
+  "Type": "DOCUMENTPROGRESS",
+  "IsActive": true,
+  "IntegrationIsActive": false,
+  "IntegrationPost": false,
+  "Steps": [
+    {
+      "Name": "Type",
+      "Description": "Document Type",
+      "ProcessIndex": 0,
+      "NextIndex": 1,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false
+    },
+    {
+      "Name": "FilterDocument",
+      "Description": "Filter Document",
+      "ProcessIndex": 1,
+      "NextIndex": 1,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false
+    }
+  ]
+}

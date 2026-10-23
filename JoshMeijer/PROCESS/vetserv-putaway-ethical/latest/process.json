@@ -1,0 +1,30 @@
+{
+  "Name": "VETSERV_PUTAWAY_ETHICAL",
+  "Description": "VETSERV_PUTAWAY_ETHICAL",
+  "Type": "MOVE",
+  "IsActive": true,
+  "IntegrationIsActive": false,
+  "IntegrationPost": false,
+  "Steps": [
+    {
+      "Name": "TrackingEntity",
+      "Description": "Scan Ethical (ETHL) Stock Box",
+      "ProcessIndex": 0,
+      "NextIndex": 1,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "Prescript_PutawayEthical_TrackingEntity"
+    },
+    {
+      "Name": "Location",
+      "Description": "Scan Rack Location",
+      "ProcessIndex": 1,
+      "NextIndex": 0,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "Prescript_PutawayEthical_Location"
+    }
+  ]
+}

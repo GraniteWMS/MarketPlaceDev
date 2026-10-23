@@ -1,0 +1,63 @@
+{
+  "Identifier": "84b5bd8e-12bf-4215-aa3d-8c483a5448ae",
+  "Name": "MANUFACTUREPOST_BUTTANUTT",
+  "Description": "MANUFACTUREPOST_BUTTANUTT\n\nProvides a web template list of jobs that can be posted",
+  "Type": "PROCESS",
+  "Version": 1,
+  "LastModified": "21/03/2026",
+  "DatabaseVersion": "8.0.0.0",
+  "Tags": [
+    "Manufacturing"
+  ],
+  "TypeSpecificAttributes": {
+    "ProcessType": "MANUFACTUREPOST",
+    "ProcessName": "MANUFACTUREPOST_BUTTANUTT",
+    "ProcessDescription": "MANUFACTUREPOST_BUTTANUTT",
+    "IntegrationIsActive": true,
+    "IntegrationPost": false,
+    "ProcessStepMetadata": [
+      {
+        "Name": "Document",
+        "Description": "Document",
+        "Process": "MANUFACTUREPOST_BUTTANUTT",
+        "ProcessIndex": 0,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true
+      }
+    ]
+  },
+  "Components": [
+    {
+      "Type": "VIEW",
+      "Name": "dbo.Integration_Transactions",
+      "Path": "VIEW/dbo.Integration_Transactions",
+      "DependsOn": []
+    },
+    {
+      "Type": "VIEW",
+      "Name": "dbo.WebTemplate_ManufacturePost_Document",
+      "Path": "VIEW/dbo.WebTemplate_ManufacturePost_Document",
+      "DependsOn": [
+        {
+          "Type": "VIEW",
+          "Name": "dbo.Integration_Transactions"
+        }
+      ]
+    },
+    {
+      "Type": "PROCESS",
+      "Name": "MANUFACTUREPOST_BUTTANUTT",
+      "Path": "",
+      "DependsOn": [
+        {
+          "Type": "VIEW",
+          "Name": "dbo.WebTemplate_ManufacturePost_Document"
+        }
+      ]
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

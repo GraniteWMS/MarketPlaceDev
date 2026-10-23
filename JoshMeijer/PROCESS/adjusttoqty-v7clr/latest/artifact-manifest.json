@@ -1,0 +1,106 @@
+{
+  "Identifier": "4875c5a1-ed76-4601-bbdf-5aee109594ef",
+  "Name": "ADJUSTTOQTY-V7Clr",
+  "Description": "ADJUST TO QTY (V7CLR)\n\nThe Adjust to Qty makes it simple to adjust a tracking Entity to the counted quantity without calculating the increase or decrease.  It also automatically sets the Increase or Decrease amount.\n\nNote - it uses CLR to do the transaction - currently wont support integration automatically.",
+  "Type": "PROCESS",
+  "Version": 0,
+  "LastModified": "30/07/2026",
+  "DatabaseVersion": "8.0.0.0",
+  "Tags": [
+    "Manufacturing",
+    "Retail",
+    "Automotive",
+    "Agricultural",
+    "Textile",
+    "Electronics",
+    "Construction",
+    "E-commerce",
+    "Logistics",
+    "Pharmaceutical",
+    "Cold Storage"
+  ],
+  "TypeSpecificAttributes": {
+    "ProcessType": "CUSTOM",
+    "ProcessName": "ADJUSTTOQTY-V7Clr",
+    "ProcessDescription": "ADJUST TO QTY (V7CLR)",
+    "IntegrationIsActive": false,
+    "IntegrationPost": false,
+    "ProcessStepMetadata": [
+      {
+        "Name": "TrackingEntity",
+        "Description": "TrackingEntity",
+        "Process": "ADJUSTTOQTY-V7Clr",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "PrescriptAdjustToQtyTrackingEntity",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Qty",
+        "Description": "Qty",
+        "Process": "ADJUSTTOQTY-V7Clr",
+        "ProcessIndex": 1,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "PrescriptAdjustToQtyQty",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Step200",
+        "Description": "Step200",
+        "Process": "ADJUSTTOQTY-V7Clr",
+        "ProcessIndex": 200,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "PrescriptAdjustToQtyStep200",
+        "hasWebTemplate": false
+      }
+    ]
+  },
+  "Components": [
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.PrescriptAdjustToQtyTrackingEntity",
+      "Path": "PRESCRIPT/dbo.PrescriptAdjustToQtyTrackingEntity",
+      "DependsOn": []
+    },
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.PrescriptAdjustToQtyQty",
+      "Path": "PRESCRIPT/dbo.PrescriptAdjustToQtyQty",
+      "DependsOn": []
+    },
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.PrescriptAdjustToQtyStep200",
+      "Path": "PRESCRIPT/dbo.PrescriptAdjustToQtyStep200",
+      "DependsOn": []
+    },
+    {
+      "Type": "PROCESS",
+      "Name": "ADJUSTTOQTY-V7Clr",
+      "Path": "",
+      "DependsOn": [
+        {
+          "Type": "PRESCRIPT",
+          "Name": "dbo.PrescriptAdjustToQtyQty"
+        },
+        {
+          "Type": "PRESCRIPT",
+          "Name": "dbo.PrescriptAdjustToQtyStep200"
+        },
+        {
+          "Type": "PRESCRIPT",
+          "Name": "dbo.PrescriptAdjustToQtyTrackingEntity"
+        }
+      ]
+    }
+  ],
+  "DependsOnClr": true,
+  "SqlClrAssemblyVersion": "7.0.0.0",
+  "Deprecated": false
+}

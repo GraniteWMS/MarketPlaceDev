@@ -1,0 +1,30 @@
+{
+  "Name": "BATCH_LOOKUP_BUTTANUTT",
+  "Description": "BATCH_LOOKUP_BUTTANUTT",
+  "Type": "CUSTOM",
+  "IsActive": true,
+  "IntegrationIsActive": false,
+  "IntegrationPost": false,
+  "Steps": [
+    {
+      "Name": "Batch",
+      "Description": "Enter Batch",
+      "ProcessIndex": 0,
+      "NextIndex": 1,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "WebTemplateFile": "webtemplates/step-1.html"
+    },
+    {
+      "Name": "Detail",
+      "Description": "Batch Details",
+      "ProcessIndex": 1,
+      "NextIndex": 0,
+      "IsActive": true,
+      "Required": false,
+      "IsBusinessRule": false,
+      "WebTemplateFile": "webtemplates/step-2.html"
+    }
+  ]
+}

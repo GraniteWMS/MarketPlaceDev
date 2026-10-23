@@ -1,0 +1,231 @@
+<style>
+  .num-pad {
+    max-width: 420px;
+    margin: 0 auto;
+    font-family: Arial, sans-serif;
+  }
+
+  .num-row {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 6px;
+    margin-bottom: 6px;
+  }
+
+  .num-pad button {
+    height: 42px;
+    border: 1px solid #bbb;
+    border-radius: 6px;
+    background: #f3f3f3;
+    font-size: 18px;
+    cursor: pointer;
+    width: 100%;
+  }
+
+  .num-pad button:active {
+    transform: scale(0.98);
+  }
+
+  .num-pad .backspace-btn {
+    background: #fbe3e4;
+    font-weight: bold;
+  }
+
+  .num-pad .enter-btn {
+    background: #dff0d8;
+    font-weight: bold;
+  }
+
+  .skip-line-btn {
+    width: 100%;
+    margin-top: 14px;
+    background-color: #0e216e !important;
+    border: none !important;
+    color: #ffffff;
+    padding: 15px 32px;
+    text-align: center;
+    font-size: 14px !important;
+    font-weight: bold;
+    border-radius: 6px;
+  }
+</style>
+
+<div class="num-pad">
+  <div class="num-row">
+    <button type="button" onclick="pressNum("1")">1</button>
+    <button type="button" onclick="pressNum("2")">2</button>
+    <button type="button" onclick="pressNum("3")">3</button>
+    <button type="button" onclick="pressNum("4")">4</button>
+    <button type="button" onclick="pressNum("5")">5</button>
+    <button type="button" class="backspace-btn" onclick="pressBackspace()">BS</button>
+  </div>
+
+  <div class="num-row">
+    <button type="button" onclick="pressNum("6")">6</button>
+    <button type="button" onclick="pressNum("7")">7</button>
+    <button type="button" onclick="pressNum("8")">8</button>
+    <button type="button" onclick="pressNum("9")">9</button>
+    <button type="button" onclick="pressNum("0")">0</button>
+    <button type="button" class="enter-btn" onclick="pressEnter()">ENTER</button>
+  </div>
+
+  <button type="button" class="skip-line-btn" onclick="skipLine()">
+    SKIP this LINE
+  </button>
+</div>
+
+<script>
+  function findPromptInput() {
+    var fields = Array.from(document.querySelectorAll("input, textarea"));
+
+    return fields.find(function(el) {
+      if (el.type === "hidden") return false;
+      if (el.disabled) return false;
+      if (el.readOnly) return false;
+
+      var tag = el.tagName.toLowerCase();
+      var type = (el.type || "").toLowerCase();
+
+      return tag === "textarea" || type === "text" || type === "number" || type === "search";
+    }) || null;
+  }
+
+  function triggerInputEvents(input) {
+    input.dispatchEvent(new Event("input", { bubbles: true }));
+    input.dispatchEvent(new Event("change", { bubbles: true }));
+  }
+
+  function moveCursorToEnd(input) {
+    if (input.setSelectionRange) {
+      var len = input.value.length;
+      input.setSelectionRange(len, len);
+    }
+  }
+
+  function pressNum(val) {
+    var input = findPromptInput();
+    if (!input) return;
+
+    input.focus();
+    input.value = (input.value || "") + val;
+
+    triggerInputEvents(input);
+    moveCursorToEnd(input);
+  }
+
+  function pressBackspace() {
+    var input = findPromptInput();
+    if (!input) return;
+
+    input.focus();
+    input.value = (input.value || "").slice(0, -1);
+
+    triggerInputEvents(input);
+    moveCursorToEnd(input);
+  }
+
+  function findSubmitButton(input) {
+    var form = input.closest("form");
+
+    if (form) {
+      var formSubmit = form.querySelector(
+        "button[type="submit"], input[type="submit"]"
+      );
+      if (formSubmit) return formSubmit;
+    }
+
+    var allButtons = Array.from(document.querySelectorAll("button, input[type="submit"]"));
+
+    return allButtons.find(function(el) {
+      var text = ((el.innerText || el.value || el.getAttribute("aria-label") || "") + "")
+        .trim()
+        .toLowerCase();
+
+      return (
+        el.type === "submit" ||
+        text === "submit" ||
+        text === "enter" ||
+        text === "ok" ||
+        text === "go" ||
+        text === "search" ||
+        text === "apply"
+      );
+    }) || null;
+  }
+
+  function pressEnter() {
+    var input = findPromptInput();
+    if (!input) return;
+
+    input.focus();
+    triggerInputEvents(input);
+
+    var submitBtn = findSubmitButton(input);
+    if (submitBtn) {
+      submitBtn.click();
+      return;
+    }
+
+    var form = input.closest("form");
+    if (form) {
+      if (typeof form.requestSubmit === "function") {
+        form.requestSubmit();
+        return;
+      }
+
+      if (typeof form.submit === "function") {
+        form.submit();
+        return;
+      }
+    }
+
+    input.dispatchEvent(new KeyboardEvent("keydown", {
+      bubbles: true,
+      cancelable: true,
+      key: "Enter",
+      code: "Enter",
+      keyCode: 13,
+      which: 13
+    }));
+
+    input.dispatchEvent(new KeyboardEvent("keypress", {
+      bubbles: true,
+      cancelable: true,
+      key: "Enter",
+      code: "Enter",
+      keyCode: 13,
+      which: 13
+    }));
+
+    input.dispatchEvent(new KeyboardEvent("keyup", {
+      bubbles: true,
+      cancelable: true,
+      key: "Enter",
+      code: "Enter",
+      keyCode: 13,
+      which: 13
+    }));
+  }
+
+  function skipLine() {
+    var input = findPromptInput();
+    if (!input) return;
+
+    input.focus();
+    input.value = "SKIP";
+    triggerInputEvents(input);
+
+    // Submit SKIP into the Qty field
+    pressEnter();
+
+    // Go back 2 Granite steps
+    setTimeout(function () {
+      Previous();
+
+      setTimeout(function () {
+        Previous();
+      }, 1000);
+
+    }, 2000);
+  }
+</script>

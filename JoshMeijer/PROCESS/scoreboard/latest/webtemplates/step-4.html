@@ -1,0 +1,115 @@
+{{
+"
+SELECT
+    [Date] AS DisplayDate,
+    Name,
+    [Packed Lines] AS PackedLines,
+    CASE
+        WHEN ROW_NUMBER() OVER (
+            PARTITION BY [Date]
+            ORDER BY [Packed Lines] DESC, Name
+        ) = 1 THEN 1 ELSE 0
+    END AS IsLeader,
+    CASE
+        WHEN LAG([Date]) OVER (
+            ORDER BY CONVERT(date, [Date], 101) DESC, [Packed Lines] DESC, Name
+        ) IS NULL
+        OR LAG([Date]) OVER (
+            ORDER BY CONVERT(date, [Date], 101) DESC, [Packed Lines] DESC, Name
+        ) <> [Date]
+        THEN 1 ELSE 0
+    END AS IsNewDay
+FROM webtemplate_ScoreboardPackedLines
+ORDER BY CONVERT(date, [Date], 101) DESC, [Packed Lines] DESC, Name
+"
+| dbSelect()
+|> to => scoreRows
+}}
+
+<style>
+    .scoreboard-table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 18px;
+    }
+
+    .scoreboard-table th {
+        text-align: left;
+        padding: 8px 6px;
+        border-bottom: 2px solid #333;
+        font-weight: bold;
+    }
+
+    .scoreboard-table td {
+        padding: 8px 6px;
+        border-bottom: 1px solid #ddd;
+    }
+
+    .score-day-row td {
+        background-color: #2f3530;
+        color: white;
+        font-weight: bold;
+        padding: 8px 6px;
+        font-size: 20px;
+    }
+
+    .score-leader td {
+        background-color: #dff3df;
+        font-weight: bold;
+    }
+
+    .score-leader .leader-badge {
+        background-color: #2e8b57;
+        color: white;
+        padding: 2px 8px;
+        border-radius: 12px;
+        font-size: 13px;
+        margin-left: 6px;
+    }
+
+    .score-name {
+        font-weight: bold;
+    }
+
+    .score-lines {
+        text-align: right;
+        font-weight: bold;
+    }
+</style>
+
+<table class="scoreboard-table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th class="score-lines">Packed Lines</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each row in scoreRows}}
+
+            {{#if row.IsNewDay}}
+                <tr class="score-day-row">
+                    <td colspan="2">{{row.DisplayDate}}</td>
+                </tr>
+            {{/if}}
+
+            {{#if row.IsLeader}}
+                <tr class="score-leader">
+            {{else}}
+                <tr>
+            {{/if}}
+                    <td class="score-name">
+                        {{row.Name}}
+                        {{#if row.IsLeader}}
+                            <span class="leader-badge">Leader</span>
+                        {{/if}}
+                    </td>
+                    <td class="score-lines">{{row.PackedLines}}</td>
+                </tr>
+
+        {{/each}}
+    </tbody>
+</table>
+
+{{ ['FINISHED'] | map => { Value: it } | createButtonList({ columnName: 'Value' }) }}
+{{ hideTextBox() }}

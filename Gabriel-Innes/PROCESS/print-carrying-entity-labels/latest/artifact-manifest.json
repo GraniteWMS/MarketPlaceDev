@@ -1,0 +1,78 @@
+{
+  "Identifier": "7a5adbff-9109-43a6-b09d-f67e834cc8c3",
+  "Name": "PRINT_CARRYING_ENTITY_LABELS",
+  "Description": "PRINTCARRYENTITTYLABELS\n\nUse this process to bulk print carrying entity labels.\n\nNote the post deploy script adds lookup values for the Process name: PrintCarryingEntityLabels. If you name the process something else you will have to add the lookup values separately.",
+  "Type": "PROCESS",
+  "Version": 0,
+  "LastModified": "09/02/2024",
+  "DatabaseVersion": "8.0.0.0",
+  "Tags": [],
+  "TypeSpecificAttributes": {
+    "ProcessType": "CUSTOM",
+    "ProcessName": "PRINT_CARRYING_ENTITY_LABELS",
+    "ProcessDescription": "PRINTCARRYENTITTYLABELS",
+    "IntegrationIsActive": false,
+    "IntegrationPost": false,
+    "ProcessStepMetadata": [
+      {
+        "Name": "Type",
+        "Description": "CarryingEntity type",
+        "Process": "PRINT_CARRYING_ENTITY_LABELS",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Qty",
+        "Description": "Number of Lables",
+        "Process": "PRINT_CARRYING_ENTITY_LABELS",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Confirmation",
+        "Description": "Confirm Print",
+        "Process": "PRINT_CARRYING_ENTITY_LABELS",
+        "ProcessIndex": 2,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "PrescriptPrintCarryingEntityConfirmation",
+        "hasWebTemplate": false
+      }
+    ]
+  },
+  "Components": [
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.PrescriptPrintCarryingEntityConfirmation",
+      "Path": "PRESCRIPT/dbo.PrescriptPrintCarryingEntityConfirmation",
+      "DependsOn": []
+    },
+    {
+      "Type": "DATA",
+      "Name": "dbo.SystemStaticData",
+      "Path": "DATA/dbo.SystemStaticData",
+      "DependsOn": []
+    },
+    {
+      "Type": "PROCESS",
+      "Name": "PRINT_CARRYING_ENTITY_LABELS",
+      "Path": "",
+      "DependsOn": [
+        {
+          "Type": "PRESCRIPT",
+          "Name": "dbo.PrescriptPrintCarryingEntityConfirmation"
+        }
+      ]
+    }
+  ],
+  "DependsOnClr": true,
+  "SqlClrAssemblyVersion": "7.0.0.0",
+  "Deprecated": false
+}

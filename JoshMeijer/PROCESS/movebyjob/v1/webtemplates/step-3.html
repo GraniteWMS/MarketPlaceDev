@@ -1,0 +1,9 @@
+{{#if Location === "STARTED" }}
+{{ "SELECT DISTINCT TE.Barcode, L.Barcode Location FROM TrackingEntity TE INNER JOIN [Location] L ON TE.Location_id = L.ID WHERE L.Barcode  = \"NotStarted\"AND TE.Batch = @Document ORDER BY TE.Barcode" | dbSelect({Document}) | basicTable({enableSearch:true}) }}
+{{/if}}
+{{#if Location === "READYFORPRODUCTION" }}
+{{ "SELECT DISTINCT TE.Barcode, L.Barcode Location FROM TrackingEntity TE INNER JOIN [Location] L ON TE.Location_id = L.ID WHERE L.Barcode  = \"Started\" AND TE.Batch = @Document ORDER BY TE.Barcode" | dbSelect({Document}) | basicTable({enableSearch:true}) }}
+{{/if}}
+
+{{ ['YES', 'NO'] | map => { Value: it } | createButtonList({ columnName: 'Value' }) }}
+{{ hideTextBox() }}

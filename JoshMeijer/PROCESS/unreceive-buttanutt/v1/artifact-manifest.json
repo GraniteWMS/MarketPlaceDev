@@ -1,0 +1,130 @@
+{
+  "Identifier": "e37e1aaa-421a-4268-9ca9-8997d072f570",
+  "Name": "UNRECEIVE_BUTTANUTT",
+  "Description": "UNRECEIVE_BUTTANUTT\n\nIt is a receive reversal process for the scanner",
+  "Type": "PROCESS",
+  "Version": 1,
+  "LastModified": "21/03/2026",
+  "DatabaseVersion": "8.0.0.0",
+  "Tags": [
+    "Manufacturing",
+    "Retail",
+    "Agricultural",
+    "Automotive",
+    "Textile",
+    "Electronics",
+    "Construction",
+    "E-commerce",
+    "Logistics",
+    "Cold Storage",
+    "Pharmaceutical"
+  ],
+  "TypeSpecificAttributes": {
+    "ProcessType": "CUSTOM",
+    "ProcessName": "UNRECEIVE_BUTTANUTT",
+    "ProcessDescription": "UNRECEIVE_BUTTANUTT",
+    "IntegrationIsActive": false,
+    "IntegrationPost": false,
+    "ProcessStepMetadata": [
+      {
+        "Name": "Document",
+        "Description": "Enter Document",
+        "Process": "UNRECEIVE_BUTTANUTT",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "TransactionID",
+        "Description": "Select Transaction ID",
+        "Process": "UNRECEIVE_BUTTANUTT",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_UnreceiveTransaction_TransactionID",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Confirmation",
+        "Description": "Are you sure you want to reverse this transaction?",
+        "Process": "UNRECEIVE_BUTTANUTT",
+        "ProcessIndex": 2,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_UnreceiveTransaction_Confirmation",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Step200",
+        "Description": "Reverses the Transaction",
+        "Process": "UNRECEIVE_BUTTANUTT",
+        "ProcessIndex": 200,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_UnreceiveTransaction_Step200",
+        "hasWebTemplate": false
+      }
+    ]
+  },
+  "Components": [
+    {
+      "Type": "VIEW",
+      "Name": "dbo.WebTemplate_UnreceiveTransaction_TransactionID",
+      "Path": "VIEW/dbo.WebTemplate_UnreceiveTransaction_TransactionID",
+      "DependsOn": []
+    },
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.Prescript_UnreceiveTransaction_TransactionID",
+      "Path": "PRESCRIPT/dbo.Prescript_UnreceiveTransaction_TransactionID",
+      "DependsOn": [
+        {
+          "Type": "VIEW",
+          "Name": "dbo.WebTemplate_UnreceiveTransaction_TransactionID"
+        }
+      ]
+    },
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.Prescript_UnreceiveTransaction_Step200",
+      "Path": "PRESCRIPT/dbo.Prescript_UnreceiveTransaction_Step200",
+      "DependsOn": []
+    },
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.Prescript_UnreceiveTransaction_Confirmation",
+      "Path": "PRESCRIPT/dbo.Prescript_UnreceiveTransaction_Confirmation",
+      "DependsOn": []
+    },
+    {
+      "Type": "PROCESS",
+      "Name": "UNRECEIVE_BUTTANUTT",
+      "Path": "",
+      "DependsOn": [
+        {
+          "Type": "PRESCRIPT",
+          "Name": "dbo.Prescript_UnreceiveTransaction_Confirmation"
+        },
+        {
+          "Type": "PRESCRIPT",
+          "Name": "dbo.Prescript_UnreceiveTransaction_Step200"
+        },
+        {
+          "Type": "PRESCRIPT",
+          "Name": "dbo.Prescript_UnreceiveTransaction_TransactionID"
+        },
+        {
+          "Type": "VIEW",
+          "Name": "dbo.WebTemplate_UnreceiveTransaction_TransactionID"
+        }
+      ]
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

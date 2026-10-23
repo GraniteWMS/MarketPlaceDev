@@ -1,0 +1,4 @@
+{{ "SELECT TransactionID, ItemCode, Batch, ActionQty
+    FROM WebTemplateConsumeReversal
+    WHERE TransactionID = @TransactionID" 
+| dbSelect({TransactionID}) | basicTable({}) }}

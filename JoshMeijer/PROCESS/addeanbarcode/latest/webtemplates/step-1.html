@@ -1,0 +1,1 @@
+{{ "SELECT Code, Description FROM MasterItem NOLOCK" | dbSelect({}) | basicTable({selectOnColumn:"Code", enableSearch:true}) }}

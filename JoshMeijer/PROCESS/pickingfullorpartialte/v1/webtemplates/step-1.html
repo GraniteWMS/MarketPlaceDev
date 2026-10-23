@@ -1,0 +1,22 @@
+{{
+    "
+    SELECT
+    d.Number,
+    d.CreateDate,
+    d.TradingPartnerCode,
+    SUM(dd.Qty) AS Qty,
+    SUM(dd.ActionQty) AS ActionQty
+    FROM Document d
+    INNER JOIN DocumentDetail dd ON d.ID = dd.Document_id
+    WHERE d.[Type] = "ORDER"
+    AND d.[Status] NOT IN("COMPLETE", "CANCELLED", "ONHOLD")
+    AND d.isActive = 1
+    GROUP BY d.Number, d.CreateDate, d.TradingPartnerCode
+    ORDER BY MAX(d.CreateDate) DESC
+    "
+    |> dbSelect({})
+    |> createCardList({
+        selectOnColumn: "Number",
+        enableSearch: true
+    })
+}}

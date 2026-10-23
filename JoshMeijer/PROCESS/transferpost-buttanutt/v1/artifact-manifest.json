@@ -1,0 +1,69 @@
+{
+  "Identifier": "b9b0acd6-4abf-43f6-8ded-362fe3c26819",
+  "Name": "TRANSFERPOST_BUTTANUTT",
+  "Description": "TRANSFERPOST_BUTTANUTT\n\nIn Cin7, this process updates a transfer to in in status INTRANSIT",
+  "Type": "PROCESS",
+  "Version": 1,
+  "LastModified": "21/03/2026",
+  "DatabaseVersion": "8.0.0.0",
+  "Tags": [
+    "Electronics",
+    "Construction",
+    "E-commerce",
+    "Logistics",
+    "Pharmaceutical",
+    "Cold Storage",
+    "Manufacturing",
+    "Retail",
+    "Agricultural",
+    "Textile",
+    "Automotive"
+  ],
+  "TypeSpecificAttributes": {
+    "ProcessType": "TRANSFERPOST",
+    "ProcessName": "TRANSFERPOST_BUTTANUTT",
+    "ProcessDescription": "TRANSFERPOST_BUTTANUTT",
+    "IntegrationMethod": "UPDATETRANSFERTOINTRANSIT",
+    "IntegrationIsActive": true,
+    "IntegrationPost": false,
+    "ProcessStepMetadata": [
+      {
+        "Name": "Document",
+        "Description": "Document",
+        "Process": "TRANSFERPOST_BUTTANUTT",
+        "ProcessIndex": 0,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true
+      }
+    ]
+  },
+  "Components": [
+    {
+      "Type": "VIEW",
+      "Name": "dbo.Integration_Transactions_UPDATETRANSFERTOINTRANSIT",
+      "Path": "VIEW/dbo.Integration_Transactions_UPDATETRANSFERTOINTRANSIT",
+      "DependsOn": []
+    },
+    {
+      "Type": "VIEW",
+      "Name": "dbo.WebTemplate_TransferPost_Document",
+      "Path": "VIEW/dbo.WebTemplate_TransferPost_Document",
+      "DependsOn": []
+    },
+    {
+      "Type": "PROCESS",
+      "Name": "TRANSFERPOST_BUTTANUTT",
+      "Path": "",
+      "DependsOn": [
+        {
+          "Type": "VIEW",
+          "Name": "dbo.WebTemplate_TransferPost_Document"
+        }
+      ]
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

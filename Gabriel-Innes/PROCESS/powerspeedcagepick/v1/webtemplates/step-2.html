@@ -1,0 +1,1 @@
+{{ "SELECT Number FROM WebtemplateDocumentsToPick WHERE Cage =  @Cage ORDER BY CreateDate" | dbSelect({Cage}) | basicTable({selectOnColumn:"Number", enableSearch:true}) }}

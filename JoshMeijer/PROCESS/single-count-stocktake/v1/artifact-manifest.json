@@ -1,0 +1,101 @@
+{
+  "Identifier": "ef3279d7-f291-4065-8a4a-907a7f7281c6",
+  "Name": "SINGLE_COUNT_STOCKTAKE",
+  "Description": "STOCKTAKECOUNT\n\nPrevent users adding to an existing counted qty. Count must be reset from desktop to allow recounts on same count number. Works for TrackingEntities and CarryingEntities",
+  "Type": "PROCESS",
+  "Version": 1,
+  "LastModified": "13/02/2024",
+  "DatabaseVersion": "8.0.0.0",
+  "Tags": [],
+  "TypeSpecificAttributes": {
+    "ProcessType": "STOCKTAKECOUNT",
+    "ProcessName": "SINGLE_COUNT_STOCKTAKE",
+    "ProcessDescription": "STOCKTAKECOUNT",
+    "IntegrationIsActive": false,
+    "IntegrationPost": false,
+    "ProcessStepMetadata": [
+      {
+        "Name": "Session",
+        "Description": "Session",
+        "Process": "SINGLE_COUNT_STOCKTAKE",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Count",
+        "Description": "Count",
+        "Process": "SINGLE_COUNT_STOCKTAKE",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Location",
+        "Description": "Location",
+        "Process": "SINGLE_COUNT_STOCKTAKE",
+        "ProcessIndex": 2,
+        "NextIndex": 3,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "TrackingEntity",
+        "Description": "TrackingEntity",
+        "Process": "SINGLE_COUNT_STOCKTAKE",
+        "ProcessIndex": 3,
+        "NextIndex": 4,
+        "isActive": true,
+        "Required": false,
+        "PreScript": "PrescriptStockTakeCountTrackingEntity",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "PalletConfirmation",
+        "Description": "PalletConfirmation",
+        "Process": "SINGLE_COUNT_STOCKTAKE",
+        "ProcessIndex": 4,
+        "NextIndex": 5,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Qty",
+        "Description": "Qty",
+        "Process": "SINGLE_COUNT_STOCKTAKE",
+        "ProcessIndex": 5,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": false
+      }
+    ]
+  },
+  "Components": [
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.PrescriptStockTakeCountTrackingEntity",
+      "Path": "PRESCRIPT/dbo.PrescriptStockTakeCountTrackingEntity",
+      "DependsOn": []
+    },
+    {
+      "Type": "PROCESS",
+      "Name": "SINGLE_COUNT_STOCKTAKE",
+      "Path": "",
+      "DependsOn": [
+        {
+          "Type": "PRESCRIPT",
+          "Name": "dbo.PrescriptStockTakeCountTrackingEntity"
+        }
+      ]
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

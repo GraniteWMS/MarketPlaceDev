@@ -1,0 +1,21 @@
+{
+  "Name": "CIN7_RECLASSIFYPOST",
+  "Description": "CIN7_RECLASSIFYPOST",
+  "Type": "CUSTOM",
+  "IsActive": true,
+  "IntegrationMethod": "RECLASSIFY",
+  "IntegrationIsActive": true,
+  "IntegrationPost": false,
+  "Steps": [
+    {
+      "Name": "DocumentReference",
+      "Description": "DocumentReference",
+      "ProcessIndex": 0,
+      "NextIndex": 0,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "Prescript_ReclassifyPost_DocumentReference"
+    }
+  ]
+}

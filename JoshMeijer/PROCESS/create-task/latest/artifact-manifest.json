@@ -1,0 +1,193 @@
+{
+  "Identifier": "aa14f1a8-e226-49af-a595-885b33c17f77",
+  "Name": "CREATE_TASK",
+  "Description": "CREATE_TASK\n\nA simple way to assign tasks to users",
+  "Type": "PROCESS",
+  "Version": 0,
+  "LastModified": "04/06/2025",
+  "DatabaseVersion": "8.0.0.0",
+  "Tags": [],
+  "TypeSpecificAttributes": {
+    "ProcessType": "CUSTOM",
+    "ProcessName": "CREATE_TASK",
+    "ProcessDescription": "CREATE_TASK",
+    "IntegrationIsActive": false,
+    "IntegrationPost": false,
+    "ProcessStepMetadata": [
+      {
+        "Name": "TaskName",
+        "Description": "Enter Task Name",
+        "Process": "CREATE_TASK",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "TaskDescription",
+        "Description": "Enter Description",
+        "Process": "CREATE_TASK",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "TrackingEntity",
+        "Description": "TrackingEntity",
+        "Process": "CREATE_TASK",
+        "ProcessIndex": 2,
+        "NextIndex": 3,
+        "isActive": true,
+        "Required": false,
+        "PreScript": "PrescriptCreateTaskTrackingEntity",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Location",
+        "Description": "Location",
+        "Process": "CREATE_TASK",
+        "ProcessIndex": 3,
+        "NextIndex": 4,
+        "isActive": true,
+        "Required": false,
+        "PreScript": "PrescriptCreateTaskLocation",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "AssignedUser",
+        "Description": "Assign User",
+        "Process": "CREATE_TASK",
+        "ProcessIndex": 4,
+        "NextIndex": 5,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "PrescriptCreateTaskAssignedUser",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Confirmation",
+        "Description": "Create task?",
+        "Process": "CREATE_TASK",
+        "ProcessIndex": 5,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "PrescriptCreateTaskConfirmation",
+        "hasWebTemplate": false
+      }
+    ]
+  },
+  "Components": [
+    {
+      "Type": "VIEW",
+      "Name": "dbo.WebTemplate_CommonTasks",
+      "Path": "VIEW/dbo.WebTemplate_CommonTasks",
+      "DependsOn": []
+    },
+    {
+      "Type": "VIEW",
+      "Name": "dbo.WebTemplate_Users",
+      "Path": "VIEW/dbo.WebTemplate_Users",
+      "DependsOn": []
+    },
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.PrescriptCreateTaskTrackingEntity",
+      "Path": "PRESCRIPT/dbo.PrescriptCreateTaskTrackingEntity",
+      "DependsOn": []
+    },
+    {
+      "Type": "USER_TABLE",
+      "Name": "dbo.Custom_TaskList",
+      "Path": "USER_TABLE/dbo.Custom_TaskList",
+      "DependsOn": []
+    },
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.PrescriptCreateTaskLocation",
+      "Path": "PRESCRIPT/dbo.PrescriptCreateTaskLocation",
+      "DependsOn": []
+    },
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.PrescriptCreateTaskAssignedUser",
+      "Path": "PRESCRIPT/dbo.PrescriptCreateTaskAssignedUser",
+      "DependsOn": []
+    },
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.PrescriptCreateTaskConfirmation",
+      "Path": "PRESCRIPT/dbo.PrescriptCreateTaskConfirmation",
+      "DependsOn": [
+        {
+          "Type": "USER_TABLE",
+          "Name": "dbo.Custom_TaskList"
+        }
+      ]
+    },
+    {
+      "Type": "VIEW",
+      "Name": "dbo.Datagrid_TaskList",
+      "Path": "VIEW/dbo.Datagrid_TaskList",
+      "DependsOn": [
+        {
+          "Type": "USER_TABLE",
+          "Name": "dbo.Custom_TaskList"
+        }
+      ]
+    },
+    {
+      "Type": "DATA_GRID",
+      "Name": "TaskList",
+      "Path": "DATA_GRID/TaskList",
+      "DependsOn": [
+        {
+          "Type": "VIEW",
+          "Name": "dbo.Datagrid_TaskList"
+        }
+      ]
+    },
+    {
+      "Type": "DATA",
+      "Name": "dbo.SystemStaticData",
+      "Path": "DATA/dbo.SystemStaticData",
+      "DependsOn": []
+    },
+    {
+      "Type": "PROCESS",
+      "Name": "CREATE_TASK",
+      "Path": "",
+      "DependsOn": [
+        {
+          "Type": "PRESCRIPT",
+          "Name": "dbo.PrescriptCreateTaskAssignedUser"
+        },
+        {
+          "Type": "PRESCRIPT",
+          "Name": "dbo.PrescriptCreateTaskConfirmation"
+        },
+        {
+          "Type": "PRESCRIPT",
+          "Name": "dbo.PrescriptCreateTaskLocation"
+        },
+        {
+          "Type": "PRESCRIPT",
+          "Name": "dbo.PrescriptCreateTaskTrackingEntity"
+        },
+        {
+          "Type": "VIEW",
+          "Name": "dbo.WebTemplate_CommonTasks"
+        },
+        {
+          "Type": "VIEW",
+          "Name": "dbo.WebTemplate_Users"
+        }
+      ]
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

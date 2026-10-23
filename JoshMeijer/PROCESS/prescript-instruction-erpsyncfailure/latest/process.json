@@ -1,0 +1,20 @@
+{
+  "Name": "PRESCRIPT_INSTRUCTION_ERPSYNCFAILURE",
+  "Description": "PRESCRIPT_INSTRUCTION_ERPSYNCFAILURE",
+  "Type": "CUSTOM",
+  "IsActive": true,
+  "IntegrationIsActive": false,
+  "IntegrationPost": false,
+  "Steps": [
+    {
+      "Name": "Document",
+      "Description": "Document",
+      "ProcessIndex": 0,
+      "NextIndex": 0,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "Prescript_Generic_Document_UpdateInstruction"
+    }
+  ]
+}

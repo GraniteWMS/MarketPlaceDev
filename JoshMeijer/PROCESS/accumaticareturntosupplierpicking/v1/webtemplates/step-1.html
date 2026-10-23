@@ -1,0 +1,6 @@
+{{ "Select TOP(100) Number, TradingPartnerDescription 
+from Document 
+where [Type] = "ORDER" 
+AND [Status] IN ("RELEASED","ENTERED") 
+AND Number LIKE "GRV-%"
+ORDER BY Number DESC" | dbSelect({}) | basicTable({selectOnColumn:"Number", enableSearch:true}) }}

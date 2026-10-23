@@ -1,0 +1,49 @@
+{
+  "Identifier": "85f2dbc1-97f8-45b8-bcd3-4907803e71a4",
+  "Name": "LOOKUP",
+  "Description": "LOOKUP\n\nThis is the default (empty) LOOKUP process.",
+  "Type": "PROCESS",
+  "Version": 0,
+  "LastModified": "19/03/2024",
+  "DatabaseVersion": "8.0.0.0",
+  "Tags": [],
+  "TypeSpecificAttributes": {
+    "ProcessType": "LOOKUP",
+    "ProcessName": "LOOKUP",
+    "ProcessDescription": "LOOKUP",
+    "IntegrationIsActive": false,
+    "IntegrationPost": false,
+    "ProcessStepMetadata": [
+      {
+        "Name": "Type",
+        "Description": "Type",
+        "Process": "LOOKUP",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "LookupValue",
+        "Description": "LookupValue",
+        "Process": "LOOKUP",
+        "ProcessIndex": 1,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": false
+      }
+    ]
+  },
+  "Components": [
+    {
+      "Type": "PROCESS",
+      "Name": "LOOKUP",
+      "Path": "",
+      "DependsOn": []
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

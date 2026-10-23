@@ -1,0 +1,71 @@
+{
+  "Identifier": "4f3e5e1e-7029-4531-a52a-fd441756848e",
+  "Name": "LOOKUP_WEBTEMPLATE",
+  "Description": "GENERIC LOOKUP\n\nLookup that allows the user to search by Location, MasterItem, or TrackingEntity without selecting the type",
+  "Type": "PROCESS",
+  "Version": 0,
+  "LastModified": "26/03/2024",
+  "DatabaseVersion": "8.0.0.0",
+  "Tags": [],
+  "TypeSpecificAttributes": {
+    "ProcessType": "CUSTOM",
+    "ProcessName": "LOOKUP_WEBTEMPLATE",
+    "ProcessDescription": "GENERIC LOOKUP",
+    "IntegrationIsActive": false,
+    "IntegrationPost": false,
+    "ProcessStepMetadata": [
+      {
+        "Name": "Scanned",
+        "Description": "Scan a Barcode",
+        "Process": "LOOKUP_WEBTEMPLATE",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Result",
+        "Description": "Press Enter to Restart",
+        "Process": "LOOKUP_WEBTEMPLATE",
+        "ProcessIndex": 1,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": false
+      }
+    ]
+  },
+  "Components": [
+    {
+      "Type": "VIEW",
+      "Name": "dbo.MasterItemAlias_View",
+      "Path": "VIEW/dbo.MasterItemAlias_View",
+      "DependsOn": []
+    },
+    {
+      "Type": "SQL_STORED_PROCEDURE",
+      "Name": "dbo.GetLookupData",
+      "Path": "SQL_STORED_PROCEDURE/dbo.GetLookupData",
+      "DependsOn": [
+        {
+          "Type": "VIEW",
+          "Name": "dbo.MasterItemAlias_View"
+        }
+      ]
+    },
+    {
+      "Type": "PROCESS",
+      "Name": "LOOKUP_WEBTEMPLATE",
+      "Path": "",
+      "DependsOn": [
+        {
+          "Type": "SQL_STORED_PROCEDURE",
+          "Name": "dbo.GetLookupData"
+        }
+      ]
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

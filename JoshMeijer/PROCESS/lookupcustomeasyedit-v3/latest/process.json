@@ -1,0 +1,41 @@
+{
+  "Name": "LOOKUPCUSTOMEASYEDIT_V3",
+  "Description": "LOOKUPCUSTOMEASYEDIT_V3",
+  "Type": "LOOKUP",
+  "IsActive": true,
+  "IntegrationIsActive": false,
+  "IntegrationPost": false,
+  "Steps": [
+    {
+      "Name": "Type",
+      "Description": "Type",
+      "ProcessIndex": 0,
+      "NextIndex": 1,
+      "IsActive": true,
+      "Required": false,
+      "IsBusinessRule": false,
+      "DefaultValue": "MasterItem",
+      "WebTemplateFile": "webtemplates/step-1.html"
+    },
+    {
+      "Name": "LookupValue",
+      "Description": "ENTER/SCAN Barcode",
+      "ProcessIndex": 1,
+      "NextIndex": 1,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "PrescriptLookupMasterItemLookUpValue",
+      "WebTemplateFile": "webtemplates/step-2.html"
+    },
+    {
+      "Name": "LastValue",
+      "Description": "Last accepted lookup value",
+      "ProcessIndex": 100,
+      "NextIndex": 1,
+      "IsActive": true,
+      "Required": false,
+      "IsBusinessRule": false
+    }
+  ]
+}

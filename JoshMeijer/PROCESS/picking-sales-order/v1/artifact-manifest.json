@@ -1,0 +1,140 @@
+{
+  "Identifier": "94023fd7-c12e-455e-883b-d89ad0ea1fdb",
+  "Name": "PICKING SALES ORDER",
+  "Description": "PICKING SALES ORDER\n\nA streamlined picking process that allows users to focus on the essentials.\nComes with dedicated datagrids.",
+  "Type": "PROCESS",
+  "Version": 1,
+  "LastModified": "29/01/2025",
+  "DatabaseVersion": "8.0.0.0",
+  "Tags": [],
+  "TypeSpecificAttributes": {
+    "ProcessType": "PICKING",
+    "ProcessName": "PICKING SALES ORDER",
+    "ProcessDescription": "PICKING SALES ORDER",
+    "IntegrationIsActive": false,
+    "IntegrationPost": false,
+    "ProcessStepMetadata": [
+      {
+        "Name": "Document",
+        "Description": "Sales Order Number",
+        "Process": "PICKING SALES ORDER",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "PrescriptPickingDocument",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "TrackingEntity",
+        "Description": "TrackingEntity",
+        "Process": "PICKING SALES ORDER",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "PrescriptPickingTrackingEntity",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Qty",
+        "Description": "Qty",
+        "Process": "PICKING SALES ORDER",
+        "ProcessIndex": 2,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Location",
+        "Description": "Location",
+        "Process": "PICKING SALES ORDER",
+        "ProcessIndex": 100,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "DefaultValue": "CHECKING",
+        "hasWebTemplate": false
+      }
+    ]
+  },
+  "Components": [
+    {
+      "Type": "VIEW",
+      "Name": "dbo.WebtemplatePickingDocument",
+      "Path": "VIEW/dbo.WebtemplatePickingDocument",
+      "DependsOn": []
+    },
+    {
+      "Type": "VIEW",
+      "Name": "dbo.WebtemplatePickingTrackingEntity",
+      "Path": "VIEW/dbo.WebtemplatePickingTrackingEntity",
+      "DependsOn": []
+    },
+    {
+      "Type": "VIEW",
+      "Name": "dbo.WebtemplatePickingQty",
+      "Path": "VIEW/dbo.WebtemplatePickingQty",
+      "DependsOn": []
+    },
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.PrescriptPickingDocument",
+      "Path": "PRESCRIPT/dbo.PrescriptPickingDocument",
+      "DependsOn": []
+    },
+    {
+      "Type": "VIEW",
+      "Name": "dbo.DataGrid_PickingSalesOrderTransactions",
+      "Path": "VIEW/dbo.DataGrid_PickingSalesOrderTransactions",
+      "DependsOn": []
+    },
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.PrescriptPickingTrackingEntity",
+      "Path": "PRESCRIPT/dbo.PrescriptPickingTrackingEntity",
+      "DependsOn": []
+    },
+    {
+      "Type": "DATA_GRID",
+      "Name": "Picking Sales Order",
+      "Path": "DATA_GRID/Picking Sales Order",
+      "DependsOn": [
+        {
+          "Type": "VIEW",
+          "Name": "dbo.DataGrid_PickingSalesOrderTransactions"
+        }
+      ]
+    },
+    {
+      "Type": "PROCESS",
+      "Name": "PICKING SALES ORDER",
+      "Path": "",
+      "DependsOn": [
+        {
+          "Type": "PRESCRIPT",
+          "Name": "dbo.PrescriptPickingDocument"
+        },
+        {
+          "Type": "PRESCRIPT",
+          "Name": "dbo.PrescriptPickingTrackingEntity"
+        },
+        {
+          "Type": "VIEW",
+          "Name": "dbo.WebtemplatePickingDocument"
+        },
+        {
+          "Type": "VIEW",
+          "Name": "dbo.WebtemplatePickingQty"
+        },
+        {
+          "Type": "VIEW",
+          "Name": "dbo.WebtemplatePickingTrackingEntity"
+        }
+      ]
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

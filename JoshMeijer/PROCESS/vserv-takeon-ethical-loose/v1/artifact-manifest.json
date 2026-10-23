@@ -1,0 +1,114 @@
+{
+  "Identifier": "01adea45-7e65-496d-94bf-c74c762ef401",
+  "Name": "VSERV_TAKEON_ETHICAL_LOOSE",
+  "Description": "VSERV_TAKEON_ETHICAL_LOOSE\n\nReplenishes to TE in same location with same item code",
+  "Type": "PROCESS",
+  "Version": 1,
+  "LastModified": "12/06/2026",
+  "DatabaseVersion": "8.0.0.0",
+  "Tags": [],
+  "TypeSpecificAttributes": {
+    "ProcessType": "TAKEON",
+    "ProcessName": "VSERV_TAKEON_ETHICAL_LOOSE",
+    "ProcessDescription": "VSERV_TAKEON_ETHICAL_LOOSE",
+    "IntegrationIsActive": false,
+    "IntegrationPost": false,
+    "ProcessStepMetadata": [
+      {
+        "Name": "Location",
+        "Description": "Scan Rack Location",
+        "Process": "VSERV_TAKEON_ETHICAL_LOOSE",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_TakeonEthical_Location",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "MasterItem",
+        "Description": "Select SKU or Scan EAN Barcode",
+        "Process": "VSERV_TAKEON_ETHICAL_LOOSE",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_TakeonEthical_MasterItem",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Qty",
+        "Description": "Enter Qty",
+        "Process": "VSERV_TAKEON_ETHICAL_LOOSE",
+        "ProcessIndex": 2,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_TakeonEthicalLoose_Qty",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "UseBarcode",
+        "Description": "UseBarcode",
+        "Process": "VSERV_TAKEON_ETHICAL_LOOSE",
+        "ProcessIndex": 100,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": false
+      }
+    ]
+  },
+  "Components": [
+    {
+      "Type": "VIEW",
+      "Name": "dbo.MasterItemAlias_View",
+      "Path": "VIEW/dbo.MasterItemAlias_View",
+      "DependsOn": []
+    },
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.Prescript_TakeonEthical_MasterItem",
+      "Path": "PRESCRIPT/dbo.Prescript_TakeonEthical_MasterItem",
+      "DependsOn": [
+        {
+          "Type": "VIEW",
+          "Name": "dbo.MasterItemAlias_View"
+        }
+      ]
+    },
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.Prescript_TakeonEthical_Location",
+      "Path": "PRESCRIPT/dbo.Prescript_TakeonEthical_Location",
+      "DependsOn": []
+    },
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.Prescript_TakeonEthicalLoose_Qty",
+      "Path": "PRESCRIPT/dbo.Prescript_TakeonEthicalLoose_Qty",
+      "DependsOn": []
+    },
+    {
+      "Type": "PROCESS",
+      "Name": "VSERV_TAKEON_ETHICAL_LOOSE",
+      "Path": "",
+      "DependsOn": [
+        {
+          "Type": "PRESCRIPT",
+          "Name": "dbo.Prescript_TakeonEthicalLoose_Qty"
+        },
+        {
+          "Type": "PRESCRIPT",
+          "Name": "dbo.Prescript_TakeonEthical_Location"
+        },
+        {
+          "Type": "PRESCRIPT",
+          "Name": "dbo.Prescript_TakeonEthical_MasterItem"
+        }
+      ]
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

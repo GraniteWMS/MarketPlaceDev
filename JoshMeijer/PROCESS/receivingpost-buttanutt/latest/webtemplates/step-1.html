@@ -1,0 +1,1 @@
+{{ "SELECT DocumentNumber FROM WebTemplate_ReceivingPost_Document ORDER BY DocumentNumber DESC" | dbSelect({}) | basicTable({selectOnColumn:"DocumentNumber", enableSearch:true}) }}

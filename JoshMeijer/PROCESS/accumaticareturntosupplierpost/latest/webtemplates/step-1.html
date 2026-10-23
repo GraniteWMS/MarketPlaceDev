@@ -1,0 +1,5 @@
+{{ "SELECT DISTINCT Document , Document.TradingPartnerDescription
+FROM API_QueryTransactionsPicking
+LEFT OUTER JOIN Document ON API_QueryTransactionsPicking.Document = Document.Number
+WHERE ISNULL(IntegrationReference,"") = "" AND Document LIKE "GRV%" AND Document.CreateDate > "2026-04-01"
+ORDER BY Document DESC" | dbSelect({}) | basicTable({selectOnColumn:"Document", enableSearch:true}) }}

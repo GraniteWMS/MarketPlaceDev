@@ -1,0 +1,1 @@
+{{ "SELECT @MasterItem ItemCode,  @Batch Batch, @Qty Qty" | dbSelect({MasterItem,Batch,Qty}) | basicTable({}) }}

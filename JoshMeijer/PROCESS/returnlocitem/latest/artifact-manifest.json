@@ -1,0 +1,156 @@
+{
+  "Identifier": "559181f9-634c-4502-9b08-eb631a38f7e5",
+  "Name": "RETURNLOCITEM",
+  "Description": "Return from Customer (LOC_ITEM)\n\nThe TrackingEntity step takes the MasterItem or Alias as input.  I have code to strip the scanned codeto accomodate some funnies on Scanning a masterITem\nThe Qty step has an onscreen keypad for easy entry.\nThe Location Step uses a webtemplate to select Locations of Type RECEIVING or CART\nThe Reason step is a processStepLookup -can add or edit the reasons.\n\nIf you have an RMA system in place you could use the Reference step to validate it against the ERP RMA number\nAn additional improvement would be to have a button to Send Email for the current Reference. (Not implemented)",
+  "Type": "PROCESS",
+  "Version": 0,
+  "LastModified": "08/05/2026",
+  "DatabaseVersion": "8.0.0.0",
+  "Tags": [],
+  "TypeSpecificAttributes": {
+    "ProcessType": "TAKEON",
+    "ProcessName": "RETURNLOCITEM",
+    "ProcessDescription": "Return from Customer (LOC_ITEM)",
+    "IntegrationIsActive": false,
+    "IntegrationPost": false,
+    "ProcessStepMetadata": [
+      {
+        "Name": "Reference",
+        "Description": "RMA Number",
+        "Process": "RETURNLOCITEM",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Location",
+        "Description": "Location",
+        "Process": "RETURNLOCITEM",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "DefaultValue": "REC",
+        "PreScript": "PrescriptRETURNLOCITEM_Location",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "MasterItem",
+        "Description": "Item Code",
+        "Process": "RETURNLOCITEM",
+        "ProcessIndex": 2,
+        "NextIndex": 3,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "PrescriptRETURNLOCITEM_MasterItem",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Qty",
+        "Description": "Qty",
+        "Process": "RETURNLOCITEM",
+        "ProcessIndex": 3,
+        "NextIndex": 4,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "PrescriptRETURNLOCITEM_Qty",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Comment",
+        "Description": "Comment/Reason",
+        "Process": "RETURNLOCITEM",
+        "ProcessIndex": 4,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "UseBarcode",
+        "Description": "UseBarcode",
+        "Process": "RETURNLOCITEM",
+        "ProcessIndex": 100,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": false
+      }
+    ]
+  },
+  "Components": [
+    {
+      "Type": "VIEW",
+      "Name": "dbo.webtemplate_ReceivingLocations",
+      "Path": "VIEW/dbo.webtemplate_ReceivingLocations",
+      "DependsOn": []
+    },
+    {
+      "Type": "VIEW",
+      "Name": "dbo.MasterItemAlias_View",
+      "Path": "VIEW/dbo.MasterItemAlias_View",
+      "DependsOn": []
+    },
+    {
+      "Type": "SQL_STORED_PROCEDURE",
+      "Name": "dbo.ValidateLocation",
+      "Path": "SQL_STORED_PROCEDURE/dbo.ValidateLocation",
+      "DependsOn": []
+    },
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.PrescriptRETURNLOCITEM_MasterItem",
+      "Path": "PRESCRIPT/dbo.PrescriptRETURNLOCITEM_MasterItem",
+      "DependsOn": [
+        {
+          "Type": "VIEW",
+          "Name": "dbo.MasterItemAlias_View"
+        }
+      ]
+    },
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.PrescriptRETURNLOCITEM_Location",
+      "Path": "PRESCRIPT/dbo.PrescriptRETURNLOCITEM_Location",
+      "DependsOn": [
+        {
+          "Type": "SQL_STORED_PROCEDURE",
+          "Name": "dbo.ValidateLocation"
+        }
+      ]
+    },
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.PrescriptRETURNLOCITEM_Qty",
+      "Path": "PRESCRIPT/dbo.PrescriptRETURNLOCITEM_Qty",
+      "DependsOn": []
+    },
+    {
+      "Type": "PROCESS",
+      "Name": "RETURNLOCITEM",
+      "Path": "",
+      "DependsOn": [
+        {
+          "Type": "PRESCRIPT",
+          "Name": "dbo.PrescriptRETURNLOCITEM_Location"
+        },
+        {
+          "Type": "PRESCRIPT",
+          "Name": "dbo.PrescriptRETURNLOCITEM_MasterItem"
+        },
+        {
+          "Type": "PRESCRIPT",
+          "Name": "dbo.PrescriptRETURNLOCITEM_Qty"
+        },
+        {
+          "Type": "VIEW",
+          "Name": "dbo.webtemplate_ReceivingLocations"
+        }
+      ]
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

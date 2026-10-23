@@ -1,0 +1,29 @@
+{
+  "Name": "REPRINTBOXLABEL",
+  "Description": "Reprint Packed Box Label",
+  "Type": "CUSTOM",
+  "IsActive": true,
+  "IntegrationIsActive": false,
+  "IntegrationPost": false,
+  "Steps": [
+    {
+      "Name": "Box",
+      "Description": "Scan Box Label to print Packed Label",
+      "ProcessIndex": 0,
+      "NextIndex": 1,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false
+    },
+    {
+      "Name": "Confirmation",
+      "Description": "Confirm to printthe label",
+      "ProcessIndex": 1,
+      "NextIndex": 0,
+      "IsActive": true,
+      "Required": false,
+      "IsBusinessRule": false,
+      "PreScript": "Prescript_REPRINTBOXLABEL_Confirmation"
+    }
+  ]
+}

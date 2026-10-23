@@ -1,0 +1,4 @@
+{{ "SELECT * FROM webtemplate_ScoreboardPutaway  ORDER BY Date DESC, [Putaway Transactions] DESC" | dbSelect() | basicTable({enableSearch:false}) }}
+
+{{ ['NEXT'] | map => { Value: it } | createButtonList({ columnName: 'Value' }) }}
+{{ hideTextBox() }}

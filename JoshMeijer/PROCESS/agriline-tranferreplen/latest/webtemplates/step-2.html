@@ -1,0 +1,2 @@
+{{ "SELECT Barcode FROM [Location] WHERE [Type] = "STAGING"" | dbSelect({}) | createButtonList({"Barcode"}) }}
+{{ hideTextBox() }}

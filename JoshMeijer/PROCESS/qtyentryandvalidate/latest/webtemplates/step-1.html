@@ -1,0 +1,180 @@
+<style>
+  .mini-calc {
+    max-width: 360px;
+    margin: 0 auto;
+    font-family: Arial, sans-serif;
+  }
+
+  .mini-display {
+    width: 100%;
+    height: 42px;
+    margin-bottom: 6px;
+    padding: 6px 8px;
+    box-sizing: border-box;
+    border: 1px solid #bbb;
+    border-radius: 5px;
+    background: #fff;
+    font-size: 20px;
+    text-align: right;
+  }
+
+  .mini-row {
+    display: grid;
+    gap: 4px;
+    margin-bottom: 4px;
+  }
+
+  .row-9 {
+    grid-template-columns: repeat(9, 1fr);
+  }
+
+  .row-bottom {
+    grid-template-columns: repeat(9, 1fr);
+  }
+
+  .mini-calc button {
+    height: 36px;
+    border: 1px solid #bbb;
+    border-radius: 5px;
+    background: #f3f3f3;
+    font-size: 16px;
+    cursor: pointer;
+    padding: 0;
+  }
+
+  .eq-wide {
+    grid-column: span 2;
+  }
+</style>
+
+<div class="mini-calc">
+  <input id="calcDisplay" class="mini-display" type="text" value="" readonly />
+
+  <div class="mini-row row-9">
+    <button type="button" onclick="calcPress("1")">1</button>
+    <button type="button" onclick="calcPress("2")">2</button>
+    <button type="button" onclick="calcPress("3")">3</button>
+    <button type="button" onclick="calcPress("4")">4</button>
+    <button type="button" onclick="calcPress("5")">5</button>
+    <button type="button" onclick="calcPress("6")">6</button>
+    <button type="button" onclick="calcPress("7")">7</button>
+    <button type="button" onclick="calcPress("8")">8</button>
+    <button type="button" onclick="calcPress("9")">9</button>
+  </div>
+
+  <div class="mini-row row-bottom">
+    <button type="button" onclick="calcPress("0")">0</button>
+    <button type="button" onclick="calcPress(".")">.</button>
+    <button type="button" onclick="calcClear()">C</button>
+    <button type="button" onclick="calcPress("+")">+</button>
+    <button type="button" onclick="calcPress("-")">-</button>
+    <button type="button" onclick="calcPress("*")">*</button>
+    <button type="button" onclick="calcPress("/")">/</button>
+    <button type="button" class="eq-wide" onclick="calcEquals()">=</button>
+  </div>
+</div>
+
+<script>
+  var expression = "";
+
+  function updateDisplay(text) {
+    document.getElementById("calcDisplay").value =
+      text !== undefined ? text : expression;
+  }
+
+  function calcPress(val) {
+    expression += val;
+    updateDisplay();
+  }
+
+  function calcClear() {
+    expression = "";
+    updateDisplay("");
+  }
+
+  function findPromptInput() {
+    var fields = Array.from(document.querySelectorAll("input, textarea"));
+
+    return fields.find(function(el) {
+      if (el.id === "calcDisplay") return false;
+      if (el.type === "hidden") return false;
+      if (el.disabled) return false;
+      if (el.readOnly) return false;
+
+      var tag = el.tagName.toLowerCase();
+      var type = (el.type || "").toLowerCase();
+
+      return tag === "textarea" || type === "text" || type === "number" || type === "search";
+    }) || null;
+  }
+
+  function fireEnter(input) {
+    input.focus();
+
+    if (input.setSelectionRange) {
+      var len = input.value.length;
+      input.setSelectionRange(len, len);
+    }
+
+    input.dispatchEvent(new KeyboardEvent("keydown", {
+      bubbles: true,
+      cancelable: true,
+      key: "Enter",
+      code: "Enter"
+    }));
+
+    input.dispatchEvent(new KeyboardEvent("keypress", {
+      bubbles: true,
+      cancelable: true,
+      key: "Enter",
+      code: "Enter"
+    }));
+
+    input.dispatchEvent(new KeyboardEvent("keyup", {
+      bubbles: true,
+      cancelable: true,
+      key: "Enter",
+      code: "Enter"
+    }));
+  }
+
+  function calcEquals() {
+    if (!expression) return;
+
+    try {
+      if (!/^[0-9+\-*/. ]+$/.test(expression)) {
+        throw new Error("Invalid expression");
+      }
+
+      var result = Function(""use strict"; return (" + expression + ")")();
+
+      if (typeof result !== "number" || !isFinite(result)) {
+        throw new Error("Invalid result");
+      }
+
+      var resultText = String(result);
+      var input = findPromptInput();
+
+      if (!input) {
+        throw new Error("Prompt input not found");
+      }
+
+      input.value = resultText;
+      input.dispatchEvent(new Event("input", { bubbles: true }));
+      input.dispatchEvent(new Event("change", { bubbles: true }));
+
+      expression = "";
+      updateDisplay(resultText);
+
+      setTimeout(function() {
+        fireEnter(input);
+      }, 20);
+
+    } catch (e) {
+      expression = "";
+      updateDisplay("Error");
+    }
+  }
+
+  updateDisplay("");
+</script>

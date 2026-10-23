@@ -1,0 +1,304 @@
+{{
+    "
+        SELECT 
+            D.[Status],
+            D.[Type],
+            [Number],
+            [Description],
+            TradingPartnerCode,
+            CONVERT(VARCHAR(10), ExpectedDate, 101) AS ExpectedDate,
+            CAST(SUM(ISNULL(dd.ActionQty, 0)) / SUM(ISNULL(dd.Qty, 1)) * 100 as int) as PercentageReceived
+        FROM Document D
+        LEFT JOIN DocumentDetail DD ON D.ID = DD.Document_id
+        WHERE D.[Type] = @Type
+          AND D.[Status] = @Status
+        GROUP BY D.[Status], D.[Type], [Number], [Description], TradingPartnerCode, CONVERT(VARCHAR(10), ExpectedDate, 101)
+        ORDER BY ExpectedDate DESC, [Number]
+    "
+    |> dbSelect({ Type: "RECEIVING", Status: "ENTERED" })
+    |> to => documents
+}}
+
+{{
+    "
+        SELECT DISTINCT
+            CONVERT(VARCHAR(10), ExpectedDate, 101) AS ExpectedDate
+        FROM Document
+        WHERE [Type] = @Type
+          AND [Status] = @Status
+        ORDER BY CONVERT(VARCHAR(10), ExpectedDate, 101) DESC
+    "
+    |> dbSelect({ Type: "RECEIVING", Status: "ENTERED" })
+    |> to => expectedDates
+}}
+
+{{
+    "
+        SELECT DISTINCT
+            TradingPartnerCode
+        FROM Document
+        WHERE [Type] = @Type
+          AND [Status] = @Status
+        ORDER BY TradingPartnerCode
+    "
+    |> dbSelect({ Type: "RECEIVING", Status: "ENTERED" })
+    |> to => tradingPartners
+}}
+
+<style>
+    .filter-container {
+        background: #f5f5f5;
+        padding: 15px;
+        border-radius: 8px;
+        margin-bottom: 20px;
+        display: flex;
+        gap: 15px;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+    
+    .filter-group {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+    }
+    
+    .filter-group label {
+        font-weight: 600;
+        font-size: 12px;
+        color: #555;
+    }
+    
+    .filter-group select,
+    .filter-group input {
+        padding: 8px 12px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        font-size: 14px;
+        min-width: 180px;
+    }
+    
+    .clear-filters-btn {
+        padding: 8px 16px;
+        background: #dc3545;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 14px;
+        margin-top: auto;
+        height: 36px;
+    }
+    
+    .clear-filters-btn:hover {
+        background: #c82333;
+    }
+    
+    .documents-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 20px;
+        padding: 10px 0;
+    }
+    
+    .document-card {
+        background: white;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        padding: 20px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        transition: all 0.3s ease;
+    }
+    
+    .document-card:hover {
+        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        transform: translateY(-2px);
+    }
+    
+    .document-number {
+        font-size: 20px;
+        font-weight: bold;
+        color: #007bff;
+        cursor: pointer;
+        margin-bottom: 10px;
+        text-decoration: none;
+        display: inline-block;
+    }
+    
+    .document-number:hover {
+        color: #0056b3;
+        text-decoration: underline;
+    }
+    
+    .document-field {
+        margin: 8px 0;
+        font-size: 14px;
+    }
+    
+    .document-field strong {
+        color: #555;
+        display: inline-block;
+        min-width: 120px;
+    }
+    
+    .document-field span {
+        color: #333;
+    }
+
+    .progress-wrapper {
+        margin-top: 12px;
+    }
+
+    .progress-label {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        font-size: 12px;
+        color: #555;
+        margin-bottom: 6px;
+    }
+
+    .progress-track {
+        width: 100%;
+        height: 10px;
+        background: #f5f5f5;
+        border: 1px solid #ddd;
+        border-radius: 999px;
+        overflow: hidden;
+    }
+
+    .progress-fill {
+        height: 100%;
+        background: #007bff;
+        width: 0;
+    }
+    
+    .no-results {
+        text-align: center;
+        padding: 40px;
+        color: #666;
+        font-size: 16px;
+    }
+</style>
+
+<div class="filter-container">
+    <div class="filter-group">
+        <label for="searchNumber">Search Document Number</label>
+        <input type="text" id="searchNumber" placeholder="Type to search..." onkeyup="filterDocuments()">
+    </div>
+    
+    <div class="filter-group">
+        <label for="filterDate">Expected Date</label>
+        <select id="filterDate" onchange="filterDocuments()">
+            <option value="">All Dates</option>
+            {{#each expectedDates}}
+            <option value="{{ExpectedDate}}">{{ExpectedDate}}</option>
+            {{/each}}
+        </select>
+    </div>
+    
+    <div class="filter-group">
+        <label for="filterPartner">Trading Partner</label>
+        <select id="filterPartner" onchange="filterDocuments()">
+            <option value="">All Partners</option>
+            {{#each tradingPartners}}
+            <option value="{{TradingPartnerCode}}">{{TradingPartnerCode}}</option>
+            {{/each}}
+        </select>
+    </div>
+    
+    <button class="clear-filters-btn" onclick="clearFilters()">Clear Filters</button>
+</div>
+
+<div class="documents-grid" id="documentsGrid">
+    {{#if documents}}
+        {{#each documents}}
+        <div class="document-card" 
+             data-number="{{Number}}" 
+             data-date="{{ExpectedDate}}" 
+             data-partner="{{TradingPartnerCode}}">
+            <div class="document-number" onclick="ProceedNext("{{Number}}")">
+                {{Number}}
+            </div>
+            <div class="document-field">
+                <strong>Description:</strong>
+                <span>{{Description}}</span>
+            </div>
+            <div class="document-field">
+                <strong>Trading Partner:</strong>
+                <span>{{TradingPartnerCode}}</span>
+            </div>
+            <div class="document-field">
+                <strong>Expected Date:</strong>
+                <span>{{ExpectedDate}}</span>
+            </div>
+            <div class="document-field">
+                <strong>Status:</strong>
+                <span>{{Status}}</span>
+            </div>
+
+            <div class="progress-wrapper" aria-label="Received progress">
+                <div class="progress-label">
+                    <span><strong>Received:</strong></span>
+                    <span>{{PercentageReceived}}%</span>
+                </div>
+                <div class="progress-track" role="progressbar" aria-valuenow="{{PercentageReceived}}" aria-valuemin="0" aria-valuemax="100">
+                    <div class="progress-fill" style="width: {{PercentageReceived}}%;"></div>
+                </div>
+            </div>
+        </div>
+        {{/each}}
+    {{else}}
+        <div class="no-results">
+            No documents found.
+        </div>
+    {{/if}}
+</div>
+
+<script>
+function filterDocuments() {
+    const searchValue = document.getElementById("searchNumber").value.toLowerCase();
+    const dateFilter = document.getElementById("filterDate").value;
+    const partnerFilter = document.getElementById("filterPartner").value;
+    
+    const cards = document.querySelectorAll(".document-card");
+    let visibleCount = 0;
+    
+    cards.forEach(card => {
+        const number = card.getAttribute("data-number").toLowerCase();
+        const date = card.getAttribute("data-date");
+        const partner = card.getAttribute("data-partner");
+        
+        const matchesSearch = number.includes(searchValue);
+        const matchesDate = !dateFilter || date === dateFilter;
+        const matchesPartner = !partnerFilter || partner === partnerFilter;
+        
+        if (matchesSearch && matchesDate && matchesPartner) {
+            card.style.display = "block";
+            visibleCount++;
+        } else {
+            card.style.display = "none";
+        }
+    });
+    
+    // Show/hide no results message
+    const grid = document.getElementById("documentsGrid");
+    const existingNoResults = grid.querySelector(".no-results");
+    
+    if (visibleCount === 0 && !existingNoResults) {
+        const noResults = document.createElement("div");
+        noResults.className = "no-results";
+        noResults.textContent = "No documents match the selected filters.";
+        grid.appendChild(noResults);
+    } else if (visibleCount > 0 && existingNoResults) {
+        existingNoResults.remove();
+    }
+}
+
+function clearFilters() {
+    document.getElementById("searchNumber").value = "";
+    document.getElementById("filterDate").value = "";
+    document.getElementById("filterPartner").value = "";
+    filterDocuments();
+}
+</script>

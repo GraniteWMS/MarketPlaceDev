@@ -1,0 +1,56 @@
+CREATE PROCEDURE [dbo].[Prescript_BigReceiving_CarryingEntity] (
+   @input dbo.ScriptInputParameters READONLY
+)
+AS
+DECLARE @Output TABLE(
+  Name varchar(max),
+  Value varchar(max)
+  )
+SET NOCOUNT ON;
+DECLARE @valid bit
+DECLARE @message varchar(MAX)
+DECLARE @stepInput varchar(MAX) 
+SELECT @stepInput = Value FROM @input WHERE Name = 'StepInput'
+DECLARE 
+@ReceivingLocation varchar(50) = (SELECT [Value] FROM @input WHERE [Name] = 'ReceivingLocation'),
+@CarryingEntity varchar(50),
+@CurrentDateTime datetime = GETDATE(),
+@User varchar(50) = (SELECT Value FROM @input WHERE Name = 'User')
+BEGIN TRY
+	IF ISNULL(@stepInput, '') = 'NEW'
+	BEGIN
+		IF ISNULL(@ReceivingLocation, '') = ''
+		BEGIN
+			RAISERROR(N'Location must be filled in', 16, 1, @stepInput)
+		END
+		SELECT @CarryingEntity = CONCAT(Prefix, REPLICATE('0', [Length] - LEN(NextBarcode)), NextBarcode) 
+		FROM BarcodeMaster WHERE [Name] = 'PALLET'
+		UPDATE BarcodeMaster 
+		SET NextBarcode += 1
+		WHERE [Name] = 'PALLET'
+		INSERT INTO CarryingEntity(Barcode, CreateDate, Location_id, AuditUser, AuditDate)
+		SELECT @CarryingEntity, @CurrentDateTime, ID, @User, @CurrentDateTime
+		FROM [Location] WHERE [Barcode] = @ReceivingLocation
+		SET @stepInput = @CarryingEntity
+	END
+	ELSE
+	IF NOT EXISTS(SELECT ID FROM CarryingEntity WHERE Barcode = ISNULL(@stepInput, ''))
+	BEGIN
+		RAISERROR('Pallet barcode %s does not exist', 16, 1, @stepInput)
+	END
+	SELECT
+	@valid = 1,
+	@message = @stepInput
+END TRY
+BEGIN CATCH
+	SELECT
+	@valid = 0,
+	@message = ERROR_MESSAGE()
+END CATCH
+	INSERT INTO @Output
+	SELECT 'Message', @message
+	INSERT INTO @Output
+	SELECT 'Valid', @valid
+	INSERT INTO @Output
+	SELECT 'StepInput', @stepInput
+	SELECT * FROM @Output

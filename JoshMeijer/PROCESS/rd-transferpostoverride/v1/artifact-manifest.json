@@ -1,0 +1,87 @@
+{
+  "Identifier": "6b2c5bc8-a8cc-43fe-82ea-357690ac61f7",
+  "Name": "RD_TRANSFERPOSTOVERRIDE",
+  "Description": "Retail Distribution (Override Completeness rule)\n\nRetail Distribution -Transfer Post.  See the Standard Post - This version of post is for Superusers or management to Override the Transfer Completeness Rull in System Static Data\n\nTransfer Post is mapped to Dynamic Transfer Post to Create the Transfer Document in the ERP./Retail System.",
+  "Type": "PROCESS",
+  "Version": 1,
+  "LastModified": "09/10/2025",
+  "DatabaseVersion": "8.0.0.0",
+  "Tags": [],
+  "TypeSpecificAttributes": {
+    "ProcessType": "TRANSFERPOST",
+    "ProcessName": "RD_TRANSFERPOSTOVERRIDE",
+    "ProcessDescription": "Retail Distribution (Override Completeness rule)",
+    "IntegrationIsActive": true,
+    "IntegrationPost": false,
+    "ProcessStepMetadata": [
+      {
+        "Name": "Document",
+        "Description": "Document",
+        "Process": "RD_TRANSFERPOSTOVERRIDE",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Confirmation",
+        "Description": "Confirmation",
+        "Process": "RD_TRANSFERPOSTOVERRIDE",
+        "ProcessIndex": 1,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true
+      }
+    ]
+  },
+  "Components": [
+    {
+      "Type": "VIEW",
+      "Name": "dbo.Integration_Transactions",
+      "Path": "VIEW/dbo.Integration_Transactions",
+      "DependsOn": []
+    },
+    {
+      "Type": "SQL_STORED_PROCEDURE",
+      "Name": "dbo.WebTemplate_TransferPostDetail",
+      "Path": "SQL_STORED_PROCEDURE/dbo.WebTemplate_TransferPostDetail",
+      "DependsOn": []
+    },
+    {
+      "Type": "VIEW",
+      "Name": "dbo.webtemplate_TransfertoPost",
+      "Path": "VIEW/dbo.webtemplate_TransfertoPost",
+      "DependsOn": [
+        {
+          "Type": "VIEW",
+          "Name": "dbo.Integration_Transactions"
+        }
+      ]
+    },
+    {
+      "Type": "DATA",
+      "Name": "dbo.SystemStaticData",
+      "Path": "DATA/dbo.SystemStaticData",
+      "DependsOn": []
+    },
+    {
+      "Type": "PROCESS",
+      "Name": "RD_TRANSFERPOSTOVERRIDE",
+      "Path": "",
+      "DependsOn": [
+        {
+          "Type": "SQL_STORED_PROCEDURE",
+          "Name": "dbo.WebTemplate_TransferPostDetail"
+        },
+        {
+          "Type": "VIEW",
+          "Name": "dbo.webtemplate_TransfertoPost"
+        }
+      ]
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

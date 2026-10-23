@@ -1,0 +1,223 @@
+{
+  "Identifier": "d35e5d93-bf0b-449d-8bfa-d7b89fa07062",
+  "Name": "PICKZONE_LOC_ITEM",
+  "Description": "PICK ZONE - LOCATION_ITEM\n\nTrackingEntity is LOC_ITEM\nImplements Zone picking where a step is available for LocationZone\nScanner only show the next item to pick, not all items\nImplements a Qty button selector avoiding keyboard switching from Alphanumeric to Numeric\nAlso implements a SKIP to next line since we only show 1 line\n\nZones are implemented as Location Categories.  In FIFOPickRecommendation, the Zone is added to the Instruction with a separator.   In the process the step LocationZone fetches the available Zones and summaries this, for selection\nIt implements a SKIP on showing the next line to pick using LinePriority -if SKIP is entered on Qty, then it sets line priority to 99999 so that the skipped line is at bottom of list.\nThis only happens on the Skip - where I pass in a bit to FIFOPickInstruction indicating whether to update linepriorities that are set to 99999.  We only do this when calling from the Document Step, Not on Step200 - this allows us to maintain the LinePriority as 99999, unless I restart picking.  FIFOPickrecommendation is included in this publish",
+  "Type": "PROCESS",
+  "Version": 1,
+  "LastModified": "04/05/2026",
+  "DatabaseVersion": "8.0.0.0",
+  "Tags": [],
+  "TypeSpecificAttributes": {
+    "ProcessType": "PICKING",
+    "ProcessName": "PICKZONE_LOC_ITEM",
+    "ProcessDescription": "PICK ZONE - LOCATION_ITEM",
+    "IntegrationIsActive": false,
+    "IntegrationPost": false,
+    "ProcessStepMetadata": [
+      {
+        "Name": "Document",
+        "Description": "Document",
+        "Process": "PICKZONE_LOC_ITEM",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_Picking_Document",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "LocationZone",
+        "Description": "Select Location Zone",
+        "Process": "PICKZONE_LOC_ITEM",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "FromLocation",
+        "Description": "FromLocation",
+        "Process": "PICKZONE_LOC_ITEM",
+        "ProcessIndex": 2,
+        "NextIndex": 3,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_Picking_FromLocation",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "TrackingEntity",
+        "Description": "Scan Item Barcode",
+        "Process": "PICKZONE_LOC_ITEM",
+        "ProcessIndex": 3,
+        "NextIndex": 4,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_Picking_TrackingEntity",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Qty",
+        "Description": "Qty in Eaches",
+        "Process": "PICKZONE_LOC_ITEM",
+        "ProcessIndex": 4,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_Picking_Qty",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Location",
+        "Description": "Staging Location",
+        "Process": "PICKZONE_LOC_ITEM",
+        "ProcessIndex": 100,
+        "NextIndex": 100,
+        "isActive": true,
+        "Required": true,
+        "DefaultValue": "DIS",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Step200",
+        "Description": "Update FIFO recommendation",
+        "Process": "PICKZONE_LOC_ITEM",
+        "ProcessIndex": 200,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_PickingStep200",
+        "hasWebTemplate": false
+      }
+    ]
+  },
+  "Components": [
+    {
+      "Type": "VIEW",
+      "Name": "dbo.MasterItemAlias_View",
+      "Path": "VIEW/dbo.MasterItemAlias_View",
+      "DependsOn": []
+    },
+    {
+      "Type": "VIEW",
+      "Name": "dbo.webtemplate_SOtoPick",
+      "Path": "VIEW/dbo.webtemplate_SOtoPick",
+      "DependsOn": []
+    },
+    {
+      "Type": "SQL_STORED_PROCEDURE",
+      "Name": "dbo.WebTemplate_Picking_ZonesonOrder",
+      "Path": "SQL_STORED_PROCEDURE/dbo.WebTemplate_Picking_ZonesonOrder",
+      "DependsOn": []
+    },
+    {
+      "Type": "SQL_STORED_PROCEDURE",
+      "Name": "dbo.FIFOPickingRecommendation",
+      "Path": "SQL_STORED_PROCEDURE/dbo.FIFOPickingRecommendation",
+      "DependsOn": []
+    },
+    {
+      "Type": "SQL_STORED_PROCEDURE",
+      "Name": "dbo.ValidateLocation",
+      "Path": "SQL_STORED_PROCEDURE/dbo.ValidateLocation",
+      "DependsOn": []
+    },
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.Prescript_Picking_Document",
+      "Path": "PRESCRIPT/dbo.Prescript_Picking_Document",
+      "DependsOn": [
+        {
+          "Type": "SQL_STORED_PROCEDURE",
+          "Name": "dbo.FIFOPickingRecommendation"
+        }
+      ]
+    },
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.Prescript_Picking_TrackingEntity",
+      "Path": "PRESCRIPT/dbo.Prescript_Picking_TrackingEntity",
+      "DependsOn": [
+        {
+          "Type": "VIEW",
+          "Name": "dbo.MasterItemAlias_View"
+        }
+      ]
+    },
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.Prescript_Picking_Qty",
+      "Path": "PRESCRIPT/dbo.Prescript_Picking_Qty",
+      "DependsOn": [
+        {
+          "Type": "SQL_STORED_PROCEDURE",
+          "Name": "dbo.FIFOPickingRecommendation"
+        }
+      ]
+    },
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.Prescript_PickingStep200",
+      "Path": "PRESCRIPT/dbo.Prescript_PickingStep200",
+      "DependsOn": [
+        {
+          "Type": "SQL_STORED_PROCEDURE",
+          "Name": "dbo.FIFOPickingRecommendation"
+        }
+      ]
+    },
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.Prescript_Picking_FromLocation",
+      "Path": "PRESCRIPT/dbo.Prescript_Picking_FromLocation",
+      "DependsOn": [
+        {
+          "Type": "SQL_STORED_PROCEDURE",
+          "Name": "dbo.ValidateLocation"
+        }
+      ]
+    },
+    {
+      "Type": "PROCESS",
+      "Name": "PICKZONE_LOC_ITEM",
+      "Path": "",
+      "DependsOn": [
+        {
+          "Type": "PRESCRIPT",
+          "Name": "dbo.Prescript_PickingStep200"
+        },
+        {
+          "Type": "PRESCRIPT",
+          "Name": "dbo.Prescript_Picking_Document"
+        },
+        {
+          "Type": "PRESCRIPT",
+          "Name": "dbo.Prescript_Picking_FromLocation"
+        },
+        {
+          "Type": "PRESCRIPT",
+          "Name": "dbo.Prescript_Picking_Qty"
+        },
+        {
+          "Type": "PRESCRIPT",
+          "Name": "dbo.Prescript_Picking_TrackingEntity"
+        },
+        {
+          "Type": "SQL_STORED_PROCEDURE",
+          "Name": "dbo.WebTemplate_Picking_ZonesonOrder"
+        },
+        {
+          "Type": "VIEW",
+          "Name": "dbo.MasterItemAlias_View"
+        },
+        {
+          "Type": "VIEW",
+          "Name": "dbo.webtemplate_SOtoPick"
+        }
+      ]
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

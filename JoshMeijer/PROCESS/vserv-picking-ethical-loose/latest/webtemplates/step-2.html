@@ -1,0 +1,1 @@
+{{ "SELECT TOP 3 PickingCrate FROM WebTemplate_PickingEthical_Comment WHERE [User] = @UserName ORDER BY PickingCrate DESC" | dbSelect({UserName}) | basicTable({selectOnColumn:"PickingCrate", enableSearch:true}) }}

@@ -1,0 +1,95 @@
+{
+  "Identifier": "7ba2c574-22b4-41ba-8b16-5a47cd814845",
+  "Name": "LOOKUPCUSTOMEASYEDIT_V2",
+  "Description": "LOOKUPCUSTOMEASYEDIT_V2\n\nQuery Improvements & Allow to scan EAN/Alias barcodes under MasterItem\n\nN/a",
+  "Type": "PROCESS",
+  "Version": 0,
+  "LastModified": "29/06/2026",
+  "DatabaseVersion": "8.0.0.0",
+  "Tags": [
+    "Manufacturing",
+    "Retail",
+    "Automotive",
+    "Agricultural",
+    "Textile",
+    "Electronics",
+    "Construction",
+    "E-commerce",
+    "Logistics",
+    "Pharmaceutical",
+    "Cold Storage"
+  ],
+  "TypeSpecificAttributes": {
+    "ProcessType": "CUSTOM",
+    "ProcessName": "LOOKUPCUSTOMEASYEDIT_V2",
+    "ProcessDescription": "LOOKUPCUSTOMEASYEDIT_V2",
+    "IntegrationIsActive": false,
+    "IntegrationPost": false,
+    "ProcessStepMetadata": [
+      {
+        "Name": "Type",
+        "Description": "Type",
+        "Process": "LOOKUPCUSTOMEASYEDIT_V2",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": false,
+        "DefaultValue": "MasterItem",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "LookupValue",
+        "Description": "ENTER/SCAN Barcode",
+        "Process": "LOOKUPCUSTOMEASYEDIT_V2",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": false,
+        "PreScript": "PrescriptLookupMasterItemLookUpValue",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Display",
+        "Description": "Display",
+        "Process": "LOOKUPCUSTOMEASYEDIT_V2",
+        "ProcessIndex": 2,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": true
+      }
+    ]
+  },
+  "Components": [
+    {
+      "Type": "VIEW",
+      "Name": "dbo.MasterItemAlias_View",
+      "Path": "VIEW/dbo.MasterItemAlias_View",
+      "DependsOn": []
+    },
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.PreScript_LookupMasterItem_LookUpValue",
+      "Path": "PRESCRIPT/dbo.PreScript_LookupMasterItem_LookUpValue",
+      "DependsOn": [
+        {
+          "Type": "VIEW",
+          "Name": "dbo.MasterItemAlias_View"
+        }
+      ]
+    },
+    {
+      "Type": "PROCESS",
+      "Name": "LOOKUPCUSTOMEASYEDIT_V2",
+      "Path": "",
+      "DependsOn": [
+        {
+          "Type": "VIEW",
+          "Name": "dbo.MasterItemAlias_View"
+        }
+      ]
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

@@ -1,0 +1,2 @@
+{{ ['Inventory', 'MasterItem', 'Location', 'Batch', 'Serial'] | map => { Value: it } | createButtonList({ columnName: 'Value' }) }}
+{{ hideTextBox() }}

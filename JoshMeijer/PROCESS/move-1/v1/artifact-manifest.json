@@ -1,0 +1,159 @@
+{
+  "Identifier": "5424dd04-9c69-42a2-bd3e-50cfb41d2f42",
+  "Name": "MOVE",
+  "Description": "MOVE (Lists outstanding locations)\n\nLists locations a barcode still needs to pass through based on a predefined production path\n\nproduction path is picked up from a custom erp table",
+  "Type": "PROCESS",
+  "Version": 1,
+  "LastModified": "17/03/2026",
+  "DatabaseVersion": "8.0.0.0",
+  "Tags": [
+    "Manufacturing"
+  ],
+  "TypeSpecificAttributes": {
+    "ProcessType": "CUSTOM",
+    "ProcessName": "MOVE",
+    "ProcessDescription": "MOVE (Lists outstanding locations)",
+    "IntegrationIsActive": false,
+    "IntegrationPost": false,
+    "ProcessStepMetadata": [
+      {
+        "Name": "Location",
+        "Description": "Location",
+        "Process": "MOVE",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "DefaultValue": "CASTED",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "TrackingEntity",
+        "Description": "TrackingEntity",
+        "Process": "MOVE",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "OptionalFieldValue",
+        "Description": "Short Heat Number",
+        "Process": "MOVE",
+        "ProcessIndex": 2,
+        "NextIndex": 3,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Type",
+        "Description": "Type",
+        "Process": "MOVE",
+        "ProcessIndex": 3,
+        "NextIndex": 4,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Comment",
+        "Description": "Comment",
+        "Process": "MOVE",
+        "ProcessIndex": 4,
+        "NextIndex": 5,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Confirmation",
+        "Description": "Confirmation",
+        "Process": "MOVE",
+        "ProcessIndex": 5,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": false,
+        "PreScript": "PrescriptGenericQCConfirmation",
+        "hasWebTemplate": false
+      }
+    ]
+  },
+  "Components": [
+    {
+      "Type": "VIEW",
+      "Name": "dbo.WebtemplateQualitycontrolTrackingEntity",
+      "Path": "VIEW/dbo.WebtemplateQualitycontrolTrackingEntity",
+      "DependsOn": []
+    },
+    {
+      "Type": "SQL_STORED_PROCEDURE",
+      "Name": "dbo.Custom_Integration_EVOAPP",
+      "Path": "SQL_STORED_PROCEDURE/dbo.Custom_Integration_EVOAPP",
+      "DependsOn": []
+    },
+    {
+      "Type": "USER_TABLE",
+      "Name": "dbo.Custom_ProductionSignatureMap",
+      "Path": "USER_TABLE/dbo.Custom_ProductionSignatureMap",
+      "DependsOn": []
+    },
+    {
+      "Type": "SQL_STORED_PROCEDURE",
+      "Name": "dbo.custom_post_to_EVOApp",
+      "Path": "SQL_STORED_PROCEDURE/dbo.custom_post_to_EVOApp",
+      "DependsOn": []
+    },
+    {
+      "Type": "VIEW",
+      "Name": "dbo.Label_TrackingEntity",
+      "Path": "VIEW/dbo.Label_TrackingEntity",
+      "DependsOn": [
+        {
+          "Type": "USER_TABLE",
+          "Name": "dbo.Custom_ProductionSignatureMap"
+        }
+      ]
+    },
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.PrescriptGenericQCConfirmation",
+      "Path": "PRESCRIPT/dbo.PrescriptGenericQCConfirmation",
+      "DependsOn": [
+        {
+          "Type": "SQL_STORED_PROCEDURE",
+          "Name": "dbo.custom_post_to_EVOApp"
+        }
+      ]
+    },
+    {
+      "Type": "SQL_SCALAR_FUNCTION",
+      "Name": "dbo.FN_GetProductionToLocations",
+      "Path": "SQL_SCALAR_FUNCTION/dbo.FN_GetProductionToLocations",
+      "DependsOn": [
+        {
+          "Type": "VIEW",
+          "Name": "dbo.Label_TrackingEntity"
+        }
+      ]
+    },
+    {
+      "Type": "PROCESS",
+      "Name": "MOVE",
+      "Path": "",
+      "DependsOn": [
+        {
+          "Type": "PRESCRIPT",
+          "Name": "dbo.PrescriptGenericQCConfirmation"
+        },
+        {
+          "Type": "VIEW",
+          "Name": "dbo.WebtemplateQualitycontrolTrackingEntity"
+        }
+      ]
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

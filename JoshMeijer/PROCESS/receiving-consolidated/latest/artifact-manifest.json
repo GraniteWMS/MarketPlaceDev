@@ -1,0 +1,165 @@
+{
+  "Identifier": "e80ccbf1-6078-414f-9aae-4dcf587701cc",
+  "Name": "Receiving_Consolidated",
+  "Description": "Receiving\n\nConsolidate Batch, Serial and generic receiving into one process rather than separate\n\nUses the Enforce rules per item to skip steps.",
+  "Type": "PROCESS",
+  "Version": 0,
+  "LastModified": "05/08/2026",
+  "DatabaseVersion": "8.0.0.0",
+  "Tags": [],
+  "TypeSpecificAttributes": {
+    "ProcessType": "RECEIVING",
+    "ProcessName": "Receiving_Consolidated",
+    "ProcessDescription": "Receiving",
+    "IntegrationIsActive": false,
+    "IntegrationPost": false,
+    "ProcessStepMetadata": [
+      {
+        "Name": "Location",
+        "Description": "Receiving Location",
+        "Process": "Receiving_Consolidated",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": false,
+        "DefaultValue": "REC",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Document",
+        "Description": "Document",
+        "Process": "Receiving_Consolidated",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "MasterItem",
+        "Description": "MasterItem",
+        "Process": "Receiving_Consolidated",
+        "ProcessIndex": 2,
+        "NextIndex": 3,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Batch",
+        "Description": "Batch",
+        "Process": "Receiving_Consolidated",
+        "ProcessIndex": 3,
+        "NextIndex": 4,
+        "isActive": true,
+        "Required": false,
+        "PreScript": "PrescriptReceivingBatch",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "ExpiryDate",
+        "Description": "ExpiryDate (YYYYMMDD)",
+        "Process": "Receiving_Consolidated",
+        "ProcessIndex": 4,
+        "NextIndex": 5,
+        "isActive": true,
+        "Required": false,
+        "PreScript": "PrescriptReceivingExpiryDate",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "SerialNumber",
+        "Description": "SerialNumber",
+        "Process": "Receiving_Consolidated",
+        "ProcessIndex": 5,
+        "NextIndex": 6,
+        "isActive": true,
+        "Required": false,
+        "PreScript": "PrescriptReceivingSerialNumber",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Qty",
+        "Description": "Qty",
+        "Process": "Receiving_Consolidated",
+        "ProcessIndex": 6,
+        "NextIndex": 7,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Confirmation",
+        "Description": "Confirmation",
+        "Process": "Receiving_Consolidated",
+        "ProcessIndex": 7,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Print",
+        "Description": "Print",
+        "Process": "Receiving_Consolidated",
+        "ProcessIndex": 99,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": false
+      }
+    ]
+  },
+  "Components": [
+    {
+      "Type": "VIEW",
+      "Name": "dbo.Webtemplate_ReceivingDocuments",
+      "Path": "VIEW/dbo.Webtemplate_ReceivingDocuments",
+      "DependsOn": []
+    },
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.PrescriptReceivingBatch",
+      "Path": "PRESCRIPT/dbo.PrescriptReceivingBatch",
+      "DependsOn": []
+    },
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.PrescriptReceivingExpiryDate",
+      "Path": "PRESCRIPT/dbo.PrescriptReceivingExpiryDate",
+      "DependsOn": []
+    },
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.PrescriptReceivingSerialNumber",
+      "Path": "PRESCRIPT/dbo.PrescriptReceivingSerialNumber",
+      "DependsOn": []
+    },
+    {
+      "Type": "PROCESS",
+      "Name": "Receiving_Consolidated",
+      "Path": "",
+      "DependsOn": [
+        {
+          "Type": "PRESCRIPT",
+          "Name": "dbo.PrescriptReceivingBatch"
+        },
+        {
+          "Type": "PRESCRIPT",
+          "Name": "dbo.PrescriptReceivingExpiryDate"
+        },
+        {
+          "Type": "PRESCRIPT",
+          "Name": "dbo.PrescriptReceivingSerialNumber"
+        },
+        {
+          "Type": "VIEW",
+          "Name": "dbo.Webtemplate_ReceivingDocuments"
+        }
+      ]
+    }
+  ],
+  "DependsOnClr": true,
+  "SqlClrAssemblyVersion": "7.0.0.0",
+  "Deprecated": false
+}

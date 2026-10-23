@@ -1,0 +1,39 @@
+{
+  "Name": "VSERV_CORRECT_ETHICAL_BOX",
+  "Description": "VSERV_CORRECT_ETHICAL_BOX",
+  "Type": "ADJUSTMENT",
+  "IsActive": true,
+  "IntegrationIsActive": true,
+  "IntegrationPost": true,
+  "Steps": [
+    {
+      "Name": "TrackingEntity",
+      "Description": "Scan Ethical (ETHL) Box",
+      "ProcessIndex": 0,
+      "NextIndex": 1,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "Prescript_CorrectEthicalBox_TrackingEntity"
+    },
+    {
+      "Name": "Qty",
+      "Description": "Enter Corrected Qty",
+      "ProcessIndex": 1,
+      "NextIndex": 0,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "Prescript_AdjustToQty_Qty"
+    },
+    {
+      "Name": "Type",
+      "Description": "Type",
+      "ProcessIndex": 100,
+      "NextIndex": 0,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false
+    }
+  ]
+}

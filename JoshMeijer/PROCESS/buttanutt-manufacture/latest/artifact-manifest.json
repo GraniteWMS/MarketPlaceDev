@@ -1,0 +1,131 @@
+{
+  "Identifier": "7ef09d8b-74eb-4a08-9ca5-2654ac499406",
+  "Name": "BUTTANUTT_MANUFACTURE",
+  "Description": "BUTTANUTT_MANUFACTURE\n\nIt defaults the manufacturing location to the ToLocation on the document",
+  "Type": "PROCESS",
+  "Version": 0,
+  "LastModified": "24/02/2026",
+  "DatabaseVersion": "8.0.0.0",
+  "Tags": [],
+  "TypeSpecificAttributes": {
+    "ProcessType": "MANUFACTURE",
+    "ProcessName": "BUTTANUTT_MANUFACTURE",
+    "ProcessDescription": "BUTTANUTT_MANUFACTURE",
+    "IntegrationIsActive": false,
+    "IntegrationPost": false,
+    "ProcessStepMetadata": [
+      {
+        "Name": "Document",
+        "Description": "Manufacturing Document",
+        "Process": "BUTTANUTT_MANUFACTURE",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_Manufacture_Document",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "MasterItem",
+        "Description": "MasterItem",
+        "Process": "BUTTANUTT_MANUFACTURE",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Batch",
+        "Description": "Batch",
+        "Process": "BUTTANUTT_MANUFACTURE",
+        "ProcessIndex": 2,
+        "NextIndex": 3,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "ExpiryDate",
+        "Description": "ExpiryDate (YYYYMMDD)",
+        "Process": "BUTTANUTT_MANUFACTURE",
+        "ProcessIndex": 3,
+        "NextIndex": 4,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Qty",
+        "Description": "Qty per TrackingEntity",
+        "Process": "BUTTANUTT_MANUFACTURE",
+        "ProcessIndex": 4,
+        "NextIndex": 5,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "NoEntities",
+        "Description": "Number of Identical TrackingEntities",
+        "Process": "BUTTANUTT_MANUFACTURE",
+        "ProcessIndex": 5,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Print",
+        "Description": "Print",
+        "Process": "BUTTANUTT_MANUFACTURE",
+        "ProcessIndex": 99,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Location",
+        "Description": "Location",
+        "Process": "BUTTANUTT_MANUFACTURE",
+        "ProcessIndex": 100,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": false
+      }
+    ]
+  },
+  "Components": [
+    {
+      "Type": "VIEW",
+      "Name": "dbo.WebTemplate_Manufacture_Document",
+      "Path": "VIEW/dbo.WebTemplate_Manufacture_Document",
+      "DependsOn": []
+    },
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.Prescript_Manufacture_Document",
+      "Path": "PRESCRIPT/dbo.Prescript_Manufacture_Document",
+      "DependsOn": []
+    },
+    {
+      "Type": "PROCESS",
+      "Name": "BUTTANUTT_MANUFACTURE",
+      "Path": "",
+      "DependsOn": [
+        {
+          "Type": "PRESCRIPT",
+          "Name": "dbo.Prescript_Manufacture_Document"
+        },
+        {
+          "Type": "VIEW",
+          "Name": "dbo.WebTemplate_Manufacture_Document"
+        }
+      ]
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

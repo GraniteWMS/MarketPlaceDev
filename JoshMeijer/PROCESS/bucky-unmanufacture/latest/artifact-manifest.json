@@ -1,0 +1,109 @@
+{
+  "Identifier": "000394ab-e515-416e-9cfa-3d0484940f5e",
+  "Name": "BUCKY_UNMANUFACTURE",
+  "Description": "BUCKY_UNMANUFACTURE\n\nUseful for reversing a manufacture transaction on the scanner. Has strong built-in, tested rules and functionality.",
+  "Type": "PROCESS",
+  "Version": 0,
+  "LastModified": "27/01/2026",
+  "DatabaseVersion": "8.0.0.0",
+  "Tags": [
+    "Manufacturing",
+    "Retail",
+    "Automotive",
+    "Agricultural",
+    "Textile",
+    "Electronics",
+    "Construction",
+    "E-commerce",
+    "Logistics",
+    "Pharmaceutical",
+    "Cold Storage"
+  ],
+  "TypeSpecificAttributes": {
+    "ProcessType": "CUSTOM",
+    "ProcessName": "BUCKY_UNMANUFACTURE",
+    "ProcessDescription": "BUCKY_UNMANUFACTURE",
+    "IntegrationIsActive": false,
+    "IntegrationPost": false,
+    "ProcessStepMetadata": [
+      {
+        "Name": "Document",
+        "Description": "Enter Document",
+        "Process": "BUCKY_UNMANUFACTURE",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "TransactionID",
+        "Description": "Select Transaction ID",
+        "Process": "BUCKY_UNMANUFACTURE",
+        "ProcessIndex": 1,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_UnmanufactureTransaction_TransactionID",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Step200",
+        "Description": "Reverses the Transaction",
+        "Process": "BUCKY_UNMANUFACTURE",
+        "ProcessIndex": 200,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_UnmanufactureTransaction_Step200",
+        "hasWebTemplate": false
+      }
+    ]
+  },
+  "Components": [
+    {
+      "Type": "VIEW",
+      "Name": "dbo.WebTemplate_UnmanufactureTransaction_TransactionID",
+      "Path": "VIEW/dbo.WebTemplate_UnmanufactureTransaction_TransactionID",
+      "DependsOn": []
+    },
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.Prescript_UnmanufactureTransaction_TransactionID",
+      "Path": "PRESCRIPT/dbo.Prescript_UnmanufactureTransaction_TransactionID",
+      "DependsOn": [
+        {
+          "Type": "VIEW",
+          "Name": "dbo.WebTemplate_UnmanufactureTransaction_TransactionID"
+        }
+      ]
+    },
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.Prescript_UnmanufactureTransaction_Step200",
+      "Path": "PRESCRIPT/dbo.Prescript_UnmanufactureTransaction_Step200",
+      "DependsOn": []
+    },
+    {
+      "Type": "PROCESS",
+      "Name": "BUCKY_UNMANUFACTURE",
+      "Path": "",
+      "DependsOn": [
+        {
+          "Type": "PRESCRIPT",
+          "Name": "dbo.Prescript_UnmanufactureTransaction_Step200"
+        },
+        {
+          "Type": "PRESCRIPT",
+          "Name": "dbo.Prescript_UnmanufactureTransaction_TransactionID"
+        },
+        {
+          "Type": "VIEW",
+          "Name": "dbo.WebTemplate_UnmanufactureTransaction_TransactionID"
+        }
+      ]
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

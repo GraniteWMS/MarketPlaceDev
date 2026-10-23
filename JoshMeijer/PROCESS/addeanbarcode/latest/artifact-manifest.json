@@ -1,0 +1,117 @@
+{
+  "Identifier": "3c233467-bcfe-4102-8500-4873216ad32b",
+  "Name": "ADDEANBARCODE",
+  "Description": "ADD EAN BARCODE\n\nIf you want to link EAN barcode to the item codes\n\nN/a",
+  "Type": "PROCESS",
+  "Version": 0,
+  "LastModified": "06/04/2026",
+  "DatabaseVersion": "8.0.0.0",
+  "Tags": [
+    "Manufacturing",
+    "Retail",
+    "Automotive",
+    "Agricultural",
+    "Textile",
+    "Electronics",
+    "Construction",
+    "E-commerce",
+    "Logistics",
+    "Pharmaceutical",
+    "Cold Storage"
+  ],
+  "TypeSpecificAttributes": {
+    "ProcessType": "CUSTOM",
+    "ProcessName": "ADDEANBARCODE",
+    "ProcessDescription": "ADD EAN BARCODE",
+    "IntegrationMethod": "False",
+    "IntegrationIsActive": false,
+    "IntegrationPost": false,
+    "ProcessStepMetadata": [
+      {
+        "Name": "MasterItem",
+        "Description": "Enter MasterItem",
+        "Process": "ADDEANBARCODE",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "PrescriptAddEANBarcodeMasterItem",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "EANBarcode",
+        "Description": "Scan EAN Barcode",
+        "Process": "ADDEANBARCODE",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "PrescriptAddEANBarcodeEANBarcode",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Confirmation",
+        "Description": "Confirm to add Product Code to Sage Item",
+        "Process": "ADDEANBARCODE",
+        "ProcessIndex": 2,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "PrescriptAddEANBarcodeConfirmation",
+        "hasWebTemplate": false
+      }
+    ]
+  },
+  "Components": [
+    {
+      "Type": "VIEW",
+      "Name": "dbo.MasterItemAlias_View",
+      "Path": "VIEW/dbo.MasterItemAlias_View",
+      "DependsOn": []
+    },
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.PrescriptAddEANBarcodeMasterItem",
+      "Path": "PRESCRIPT/dbo.PrescriptAddEANBarcodeMasterItem",
+      "DependsOn": [
+        {
+          "Type": "VIEW",
+          "Name": "dbo.MasterItemAlias_View"
+        }
+      ]
+    },
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.PrescriptAddEANBarcodeEANBarcode",
+      "Path": "PRESCRIPT/dbo.PrescriptAddEANBarcodeEANBarcode",
+      "DependsOn": []
+    },
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.PrescriptAddEANBarcodeConfirmation",
+      "Path": "PRESCRIPT/dbo.PrescriptAddEANBarcodeConfirmation",
+      "DependsOn": []
+    },
+    {
+      "Type": "PROCESS",
+      "Name": "ADDEANBARCODE",
+      "Path": "",
+      "DependsOn": [
+        {
+          "Type": "PRESCRIPT",
+          "Name": "dbo.PrescriptAddEANBarcodeConfirmation"
+        },
+        {
+          "Type": "PRESCRIPT",
+          "Name": "dbo.PrescriptAddEANBarcodeEANBarcode"
+        },
+        {
+          "Type": "PRESCRIPT",
+          "Name": "dbo.PrescriptAddEANBarcodeMasterItem"
+        }
+      ]
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

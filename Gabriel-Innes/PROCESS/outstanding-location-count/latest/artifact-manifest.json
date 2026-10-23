@@ -1,0 +1,121 @@
+{
+  "Identifier": "c9ad457c-e3e9-4dcb-a2cb-35577fbb10f0",
+  "Name": "OUTSTANDING_LOCATION_COUNT",
+  "Description": "OUTSTANDING_LOCATION_COUNT\n\nThis process includes 2 webtemplates that show outstanding locations and tracking entities for each count.\n\nThe prescript on the tracking entity step will set the tracking counted quantity to 0 so that new qty for the count will override it. Remove this prescript for standard stock take behavior.",
+  "Type": "PROCESS",
+  "Version": 0,
+  "LastModified": "15/02/2024",
+  "DatabaseVersion": "8.0.0.0",
+  "Tags": [],
+  "TypeSpecificAttributes": {
+    "ProcessType": "STOCKTAKECOUNT",
+    "ProcessName": "OUTSTANDING_LOCATION_COUNT",
+    "ProcessDescription": "OUTSTANDING_LOCATION_COUNT",
+    "IntegrationIsActive": false,
+    "IntegrationPost": false,
+    "ProcessStepMetadata": [
+      {
+        "Name": "Session",
+        "Description": "Session",
+        "Process": "OUTSTANDING_LOCATION_COUNT",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Count",
+        "Description": "Count",
+        "Process": "OUTSTANDING_LOCATION_COUNT",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Location",
+        "Description": "Location",
+        "Process": "OUTSTANDING_LOCATION_COUNT",
+        "ProcessIndex": 2,
+        "NextIndex": 3,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "TrackingEntity",
+        "Description": "TrackingEntity",
+        "Process": "OUTSTANDING_LOCATION_COUNT",
+        "ProcessIndex": 3,
+        "NextIndex": 4,
+        "isActive": true,
+        "Required": false,
+        "PreScript": "PrescriptStocktakeTrackingEntity",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "PalletConfirmation",
+        "Description": "PalletConfirmation",
+        "Process": "OUTSTANDING_LOCATION_COUNT",
+        "ProcessIndex": 4,
+        "NextIndex": 5,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Qty",
+        "Description": "Qty",
+        "Process": "OUTSTANDING_LOCATION_COUNT",
+        "ProcessIndex": 5,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": false
+      }
+    ]
+  },
+  "Components": [
+    {
+      "Type": "SQL_STORED_PROCEDURE",
+      "Name": "dbo.WebtemplateStockTakeLocation",
+      "Path": "SQL_STORED_PROCEDURE/dbo.WebtemplateStockTakeLocation",
+      "DependsOn": []
+    },
+    {
+      "Type": "SQL_STORED_PROCEDURE",
+      "Name": "dbo.WebtemplateStockTakeTrackingEntity",
+      "Path": "SQL_STORED_PROCEDURE/dbo.WebtemplateStockTakeTrackingEntity",
+      "DependsOn": []
+    },
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.PrescriptStocktakeTrackingEntity",
+      "Path": "PRESCRIPT/dbo.PrescriptStocktakeTrackingEntity",
+      "DependsOn": []
+    },
+    {
+      "Type": "PROCESS",
+      "Name": "OUTSTANDING_LOCATION_COUNT",
+      "Path": "",
+      "DependsOn": [
+        {
+          "Type": "PRESCRIPT",
+          "Name": "dbo.PrescriptStocktakeTrackingEntity"
+        },
+        {
+          "Type": "SQL_STORED_PROCEDURE",
+          "Name": "dbo.WebtemplateStockTakeLocation"
+        },
+        {
+          "Type": "SQL_STORED_PROCEDURE",
+          "Name": "dbo.WebtemplateStockTakeTrackingEntity"
+        }
+      ]
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

@@ -1,0 +1,1 @@
+{{ "SELECT Barcode, ItemCode, ItemDescription, Qty FROM WebTemplate_ReplenishFromEthicalReceivingBox_FromTrackingEntity WHERE [Box] = @Box" | dbSelect({Box}) | basicTable({selectOnColumn:"Barcode", enableSearch:true}) }}

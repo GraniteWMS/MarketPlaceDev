@@ -1,0 +1,26 @@
+CREATE VIEW [dbo].[Information_Accpac_SalesOrderDetail] as
+SELECT  ORDUNIQ Document_ERPIdentification,
+		LINENUM [LineNumber], 
+		LINENUM ERPIdentification, 
+		ITEM ItemCode,
+		[DESC] ItemDescription,
+		[CATEGORY] Category,
+		STOCKITEM Stockitem, 
+		([UNITCONV] * ([QTYCOMMIT]+[QTYSHPTODT])) UOMQty, 
+		[QTYCOMMIT]+[QTYSHPTODT] Qty,
+		[QTYCOMMIT] + [QTYSHPTODT] COMMITTEDQTY,
+		[QTYORDERED]+[QTYSHPTODT] ORDERQTY,
+		[QTYSHIPPED],
+		[QTYBACKORD],
+		[QTYSHPTODT],
+		[ORIGQTY],
+		[AVGCOST],
+		RTRIM([ORDUNIT]) UOM, 
+		[UNITCONV] UOMConversion,
+		[UNITPRICE] UnitPrice,
+		[UNITWEIGHT] UnitWeight,
+		RTRIM([LOCATION]) FromLocation, 
+		RTRIM([ITEM]) MasterItem_ERPIdentification, 
+		CASE WHEN [COMPLETE] < 2 THEN 0 ELSE 1 END  Completed
+FROM [TSTDAT].dbo.[OEORDD] WITH (NOLOCK)
+WHERE STOCKITEM = 1

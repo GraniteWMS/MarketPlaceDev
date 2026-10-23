@@ -1,0 +1,48 @@
+;WITH PickSlipDeliveryNotes AS
+(
+    SELECT
+          PS.ID     AS PickSlipID
+        , PS.Number AS PickSlipNumber
+        , DN.Number AS DeliveryNoteNumber
+        , DLB.LoadingBay
+        , L.ERPLocation
+    FROM dbo.[Document] PS
+    INNER JOIN dbo.[Type] T
+        ON PS.[Type] = T.[Name]
+    INNER JOIN dbo.[Status] S
+        ON PS.[Status] = S.[Name]
+    LEFT JOIN dbo.DocumentDetail DD
+        ON PS.ID = DD.Document_id
+    LEFT JOIN dbo.DocumentDetail DD_SO
+        ON DD.LinkedDetail_id = DD_SO.ID
+    LEFT JOIN dbo.[Document] DN
+        ON DD_SO.Document_id = DN.ID
+    LEFT JOIN dbo.DeliveryNoteLoadingBay DLB
+        ON DLB.Document_id = DN.ID
+    LEFT JOIN dbo.Location L
+        ON L.Barcode = DLB.LoadingBay
+    WHERE T.[Name] = "PICKSLIP"
+      AND S.[Name] <> "COMPLETE"
+)
+SELECT
+      P.PickSlipNumber
+    , STRING_AGG(P.DeliveryNoteNumber, ", ") AS DeliveryNotes
+    , MAX(P.LoadingBay) AS LoadingBay
+    , MAX(ERPLocation) AS ERPLocation
+FROM
+(
+    SELECT DISTINCT
+          PickSlipNumber
+        , DeliveryNoteNumber
+        , LoadingBay
+        , ERPLocation
+    FROM PickSlipDeliveryNotes
+) P
+WHERE LoadingBay = @Location
+GROUP BY
+    P.PickSlipNumber
+ORDER BY
+    P.PickSlipNumber;
+
+{{ ['ADD'] | map => { Value: it } | createButtonList({ columnName: 'Value' }) }}
+{{ hideTextBox() }}

@@ -1,0 +1,1 @@
+{{ "EXEC Webtemplate_Replenish_ToTrackingEntity @FromTrackingEntity" | dbSelect({FromTrackingEntity}) | basicTable({selectOnColumn:"TEBarcode", enableSearch:true}) }}

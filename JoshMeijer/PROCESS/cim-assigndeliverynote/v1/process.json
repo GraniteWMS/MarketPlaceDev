@@ -1,0 +1,52 @@
+{
+  "Name": "CIM_ASSIGNDELIVERYNOTE",
+  "Description": "CIM ASSIGN DELIVERYNOTE TO LOADING BAY",
+  "Type": "CUSTOM",
+  "IsActive": true,
+  "IntegrationIsActive": false,
+  "IntegrationPost": false,
+  "Steps": [
+    {
+      "Name": "Location",
+      "Description": "Select Loading Bay",
+      "ProcessIndex": 0,
+      "NextIndex": 1,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "WebTemplateFile": "webtemplates/step-1.html"
+    },
+    {
+      "Name": "PickSlip",
+      "Description": "Add new or Select Existing Pickslip",
+      "ProcessIndex": 1,
+      "NextIndex": 2,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "PrescriptAssignDeliveryNotePickSlip",
+      "WebTemplateFile": "webtemplates/step-2.html"
+    },
+    {
+      "Name": "Type",
+      "Description": "Add/Remove or Loading Bay",
+      "ProcessIndex": 2,
+      "NextIndex": 3,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "WebTemplateFile": "webtemplates/step-3.html"
+    },
+    {
+      "Name": "DeliveryNote",
+      "Description": "DeliveryNote",
+      "ProcessIndex": 3,
+      "NextIndex": 2,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "PrescriptAssignDeliveryNoteDeliveryNote",
+      "WebTemplateFile": "webtemplates/step-4.html"
+    }
+  ]
+}

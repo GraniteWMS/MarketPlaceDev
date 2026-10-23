@@ -1,0 +1,98 @@
+{
+  "Identifier": "54bb4b67-cc5b-4a5d-b91a-87903c950f93",
+  "Name": "VSERV_PUTAWAY",
+  "Description": "VSERV_PUTAWAY\n\nEnsures you are always putting away from receiving to a type Bulk location",
+  "Type": "PROCESS",
+  "Version": 0,
+  "LastModified": "09/02/2026",
+  "DatabaseVersion": "8.0.0.0",
+  "Tags": [
+    "Retail",
+    "Automotive",
+    "Agricultural",
+    "Textile",
+    "Electronics",
+    "Construction",
+    "E-commerce",
+    "Logistics",
+    "Pharmaceutical",
+    "Cold Storage"
+  ],
+  "TypeSpecificAttributes": {
+    "ProcessType": "MOVE",
+    "ProcessName": "VSERV_PUTAWAY",
+    "ProcessDescription": "VSERV_PUTAWAY",
+    "IntegrationIsActive": false,
+    "IntegrationPost": false,
+    "ProcessStepMetadata": [
+      {
+        "Name": "Location",
+        "Description": "To Bulk Location",
+        "Process": "VSERV_PUTAWAY",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_Putaway_Location",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "TrackingEntity",
+        "Description": "TrackingEntity",
+        "Process": "VSERV_PUTAWAY",
+        "ProcessIndex": 1,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_Putaway_TrackingEntity",
+        "hasWebTemplate": false
+      }
+    ]
+  },
+  "Components": [
+    {
+      "Type": "VIEW",
+      "Name": "dbo.WebTemplate_Putaway_Location",
+      "Path": "VIEW/dbo.WebTemplate_Putaway_Location",
+      "DependsOn": []
+    },
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.Prescript_Putaway_TrackingEntity",
+      "Path": "PRESCRIPT/dbo.Prescript_Putaway_TrackingEntity",
+      "DependsOn": []
+    },
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.Prescript_Putaway_Location",
+      "Path": "PRESCRIPT/dbo.Prescript_Putaway_Location",
+      "DependsOn": [
+        {
+          "Type": "VIEW",
+          "Name": "dbo.WebTemplate_Putaway_Location"
+        }
+      ]
+    },
+    {
+      "Type": "PROCESS",
+      "Name": "VSERV_PUTAWAY",
+      "Path": "",
+      "DependsOn": [
+        {
+          "Type": "PRESCRIPT",
+          "Name": "dbo.Prescript_Putaway_Location"
+        },
+        {
+          "Type": "PRESCRIPT",
+          "Name": "dbo.Prescript_Putaway_TrackingEntity"
+        },
+        {
+          "Type": "VIEW",
+          "Name": "dbo.WebTemplate_Putaway_Location"
+        }
+      ]
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

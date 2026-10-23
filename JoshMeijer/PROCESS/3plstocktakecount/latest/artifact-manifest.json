@@ -1,0 +1,141 @@
+{
+  "Identifier": "34ddd9db-bd88-45f0-8f7e-c42def0baed7",
+  "Name": "3PLSTOCKTAKECOUNT",
+  "Description": "Stocktake Count with webtemplates\n\nStandard Stocktake count made more user friendly on the scanner to select Session, Show locations to count, and show outstanding barcodes in the locations.  Also requires Batch to be captured\n\nBatch is not currently tied to any logic",
+  "Type": "PROCESS",
+  "Version": 0,
+  "LastModified": "24/06/2024",
+  "DatabaseVersion": "8.0.0.0",
+  "Tags": [],
+  "TypeSpecificAttributes": {
+    "ProcessType": "STOCKTAKECOUNT",
+    "ProcessName": "3PLSTOCKTAKECOUNT",
+    "ProcessDescription": "Stocktake Count with webtemplates",
+    "IntegrationIsActive": false,
+    "IntegrationPost": false,
+    "ProcessStepMetadata": [
+      {
+        "Name": "Session",
+        "Description": "Session",
+        "Process": "3PLSTOCKTAKECOUNT",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Count",
+        "Description": "Count",
+        "Process": "3PLSTOCKTAKECOUNT",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Location",
+        "Description": "Location",
+        "Process": "3PLSTOCKTAKECOUNT",
+        "ProcessIndex": 2,
+        "NextIndex": 3,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "TrackingEntity",
+        "Description": "TrackingEntity",
+        "Process": "3PLSTOCKTAKECOUNT",
+        "ProcessIndex": 3,
+        "NextIndex": 4,
+        "isActive": true,
+        "Required": false,
+        "PreScript": "PrescriptStoctakeCountTrackingEntity",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Batch",
+        "Description": "BatchConfirm",
+        "Process": "3PLSTOCKTAKECOUNT",
+        "ProcessIndex": 4,
+        "NextIndex": 5,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "PalletConfirmation",
+        "Description": "PalletConfirmation",
+        "Process": "3PLSTOCKTAKECOUNT",
+        "ProcessIndex": 5,
+        "NextIndex": 6,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Qty",
+        "Description": "Qty",
+        "Process": "3PLSTOCKTAKECOUNT",
+        "ProcessIndex": 6,
+        "NextIndex": 3,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": false
+      }
+    ]
+  },
+  "Components": [
+    {
+      "Type": "VIEW",
+      "Name": "dbo.webtemplate_ActiveStocktakesessions",
+      "Path": "VIEW/dbo.webtemplate_ActiveStocktakesessions",
+      "DependsOn": []
+    },
+    {
+      "Type": "SQL_STORED_PROCEDURE",
+      "Name": "dbo.WebtemplateStockTakeLocation",
+      "Path": "SQL_STORED_PROCEDURE/dbo.WebtemplateStockTakeLocation",
+      "DependsOn": []
+    },
+    {
+      "Type": "SQL_STORED_PROCEDURE",
+      "Name": "dbo.WebtemplateStockTakeTrackingEntity",
+      "Path": "SQL_STORED_PROCEDURE/dbo.WebtemplateStockTakeTrackingEntity",
+      "DependsOn": []
+    },
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.PrescriptStoctakeCountTrackingEntity",
+      "Path": "PRESCRIPT/dbo.PrescriptStoctakeCountTrackingEntity",
+      "DependsOn": []
+    },
+    {
+      "Type": "PROCESS",
+      "Name": "3PLSTOCKTAKECOUNT",
+      "Path": "",
+      "DependsOn": [
+        {
+          "Type": "PRESCRIPT",
+          "Name": "dbo.PrescriptStoctakeCountTrackingEntity"
+        },
+        {
+          "Type": "SQL_STORED_PROCEDURE",
+          "Name": "dbo.WebtemplateStockTakeLocation"
+        },
+        {
+          "Type": "SQL_STORED_PROCEDURE",
+          "Name": "dbo.WebtemplateStockTakeTrackingEntity"
+        },
+        {
+          "Type": "VIEW",
+          "Name": "dbo.webtemplate_ActiveStocktakesessions"
+        }
+      ]
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

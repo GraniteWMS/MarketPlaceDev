@@ -1,0 +1,73 @@
+{
+  "Identifier": "578cf1e3-e98e-43b3-87e7-df3694bc2f4d",
+  "Name": "RD_LOOKUP",
+  "Description": "Retail Distribution LOOKUP\n\nGeneric Lookup where user can scan Item Code or alias to see all locations, or can scan Location.\nUses Process Webtemplate.  After any scan, Press ENTER to Reset the process for the next lookup\n\nUses Process Webtemplate",
+  "Type": "PROCESS",
+  "Version": 0,
+  "LastModified": "09/10/2025",
+  "DatabaseVersion": "8.0.0.0",
+  "Tags": [
+    "Retail"
+  ],
+  "TypeSpecificAttributes": {
+    "ProcessType": "CUSTOM",
+    "ProcessName": "RD_LOOKUP",
+    "ProcessDescription": "Retail Distribution LOOKUP",
+    "IntegrationIsActive": false,
+    "IntegrationPost": false,
+    "ProcessStepMetadata": [
+      {
+        "Name": "Scanned",
+        "Description": "Scan a Barcode",
+        "Process": "RD_LOOKUP",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Result",
+        "Description": "Press Enter to Restart",
+        "Process": "RD_LOOKUP",
+        "ProcessIndex": 1,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": false
+      }
+    ]
+  },
+  "Components": [
+    {
+      "Type": "VIEW",
+      "Name": "dbo.MasterItemAlias_View",
+      "Path": "VIEW/dbo.MasterItemAlias_View",
+      "DependsOn": []
+    },
+    {
+      "Type": "SQL_STORED_PROCEDURE",
+      "Name": "dbo.GetLookupData",
+      "Path": "SQL_STORED_PROCEDURE/dbo.GetLookupData",
+      "DependsOn": [
+        {
+          "Type": "VIEW",
+          "Name": "dbo.MasterItemAlias_View"
+        }
+      ]
+    },
+    {
+      "Type": "PROCESS",
+      "Name": "RD_LOOKUP",
+      "Path": "",
+      "DependsOn": [
+        {
+          "Type": "SQL_STORED_PROCEDURE",
+          "Name": "dbo.GetLookupData"
+        }
+      ]
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

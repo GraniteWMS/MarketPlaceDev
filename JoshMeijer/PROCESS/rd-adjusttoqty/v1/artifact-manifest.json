@@ -1,0 +1,128 @@
+{
+  "Identifier": "6213fba8-67be-4e1a-ae1d-0a66fa68fd29",
+  "Name": "RD_ADJUSTTOQTY",
+  "Description": "Retail Distribution ADJUST TO QTY Entered\n\nRetail Distribution - Adjust a location to increase or decrease the Qty in that Location.  TE = Location_ItemCode\nQty entered instead of Adjust by Qty.  This allows them to simple adjust to the counted Qty.\n\nSpecial Code to Resolve Item Code Alias Barcode (Strip Checkdigit for some items).  Calculate Qty to Adjust to for CLR.",
+  "Type": "PROCESS",
+  "Version": 1,
+  "LastModified": "09/10/2025",
+  "DatabaseVersion": "8.0.0.0",
+  "Tags": [
+    "Retail"
+  ],
+  "TypeSpecificAttributes": {
+    "ProcessType": "CUSTOM",
+    "ProcessName": "RD_ADJUSTTOQTY",
+    "ProcessDescription": "Retail Distribution ADJUST TO QTY Entered",
+    "IntegrationIsActive": false,
+    "IntegrationPost": false,
+    "ProcessStepMetadata": [
+      {
+        "Name": "Location",
+        "Description": "Scan Location",
+        "Process": "RD_ADJUSTTOQTY",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "PrescriptAdjustToQtyLocation",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "TrackingEntity",
+        "Description": "Select or Scan Item",
+        "Process": "RD_ADJUSTTOQTY",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "PrescriptAdjustToQtyTrackingEntity",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Qty",
+        "Description": "Qty",
+        "Process": "RD_ADJUSTTOQTY",
+        "ProcessIndex": 2,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "PrescriptAdjustToQtyQty",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Step200",
+        "Description": "Step200",
+        "Process": "RD_ADJUSTTOQTY",
+        "ProcessIndex": 200,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "PrescriptAdjustToQtyStep200",
+        "hasWebTemplate": false
+      }
+    ]
+  },
+  "Components": [
+    {
+      "Type": "VIEW",
+      "Name": "dbo.MasterItemAlias_View",
+      "Path": "VIEW/dbo.MasterItemAlias_View",
+      "DependsOn": []
+    },
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.PrescriptAdjustToQtyTrackingEntity",
+      "Path": "PRESCRIPT/dbo.PrescriptAdjustToQtyTrackingEntity",
+      "DependsOn": [
+        {
+          "Type": "VIEW",
+          "Name": "dbo.MasterItemAlias_View"
+        }
+      ]
+    },
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.PrescriptAdjustToQtyQty",
+      "Path": "PRESCRIPT/dbo.PrescriptAdjustToQtyQty",
+      "DependsOn": []
+    },
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.PrescriptAdjustToQtyStep200",
+      "Path": "PRESCRIPT/dbo.PrescriptAdjustToQtyStep200",
+      "DependsOn": []
+    },
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.PrescriptAdjustToQtyLocation",
+      "Path": "PRESCRIPT/dbo.PrescriptAdjustToQtyLocation",
+      "DependsOn": []
+    },
+    {
+      "Type": "PROCESS",
+      "Name": "RD_ADJUSTTOQTY",
+      "Path": "",
+      "DependsOn": [
+        {
+          "Type": "PRESCRIPT",
+          "Name": "dbo.PrescriptAdjustToQtyLocation"
+        },
+        {
+          "Type": "PRESCRIPT",
+          "Name": "dbo.PrescriptAdjustToQtyQty"
+        },
+        {
+          "Type": "PRESCRIPT",
+          "Name": "dbo.PrescriptAdjustToQtyStep200"
+        },
+        {
+          "Type": "PRESCRIPT",
+          "Name": "dbo.PrescriptAdjustToQtyTrackingEntity"
+        }
+      ]
+    }
+  ],
+  "DependsOnClr": true,
+  "SqlClrAssemblyVersion": "7.0.0.0",
+  "Deprecated": false
+}

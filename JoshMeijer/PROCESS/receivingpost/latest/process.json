@@ -1,0 +1,28 @@
+{
+  "Name": "RECEIVINGPOST",
+  "Description": "RECEIVINGPOST",
+  "Type": "RECEIVINGPOST",
+  "IsActive": true,
+  "IntegrationIsActive": false,
+  "IntegrationPost": false,
+  "Steps": [
+    {
+      "Name": "Document",
+      "Description": "Document",
+      "ProcessIndex": 0,
+      "NextIndex": 0,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false
+    },
+    {
+      "Name": "DocumentReference",
+      "Description": "DocumentReference",
+      "ProcessIndex": 0,
+      "NextIndex": 0,
+      "IsActive": false,
+      "Required": false,
+      "IsBusinessRule": false
+    }
+  ]
+}

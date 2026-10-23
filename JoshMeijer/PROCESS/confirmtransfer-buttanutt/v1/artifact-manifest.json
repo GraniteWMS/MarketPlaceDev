@@ -1,0 +1,170 @@
+{
+  "Identifier": "d9e43679-48df-4eca-981e-0e034a72d599",
+  "Name": "CONFIRMTRANSFER_BUTTANUTT",
+  "Description": "CONFIRMTRANSFER_BUTTANUTT\n\nA packing process for transfer documents that allows you to confirm the barcodes and their quantities scanned against a transfer. The step 200 updates the barcode to be off hold.\n\nThe transaction comment will contain the confirmed barcode, due to PACK processes generating a using a virtual barcode.",
+  "Type": "PROCESS",
+  "Version": 1,
+  "LastModified": "21/03/2026",
+  "DatabaseVersion": "8.0.0.0",
+  "Tags": [
+    "Manufacturing",
+    "Retail",
+    "Automotive",
+    "Agricultural",
+    "Textile",
+    "Electronics",
+    "Construction",
+    "E-commerce",
+    "Logistics",
+    "Pharmaceutical",
+    "Cold Storage"
+  ],
+  "TypeSpecificAttributes": {
+    "ProcessType": "PACKING",
+    "ProcessName": "CONFIRMTRANSFER_BUTTANUTT",
+    "ProcessDescription": "CONFIRMTRANSFER_BUTTANUTT",
+    "IntegrationIsActive": false,
+    "IntegrationPost": false,
+    "ProcessStepMetadata": [
+      {
+        "Name": "Document",
+        "Description": "Enter Transfer Document",
+        "Process": "CONFIRMTRANSFER_BUTTANUTT",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_ConfirmTransfer_Document",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "MasterItem",
+        "Description": "Scan Transferred Barcode",
+        "Process": "CONFIRMTRANSFER_BUTTANUTT",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_ConfirmTransfer_MasterItem",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Qty",
+        "Description": "Confirm Qty Transfrred",
+        "Process": "CONFIRMTRANSFER_BUTTANUTT",
+        "ProcessIndex": 2,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "CarryingEntity",
+        "Description": "Uses Transfer Number",
+        "Process": "CONFIRMTRANSFER_BUTTANUTT",
+        "ProcessIndex": 100,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Comment",
+        "Description": "Comment",
+        "Process": "CONFIRMTRANSFER_BUTTANUTT",
+        "ProcessIndex": 100,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Location",
+        "Description": "Transfer To Location",
+        "Process": "CONFIRMTRANSFER_BUTTANUTT",
+        "ProcessIndex": 100,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Step200",
+        "Description": "Updates Barcode To Be Off Hold",
+        "Process": "CONFIRMTRANSFER_BUTTANUTT",
+        "ProcessIndex": 200,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_ConfirmTransfer_Step200",
+        "hasWebTemplate": false
+      }
+    ]
+  },
+  "Components": [
+    {
+      "Type": "VIEW",
+      "Name": "dbo.WebTemplate_ConfirmTransfer_Document",
+      "Path": "VIEW/dbo.WebTemplate_ConfirmTransfer_Document",
+      "DependsOn": []
+    },
+    {
+      "Type": "VIEW",
+      "Name": "dbo.WebTemplate_ConfirmTransfer_MasterItem",
+      "Path": "VIEW/dbo.WebTemplate_ConfirmTransfer_MasterItem",
+      "DependsOn": []
+    },
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.Prescript_ConfirmTransfer_Document",
+      "Path": "PRESCRIPT/dbo.Prescript_ConfirmTransfer_Document",
+      "DependsOn": []
+    },
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.Prescript_ConfirmTransfer_MasterItem",
+      "Path": "PRESCRIPT/dbo.Prescript_ConfirmTransfer_MasterItem",
+      "DependsOn": [
+        {
+          "Type": "VIEW",
+          "Name": "dbo.WebTemplate_ConfirmTransfer_MasterItem"
+        }
+      ]
+    },
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.Prescript_ConfirmTransfer_Step200",
+      "Path": "PRESCRIPT/dbo.Prescript_ConfirmTransfer_Step200",
+      "DependsOn": []
+    },
+    {
+      "Type": "PROCESS",
+      "Name": "CONFIRMTRANSFER_BUTTANUTT",
+      "Path": "",
+      "DependsOn": [
+        {
+          "Type": "PRESCRIPT",
+          "Name": "dbo.Prescript_ConfirmTransfer_Document"
+        },
+        {
+          "Type": "PRESCRIPT",
+          "Name": "dbo.Prescript_ConfirmTransfer_MasterItem"
+        },
+        {
+          "Type": "PRESCRIPT",
+          "Name": "dbo.Prescript_ConfirmTransfer_Step200"
+        },
+        {
+          "Type": "VIEW",
+          "Name": "dbo.WebTemplate_ConfirmTransfer_Document"
+        },
+        {
+          "Type": "VIEW",
+          "Name": "dbo.WebTemplate_ConfirmTransfer_MasterItem"
+        }
+      ]
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

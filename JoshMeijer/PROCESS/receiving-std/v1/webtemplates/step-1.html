@@ -1,0 +1,1 @@
+{{ "SELECT * FROM webtemplate_POtoReceive WHERE Status = "RELEASED" ORDER BY ExpectedDate" | dbSelect({}) | basicTable({selectOnColumn:"Number", enableSearch:true}) }}

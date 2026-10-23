@@ -1,0 +1,30 @@
+{
+  "Name": "POST_ORDER",
+  "Description": "POST ORDER",
+  "Type": "CUSTOM",
+  "IsActive": true,
+  "IntegrationIsActive": false,
+  "IntegrationPost": false,
+  "Steps": [
+    {
+      "Name": "Document",
+      "Description": "Document",
+      "ProcessIndex": 0,
+      "NextIndex": 1,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "PrescriptPostOrderDocument"
+    },
+    {
+      "Name": "Confirmation",
+      "Description": "Confirm",
+      "ProcessIndex": 1,
+      "NextIndex": 0,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "PrescriptPostOrderConfirmation"
+    }
+  ]
+}

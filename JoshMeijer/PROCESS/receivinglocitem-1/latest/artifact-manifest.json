@@ -1,0 +1,144 @@
+{
+  "Identifier": "9ff38829-a9ff-4011-bdd6-861b8724ef31",
+  "Name": "RECEIVINGLOCITEM",
+  "Description": "RECEIVING with Loc_Item\n\nThis is an improvement over the ones in the catalogue previously.  This one works - used in Motor parts warehouse.\nThe webtemplate is modified to remove decimals.\nThe process selects a Receiving location or putaway cart (Location.Category = RECEIVING or CART)\nThe MasterItem can be an alias - it also manipulates the scanned code to work for parts.\n\nMasterItem step has code to manipulate the scanned barcode to find alias in multiple cases.",
+  "Type": "PROCESS",
+  "Version": 0,
+  "LastModified": "10/05/2026",
+  "DatabaseVersion": "8.0.0.0",
+  "Tags": [],
+  "TypeSpecificAttributes": {
+    "ProcessType": "RECEIVING",
+    "ProcessName": "RECEIVINGLOCITEM",
+    "ProcessDescription": "RECEIVING with Loc_Item",
+    "IntegrationIsActive": true,
+    "IntegrationPost": false,
+    "ProcessStepMetadata": [
+      {
+        "Name": "Document",
+        "Description": "Purchase Order",
+        "Process": "RECEIVINGLOCITEM",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_Receiving_Document",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Location",
+        "Description": "Receiving Location or Cart",
+        "Process": "RECEIVINGLOCITEM",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": false,
+        "PreScript": "Prescript_Receiving_Location",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "MasterItem",
+        "Description": "Scan or Select MasterItem from PO",
+        "Process": "RECEIVINGLOCITEM",
+        "ProcessIndex": 2,
+        "NextIndex": 3,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_Receiving_MasterItem",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Qty",
+        "Description": "Qty Received",
+        "Process": "RECEIVINGLOCITEM",
+        "ProcessIndex": 3,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "UseBarcode",
+        "Description": "UseBarcode",
+        "Process": "RECEIVINGLOCITEM",
+        "ProcessIndex": 100,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": false
+      }
+    ]
+  },
+  "Components": [
+    {
+      "Type": "VIEW",
+      "Name": "dbo.webtemplate_ReceivingLocations",
+      "Path": "VIEW/dbo.webtemplate_ReceivingLocations",
+      "DependsOn": []
+    },
+    {
+      "Type": "VIEW",
+      "Name": "dbo.webtemplate_POtoReceive",
+      "Path": "VIEW/dbo.webtemplate_POtoReceive",
+      "DependsOn": []
+    },
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.Prescript_Receiving_Location",
+      "Path": "PRESCRIPT/dbo.Prescript_Receiving_Location",
+      "DependsOn": []
+    },
+    {
+      "Type": "VIEW",
+      "Name": "dbo.MasterItemAlias_View",
+      "Path": "VIEW/dbo.MasterItemAlias_View",
+      "DependsOn": []
+    },
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.Prescript_Receiving_Document",
+      "Path": "PRESCRIPT/dbo.Prescript_Receiving_Document",
+      "DependsOn": []
+    },
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.Prescript_Receiving_MasterItem",
+      "Path": "PRESCRIPT/dbo.Prescript_Receiving_MasterItem",
+      "DependsOn": [
+        {
+          "Type": "VIEW",
+          "Name": "dbo.MasterItemAlias_View"
+        }
+      ]
+    },
+    {
+      "Type": "PROCESS",
+      "Name": "RECEIVINGLOCITEM",
+      "Path": "",
+      "DependsOn": [
+        {
+          "Type": "PRESCRIPT",
+          "Name": "dbo.Prescript_Receiving_Document"
+        },
+        {
+          "Type": "PRESCRIPT",
+          "Name": "dbo.Prescript_Receiving_Location"
+        },
+        {
+          "Type": "PRESCRIPT",
+          "Name": "dbo.Prescript_Receiving_MasterItem"
+        },
+        {
+          "Type": "VIEW",
+          "Name": "dbo.webtemplate_POtoReceive"
+        },
+        {
+          "Type": "VIEW",
+          "Name": "dbo.webtemplate_ReceivingLocations"
+        }
+      ]
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

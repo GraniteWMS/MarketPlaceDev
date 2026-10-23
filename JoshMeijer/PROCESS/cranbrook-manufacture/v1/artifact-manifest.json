@@ -1,0 +1,183 @@
+{
+  "Identifier": "5eb06fae-62d3-4b47-be58-c6659d747716",
+  "Name": "CRANBROOK_MANUFACTURE",
+  "Description": "CRANBROOK_MANUFACTURE\n\nN/a\n\nN/a",
+  "Type": "PROCESS",
+  "Version": 1,
+  "LastModified": "25/06/2026",
+  "DatabaseVersion": "8.0.0.0",
+  "Tags": [
+    "Manufacturing",
+    "Retail",
+    "Automotive",
+    "Agricultural",
+    "Textile",
+    "Electronics",
+    "Construction",
+    "E-commerce",
+    "Logistics",
+    "Pharmaceutical",
+    "Cold Storage"
+  ],
+  "TypeSpecificAttributes": {
+    "ProcessType": "MANUFACTURE",
+    "ProcessName": "CRANBROOK_MANUFACTURE",
+    "ProcessDescription": "CRANBROOK_MANUFACTURE",
+    "IntegrationIsActive": false,
+    "IntegrationPost": false,
+    "ProcessStepMetadata": [
+      {
+        "Name": "Document",
+        "Description": "ENTER DOCUMENT NUMBER",
+        "Process": "CRANBROOK_MANUFACTURE",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "PreScript_Manufacture_Document",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Location",
+        "Description": "ENTER MACHINE NUMBER",
+        "Process": "CRANBROOK_MANUFACTURE",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Mix",
+        "Description": "CHOOSE MIX",
+        "Process": "CRANBROOK_MANUFACTURE",
+        "ProcessIndex": 2,
+        "NextIndex": 3,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "MasterItem",
+        "Description": "ENTER FINISH PRODUCT CODE",
+        "Process": "CRANBROOK_MANUFACTURE",
+        "ProcessIndex": 3,
+        "NextIndex": 4,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Months",
+        "Description": "MONTHS TILL EXPIRY DATE",
+        "Process": "CRANBROOK_MANUFACTURE",
+        "ProcessIndex": 4,
+        "NextIndex": 5,
+        "isActive": true,
+        "Required": false,
+        "PreScript": "PreScript_Manufacture_Batch",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Qty",
+        "Description": "ENTER QUANTITY (KG)",
+        "Process": "CRANBROOK_MANUFACTURE",
+        "ProcessIndex": 5,
+        "NextIndex": 6,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_Generic_Replace_Decimal",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "NoEntities",
+        "Description": "ENTER NUMBER OF PALLETS",
+        "Process": "CRANBROOK_MANUFACTURE",
+        "ProcessIndex": 6,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "PreScript_Manufacture_Entities",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "ActionQtyAllowance",
+        "Description": "ActionQtyAllowance",
+        "Process": "CRANBROOK_MANUFACTURE",
+        "ProcessIndex": 100,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": false,
+        "DefaultValue": "15",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Batch",
+        "Description": "Product Date",
+        "Process": "CRANBROOK_MANUFACTURE",
+        "ProcessIndex": 100,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "ExpiryDate",
+        "Description": "Enter Expiry Date (YYYYMMDD)",
+        "Process": "CRANBROOK_MANUFACTURE",
+        "ProcessIndex": 100,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": false
+      }
+    ]
+  },
+  "Components": [
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.PreScript_Manufacture_Document",
+      "Path": "PRESCRIPT/dbo.PreScript_Manufacture_Document",
+      "DependsOn": []
+    },
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.PreScript_Manufacture_Bacth",
+      "Path": "PRESCRIPT/dbo.PreScript_Manufacture_Bacth",
+      "DependsOn": []
+    },
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.Prescript_Generic_Replace_Decimal",
+      "Path": "PRESCRIPT/dbo.Prescript_Generic_Replace_Decimal",
+      "DependsOn": []
+    },
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.PreScript_Manufacture_Entities",
+      "Path": "PRESCRIPT/dbo.PreScript_Manufacture_Entities",
+      "DependsOn": []
+    },
+    {
+      "Type": "PROCESS",
+      "Name": "CRANBROOK_MANUFACTURE",
+      "Path": "",
+      "DependsOn": [
+        {
+          "Type": "PRESCRIPT",
+          "Name": "dbo.Prescript_Generic_Replace_Decimal"
+        },
+        {
+          "Type": "PRESCRIPT",
+          "Name": "dbo.PreScript_Manufacture_Document"
+        },
+        {
+          "Type": "PRESCRIPT",
+          "Name": "dbo.PreScript_Manufacture_Entities"
+        }
+      ]
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

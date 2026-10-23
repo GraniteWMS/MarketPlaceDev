@@ -1,0 +1,142 @@
+{
+  "Identifier": "5eabfe27-84bc-4237-b85c-06c4278e9f29",
+  "Name": "PEPKOR_PICKING",
+  "Description": "PEPKOR_PICKING\n\nStandard Pepkor picking process",
+  "Type": "PROCESS",
+  "Version": 0,
+  "LastModified": "13/05/2026",
+  "DatabaseVersion": "8.0.0.0",
+  "Tags": [
+    "Electronics",
+    "Construction",
+    "E-commerce",
+    "Logistics",
+    "Cold Storage",
+    "Pharmaceutical",
+    "Manufacturing",
+    "Automotive",
+    "Retail",
+    "Agricultural",
+    "Textile"
+  ],
+  "TypeSpecificAttributes": {
+    "ProcessType": "PICKING",
+    "ProcessName": "PEPKOR_PICKING",
+    "ProcessDescription": "PEPKOR_PICKING",
+    "IntegrationIsActive": false,
+    "IntegrationPost": false,
+    "ProcessStepMetadata": [
+      {
+        "Name": "Document",
+        "Description": "Enter SO #",
+        "Process": "PEPKOR_PICKING",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_Picking_Document",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "TrackingEntity",
+        "Description": "Scan Barcode",
+        "Process": "PEPKOR_PICKING",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_Picking_TrackingEntity",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Qty",
+        "Description": "Enter Qty To Pick",
+        "Process": "PEPKOR_PICKING",
+        "ProcessIndex": 2,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Location",
+        "Description": "Location",
+        "Process": "PEPKOR_PICKING",
+        "ProcessIndex": 100,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Step200",
+        "Description": "Step200",
+        "Process": "PEPKOR_PICKING",
+        "ProcessIndex": 200,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_Picking_Step200",
+        "hasWebTemplate": false
+      }
+    ]
+  },
+  "Components": [
+    {
+      "Type": "VIEW",
+      "Name": "dbo.Custom_VW_DocumentERPLocations",
+      "Path": "VIEW/dbo.Custom_VW_DocumentERPLocations",
+      "DependsOn": []
+    },
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.Prescript_Picking_Document",
+      "Path": "PRESCRIPT/dbo.Prescript_Picking_Document",
+      "DependsOn": []
+    },
+    {
+      "Type": "VIEW",
+      "Name": "dbo.WebTemplate_Picking_Document",
+      "Path": "VIEW/dbo.WebTemplate_Picking_Document",
+      "DependsOn": [
+        {
+          "Type": "VIEW",
+          "Name": "dbo.Custom_VW_DocumentERPLocations"
+        }
+      ]
+    },
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.Prescript_Picking_TrackinEntity",
+      "Path": "PRESCRIPT/dbo.Prescript_Picking_TrackinEntity",
+      "DependsOn": []
+    },
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.Prescript_Picking_Step200",
+      "Path": "PRESCRIPT/dbo.Prescript_Picking_Step200",
+      "DependsOn": []
+    },
+    {
+      "Type": "PROCESS",
+      "Name": "PEPKOR_PICKING",
+      "Path": "",
+      "DependsOn": [
+        {
+          "Type": "PRESCRIPT",
+          "Name": "dbo.Prescript_Picking_Document"
+        },
+        {
+          "Type": "PRESCRIPT",
+          "Name": "dbo.Prescript_Picking_Step200"
+        },
+        {
+          "Type": "VIEW",
+          "Name": "dbo.WebTemplate_Picking_Document"
+        }
+      ]
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

@@ -1,0 +1,81 @@
+{
+  "Name": "PACK_MULTIPLE_BOXES",
+  "Description": "Performs multiple Pack transactions at once",
+  "Type": "CUSTOM",
+  "IsActive": true,
+  "IntegrationIsActive": false,
+  "IntegrationPost": false,
+  "WebTemplateFile": "webtemplates/process.html",
+  "Steps": [
+    {
+      "Name": "Document",
+      "Description": "Enter Document Number",
+      "ProcessIndex": 0,
+      "NextIndex": 1,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "Prescript_PackMultipleBoxes_Document"
+    },
+    {
+      "Name": "MasterItem",
+      "Description": "Enter MasterItem",
+      "ProcessIndex": 1,
+      "NextIndex": 2,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "Prescript_PackMultipleBoxes_MasterItem"
+    },
+    {
+      "Name": "NoOfBoxes",
+      "Description": "Enter Number of Boxes",
+      "ProcessIndex": 2,
+      "NextIndex": 3,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "Prescript_PackMultipleBoxes_NoOfBoxes"
+    },
+    {
+      "Name": "QtyPerBox",
+      "Description": "Enter Qty Per Box",
+      "ProcessIndex": 3,
+      "NextIndex": 4,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "Prescript_PackMultipleBoxes_QtyPerBox"
+    },
+    {
+      "Name": "PrintLabels",
+      "Description": "Would You Like To Print Labels?",
+      "ProcessIndex": 4,
+      "NextIndex": 1,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "WebTemplateFile": "webtemplates/step-5.html"
+    },
+    {
+      "Name": "Step200",
+      "Description": "Step200",
+      "ProcessIndex": 200,
+      "NextIndex": 200,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "Prescript_PackMultipleBoxes_Step200"
+    },
+    {
+      "Name": "Step201",
+      "Description": "Step201",
+      "ProcessIndex": 201,
+      "NextIndex": 201,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "Prescript_PackMultipleBoxes_Step201"
+    }
+  ]
+}

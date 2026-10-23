@@ -1,0 +1,3 @@
+{{ "SELECT DISTINCT IntegrationReference AS Shipment FROM [Transaction] T INNER JOIN Document ON T.Document_id = Document.ID WHERE T.Type = "PICK" AND IntegrationStatus = 1 AND Document.Number = @Document" | dbSelect({Document}) | createButtonList({"IntegrationReference"}) }}
+
+{{hideTextBox()}}

@@ -1,0 +1,1 @@
+{{ "SELECT * FROM WebtemplatePickingDocument WHERE Number LIKE \"CR-%\"" | dbSelect({}) | basicTable({selectOnColumn:"Number", enableSearch:true}) }}

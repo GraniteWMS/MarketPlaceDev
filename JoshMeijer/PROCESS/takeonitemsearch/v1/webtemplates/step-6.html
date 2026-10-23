@@ -1,0 +1,89 @@
+{{#if Location}}
+    {{ 
+        navigateToStepButton({
+            stepName: "Location",
+            buttonText: "Change Location"
+        }) 
+    }}
+{{/if}}    
+{{#if MasterItemSearch}}
+	{{ 
+    	navigateToStepButton({
+        	stepName: "MasterItemSearch",
+            buttonText: "Change Master Item Search"
+		}) 
+	}}   
+{{/if}}    
+{{#if MasterItem}}
+	{{ 
+    	navigateToStepButton({
+        	stepName: "MasterItem",
+            buttonText: "Change Master Item"
+		}) 
+	}}   
+{{/if}} 
+{{#if Batch}}
+	{{ 
+    	navigateToStepButton({
+        	stepName: "Batch",
+            buttonText: "Change Batch"
+		}) 
+	}}   
+{{/if}} 
+{{#if ExpiryDate}}
+	{{ 
+    	navigateToStepButton({
+        	stepName: "ExpiryDate",
+            buttonText: "Change Expiry Date"
+		}) 
+	}}   
+{{/if}} 
+<br>
+
+
+{{#if Location}}
+    {{ 
+        "SELECT TOP 1 Name, ERPLocation FROM Location WHERE Barcode = @Location"
+        |> dbSingle({Location}) |> to => location
+    }}
+    <div>
+        <small>Location</small>
+        <header class="gn-float-right">{{location.Name + " "}} <small style="font-style:normal">({{location.ERPLocation}})</small></header> 
+    </div>
+    </hr>
+{{/if}}
+{{#if MasterItem}}
+    {{ 
+        "SELECT TOP 1 Code, Description, EnforceBatchNumber, EnforceExpiryDate FROM MasterItem WHERE MasterItem.Code = @MasterItem"
+        |> dbSingle({MasterItem}) |> to => masterItem 
+    }}
+    <div>
+        <header>{{masterItem.Code}}</header>
+    </div>
+    <div>
+        <small style="-ms-word-wrap: break-word; word-wrap: break-word;">{{masterItem.Description}}</small>
+    </div>        
+    </hr>
+{{/if}}
+{{#if Batch}}
+    <div>
+        <small>Batch</small>
+        <header class="gn-float-right">{{Batch}}</header>
+    </div>
+{{/if}}
+{{#if ExpiryDate}}
+    <div>
+        <small>ExpiryDate</small>
+        <header class="gn-float-right">{{ExpiryDate}}</header>
+    </div>
+{{/if}} 
+
+
+{{ "SELECT EnforceSerialNumber FROM MasterItem WHERE Code = @MasterItem " | dbSingle({MasterItem}) |> to => serialCheck }}
+{{#if serialCheck.EnforceSerialNumber === "0"}}
+	{{ 
+    	navigateToStep({
+        	stepName: "Qty"
+		}) 
+	}}
+{{/if}}

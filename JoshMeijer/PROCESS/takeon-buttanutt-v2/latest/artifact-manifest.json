@@ -1,0 +1,132 @@
+{
+  "Identifier": "45b45e67-703c-4201-bbf2-1763c692e190",
+  "Name": "TAKEON_BUTTANUTT_V2",
+  "Description": "TAKEON_BUTTANUTT_V2\n\nIt has selectable webtemplates for master item and location, as well as more descriptive process steps",
+  "Type": "PROCESS",
+  "Version": 0,
+  "LastModified": "21/03/2026",
+  "DatabaseVersion": "8.0.0.0",
+  "Tags": [
+    "Electronics",
+    "Construction",
+    "E-commerce",
+    "Logistics",
+    "Pharmaceutical",
+    "Cold Storage",
+    "Manufacturing",
+    "Agricultural",
+    "Textile",
+    "Automotive",
+    "Retail"
+  ],
+  "TypeSpecificAttributes": {
+    "ProcessType": "TAKEON",
+    "ProcessName": "TAKEON_BUTTANUTT_V2",
+    "ProcessDescription": "TAKEON_BUTTANUTT_V2",
+    "IntegrationIsActive": false,
+    "IntegrationPost": false,
+    "ProcessStepMetadata": [
+      {
+        "Name": "Location",
+        "Description": "Enter Location Of Stock",
+        "Process": "TAKEON_BUTTANUTT_V2",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "MasterItem",
+        "Description": "Enter SKU",
+        "Process": "TAKEON_BUTTANUTT_V2",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Batch",
+        "Description": "Enter Batch",
+        "Process": "TAKEON_BUTTANUTT_V2",
+        "ProcessIndex": 2,
+        "NextIndex": 3,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "ExpiryDate",
+        "Description": "Enter Expiry Date (YYYYMMDD)",
+        "Process": "TAKEON_BUTTANUTT_V2",
+        "ProcessIndex": 3,
+        "NextIndex": 4,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Qty",
+        "Description": "Enter Qty",
+        "Process": "TAKEON_BUTTANUTT_V2",
+        "ProcessIndex": 4,
+        "NextIndex": 5,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "NoEntities",
+        "Description": "Enter Number Of Barcodes With Same Qty",
+        "Process": "TAKEON_BUTTANUTT_V2",
+        "ProcessIndex": 5,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Print",
+        "Description": "Print",
+        "Process": "TAKEON_BUTTANUTT_V2",
+        "ProcessIndex": 99,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": false
+      }
+    ]
+  },
+  "Components": [
+    {
+      "Type": "VIEW",
+      "Name": "dbo.WebTemplate_Takeon_MasterItem",
+      "Path": "VIEW/dbo.WebTemplate_Takeon_MasterItem",
+      "DependsOn": []
+    },
+    {
+      "Type": "VIEW",
+      "Name": "dbo.WebTemplate_Takeon_Location",
+      "Path": "VIEW/dbo.WebTemplate_Takeon_Location",
+      "DependsOn": []
+    },
+    {
+      "Type": "PROCESS",
+      "Name": "TAKEON_BUTTANUTT_V2",
+      "Path": "",
+      "DependsOn": [
+        {
+          "Type": "VIEW",
+          "Name": "dbo.WebTemplate_Takeon_Location"
+        },
+        {
+          "Type": "VIEW",
+          "Name": "dbo.WebTemplate_Takeon_MasterItem"
+        }
+      ]
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

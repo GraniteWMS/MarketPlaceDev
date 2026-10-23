@@ -1,0 +1,91 @@
+{
+  "Identifier": "774a4818-d132-47da-be6e-bb1310a9fb9e",
+  "Name": "BATCHCHANGE",
+  "Description": "Bulk Batch Change\n\nEnter Item Code, Batch, New Batch and update all TrackingEntities  -Also creates Transactions",
+  "Type": "PROCESS",
+  "Version": 1,
+  "LastModified": "04/08/2025",
+  "DatabaseVersion": "8.0.0.0",
+  "Tags": [],
+  "TypeSpecificAttributes": {
+    "ProcessType": "CUSTOM",
+    "ProcessName": "BATCHCHANGE",
+    "ProcessDescription": "Bulk Batch Change",
+    "IntegrationIsActive": false,
+    "IntegrationPost": false,
+    "ProcessStepMetadata": [
+      {
+        "Name": "MasterItem",
+        "Description": "Master Item",
+        "Process": "BATCHCHANGE",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Batch",
+        "Description": "Select Batch",
+        "Process": "BATCHCHANGE",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "NewBatch",
+        "Description": "New Batch",
+        "Process": "BATCHCHANGE",
+        "ProcessIndex": 2,
+        "NextIndex": 3,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Confirmation",
+        "Description": "Confirmation",
+        "Process": "BATCHCHANGE",
+        "ProcessIndex": 3,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript3PL_BatchChangeConfirmation",
+        "hasWebTemplate": false
+      }
+    ]
+  },
+  "Components": [
+    {
+      "Type": "VIEW",
+      "Name": "dbo.WebTemplate_BatchNumbers",
+      "Path": "VIEW/dbo.WebTemplate_BatchNumbers",
+      "DependsOn": []
+    },
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.Prescript3PL_BatchChangeConfirmation",
+      "Path": "PRESCRIPT/dbo.Prescript3PL_BatchChangeConfirmation",
+      "DependsOn": []
+    },
+    {
+      "Type": "PROCESS",
+      "Name": "BATCHCHANGE",
+      "Path": "",
+      "DependsOn": [
+        {
+          "Type": "PRESCRIPT",
+          "Name": "dbo.Prescript3PL_BatchChangeConfirmation"
+        },
+        {
+          "Type": "VIEW",
+          "Name": "dbo.WebTemplate_BatchNumbers"
+        }
+      ]
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

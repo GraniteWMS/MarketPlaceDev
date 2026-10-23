@@ -1,0 +1,102 @@
+{
+  "Identifier": "747dc57e-81d8-4d54-b96e-29eaba99f127",
+  "Name": "SHORT_PICK",
+  "Description": "Short Pick\n\nShort pick an order line and set comment as short pick reason.\n\nAdd in lookup values for short pick reasons",
+  "Type": "PROCESS",
+  "Version": 1,
+  "LastModified": "09/02/2024",
+  "DatabaseVersion": "8.0.0.0",
+  "Tags": [],
+  "TypeSpecificAttributes": {
+    "ProcessType": "CUSTOM",
+    "ProcessName": "SHORT_PICK",
+    "ProcessDescription": "Short Pick",
+    "IntegrationIsActive": false,
+    "IntegrationPost": false,
+    "ProcessStepMetadata": [
+      {
+        "Name": "Document",
+        "Description": "Document",
+        "Process": "SHORT_PICK",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Line",
+        "Description": "Line",
+        "Process": "SHORT_PICK",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Reason",
+        "Description": "Reason",
+        "Process": "SHORT_PICK",
+        "ProcessIndex": 2,
+        "NextIndex": 3,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Confirmation",
+        "Description": "Confirm short pick",
+        "Process": "SHORT_PICK",
+        "ProcessIndex": 3,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "PrescriptShortpickConfirmation",
+        "hasWebTemplate": false
+      }
+    ]
+  },
+  "Components": [
+    {
+      "Type": "VIEW",
+      "Name": "dbo.WebtemplateShortPickDocument",
+      "Path": "VIEW/dbo.WebtemplateShortPickDocument",
+      "DependsOn": []
+    },
+    {
+      "Type": "SQL_STORED_PROCEDURE",
+      "Name": "dbo.WebtemplateShortpickLine",
+      "Path": "SQL_STORED_PROCEDURE/dbo.WebtemplateShortpickLine",
+      "DependsOn": []
+    },
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.PrescriptShortpickConfirmation",
+      "Path": "PRESCRIPT/dbo.PrescriptShortpickConfirmation",
+      "DependsOn": []
+    },
+    {
+      "Type": "PROCESS",
+      "Name": "SHORT_PICK",
+      "Path": "",
+      "DependsOn": [
+        {
+          "Type": "PRESCRIPT",
+          "Name": "dbo.PrescriptShortpickConfirmation"
+        },
+        {
+          "Type": "SQL_STORED_PROCEDURE",
+          "Name": "dbo.WebtemplateShortpickLine"
+        },
+        {
+          "Type": "VIEW",
+          "Name": "dbo.WebtemplateShortPickDocument"
+        }
+      ]
+    }
+  ],
+  "DependsOnClr": true,
+  "SqlClrAssemblyVersion": "7.0.0.0",
+  "Deprecated": false
+}

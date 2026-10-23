@@ -1,0 +1,1 @@
+{{ "SELECT Barcode, ItemCode, ItemDescription, Qty FROM WebTemplate_ConfirmTransfer_MasterItem WHERE DocumentNumber = @Document ORDER BY Barcode ASC" | dbSelect({Document}) | basicTable({}) }}

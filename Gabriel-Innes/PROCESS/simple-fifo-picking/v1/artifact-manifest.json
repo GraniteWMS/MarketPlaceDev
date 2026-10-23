@@ -1,0 +1,118 @@
+{
+  "Identifier": "d358d49a-f24c-4a81-9961-434f1ca2a876",
+  "Name": "SIMPLE_FIFO_PICKING",
+  "Description": "SIMPLE FIFO PICKING\n\nSimple and easy FIFO picking process based on standard PICK process. Using only the DocumentDetail.Instruction and LinePriority to recommend TrackingEntity to pick based on some basic logic.\n\nThe stored procedure FIFOPickingRecommendation is responsible for calculating the recommendation. This recommendation is captured in the 'Instruction' field of the DocumentDetail, and LinePriority is also maintained. Please review this stored procedure if logic applies.",
+  "Type": "PROCESS",
+  "Version": 1,
+  "LastModified": "14/02/2024",
+  "DatabaseVersion": "8.0.0.0",
+  "Tags": [],
+  "TypeSpecificAttributes": {
+    "ProcessType": "PICKING",
+    "ProcessName": "SIMPLE_FIFO_PICKING",
+    "ProcessDescription": "SIMPLE FIFO PICKING",
+    "IntegrationIsActive": false,
+    "IntegrationPost": false,
+    "ProcessStepMetadata": [
+      {
+        "Name": "Document",
+        "Description": "Document",
+        "Process": "SIMPLE_FIFO_PICKING",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "PrescriptPickingDocument",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Location",
+        "Description": "Location",
+        "Process": "SIMPLE_FIFO_PICKING",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "TrackingEntity",
+        "Description": "TrackingEntity",
+        "Process": "SIMPLE_FIFO_PICKING",
+        "ProcessIndex": 2,
+        "NextIndex": 3,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Qty",
+        "Description": "Qty",
+        "Process": "SIMPLE_FIFO_PICKING",
+        "ProcessIndex": 3,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Step200",
+        "Description": "Step200",
+        "Process": "SIMPLE_FIFO_PICKING",
+        "ProcessIndex": 200,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "PrescriptPickingStep200",
+        "hasWebTemplate": false
+      }
+    ]
+  },
+  "Components": [
+    {
+      "Type": "SQL_STORED_PROCEDURE",
+      "Name": "dbo.FIFOPickingRecommendation",
+      "Path": "SQL_STORED_PROCEDURE/dbo.FIFOPickingRecommendation",
+      "DependsOn": []
+    },
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.PrescriptPickingDocument",
+      "Path": "PRESCRIPT/dbo.PrescriptPickingDocument",
+      "DependsOn": [
+        {
+          "Type": "SQL_STORED_PROCEDURE",
+          "Name": "dbo.FIFOPickingRecommendation"
+        }
+      ]
+    },
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.PrescriptPickingStep200",
+      "Path": "PRESCRIPT/dbo.PrescriptPickingStep200",
+      "DependsOn": [
+        {
+          "Type": "SQL_STORED_PROCEDURE",
+          "Name": "dbo.FIFOPickingRecommendation"
+        }
+      ]
+    },
+    {
+      "Type": "PROCESS",
+      "Name": "SIMPLE_FIFO_PICKING",
+      "Path": "",
+      "DependsOn": [
+        {
+          "Type": "PRESCRIPT",
+          "Name": "dbo.PrescriptPickingDocument"
+        },
+        {
+          "Type": "PRESCRIPT",
+          "Name": "dbo.PrescriptPickingStep200"
+        }
+      ]
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

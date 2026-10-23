@@ -1,0 +1,74 @@
+{
+  "Identifier": "e8df307b-390a-4283-8eba-5b6625f8ea27",
+  "Name": "PUTAWAY",
+  "Description": "PUTAWAY\n\nTo move stock from a receiving area into designated storage locations, with validation that ensures tracking entities are placed in the correct location based on item code. Prevents mis-shelving by enforcing that the destination location barcode matches the item being put away.\n\nThis process is built on the MOVE type with a PreScript (PrescriptPutawayItemLocationValidation) on the Location step that validates the destination location's Barcode starts with the tracking entity's MasterItem.Code. This assumes a naming convention where location barcodes are prefixed with the item code (e.g. location barcode CWF010-1 for item CWF010). If the client uses a different location naming convention, the PreScript must be adjusted — the validation field can be changed from Barcode to Name or another field as needed.",
+  "Type": "PROCESS",
+  "Version": 1,
+  "LastModified": "31/03/2026",
+  "DatabaseVersion": "8.0.0.0",
+  "Tags": [
+    "Manufacturing",
+    "Pharmaceutical"
+  ],
+  "TypeSpecificAttributes": {
+    "ProcessType": "MOVE",
+    "ProcessName": "PUTAWAY",
+    "ProcessDescription": "PUTAWAY",
+    "IntegrationIsActive": false,
+    "IntegrationPost": false,
+    "ProcessStepMetadata": [
+      {
+        "Name": "Location",
+        "Description": "To Location",
+        "Process": "PUTAWAY",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "TrackingEntity",
+        "Description": "Scan Tracking Barcode",
+        "Process": "PUTAWAY",
+        "ProcessIndex": 1,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "PrescriptPutawayItemLocationValidation",
+        "hasWebTemplate": true
+      }
+    ]
+  },
+  "Components": [
+    {
+      "Type": "VIEW",
+      "Name": "dbo.webtemplate_StockInReceiving",
+      "Path": "VIEW/dbo.webtemplate_StockInReceiving",
+      "DependsOn": []
+    },
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.PrescriptPutawayItemLocationValidation",
+      "Path": "PRESCRIPT/dbo.PrescriptPutawayItemLocationValidation",
+      "DependsOn": []
+    },
+    {
+      "Type": "PROCESS",
+      "Name": "PUTAWAY",
+      "Path": "",
+      "DependsOn": [
+        {
+          "Type": "PRESCRIPT",
+          "Name": "dbo.PrescriptPutawayItemLocationValidation"
+        },
+        {
+          "Type": "VIEW",
+          "Name": "dbo.webtemplate_StockInReceiving"
+        }
+      ]
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

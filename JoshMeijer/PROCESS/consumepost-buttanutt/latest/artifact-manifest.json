@@ -1,0 +1,63 @@
+{
+  "Identifier": "762cbbaf-9142-4db0-bdb7-fae31513babe",
+  "Name": "CONSUMEPOST_BUTTANUTT",
+  "Description": "CONSUMEPOST_BUTTANUTT\n\nProvides a web template list of jobs that can be posted",
+  "Type": "PROCESS",
+  "Version": 0,
+  "LastModified": "21/03/2026",
+  "DatabaseVersion": "8.0.0.0",
+  "Tags": [
+    "Manufacturing"
+  ],
+  "TypeSpecificAttributes": {
+    "ProcessType": "CONSUMEPOST",
+    "ProcessName": "CONSUMEPOST_BUTTANUTT",
+    "ProcessDescription": "CONSUMEPOST_BUTTANUTT",
+    "IntegrationIsActive": true,
+    "IntegrationPost": false,
+    "ProcessStepMetadata": [
+      {
+        "Name": "Document",
+        "Description": "Document",
+        "Process": "CONSUMEPOST_BUTTANUTT",
+        "ProcessIndex": 0,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true
+      }
+    ]
+  },
+  "Components": [
+    {
+      "Type": "VIEW",
+      "Name": "dbo.Integration_Transactions",
+      "Path": "VIEW/dbo.Integration_Transactions",
+      "DependsOn": []
+    },
+    {
+      "Type": "VIEW",
+      "Name": "dbo.WebTemplate_ConsumePost_Document",
+      "Path": "VIEW/dbo.WebTemplate_ConsumePost_Document",
+      "DependsOn": [
+        {
+          "Type": "VIEW",
+          "Name": "dbo.Integration_Transactions"
+        }
+      ]
+    },
+    {
+      "Type": "PROCESS",
+      "Name": "CONSUMEPOST_BUTTANUTT",
+      "Path": "",
+      "DependsOn": [
+        {
+          "Type": "VIEW",
+          "Name": "dbo.WebTemplate_ConsumePost_Document"
+        }
+      ]
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

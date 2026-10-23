@@ -1,0 +1,52 @@
+{
+  "Identifier": "2c40ad4f-be0a-4327-a23f-bf6c37e8817a",
+  "Name": "EXAMPLE_EXPORT_TABLETOEXCEL",
+  "Description": "EXAMPLE_EXPORT_TABLETOEXCEL\n\nThis template provides an illustration of utilizing SQL_CLR to export data to excel and upload, although it should be noted that this process is not fully functional.\n\nIn the stored procedure Prescript_Example_ExportExcelFile, clr_TableExport is employed to export data by utilizing a SQL view and passing parameters. It's important to note that the path specified should be a local path on the SQL server, which can likely be configured within the StaticData table.",
+  "Type": "PROCESS",
+  "Version": 0,
+  "LastModified": "19/03/2024",
+  "DatabaseVersion": "8.0.0.0",
+  "Tags": [],
+  "TypeSpecificAttributes": {
+    "ProcessType": "CUSTOM",
+    "ProcessName": "EXAMPLE_EXPORT_TABLETOEXCEL",
+    "ProcessDescription": "EXAMPLE_EXPORT_TABLETOEXCEL",
+    "IntegrationIsActive": false,
+    "IntegrationPost": false,
+    "ProcessStepMetadata": [
+      {
+        "Name": "Example",
+        "Description": "Example",
+        "Process": "EXAMPLE_EXPORT_TABLETOEXCEL",
+        "ProcessIndex": 0,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_Example_ExportExcelFile",
+        "hasWebTemplate": false
+      }
+    ]
+  },
+  "Components": [
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.Prescript_Example_ExportExcelFile",
+      "Path": "PRESCRIPT/dbo.Prescript_Example_ExportExcelFile",
+      "DependsOn": []
+    },
+    {
+      "Type": "PROCESS",
+      "Name": "EXAMPLE_EXPORT_TABLETOEXCEL",
+      "Path": "",
+      "DependsOn": [
+        {
+          "Type": "PRESCRIPT",
+          "Name": "dbo.Prescript_Example_ExportExcelFile"
+        }
+      ]
+    }
+  ],
+  "DependsOnClr": true,
+  "SqlClrAssemblyVersion": "7.0.0.0",
+  "Deprecated": false
+}

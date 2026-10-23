@@ -1,0 +1,104 @@
+{
+  "Identifier": "e6e74755-eea2-4780-9fb9-6f20bd8d9ba0",
+  "Name": "PEPKOR_PUTAWAY_BULK",
+  "Description": "PEPKOR_PUTAWAY_BULK\n\nPutaway barcode using location and item code",
+  "Type": "PROCESS",
+  "Version": 1,
+  "LastModified": "13/05/2026",
+  "DatabaseVersion": "8.0.0.0",
+  "Tags": [
+    "Manufacturing",
+    "Retail",
+    "Automotive",
+    "Agricultural",
+    "Textile",
+    "Electronics",
+    "Construction",
+    "E-commerce",
+    "Pharmaceutical",
+    "Logistics",
+    "Cold Storage"
+  ],
+  "TypeSpecificAttributes": {
+    "ProcessType": "REPLENISH",
+    "ProcessName": "PEPKOR_PUTAWAY_BULK",
+    "ProcessDescription": "PEPKOR_PUTAWAY_BULK",
+    "IntegrationIsActive": false,
+    "IntegrationPost": false,
+    "ProcessStepMetadata": [
+      {
+        "Name": "FromTrackingEntity",
+        "Description": "Scan Item Code",
+        "Process": "PEPKOR_PUTAWAY_BULK",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_PutawayBulk_FromTrackingEntity",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Location",
+        "Description": "Scan Bin Location",
+        "Process": "PEPKOR_PUTAWAY_BULK",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_PutawayBulk_Location",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Qty",
+        "Description": "Qty to Put Away",
+        "Process": "PEPKOR_PUTAWAY_BULK",
+        "ProcessIndex": 2,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "ToTrackingEntity",
+        "Description": "To TrackingEntity",
+        "Process": "PEPKOR_PUTAWAY_BULK",
+        "ProcessIndex": 100,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": false
+      }
+    ]
+  },
+  "Components": [
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.Prescript_PutawayBulk_FromTrackingEntity",
+      "Path": "PRESCRIPT/dbo.Prescript_PutawayBulk_FromTrackingEntity",
+      "DependsOn": []
+    },
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.Prescript_PutawayBulk_Location",
+      "Path": "PRESCRIPT/dbo.Prescript_PutawayBulk_Location",
+      "DependsOn": []
+    },
+    {
+      "Type": "PROCESS",
+      "Name": "PEPKOR_PUTAWAY_BULK",
+      "Path": "",
+      "DependsOn": [
+        {
+          "Type": "PRESCRIPT",
+          "Name": "dbo.Prescript_PutawayBulk_FromTrackingEntity"
+        },
+        {
+          "Type": "PRESCRIPT",
+          "Name": "dbo.Prescript_PutawayBulk_Location"
+        }
+      ]
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

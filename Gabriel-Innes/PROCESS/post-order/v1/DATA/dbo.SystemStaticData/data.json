@@ -1,0 +1,15 @@
+{
+  "Table": "dbo.SystemStaticData",
+  "KeyColumns": [
+    "Key"
+  ],
+  "Rows": [
+    {
+      "Key": "PostedStatus",
+      "Description": "Status of document to flag it as ready for the erp to sync",
+      "Group": "Prescript",
+      "Value": "POSTED",
+      "isEncrypted": "False"
+    }
+  ]
+}

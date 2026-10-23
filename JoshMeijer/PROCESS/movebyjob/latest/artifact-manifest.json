@@ -1,0 +1,91 @@
+{
+  "Identifier": "46c31736-c671-47cf-9ea0-df8131e17c1a",
+  "Name": "MOVEBYJOB",
+  "Description": "MOVEBYJOB (Started/ReadyForProduction)\n\nTo move all barcodes by job to started or readyforproduction",
+  "Type": "PROCESS",
+  "Version": 0,
+  "LastModified": "18/03/2026",
+  "DatabaseVersion": "8.0.0.0",
+  "Tags": [
+    "Manufacturing"
+  ],
+  "TypeSpecificAttributes": {
+    "ProcessType": "CUSTOM",
+    "ProcessName": "MOVEBYJOB",
+    "ProcessDescription": "MOVEBYJOB (Started/ReadyForProduction)",
+    "IntegrationIsActive": false,
+    "IntegrationPost": false,
+    "ProcessStepMetadata": [
+      {
+        "Name": "Location",
+        "Description": "Select TO Location",
+        "Process": "MOVEBYJOB",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Document",
+        "Description": "Scan PatternLabel or Enter Job Number",
+        "Process": "MOVEBYJOB",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Confirm",
+        "Description": "All barcodes below will be moved. Confirm",
+        "Process": "MOVEBYJOB",
+        "ProcessIndex": 2,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "PrescriptMovebyjobConfirm",
+        "hasWebTemplate": true
+      }
+    ]
+  },
+  "Components": [
+    {
+      "Type": "SQL_STORED_PROCEDURE",
+      "Name": "dbo.Custom_Integration_EVOAPP",
+      "Path": "SQL_STORED_PROCEDURE/dbo.Custom_Integration_EVOAPP",
+      "DependsOn": []
+    },
+    {
+      "Type": "SQL_STORED_PROCEDURE",
+      "Name": "dbo.custom_post_to_EVOApp",
+      "Path": "SQL_STORED_PROCEDURE/dbo.custom_post_to_EVOApp",
+      "DependsOn": []
+    },
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.PrescriptMovebyjobConfirm",
+      "Path": "PRESCRIPT/dbo.PrescriptMovebyjobConfirm",
+      "DependsOn": [
+        {
+          "Type": "SQL_STORED_PROCEDURE",
+          "Name": "dbo.custom_post_to_EVOApp"
+        }
+      ]
+    },
+    {
+      "Type": "PROCESS",
+      "Name": "MOVEBYJOB",
+      "Path": "",
+      "DependsOn": [
+        {
+          "Type": "PRESCRIPT",
+          "Name": "dbo.PrescriptMovebyjobConfirm"
+        }
+      ]
+    }
+  ],
+  "DependsOnClr": true,
+  "SqlClrAssemblyVersion": "7.0.0.0",
+  "Deprecated": false
+}

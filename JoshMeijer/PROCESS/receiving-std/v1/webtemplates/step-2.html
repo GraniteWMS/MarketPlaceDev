@@ -1,0 +1,1 @@
+{{ "SELECT Barcode FROM Location WHERE [Type] = "RECEIVING"" | dbSelect({}) | basicTable({selectOnColumn:"Barcode", enableSearch:false}) }}

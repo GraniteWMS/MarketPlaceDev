@@ -1,0 +1,5 @@
+{{ "SELECT TransactionID, ItemCode, Batch, ActionQty
+    FROM WebTemplateConsumeReversal
+    WHERE DocumentNumber = @Document
+          AND TrackingEntity = @TrackingEntity" 
+| dbSelect({Document,TrackingEntity}) | basicTable({selectOnColumn:"TransactionID", enableSearch:false}) }}

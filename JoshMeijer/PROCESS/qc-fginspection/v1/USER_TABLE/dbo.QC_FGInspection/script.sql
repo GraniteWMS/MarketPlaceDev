@@ -1,0 +1,23 @@
+CREATE TABLE [dbo].[QC_FGInspection](
+	[ID] [bigint] IDENTITY(1,1) NOT NULL,
+	[Document] [varchar](30) COLLATE Latin1_General_CI_AS NOT NULL,
+	[User] [varchar](50) COLLATE Latin1_General_CI_AS NULL,
+	[Code] [varchar](50) COLLATE Latin1_General_CI_AS NULL,
+	[Description] [varchar](250) COLLATE Latin1_General_CI_AS NULL,
+	[Batch] [varchar](50) COLLATE Latin1_General_CI_AS NULL,
+	[Gauge] [varchar](50) COLLATE Latin1_General_CI_AS NULL,
+	[Tolerance] [varchar](50) COLLATE Latin1_General_CI_AS NULL,
+	[Value_x] [varchar](50) COLLATE Latin1_General_CI_AS NULL,
+	[Value_y] [varchar](50) COLLATE Latin1_General_CI_AS NULL,
+	[Value_Flange] [varchar](50) COLLATE Latin1_General_CI_AS NULL,
+	[Value_HolePosition] [varchar](50) COLLATE Latin1_General_CI_AS NULL,
+	[Value_HoleSpacing] [varchar](50) COLLATE Latin1_General_CI_AS NULL,
+	[Value_HoleCentering] [varchar](50) COLLATE Latin1_General_CI_AS NULL,
+	[Value_Length] [varchar](50) COLLATE Latin1_General_CI_AS NULL,
+	[Value_PaintCoating] [varchar](50) COLLATE Latin1_General_CI_AS NULL,
+	[Value_AnodizedCoating] [varchar](50) COLLATE Latin1_General_CI_AS NULL,
+	[Value_PowderCoating] [varchar](50) COLLATE Latin1_General_CI_AS NULL,
+	[Value_AcceptReject] [varchar](50) COLLATE Latin1_General_CI_AS NULL,
+	[Comment] [varchar](50) COLLATE Latin1_General_CI_AS NULL,
+	[RecordDate] [datetime] NOT NULL
+) ON [PRIMARY]

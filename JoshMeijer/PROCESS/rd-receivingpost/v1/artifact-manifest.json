@@ -1,0 +1,70 @@
+{
+  "Identifier": "9a98f57e-fbdd-47b6-8fd2-5df3bb480e70",
+  "Name": "RD_RECEIVINGPOST",
+  "Description": "Retail Distribution - Receiving Post\n\nRetail Distribution Model - Receiving against PO.  Only Scan Location once then Item Alias.  Always resolve to Item Code. No Qty entered.   This specific model was developed for Integration with LightSpeed, but that is not dependent in these processes",
+  "Type": "PROCESS",
+  "Version": 1,
+  "LastModified": "09/10/2025",
+  "DatabaseVersion": "8.0.0.0",
+  "Tags": [],
+  "TypeSpecificAttributes": {
+    "ProcessType": "RECEIVINGPOST",
+    "ProcessName": "RD_RECEIVINGPOST",
+    "ProcessDescription": "Retail Distribution - Receiving Post",
+    "IntegrationIsActive": true,
+    "IntegrationPost": true,
+    "ProcessStepMetadata": [
+      {
+        "Name": "Document",
+        "Description": "Document",
+        "Process": "RD_RECEIVINGPOST",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Confirmation",
+        "Description": "Confirm the Details to Post",
+        "Process": "RD_RECEIVINGPOST",
+        "ProcessIndex": 1,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true
+      }
+    ]
+  },
+  "Components": [
+    {
+      "Type": "VIEW",
+      "Name": "dbo.webtemplate_PurchaseOrderPostLookup",
+      "Path": "VIEW/dbo.webtemplate_PurchaseOrderPostLookup",
+      "DependsOn": []
+    },
+    {
+      "Type": "SQL_STORED_PROCEDURE",
+      "Name": "dbo.WebTemplate_PurchaseOrderPostDetail",
+      "Path": "SQL_STORED_PROCEDURE/dbo.WebTemplate_PurchaseOrderPostDetail",
+      "DependsOn": []
+    },
+    {
+      "Type": "PROCESS",
+      "Name": "RD_RECEIVINGPOST",
+      "Path": "",
+      "DependsOn": [
+        {
+          "Type": "SQL_STORED_PROCEDURE",
+          "Name": "dbo.WebTemplate_PurchaseOrderPostDetail"
+        },
+        {
+          "Type": "VIEW",
+          "Name": "dbo.webtemplate_PurchaseOrderPostLookup"
+        }
+      ]
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

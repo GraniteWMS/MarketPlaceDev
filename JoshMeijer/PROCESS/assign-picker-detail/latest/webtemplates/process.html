@@ -1,0 +1,23 @@
+{{#if Type}}
+    <div>
+        <small>Type</small>
+        <header class="gn-float-right">{{Type}}</header>
+    </div>
+    <hr /> 
+	{{#if Document}}
+        <div>
+            <small>Document</small>
+            <header class="gn-float-right">{{Document}}</header>
+        </div>
+        <hr />     
+		{{#if PickerName}}
+            <div>
+                <small>Picker Name</small>
+                <header class="gn-float-right">{{PickerName}}</header>
+            </div>	
+            <hr /> 
+        	{{ "EXECUTE [Webtemplate_AssignPickerDetail_Line] @Document " 
+            | dbSelect({Document}) | basicTable({selectOnColumn:"Line",enableSearch:true}) }}  
+        {{/if}} 
+    {{/if}}    
+{{/if}}

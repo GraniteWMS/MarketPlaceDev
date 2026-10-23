@@ -1,0 +1,102 @@
+{
+  "Identifier": "4ec91387-94dc-495c-a086-4c856f991dc3",
+  "Name": "PICKINGPOST",
+  "Description": "Picking Post with Select Order and Confirm\n\nMore user friendly PickingPost.  Selectfrom  Documents with outstanding data to Post and then Shows Details of what will be posted to Confirm before posting.\n\nWebtemplates for Document to Select and Details (stored proc feeds webtemplate).  Also has a Step200 to print a Shipment Confirmation Label, however, requires LabelPrintQueue process to be available and Label_ShipDetail view.\nAlso records that the Post happened in Custom_DocumentTrackingLog.",
+  "Type": "PROCESS",
+  "Version": 0,
+  "LastModified": "01/04/2026",
+  "DatabaseVersion": "8.0.0.0",
+  "Tags": [],
+  "TypeSpecificAttributes": {
+    "ProcessType": "PICKINGPOST",
+    "ProcessName": "PICKINGPOST",
+    "ProcessDescription": "Picking Post with Select Order and Confirm",
+    "IntegrationIsActive": true,
+    "IntegrationPost": false,
+    "ProcessStepMetadata": [
+      {
+        "Name": "Document",
+        "Description": "Document",
+        "Process": "PICKINGPOST",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Confirmation",
+        "Description": "Confirm Details To Post",
+        "Process": "PICKINGPOST",
+        "ProcessIndex": 1,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Step200",
+        "Description": "Print Shipment Summary Label",
+        "Process": "PICKINGPOST",
+        "ProcessIndex": 200,
+        "NextIndex": 200,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "PrescriptPickingPostStep200",
+        "hasWebTemplate": false
+      }
+    ]
+  },
+  "Components": [
+    {
+      "Type": "VIEW",
+      "Name": "dbo.webtemplate_SOtoPost",
+      "Path": "VIEW/dbo.webtemplate_SOtoPost",
+      "DependsOn": []
+    },
+    {
+      "Type": "SQL_STORED_PROCEDURE",
+      "Name": "dbo.WebTemplate_SalesOrderPostDetail",
+      "Path": "SQL_STORED_PROCEDURE/dbo.WebTemplate_SalesOrderPostDetail",
+      "DependsOn": []
+    },
+    {
+      "Type": "USER_TABLE",
+      "Name": "dbo.custom_DocumentTrackingLog",
+      "Path": "USER_TABLE/dbo.custom_DocumentTrackingLog",
+      "DependsOn": []
+    },
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.PrescriptPickingPostStep200",
+      "Path": "PRESCRIPT/dbo.PrescriptPickingPostStep200",
+      "DependsOn": [
+        {
+          "Type": "USER_TABLE",
+          "Name": "dbo.custom_DocumentTrackingLog"
+        }
+      ]
+    },
+    {
+      "Type": "PROCESS",
+      "Name": "PICKINGPOST",
+      "Path": "",
+      "DependsOn": [
+        {
+          "Type": "PRESCRIPT",
+          "Name": "dbo.PrescriptPickingPostStep200"
+        },
+        {
+          "Type": "SQL_STORED_PROCEDURE",
+          "Name": "dbo.WebTemplate_SalesOrderPostDetail"
+        },
+        {
+          "Type": "VIEW",
+          "Name": "dbo.webtemplate_SOtoPost"
+        }
+      ]
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

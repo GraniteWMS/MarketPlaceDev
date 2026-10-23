@@ -1,0 +1,104 @@
+{
+  "Identifier": "cac0b6f4-5c41-40a1-9582-720538cf345d",
+  "Name": "VSERV_REPLENISH_ETHICAL_BOX",
+  "Description": "VSERV_REPLENISH_ETHICAL_BOX\n\nAllows you to replenish from one carrying entity to another.",
+  "Type": "PROCESS",
+  "Version": 0,
+  "LastModified": "26/06/2026",
+  "DatabaseVersion": "8.0.0.0",
+  "Tags": [
+    "Manufacturing",
+    "Retail",
+    "Automotive",
+    "Agricultural",
+    "Electronics",
+    "Textile",
+    "Construction",
+    "E-commerce",
+    "Logistics",
+    "Pharmaceutical",
+    "Cold Storage"
+  ],
+  "TypeSpecificAttributes": {
+    "ProcessType": "REPLENISH",
+    "ProcessName": "VSERV_REPLENISH_ETHICAL_BOX",
+    "ProcessDescription": "VSERV_REPLENISH_ETHICAL_BOX",
+    "IntegrationIsActive": false,
+    "IntegrationPost": false,
+    "ProcessStepMetadata": [
+      {
+        "Name": "FromTrackingEntity",
+        "Description": "Scan Ethical (ETHL) Box",
+        "Process": "VSERV_REPLENISH_ETHICAL_BOX",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_ReplenishEthicalBox_FromTrackingEntity",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "ToTrackingEntity",
+        "Description": "Which Box Is The Stock Going To?",
+        "Process": "VSERV_REPLENISH_ETHICAL_BOX",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_ReplenishEthicalBox_ToTrackingEntity",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Qty",
+        "Description": "Qty to Replenish",
+        "Process": "VSERV_REPLENISH_ETHICAL_BOX",
+        "ProcessIndex": 2,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Location",
+        "Description": "To Location",
+        "Process": "VSERV_REPLENISH_ETHICAL_BOX",
+        "ProcessIndex": 100,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": false
+      }
+    ]
+  },
+  "Components": [
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.Prescript_ReplenishEthicalBox_FromTrackingEntity",
+      "Path": "PRESCRIPT/dbo.Prescript_ReplenishEthicalBox_FromTrackingEntity",
+      "DependsOn": []
+    },
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.Prescript_ReplenishEthicalBox_ToTrackingEntity",
+      "Path": "PRESCRIPT/dbo.Prescript_ReplenishEthicalBox_ToTrackingEntity",
+      "DependsOn": []
+    },
+    {
+      "Type": "PROCESS",
+      "Name": "VSERV_REPLENISH_ETHICAL_BOX",
+      "Path": "",
+      "DependsOn": [
+        {
+          "Type": "PRESCRIPT",
+          "Name": "dbo.Prescript_ReplenishEthicalBox_FromTrackingEntity"
+        },
+        {
+          "Type": "PRESCRIPT",
+          "Name": "dbo.Prescript_ReplenishEthicalBox_ToTrackingEntity"
+        }
+      ]
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

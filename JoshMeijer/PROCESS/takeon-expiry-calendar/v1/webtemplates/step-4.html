@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Styled Date Picker Submission</title>
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+    }
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+    }
+    .form-box {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    .form-box button {
+      background-color: #A9A9A9;
+      color: blue;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+      margin-bottom: 16px;
+    }
+    .form-box label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: bold;
+    }
+    .form-box input[type="datetime-local"] {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 16px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <form id="dateForm" class="form-box">
+      <button type="button" onclick="submitDateTime()" style = "color: #ffffff">Submit Selected Date Time</button>
+      <label for="datetime">Choose a Date:</label>
+      <input type="date" id="datetime" name="datetime">
+    </form>
+  </div>
+
+  <script>
+    function submitDateTime() {
+      const dateTimeValue = document.getElementById("datetime").value;
+      if (dateTimeValue) {
+        ProceedNext(dateTimeValue);
+      } else {
+        alert("Please Select a Date");
+      }
+    }
+  </script>
+</body>
+</html>

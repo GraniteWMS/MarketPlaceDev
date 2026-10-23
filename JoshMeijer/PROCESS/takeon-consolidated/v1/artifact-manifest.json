@@ -1,0 +1,143 @@
+{
+  "Identifier": "34f4fd05-7fe0-4238-877b-11ac5318425b",
+  "Name": "Takeon_Consolidated",
+  "Description": "Takeon_Consolidated\n\nConsolidate Batch, Serial and generic takeon into a single process.\n\nUses Enforce rules on items to skip steps.",
+  "Type": "PROCESS",
+  "Version": 1,
+  "LastModified": "05/08/2026",
+  "DatabaseVersion": "8.0.0.0",
+  "Tags": [],
+  "TypeSpecificAttributes": {
+    "ProcessType": "TAKEON",
+    "ProcessName": "Takeon_Consolidated",
+    "ProcessDescription": "Takeon_Consolidated",
+    "IntegrationIsActive": false,
+    "IntegrationPost": false,
+    "ProcessStepMetadata": [
+      {
+        "Name": "Location",
+        "Description": "Location",
+        "Process": "Takeon_Consolidated",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "MasterItem",
+        "Description": "MasterItem",
+        "Process": "Takeon_Consolidated",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Batch",
+        "Description": "Batch",
+        "Process": "Takeon_Consolidated",
+        "ProcessIndex": 2,
+        "NextIndex": 3,
+        "isActive": true,
+        "Required": false,
+        "PreScript": "PrescriptTakeonBatch",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "ExpiryDate",
+        "Description": "ExpiryDate (YYYYMMDD)",
+        "Process": "Takeon_Consolidated",
+        "ProcessIndex": 3,
+        "NextIndex": 4,
+        "isActive": true,
+        "Required": false,
+        "PreScript": "PrescriptTakeonExpiryDate",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "SerialNumber",
+        "Description": "SerialNumber",
+        "Process": "Takeon_Consolidated",
+        "ProcessIndex": 4,
+        "NextIndex": 5,
+        "isActive": true,
+        "Required": false,
+        "PreScript": "PrescriptTakeonSerialNumber",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Qty",
+        "Description": "Qty",
+        "Process": "Takeon_Consolidated",
+        "ProcessIndex": 5,
+        "NextIndex": 6,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Confirmation",
+        "Description": "Confirmation",
+        "Process": "Takeon_Consolidated",
+        "ProcessIndex": 6,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Print",
+        "Description": "Print",
+        "Process": "Takeon_Consolidated",
+        "ProcessIndex": 99,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": false
+      }
+    ]
+  },
+  "Components": [
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.PrescriptTakeonBatch",
+      "Path": "PRESCRIPT/dbo.PrescriptTakeonBatch",
+      "DependsOn": []
+    },
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.PrescriptTakeonExpiryDate",
+      "Path": "PRESCRIPT/dbo.PrescriptTakeonExpiryDate",
+      "DependsOn": []
+    },
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.PrescriptTakeonSerialNumber",
+      "Path": "PRESCRIPT/dbo.PrescriptTakeonSerialNumber",
+      "DependsOn": []
+    },
+    {
+      "Type": "PROCESS",
+      "Name": "Takeon_Consolidated",
+      "Path": "",
+      "DependsOn": [
+        {
+          "Type": "PRESCRIPT",
+          "Name": "dbo.PrescriptTakeonBatch"
+        },
+        {
+          "Type": "PRESCRIPT",
+          "Name": "dbo.PrescriptTakeonExpiryDate"
+        },
+        {
+          "Type": "PRESCRIPT",
+          "Name": "dbo.PrescriptTakeonSerialNumber"
+        }
+      ]
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

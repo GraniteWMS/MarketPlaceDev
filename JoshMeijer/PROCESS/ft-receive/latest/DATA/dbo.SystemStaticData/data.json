@@ -1,0 +1,15 @@
+{
+  "Table": "dbo.SystemStaticData",
+  "KeyColumns": [
+    "Key"
+  ],
+  "Rows": [
+    {
+      "Key": "LabelTypeEAN",
+      "Description": "List of valid Label Types to use for EANBarcode steps",
+      "Group": "LabelType",
+      "Value": "DH,FT",
+      "isEncrypted": "False"
+    }
+  ]
+}

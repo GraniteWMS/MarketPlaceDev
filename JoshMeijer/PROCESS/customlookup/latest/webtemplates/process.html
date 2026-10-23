@@ -1,0 +1,211 @@
+{{#if Type && LookupValue}}
+    <!-- Fixed style values -->
+    {{var LabelSize = "17px"}}
+    {{var LabelColor = "#555555"}}
+    {{var LabelBold = false}}
+    {{var HeaderValueSize = "18px"}}
+    {{var ValueColor = "#000000"}}
+    {{var ValueBold = true}}
+    {{var HeaderSecondaryValueSize = "12px"}}
+    {{var SecondaryValueColor = "#888888"}}
+    {{var SecondaryValueBold = false}}
+    {{var HeaderSize = "18px"}}
+    {{var HeaderColor = "#2c3e50"}}
+    {{var HeaderBold = true}}
+    {{var SubheaderSize = "14px"}}
+    {{var SubheaderColor = "#34495e"}}
+    {{var SubheaderBold = false}}
+    {{var DetailValueSize = "16px"}}
+    {{var DetailSecondaryValueSize = "12px"}}
+
+    {{#if Type === "MasterItem"}}
+        {{
+            "SELECT TOP 1 Code, Description
+            FROM MasterItem 
+            WHERE (
+                EXISTS (SELECT 1 FROM MasterItemAlias WHERE Code = @LookupValue AND MasterItem_id = MasterItem.ID)
+                OR EXISTS (SELECT 1 FROM MasterItem MI2 WHERE (MI2.Code = @LookupValue OR MI2.FormattedCode = @LookupValue) AND MI2.ID = MasterItem.ID)
+            )"
+            | dbSingle({LookupValue})
+            | to => masterItem
+        }}
+        {{#if masterItem.Code}}
+        <div>
+            <header style="font-size:{{HeaderSize}}; color:{{HeaderColor}}; {{#if HeaderBold}}font-weight:bold{{/if}}">{{masterItem.Code}}</header>
+            <small class="text-break" style="font-size:{{SubheaderSize}}; color:{{SubheaderColor}}; {{#if SubheaderBold}}font-weight:bold{{/if}}">{{masterItem.Description}}</small>
+        </div>
+        {{/if}}
+        
+        {{var whereClause = "WHERE (
+                                 EXISTS (SELECT 1 FROM MasterItemAlias WHERE Code = @LookupValue AND MasterItem_id = MasterItem.ID)
+                                 OR EXISTS (SELECT 1 FROM MasterItem MI2 WHERE (MI2.Code = @LookupValue OR MI2.FormattedCode = @LookupValue) AND MI2.ID = MasterItem.ID)
+                             )
+                             AND InStock = 1"}}
+    {{else}}
+        <div>
+            <header style="font-size:{{HeaderSize}}; color:{{HeaderColor}}; {{#if HeaderBold}}font-weight:bold{{/if}}">{{Type}}</header>
+        </div>
+        
+        {{#if Type === "Inventory"}}
+            {{var whereClause = "WHERE TrackingEntity.Barcode = @LookupValue"}}
+        {{/if}}
+        {{#if Type === "Location"}}
+            {{var whereClause = "WHERE Location.Barcode = @LookupValue AND TrackingEntity.InStock = 1"}}
+        {{/if}}
+        {{#if Type === "Serial"}}
+            {{var whereClause = "WHERE TrackingEntity.SerialNumber = @LookupValue"}}
+        {{/if}}
+        {{#if Type === "Batch"}}
+            {{var whereClause = "WHERE TrackingEntity.Batch = @LookupValue AND InStock = 1"}}
+        {{/if}}
+    {{/if}}
+
+    {{
+        "SELECT TrackingEntity.Barcode, MasterItem.Code, MasterItem.Description, Location.Name LocationName,
+        ERPLocation, CarryingEntity.Barcode Pallet, TrackingEntity.InStock,
+        TrackingEntity.OnHold, TrackingEntity.StockTake, CAST(Qty AS int) Qty, TrackingEntity.Barcode, 
+        SerialNumber, Batch, ExpiryDate, MasterItem.UOM
+        FROM TrackingEntity INNER JOIN
+        MasterItem ON TrackingEntity.MasterItem_id = MasterItem.ID INNER JOIN
+        Location ON TrackingEntity.Location_id = Location.ID LEFT JOIN
+        CarryingEntity ON TrackingEntity.BelongsToEntity_id = CarryingEntity.ID " 
+        + whereClause
+        | dbSelect({LookupValue})
+        | to => trackingEntities
+    }}
+
+    {{
+        "SELECT SUM(CAST(Qty AS int))
+        FROM TrackingEntity INNER JOIN
+        MasterItem ON TrackingEntity.MasterItem_id = MasterItem.ID INNER JOIN
+        Location ON TrackingEntity.Location_id = Location.ID LEFT JOIN
+        CarryingEntity ON TrackingEntity.BelongsToEntity_id = CarryingEntity.ID "
+        + whereClause
+        | dbScalar({LookupValue})
+        | to => sumQty
+    }}
+    
+    {{#if trackingEntities}}
+        <div class="row g-0 py-1">
+            <div class="col-4">
+                <small style="font-size:{{LabelSize}}; color:{{LabelColor}}; {{#if LabelBold}}font-weight:bold{{/if}}">Count</small>
+            </div>
+            <div class="col-8 text-end">
+                <span style="font-size:{{HeaderValueSize}}; color:{{ValueColor}}; {{#if ValueBold}}font-weight:bold{{/if}}">{{trackingEntities.Count}}</span>
+            </div>
+        </div>
+
+        <div class="row g-0 py-1">
+            <div class="col-4">
+                <small style="font-size:{{LabelSize}}; color:{{LabelColor}}; {{#if LabelBold}}font-weight:bold{{/if}}">Sum Total</small>
+            </div>
+            <div class="col-8 text-end">
+                <span style="font-size:{{HeaderValueSize}}; color:{{ValueColor}}; {{#if ValueBold}}font-weight:bold{{/if}}">{{sumQty}}</span>
+            </div>
+        </div>
+        <hr />
+    {{/if}}
+{{/if}}
+
+{{#if trackingEntities}}
+    {{#if trackingEntities.Count > 0}}
+        {{#each trackingEntities}}
+            <div class="row g-0 py-1">
+                <div class="col-12 text-end">
+                    {{#if it.InStock}}
+                        <span class="gn-success" style="font-size:{{DetailValueSize}}; font-weight:bold">InStock</span>
+                    {{else}}
+                        <span class="gn-error" style="font-size:{{DetailValueSize}}; font-weight:bold">Scrapped</span>
+                    {{/if}}
+                    {{#if it.OnHold}}
+                        <span class="gn-message ms-2" style="font-size:{{DetailValueSize}}; font-weight:bold">OnHold</span>
+                    {{/if}}
+                    {{#if it.StockTake}}
+                        <span class="gn-message ms-2" style="font-size:{{DetailValueSize}}; font-weight:bold">StockTake</span>
+                    {{/if}}
+                </div>
+            </div>
+
+            {{#if Type != "MasterItem"}}
+            <div>
+                <header style="font-size:{{HeaderSize}}; color:{{HeaderColor}}; {{#if HeaderBold}}font-weight:bold{{/if}}">{{it.Code}}</header>
+                <small class="text-break" style="font-size:{{SubheaderSize}}; color:{{SubheaderColor}}; {{#if SubheaderBold}}font-weight:bold{{/if}}">{{it.Description}}</small>
+            </div>
+            {{/if}}
+
+            {{#if it.Pallet}}
+            <div class="row g-0 py-1">
+                <div class="col-4">
+                    <small style="font-size:{{LabelSize}}; color:{{LabelColor}}; {{#if LabelBold}}font-weight:bold{{/if}}">Pallet</small>
+                </div>
+                <div class="col-8 text-end">
+                    <span style="font-size:{{HeaderValueSize}}; color:{{ValueColor}}; {{#if ValueBold}}font-weight:bold{{/if}}">{{it.Pallet}}</span>
+                </div>
+            </div>
+            {{/if}}
+
+            <div class="row g-0 py-1">
+                <div class="col-4">
+                    <small style="font-size:{{LabelSize}}; color:{{LabelColor}}; {{#if LabelBold}}font-weight:bold{{/if}}">Barcode</small>
+                </div>
+                <div class="col-8 text-end">
+                    <span style="font-size:{{HeaderValueSize}}; color:{{ValueColor}}; {{#if ValueBold}}font-weight:bold{{/if}}">{{it.Barcode}}</span>
+                </div>
+            </div>
+
+            {{#if Type != "Location"}}
+            <div class="row g-0 py-1">
+                <div class="col-4">
+                    <small style="font-size:{{LabelSize}}; color:{{LabelColor}}; {{#if LabelBold}}font-weight:bold{{/if}}">Location</small>
+                </div>
+                <div class="col-8 text-end">
+                    <span style="font-size:{{HeaderValueSize}}; color:{{ValueColor}}; {{#if ValueBold}}font-weight:bold{{/if}}">{{it.LocationName}} <small style="font-style:normal; font-size:{{HeaderSecondaryValueSize}}; color:{{SecondaryValueColor}}; {{#if SecondaryValueBold}}font-weight:bold{{/if}}">{{it.ERPLocation}}</small></span>
+                </div>
+            </div>
+            {{/if}}
+
+            <div class="row g-0 py-1">
+                <div class="col-4">
+                    <small style="font-size:{{LabelSize}}; color:{{LabelColor}}; {{#if LabelBold}}font-weight:bold{{/if}}">Qty</small>
+                </div>
+                <div class="col-8 text-end">
+                    <span style="font-size:{{HeaderValueSize}}; color:{{ValueColor}}; {{#if ValueBold}}font-weight:bold{{/if}}">{{it.Qty}} {{it.UOM}}</span>
+                </div>
+            </div>
+
+            {{#if it.SerialNumber}}
+            <div class="row g-0 py-1">
+                <div class="col-4">
+                    <small style="font-size:{{LabelSize}}; color:{{LabelColor}}; {{#if LabelBold}}font-weight:bold{{/if}}">Serial</small>
+                </div>
+                <div class="col-8 text-end">
+                    <span style="font-size:{{HeaderValueSize}}; color:{{ValueColor}}; {{#if ValueBold}}font-weight:bold{{/if}}">{{it.SerialNumber}}</span>
+                </div>
+            </div>
+            {{/if}}
+
+            {{#if it.Batch}}
+            <div class="row g-0 py-1">
+                <div class="col-4">
+                    <small style="font-size:{{LabelSize}}; color:{{LabelColor}}; {{#if LabelBold}}font-weight:bold{{/if}}">Batch</small>
+                </div>
+                <div class="col-8 text-end">
+                    <span style="font-size:{{HeaderValueSize}}; color:{{ValueColor}}; {{#if ValueBold}}font-weight:bold{{/if}}">{{it.Batch}}</span>
+                </div>
+            </div>
+            {{/if}}
+
+            {{#if it.ExpiryDate}}
+            <div class="row g-0 py-1">
+                <div class="col-4">
+                    <small style="font-size:{{LabelSize}}; color:{{LabelColor}}; {{#if LabelBold}}font-weight:bold{{/if}}">Expiry</small>
+                </div>
+                <div class="col-8 text-end">
+                    <span style="font-size:{{HeaderValueSize}}; color:{{ValueColor}}; {{#if ValueBold}}font-weight:bold{{/if}}">{{it.ExpiryDate}}</span>
+                </div>
+            </div>
+            {{/if}}
+            <hr />
+        {{/each}}
+    {{/if}}
+{{/if}}

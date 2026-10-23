@@ -1,0 +1,60 @@
+{
+  "Name": "LOCATION_ITEM_BARCODE_REPLENISH",
+  "Description": "LOCATION_ITEM_BARCODE_REPLENISH",
+  "Type": "REPLENISH",
+  "IsActive": true,
+  "IntegrationIsActive": false,
+  "IntegrationPost": false,
+  "Steps": [
+    {
+      "Name": "FromLocation",
+      "Description": "From Location",
+      "ProcessIndex": 0,
+      "NextIndex": 1,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "PrescriptReplenish_LOC_MIFromLocation"
+    },
+    {
+      "Name": "FromTrackingEntity",
+      "Description": "MasterItem",
+      "ProcessIndex": 1,
+      "NextIndex": 2,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "PrescriptReplenish_LOC_MIFromTrackingEntity"
+    },
+    {
+      "Name": "Location",
+      "Description": "To Location",
+      "ProcessIndex": 2,
+      "NextIndex": 3,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "PrescriptReplenish_LOC_MILocation"
+    },
+    {
+      "Name": "Qty",
+      "Description": "Qty to Replenish",
+      "ProcessIndex": 3,
+      "NextIndex": 4,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "PrescriptReplenish_LOC_MIQty"
+    },
+    {
+      "Name": "ToTrackingEntity",
+      "Description": "ToTrackingEntity",
+      "ProcessIndex": 4,
+      "NextIndex": 0,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "PrescriptReplenish_LOC_MIToTrackingEntity"
+    }
+  ]
+}

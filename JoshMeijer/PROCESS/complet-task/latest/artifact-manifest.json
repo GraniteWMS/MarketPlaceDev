@@ -1,0 +1,104 @@
+{
+  "Identifier": "b17d6bf7-5249-48de-b0bf-3a84a3539215",
+  "Name": "COMPLET_TASK",
+  "Description": "COMPLET_TASK\n\nCompletes a task entered by CREATE_TASK",
+  "Type": "PROCESS",
+  "Version": 0,
+  "LastModified": "04/06/2025",
+  "DatabaseVersion": "8.0.0.0",
+  "Tags": [],
+  "TypeSpecificAttributes": {
+    "ProcessType": "CUSTOM",
+    "ProcessName": "COMPLET_TASK",
+    "ProcessDescription": "COMPLET_TASK",
+    "IntegrationIsActive": false,
+    "IntegrationPost": false,
+    "ProcessStepMetadata": [
+      {
+        "Name": "TaskName",
+        "Description": "Task Name",
+        "Process": "COMPLET_TASK",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "PrescriptCompleteTasksTaskName",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Confirmation",
+        "Description": "Confirm",
+        "Process": "COMPLET_TASK",
+        "ProcessIndex": 1,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "PrescriptCompleteTasksConfirmation",
+        "hasWebTemplate": true
+      }
+    ]
+  },
+  "Components": [
+    {
+      "Type": "USER_TABLE",
+      "Name": "dbo.Custom_TaskList",
+      "Path": "USER_TABLE/dbo.Custom_TaskList",
+      "DependsOn": []
+    },
+    {
+      "Type": "VIEW",
+      "Name": "dbo.Webtemplate_TaskList",
+      "Path": "VIEW/dbo.Webtemplate_TaskList",
+      "DependsOn": [
+        {
+          "Type": "USER_TABLE",
+          "Name": "dbo.Custom_TaskList"
+        }
+      ]
+    },
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.PrescriptCompleteTasksConfirmation",
+      "Path": "PRESCRIPT/dbo.PrescriptCompleteTasksConfirmation",
+      "DependsOn": [
+        {
+          "Type": "USER_TABLE",
+          "Name": "dbo.Custom_TaskList"
+        }
+      ]
+    },
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.PrescriptCompleteTasksTaskName",
+      "Path": "PRESCRIPT/dbo.PrescriptCompleteTasksTaskName",
+      "DependsOn": [
+        {
+          "Type": "USER_TABLE",
+          "Name": "dbo.Custom_TaskList"
+        }
+      ]
+    },
+    {
+      "Type": "PROCESS",
+      "Name": "COMPLET_TASK",
+      "Path": "",
+      "DependsOn": [
+        {
+          "Type": "PRESCRIPT",
+          "Name": "dbo.PrescriptCompleteTasksConfirmation"
+        },
+        {
+          "Type": "PRESCRIPT",
+          "Name": "dbo.PrescriptCompleteTasksTaskName"
+        },
+        {
+          "Type": "VIEW",
+          "Name": "dbo.Webtemplate_TaskList"
+        }
+      ]
+    }
+  ],
+  "DependsOnClr": true,
+  "SqlClrAssemblyVersion": "7.0.0.0",
+  "Deprecated": false
+}
