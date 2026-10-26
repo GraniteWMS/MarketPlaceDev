@@ -1,3 +1,0 @@
-{{ "SELECT * FROM WebtemplateReceivingDocument WHERE NUMBER LIKE \"R-%\" ORDER BY Date DESC" 
-            | dbSelect({Location, Session}) 
-            | basicTable({ selectOnColumn:"Number", enableSearch:"true", submitOnClick: "true"}) }}

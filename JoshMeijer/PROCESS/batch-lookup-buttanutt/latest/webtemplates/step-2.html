@@ -1,3 +1,0 @@
-{{ "SELECT ItemCode, ItemDescription, Qty AS [Total Qty] FROM WebTemplate_BatchLookup_DetailsHeader WHERE Batch = @Batch" | dbSelect({Batch}) | basicTable({}) }}
-
-{{ "SELECT Barcode, ItemCode, ItemDescription, Qty FROM WebTemplate_BatchLookup_DetailsDetail WHERE Batch = @Batch" | dbSelect({Batch}) | basicTable({}) }}

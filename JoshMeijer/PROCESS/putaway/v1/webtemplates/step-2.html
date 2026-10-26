@@ -1,1 +1,0 @@
-{{ "SELECT *  FROM webtemplate_StockInReceiving " | dbSelect({}) | basicTable({selectOnColumn:"Barcode"}) }}
