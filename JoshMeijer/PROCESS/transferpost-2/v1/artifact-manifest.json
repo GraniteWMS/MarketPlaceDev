@@ -1,0 +1,141 @@
+{
+  "Identifier": "b6b232bf-c659-4bd6-8ec4-894a401ed29e",
+  "Name": "TRANSFERPOST",
+  "Description": "TRANSFER Check and Post to SAGE\n\nHas Webtemplates to show documents to Post and What is going to be posted with a Confirmation.\nHas a Comment for Waybill/Driver/Truck and records to DocumentTrackingLog.\nHas Step200 to Print Delivery Note (SSRS-TransferSheet).\nCan email delivery report but commented out for now.\n\nRelies on Integration_ACCPAC_TransferHeader for data to print on SSRS",
+  "Type": "PROCESS",
+  "Version": 1,
+  "LastModified": "10/09/2026",
+  "DatabaseVersion": "8.0.0.0",
+  "Tags": [],
+  "TypeSpecificAttributes": {
+    "ProcessType": "TRANSFERPOST",
+    "ProcessName": "TRANSFERPOST",
+    "ProcessDescription": "TRANSFER Check and Post to SAGE",
+    "IntegrationIsActive": true,
+    "IntegrationPost": true,
+    "ProcessStepMetadata": [
+      {
+        "Name": "Document",
+        "Description": "Document",
+        "Process": "TRANSFERPOST",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Confirmation",
+        "Description": "Confirm details to Post",
+        "Process": "TRANSFERPOST",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Comment",
+        "Description": "Driver, truck or courier waybill",
+        "Process": "TRANSFERPOST",
+        "ProcessIndex": 2,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Step200",
+        "Description": "Print Shipment Delivery Report",
+        "Process": "TRANSFERPOST",
+        "ProcessIndex": 200,
+        "NextIndex": 200,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "PrescriptTransferPostStep200",
+        "hasWebTemplate": false
+      }
+    ]
+  },
+  "Components": [
+    {
+      "Type": "VIEW",
+      "Name": "dbo.webtemplate_TransfertoPost",
+      "Path": "VIEW/dbo.webtemplate_TransfertoPost",
+      "DependsOn": []
+    },
+    {
+      "Type": "SQL_STORED_PROCEDURE",
+      "Name": "dbo.WebTemplate_TransferPostDetail",
+      "Path": "SQL_STORED_PROCEDURE/dbo.WebTemplate_TransferPostDetail",
+      "DependsOn": []
+    },
+    {
+      "Type": "USER_TABLE",
+      "Name": "dbo.custom_DocumentTrackingLog",
+      "Path": "USER_TABLE/dbo.custom_DocumentTrackingLog",
+      "DependsOn": []
+    },
+    {
+      "Type": "SQL_STORED_PROCEDURE",
+      "Name": "dbo.SSRS_Transfersheet_Detail",
+      "Path": "SQL_STORED_PROCEDURE/dbo.SSRS_Transfersheet_Detail",
+      "DependsOn": []
+    },
+    {
+      "Type": "VIEW",
+      "Name": "dbo.Integration_Accpac_TransferHeader",
+      "Path": "VIEW/dbo.Integration_Accpac_TransferHeader",
+      "DependsOn": []
+    },
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.PrescriptTransferPostStep200",
+      "Path": "PRESCRIPT/dbo.PrescriptTransferPostStep200",
+      "DependsOn": [
+        {
+          "Type": "USER_TABLE",
+          "Name": "dbo.custom_DocumentTrackingLog"
+        }
+      ]
+    },
+    {
+      "Type": "SQL_STORED_PROCEDURE",
+      "Name": "dbo.SSRS_TransferSheet_Header",
+      "Path": "SQL_STORED_PROCEDURE/dbo.SSRS_TransferSheet_Header",
+      "DependsOn": [
+        {
+          "Type": "VIEW",
+          "Name": "dbo.Integration_Accpac_TransferHeader"
+        }
+      ]
+    },
+    {
+      "Type": "VIEW",
+      "Name": "dbo.Integration_Accpac_TransferDetail",
+      "Path": "VIEW/dbo.Integration_Accpac_TransferDetail",
+      "DependsOn": []
+    },
+    {
+      "Type": "PROCESS",
+      "Name": "TRANSFERPOST",
+      "Path": "",
+      "DependsOn": [
+        {
+          "Type": "PRESCRIPT",
+          "Name": "dbo.PrescriptTransferPostStep200"
+        },
+        {
+          "Type": "SQL_STORED_PROCEDURE",
+          "Name": "dbo.WebTemplate_TransferPostDetail"
+        },
+        {
+          "Type": "VIEW",
+          "Name": "dbo.webtemplate_TransfertoPost"
+        }
+      ]
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

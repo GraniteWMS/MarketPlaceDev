@@ -1,0 +1,49 @@
+<label style="font-size:16px; font-weight:bold;">
+    Box Barcode:
+</label>
+<label style="font-size:16px;">
+    {{BoxBarcode}}
+</label>
+
+<br />
+
+<label style="font-size:16px; font-weight:bold;">
+    Sales Order to Remove:
+</label>
+<label style="font-size:16px;">
+    {{Document}}
+</label>
+
+<label style="font-size:16px; font-weight:bold;">
+    Barcodes that will be removed:
+</label>
+
+{{
+"
+SELECT
+      TE.Barcode AS TrackingEntityBarcode
+    , D.Number AS SalesOrder
+FROM dbo.Custom_CourierBox CB
+INNER JOIN dbo.Custom_CourierBoxTrackingEntity CBTE
+    ON CBTE.CourierBox_id = CB.ID
+INNER JOIN dbo.TrackingEntity TE
+    ON TE.ID = CBTE.TrackingEntity_id
+INNER JOIN dbo.[Document] D
+    ON D.Number = @Document
+WHERE CB.BoxBarcode = @BoxBarcode
+  AND EXISTS
+  (
+      SELECT 1
+      FROM dbo.[Transaction] T
+      WHERE T.Document_id = D.ID
+        AND T.TrackingEntity_id = CBTE.TrackingEntity_id
+        AND UPPER(T.[Type]) = "PICK"
+        AND ISNULL(T.ReversalTransaction_id, 0) = 0
+        AND ISNULL(T.ActionQty, 0) > 0
+  )
+ORDER BY
+      CBTE.ScanDate DESC
+"
+| dbSelect({Document, BoxBarcode})
+| basicTable({selectOnColumn:"TrackingEntityBarcode", enableSearch:false})
+}}

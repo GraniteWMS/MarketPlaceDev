@@ -1,0 +1,175 @@
+{
+  "Identifier": "5678f1ea-034a-421b-a136-dcddea5793ba",
+  "Name": "PICKING Credit Return",
+  "Description": "Picking Credit Return\n\nA picking process that will only recommend stock that is in one specific location. Used to pick credit returns at Powerspeed.",
+  "Type": "PROCESS",
+  "Version": 1,
+  "LastModified": "12/02/2025",
+  "DatabaseVersion": "8.0.0.0",
+  "Tags": [],
+  "TypeSpecificAttributes": {
+    "ProcessType": "PICKING",
+    "ProcessName": "PICKING Credit Return",
+    "ProcessDescription": "Picking Credit Return",
+    "IntegrationIsActive": false,
+    "IntegrationPost": false,
+    "ProcessStepMetadata": [
+      {
+        "Name": "Document",
+        "Description": "Document Number",
+        "Process": "PICKING Credit Return",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "PrescriptPickingCRDocument",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Cage",
+        "Description": "Cage",
+        "Process": "PICKING Credit Return",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "TrackingEntity",
+        "Description": "TrackingEntity (Granite Barcode)",
+        "Process": "PICKING Credit Return",
+        "ProcessIndex": 2,
+        "NextIndex": 3,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "PrescriptPickingCRTrackingEntity",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Qty",
+        "Description": "Qty",
+        "Process": "PICKING Credit Return",
+        "ProcessIndex": 3,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "PrescriptPickingCRQty",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Location",
+        "Description": "Location",
+        "Process": "PICKING Credit Return",
+        "ProcessIndex": 100,
+        "NextIndex": 100,
+        "isActive": true,
+        "Required": true,
+        "DefaultValue": "RETURN",
+        "hasWebTemplate": false
+      }
+    ]
+  },
+  "Components": [
+    {
+      "Type": "VIEW",
+      "Name": "dbo.WebtemplatePickingDocument",
+      "Path": "VIEW/dbo.WebtemplatePickingDocument",
+      "DependsOn": []
+    },
+    {
+      "Type": "SQL_STORED_PROCEDURE",
+      "Name": "dbo.WebtemplatePickingTrackingEntitiesWithBarcode",
+      "Path": "SQL_STORED_PROCEDURE/dbo.WebtemplatePickingTrackingEntitiesWithBarcode",
+      "DependsOn": []
+    },
+    {
+      "Type": "SQL_STORED_PROCEDURE",
+      "Name": "dbo.WebtemplatePickingQuantity",
+      "Path": "SQL_STORED_PROCEDURE/dbo.WebtemplatePickingQuantity",
+      "DependsOn": []
+    },
+    {
+      "Type": "SQL_STORED_PROCEDURE",
+      "Name": "dbo.WebtemplatePickingCage",
+      "Path": "SQL_STORED_PROCEDURE/dbo.WebtemplatePickingCage",
+      "DependsOn": []
+    },
+    {
+      "Type": "SQL_STORED_PROCEDURE",
+      "Name": "dbo.FIFOPickingReturns",
+      "Path": "SQL_STORED_PROCEDURE/dbo.FIFOPickingReturns",
+      "DependsOn": []
+    },
+    {
+      "Type": "SQL_STORED_PROCEDURE",
+      "Name": "dbo.WebtemplatePickingTrackingEntities",
+      "Path": "SQL_STORED_PROCEDURE/dbo.WebtemplatePickingTrackingEntities",
+      "DependsOn": []
+    },
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.PrescriptPickingCRDocument",
+      "Path": "PRESCRIPT/dbo.PrescriptPickingCRDocument",
+      "DependsOn": [
+        {
+          "Type": "SQL_STORED_PROCEDURE",
+          "Name": "dbo.FIFOPickingReturns"
+        }
+      ]
+    },
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.PrescriptPickingCRTrackingEntity",
+      "Path": "PRESCRIPT/dbo.PrescriptPickingCRTrackingEntity",
+      "DependsOn": []
+    },
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.PrescriptPickingCRQty",
+      "Path": "PRESCRIPT/dbo.PrescriptPickingCRQty",
+      "DependsOn": []
+    },
+    {
+      "Type": "PROCESS",
+      "Name": "PICKING Credit Return",
+      "Path": "",
+      "DependsOn": [
+        {
+          "Type": "PRESCRIPT",
+          "Name": "dbo.PrescriptPickingCRDocument"
+        },
+        {
+          "Type": "PRESCRIPT",
+          "Name": "dbo.PrescriptPickingCRQty"
+        },
+        {
+          "Type": "PRESCRIPT",
+          "Name": "dbo.PrescriptPickingCRTrackingEntity"
+        },
+        {
+          "Type": "SQL_STORED_PROCEDURE",
+          "Name": "dbo.WebtemplatePickingCage"
+        },
+        {
+          "Type": "SQL_STORED_PROCEDURE",
+          "Name": "dbo.WebtemplatePickingQuantity"
+        },
+        {
+          "Type": "SQL_STORED_PROCEDURE",
+          "Name": "dbo.WebtemplatePickingTrackingEntities"
+        },
+        {
+          "Type": "SQL_STORED_PROCEDURE",
+          "Name": "dbo.WebtemplatePickingTrackingEntitiesWithBarcode"
+        },
+        {
+          "Type": "VIEW",
+          "Name": "dbo.WebtemplatePickingDocument"
+        }
+      ]
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

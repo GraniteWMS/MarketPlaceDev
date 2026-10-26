@@ -1,0 +1,59 @@
+{
+  "Identifier": "e016b18e-b608-4537-8f37-d3f3a87b8f63",
+  "Name": "REPALLETIZE",
+  "Description": "REPALLETIZE\n\nDefault Repalletize process",
+  "Type": "PROCESS",
+  "Version": 0,
+  "LastModified": "24/07/2026",
+  "DatabaseVersion": "8.0.0.0",
+  "Tags": [],
+  "TypeSpecificAttributes": {
+    "ProcessType": "REPALLETIZE",
+    "ProcessName": "REPALLETIZE",
+    "ProcessDescription": "REPALLETIZE",
+    "IntegrationIsActive": false,
+    "IntegrationPost": false,
+    "ProcessStepMetadata": [
+      {
+        "Name": "Location",
+        "Description": "Location",
+        "Process": "REPALLETIZE",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "FromCarryingEntity",
+        "Description": "FromCarryingEntity",
+        "Process": "REPALLETIZE",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "ToCarryingEntity",
+        "Description": "ToCarryingEntity",
+        "Process": "REPALLETIZE",
+        "ProcessIndex": 2,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": false
+      }
+    ]
+  },
+  "Components": [
+    {
+      "Type": "PROCESS",
+      "Name": "REPALLETIZE",
+      "Path": "",
+      "DependsOn": []
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

@@ -1,0 +1,149 @@
+{
+  "Identifier": "0d2afd1d-2b27-4966-add1-416c688e477a",
+  "Name": "TRANSFER",
+  "Description": "Transfer Picking\n\nTransfer picking webtemplate to select the Document.  Defaults to TRANSFER (not InTransit/Receipt)\nincludes the FIFO Pick recommendation to show what to pick.\n\nPaired with a Transfer POST and Transfer Report after posting.",
+  "Type": "PROCESS",
+  "Version": 0,
+  "LastModified": "13/10/2026",
+  "DatabaseVersion": "8.0.0.0",
+  "Tags": [],
+  "TypeSpecificAttributes": {
+    "ProcessType": "TRANSFER",
+    "ProcessName": "TRANSFER",
+    "ProcessDescription": "Transfer Picking",
+    "IntegrationIsActive": true,
+    "IntegrationPost": true,
+    "ProcessStepMetadata": [
+      {
+        "Name": "Document",
+        "Description": "Transfer Document",
+        "Process": "TRANSFER",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": false,
+        "PreScript": "PrescriptTransferDocument",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "DestinationLocation",
+        "Description": "DestinationLocation",
+        "Process": "TRANSFER",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "IntransitLocation",
+        "Description": "IntransitLocation",
+        "Process": "TRANSFER",
+        "ProcessIndex": 2,
+        "NextIndex": 3,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "TrackingEntity",
+        "Description": "From Pallet",
+        "Process": "TRANSFER",
+        "ProcessIndex": 3,
+        "NextIndex": 4,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Qty",
+        "Description": "Qty to Transfer from this pallet",
+        "Process": "TRANSFER",
+        "ProcessIndex": 4,
+        "NextIndex": 3,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Type",
+        "Description": "Type",
+        "Process": "TRANSFER",
+        "ProcessIndex": 100,
+        "NextIndex": 100,
+        "isActive": true,
+        "Required": false,
+        "DefaultValue": "TRANSFER",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Step200",
+        "Description": "Step200",
+        "Process": "TRANSFER",
+        "ProcessIndex": 200,
+        "NextIndex": 200,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "PrescriptTransferStep200",
+        "hasWebTemplate": false
+      }
+    ]
+  },
+  "Components": [
+    {
+      "Type": "VIEW",
+      "Name": "dbo.webtemplate_TransferstoPick",
+      "Path": "VIEW/dbo.webtemplate_TransferstoPick",
+      "DependsOn": []
+    },
+    {
+      "Type": "SQL_STORED_PROCEDURE",
+      "Name": "dbo.FIFOPickingRecommendation",
+      "Path": "SQL_STORED_PROCEDURE/dbo.FIFOPickingRecommendation",
+      "DependsOn": []
+    },
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.PrescriptTransferDocument",
+      "Path": "PRESCRIPT/dbo.PrescriptTransferDocument",
+      "DependsOn": [
+        {
+          "Type": "SQL_STORED_PROCEDURE",
+          "Name": "dbo.FIFOPickingRecommendation"
+        }
+      ]
+    },
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.PrescriptTransferStep200",
+      "Path": "PRESCRIPT/dbo.PrescriptTransferStep200",
+      "DependsOn": [
+        {
+          "Type": "SQL_STORED_PROCEDURE",
+          "Name": "dbo.FIFOPickingRecommendation"
+        }
+      ]
+    },
+    {
+      "Type": "PROCESS",
+      "Name": "TRANSFER",
+      "Path": "",
+      "DependsOn": [
+        {
+          "Type": "PRESCRIPT",
+          "Name": "dbo.PrescriptTransferDocument"
+        },
+        {
+          "Type": "PRESCRIPT",
+          "Name": "dbo.PrescriptTransferStep200"
+        },
+        {
+          "Type": "VIEW",
+          "Name": "dbo.webtemplate_TransferstoPick"
+        }
+      ]
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

@@ -1,0 +1,160 @@
+{
+  "Identifier": "f01fe81c-a57c-4a48-a706-4fec129cad52",
+  "Name": "ASSIGN_PICKER_DETAIL",
+  "Description": "ASSIGN PICKER TO DOCUMENT LINE\n\nAbility to select a specific line / item code from the document and allocate a picker to execute\n\nUsing OptionalFieldValues_DocumentDetail to store the assigned picker \nUsing FN_GetOptionalField to list exisiting assigned values",
+  "Type": "PROCESS",
+  "Version": 1,
+  "LastModified": "17/03/2026",
+  "DatabaseVersion": "8.0.0.0",
+  "Tags": [],
+  "TypeSpecificAttributes": {
+    "ProcessType": "CUSTOM",
+    "ProcessName": "ASSIGN_PICKER_DETAIL",
+    "ProcessDescription": "ASSIGN PICKER TO DOCUMENT LINE",
+    "IntegrationIsActive": false,
+    "IntegrationPost": false,
+    "ProcessStepMetadata": [
+      {
+        "Name": "Type",
+        "Description": "Type",
+        "Process": "ASSIGN_PICKER_DETAIL",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "PrescriptAssignPickerDetailType",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Document",
+        "Description": "Document",
+        "Process": "ASSIGN_PICKER_DETAIL",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "PrescriptAssignPickerDetailDocument",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "PickerName",
+        "Description": "Picker",
+        "Process": "ASSIGN_PICKER_DETAIL",
+        "ProcessIndex": 2,
+        "NextIndex": 3,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Line",
+        "Description": "Select Document Line",
+        "Process": "ASSIGN_PICKER_DETAIL",
+        "ProcessIndex": 3,
+        "NextIndex": 3,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "PrescriptAssignPickerDetailLine",
+        "hasWebTemplate": false
+      }
+    ]
+  },
+  "Components": [
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.PrescriptAssignPickerDetailType",
+      "Path": "PRESCRIPT/dbo.PrescriptAssignPickerDetailType",
+      "DependsOn": []
+    },
+    {
+      "Type": "USER_TABLE",
+      "Name": "dbo.OptionalFieldValues_Document",
+      "Path": "USER_TABLE/dbo.OptionalFieldValues_Document",
+      "DependsOn": []
+    },
+    {
+      "Type": "USER_TABLE",
+      "Name": "dbo.OptionalFieldValues_DocumentDetail",
+      "Path": "USER_TABLE/dbo.OptionalFieldValues_DocumentDetail",
+      "DependsOn": []
+    },
+    {
+      "Type": "USER_TABLE",
+      "Name": "dbo.OptionalFieldValues_Location",
+      "Path": "USER_TABLE/dbo.OptionalFieldValues_Location",
+      "DependsOn": []
+    },
+    {
+      "Type": "SQL_SCALAR_FUNCTION",
+      "Name": "dbo.FN_GetOptionalField",
+      "Path": "SQL_SCALAR_FUNCTION/dbo.FN_GetOptionalField",
+      "DependsOn": [
+        {
+          "Type": "USER_TABLE",
+          "Name": "dbo.OptionalFieldValues_Document"
+        },
+        {
+          "Type": "USER_TABLE",
+          "Name": "dbo.OptionalFieldValues_DocumentDetail"
+        },
+        {
+          "Type": "USER_TABLE",
+          "Name": "dbo.OptionalFieldValues_Location"
+        }
+      ]
+    },
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.PrescriptAssignPickerDetailDocument",
+      "Path": "PRESCRIPT/dbo.PrescriptAssignPickerDetailDocument",
+      "DependsOn": []
+    },
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.PrescriptAssignPickerDetailLine",
+      "Path": "PRESCRIPT/dbo.PrescriptAssignPickerDetailLine",
+      "DependsOn": [
+        {
+          "Type": "SQL_SCALAR_FUNCTION",
+          "Name": "dbo.FN_GetOptionalField"
+        },
+        {
+          "Type": "USER_TABLE",
+          "Name": "dbo.OptionalFieldValues_DocumentDetail"
+        }
+      ]
+    },
+    {
+      "Type": "SQL_STORED_PROCEDURE",
+      "Name": "dbo.Webtemplate_AssignPickerDetail_MasterItem",
+      "Path": "SQL_STORED_PROCEDURE/dbo.Webtemplate_AssignPickerDetail_MasterItem",
+      "DependsOn": [
+        {
+          "Type": "SQL_SCALAR_FUNCTION",
+          "Name": "dbo.FN_GetOptionalField"
+        }
+      ]
+    },
+    {
+      "Type": "PROCESS",
+      "Name": "ASSIGN_PICKER_DETAIL",
+      "Path": "",
+      "DependsOn": [
+        {
+          "Type": "PRESCRIPT",
+          "Name": "dbo.PrescriptAssignPickerDetailDocument"
+        },
+        {
+          "Type": "PRESCRIPT",
+          "Name": "dbo.PrescriptAssignPickerDetailLine"
+        },
+        {
+          "Type": "PRESCRIPT",
+          "Name": "dbo.PrescriptAssignPickerDetailType"
+        }
+      ]
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

@@ -1,0 +1,1 @@
+{{ "SELECT Barcode, Name FROM Location WHERE Name LIKE "%RECEIVING%" AND Barcode <> "REC" ORDER BY ERPLocation" | dbSelect({}) | basicTable({selectOnColumn:"Barcode", enableSearch:true}) }}

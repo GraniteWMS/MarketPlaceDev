@@ -1,0 +1,73 @@
+{
+  "Name": "PICKING",
+  "Description": "PICKING",
+  "Type": "PICKING",
+  "IsActive": true,
+  "IntegrationIsActive": false,
+  "IntegrationPost": false,
+  "Steps": [
+    {
+      "Name": "Comment",
+      "Description": "Comment",
+      "ProcessIndex": 0,
+      "NextIndex": 0,
+      "IsActive": false,
+      "Required": false,
+      "IsBusinessRule": false
+    },
+    {
+      "Name": "Document",
+      "Description": "Document",
+      "ProcessIndex": 0,
+      "NextIndex": 1,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false
+    },
+    {
+      "Name": "OutputBarcode",
+      "Description": "OutputBarcode",
+      "ProcessIndex": 0,
+      "NextIndex": 0,
+      "IsActive": false,
+      "Required": false,
+      "IsBusinessRule": false
+    },
+    {
+      "Name": "UOM",
+      "Description": "UOM",
+      "ProcessIndex": 0,
+      "NextIndex": 0,
+      "IsActive": false,
+      "Required": false,
+      "IsBusinessRule": false
+    },
+    {
+      "Name": "Location",
+      "Description": "Location",
+      "ProcessIndex": 1,
+      "NextIndex": 2,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false
+    },
+    {
+      "Name": "TrackingEntity",
+      "Description": "TrackingEntity",
+      "ProcessIndex": 2,
+      "NextIndex": 3,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false
+    },
+    {
+      "Name": "Qty",
+      "Description": "Qty",
+      "ProcessIndex": 3,
+      "NextIndex": 2,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false
+    }
+  ]
+}

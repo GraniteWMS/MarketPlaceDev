@@ -1,0 +1,1 @@
+{{ "SELECT TOP(200) Number, TradingPartnerCode, TradingPartnerDescription from Document WHERE [Type] = "RECEIVING" ORDER BY Number DESC" | dbSelect({}) | basicTable({selectOnColumn:"Number", enableSearch:true}) }}

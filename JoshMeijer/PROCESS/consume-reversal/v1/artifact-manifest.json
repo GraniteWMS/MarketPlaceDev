@@ -1,0 +1,120 @@
+{
+  "Identifier": "0035ca65-6925-4aa6-b557-f0c09b56b433",
+  "Name": "CONSUME_REVERSAL",
+  "Description": "CONSUME REVERSAL\n\nFor the reversal of consume transactions.",
+  "Type": "PROCESS",
+  "Version": 1,
+  "LastModified": "28/03/2024",
+  "DatabaseVersion": "8.0.0.0",
+  "Tags": [
+    "Manufacturing"
+  ],
+  "TypeSpecificAttributes": {
+    "ProcessType": "CUSTOM",
+    "ProcessName": "CONSUME_REVERSAL",
+    "ProcessDescription": "CONSUME REVERSAL",
+    "IntegrationIsActive": false,
+    "IntegrationPost": false,
+    "ProcessStepMetadata": [
+      {
+        "Name": "Document",
+        "Description": "Document",
+        "Process": "CONSUME_REVERSAL",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "PrescriptConsumeReversalDocument",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "TrackingEntity",
+        "Description": "TrackingEntity",
+        "Process": "CONSUME_REVERSAL",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "PrescriptConsumeReversalTrackingEntity",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "TransactionID",
+        "Description": "Select Transaction to reverse",
+        "Process": "CONSUME_REVERSAL",
+        "ProcessIndex": 2,
+        "NextIndex": 3,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Confirmation",
+        "Description": "Confirmation",
+        "Process": "CONSUME_REVERSAL",
+        "ProcessIndex": 3,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "PrescriptConsumeReversalConfirmation",
+        "hasWebTemplate": true
+      }
+    ]
+  },
+  "Components": [
+    {
+      "Type": "VIEW",
+      "Name": "dbo.WebTemplateConsumeReversal",
+      "Path": "VIEW/dbo.WebTemplateConsumeReversal",
+      "DependsOn": []
+    },
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.PrescriptConsumeReversalDocument",
+      "Path": "PRESCRIPT/dbo.PrescriptConsumeReversalDocument",
+      "DependsOn": []
+    },
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.PrescriptConsumeReversalTrackingEntity",
+      "Path": "PRESCRIPT/dbo.PrescriptConsumeReversalTrackingEntity",
+      "DependsOn": [
+        {
+          "Type": "VIEW",
+          "Name": "dbo.WebTemplateConsumeReversal"
+        }
+      ]
+    },
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.PrescriptConsumeReversalConfirmation",
+      "Path": "PRESCRIPT/dbo.PrescriptConsumeReversalConfirmation",
+      "DependsOn": []
+    },
+    {
+      "Type": "PROCESS",
+      "Name": "CONSUME_REVERSAL",
+      "Path": "",
+      "DependsOn": [
+        {
+          "Type": "PRESCRIPT",
+          "Name": "dbo.PrescriptConsumeReversalConfirmation"
+        },
+        {
+          "Type": "PRESCRIPT",
+          "Name": "dbo.PrescriptConsumeReversalDocument"
+        },
+        {
+          "Type": "PRESCRIPT",
+          "Name": "dbo.PrescriptConsumeReversalTrackingEntity"
+        },
+        {
+          "Type": "VIEW",
+          "Name": "dbo.WebTemplateConsumeReversal"
+        }
+      ]
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

@@ -1,0 +1,78 @@
+{
+  "Identifier": "09064fed-6da3-4318-8b62-d6dbaabcd6ca",
+  "Name": "3PL_RECEIVECOMPLETE",
+  "Description": "Notify Receive Complete\n\nAfter Receiving, instead of a post, notify by email that the Receiving is completed.\n\nEnsure Email is setup with templates etc.",
+  "Type": "PROCESS",
+  "Version": 1,
+  "LastModified": "04/08/2025",
+  "DatabaseVersion": "8.0.0.0",
+  "Tags": [],
+  "TypeSpecificAttributes": {
+    "ProcessType": "CUSTOM",
+    "ProcessName": "3PL_RECEIVECOMPLETE",
+    "ProcessDescription": "Notify Receive Complete",
+    "IntegrationIsActive": false,
+    "IntegrationPost": false,
+    "ProcessStepMetadata": [
+      {
+        "Name": "Document",
+        "Description": "Document",
+        "Process": "3PL_RECEIVECOMPLETE",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Confirmation",
+        "Description": "Confirmation",
+        "Process": "3PL_RECEIVECOMPLETE",
+        "ProcessIndex": 1,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_3PL_ReceiveCompleteConfirmation",
+        "hasWebTemplate": false
+      }
+    ]
+  },
+  "Components": [
+    {
+      "Type": "VIEW",
+      "Name": "dbo.webtemplate_POtoComplete",
+      "Path": "VIEW/dbo.webtemplate_POtoComplete",
+      "DependsOn": []
+    },
+    {
+      "Type": "USER_TABLE",
+      "Name": "dbo.custom_DocumentTrackingLog",
+      "Path": "USER_TABLE/dbo.custom_DocumentTrackingLog",
+      "DependsOn": []
+    },
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.Prescript_3PL_ReceiveCompleteConfirmation",
+      "Path": "PRESCRIPT/dbo.Prescript_3PL_ReceiveCompleteConfirmation",
+      "DependsOn": [
+        {
+          "Type": "USER_TABLE",
+          "Name": "dbo.custom_DocumentTrackingLog"
+        }
+      ]
+    },
+    {
+      "Type": "PROCESS",
+      "Name": "3PL_RECEIVECOMPLETE",
+      "Path": "",
+      "DependsOn": [
+        {
+          "Type": "PRESCRIPT",
+          "Name": "dbo.Prescript_3PL_ReceiveCompleteConfirmation"
+        }
+      ]
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

@@ -1,0 +1,234 @@
+{
+  "Identifier": "ca64aa88-f901-4f87-b310-4764c1a8cf47",
+  "Name": "PICKINGOLDSCHOOL",
+  "Description": "PICKINGOLDSCHOOL\n\nBulk/Pickface hybrid. Allow pick from TrackingEntity barcodes or MasterItem/Alias codes. Picktype allows for filtering in the document step webtemplate.",
+  "Type": "PROCESS",
+  "Version": 1,
+  "LastModified": "18/03/2026",
+  "DatabaseVersion": "8.0.0.0",
+  "Tags": [
+    "Retail",
+    "E-commerce",
+    "Logistics"
+  ],
+  "TypeSpecificAttributes": {
+    "ProcessType": "PICKING",
+    "ProcessName": "PICKINGOLDSCHOOL",
+    "ProcessDescription": "PICKINGOLDSCHOOL",
+    "IntegrationIsActive": false,
+    "IntegrationPost": false,
+    "ProcessStepMetadata": [
+      {
+        "Name": "PickType",
+        "Description": "PickType",
+        "Process": "PICKINGOLDSCHOOL",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Document",
+        "Description": "Document",
+        "Process": "PICKINGOLDSCHOOL",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_Picking_Document",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "FromLocation",
+        "Description": "FromLocation",
+        "Process": "PICKINGOLDSCHOOL",
+        "ProcessIndex": 2,
+        "NextIndex": 3,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_Picking_FromLocation",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "TrackingEntity",
+        "Description": "TrackingEntity",
+        "Process": "PICKINGOLDSCHOOL",
+        "ProcessIndex": 3,
+        "NextIndex": 4,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_Picking_TrackingEntity",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Qty",
+        "Description": "Qty",
+        "Process": "PICKINGOLDSCHOOL",
+        "ProcessIndex": 4,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_Generic_QtyValidate",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Location",
+        "Description": "Trolley",
+        "Process": "PICKINGOLDSCHOOL",
+        "ProcessIndex": 100,
+        "NextIndex": 3,
+        "isActive": true,
+        "Required": true,
+        "DefaultValue": "PT01",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Step200",
+        "Description": "Step200",
+        "Process": "PICKINGOLDSCHOOL",
+        "ProcessIndex": 200,
+        "NextIndex": 200,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_Picking_Step200",
+        "hasWebTemplate": false
+      }
+    ]
+  },
+  "Components": [
+    {
+      "Type": "SQL_STORED_PROCEDURE",
+      "Name": "dbo.Webtemplate_Picking_Document",
+      "Path": "SQL_STORED_PROCEDURE/dbo.Webtemplate_Picking_Document",
+      "DependsOn": []
+    },
+    {
+      "Type": "USER_TABLE",
+      "Name": "dbo.OptionalFieldValues_DocumentDetail",
+      "Path": "USER_TABLE/dbo.OptionalFieldValues_DocumentDetail",
+      "DependsOn": []
+    },
+    {
+      "Type": "SQL_STORED_PROCEDURE",
+      "Name": "dbo.Utility_CheckQtyLimit",
+      "Path": "SQL_STORED_PROCEDURE/dbo.Utility_CheckQtyLimit",
+      "DependsOn": []
+    },
+    {
+      "Type": "SQL_STORED_PROCEDURE",
+      "Name": "dbo.Utility_Document_PickSequence",
+      "Path": "SQL_STORED_PROCEDURE/dbo.Utility_Document_PickSequence",
+      "DependsOn": [
+        {
+          "Type": "USER_TABLE",
+          "Name": "dbo.OptionalFieldValues_DocumentDetail"
+        }
+      ]
+    },
+    {
+      "Type": "VIEW",
+      "Name": "dbo.MasterItemAlias_View",
+      "Path": "VIEW/dbo.MasterItemAlias_View",
+      "DependsOn": []
+    },
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.Prescript_Picking_Document",
+      "Path": "PRESCRIPT/dbo.Prescript_Picking_Document",
+      "DependsOn": [
+        {
+          "Type": "SQL_STORED_PROCEDURE",
+          "Name": "dbo.Utility_Document_PickSequence"
+        }
+      ]
+    },
+    {
+      "Type": "SQL_STORED_PROCEDURE",
+      "Name": "dbo.Utility_TrackingEntity_Determine",
+      "Path": "SQL_STORED_PROCEDURE/dbo.Utility_TrackingEntity_Determine",
+      "DependsOn": [
+        {
+          "Type": "VIEW",
+          "Name": "dbo.MasterItemAlias_View"
+        }
+      ]
+    },
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.Prescript_Picking_TrackingEntity",
+      "Path": "PRESCRIPT/dbo.Prescript_Picking_TrackingEntity",
+      "DependsOn": [
+        {
+          "Type": "SQL_STORED_PROCEDURE",
+          "Name": "dbo.Utility_TrackingEntity_Determine"
+        },
+        {
+          "Type": "VIEW",
+          "Name": "dbo.MasterItemAlias_View"
+        }
+      ]
+    },
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.Prescript_Generic_QtyValidate",
+      "Path": "PRESCRIPT/dbo.Prescript_Generic_QtyValidate",
+      "DependsOn": [
+        {
+          "Type": "SQL_STORED_PROCEDURE",
+          "Name": "dbo.Utility_CheckQtyLimit"
+        }
+      ]
+    },
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.Prescript_Picking_FromLocation",
+      "Path": "PRESCRIPT/dbo.Prescript_Picking_FromLocation",
+      "DependsOn": []
+    },
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.Prescript_Picking_Step200",
+      "Path": "PRESCRIPT/dbo.Prescript_Picking_Step200",
+      "DependsOn": [
+        {
+          "Type": "SQL_STORED_PROCEDURE",
+          "Name": "dbo.Utility_Document_PickSequence"
+        }
+      ]
+    },
+    {
+      "Type": "PROCESS",
+      "Name": "PICKINGOLDSCHOOL",
+      "Path": "",
+      "DependsOn": [
+        {
+          "Type": "PRESCRIPT",
+          "Name": "dbo.Prescript_Generic_QtyValidate"
+        },
+        {
+          "Type": "PRESCRIPT",
+          "Name": "dbo.Prescript_Picking_Document"
+        },
+        {
+          "Type": "PRESCRIPT",
+          "Name": "dbo.Prescript_Picking_FromLocation"
+        },
+        {
+          "Type": "PRESCRIPT",
+          "Name": "dbo.Prescript_Picking_Step200"
+        },
+        {
+          "Type": "PRESCRIPT",
+          "Name": "dbo.Prescript_Picking_TrackingEntity"
+        },
+        {
+          "Type": "SQL_STORED_PROCEDURE",
+          "Name": "dbo.Webtemplate_Picking_Document"
+        }
+      ]
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

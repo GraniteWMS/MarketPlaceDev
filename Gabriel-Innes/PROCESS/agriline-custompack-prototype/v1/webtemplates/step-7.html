@@ -1,0 +1,17 @@
+{{ 
+    navigateToStepButton({
+        stepName: "Box",
+        buttonText: "Pack new box"
+    }) 
+}}
+
+{{ "SELECT @BoxCode" | dbScalar({BoxCode}) |> to => boxcode }}
+
+{{#if boxcode == "CUSTOM" }}
+  {{ 
+      navigateToStepButton({
+          stepName: "Length",
+          buttonText: "Enter Dimensions"
+      }) 
+  }}
+{{/if}}

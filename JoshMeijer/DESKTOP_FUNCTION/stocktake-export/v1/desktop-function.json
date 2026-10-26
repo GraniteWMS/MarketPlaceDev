@@ -1,0 +1,40 @@
+{
+  "Name": "STOCKTAKE EXPORT",
+  "Description": "STOCKTAKE EXPORT",
+  "Module": "TrackingEntity",
+  "Script": "FunctionStocktakeEvoImport",
+  "IsActive": true,
+  "Parameters": [
+    {
+      "Name": "MODE",
+      "Description": "SELECT OPTION",
+      "IsBool": false,
+      "Lookups": [
+        {
+          "Value": "ALL"
+        },
+        {
+          "Value": "WAREHOUSE"
+        },
+        {
+          "Value": "SESSION"
+        },
+        {
+          "Value": "SESSION_WH"
+        }
+      ]
+    },
+    {
+      "Name": "LOCATION",
+      "Description": "SELECT LOCATION",
+      "IsBool": false,
+      "Lookups": []
+    },
+    {
+      "Name": "SESSION",
+      "Description": "ENTER SESSION NAME",
+      "IsBool": false,
+      "Lookups": []
+    }
+  ]
+}

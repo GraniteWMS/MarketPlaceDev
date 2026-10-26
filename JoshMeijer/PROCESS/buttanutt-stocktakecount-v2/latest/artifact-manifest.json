@@ -1,0 +1,148 @@
+{
+  "Identifier": "c5004598-cf70-46f1-9b79-252ad5c0458b",
+  "Name": "BUTTANUTT_STOCKTAKECOUNT_V2",
+  "Description": "BUTTANUTT_STOCKTAKECOUNT_V2\n\nIt comes with a webdesktop function that will auto generate a stock on hand csv file and send it to specified email addresses",
+  "Type": "PROCESS",
+  "Version": 0,
+  "LastModified": "29/03/2026",
+  "DatabaseVersion": "8.0.0.0",
+  "Tags": [
+    "Manufacturing",
+    "Retail",
+    "Automotive",
+    "Agricultural",
+    "Textile",
+    "Electronics",
+    "Construction",
+    "E-commerce",
+    "Logistics",
+    "Pharmaceutical",
+    "Cold Storage"
+  ],
+  "TypeSpecificAttributes": {
+    "ProcessType": "STOCKTAKECOUNT",
+    "ProcessName": "BUTTANUTT_STOCKTAKECOUNT_V2",
+    "ProcessDescription": "BUTTANUTT_STOCKTAKECOUNT_V2",
+    "IntegrationIsActive": false,
+    "IntegrationPost": false,
+    "ProcessStepMetadata": [
+      {
+        "Name": "Session",
+        "Description": "Session",
+        "Process": "BUTTANUTT_STOCKTAKECOUNT_V2",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Count",
+        "Description": "Count",
+        "Process": "BUTTANUTT_STOCKTAKECOUNT_V2",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "TrackingEntity",
+        "Description": "TrackingEntity",
+        "Process": "BUTTANUTT_STOCKTAKECOUNT_V2",
+        "ProcessIndex": 2,
+        "NextIndex": 3,
+        "isActive": true,
+        "Required": false,
+        "PreScript": "Prescript_StockTakeCount_TrackingEntity",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Qty",
+        "Description": "Qty",
+        "Process": "BUTTANUTT_STOCKTAKECOUNT_V2",
+        "ProcessIndex": 3,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Location",
+        "Description": "Location",
+        "Process": "BUTTANUTT_STOCKTAKECOUNT_V2",
+        "ProcessIndex": 100,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "DefaultValue": "Procurement",
+        "hasWebTemplate": false
+      }
+    ]
+  },
+  "Components": [
+    {
+      "Type": "VIEW",
+      "Name": "dbo.WebTemplate_StockTakeCount_Session",
+      "Path": "VIEW/dbo.WebTemplate_StockTakeCount_Session",
+      "DependsOn": []
+    },
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.Prescript_StockTakeCount_TrackingEntity",
+      "Path": "PRESCRIPT/dbo.Prescript_StockTakeCount_TrackingEntity",
+      "DependsOn": []
+    },
+    {
+      "Type": "TYPE_TABLE",
+      "Name": "dbo.ScriptInputIdentities",
+      "Path": "TYPE_TABLE/dbo.ScriptInputIdentities",
+      "DependsOn": []
+    },
+    {
+      "Type": "SQL_STORED_PROCEDURE",
+      "Name": "dbo.WebDesktopFunction_GenerateStockOnHandFile",
+      "Path": "SQL_STORED_PROCEDURE/dbo.WebDesktopFunction_GenerateStockOnHandFile",
+      "DependsOn": [
+        {
+          "Type": "TYPE_TABLE",
+          "Name": "dbo.ScriptInputIdentities"
+        }
+      ]
+    },
+    {
+      "Type": "VIEW",
+      "Name": "dbo.Custom_Report_Stock_All",
+      "Path": "VIEW/dbo.Custom_Report_Stock_All",
+      "DependsOn": []
+    },
+    {
+      "Type": "DESKTOP_FUNCTION",
+      "Name": "GenerateStockOnHandFile",
+      "Path": "DESKTOP_FUNCTION/GenerateStockOnHandFile",
+      "DependsOn": [
+        {
+          "Type": "SQL_STORED_PROCEDURE",
+          "Name": "dbo.WebDesktopFunction_GenerateStockOnHandFile"
+        }
+      ]
+    },
+    {
+      "Type": "PROCESS",
+      "Name": "BUTTANUTT_STOCKTAKECOUNT_V2",
+      "Path": "",
+      "DependsOn": [
+        {
+          "Type": "PRESCRIPT",
+          "Name": "dbo.Prescript_StockTakeCount_TrackingEntity"
+        },
+        {
+          "Type": "VIEW",
+          "Name": "dbo.WebTemplate_StockTakeCount_Session"
+        }
+      ]
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

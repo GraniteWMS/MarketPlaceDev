@@ -1,0 +1,79 @@
+{
+  "Identifier": "1e3a31aa-1379-4aac-89da-1625802b0c28",
+  "Name": "POST_ORDER",
+  "Description": "POST ORDER\n\nUse this process to change the status of a document as a flag for a ERP service that the document is ready to be integrated.\n\nThis process assumes the use of the packing process and checks if the actionqty and the packed quantity are the same.",
+  "Type": "PROCESS",
+  "Version": 0,
+  "LastModified": "12/02/2024",
+  "DatabaseVersion": "8.0.0.0",
+  "Tags": [],
+  "TypeSpecificAttributes": {
+    "ProcessType": "CUSTOM",
+    "ProcessName": "POST_ORDER",
+    "ProcessDescription": "POST ORDER",
+    "IntegrationIsActive": false,
+    "IntegrationPost": false,
+    "ProcessStepMetadata": [
+      {
+        "Name": "Document",
+        "Description": "Document",
+        "Process": "POST_ORDER",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "PrescriptPostOrderDocument",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Confirmation",
+        "Description": "Confirm",
+        "Process": "POST_ORDER",
+        "ProcessIndex": 1,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "PrescriptPostOrderConfirmation",
+        "hasWebTemplate": false
+      }
+    ]
+  },
+  "Components": [
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.PrescriptPostOrderDocument",
+      "Path": "PRESCRIPT/dbo.PrescriptPostOrderDocument",
+      "DependsOn": []
+    },
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.PrescriptPostOrderConfirmation",
+      "Path": "PRESCRIPT/dbo.PrescriptPostOrderConfirmation",
+      "DependsOn": []
+    },
+    {
+      "Type": "DATA",
+      "Name": "dbo.SystemStaticData",
+      "Path": "DATA/dbo.SystemStaticData",
+      "DependsOn": []
+    },
+    {
+      "Type": "PROCESS",
+      "Name": "POST_ORDER",
+      "Path": "",
+      "DependsOn": [
+        {
+          "Type": "PRESCRIPT",
+          "Name": "dbo.PrescriptPostOrderConfirmation"
+        },
+        {
+          "Type": "PRESCRIPT",
+          "Name": "dbo.PrescriptPostOrderDocument"
+        }
+      ]
+    }
+  ],
+  "DependsOnClr": true,
+  "SqlClrAssemblyVersion": "7.0.0.0",
+  "Deprecated": false
+}

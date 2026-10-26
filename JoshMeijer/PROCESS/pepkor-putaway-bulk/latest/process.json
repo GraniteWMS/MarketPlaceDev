@@ -1,0 +1,48 @@
+{
+  "Name": "PEPKOR_PUTAWAY_BULK",
+  "Description": "PEPKOR_PUTAWAY_BULK",
+  "Type": "REPLENISH",
+  "IsActive": true,
+  "IntegrationIsActive": false,
+  "IntegrationPost": false,
+  "Steps": [
+    {
+      "Name": "FromTrackingEntity",
+      "Description": "Scan Item Code",
+      "ProcessIndex": 0,
+      "NextIndex": 1,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "Prescript_PutawayBulk_FromTrackingEntity"
+    },
+    {
+      "Name": "Location",
+      "Description": "Scan Bin Location",
+      "ProcessIndex": 1,
+      "NextIndex": 2,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "Prescript_PutawayBulk_Location"
+    },
+    {
+      "Name": "Qty",
+      "Description": "Qty to Put Away",
+      "ProcessIndex": 2,
+      "NextIndex": 0,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false
+    },
+    {
+      "Name": "ToTrackingEntity",
+      "Description": "To TrackingEntity",
+      "ProcessIndex": 100,
+      "NextIndex": 0,
+      "IsActive": true,
+      "Required": false,
+      "IsBusinessRule": false
+    }
+  ]
+}

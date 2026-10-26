@@ -1,0 +1,133 @@
+{
+  "Identifier": "527274a2-0858-41c0-a3a6-8d18bfdd57b6",
+  "Name": "REPLENISHTOPRODUCTION",
+  "Description": "Split and Move to Production\n\nIssue to Production - Uses a Reference (Not in Database), but shows what has been issued against the reference.\nWebtemplates show what has been issued.  The workorder/reference doesnt exist so cannot show the demand\n\nWe can validate that we only issue items which exist on a Sage BOM as components.  Not active in this process.  The label from Production process uses views from Sage Accpac BOMS for validation.  Deployed with that process",
+  "Type": "PROCESS",
+  "Version": 0,
+  "LastModified": "13/10/2026",
+  "DatabaseVersion": "8.0.0.0",
+  "Tags": [],
+  "TypeSpecificAttributes": {
+    "ProcessType": "REPLENISH",
+    "ProcessName": "REPLENISHTOPRODUCTION",
+    "ProcessDescription": "Split and Move to Production",
+    "IntegrationIsActive": true,
+    "IntegrationPost": true,
+    "ProcessStepMetadata": [
+      {
+        "Name": "Reference",
+        "Description": "Work Order/Reference",
+        "Process": "REPLENISHTOPRODUCTION",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "FromTrackingEntity",
+        "Description": "From Pallet",
+        "Process": "REPLENISHTOPRODUCTION",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "PrescriptReplenishToProductionTrackingEntity",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Qty",
+        "Description": "Qty to Issue",
+        "Process": "REPLENISHTOPRODUCTION",
+        "ProcessIndex": 2,
+        "NextIndex": 3,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "PrescriptReplenishToProductionQty",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Comment",
+        "Description": "Comment",
+        "Process": "REPLENISHTOPRODUCTION",
+        "ProcessIndex": 3,
+        "NextIndex": 4,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Confirmation",
+        "Description": "Confirmation",
+        "Process": "REPLENISHTOPRODUCTION",
+        "ProcessIndex": 4,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Location",
+        "Description": "Location",
+        "Process": "REPLENISHTOPRODUCTION",
+        "ProcessIndex": 100,
+        "NextIndex": 100,
+        "isActive": true,
+        "Required": true,
+        "DefaultValue": "PROD",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "ToTrackingEntity",
+        "Description": "To TrackingEntity",
+        "Process": "REPLENISHTOPRODUCTION",
+        "ProcessIndex": 100,
+        "NextIndex": 100,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": false
+      }
+    ]
+  },
+  "Components": [
+    {
+      "Type": "SQL_STORED_PROCEDURE",
+      "Name": "dbo.WebTemplate_ReplenishToProductionConfirmation",
+      "Path": "SQL_STORED_PROCEDURE/dbo.WebTemplate_ReplenishToProductionConfirmation",
+      "DependsOn": []
+    },
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.PrescriptReplenishToProductionTrackingEntity",
+      "Path": "PRESCRIPT/dbo.PrescriptReplenishToProductionTrackingEntity",
+      "DependsOn": []
+    },
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.PrescriptReplenishToProductionQty",
+      "Path": "PRESCRIPT/dbo.PrescriptReplenishToProductionQty",
+      "DependsOn": []
+    },
+    {
+      "Type": "PROCESS",
+      "Name": "REPLENISHTOPRODUCTION",
+      "Path": "",
+      "DependsOn": [
+        {
+          "Type": "PRESCRIPT",
+          "Name": "dbo.PrescriptReplenishToProductionQty"
+        },
+        {
+          "Type": "PRESCRIPT",
+          "Name": "dbo.PrescriptReplenishToProductionTrackingEntity"
+        },
+        {
+          "Type": "SQL_STORED_PROCEDURE",
+          "Name": "dbo.WebTemplate_ReplenishToProductionConfirmation"
+        }
+      ]
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

@@ -1,0 +1,93 @@
+{
+  "Identifier": "a209ef9d-12a5-4479-8bfa-cb00e75b75b9",
+  "Name": "STOCKTAKE EXPORT",
+  "Description": "If you are doing stocktake and want to generate a stocktake file to import into EVO.\n\nModify the views according to client needs. The function reads its settings from dbo.SystemSettings, which this artifact does not create: add the Folder key of the application Granite.Function.StocktakeExport.Export (the folder on the SQL server the CSV files are written to) and the To, Cc and Bcc keys of Granite.Function.StocktakeExport.Email (the addresses the file is sent to).",
+  "Type": "DESKTOP_FUNCTION",
+  "Version": 0,
+  "LastModified": "07/04/2026",
+  "DatabaseVersion": "8.0.0.0",
+  "Tags": [
+    "Manufacturing",
+    "Retail",
+    "Automotive",
+    "Agricultural",
+    "Textile",
+    "Electronics",
+    "Construction",
+    "E-commerce",
+    "Logistics",
+    "Pharmaceutical",
+    "Cold Storage"
+  ],
+  "Components": [
+    {
+      "Type": "TYPE_TABLE",
+      "Name": "dbo.ScriptInputIdentities",
+      "Path": "TYPE_TABLE/dbo.ScriptInputIdentities",
+      "DependsOn": []
+    },
+    {
+      "Type": "VIEW",
+      "Name": "dbo.Custom_vw_Stocktake_Files",
+      "Path": "VIEW/dbo.Custom_vw_Stocktake_Files",
+      "DependsOn": []
+    },
+    {
+      "Type": "EMAIL_TEMPLATE",
+      "Name": "StocktakeExport",
+      "Path": "EMAIL_TEMPLATE/StocktakeExport",
+      "DependsOn": []
+    },
+    {
+      "Type": "SQL_STORED_PROCEDURE",
+      "Name": "dbo.FunctionStocktakeEvoImport",
+      "Path": "SQL_STORED_PROCEDURE/dbo.FunctionStocktakeEvoImport",
+      "DependsOn": [
+        {
+          "Type": "EMAIL_TEMPLATE",
+          "Name": "StocktakeExport"
+        },
+        {
+          "Type": "TYPE_TABLE",
+          "Name": "dbo.ScriptInputIdentities"
+        }
+      ]
+    },
+    {
+      "Type": "VIEW",
+      "Name": "dbo.Custom_Report_Stock_All",
+      "Path": "VIEW/dbo.Custom_Report_Stock_All",
+      "DependsOn": []
+    },
+    {
+      "Type": "VIEW",
+      "Name": "dbo.Custom_Stock_All_Session",
+      "Path": "VIEW/dbo.Custom_Stock_All_Session",
+      "DependsOn": [
+        {
+          "Type": "VIEW",
+          "Name": "dbo.Custom_vw_Stocktake_Files"
+        }
+      ]
+    },
+    {
+      "Type": "VIEW",
+      "Name": "dbo.Custom_Stock_All_Warehouse",
+      "Path": "VIEW/dbo.Custom_Stock_All_Warehouse",
+      "DependsOn": []
+    },
+    {
+      "Type": "DESKTOP_FUNCTION",
+      "Name": "STOCKTAKE EXPORT",
+      "Path": "",
+      "DependsOn": [
+        {
+          "Type": "SQL_STORED_PROCEDURE",
+          "Name": "dbo.FunctionStocktakeEvoImport"
+        }
+      ]
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

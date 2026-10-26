@@ -1,0 +1,27 @@
+<h3>The current pallet barcode is: {{PalletBarcode}}</h3>
+
+{{
+    "SELECT 
+        MasterItem.Code,
+        Batch AS Lot,
+        Qty,
+        CONVERT(varchar(10), ManufactureDate, 110) AS [Man.date]
+     FROM TrackingEntity
+     INNER JOIN MasterItem 
+        ON TrackingEntity.MasterItem_id = MasterItem.ID
+     WHERE BelongsToEntity_id = (
+        SELECT ID 
+        FROM CarryingEntity 
+        WHERE Barcode = @PalletBarcode
+     )"
+    | dbSelect({PalletBarcode})
+    | to => palletContents
+}}
+
+{{#if palletContents.Count > 0}}
+
+    <h4>The pallet you entered has this on it:</h4>
+
+    {{ palletContents | basicTable({}) }}
+
+{{/if}}

@@ -1,0 +1,2 @@
+<div><medium>SUGGESTED LOCATIONS</medium></div>
+{{ "SELECT Barcode, Name FROM Location" | dbSelect({}) | basicTable({selectOnColumn:"Barcode", enableSearch:true}) }}

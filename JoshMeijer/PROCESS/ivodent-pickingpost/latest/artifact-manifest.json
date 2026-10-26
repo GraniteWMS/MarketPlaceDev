@@ -1,0 +1,51 @@
+{
+  "Identifier": "196910b0-2154-49a6-b18d-a62c1e9061d8",
+  "Name": "IVODENT_PICKINGPOST",
+  "Description": "IVODENT_PICKINGPOST\n\nAuto picks service items",
+  "Type": "PROCESS",
+  "Version": 0,
+  "LastModified": "11/06/2026",
+  "DatabaseVersion": "8.0.0.0",
+  "Tags": [],
+  "TypeSpecificAttributes": {
+    "ProcessType": "PICKINGPOST",
+    "ProcessName": "IVODENT_PICKINGPOST",
+    "ProcessDescription": "IVODENT_PICKINGPOST",
+    "IntegrationIsActive": true,
+    "IntegrationPost": false,
+    "ProcessStepMetadata": [
+      {
+        "Name": "Document",
+        "Description": "Document",
+        "Process": "IVODENT_PICKINGPOST",
+        "ProcessIndex": 0,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "PrescriptPickingPostDocument_PostServiceItems",
+        "hasWebTemplate": false
+      }
+    ]
+  },
+  "Components": [
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.PrescriptPickingPostDocument_PostServiceItems",
+      "Path": "PRESCRIPT/dbo.PrescriptPickingPostDocument_PostServiceItems",
+      "DependsOn": []
+    },
+    {
+      "Type": "PROCESS",
+      "Name": "IVODENT_PICKINGPOST",
+      "Path": "",
+      "DependsOn": [
+        {
+          "Type": "PRESCRIPT",
+          "Name": "dbo.PrescriptPickingPostDocument_PostServiceItems"
+        }
+      ]
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

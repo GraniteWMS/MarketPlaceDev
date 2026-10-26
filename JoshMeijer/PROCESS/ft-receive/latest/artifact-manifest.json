@@ -1,0 +1,182 @@
+{
+  "Identifier": "d0b288f8-d9bd-431f-adb7-0ed9a512c3a8",
+  "Name": "FT_RECEIVE",
+  "Description": "FT_RECEIVE\n\nReceiving process using the navigateToStep and navigateToStepButton in webtemplates.\nCustomer has items that require EAN barcode scanning, and a barcode may belong to multiple items codes.\nThe process looks at MasterItem Type (LabelType) to determine if barcode scan is required or not.\nIf no LabelType items exist - jump to Masteritem step and enter Qty.\nIf LabelType is valid - scan EANBarcode and validate - update MasterItem step and Qty for the EANBarcode and LabelType scanned.\n\nA rule defined in SystemStaticData - validates LabelType which require EANBarcode scan",
+  "Type": "PROCESS",
+  "Version": 0,
+  "LastModified": "20/05/2026",
+  "DatabaseVersion": "8.0.0.0",
+  "Tags": [],
+  "TypeSpecificAttributes": {
+    "ProcessType": "RECEIVING",
+    "ProcessName": "FT_RECEIVE",
+    "ProcessDescription": "FT_RECEIVE",
+    "IntegrationIsActive": false,
+    "IntegrationPost": false,
+    "ProcessStepMetadata": [
+      {
+        "Name": "Document",
+        "Description": "Document",
+        "Process": "FT_RECEIVE",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "LabelType",
+        "Description": "Select Label Type",
+        "Process": "FT_RECEIVE",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_Receive_LabelType",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "EANBarcode",
+        "Description": "Scan Unit or Carton Barcode",
+        "Process": "FT_RECEIVE",
+        "ProcessIndex": 2,
+        "NextIndex": 3,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_Receive_EANBarcode",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "MasterItem",
+        "Description": "Select / Enter Stock Code",
+        "Process": "FT_RECEIVE",
+        "ProcessIndex": 3,
+        "NextIndex": 4,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_Receive_MasterItem",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Qty",
+        "Description": "Enter Qty",
+        "Process": "FT_RECEIVE",
+        "ProcessIndex": 4,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Location",
+        "Description": "Receiving Location",
+        "Process": "FT_RECEIVE",
+        "ProcessIndex": 100,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": false,
+        "DefaultValue": "REC",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "UseBarcode",
+        "Description": "UseBarcode",
+        "Process": "FT_RECEIVE",
+        "ProcessIndex": 100,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": false
+      }
+    ]
+  },
+  "Components": [
+    {
+      "Type": "SQL_STORED_PROCEDURE",
+      "Name": "dbo.Utility_GetTopTrackingEntity",
+      "Path": "SQL_STORED_PROCEDURE/dbo.Utility_GetTopTrackingEntity",
+      "DependsOn": []
+    },
+    {
+      "Type": "VIEW",
+      "Name": "dbo.MasterItemAlias_View",
+      "Path": "VIEW/dbo.MasterItemAlias_View",
+      "DependsOn": []
+    },
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.Prescript_Receive_MasterItem",
+      "Path": "PRESCRIPT/dbo.Prescript_Receive_MasterItem",
+      "DependsOn": [
+        {
+          "Type": "SQL_STORED_PROCEDURE",
+          "Name": "dbo.Utility_GetTopTrackingEntity"
+        }
+      ]
+    },
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.Prescript_Receive_EANBarcode",
+      "Path": "PRESCRIPT/dbo.Prescript_Receive_EANBarcode",
+      "DependsOn": [
+        {
+          "Type": "VIEW",
+          "Name": "dbo.MasterItemAlias_View"
+        }
+      ]
+    },
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.Prescript_Receive_LabelType",
+      "Path": "PRESCRIPT/dbo.Prescript_Receive_LabelType",
+      "DependsOn": [
+        {
+          "Type": "VIEW",
+          "Name": "dbo.MasterItemAlias_View"
+        }
+      ]
+    },
+    {
+      "Type": "VIEW",
+      "Name": "dbo.WebTemplate_Receiving_DocumentLines",
+      "Path": "VIEW/dbo.WebTemplate_Receiving_DocumentLines",
+      "DependsOn": [
+        {
+          "Type": "VIEW",
+          "Name": "dbo.MasterItemAlias_View"
+        }
+      ]
+    },
+    {
+      "Type": "DATA",
+      "Name": "dbo.SystemStaticData",
+      "Path": "DATA/dbo.SystemStaticData",
+      "DependsOn": []
+    },
+    {
+      "Type": "PROCESS",
+      "Name": "FT_RECEIVE",
+      "Path": "",
+      "DependsOn": [
+        {
+          "Type": "PRESCRIPT",
+          "Name": "dbo.Prescript_Receive_EANBarcode"
+        },
+        {
+          "Type": "PRESCRIPT",
+          "Name": "dbo.Prescript_Receive_LabelType"
+        },
+        {
+          "Type": "PRESCRIPT",
+          "Name": "dbo.Prescript_Receive_MasterItem"
+        },
+        {
+          "Type": "VIEW",
+          "Name": "dbo.WebTemplate_Receiving_DocumentLines"
+        }
+      ]
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

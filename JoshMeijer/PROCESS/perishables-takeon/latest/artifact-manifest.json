@@ -1,0 +1,145 @@
+{
+  "Identifier": "0e699ff9-6d87-46f1-8602-c51434a92c83",
+  "Name": "PERISHABLES_TAKEON",
+  "Description": "PERISHABLES TAKEON\n\nUse when you want to enforce Batch and ExpiryDate. Will also populate ExpiryDate based on MasterItem.ShelfLife when user captures ManufactureDate.\n\nMaintain and set EnforceBatchNumber, EnforceExpiryDate, ShelfLife on MasterItems where it applies.",
+  "Type": "PROCESS",
+  "Version": 0,
+  "LastModified": "09/02/2024",
+  "DatabaseVersion": "8.0.0.0",
+  "Tags": [
+    "Manufacturing"
+  ],
+  "TypeSpecificAttributes": {
+    "ProcessType": "TAKEON",
+    "ProcessName": "PERISHABLES_TAKEON",
+    "ProcessDescription": "PERISHABLES TAKEON",
+    "IntegrationIsActive": false,
+    "IntegrationPost": false,
+    "ProcessStepMetadata": [
+      {
+        "Name": "Location",
+        "Description": "Location",
+        "Process": "PERISHABLES_TAKEON",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "MasterItem",
+        "Description": "MasterItem",
+        "Process": "PERISHABLES_TAKEON",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Batch",
+        "Description": "Batch",
+        "Process": "PERISHABLES_TAKEON",
+        "ProcessIndex": 2,
+        "NextIndex": 3,
+        "isActive": true,
+        "Required": false,
+        "PreScript": "PrescriptPerishablesTakeonBatch",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "ManufactureDate",
+        "Description": "ManufactureDate (YYYYMMDD)",
+        "Process": "PERISHABLES_TAKEON",
+        "ProcessIndex": 3,
+        "NextIndex": 4,
+        "isActive": true,
+        "Required": false,
+        "PreScript": "PrescriptPerishablesTakeonManufactureDate",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "ExpiryDate",
+        "Description": "ExpiryDate (YYYYMMDD)",
+        "Process": "PERISHABLES_TAKEON",
+        "ProcessIndex": 4,
+        "NextIndex": 5,
+        "isActive": true,
+        "Required": false,
+        "PreScript": "PrescriptPerishablesTakeonExpiryDate",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Qty",
+        "Description": "Qty",
+        "Process": "PERISHABLES_TAKEON",
+        "ProcessIndex": 5,
+        "NextIndex": 6,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "NoEntities",
+        "Description": "Number of TrackingEntities",
+        "Process": "PERISHABLES_TAKEON",
+        "ProcessIndex": 6,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Print",
+        "Description": "Print",
+        "Process": "PERISHABLES_TAKEON",
+        "ProcessIndex": 99,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": false
+      }
+    ]
+  },
+  "Components": [
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.PrescriptPerishablesTakeonBatch",
+      "Path": "PRESCRIPT/dbo.PrescriptPerishablesTakeonBatch",
+      "DependsOn": []
+    },
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.PrescriptPerishablesTakeonExpiryDate",
+      "Path": "PRESCRIPT/dbo.PrescriptPerishablesTakeonExpiryDate",
+      "DependsOn": []
+    },
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.PrescriptPerishablesTakeonManufactureDate",
+      "Path": "PRESCRIPT/dbo.PrescriptPerishablesTakeonManufactureDate",
+      "DependsOn": []
+    },
+    {
+      "Type": "PROCESS",
+      "Name": "PERISHABLES_TAKEON",
+      "Path": "",
+      "DependsOn": [
+        {
+          "Type": "PRESCRIPT",
+          "Name": "dbo.PrescriptPerishablesTakeonBatch"
+        },
+        {
+          "Type": "PRESCRIPT",
+          "Name": "dbo.PrescriptPerishablesTakeonExpiryDate"
+        },
+        {
+          "Type": "PRESCRIPT",
+          "Name": "dbo.PrescriptPerishablesTakeonManufactureDate"
+        }
+      ]
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

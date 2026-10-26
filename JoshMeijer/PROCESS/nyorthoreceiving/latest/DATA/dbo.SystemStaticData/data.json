@@ -1,0 +1,15 @@
+{
+  "Table": "dbo.SystemStaticData",
+  "KeyColumns": [
+    "Key"
+  ],
+  "Rows": [
+    {
+      "Key": "PackingListPrinterStation1",
+      "Description": "The printer used to print the packing list at dispatch",
+      "Group": "PrinterName",
+      "Value": "HP48BCEE (HP LaserJet Pro 3001-3008) ST1_2 (redirected 2)",
+      "isEncrypted": "False"
+    }
+  ]
+}

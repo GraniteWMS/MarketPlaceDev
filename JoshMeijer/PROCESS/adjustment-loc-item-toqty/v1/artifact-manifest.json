@@ -1,0 +1,145 @@
+{
+  "Identifier": "96a221d1-891c-4c13-be36-1d63cf1cbb0b",
+  "Name": "ADJUSTMENT-LOC_ITEM_TOQTY",
+  "Description": "ADJUST TO QTY\n\nAdjust to Qty on sites where Tracking Entity is Location_ItemCode.  Also does not use CLR.  Based on standard ADJUSTMENT\n\nCLR was avoided for old databases, and to use Standard Granite Adjustment logic.  Calculates Quantity to adjust and Type.  Specific for sites where the TE is a concat of Location and Item. Also supports Alias being used to get the Item Code.",
+  "Type": "PROCESS",
+  "Version": 1,
+  "LastModified": "20/12/2024",
+  "DatabaseVersion": "8.0.0.0",
+  "Tags": [],
+  "TypeSpecificAttributes": {
+    "ProcessType": "ADJUSTMENT",
+    "ProcessName": "ADJUSTMENT-LOC_ITEM_TOQTY",
+    "ProcessDescription": "ADJUST TO QTY",
+    "IntegrationIsActive": false,
+    "IntegrationPost": false,
+    "ProcessStepMetadata": [
+      {
+        "Name": "MasterItem",
+        "Description": "Item Code or Alias",
+        "Process": "ADJUSTMENT-LOC_ITEM_TOQTY",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "PrescriptAdjustmentMasterItem",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Location",
+        "Description": "Location",
+        "Process": "ADJUSTMENT-LOC_ITEM_TOQTY",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "PrescriptAdjustmentLocation",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Qty",
+        "Description": "Enter New Qty",
+        "Process": "ADJUSTMENT-LOC_ITEM_TOQTY",
+        "ProcessIndex": 2,
+        "NextIndex": 3,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_Adjustment_Qty",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Comment",
+        "Description": "Comment or Reason",
+        "Process": "ADJUSTMENT-LOC_ITEM_TOQTY",
+        "ProcessIndex": 3,
+        "NextIndex": 4,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "TrackingEntity",
+        "Description": "Confirm the Loc_Item",
+        "Process": "ADJUSTMENT-LOC_ITEM_TOQTY",
+        "ProcessIndex": 4,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "PrescriptAdjustmentTrackingentity",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Type",
+        "Description": "Type",
+        "Process": "ADJUSTMENT-LOC_ITEM_TOQTY",
+        "ProcessIndex": 100,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": false
+      }
+    ]
+  },
+  "Components": [
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.PrescriptAdjustmentTrackingentity",
+      "Path": "PRESCRIPT/dbo.PrescriptAdjustmentTrackingentity",
+      "DependsOn": []
+    },
+    {
+      "Type": "VIEW",
+      "Name": "dbo.MasterItemAlias_View",
+      "Path": "VIEW/dbo.MasterItemAlias_View",
+      "DependsOn": []
+    },
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.Prescript_Adjustment_Qty",
+      "Path": "PRESCRIPT/dbo.Prescript_Adjustment_Qty",
+      "DependsOn": []
+    },
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.PrescriptAdjustmentLocation",
+      "Path": "PRESCRIPT/dbo.PrescriptAdjustmentLocation",
+      "DependsOn": []
+    },
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.PrescriptAdjustmentMasterItem",
+      "Path": "PRESCRIPT/dbo.PrescriptAdjustmentMasterItem",
+      "DependsOn": [
+        {
+          "Type": "VIEW",
+          "Name": "dbo.MasterItemAlias_View"
+        }
+      ]
+    },
+    {
+      "Type": "PROCESS",
+      "Name": "ADJUSTMENT-LOC_ITEM_TOQTY",
+      "Path": "",
+      "DependsOn": [
+        {
+          "Type": "PRESCRIPT",
+          "Name": "dbo.PrescriptAdjustmentLocation"
+        },
+        {
+          "Type": "PRESCRIPT",
+          "Name": "dbo.PrescriptAdjustmentMasterItem"
+        },
+        {
+          "Type": "PRESCRIPT",
+          "Name": "dbo.PrescriptAdjustmentTrackingentity"
+        },
+        {
+          "Type": "PRESCRIPT",
+          "Name": "dbo.Prescript_Adjustment_Qty"
+        }
+      ]
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

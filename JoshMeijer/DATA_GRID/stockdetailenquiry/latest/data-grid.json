@@ -1,0 +1,8 @@
+{
+  "Group": "Inventory",
+  "Name": "StockDetailEnquiry",
+  "SQLView": "API_QueryStockDetail",
+  "GridDefinition": "[{\"field\":\"CreatedDate\",\"width\":\"120\",\"filter\":\"agDateColumnFilter\"},{\"field\":\"Time\",\"width\":\"120\",\"filter\":\"agTextColumnFilter\"},{\"field\":\"Barcode\",\"width\":\"120\",\"filter\":\"agTextColumnFilter\"},{\"field\":\"Code\",\"width\":\"120\",\"filter\":\"agTextColumnFilter\"},{\"field\":\"Description\",\"width\":\"200\",\"filter\":\"agTextColumnFilter\"},{\"field\":\"Qty\",\"width\":\"120\",\"filter\":\"agNumberColumnFilter\"},{\"field\":\"Site\",\"width\":\"120\",\"filter\":\"agTextColumnFilter\"},{\"field\":\"Location\",\"width\":\"120\",\"filter\":\"agTextColumnFilter\"},{\"field\":\"ItemCategory\",\"width\":\"200\",\"filter\":\"agTextColumnFilter\"},{\"field\":\"ItemType\",\"width\":\"200\",\"filter\":\"agTextColumnFilter\"},{\"field\":\"LocationCategory\",\"width\":\"140\",\"filter\":\"agTextColumnFilter\"},{\"field\":\"LocactionType\",\"width\":\"140\",\"filter\":\"agTextColumnFilter\"},{\"field\":\"Batch\",\"width\":\"120\",\"filter\":\"agTextColumnFilter\"},{\"field\":\"ExpiryDate\",\"width\":\"120\",\"cellRenderer\":\"dateCellRenderer\",\"filter\":\"agDateColumnFilter\"},{\"field\":\"SerialNumber\",\"width\":\"120\",\"filter\":\"agTextColumnFilter\"},{\"field\":\"OnHoldDate\",\"width\":\"120\",\"filter\":\"agNumberColumnFilter\"},{\"field\":\"Pallet\",\"width\":\"120\",\"filter\":\"agTextColumnFilter\"},{\"field\":\"OnHold\",\"width\":\"120\",\"filter\":\"agTextColumnFilter\",\"cellRenderer\":\"boolCellAttention\"},{\"field\":\"StockTake\",\"width\":\"120\",\"filter\":\"agTextColumnFilter\",\"cellRenderer\":\"boolCellAttention\"}]",
+  "IsApplicationGrid": false,
+  "IsCustomGrid": true
+}

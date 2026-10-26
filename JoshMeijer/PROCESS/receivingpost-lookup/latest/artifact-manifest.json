@@ -1,0 +1,119 @@
+{
+  "Identifier": "acc34e4f-e5ee-4f4c-9353-78146f018df2",
+  "Name": "RECEIVINGPOST_LOOKUP",
+  "Description": "RECEIVINGPOST_LOOKUP\n\nShow a list of Purchase Orders for selection when posting. Once you choose a purchase order, the details of the items to be posted will be displayed. After POST successful a label will be added to the LabelPrintQueue, see implementation notes.\n\nPlease update the ERP_ReceiptHeader view to point to your ERP system. Additionally, the PrescriptReceivingPostStep200 stored procedure requires the bartender label named RECEIPTCONFIRMLIVE.BTW, based on the SQL view Label_ReceiptSummary.",
+  "Type": "PROCESS",
+  "Version": 0,
+  "LastModified": "13/04/2024",
+  "DatabaseVersion": "8.0.0.0",
+  "Tags": [],
+  "TypeSpecificAttributes": {
+    "ProcessType": "RECEIVINGPOST",
+    "ProcessName": "RECEIVINGPOST_LOOKUP",
+    "ProcessDescription": "RECEIVINGPOST_LOOKUP",
+    "IntegrationIsActive": true,
+    "IntegrationPost": true,
+    "ProcessStepMetadata": [
+      {
+        "Name": "Document",
+        "Description": "Document",
+        "Process": "RECEIVINGPOST_LOOKUP",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Confirmation",
+        "Description": "Confirm the Details to Post",
+        "Process": "RECEIVINGPOST_LOOKUP",
+        "ProcessIndex": 1,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Step200",
+        "Description": "Insert Confirm Label to Print in Receiving",
+        "Process": "RECEIVINGPOST_LOOKUP",
+        "ProcessIndex": 200,
+        "NextIndex": 200,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "PrescriptReceivingPostStep200",
+        "hasWebTemplate": false
+      }
+    ]
+  },
+  "Components": [
+    {
+      "Type": "VIEW",
+      "Name": "dbo.webtemplate_POtoPost",
+      "Path": "VIEW/dbo.webtemplate_POtoPost",
+      "DependsOn": []
+    },
+    {
+      "Type": "SQL_STORED_PROCEDURE",
+      "Name": "dbo.WebTemplate_PurchaseOrderPostDetail",
+      "Path": "SQL_STORED_PROCEDURE/dbo.WebTemplate_PurchaseOrderPostDetail",
+      "DependsOn": []
+    },
+    {
+      "Type": "VIEW",
+      "Name": "dbo.ERP_ReceiptHeader",
+      "Path": "VIEW/dbo.ERP_ReceiptHeader",
+      "DependsOn": []
+    },
+    {
+      "Type": "VIEW",
+      "Name": "dbo.Label_ReceiptSummary",
+      "Path": "VIEW/dbo.Label_ReceiptSummary",
+      "DependsOn": [
+        {
+          "Type": "VIEW",
+          "Name": "dbo.ERP_ReceiptHeader"
+        }
+      ]
+    },
+    {
+      "Type": "USER_TABLE",
+      "Name": "dbo.custom_DocumentTrackingLog",
+      "Path": "USER_TABLE/dbo.custom_DocumentTrackingLog",
+      "DependsOn": []
+    },
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.PrescriptReceivingPostStep200",
+      "Path": "PRESCRIPT/dbo.PrescriptReceivingPostStep200",
+      "DependsOn": [
+        {
+          "Type": "USER_TABLE",
+          "Name": "dbo.custom_DocumentTrackingLog"
+        },
+        {
+          "Type": "VIEW",
+          "Name": "dbo.Label_ReceiptSummary"
+        }
+      ]
+    },
+    {
+      "Type": "PROCESS",
+      "Name": "RECEIVINGPOST_LOOKUP",
+      "Path": "",
+      "DependsOn": [
+        {
+          "Type": "PRESCRIPT",
+          "Name": "dbo.PrescriptReceivingPostStep200"
+        },
+        {
+          "Type": "SQL_STORED_PROCEDURE",
+          "Name": "dbo.WebTemplate_PurchaseOrderPostDetail"
+        }
+      ]
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

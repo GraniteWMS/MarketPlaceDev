@@ -1,0 +1,68 @@
+{
+  "Identifier": "54d5b301-c593-4c25-8189-3210ebb72147",
+  "Name": "PREPRINTBOXLABELS",
+  "Description": "Preprint Packing Box labels\n\nHide the Box label in Packing and preprint the labels on rolls.\nUses modification to the view Label_Pallet to show records in PrintQueue so that the printing of Box labels works.\n\nInserts into queue and prints via clr with a Scheduled Job.   Note it prints the label Pallet.zpl and uses barcode master to add to print queue.\nUses modification to the view Label_pallet to show records in PrintQueue so that the printing of Box labels works.",
+  "Type": "PROCESS",
+  "Version": 0,
+  "LastModified": "10/05/2026",
+  "DatabaseVersion": "8.0.0.0",
+  "Tags": [],
+  "TypeSpecificAttributes": {
+    "ProcessType": "CUSTOM",
+    "ProcessName": "PREPRINTBOXLABELS",
+    "ProcessDescription": "Preprint Packing Box labels",
+    "IntegrationIsActive": false,
+    "IntegrationPost": false,
+    "ProcessStepMetadata": [
+      {
+        "Name": "NumberOfLabels",
+        "Description": "Qty. Labels to Print",
+        "Process": "PREPRINTBOXLABELS",
+        "ProcessIndex": 0,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_PREPRINTBOXLABELS_NumberOfLabels",
+        "hasWebTemplate": false
+      }
+    ]
+  },
+  "Components": [
+    {
+      "Type": "SQL_STORED_PROCEDURE",
+      "Name": "dbo.Utility_GenerateBoxLabelsAndInsertIntoQueue",
+      "Path": "SQL_STORED_PROCEDURE/dbo.Utility_GenerateBoxLabelsAndInsertIntoQueue",
+      "DependsOn": []
+    },
+    {
+      "Type": "SQL_STORED_PROCEDURE",
+      "Name": "dbo.Job_PrePrintPalletLabels",
+      "Path": "SQL_STORED_PROCEDURE/dbo.Job_PrePrintPalletLabels",
+      "DependsOn": []
+    },
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.Prescript_PREPRINTBOXLABELS_NumberOfLabels",
+      "Path": "PRESCRIPT/dbo.Prescript_PREPRINTBOXLABELS_NumberOfLabels",
+      "DependsOn": [
+        {
+          "Type": "SQL_STORED_PROCEDURE",
+          "Name": "dbo.Utility_GenerateBoxLabelsAndInsertIntoQueue"
+        }
+      ]
+    },
+    {
+      "Type": "PROCESS",
+      "Name": "PREPRINTBOXLABELS",
+      "Path": "",
+      "DependsOn": [
+        {
+          "Type": "PRESCRIPT",
+          "Name": "dbo.Prescript_PREPRINTBOXLABELS_NumberOfLabels"
+        }
+      ]
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

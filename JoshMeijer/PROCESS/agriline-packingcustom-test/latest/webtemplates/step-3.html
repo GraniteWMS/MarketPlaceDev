@@ -1,0 +1,16 @@
+{{ 
+	"SELECT CASE WHEN EXISTS (
+    SELECT 1 FROM DocumentDetail
+    WHERE Document_id = (SELECT ID FROM Document WHERE Number = @Document)
+    AND Cancelled = 0
+    AND PackedQty < ActionQty
+	) THEN 1 ELSE 0 END" 
+    | dbScalar({Document}) 
+    |> to => hasUnpackedLines 
+}}
+
+{{#if hasUnpackedLines == 1}}
+	{{ navigateToStep({stepName: "ItemCode"}) }}
+{{/if}}
+
+{{ messageBox({ error: true, info: false, success: false, hideTextBox: true }) }}

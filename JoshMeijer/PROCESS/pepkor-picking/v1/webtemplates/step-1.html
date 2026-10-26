@@ -1,0 +1,1 @@
+{{ "SELECT DocumentNumber, ExpectedDate FROM WebTemplate_Picking_Document ORDER BY ExpectedDate DESC" | dbSelect({}) | basicTable({selectOnColumn:"DocumentNumber", enableSearch:true}) }}

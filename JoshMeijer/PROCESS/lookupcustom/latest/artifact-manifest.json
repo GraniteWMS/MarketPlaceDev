@@ -1,0 +1,87 @@
+{
+  "Identifier": "c6aa5dfb-d474-421c-a200-b5151fb164f1",
+  "Name": "LOOKUPCUSTOM",
+  "Description": "Lookup Simple\n\nThe generic lookup has a large overhead on sites wiith a lot of data. This is not as generic, more customizable and understandable.   It takes MasterItem, MasterItem Alias and Location into account.  \nIt doesn't support TrackingEntity - Ideal for LOC_ITEM sites.\nMasterITemAlias also has code to strip out spaces and UPC Check Digits (can be customized)\n\nProcess Level Webtemplate calls GetLookupDataSimple stored procedure\nAlso implements a button after viewing data to return to lookup scan field.",
+  "Type": "PROCESS",
+  "Version": 0,
+  "LastModified": "23/04/2026",
+  "DatabaseVersion": "8.0.0.0",
+  "Tags": [],
+  "TypeSpecificAttributes": {
+    "ProcessType": "CUSTOM",
+    "ProcessName": "LOOKUPCUSTOM",
+    "ProcessDescription": "Lookup Simple",
+    "IntegrationIsActive": false,
+    "IntegrationPost": false,
+    "ProcessStepMetadata": [
+      {
+        "Name": "Scanned",
+        "Description": "Scan a Barcode (Location, Item, SKU)",
+        "Process": "LOOKUPCUSTOM",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "PrescriptLookupScanned",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Result",
+        "Description": "Press Enter to Restart",
+        "Process": "LOOKUPCUSTOM",
+        "ProcessIndex": 1,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": true
+      }
+    ]
+  },
+  "Components": [
+    {
+      "Type": "VIEW",
+      "Name": "dbo.MasterItemAlias_View",
+      "Path": "VIEW/dbo.MasterItemAlias_View",
+      "DependsOn": []
+    },
+    {
+      "Type": "SQL_STORED_PROCEDURE",
+      "Name": "dbo.GetLookupDataSimple",
+      "Path": "SQL_STORED_PROCEDURE/dbo.GetLookupDataSimple",
+      "DependsOn": [
+        {
+          "Type": "VIEW",
+          "Name": "dbo.MasterItemAlias_View"
+        }
+      ]
+    },
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.PrescriptLookupScanned",
+      "Path": "PRESCRIPT/dbo.PrescriptLookupScanned",
+      "DependsOn": [
+        {
+          "Type": "VIEW",
+          "Name": "dbo.MasterItemAlias_View"
+        }
+      ]
+    },
+    {
+      "Type": "PROCESS",
+      "Name": "LOOKUPCUSTOM",
+      "Path": "",
+      "DependsOn": [
+        {
+          "Type": "PRESCRIPT",
+          "Name": "dbo.PrescriptLookupScanned"
+        },
+        {
+          "Type": "SQL_STORED_PROCEDURE",
+          "Name": "dbo.GetLookupDataSimple"
+        }
+      ]
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

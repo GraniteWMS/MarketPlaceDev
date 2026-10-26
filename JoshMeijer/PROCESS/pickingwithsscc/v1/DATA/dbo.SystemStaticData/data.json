@@ -1,0 +1,29 @@
+{
+  "Table": "dbo.SystemStaticData",
+  "KeyColumns": [
+    "Key"
+  ],
+  "Rows": [
+    {
+      "Key": "CCF_CompanyPrefix",
+      "Description": "SSCC company prefix for CCF",
+      "Group": "SSCC",
+      "Value": "081011460",
+      "isEncrypted": "False"
+    },
+    {
+      "Key": "CCF_SSCCLabelName",
+      "Description": "Label Name for the CCF SSCC label design in Bartender.  Saved in Granite Labels folder.",
+      "Group": "Labels",
+      "Value": "CCF_SSCC_ShipLabel.btw",
+      "isEncrypted": "False"
+    },
+    {
+      "Key": "CCF_SSCCNumberofLabels",
+      "Description": "Number of SSCC labels to print on CCF SSCC label printing",
+      "Group": "Labels",
+      "Value": "2",
+      "isEncrypted": "False"
+    }
+  ]
+}

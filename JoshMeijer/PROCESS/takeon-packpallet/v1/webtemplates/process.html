@@ -1,0 +1,112 @@
+{{#if MasterItem}}
+    {{ 
+        "SELECT TOP 1 MasterItem.Code, MasterItem.Description, MasterItem.UOM, MasterItemAlias_View.Code as Alias
+        FROM MasterItem LEFT JOIN
+        MasterItemAlias_View ON MasterItem.ID = MasterItemAlias_View.MasterItem_id
+        WHERE MasterItem.Code = @MasterItem"
+        |> dbSingle({MasterItem}) 
+        |> to => masterItem 
+    }}
+    <div>
+        <header>{{masterItem.ItemCode}}</header>
+    </div>
+    <div>
+        <small style="-ms-word-wrap: break-word; word-wrap: break-word;">{{masterItem.Description}}</small>
+    </div>
+ 
+    {{#if masterItem.Alias}}
+        <div>
+            <small>Alias</small>
+            <header class="gn-float-right">{{masterItem.Alias}}</header>
+        </div>
+    {{/if}}
+
+{{/if}}
+
+{{#if UOM}}
+<div>
+    <small>{{UOM}}</small>
+    <header class="gn-float-right">{{UOM}}</header>
+</div>
+{{/if}}
+
+{{#if UseBarcode}}
+<div>
+    <small>Barcode</small>
+    <header>{{UseBarcode}}</header>
+</div>
+{{/if}}
+
+{{#if Location}}
+{{ 
+    "SELECT TOP 1 Name, ERPLocation FROM Location WHERE Barcode = @Location"
+    |> dbSingle({Location}) 
+    |> to => location
+}}
+<div>
+    <small>Location</small>
+    <header class="gn-float-right">{{location.Name + " "}} <small style="font-style:normal">{{location.ERPLocation}}</small></header>
+</div>
+{{/if}}
+
+{{#if Qty}}
+<div>
+    <small>Qty</small>
+    <header class="gn-float-right">{{Qty}}</header>
+</div>
+{{/if}}
+
+<hr />
+
+{{#if SerialNumber}}
+<div>
+    <small>Serial</small>
+    <header class="gn-float-right">{{SerialNumber}}</header>
+</div>
+{{/if}}
+
+{{#if Batch}}
+<div>
+    <small>Batch</small>
+    <header class="gn-float-right">{{Batch}}</header>
+</div>
+{{/if}}
+
+{{#if ExpiryDate}}
+<div>
+    <small>Expiry</small>
+    <header class="gn-float-right">{{ExpiryDate}}</header>
+</div>
+{{/if}}
+
+{{#if ManufactureDate}}
+<div>
+    <small>ManufactureDate</small>
+    <header class="gn-float-right">{{ManufactureDate}}</header>
+</div>
+{{/if}}
+
+<hr />
+
+{{#if Comment}}
+<div>
+    <small>Comment</small>
+    <header class="gn-float-right" style="font-style: italic">{{Comment}}</header>
+</div>
+{{/if}}
+
+{{#if IntegrationReference}}
+<div>
+    <small>Integration Reference</small>
+    <header class="gn-float-right" style="font-style: italic">{{IntegrationReference}}</header>
+</div>
+{{/if}}
+
+{{#if Reference}}
+<div>
+    <small>Reference</small>
+    <header class="gn-float-right" style="font-style: italic">{{Reference}}</header>
+</div>
+{{/if}}
+
+<hr />

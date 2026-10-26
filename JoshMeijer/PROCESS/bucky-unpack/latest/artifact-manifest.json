@@ -1,0 +1,109 @@
+{
+  "Identifier": "8710afc3-a717-4cd5-9d7c-018a5ccc10ee",
+  "Name": "BUCKY_UNPACK",
+  "Description": "BUCKY_UNPACK\n\nUseful for reversing a pack transaction on the scanner. Has strong built-in, tested rules and functionality.",
+  "Type": "PROCESS",
+  "Version": 0,
+  "LastModified": "27/01/2026",
+  "DatabaseVersion": "8.0.0.0",
+  "Tags": [
+    "Manufacturing",
+    "Cold Storage",
+    "Pharmaceutical",
+    "Logistics",
+    "E-commerce",
+    "Construction",
+    "Electronics",
+    "Textile",
+    "Agricultural",
+    "Automotive",
+    "Retail"
+  ],
+  "TypeSpecificAttributes": {
+    "ProcessType": "CUSTOM",
+    "ProcessName": "BUCKY_UNPACK",
+    "ProcessDescription": "BUCKY_UNPACK",
+    "IntegrationIsActive": false,
+    "IntegrationPost": false,
+    "ProcessStepMetadata": [
+      {
+        "Name": "Document",
+        "Description": "Enter Document",
+        "Process": "BUCKY_UNPACK",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "TransactionID",
+        "Description": "Select Transaction ID",
+        "Process": "BUCKY_UNPACK",
+        "ProcessIndex": 1,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_UnpackTransaction_TransactionID",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Step200",
+        "Description": "Reverses the Transaction",
+        "Process": "BUCKY_UNPACK",
+        "ProcessIndex": 200,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_UnpackTransaction_Step200",
+        "hasWebTemplate": false
+      }
+    ]
+  },
+  "Components": [
+    {
+      "Type": "VIEW",
+      "Name": "dbo.WebTemplate_UnpackTransaction_TransactionID",
+      "Path": "VIEW/dbo.WebTemplate_UnpackTransaction_TransactionID",
+      "DependsOn": []
+    },
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.Prescript_UnpackTransaction_TransactionID",
+      "Path": "PRESCRIPT/dbo.Prescript_UnpackTransaction_TransactionID",
+      "DependsOn": [
+        {
+          "Type": "VIEW",
+          "Name": "dbo.WebTemplate_UnpackTransaction_TransactionID"
+        }
+      ]
+    },
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.Prescript_UnpackTransaction_Step200",
+      "Path": "PRESCRIPT/dbo.Prescript_UnpackTransaction_Step200",
+      "DependsOn": []
+    },
+    {
+      "Type": "PROCESS",
+      "Name": "BUCKY_UNPACK",
+      "Path": "",
+      "DependsOn": [
+        {
+          "Type": "PRESCRIPT",
+          "Name": "dbo.Prescript_UnpackTransaction_Step200"
+        },
+        {
+          "Type": "PRESCRIPT",
+          "Name": "dbo.Prescript_UnpackTransaction_TransactionID"
+        },
+        {
+          "Type": "VIEW",
+          "Name": "dbo.WebTemplate_UnpackTransaction_TransactionID"
+        }
+      ]
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

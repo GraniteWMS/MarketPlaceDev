@@ -1,0 +1,1 @@
+{{ "SELECT Code, Alias, Description, [Customer Name] FROM WebTemplate_MasterItems WHERE Code LIKE CONCAT(@TradingPartner, "%")" | dbSelect({TradingPartner}) | basicTable({selectOnColumn:"Code", enableSearch:true}) }}

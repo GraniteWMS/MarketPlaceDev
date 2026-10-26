@@ -1,0 +1,125 @@
+{
+  "Identifier": "e919ea04-97fb-4caa-b87e-0d5d29badd41",
+  "Name": "STOCKTAKENOLOCATIONNOQTY",
+  "Description": "STOCKTAKENOLOCATIONNOQTY\n\nN/a\n\nN/a",
+  "Type": "PROCESS",
+  "Version": 1,
+  "LastModified": "22/09/2026",
+  "DatabaseVersion": "8.0.0.0",
+  "Tags": [
+    "Manufacturing",
+    "Retail",
+    "Automotive",
+    "Agricultural",
+    "Textile",
+    "Electronics",
+    "Construction",
+    "E-commerce",
+    "Logistics",
+    "Cold Storage",
+    "Pharmaceutical"
+  ],
+  "TypeSpecificAttributes": {
+    "ProcessType": "STOCKTAKECOUNT",
+    "ProcessName": "STOCKTAKENOLOCATIONNOQTY",
+    "ProcessDescription": "STOCKTAKENOLOCATIONNOQTY",
+    "IntegrationIsActive": false,
+    "IntegrationPost": false,
+    "ProcessStepMetadata": [
+      {
+        "Name": "Session",
+        "Description": "Session",
+        "Process": "STOCKTAKENOLOCATIONNOQTY",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Count",
+        "Description": "Count",
+        "Process": "STOCKTAKENOLOCATIONNOQTY",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Location",
+        "Description": "Scan/Enter Location",
+        "Process": "STOCKTAKENOLOCATIONNOQTY",
+        "ProcessIndex": 2,
+        "NextIndex": 3,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "CustomPallet",
+        "Description": "Scan/Enter Pallet Number",
+        "Process": "STOCKTAKENOLOCATIONNOQTY",
+        "ProcessIndex": 3,
+        "NextIndex": 4,
+        "isActive": true,
+        "Required": false,
+        "PreScript": "PrescriptStocktakeCustomPallet",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "TrackingEntity",
+        "Description": "Scan/Enter TrackingEntity",
+        "Process": "STOCKTAKENOLOCATIONNOQTY",
+        "ProcessIndex": 4,
+        "NextIndex": 4,
+        "isActive": true,
+        "Required": false,
+        "PreScript": "PrescriptStocktakeTrackingEntity",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Qty",
+        "Description": "Qty",
+        "Process": "STOCKTAKENOLOCATIONNOQTY",
+        "ProcessIndex": 100,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": false
+      }
+    ]
+  },
+  "Components": [
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.PrescriptStocktakeTrackingEntity",
+      "Path": "PRESCRIPT/dbo.PrescriptStocktakeTrackingEntity",
+      "DependsOn": []
+    },
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.PrescriptStocktakeCustomPallet",
+      "Path": "PRESCRIPT/dbo.PrescriptStocktakeCustomPallet",
+      "DependsOn": []
+    },
+    {
+      "Type": "PROCESS",
+      "Name": "STOCKTAKENOLOCATIONNOQTY",
+      "Path": "",
+      "DependsOn": [
+        {
+          "Type": "PRESCRIPT",
+          "Name": "dbo.PrescriptStocktakeCustomPallet"
+        },
+        {
+          "Type": "PRESCRIPT",
+          "Name": "dbo.PrescriptStocktakeTrackingEntity"
+        }
+      ]
+    }
+  ],
+  "DependsOnClr": true,
+  "SqlClrAssemblyVersion": "7.0.0.0",
+  "Deprecated": false
+}

@@ -1,0 +1,109 @@
+{
+  "Name": "TAKEONPRODUCTIONSAGE",
+  "Description": "Label From Production with SAGE Assembly",
+  "Type": "TAKEON",
+  "IsActive": true,
+  "IntegrationMethod": "MANUFACTURE",
+  "IntegrationIsActive": true,
+  "IntegrationPost": true,
+  "Steps": [
+    {
+      "Name": "Reference",
+      "Description": "Work Order/Reference",
+      "ProcessIndex": 0,
+      "NextIndex": 1,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false
+    },
+    {
+      "Name": "MasterItem",
+      "Description": "MasterItem Code or Vendor code",
+      "ProcessIndex": 1,
+      "NextIndex": 2,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "PrescriptTakeonProductionMasterItem",
+      "WebTemplateFile": "webtemplates/step-2.html"
+    },
+    {
+      "Name": "Comment",
+      "Description": "Select Bill of Materials",
+      "ProcessIndex": 2,
+      "NextIndex": 3,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "WebTemplateFile": "webtemplates/step-3.html"
+    },
+    {
+      "Name": "ManufactureDate",
+      "Description": "ManufactureDate (YYYYMMDD)",
+      "ProcessIndex": 3,
+      "NextIndex": 4,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false
+    },
+    {
+      "Name": "Batch",
+      "Description": "Batch / Lot",
+      "ProcessIndex": 4,
+      "NextIndex": 5,
+      "IsActive": true,
+      "Required": false,
+      "IsBusinessRule": false
+    },
+    {
+      "Name": "Qty",
+      "Description": "Qty per Tracking Barcode",
+      "ProcessIndex": 5,
+      "NextIndex": 6,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "PrescriptTakeonProductionQty"
+    },
+    {
+      "Name": "NoEntities",
+      "Description": "Number of Identical TrackingBarcodes",
+      "ProcessIndex": 6,
+      "NextIndex": 1,
+      "IsActive": true,
+      "Required": false,
+      "IsBusinessRule": false,
+      "PreScript": "PrescriptTakeonNoEntities"
+    },
+    {
+      "Name": "Print",
+      "Description": "Print",
+      "ProcessIndex": 99,
+      "NextIndex": 0,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false
+    },
+    {
+      "Name": "Location",
+      "Description": "Location",
+      "ProcessIndex": 100,
+      "NextIndex": 100,
+      "IsActive": true,
+      "Required": false,
+      "IsBusinessRule": false,
+      "DefaultValue": "PROD",
+      "WebTemplateFile": "webtemplates/step-9.html"
+    },
+    {
+      "Name": "NoLabels",
+      "Description": "NoLabels",
+      "ProcessIndex": 100,
+      "NextIndex": 100,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "DefaultValue": "1"
+    }
+  ]
+}

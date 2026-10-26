@@ -1,0 +1,4 @@
+<template_body class = "table-responsive-sm">
+	{{ "SELECT Barcode, MasterItemCode, Description, QtyOnBarcode, QtyToPick FROM WebtemplatePickingQty WHERE Barcode = @TrackingEntity AND Document = @Document  " | dbSelect({TrackingEntity, Document}) |> to => res }} 
+	{{ res |> basicTable({ enableSearch:"false", submitOnClick: "false"}) }}
+</template_body>

@@ -1,0 +1,15 @@
+{
+  "Table": "dbo.SystemStaticData",
+  "KeyColumns": [
+    "Key"
+  ],
+  "Rows": [
+    {
+      "Key": "CCF_CompanyPrefix",
+      "Description": "SSCC company prefix for CCF",
+      "Group": "SSCC",
+      "Value": "081011460",
+      "isEncrypted": "False"
+    }
+  ]
+}

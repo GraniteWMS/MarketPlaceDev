@@ -1,0 +1,208 @@
+{
+  "Identifier": "e892f862-0162-4dd5-b71a-475d1169dbbe",
+  "Name": "TAKEONPRODUCTION",
+  "Description": "Label From Production (NO SAGE ASSEMBLY)\n\nTakeon to produce labelled items from Production.  Validates the item is on a BOM in SAGE using ACCPAC_BOM views\n\nIncludes ACCPAC Bom Views.",
+  "Type": "PROCESS",
+  "Version": 0,
+  "LastModified": "13/10/2026",
+  "DatabaseVersion": "8.0.0.0",
+  "Tags": [],
+  "TypeSpecificAttributes": {
+    "ProcessType": "TAKEON",
+    "ProcessName": "TAKEONPRODUCTION",
+    "ProcessDescription": "Label From Production (NO SAGE ASSEMBLY)",
+    "IntegrationIsActive": false,
+    "IntegrationPost": false,
+    "ProcessStepMetadata": [
+      {
+        "Name": "Reference",
+        "Description": "Work Order/Reference",
+        "Process": "TAKEONPRODUCTION",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "MasterItem",
+        "Description": "MasterItem Code or Vendor code",
+        "Process": "TAKEONPRODUCTION",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "PrescriptTakeonProductionMasterItem",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Comment",
+        "Description": "Select Bill of Materials",
+        "Process": "TAKEONPRODUCTION",
+        "ProcessIndex": 2,
+        "NextIndex": 3,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "ManufactureDate",
+        "Description": "ManufactureDate (YYYYMMDD)",
+        "Process": "TAKEONPRODUCTION",
+        "ProcessIndex": 3,
+        "NextIndex": 4,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Batch",
+        "Description": "Batch / Lot",
+        "Process": "TAKEONPRODUCTION",
+        "ProcessIndex": 4,
+        "NextIndex": 5,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Qty",
+        "Description": "Qty per Pallet",
+        "Process": "TAKEONPRODUCTION",
+        "ProcessIndex": 5,
+        "NextIndex": 6,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "PrescriptTakeonProductionQty",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "NoEntities",
+        "Description": "Number of Identical Pallets",
+        "Process": "TAKEONPRODUCTION",
+        "ProcessIndex": 6,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": false,
+        "PreScript": "PrescriptTakeonNoEntities",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Print",
+        "Description": "Print",
+        "Process": "TAKEONPRODUCTION",
+        "ProcessIndex": 99,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Location",
+        "Description": "Location",
+        "Process": "TAKEONPRODUCTION",
+        "ProcessIndex": 100,
+        "NextIndex": 100,
+        "isActive": true,
+        "Required": false,
+        "DefaultValue": "PRODFIN",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "NoLabels",
+        "Description": "NoLabels",
+        "Process": "TAKEONPRODUCTION",
+        "ProcessIndex": 100,
+        "NextIndex": 100,
+        "isActive": true,
+        "Required": true,
+        "DefaultValue": "1",
+        "hasWebTemplate": false
+      }
+    ]
+  },
+  "Components": [
+    {
+      "Type": "VIEW",
+      "Name": "dbo.Integration_Accpac_BomH",
+      "Path": "VIEW/dbo.Integration_Accpac_BomH",
+      "DependsOn": []
+    },
+    {
+      "Type": "VIEW",
+      "Name": "dbo.WebTemplate_Locations",
+      "Path": "VIEW/dbo.WebTemplate_Locations",
+      "DependsOn": []
+    },
+    {
+      "Type": "VIEW",
+      "Name": "dbo.Integration_Accpac_BomD",
+      "Path": "VIEW/dbo.Integration_Accpac_BomD",
+      "DependsOn": []
+    },
+    {
+      "Type": "VIEW",
+      "Name": "dbo.WebTemplate_MasterItemswithBOMS",
+      "Path": "VIEW/dbo.WebTemplate_MasterItemswithBOMS",
+      "DependsOn": [
+        {
+          "Type": "VIEW",
+          "Name": "dbo.Integration_Accpac_BomH"
+        }
+      ]
+    },
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.PrescriptTakeonProductionMasterItem",
+      "Path": "PRESCRIPT/dbo.PrescriptTakeonProductionMasterItem",
+      "DependsOn": [
+        {
+          "Type": "VIEW",
+          "Name": "dbo.WebTemplate_MasterItemswithBOMS"
+        }
+      ]
+    },
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.PrescriptTakeonProductionQty",
+      "Path": "PRESCRIPT/dbo.PrescriptTakeonProductionQty",
+      "DependsOn": []
+    },
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.PrescriptTakeonNoEntities",
+      "Path": "PRESCRIPT/dbo.PrescriptTakeonNoEntities",
+      "DependsOn": []
+    },
+    {
+      "Type": "PROCESS",
+      "Name": "TAKEONPRODUCTION",
+      "Path": "",
+      "DependsOn": [
+        {
+          "Type": "PRESCRIPT",
+          "Name": "dbo.PrescriptTakeonNoEntities"
+        },
+        {
+          "Type": "PRESCRIPT",
+          "Name": "dbo.PrescriptTakeonProductionMasterItem"
+        },
+        {
+          "Type": "PRESCRIPT",
+          "Name": "dbo.PrescriptTakeonProductionQty"
+        },
+        {
+          "Type": "VIEW",
+          "Name": "dbo.WebTemplate_Locations"
+        },
+        {
+          "Type": "VIEW",
+          "Name": "dbo.WebTemplate_MasterItemswithBOMS"
+        }
+      ]
+    }
+  ],
+  "DependsOnClr": true,
+  "SqlClrAssemblyVersion": "7.0.0.0",
+  "Deprecated": false
+}

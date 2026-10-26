@@ -1,0 +1,73 @@
+{
+  "Name": "VSERV_PICKING_ETHICAL_LOOSE",
+  "Description": "VSERV_PICKING_ETHICAL_LOOSE",
+  "Type": "PICKING",
+  "IsActive": true,
+  "IntegrationIsActive": false,
+  "IntegrationPost": false,
+  "WebTemplateFile": "webtemplates/process.html",
+  "Steps": [
+    {
+      "Name": "Document",
+      "Description": "Enter Picking Order",
+      "ProcessIndex": 0,
+      "NextIndex": 1,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "Prescript_PickingEthicalLoose_Document"
+    },
+    {
+      "Name": "Comment",
+      "Description": "Enter Picking Crate (PC) Barcode",
+      "ProcessIndex": 1,
+      "NextIndex": 2,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "Prescript_PickingEthical_Comment",
+      "WebTemplateFile": "webtemplates/step-2.html"
+    },
+    {
+      "Name": "Location",
+      "Description": "Enter Racking Location",
+      "ProcessIndex": 2,
+      "NextIndex": 3,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "Prescript_PickingEthicalLoose_Location"
+    },
+    {
+      "Name": "TrackingEntity",
+      "Description": "Scan EAN Barcode",
+      "ProcessIndex": 3,
+      "NextIndex": 3,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "Prescript_PickingEthicalLoose_TrackingEntity",
+      "WebTemplateFile": "webtemplates/step-4.html"
+    },
+    {
+      "Name": "Qty",
+      "Description": "Qty",
+      "ProcessIndex": 100,
+      "NextIndex": 0,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "DefaultValue": "1"
+    },
+    {
+      "Name": "Step200",
+      "Description": "Step200",
+      "ProcessIndex": 200,
+      "NextIndex": 0,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "Prescript_PickingEthicalLoose_Step200"
+    }
+  ]
+}

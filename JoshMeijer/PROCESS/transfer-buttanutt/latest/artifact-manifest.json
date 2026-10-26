@@ -1,0 +1,147 @@
+{
+  "Identifier": "8b2b7c91-190f-4567-a6ac-7ac50d138c40",
+  "Name": "TRANSFER_BUTTANUTT",
+  "Description": "TRANSFER_BUTTANUTT\n\nBarcodes transferred on this process are automatically put on hold after they are transferred. It CLR printed a new barcode if the full barcode qty is not transferred",
+  "Type": "PROCESS",
+  "Version": 0,
+  "LastModified": "21/03/2026",
+  "DatabaseVersion": "8.0.0.0",
+  "Tags": [
+    "Electronics",
+    "Construction",
+    "E-commerce",
+    "Logistics",
+    "Pharmaceutical",
+    "Cold Storage",
+    "Manufacturing",
+    "Retail",
+    "Automotive",
+    "Agricultural",
+    "Textile"
+  ],
+  "TypeSpecificAttributes": {
+    "ProcessType": "TRANSFER",
+    "ProcessName": "TRANSFER_BUTTANUTT",
+    "ProcessDescription": "TRANSFER_BUTTANUTT",
+    "IntegrationIsActive": false,
+    "IntegrationPost": false,
+    "ProcessStepMetadata": [
+      {
+        "Name": "Document",
+        "Description": "Enter Transfer Document",
+        "Process": "TRANSFER_BUTTANUTT",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": false,
+        "PreScript": "Prescript_Transfer_Document",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "TrackingEntity",
+        "Description": "Scan Barcode",
+        "Process": "TRANSFER_BUTTANUTT",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": false,
+        "PreScript": "Prescript_Transfer_TrackingEntity",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Qty",
+        "Description": "Enter Qty To Transfer",
+        "Process": "TRANSFER_BUTTANUTT",
+        "ProcessIndex": 2,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "DestinationLocation",
+        "Description": "DestinationLocation",
+        "Process": "TRANSFER_BUTTANUTT",
+        "ProcessIndex": 100,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Type",
+        "Description": "Type",
+        "Process": "TRANSFER_BUTTANUTT",
+        "ProcessIndex": 100,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": false,
+        "DefaultValue": "TRANSFER",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Step200",
+        "Description": "Updates Barcode To Be On Hold",
+        "Process": "TRANSFER_BUTTANUTT",
+        "ProcessIndex": 200,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_Transfer_Step200",
+        "hasWebTemplate": false
+      }
+    ]
+  },
+  "Components": [
+    {
+      "Type": "VIEW",
+      "Name": "dbo.WebTemplate_Transfer_Document",
+      "Path": "VIEW/dbo.WebTemplate_Transfer_Document",
+      "DependsOn": []
+    },
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.Prescript_Transfer_Document",
+      "Path": "PRESCRIPT/dbo.Prescript_Transfer_Document",
+      "DependsOn": []
+    },
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.Prescript_Transfer_TrackingEntity",
+      "Path": "PRESCRIPT/dbo.Prescript_Transfer_TrackingEntity",
+      "DependsOn": []
+    },
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.Prescript_Transfer_Step200",
+      "Path": "PRESCRIPT/dbo.Prescript_Transfer_Step200",
+      "DependsOn": []
+    },
+    {
+      "Type": "PROCESS",
+      "Name": "TRANSFER_BUTTANUTT",
+      "Path": "",
+      "DependsOn": [
+        {
+          "Type": "PRESCRIPT",
+          "Name": "dbo.Prescript_Transfer_Document"
+        },
+        {
+          "Type": "PRESCRIPT",
+          "Name": "dbo.Prescript_Transfer_Step200"
+        },
+        {
+          "Type": "PRESCRIPT",
+          "Name": "dbo.Prescript_Transfer_TrackingEntity"
+        },
+        {
+          "Type": "VIEW",
+          "Name": "dbo.WebTemplate_Transfer_Document"
+        }
+      ]
+    }
+  ],
+  "DependsOnClr": true,
+  "SqlClrAssemblyVersion": "7.0.0.0",
+  "Deprecated": false
+}

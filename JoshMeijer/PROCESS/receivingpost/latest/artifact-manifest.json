@@ -1,0 +1,49 @@
+{
+  "Identifier": "267e5157-2b92-4adc-9f71-d036f83bdc17",
+  "Name": "RECEIVINGPOST",
+  "Description": "RECEIVINGPOST\n\nThis is the default (empty) RECEIVINGPOST process.",
+  "Type": "PROCESS",
+  "Version": 0,
+  "LastModified": "27/03/2024",
+  "DatabaseVersion": "8.0.0.0",
+  "Tags": [],
+  "TypeSpecificAttributes": {
+    "ProcessType": "RECEIVINGPOST",
+    "ProcessName": "RECEIVINGPOST",
+    "ProcessDescription": "RECEIVINGPOST",
+    "IntegrationIsActive": false,
+    "IntegrationPost": false,
+    "ProcessStepMetadata": [
+      {
+        "Name": "Document",
+        "Description": "Document",
+        "Process": "RECEIVINGPOST",
+        "ProcessIndex": 0,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "DocumentReference",
+        "Description": "DocumentReference",
+        "Process": "RECEIVINGPOST",
+        "ProcessIndex": 0,
+        "NextIndex": 0,
+        "isActive": false,
+        "Required": false,
+        "hasWebTemplate": false
+      }
+    ]
+  },
+  "Components": [
+    {
+      "Type": "PROCESS",
+      "Name": "RECEIVINGPOST",
+      "Path": "",
+      "DependsOn": []
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

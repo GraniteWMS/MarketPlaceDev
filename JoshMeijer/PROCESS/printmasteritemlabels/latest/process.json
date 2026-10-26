@@ -1,0 +1,40 @@
+{
+  "Name": "PRINTMASTERITEMLABELS",
+  "Description": "PRINT ITEM LABELS",
+  "Type": "CUSTOM",
+  "IsActive": true,
+  "IntegrationIsActive": false,
+  "IntegrationPost": false,
+  "Steps": [
+    {
+      "Name": "MasterItem",
+      "Description": "Enter Item Code",
+      "ProcessIndex": 0,
+      "NextIndex": 1,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "PRescript_PrintMasterItemLabels_MasterItem"
+    },
+    {
+      "Name": "NumberOfLabels",
+      "Description": "Number of Labels (<100)",
+      "ProcessIndex": 1,
+      "NextIndex": 2,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "Prescript_PrintMasterItemLabels_NumberOfLabels"
+    },
+    {
+      "Name": "Confirmation",
+      "Description": "Confirm label print",
+      "ProcessIndex": 2,
+      "NextIndex": 0,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "Prescript_PrintMasterItemLabels_Confirmation"
+    }
+  ]
+}

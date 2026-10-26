@@ -1,0 +1,38 @@
+{{#if Document}}
+    {{
+        "SELECT * FROM WebTemplateOrderCheckingDocumentHeader WHERE Number = @Document"
+        |> dbSingle({Document}) 
+        |> to => document
+    }}
+    {{#if document.Number}}
+    <div>
+        <small>Document</small>
+        <header class="gn-float-right">
+            <p style="display:inline">{{document.Number}}</p>
+            <p style="font-weight:200;display:inline">{{document.Progress}}% completed</p>
+        </header>
+    </div>
+    {{/if}}
+
+    {{#if document.Description}}
+    <div>
+        <small>Description</small>
+        <header class="gn-float-right">{{document.Description}}</header>
+    </div>
+    {{/if}}
+
+    {{#if document.TradingPartnerCode}}
+    <div>
+        <small>Trading Partner</small>
+        <header class="gn-float-right">{{document.TradingPartnerCode}} {{document.TradingPartnerDescription}}</header>
+    </div>
+    {{/if}}
+    
+    {{#if document.ERPLocation}}
+    <div>
+        <small>ERPLocation</small>
+        <header class="gn-float-right">{{document.ERPLocation}}</header>
+    </div>
+    {{/if}}
+{{/if}}
+{{ "EXEC WebTemplateOrderCheckingDocumentDetails @Document" | dbSelect({Document}) | basicTable({}) }}

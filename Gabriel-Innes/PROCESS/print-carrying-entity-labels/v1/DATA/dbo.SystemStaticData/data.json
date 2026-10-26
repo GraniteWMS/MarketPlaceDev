@@ -1,0 +1,15 @@
+{
+  "Table": "dbo.SystemStaticData",
+  "KeyColumns": [
+    "Key"
+  ],
+  "Rows": [
+    {
+      "Key": "CarryingEntityPrint",
+      "Description": "Max number of labels to print",
+      "Group": "Prescript",
+      "Value": "100",
+      "isEncrypted": "False"
+    }
+  ]
+}

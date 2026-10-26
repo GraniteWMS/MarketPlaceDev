@@ -1,0 +1,21 @@
+{
+  "Identifier": "21e15953-3485-4c9d-bd4c-4d47ec8a72c5",
+  "Name": "Prescript_Example_SendEmailWithSsrsReport",
+  "Description": "This template provides an illustration of utilizing SQL_CLR to send emails with SSRS Report attachments, although it should be noted that this process is not fully functional.\n\nWithin the stored procedure Prescript_Example_SendEmailWithSsrsReport, the clr_SimpleEmail is employed to attach SSRS reports and dispatch an email.",
+  "Type": "PRESCRIPT",
+  "Version": 0,
+  "LastModified": "19/03/2024",
+  "DatabaseVersion": "8.0.0.0",
+  "Tags": [],
+  "Components": [
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.Prescript_Example_SendEmailWithSsrsReport",
+      "Path": "",
+      "DependsOn": []
+    }
+  ],
+  "DependsOnClr": true,
+  "SqlClrAssemblyVersion": "7.0.0.0",
+  "Deprecated": false
+}

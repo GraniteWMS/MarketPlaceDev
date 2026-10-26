@@ -1,0 +1,4 @@
+<template_body class = "table-responsive-sm">
+	{{ "EXEC WebtemplatePickingQuantity @TrackingEntity = @TrackingEntity, @Document = @Document" | dbSelect({TrackingEntity, Document}) |> to => res }} 
+	{{ res |> basicTable({ enableSearch:"false", submitOnClick: "false"}) }}
+</template_body>

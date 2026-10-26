@@ -1,0 +1,124 @@
+{
+  "Identifier": "8bb2e9a1-60ff-4744-a4c1-9cd2c5d58231",
+  "Name": "ALFRED_RECEIVINGSELECTABLE_SERIAL",
+  "Description": "ALFRED_RECEIVINGSELECTABLE_SERIAL\n\nThis process is already configured to use the serial number as the barcode, and the quantity is defaulted to 1.\n\nN/A",
+  "Type": "PROCESS",
+  "Version": 0,
+  "LastModified": "20/03/2026",
+  "DatabaseVersion": "8.0.0.0",
+  "Tags": [
+    "Automotive",
+    "Manufacturing",
+    "Retail",
+    "Agricultural",
+    "Textile",
+    "Electronics",
+    "Construction",
+    "E-commerce",
+    "Logistics",
+    "Pharmaceutical",
+    "Cold Storage"
+  ],
+  "TypeSpecificAttributes": {
+    "ProcessType": "RECEIVING",
+    "ProcessName": "ALFRED_RECEIVINGSELECTABLE_SERIAL",
+    "ProcessDescription": "ALFRED_RECEIVINGSELECTABLE_SERIAL",
+    "IntegrationIsActive": false,
+    "IntegrationPost": false,
+    "ProcessStepMetadata": [
+      {
+        "Name": "Location",
+        "Description": "Receiving Location",
+        "Process": "ALFRED_RECEIVINGSELECTABLE_SERIAL",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Document",
+        "Description": "Enter Receiving Document",
+        "Process": "ALFRED_RECEIVINGSELECTABLE_SERIAL",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "MasterItem",
+        "Description": "Select / Search MasterItem",
+        "Process": "ALFRED_RECEIVINGSELECTABLE_SERIAL",
+        "ProcessIndex": 2,
+        "NextIndex": 3,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "SerialNumber",
+        "Description": "Enter Serial Number",
+        "Process": "ALFRED_RECEIVINGSELECTABLE_SERIAL",
+        "ProcessIndex": 3,
+        "NextIndex": 3,
+        "isActive": true,
+        "Required": false,
+        "PreScript": "PrescriptRECEIVINGSERIALSerialNumber",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Print",
+        "Description": "Print",
+        "Process": "ALFRED_RECEIVINGSELECTABLE_SERIAL",
+        "ProcessIndex": 99,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Qty",
+        "Description": "Enter Units per barcode",
+        "Process": "ALFRED_RECEIVINGSELECTABLE_SERIAL",
+        "ProcessIndex": 100,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "DefaultValue": "1",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "UseBarcode",
+        "Description": "UseBarcode",
+        "Process": "ALFRED_RECEIVINGSELECTABLE_SERIAL",
+        "ProcessIndex": 100,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": false
+      }
+    ]
+  },
+  "Components": [
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.PrescriptRECEIVINGSERIALSerialNumber",
+      "Path": "PRESCRIPT/dbo.PrescriptRECEIVINGSERIALSerialNumber",
+      "DependsOn": []
+    },
+    {
+      "Type": "PROCESS",
+      "Name": "ALFRED_RECEIVINGSELECTABLE_SERIAL",
+      "Path": "",
+      "DependsOn": [
+        {
+          "Type": "PRESCRIPT",
+          "Name": "dbo.PrescriptRECEIVINGSERIALSerialNumber"
+        }
+      ]
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

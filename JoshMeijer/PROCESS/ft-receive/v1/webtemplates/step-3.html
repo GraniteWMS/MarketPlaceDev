@@ -1,0 +1,14 @@
+{{#if LabelType === "NONE"}} 
+    {{ 
+        navigateToStep({
+            stepName: "MasterItem"
+        }) 
+    }}
+{{/if}} 
+{{ 
+    navigateToStepButton({
+        stepName: "LabelType",
+        buttonText: "Change Label Type"
+    }) 
+}}
+<br>

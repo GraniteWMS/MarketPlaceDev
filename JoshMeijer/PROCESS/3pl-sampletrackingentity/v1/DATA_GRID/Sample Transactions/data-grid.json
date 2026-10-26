@@ -1,0 +1,8 @@
+{
+  "Group": "Transactions",
+  "Name": "Sample Transactions",
+  "SQLView": "Datagrid_TransactionsSample",
+  "GridDefinition": "[{\"field\":\"ID\",\"width\":80,\"filter\":\"agNumberColumnFilter\"},\n\t\t  {\"field\":\"User\",\"width\":100,\"filter\":\"agTextColumnFilter\"},\n\t\t  {\"field\":\"Date\",\"width\":100,\"filter\":\"agDateColumnFilter\"},\n\t\t  {\"field\":\"Time\",\"width\":80,\"filter\":\"agTextColumnFilter\"},\n\t\t  {\"headerName\":\"Pallet Barcode\",\"field\":\"Barcode\",\"width\":120,\"filter\":\"agTextColumnFilter\"},\n\t\t  {\"field\":\"Code\",\"width\":100,\"filter\":\"agTextColumnFilter\"},\n\t\t  {\"field\":\"Description\",\"width\":200,\"filter\":\"agTextColumnFilter\"},\n\t\t  {\"field\":\"Batch\",\"width\":120,\"filter\":\"agTextColumnFilter\"},\n\t\t  {\"headerName\":\"Pallet Qty\",\"field\":\"FromQty\",\"width\":120,\"filter\":\"agNumberColumnFilter\"},\n\t\t  {\"headerName\":\"Sample Qty\",\"field\":\"ActionQty\",\"width\":120,\"filter\":\"agNumberColumnFilter\"},\n\t\t  {\"field\":\"Comment\",\"width\":120,\"filter\":\"agTextColumnFilter\"},\n\t\t  {\"field\":\"DocumentReference\",\"width\":120,\"filter\":\"agTextColumnFilter\"},\n\t\t  {\"headerName\":\"Pallet Location\",\"field\":\"FromLocation\",\"width\":120,\"filter\":\"agTextColumnFilter\"}]",
+  "IsApplicationGrid": false,
+  "IsCustomGrid": true
+}

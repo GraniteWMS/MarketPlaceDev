@@ -1,0 +1,192 @@
+{
+  "Identifier": "0ae933fc-910c-4d9d-81d3-0cee0a34200b",
+  "Name": "TAKEONMANUFACTUREPALLET",
+  "Description": "TAKEON MANUFACTURE TO PALLET\n\nGoes with process Assign Production Line, and TakeonManufacture.  This one assigns a pallet and then makes to that pallet.  The Custom_ProductionLineAssignments table holds setup for a line.\nThe webtemplate when you print a new pack label for the pallet also shows what is on the pallet until the pallet is full (Optional Fields on MasterItem)\n\nScript inserts two Optional Fields for MasterItems.  It also has webtemplates and a Pallet.ZPL label and LABEL_PALLET view which is updated to use the first TrackingEntity linked to it to print MasterItem information on the Pallet Label.  The pallet Label can be printed using CLR_PRINTLABEL when the Pallet is full..   ZPL Label definition is here: ^XA\n^PW812\n^FO40,40^FB800^A0N,50,54^FH\\^FDPALLET LABEL^FS\n^FO40,120^FB760,3,,L^A0N,50,54^FH\\^FD@MasterItemDescription^FS\n^FO260,320^BY3,3,3^FH\\^BQN,2,10^FDQA,@Barcode^FS\n^FO260,540^FB800^A0N,50,54^FH\\^FD@Barcode^FS\n^FO40,700^FB760,3,,L^A0N,50,54^FH\\^FD@CreatedDate^FS\n^XZ",
+  "Type": "PROCESS",
+  "Version": 1,
+  "LastModified": "07/09/2025",
+  "DatabaseVersion": "8.0.0.0",
+  "Tags": [
+    "Manufacturing"
+  ],
+  "TypeSpecificAttributes": {
+    "ProcessType": "TAKEON",
+    "ProcessName": "TAKEONMANUFACTUREPALLET",
+    "ProcessDescription": "TAKEON MANUFACTURE TO PALLET",
+    "IntegrationIsActive": false,
+    "IntegrationPost": false,
+    "ProcessStepMetadata": [
+      {
+        "Name": "Location",
+        "Description": "Location",
+        "Process": "TAKEONMANUFACTUREPALLET",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "PrescriptTakeonManufactureLocation",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "CarryingEntity",
+        "Description": "New Pallet Label (Click New)",
+        "Process": "TAKEONMANUFACTUREPALLET",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "ConfirmPallet",
+        "Description": "Print next Box label",
+        "Process": "TAKEONMANUFACTUREPALLET",
+        "ProcessIndex": 2,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": false,
+        "PreScript": "PrescriptTakeonManPalletConfirmPallet",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Print",
+        "Description": "Print",
+        "Process": "TAKEONMANUFACTUREPALLET",
+        "ProcessIndex": 99,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Batch",
+        "Description": "LOT",
+        "Process": "TAKEONMANUFACTUREPALLET",
+        "ProcessIndex": 100,
+        "NextIndex": 100,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "MasterItem",
+        "Description": "MasterItem",
+        "Process": "TAKEONMANUFACTUREPALLET",
+        "ProcessIndex": 100,
+        "NextIndex": 100,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Qty",
+        "Description": "Total Pallet Qty in units",
+        "Process": "TAKEONMANUFACTUREPALLET",
+        "ProcessIndex": 100,
+        "NextIndex": 100,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "SerialNumber",
+        "Description": "Job Number",
+        "Process": "TAKEONMANUFACTUREPALLET",
+        "ProcessIndex": 100,
+        "NextIndex": 100,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Step200",
+        "Description": "Check for Pallet complete and print",
+        "Process": "TAKEONMANUFACTUREPALLET",
+        "ProcessIndex": 200,
+        "NextIndex": 200,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "PrescriptTakeonManPalletStep200",
+        "hasWebTemplate": false
+      }
+    ]
+  },
+  "Components": [
+    {
+      "Type": "USER_TABLE",
+      "Name": "dbo.Custom_ProductionLineAssignments",
+      "Path": "USER_TABLE/dbo.Custom_ProductionLineAssignments",
+      "DependsOn": []
+    },
+    {
+      "Type": "VIEW",
+      "Name": "dbo.Webtemplate_AssignProductionProductionLine",
+      "Path": "VIEW/dbo.Webtemplate_AssignProductionProductionLine",
+      "DependsOn": [
+        {
+          "Type": "USER_TABLE",
+          "Name": "dbo.Custom_ProductionLineAssignments"
+        }
+      ]
+    },
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.PrescriptTakeonManufactureLocation",
+      "Path": "PRESCRIPT/dbo.PrescriptTakeonManufactureLocation",
+      "DependsOn": [
+        {
+          "Type": "USER_TABLE",
+          "Name": "dbo.Custom_ProductionLineAssignments"
+        }
+      ]
+    },
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.PrescriptTakeonManPalletConfirmPallet",
+      "Path": "PRESCRIPT/dbo.PrescriptTakeonManPalletConfirmPallet",
+      "DependsOn": [
+        {
+          "Type": "USER_TABLE",
+          "Name": "dbo.Custom_ProductionLineAssignments"
+        }
+      ]
+    },
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.PrescriptTakeonManPalletStep200",
+      "Path": "PRESCRIPT/dbo.PrescriptTakeonManPalletStep200",
+      "DependsOn": [
+        {
+          "Type": "USER_TABLE",
+          "Name": "dbo.Custom_ProductionLineAssignments"
+        }
+      ]
+    },
+    {
+      "Type": "PROCESS",
+      "Name": "TAKEONMANUFACTUREPALLET",
+      "Path": "",
+      "DependsOn": [
+        {
+          "Type": "PRESCRIPT",
+          "Name": "dbo.PrescriptTakeonManPalletConfirmPallet"
+        },
+        {
+          "Type": "PRESCRIPT",
+          "Name": "dbo.PrescriptTakeonManPalletStep200"
+        },
+        {
+          "Type": "PRESCRIPT",
+          "Name": "dbo.PrescriptTakeonManufactureLocation"
+        },
+        {
+          "Type": "VIEW",
+          "Name": "dbo.Webtemplate_AssignProductionProductionLine"
+        }
+      ]
+    }
+  ],
+  "DependsOnClr": true,
+  "SqlClrAssemblyVersion": "7.0.0.0",
+  "Deprecated": false
+}

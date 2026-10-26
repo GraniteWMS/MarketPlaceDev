@@ -1,0 +1,129 @@
+{
+  "Identifier": "48502240-dc49-49f0-a6a7-c19add645c8b",
+  "Name": "TRANSFER",
+  "Description": "TRANSFER\n\nThis is the default (empty) TRANSFER process.",
+  "Type": "PROCESS",
+  "Version": 1,
+  "LastModified": "27/03/2024",
+  "DatabaseVersion": "8.0.0.0",
+  "Tags": [],
+  "TypeSpecificAttributes": {
+    "ProcessType": "TRANSFER",
+    "ProcessName": "TRANSFER",
+    "ProcessDescription": "TRANSFER",
+    "IntegrationIsActive": false,
+    "IntegrationPost": false,
+    "ProcessStepMetadata": [
+      {
+        "Name": "Comment",
+        "Description": "Comment",
+        "Process": "TRANSFER",
+        "ProcessIndex": 0,
+        "NextIndex": 0,
+        "isActive": false,
+        "Required": false,
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Reference",
+        "Description": "Reference",
+        "Process": "TRANSFER",
+        "ProcessIndex": 0,
+        "NextIndex": 0,
+        "isActive": false,
+        "Required": false,
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Type",
+        "Description": "Type",
+        "Process": "TRANSFER",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "UseBarcode",
+        "Description": "UseBarcode",
+        "Process": "TRANSFER",
+        "ProcessIndex": 0,
+        "NextIndex": 0,
+        "isActive": false,
+        "Required": false,
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Document",
+        "Description": "Document",
+        "Process": "TRANSFER",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "DestinationLocation",
+        "Description": "DestinationLocation",
+        "Process": "TRANSFER",
+        "ProcessIndex": 2,
+        "NextIndex": 3,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "IntransitLocation",
+        "Description": "IntransitLocation",
+        "Process": "TRANSFER",
+        "ProcessIndex": 3,
+        "NextIndex": 4,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "TrackingEntity",
+        "Description": "TrackingEntity",
+        "Process": "TRANSFER",
+        "ProcessIndex": 4,
+        "NextIndex": 5,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Qty",
+        "Description": "Qty to Transfer",
+        "Process": "TRANSFER",
+        "ProcessIndex": 5,
+        "NextIndex": 4,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Print",
+        "Description": "Print",
+        "Process": "TRANSFER",
+        "ProcessIndex": 99,
+        "NextIndex": 99,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": false
+      }
+    ]
+  },
+  "Components": [
+    {
+      "Type": "PROCESS",
+      "Name": "TRANSFER",
+      "Path": "",
+      "DependsOn": []
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

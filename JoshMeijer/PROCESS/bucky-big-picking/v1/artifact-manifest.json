@@ -1,0 +1,158 @@
+{
+  "Identifier": "a211487f-2057-4780-8f5a-6cb2533a461a",
+  "Name": "BUCKY_BIG_PICKING",
+  "Description": "BUCKY_BIG_PICKING\n\nIf you need to group a bunch of SOs together to pick them as if they were a single document, then this is for you.\n\nThe documents need to be linked together somehow by a shared value. In this case I use the RouteName field but you can use anything, just remember to change the scripts and views.",
+  "Type": "PROCESS",
+  "Version": 1,
+  "LastModified": "02/02/2026",
+  "DatabaseVersion": "8.0.0.0",
+  "Tags": [
+    "Electronics",
+    "Construction",
+    "E-commerce",
+    "Logistics",
+    "Pharmaceutical",
+    "Cold Storage",
+    "Manufacturing",
+    "Retail",
+    "Agricultural",
+    "Automotive",
+    "Textile"
+  ],
+  "TypeSpecificAttributes": {
+    "ProcessType": "CUSTOM",
+    "ProcessName": "BUCKY_BIG_PICKING",
+    "ProcessDescription": "BUCKY_BIG_PICKING",
+    "IntegrationIsActive": false,
+    "IntegrationPost": false,
+    "ProcessStepMetadata": [
+      {
+        "Name": "Document",
+        "Description": "Enter Reference That Links Documents",
+        "Process": "BUCKY_BIG_PICKING",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_BigPicking_LinkReference",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "PickLocation",
+        "Description": "Enter Picking Location",
+        "Process": "BUCKY_BIG_PICKING",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_BigPicking_PickLocation",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "TrackingEntity",
+        "Description": "Scan Tracking Entity Barcode",
+        "Process": "BUCKY_BIG_PICKING",
+        "ProcessIndex": 2,
+        "NextIndex": 3,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_BigPicking_TrackingEntity",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Qty",
+        "Description": "Enter Quantity to Pick",
+        "Process": "BUCKY_BIG_PICKING",
+        "ProcessIndex": 3,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_BigPicking_Qty",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Step200",
+        "Description": "CLR Picks Against All Documents",
+        "Process": "BUCKY_BIG_PICKING",
+        "ProcessIndex": 200,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_BigPicking_Step200",
+        "hasWebTemplate": false
+      }
+    ]
+  },
+  "Components": [
+    {
+      "Type": "VIEW",
+      "Name": "dbo.WebTemplate_BigPicking_LinkReference",
+      "Path": "VIEW/dbo.WebTemplate_BigPicking_LinkReference",
+      "DependsOn": []
+    },
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.Prescript_BigPicking_LinkReference",
+      "Path": "PRESCRIPT/dbo.Prescript_BigPicking_LinkReference",
+      "DependsOn": []
+    },
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.Prescript_BigPicking_PickLocation",
+      "Path": "PRESCRIPT/dbo.Prescript_BigPicking_PickLocation",
+      "DependsOn": []
+    },
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.Prescript_BigPicking_Qty",
+      "Path": "PRESCRIPT/dbo.Prescript_BigPicking_Qty",
+      "DependsOn": []
+    },
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.Prescript_BigPicking_Step200",
+      "Path": "PRESCRIPT/dbo.Prescript_BigPicking_Step200",
+      "DependsOn": []
+    },
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.Prescript_BigPicking_TrackingEntity",
+      "Path": "PRESCRIPT/dbo.Prescript_BigPicking_TrackingEntity",
+      "DependsOn": []
+    },
+    {
+      "Type": "PROCESS",
+      "Name": "BUCKY_BIG_PICKING",
+      "Path": "",
+      "DependsOn": [
+        {
+          "Type": "PRESCRIPT",
+          "Name": "dbo.Prescript_BigPicking_LinkReference"
+        },
+        {
+          "Type": "PRESCRIPT",
+          "Name": "dbo.Prescript_BigPicking_PickLocation"
+        },
+        {
+          "Type": "PRESCRIPT",
+          "Name": "dbo.Prescript_BigPicking_Qty"
+        },
+        {
+          "Type": "PRESCRIPT",
+          "Name": "dbo.Prescript_BigPicking_Step200"
+        },
+        {
+          "Type": "PRESCRIPT",
+          "Name": "dbo.Prescript_BigPicking_TrackingEntity"
+        },
+        {
+          "Type": "VIEW",
+          "Name": "dbo.WebTemplate_BigPicking_LinkReference"
+        }
+      ]
+    }
+  ],
+  "DependsOnClr": true,
+  "SqlClrAssemblyVersion": "7.0.0.0",
+  "Deprecated": false
+}

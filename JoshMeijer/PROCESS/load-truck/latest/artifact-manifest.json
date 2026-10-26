@@ -1,0 +1,95 @@
+{
+  "Identifier": "668b4527-918a-4e8b-954b-9000bfa47961",
+  "Name": "LOAD_TRUCK",
+  "Description": "LOAD TRUCK\n\nUsed to move tracking entities created by Load Prep process onto a truck location",
+  "Type": "PROCESS",
+  "Version": 0,
+  "LastModified": "07/08/2024",
+  "DatabaseVersion": "8.0.0.0",
+  "Tags": [
+    "Logistics"
+  ],
+  "TypeSpecificAttributes": {
+    "ProcessType": "MOVE",
+    "ProcessName": "LOAD_TRUCK",
+    "ProcessDescription": "LOAD TRUCK",
+    "IntegrationIsActive": false,
+    "IntegrationPost": false,
+    "ProcessStepMetadata": [
+      {
+        "Name": "Location",
+        "Description": "To Location",
+        "Process": "LOAD_TRUCK",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "TrackingEntity",
+        "Description": "Scan Parcel Barcode",
+        "Process": "LOAD_TRUCK",
+        "ProcessIndex": 1,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "PrescriptLoadTruckTrackingEntity",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Step200",
+        "Description": "Update TE InStock=0",
+        "Process": "LOAD_TRUCK",
+        "ProcessIndex": 200,
+        "NextIndex": 200,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "PrescriptLoadTruckStep200",
+        "hasWebTemplate": false
+      }
+    ]
+  },
+  "Components": [
+    {
+      "Type": "VIEW",
+      "Name": "dbo.WebTemplate_LoadTruckLocations",
+      "Path": "VIEW/dbo.WebTemplate_LoadTruckLocations",
+      "DependsOn": []
+    },
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.PrescriptLoadTruckTrackingEntity",
+      "Path": "PRESCRIPT/dbo.PrescriptLoadTruckTrackingEntity",
+      "DependsOn": []
+    },
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.PrescriptLoadTruckStep200",
+      "Path": "PRESCRIPT/dbo.PrescriptLoadTruckStep200",
+      "DependsOn": []
+    },
+    {
+      "Type": "PROCESS",
+      "Name": "LOAD_TRUCK",
+      "Path": "",
+      "DependsOn": [
+        {
+          "Type": "PRESCRIPT",
+          "Name": "dbo.PrescriptLoadTruckStep200"
+        },
+        {
+          "Type": "PRESCRIPT",
+          "Name": "dbo.PrescriptLoadTruckTrackingEntity"
+        },
+        {
+          "Type": "VIEW",
+          "Name": "dbo.WebTemplate_LoadTruckLocations"
+        }
+      ]
+    }
+  ],
+  "DependsOnClr": true,
+  "SqlClrAssemblyVersion": "7.0.0.0",
+  "Deprecated": false
+}

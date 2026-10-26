@@ -1,0 +1,198 @@
+{
+  "Identifier": "d63d4fb7-50d0-4cb6-86c7-1f4be0a39a84",
+  "Name": "RECEIVING_STD",
+  "Description": "Standard Receiving\n\nStandard Receiving process with some additional validations, the ability to select the Item Code and all fields available to use - a good starting Receive process template",
+  "Type": "PROCESS",
+  "Version": 0,
+  "LastModified": "01/09/2026",
+  "DatabaseVersion": "8.0.0.0",
+  "Tags": [
+    "Manufacturing",
+    "Retail",
+    "Automotive",
+    "Agricultural",
+    "Textile",
+    "Electronics",
+    "Construction",
+    "E-commerce",
+    "Logistics",
+    "Pharmaceutical",
+    "Cold Storage"
+  ],
+  "TypeSpecificAttributes": {
+    "ProcessType": "RECEIVING",
+    "ProcessName": "RECEIVING_STD",
+    "ProcessDescription": "Standard Receiving",
+    "IntegrationIsActive": false,
+    "IntegrationPost": false,
+    "ProcessStepMetadata": [
+      {
+        "Name": "Document",
+        "Description": "Purchase Order",
+        "Process": "RECEIVING_STD",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_Receiving_Document",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Location",
+        "Description": "Receiving Location",
+        "Process": "RECEIVING_STD",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "MasterItem",
+        "Description": "Scan or Select item Code",
+        "Process": "RECEIVING_STD",
+        "ProcessIndex": 2,
+        "NextIndex": 3,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_Receiving_MasterItem",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Qty",
+        "Description": "Qty per Pallet",
+        "Process": "RECEIVING_STD",
+        "ProcessIndex": 3,
+        "NextIndex": 4,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_Receiving_Qty",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "NoEntities",
+        "Description": "Number of Identical Pallets",
+        "Process": "RECEIVING_STD",
+        "ProcessIndex": 4,
+        "NextIndex": 5,
+        "isActive": true,
+        "Required": false,
+        "PreScript": "Prescript_Receiving_NoEntities",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Confirmation",
+        "Description": "Confirmation",
+        "Process": "RECEIVING_STD",
+        "ProcessIndex": 5,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Print",
+        "Description": "Print",
+        "Process": "RECEIVING_STD",
+        "ProcessIndex": 99,
+        "NextIndex": 99,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "NoLabels",
+        "Description": "Number of Labels",
+        "Process": "RECEIVING_STD",
+        "ProcessIndex": 100,
+        "NextIndex": 100,
+        "isActive": true,
+        "Required": false,
+        "DefaultValue": "1",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "UseBarcode",
+        "Description": "UseBarcode",
+        "Process": "RECEIVING_STD",
+        "ProcessIndex": 100,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": false
+      }
+    ]
+  },
+  "Components": [
+    {
+      "Type": "VIEW",
+      "Name": "dbo.webtemplate_POtoReceive",
+      "Path": "VIEW/dbo.webtemplate_POtoReceive",
+      "DependsOn": []
+    },
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.Prescript_Receiving_Document",
+      "Path": "PRESCRIPT/dbo.Prescript_Receiving_Document",
+      "DependsOn": []
+    },
+    {
+      "Type": "VIEW",
+      "Name": "dbo.MasterItemAlias_View",
+      "Path": "VIEW/dbo.MasterItemAlias_View",
+      "DependsOn": []
+    },
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.Prescript_Receiving_MasterItem",
+      "Path": "PRESCRIPT/dbo.Prescript_Receiving_MasterItem",
+      "DependsOn": [
+        {
+          "Type": "VIEW",
+          "Name": "dbo.MasterItemAlias_View"
+        }
+      ]
+    },
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.Prescript_Receiving_Qty",
+      "Path": "PRESCRIPT/dbo.Prescript_Receiving_Qty",
+      "DependsOn": []
+    },
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.Prescript_Receiving_NoEntities",
+      "Path": "PRESCRIPT/dbo.Prescript_Receiving_NoEntities",
+      "DependsOn": []
+    },
+    {
+      "Type": "PROCESS",
+      "Name": "RECEIVING_STD",
+      "Path": "",
+      "DependsOn": [
+        {
+          "Type": "PRESCRIPT",
+          "Name": "dbo.Prescript_Receiving_Document"
+        },
+        {
+          "Type": "PRESCRIPT",
+          "Name": "dbo.Prescript_Receiving_MasterItem"
+        },
+        {
+          "Type": "PRESCRIPT",
+          "Name": "dbo.Prescript_Receiving_NoEntities"
+        },
+        {
+          "Type": "PRESCRIPT",
+          "Name": "dbo.Prescript_Receiving_Qty"
+        },
+        {
+          "Type": "VIEW",
+          "Name": "dbo.webtemplate_POtoReceive"
+        }
+      ]
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

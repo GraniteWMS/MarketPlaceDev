@@ -1,0 +1,209 @@
+{
+  "Identifier": "151c05a5-ab3f-4ce7-b3af-9833a88a9927",
+  "Name": "3PL_TAKEON",
+  "Description": "TAKEON\n\nThis process requires a user to enter/ select a TradingPartner Code that corresponds with the 3PL customer that owns the stock that is being taken on\n\nThere is validation on the CarryingEntity step that prevents stock belonging to more than 1 3PL customer being put on the same pallet.\nThe MasterItem step contains similar validation that prevents more than 1 3PL customer's stock from being put into the same location if the location's category is either PICKING or BULK",
+  "Type": "PROCESS",
+  "Version": 0,
+  "LastModified": "22/01/2025",
+  "DatabaseVersion": "8.0.0.0",
+  "Tags": [
+    "Logistics"
+  ],
+  "TypeSpecificAttributes": {
+    "ProcessType": "TAKEON",
+    "ProcessName": "3PL_TAKEON",
+    "ProcessDescription": "TAKEON",
+    "IntegrationIsActive": false,
+    "IntegrationPost": false,
+    "ProcessStepMetadata": [
+      {
+        "Name": "Location",
+        "Description": "Location",
+        "Process": "3PL_TAKEON",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "TradingPartner",
+        "Description": "Select Client",
+        "Process": "3PL_TAKEON",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "PrescriptTakeonTradingPartner",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "CarryingEntity",
+        "Description": "Pallet Barcode",
+        "Process": "3PL_TAKEON",
+        "ProcessIndex": 2,
+        "NextIndex": 3,
+        "isActive": true,
+        "Required": false,
+        "PreScript": "PrescriptTakeonCarryingEntity",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "MasterItem",
+        "Description": "MasterItem",
+        "Process": "3PL_TAKEON",
+        "ProcessIndex": 3,
+        "NextIndex": 4,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "PrescriptTakeonMasterItem",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Qty",
+        "Description": "Qty per TrackingEntity",
+        "Process": "3PL_TAKEON",
+        "ProcessIndex": 4,
+        "NextIndex": 5,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "PrescriptTakeonQty",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "NoEntities",
+        "Description": "Number of TrackingEntities",
+        "Process": "3PL_TAKEON",
+        "ProcessIndex": 5,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "PrescriptTakeonNoEntities",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Print",
+        "Description": "Print",
+        "Process": "3PL_TAKEON",
+        "ProcessIndex": 99,
+        "NextIndex": 99,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": false
+      }
+    ]
+  },
+  "Components": [
+    {
+      "Type": "SQL_SCALAR_FUNCTION",
+      "Name": "dbo.FN_GetCustomerCode",
+      "Path": "SQL_SCALAR_FUNCTION/dbo.FN_GetCustomerCode",
+      "DependsOn": []
+    },
+    {
+      "Type": "VIEW",
+      "Name": "dbo.WebTemplate_Locations",
+      "Path": "VIEW/dbo.WebTemplate_Locations",
+      "DependsOn": []
+    },
+    {
+      "Type": "VIEW",
+      "Name": "dbo.WebTemplate_TradingPartners",
+      "Path": "VIEW/dbo.WebTemplate_TradingPartners",
+      "DependsOn": []
+    },
+    {
+      "Type": "VIEW",
+      "Name": "dbo.WebTemplate_MasterItems",
+      "Path": "VIEW/dbo.WebTemplate_MasterItems",
+      "DependsOn": [
+        {
+          "Type": "SQL_SCALAR_FUNCTION",
+          "Name": "dbo.FN_GetCustomerCode"
+        }
+      ]
+    },
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.PrescriptTakeonMasterItem",
+      "Path": "PRESCRIPT/dbo.PrescriptTakeonMasterItem",
+      "DependsOn": [
+        {
+          "Type": "SQL_SCALAR_FUNCTION",
+          "Name": "dbo.FN_GetCustomerCode"
+        }
+      ]
+    },
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.PrescriptTakeonQty",
+      "Path": "PRESCRIPT/dbo.PrescriptTakeonQty",
+      "DependsOn": []
+    },
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.PrescriptTakeonNoEntities",
+      "Path": "PRESCRIPT/dbo.PrescriptTakeonNoEntities",
+      "DependsOn": []
+    },
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.PrescriptTakeonTradingPartner",
+      "Path": "PRESCRIPT/dbo.PrescriptTakeonTradingPartner",
+      "DependsOn": []
+    },
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.PrescriptTakeonCarryingEntity",
+      "Path": "PRESCRIPT/dbo.PrescriptTakeonCarryingEntity",
+      "DependsOn": [
+        {
+          "Type": "SQL_SCALAR_FUNCTION",
+          "Name": "dbo.FN_GetCustomerCode"
+        }
+      ]
+    },
+    {
+      "Type": "PROCESS",
+      "Name": "3PL_TAKEON",
+      "Path": "",
+      "DependsOn": [
+        {
+          "Type": "PRESCRIPT",
+          "Name": "dbo.PrescriptTakeonCarryingEntity"
+        },
+        {
+          "Type": "PRESCRIPT",
+          "Name": "dbo.PrescriptTakeonMasterItem"
+        },
+        {
+          "Type": "PRESCRIPT",
+          "Name": "dbo.PrescriptTakeonNoEntities"
+        },
+        {
+          "Type": "PRESCRIPT",
+          "Name": "dbo.PrescriptTakeonQty"
+        },
+        {
+          "Type": "PRESCRIPT",
+          "Name": "dbo.PrescriptTakeonTradingPartner"
+        },
+        {
+          "Type": "VIEW",
+          "Name": "dbo.WebTemplate_Locations"
+        },
+        {
+          "Type": "VIEW",
+          "Name": "dbo.WebTemplate_MasterItems"
+        },
+        {
+          "Type": "VIEW",
+          "Name": "dbo.WebTemplate_TradingPartners"
+        }
+      ]
+    }
+  ],
+  "DependsOnClr": true,
+  "SqlClrAssemblyVersion": "7.0.0.0",
+  "Deprecated": false
+}

@@ -1,0 +1,123 @@
+{
+  "Identifier": "7f293c60-f862-4628-8532-9f37e3f2caea",
+  "Name": "REPLENISH_BUTTANUTT",
+  "Description": "REPLENISH_BUTTANUTT\n\nThere is a rule blocking the user if they try to replenish to a different ERP Location",
+  "Type": "PROCESS",
+  "Version": 0,
+  "LastModified": "21/03/2026",
+  "DatabaseVersion": "8.0.0.0",
+  "Tags": [
+    "Manufacturing",
+    "Retail",
+    "Automotive",
+    "Agricultural",
+    "Textile",
+    "Electronics",
+    "Construction",
+    "E-commerce",
+    "Logistics",
+    "Pharmaceutical",
+    "Cold Storage"
+  ],
+  "TypeSpecificAttributes": {
+    "ProcessType": "REPLENISH",
+    "ProcessName": "REPLENISH_BUTTANUTT",
+    "ProcessDescription": "REPLENISH_BUTTANUTT",
+    "IntegrationIsActive": false,
+    "IntegrationPost": false,
+    "ProcessStepMetadata": [
+      {
+        "Name": "FromTrackingEntity",
+        "Description": "Scan Barcode You Are Replenishing From",
+        "Process": "REPLENISH_BUTTANUTT",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Location",
+        "Description": "Where Are You Replenishing To",
+        "Process": "REPLENISH_BUTTANUTT",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_Replenish_Location",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Qty",
+        "Description": "Qty To Replenish Per Barcode",
+        "Process": "REPLENISH_BUTTANUTT",
+        "ProcessIndex": 2,
+        "NextIndex": 3,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "NoEntities",
+        "Description": "Number Of Barcodes With Same Qty",
+        "Process": "REPLENISH_BUTTANUTT",
+        "ProcessIndex": 3,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Print",
+        "Description": "Print",
+        "Process": "REPLENISH_BUTTANUTT",
+        "ProcessIndex": 99,
+        "NextIndex": 99,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "ToTrackingEntity",
+        "Description": "To TrackingEntity",
+        "Process": "REPLENISH_BUTTANUTT",
+        "ProcessIndex": 100,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": false
+      }
+    ]
+  },
+  "Components": [
+    {
+      "Type": "VIEW",
+      "Name": "dbo.WebTemplate_Takeon_Location",
+      "Path": "VIEW/dbo.WebTemplate_Takeon_Location",
+      "DependsOn": []
+    },
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.Prescript_Replenish_Location",
+      "Path": "PRESCRIPT/dbo.Prescript_Replenish_Location",
+      "DependsOn": []
+    },
+    {
+      "Type": "PROCESS",
+      "Name": "REPLENISH_BUTTANUTT",
+      "Path": "",
+      "DependsOn": [
+        {
+          "Type": "PRESCRIPT",
+          "Name": "dbo.Prescript_Replenish_Location"
+        },
+        {
+          "Type": "VIEW",
+          "Name": "dbo.WebTemplate_Takeon_Location"
+        }
+      ]
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

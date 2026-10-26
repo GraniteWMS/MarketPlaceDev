@@ -1,0 +1,19 @@
+{
+  "Name": "MANUFACTUREPOST",
+  "Description": "MANUFACTUREPOST",
+  "Type": "MANUFACTUREPOST",
+  "IsActive": true,
+  "IntegrationIsActive": false,
+  "IntegrationPost": false,
+  "Steps": [
+    {
+      "Name": "Document",
+      "Description": "Document",
+      "ProcessIndex": 0,
+      "NextIndex": 0,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false
+    }
+  ]
+}

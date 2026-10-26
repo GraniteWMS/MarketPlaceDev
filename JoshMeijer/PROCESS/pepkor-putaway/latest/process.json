@@ -1,0 +1,30 @@
+{
+  "Name": "PEPKOR_PUTAWAY",
+  "Description": "PEPKOR_PUTAWAY",
+  "Type": "MOVE",
+  "IsActive": true,
+  "IntegrationIsActive": false,
+  "IntegrationPost": false,
+  "Steps": [
+    {
+      "Name": "TrackingEntity",
+      "Description": "Scan Barcode",
+      "ProcessIndex": 0,
+      "NextIndex": 1,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "Prescript_Putaway_TrackingEntity"
+    },
+    {
+      "Name": "Location",
+      "Description": "Scan Bin Location",
+      "ProcessIndex": 1,
+      "NextIndex": 0,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "Prescript_Putaway_Location"
+    }
+  ]
+}

@@ -1,0 +1,138 @@
+{
+  "Identifier": "4c7760ac-7c22-409b-855a-b96695ad0ed8",
+  "Name": "ADJUSTTOQTY-V7CLRWithPOST",
+  "Description": "ADJUST TO QTY (V7Clr and ClrPost)\n\nEasy adjust to user doesnt have to calculate Adjustment Qty -just enter the new count.\nAlso doesnt have to select increase or decrease\n\nThe process is a custom process -uses CLR to perform the adjustment.\nThis process adds a STEP 201 to use the CLR POST as well.  It still looks at the Integration_Transactions View to pick up the last transaction (just entered).  It uses a DATEDIFF to check that the Transaction was in the last 60 seconds.",
+  "Type": "PROCESS",
+  "Version": 0,
+  "LastModified": "30/07/2026",
+  "DatabaseVersion": "8.0.0.0",
+  "Tags": [
+    "Manufacturing",
+    "Retail",
+    "Automotive",
+    "Agricultural",
+    "Textile",
+    "Electronics",
+    "Construction",
+    "E-commerce",
+    "Logistics",
+    "Pharmaceutical",
+    "Cold Storage"
+  ],
+  "TypeSpecificAttributes": {
+    "ProcessType": "CUSTOM",
+    "ProcessName": "ADJUSTTOQTY-V7CLRWithPOST",
+    "ProcessDescription": "ADJUST TO QTY (V7Clr and ClrPost)",
+    "IntegrationIsActive": true,
+    "IntegrationPost": true,
+    "ProcessStepMetadata": [
+      {
+        "Name": "TrackingEntity",
+        "Description": "TrackingEntity",
+        "Process": "ADJUSTTOQTY-V7CLRWithPOST",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "PrescriptAdjustToQtyTrackingEntity",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Qty",
+        "Description": "Qty",
+        "Process": "ADJUSTTOQTY-V7CLRWithPOST",
+        "ProcessIndex": 1,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "PrescriptAdjustToQtyQty",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Step200",
+        "Description": "Do the Adjustment with CLR",
+        "Process": "ADJUSTTOQTY-V7CLRWithPOST",
+        "ProcessIndex": 200,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "PrescriptAdjustToQtyStep200",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Step201",
+        "Description": "Post to ERP using CLR",
+        "Process": "ADJUSTTOQTY-V7CLRWithPOST",
+        "ProcessIndex": 201,
+        "NextIndex": 201,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "PrescriptAdjustmentToQty_Step201",
+        "hasWebTemplate": false
+      }
+    ]
+  },
+  "Components": [
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.PrescriptAdjustToQtyTrackingEntity",
+      "Path": "PRESCRIPT/dbo.PrescriptAdjustToQtyTrackingEntity",
+      "DependsOn": []
+    },
+    {
+      "Type": "VIEW",
+      "Name": "dbo.Integration_Transactions",
+      "Path": "VIEW/dbo.Integration_Transactions",
+      "DependsOn": []
+    },
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.PrescriptAdjustToQtyQty",
+      "Path": "PRESCRIPT/dbo.PrescriptAdjustToQtyQty",
+      "DependsOn": []
+    },
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.PrescriptAdjustToQtyStep200",
+      "Path": "PRESCRIPT/dbo.PrescriptAdjustToQtyStep200",
+      "DependsOn": []
+    },
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.PrescriptAdjustmentToQty_Step201",
+      "Path": "PRESCRIPT/dbo.PrescriptAdjustmentToQty_Step201",
+      "DependsOn": [
+        {
+          "Type": "VIEW",
+          "Name": "dbo.Integration_Transactions"
+        }
+      ]
+    },
+    {
+      "Type": "PROCESS",
+      "Name": "ADJUSTTOQTY-V7CLRWithPOST",
+      "Path": "",
+      "DependsOn": [
+        {
+          "Type": "PRESCRIPT",
+          "Name": "dbo.PrescriptAdjustmentToQty_Step201"
+        },
+        {
+          "Type": "PRESCRIPT",
+          "Name": "dbo.PrescriptAdjustToQtyQty"
+        },
+        {
+          "Type": "PRESCRIPT",
+          "Name": "dbo.PrescriptAdjustToQtyStep200"
+        },
+        {
+          "Type": "PRESCRIPT",
+          "Name": "dbo.PrescriptAdjustToQtyTrackingEntity"
+        }
+      ]
+    }
+  ],
+  "DependsOnClr": true,
+  "SqlClrAssemblyVersion": "7.0.0.0",
+  "Deprecated": false
+}

@@ -1,0 +1,1 @@
+{{ "SELECT DISTINCT BOM,REMARK,UNIT FROM WebTemplate_MasterItemswithBOMS WHERE Code = @MasterItem" | dbSelect({MasterItem}) | basicTable({selectOnColumn:"Bom", enableSearch:true}) }}

@@ -1,0 +1,135 @@
+{
+  "Identifier": "86aa353d-1416-4ae8-8bea-0d6269c3d39f",
+  "Name": "RD_RECEIVING",
+  "Description": "Retail Distribution Receiving against PO\n\nRetail Distribution Model - Receiving against PO.  Only Scan Location once then Item Alias.  Always resolve to ITem Code. No Qty entered.\n\nTrackingentity is always Location_ItemCode\nWhen receiving -we receive to Locations (Checking Bins).  Then we distribute to retail stores before putaway of the remaining stock.",
+  "Type": "PROCESS",
+  "Version": 0,
+  "LastModified": "09/10/2025",
+  "DatabaseVersion": "8.0.0.0",
+  "Tags": [],
+  "TypeSpecificAttributes": {
+    "ProcessType": "RECEIVING",
+    "ProcessName": "RD_RECEIVING",
+    "ProcessDescription": "Retail Distribution Receiving against PO",
+    "IntegrationIsActive": true,
+    "IntegrationPost": true,
+    "ProcessStepMetadata": [
+      {
+        "Name": "Document",
+        "Description": "Purchase Order",
+        "Process": "RD_RECEIVING",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_Receiving_Document",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Location",
+        "Description": "Receiving Location",
+        "Process": "RD_RECEIVING",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": false,
+        "PreScript": "Prescript_Receiving_Location",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "MasterItem",
+        "Description": "Scan or Select MasterItem from PO",
+        "Process": "RD_RECEIVING",
+        "ProcessIndex": 2,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_Receiving_MasterItem",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Qty",
+        "Description": "Qty Received",
+        "Process": "RD_RECEIVING",
+        "ProcessIndex": 100,
+        "NextIndex": 100,
+        "isActive": true,
+        "Required": true,
+        "DefaultValue": "1",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "UseBarcode",
+        "Description": "UseBarcode",
+        "Process": "RD_RECEIVING",
+        "ProcessIndex": 100,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": false
+      }
+    ]
+  },
+  "Components": [
+    {
+      "Type": "VIEW",
+      "Name": "dbo.webtemplate_POtoReceive",
+      "Path": "VIEW/dbo.webtemplate_POtoReceive",
+      "DependsOn": []
+    },
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.Prescript_Receiving_Location",
+      "Path": "PRESCRIPT/dbo.Prescript_Receiving_Location",
+      "DependsOn": []
+    },
+    {
+      "Type": "VIEW",
+      "Name": "dbo.MasterItemAlias_View",
+      "Path": "VIEW/dbo.MasterItemAlias_View",
+      "DependsOn": []
+    },
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.Prescript_Receiving_Document",
+      "Path": "PRESCRIPT/dbo.Prescript_Receiving_Document",
+      "DependsOn": []
+    },
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.Prescript_Receiving_MasterItem",
+      "Path": "PRESCRIPT/dbo.Prescript_Receiving_MasterItem",
+      "DependsOn": [
+        {
+          "Type": "VIEW",
+          "Name": "dbo.MasterItemAlias_View"
+        }
+      ]
+    },
+    {
+      "Type": "PROCESS",
+      "Name": "RD_RECEIVING",
+      "Path": "",
+      "DependsOn": [
+        {
+          "Type": "PRESCRIPT",
+          "Name": "dbo.Prescript_Receiving_Document"
+        },
+        {
+          "Type": "PRESCRIPT",
+          "Name": "dbo.Prescript_Receiving_Location"
+        },
+        {
+          "Type": "PRESCRIPT",
+          "Name": "dbo.Prescript_Receiving_MasterItem"
+        },
+        {
+          "Type": "VIEW",
+          "Name": "dbo.webtemplate_POtoReceive"
+        }
+      ]
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

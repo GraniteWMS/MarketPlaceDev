@@ -1,0 +1,104 @@
+{
+  "Identifier": "16b8bd0d-f1ed-47e5-a2b6-3861f12e68cd",
+  "Name": "VSERV_DISPATCH",
+  "Description": "VSERV_DISPATCH\n\nIf you need another loading process after PACKING. This custom process writes the Driver Name and Registration in the transactions when it moves the packed carrying entity to a Dispatch location",
+  "Type": "PROCESS",
+  "Version": 1,
+  "LastModified": "09/02/2026",
+  "DatabaseVersion": "8.0.0.0",
+  "Tags": [
+    "Electronics",
+    "Construction",
+    "E-commerce",
+    "Logistics",
+    "Pharmaceutical",
+    "Cold Storage",
+    "Textile",
+    "Agricultural",
+    "Automotive",
+    "Retail",
+    "Manufacturing"
+  ],
+  "TypeSpecificAttributes": {
+    "ProcessType": "CUSTOM",
+    "ProcessName": "VSERV_DISPATCH",
+    "ProcessDescription": "VSERV_DISPATCH",
+    "IntegrationIsActive": false,
+    "IntegrationPost": false,
+    "ProcessStepMetadata": [
+      {
+        "Name": "Comment",
+        "Description": "Vehicle Registration",
+        "Process": "VSERV_DISPATCH",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Reference",
+        "Description": "Driver Name",
+        "Process": "VSERV_DISPATCH",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "CarryingEntity",
+        "Description": "Box or Loose Items",
+        "Process": "VSERV_DISPATCH",
+        "ProcessIndex": 2,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_Dispatch_CarryingEntity",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Location",
+        "Description": "Dispatch Location",
+        "Process": "VSERV_DISPATCH",
+        "ProcessIndex": 100,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "DefaultValue": "DISPATCH",
+        "hasWebTemplate": false
+      }
+    ]
+  },
+  "Components": [
+    {
+      "Type": "VIEW",
+      "Name": "dbo.WebTemplate_Dispatch_CarryingEntity",
+      "Path": "VIEW/dbo.WebTemplate_Dispatch_CarryingEntity",
+      "DependsOn": []
+    },
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.Prescript_Dispatch_CarryingEntity",
+      "Path": "PRESCRIPT/dbo.Prescript_Dispatch_CarryingEntity",
+      "DependsOn": []
+    },
+    {
+      "Type": "PROCESS",
+      "Name": "VSERV_DISPATCH",
+      "Path": "",
+      "DependsOn": [
+        {
+          "Type": "PRESCRIPT",
+          "Name": "dbo.Prescript_Dispatch_CarryingEntity"
+        },
+        {
+          "Type": "VIEW",
+          "Name": "dbo.WebTemplate_Dispatch_CarryingEntity"
+        }
+      ]
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

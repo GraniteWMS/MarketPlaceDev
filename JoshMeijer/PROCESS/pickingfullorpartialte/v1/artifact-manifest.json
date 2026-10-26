@@ -1,0 +1,92 @@
+{
+  "Identifier": "30d1f4fe-3bd0-4931-bf43-0365999abdc1",
+  "Name": "PICKINGFULLORPARTIALTE",
+  "Description": "PICKING FULL OR PARTIAL TE\n\nThis allows the user to select whether they want to pick the full trackingEntity or enter qty based on a config step with a lookup.",
+  "Type": "PROCESS",
+  "Version": 1,
+  "LastModified": "04/09/2026",
+  "DatabaseVersion": "8.0.0.0",
+  "Tags": [
+    "Manufacturing",
+    "Retail",
+    "Automotive",
+    "Agricultural",
+    "E-commerce",
+    "Textile",
+    "Electronics",
+    "Construction",
+    "Logistics",
+    "Pharmaceutical",
+    "Cold Storage"
+  ],
+  "TypeSpecificAttributes": {
+    "ProcessType": "PICKING",
+    "ProcessName": "PICKINGFULLORPARTIALTE",
+    "ProcessDescription": "PICKING FULL OR PARTIAL TE",
+    "IntegrationIsActive": false,
+    "IntegrationPost": false,
+    "ProcessStepMetadata": [
+      {
+        "Name": "Document",
+        "Description": "Document",
+        "Process": "PICKINGFULLORPARTIALTE",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "PickConfig",
+        "Description": "PickConfig",
+        "Process": "PICKINGFULLORPARTIALTE",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "TrackingEntity",
+        "Description": "TrackingEntity",
+        "Process": "PICKINGFULLORPARTIALTE",
+        "ProcessIndex": 2,
+        "NextIndex": 3,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Qty",
+        "Description": "Qty",
+        "Process": "PICKINGFULLORPARTIALTE",
+        "ProcessIndex": 3,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Location",
+        "Description": "Location",
+        "Process": "PICKINGFULLORPARTIALTE",
+        "ProcessIndex": 100,
+        "NextIndex": 100,
+        "isActive": true,
+        "Required": true,
+        "DefaultValue": "DISPATCH",
+        "hasWebTemplate": false
+      }
+    ]
+  },
+  "Components": [
+    {
+      "Type": "PROCESS",
+      "Name": "PICKINGFULLORPARTIALTE",
+      "Path": "",
+      "DependsOn": []
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

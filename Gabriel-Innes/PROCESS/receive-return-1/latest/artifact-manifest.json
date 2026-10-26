@@ -1,0 +1,123 @@
+{
+  "Identifier": "76d288a5-ac74-4b27-80e4-3e2d92405fc7",
+  "Name": "RECEIVE RETURN",
+  "Description": "RECEIVE RETURN\n\nThis process specifies the receive location and limits the type of document that can be received based on the document prefix.",
+  "Type": "PROCESS",
+  "Version": 0,
+  "LastModified": "12/02/2025",
+  "DatabaseVersion": "8.0.0.0",
+  "Tags": [],
+  "TypeSpecificAttributes": {
+    "ProcessType": "RECEIVING",
+    "ProcessName": "RECEIVE RETURN",
+    "ProcessDescription": "RECEIVE RETURN",
+    "IntegrationIsActive": false,
+    "IntegrationPost": false,
+    "ProcessStepMetadata": [
+      {
+        "Name": "Document",
+        "Description": "Document",
+        "Process": "RECEIVE RETURN",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "PrescriptReceiveReturnDocument",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "CarryingEntity",
+        "Description": "CarryingEntity",
+        "Process": "RECEIVE RETURN",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": false,
+        "PreScript": "PrescriptPalletizeCarryingEntity",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "MasterItem",
+        "Description": "MasterItem",
+        "Process": "RECEIVE RETURN",
+        "ProcessIndex": 2,
+        "NextIndex": 3,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Qty",
+        "Description": "Qty",
+        "Process": "RECEIVE RETURN",
+        "ProcessIndex": 3,
+        "NextIndex": 4,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "NoEntities",
+        "Description": "Number of TrackingEntities",
+        "Process": "RECEIVE RETURN",
+        "ProcessIndex": 4,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Location",
+        "Description": "Receiving Location",
+        "Process": "RECEIVE RETURN",
+        "ProcessIndex": 100,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": false,
+        "DefaultValue": "RETURN",
+        "hasWebTemplate": false
+      }
+    ]
+  },
+  "Components": [
+    {
+      "Type": "VIEW",
+      "Name": "dbo.WebTemplateReceiveReturnDocument",
+      "Path": "VIEW/dbo.WebTemplateReceiveReturnDocument",
+      "DependsOn": []
+    },
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.PrescriptReceiveReturnDocument",
+      "Path": "PRESCRIPT/dbo.PrescriptReceiveReturnDocument",
+      "DependsOn": []
+    },
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.PrescriptPalletizeCarryingEntity",
+      "Path": "PRESCRIPT/dbo.PrescriptPalletizeCarryingEntity",
+      "DependsOn": []
+    },
+    {
+      "Type": "PROCESS",
+      "Name": "RECEIVE RETURN",
+      "Path": "",
+      "DependsOn": [
+        {
+          "Type": "PRESCRIPT",
+          "Name": "dbo.PrescriptPalletizeCarryingEntity"
+        },
+        {
+          "Type": "PRESCRIPT",
+          "Name": "dbo.PrescriptReceiveReturnDocument"
+        },
+        {
+          "Type": "VIEW",
+          "Name": "dbo.WebTemplateReceiveReturnDocument"
+        }
+      ]
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

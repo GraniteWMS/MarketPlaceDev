@@ -1,0 +1,31 @@
+{
+  "Identifier": "27bcf5df-04c5-4361-a9f4-ecbb301214fc",
+  "Name": "CrateStatistics",
+  "Description": "test",
+  "Type": "DATA_GRID",
+  "Version": 1,
+  "LastModified": "03/09/2025",
+  "DatabaseVersion": "8.0.0.0",
+  "Tags": [],
+  "Components": [
+    {
+      "Type": "VIEW",
+      "Name": "dbo.DataGrid_CrateStatistics",
+      "Path": "VIEW/dbo.DataGrid_CrateStatistics",
+      "DependsOn": []
+    },
+    {
+      "Type": "DATA_GRID",
+      "Name": "CrateStatistics",
+      "Path": "",
+      "DependsOn": [
+        {
+          "Type": "VIEW",
+          "Name": "dbo.DataGrid_CrateStatistics"
+        }
+      ]
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

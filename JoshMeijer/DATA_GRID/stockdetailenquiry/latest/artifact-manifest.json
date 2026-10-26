@@ -1,0 +1,20 @@
+{
+  "Identifier": "1b3e60c2-bcd8-4fe8-94f8-cceabe82f114",
+  "Name": "StockDetailEnquiry",
+  "Description": "saf",
+  "Type": "DATA_GRID",
+  "Version": 0,
+  "LastModified": "05/09/2025",
+  "DatabaseVersion": "8.0.0.0",
+  "Tags": [],
+  "Components": [
+    {
+      "Type": "DATA_GRID",
+      "Name": "StockDetailEnquiry",
+      "Path": "",
+      "DependsOn": []
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

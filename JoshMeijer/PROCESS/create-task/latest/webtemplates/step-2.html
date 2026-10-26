@@ -1,0 +1,1 @@
+{{ "SELECT * FROM WebTemplate_CommonTasks WHERE Task = @TaskName" | dbSelect({TaskName}) | basicTable({selectOnColumn:"Description", enableSearch:false}) }}

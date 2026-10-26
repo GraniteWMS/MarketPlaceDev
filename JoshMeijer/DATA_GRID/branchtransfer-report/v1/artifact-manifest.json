@@ -1,0 +1,31 @@
+{
+  "Identifier": "e49c298e-da0c-49e1-afba-1473ac951dfa",
+  "Name": "BranchTransfer_Report",
+  "Description": "Branch Transfer report, row color changed to red when not fully received.",
+  "Type": "DATA_GRID",
+  "Version": 1,
+  "LastModified": "29/08/2025",
+  "DatabaseVersion": "8.0.0.0",
+  "Tags": [],
+  "Components": [
+    {
+      "Type": "VIEW",
+      "Name": "dbo.Datagrid_BranchTransfer_Report",
+      "Path": "VIEW/dbo.Datagrid_BranchTransfer_Report",
+      "DependsOn": []
+    },
+    {
+      "Type": "DATA_GRID",
+      "Name": "BranchTransfer_Report",
+      "Path": "",
+      "DependsOn": [
+        {
+          "Type": "VIEW",
+          "Name": "dbo.Datagrid_BranchTransfer_Report"
+        }
+      ]
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

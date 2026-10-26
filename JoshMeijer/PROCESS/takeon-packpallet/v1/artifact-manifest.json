@@ -1,0 +1,276 @@
+{
+  "Identifier": "b0a7ad5d-75dc-4b3f-90f1-cd998a2c40f0",
+  "Name": "TAKEON_PACKPALLET",
+  "Description": "Create Pallet in Production (Eggs)\n\nManufacture pallets at the end of production and integrate to SAGE300 using BOMS.\nAlso looks at componets on the BOMS and consumes these from WIP trackingEntities.\nPallets are identified as TrackingEntities on Carrying Entities.  This means a split pallet at end of production run can be made.\nAllocates the pallet number, also allocates an SSCC number, and prints the CarryingEntity label using CLR\n\nBarcodeMaster Table is used.\nModified Label_Pallet is attached.\nCLR label print is used.\nRequires SSCC column on CarryingEntity table.\nRun through all components and reduce by BOM * Produced Qty in WIP as a Step 200 process.\nTake note of default location and Default Site used in the Step200/201 processes.\nContains SSCC company prefix in SystemStaticDate table -added to deploy",
+  "Type": "PROCESS",
+  "Version": 1,
+  "LastModified": "14/10/2026",
+  "DatabaseVersion": "8.0.0.0",
+  "Tags": [
+    "Manufacturing"
+  ],
+  "TypeSpecificAttributes": {
+    "ProcessType": "TAKEON",
+    "ProcessName": "TAKEON_PACKPALLET",
+    "ProcessDescription": "Create Pallet in Production (Eggs)",
+    "IntegrationMethod": "MANUFACTURE",
+    "IntegrationIsActive": true,
+    "IntegrationPost": true,
+    "ProcessStepMetadata": [
+      {
+        "Name": "PalletBarcode",
+        "Description": "Pallet Code",
+        "Process": "TAKEON_PACKPALLET",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": false,
+        "PreScript": "Prescript_CCF_PACKPALLET_Palletbarcode",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Batch",
+        "Description": "Lot Number",
+        "Process": "TAKEON_PACKPALLET",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_CCF_PACKPALLET_Batch",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Qty",
+        "Description": "Qty of Cases",
+        "Process": "TAKEON_PACKPALLET",
+        "ProcessIndex": 2,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_CCF_PACKPALLET_Quantity",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "CarryingEntity",
+        "Description": "CarryingEntity",
+        "Process": "TAKEON_PACKPALLET",
+        "ProcessIndex": 100,
+        "NextIndex": 100,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "ExpiryDate",
+        "Description": "ExpiryDate (YYYYMMDD)",
+        "Process": "TAKEON_PACKPALLET",
+        "ProcessIndex": 100,
+        "NextIndex": 100,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Location",
+        "Description": "Location",
+        "Process": "TAKEON_PACKPALLET",
+        "ProcessIndex": 100,
+        "NextIndex": 100,
+        "isActive": true,
+        "Required": true,
+        "DefaultValue": "CCF-LINE-1",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "ManufactureDate",
+        "Description": "ManufactureDate (YYYYMMDD)",
+        "Process": "TAKEON_PACKPALLET",
+        "ProcessIndex": 100,
+        "NextIndex": 100,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "MasterItem",
+        "Description": "Item Code",
+        "Process": "TAKEON_PACKPALLET",
+        "ProcessIndex": 100,
+        "NextIndex": 100,
+        "isActive": true,
+        "Required": true,
+        "DefaultValue": "110028534",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Skid",
+        "Description": "Select SKID",
+        "Process": "TAKEON_PACKPALLET",
+        "ProcessIndex": 100,
+        "NextIndex": 100,
+        "isActive": true,
+        "Required": false,
+        "DefaultValue": "WOOD INTERNAL",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Step200",
+        "Description": "Step200 -Print CarryingEntity",
+        "Process": "TAKEON_PACKPALLET",
+        "ProcessIndex": 200,
+        "NextIndex": 200,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_CCF_PACKPALLET_Step200",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Steo201",
+        "Description": "Step201 -Decrease RM from BOM",
+        "Process": "TAKEON_PACKPALLET",
+        "ProcessIndex": 201,
+        "NextIndex": 201,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_CCF_PACKPALLET_Step201",
+        "hasWebTemplate": false
+      }
+    ]
+  },
+  "Components": [
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.Prescript_CCF_PACKPALLET_Batch",
+      "Path": "PRESCRIPT/dbo.Prescript_CCF_PACKPALLET_Batch",
+      "DependsOn": []
+    },
+    {
+      "Type": "SQL_SCALAR_FUNCTION",
+      "Name": "dbo.FN_CalcSSCC_Checkdigit",
+      "Path": "SQL_SCALAR_FUNCTION/dbo.FN_CalcSSCC_Checkdigit",
+      "DependsOn": []
+    },
+    {
+      "Type": "USER_TABLE",
+      "Name": "dbo.custom_LogMessages",
+      "Path": "USER_TABLE/dbo.custom_LogMessages",
+      "DependsOn": []
+    },
+    {
+      "Type": "VIEW",
+      "Name": "dbo.Integration_Accpac_BomD",
+      "Path": "VIEW/dbo.Integration_Accpac_BomD",
+      "DependsOn": []
+    },
+    {
+      "Type": "SQL_STORED_PROCEDURE",
+      "Name": "dbo.Utility_ConsumeInputsfromWIP",
+      "Path": "SQL_STORED_PROCEDURE/dbo.Utility_ConsumeInputsfromWIP",
+      "DependsOn": [
+        {
+          "Type": "USER_TABLE",
+          "Name": "dbo.custom_LogMessages"
+        },
+        {
+          "Type": "VIEW",
+          "Name": "dbo.Integration_Accpac_BomD"
+        }
+      ]
+    },
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.Prescript_CCF_PACKPALLET_Quantity",
+      "Path": "PRESCRIPT/dbo.Prescript_CCF_PACKPALLET_Quantity",
+      "DependsOn": []
+    },
+    {
+      "Type": "SQL_SCALAR_FUNCTION",
+      "Name": "dbo.GenerateJulianDateCode",
+      "Path": "SQL_SCALAR_FUNCTION/dbo.GenerateJulianDateCode",
+      "DependsOn": []
+    },
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.Prescript_CCF_PACKPALLET_Palletbarcode",
+      "Path": "PRESCRIPT/dbo.Prescript_CCF_PACKPALLET_Palletbarcode",
+      "DependsOn": [
+        {
+          "Type": "SQL_SCALAR_FUNCTION",
+          "Name": "dbo.FN_CalcSSCC_Checkdigit"
+        },
+        {
+          "Type": "SQL_SCALAR_FUNCTION",
+          "Name": "dbo.GenerateJulianDateCode"
+        }
+      ]
+    },
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.Prescript_CCF_PACKPALLET_Step200",
+      "Path": "PRESCRIPT/dbo.Prescript_CCF_PACKPALLET_Step200",
+      "DependsOn": [
+        {
+          "Type": "USER_TABLE",
+          "Name": "dbo.custom_LogMessages"
+        }
+      ]
+    },
+    {
+      "Type": "VIEW",
+      "Name": "dbo.Label_Pallet",
+      "Path": "VIEW/dbo.Label_Pallet",
+      "DependsOn": []
+    },
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.Prescript_CCF_PACKPALLET_Step201",
+      "Path": "PRESCRIPT/dbo.Prescript_CCF_PACKPALLET_Step201",
+      "DependsOn": [
+        {
+          "Type": "SQL_STORED_PROCEDURE",
+          "Name": "dbo.Utility_ConsumeInputsfromWIP"
+        },
+        {
+          "Type": "USER_TABLE",
+          "Name": "dbo.custom_LogMessages"
+        }
+      ]
+    },
+    {
+      "Type": "DATA",
+      "Name": "dbo.SystemStaticData",
+      "Path": "DATA/dbo.SystemStaticData",
+      "DependsOn": []
+    },
+    {
+      "Type": "PROCESS",
+      "Name": "TAKEON_PACKPALLET",
+      "Path": "",
+      "DependsOn": [
+        {
+          "Type": "PRESCRIPT",
+          "Name": "dbo.Prescript_CCF_PACKPALLET_Batch"
+        },
+        {
+          "Type": "PRESCRIPT",
+          "Name": "dbo.Prescript_CCF_PACKPALLET_Palletbarcode"
+        },
+        {
+          "Type": "PRESCRIPT",
+          "Name": "dbo.Prescript_CCF_PACKPALLET_Quantity"
+        },
+        {
+          "Type": "PRESCRIPT",
+          "Name": "dbo.Prescript_CCF_PACKPALLET_Step200"
+        },
+        {
+          "Type": "PRESCRIPT",
+          "Name": "dbo.Prescript_CCF_PACKPALLET_Step201"
+        }
+      ]
+    }
+  ],
+  "DependsOnClr": true,
+  "SqlClrAssemblyVersion": "7.0.0.0",
+  "Deprecated": false
+}

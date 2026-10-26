@@ -1,0 +1,113 @@
+{
+  "Identifier": "8be5d32d-e880-4870-a6ec-1e79e5ca263c",
+  "Name": "PACKING",
+  "Description": "PACKING to Ship\n\nSome webtemplates to improve the look and feel.  Includes Qty keypad, includes a prescript on MasterItem to handle additional alias processing like stripping checkdigit and removing spaces.\nBOX Number NEW is hidden - have to scna a preprinted box number from a roll of labels - Paired with a process to print more box number labels using Label printQueue and a scheduled Job.  Process PRINTBOXLABELS",
+  "Type": "PROCESS",
+  "Version": 0,
+  "LastModified": "10/05/2026",
+  "DatabaseVersion": "8.0.0.0",
+  "Tags": [],
+  "TypeSpecificAttributes": {
+    "ProcessType": "PACKING",
+    "ProcessName": "PACKING",
+    "ProcessDescription": "PACKING to Ship",
+    "IntegrationIsActive": false,
+    "IntegrationPost": false,
+    "ProcessStepMetadata": [
+      {
+        "Name": "Document",
+        "Description": "Order document Number",
+        "Process": "PACKING",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "CarryingEntity",
+        "Description": "Scan BOX or PALLET",
+        "Process": "PACKING",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "MasterItem",
+        "Description": "MasterItem (Code or Barcode)",
+        "Process": "PACKING",
+        "ProcessIndex": 2,
+        "NextIndex": 3,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_Packing_MasterItem",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Qty",
+        "Description": "Qty",
+        "Process": "PACKING",
+        "ProcessIndex": 3,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Location",
+        "Description": "Check and Pack Location",
+        "Process": "PACKING",
+        "ProcessIndex": 100,
+        "NextIndex": 100,
+        "isActive": true,
+        "Required": true,
+        "DefaultValue": "DIS",
+        "hasWebTemplate": false
+      }
+    ]
+  },
+  "Components": [
+    {
+      "Type": "VIEW",
+      "Name": "dbo.webtemplate_SOtoPack",
+      "Path": "VIEW/dbo.webtemplate_SOtoPack",
+      "DependsOn": []
+    },
+    {
+      "Type": "VIEW",
+      "Name": "dbo.MasterItemAlias_View",
+      "Path": "VIEW/dbo.MasterItemAlias_View",
+      "DependsOn": []
+    },
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.Prescript_Packing_MasterItem",
+      "Path": "PRESCRIPT/dbo.Prescript_Packing_MasterItem",
+      "DependsOn": [
+        {
+          "Type": "VIEW",
+          "Name": "dbo.MasterItemAlias_View"
+        }
+      ]
+    },
+    {
+      "Type": "PROCESS",
+      "Name": "PACKING",
+      "Path": "",
+      "DependsOn": [
+        {
+          "Type": "PRESCRIPT",
+          "Name": "dbo.Prescript_Packing_MasterItem"
+        },
+        {
+          "Type": "VIEW",
+          "Name": "dbo.webtemplate_SOtoPack"
+        }
+      ]
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

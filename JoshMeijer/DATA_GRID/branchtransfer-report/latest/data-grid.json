@@ -1,0 +1,10 @@
+{
+  "Group": "Custom",
+  "Name": "BranchTransfer_Report",
+  "SQLView": "Datagrid_BranchTransfer_Report",
+  "GridDefinition": "[{\"field\":\"TransferNumber\",\"width\":152,\"filter\":\"agTextColumnFilter\"},{\"field\":\"ItemCode\",\"width\":116,\"filter\":\"agTextColumnFilter\"},{\"field\":\"IssuedQty\",\"width\":117,\"filter\":\"agTextColumnFilter\"},{\"field\":\"ReceivedQty\",\"width\":131,\"filter\":\"agTextColumnFilter\"},{\"field\":\"PendingQty\",\"width\":127,\"filter\":\"agTextColumnFilter\"},{\"field\":\"ReceiptStatus\",\"width\":137,\"filter\":\"agTextColumnFilter\"}]",
+  "RowStyleRules": "{\n    \"bg-error\": \"data.ReceiptStatus === 'Not Received'\"\n  }",
+  "PageSize": 0,
+  "IsApplicationGrid": false,
+  "IsCustomGrid": true
+}

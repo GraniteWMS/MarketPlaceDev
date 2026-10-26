@@ -1,0 +1,133 @@
+{
+  "Identifier": "1e414057-07a0-4bea-b551-3a5a3c9792f7",
+  "Name": "RECEIVING_BUTTANUTT",
+  "Description": "RECEIVING_BUTTANUTT\n\nIts a basic receiving process with quality of life improvements, like selectable item codes on each line and the spacing is fixed so there is not messed up UI on the scanner",
+  "Type": "PROCESS",
+  "Version": 1,
+  "LastModified": "21/03/2026",
+  "DatabaseVersion": "8.0.0.0",
+  "Tags": [
+    "Manufacturing",
+    "Retail",
+    "Automotive",
+    "Textile",
+    "Agricultural",
+    "Electronics",
+    "Construction",
+    "E-commerce",
+    "Logistics",
+    "Pharmaceutical",
+    "Cold Storage"
+  ],
+  "TypeSpecificAttributes": {
+    "ProcessType": "RECEIVING",
+    "ProcessName": "RECEIVING_BUTTANUTT",
+    "ProcessDescription": "RECEIVING_BUTTANUTT",
+    "IntegrationIsActive": false,
+    "IntegrationPost": false,
+    "ProcessStepMetadata": [
+      {
+        "Name": "Document",
+        "Description": "Enter PO Document",
+        "Process": "RECEIVING_BUTTANUTT",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "MasterItem",
+        "Description": "Select SKU To Receive",
+        "Process": "RECEIVING_BUTTANUTT",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Batch",
+        "Description": "Enter Batch",
+        "Process": "RECEIVING_BUTTANUTT",
+        "ProcessIndex": 2,
+        "NextIndex": 3,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "ExpiryDate",
+        "Description": "Enter Expiry Date (YYYYMMDD)",
+        "Process": "RECEIVING_BUTTANUTT",
+        "ProcessIndex": 3,
+        "NextIndex": 4,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Qty",
+        "Description": "Enter Qty To Receive",
+        "Process": "RECEIVING_BUTTANUTT",
+        "ProcessIndex": 4,
+        "NextIndex": 5,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "NoEntities",
+        "Description": "Number Of Barcodes With Same Qty",
+        "Process": "RECEIVING_BUTTANUTT",
+        "ProcessIndex": 5,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Print",
+        "Description": "Print",
+        "Process": "RECEIVING_BUTTANUTT",
+        "ProcessIndex": 99,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Location",
+        "Description": "Receiving Location",
+        "Process": "RECEIVING_BUTTANUTT",
+        "ProcessIndex": 100,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": false,
+        "DefaultValue": "Procurement",
+        "hasWebTemplate": false
+      }
+    ]
+  },
+  "Components": [
+    {
+      "Type": "VIEW",
+      "Name": "dbo.WebTemplate_Receiving_Document",
+      "Path": "VIEW/dbo.WebTemplate_Receiving_Document",
+      "DependsOn": []
+    },
+    {
+      "Type": "PROCESS",
+      "Name": "RECEIVING_BUTTANUTT",
+      "Path": "",
+      "DependsOn": [
+        {
+          "Type": "VIEW",
+          "Name": "dbo.WebTemplate_Receiving_Document"
+        }
+      ]
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

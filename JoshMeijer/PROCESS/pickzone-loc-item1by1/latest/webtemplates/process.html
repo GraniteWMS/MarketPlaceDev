@@ -1,0 +1,114 @@
+{{#if Document}}
+
+{{
+"SELECT Number,CAST(CASE WHEN SUM(DD.Qty)=0 THEN 0 ELSE SUM(ISNULL(DD.ActionQty,0))*100.0/SUM(DD.Qty) END as int) Progress
+FROM Document D
+INNER JOIN DocumentDetail DD ON D.ID=DD.Document_id
+WHERE D.Number=@Document
+GROUP BY Number"
+|> dbSingle({Document})
+|> to => document
+}}
+
+<div>
+    <small>Document</small>
+    <header class="gn-float-right">{{document.Number}} {{document.Progress}}%</header>
+</div>
+
+{{#if LocationZone}}
+
+{{
+"SELECT TOP 1
+    DD.LineNumber,
+    MI.Code ItemCode,
+    MI.Description ItemDescription,
+    DD.UOM,
+    ISNULL(DD.ActionQty,0) ActionQty,
+    DD.Qty,
+    DD.Qty-ISNULL(DD.ActionQty,0) QtyToPick,
+    CAST(ISNULL(DD.ActionQty,0)*100.0/NULLIF(DD.Qty,0) as int) ActionCompletion,
+    DD.ToLocation,
+    DD.Instruction
+FROM Document D
+INNER JOIN DocumentDetail DD ON D.ID=DD.Document_id
+INNER JOIN MasterItem MI ON DD.Item_id=MI.ID
+WHERE D.Number=@Document
+AND ISNULL(DD.Instruction,"")<>"NO STOCK AVAILABLE"
+AND ISNULL(DD.ActionQty,0)<DD.Qty
+AND (
+    ISNULL(@LocationZone,"")=""
+    OR DD.Instruction LIKE "ZONE "+@LocationZone+"|%"
+    OR (
+        DD.Instruction NOT LIKE "ZONE %|%"
+        AND @LocationZone="UNASSIGNED"
+    )
+)
+AND (
+    ISNULL(@TrackingEntity,"")=""
+    OR MI.Code=@TrackingEntity
+    OR MI.FormattedCode=@TrackingEntity
+    OR EXISTS (
+        SELECT 1
+        FROM TrackingEntity TE
+        WHERE TE.MasterItem_id=MI.ID
+        AND TE.Barcode=@TrackingEntity
+    )
+    OR EXISTS (
+        SELECT 1
+        FROM MasterItemAlias_View MA
+        WHERE MA.MasterItem_id=MI.ID
+        AND MA.Code=@TrackingEntity
+    )
+)
+ORDER BY DD.LinePriority"
+|> dbSelect({Document,LocationZone,TrackingEntity})
+|> to => documentDetails
+}}
+
+{{#if documentDetails}}
+{{#if documentDetails.Count > 0}}
+
+{{#each d in documentDetails}}
+
+<ul class="list-group" style="padding:0;margin:0;">
+    <li class="list-group-item" style="padding:0;margin:0;">
+        <div class="d-flex justify-content-between">
+            <h6 class="mb-1">({{d.LineNumber}}){{d.ItemCode}}</h6>
+            <div class="progress" style="height:inherit;width:110px;">
+                <div class="progress-bar" style="width:{{d.ActionCompletion}}%;background:#008CC9;color:black;font-size:medium;text-align:start;overflow:visible;">
+                    {{d.ActionQty}}-{{d.Qty}}
+                </div>
+            </div>
+        </div>
+
+        <small>{{d.ItemDescription}}</small>
+        <span style="float:right;width:110px;">{{d.UOM}}</span>
+
+        {{#if d.Instruction}}
+        <div>
+            <span style="color:white;background:#5FA81A;font-weight:700;font-size:1.1em;display:inline-block;padding:3px 8px;border-radius:6px;">
+                {{d.Instruction}}
+            </span>
+        </div>
+        {{/if}}
+
+        {{#if d.ToLocation}}
+        <div><small>To</small> <b>{{d.ToLocation}}</b></div>
+        {{/if}}
+    </li>
+</ul>
+
+{{/each}}
+
+{{else}}
+
+<div class="alert alert-info" style="margin-top:8px;">
+    There are no lines left to pick in this zone.
+</div>
+
+{{/if}}
+{{/if}}
+
+{{/if}}
+
+{{/if}}

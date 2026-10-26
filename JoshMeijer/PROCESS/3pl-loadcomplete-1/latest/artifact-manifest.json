@@ -1,0 +1,82 @@
+{
+  "Identifier": "908294a1-c52a-4bf7-ad10-53ee9a7eeb5c",
+  "Name": "3PL_LOADCOMPLETE",
+  "Description": "3PL Load Complete\n\nAfter Completing loadout -send an email to management and customer with load out details\n\nconfigure email service",
+  "Type": "PROCESS",
+  "Version": 0,
+  "LastModified": "04/08/2025",
+  "DatabaseVersion": "8.0.0.0",
+  "Tags": [],
+  "TypeSpecificAttributes": {
+    "ProcessType": "CUSTOM",
+    "ProcessName": "3PL_LOADCOMPLETE",
+    "ProcessDescription": "3PL Load Complete",
+    "IntegrationIsActive": false,
+    "IntegrationPost": false,
+    "ProcessStepMetadata": [
+      {
+        "Name": "Document",
+        "Description": "Document",
+        "Process": "3PL_LOADCOMPLETE",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Confirmation",
+        "Description": "Confirmation",
+        "Process": "3PL_LOADCOMPLETE",
+        "ProcessIndex": 1,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_3PL_LoadCompleteConfirmation",
+        "hasWebTemplate": false
+      }
+    ]
+  },
+  "Components": [
+    {
+      "Type": "VIEW",
+      "Name": "dbo.webtemplate_OutboundDocumentToComplete",
+      "Path": "VIEW/dbo.webtemplate_OutboundDocumentToComplete",
+      "DependsOn": []
+    },
+    {
+      "Type": "USER_TABLE",
+      "Name": "dbo.custom_DocumentTrackingLog",
+      "Path": "USER_TABLE/dbo.custom_DocumentTrackingLog",
+      "DependsOn": []
+    },
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.Prescript_3PL_LoadCompleteConfirmation",
+      "Path": "PRESCRIPT/dbo.Prescript_3PL_LoadCompleteConfirmation",
+      "DependsOn": [
+        {
+          "Type": "USER_TABLE",
+          "Name": "dbo.custom_DocumentTrackingLog"
+        }
+      ]
+    },
+    {
+      "Type": "PROCESS",
+      "Name": "3PL_LOADCOMPLETE",
+      "Path": "",
+      "DependsOn": [
+        {
+          "Type": "PRESCRIPT",
+          "Name": "dbo.Prescript_3PL_LoadCompleteConfirmation"
+        },
+        {
+          "Type": "VIEW",
+          "Name": "dbo.webtemplate_OutboundDocumentToComplete"
+        }
+      ]
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

@@ -1,0 +1,4 @@
+<p>Please enter a MasterItem Code, Tracking Entity Barcode, Location Barcode, or Location Name. It must exist in the current Cage to be valid</p>
+<br>
+<p>Tracking Entities in session: </p>
+{{ "EXEC WebtemplateSpotCheckBarcode @Session = @Session" | dbSelect({Session}) | basicTable({enableSearch:true}) }}

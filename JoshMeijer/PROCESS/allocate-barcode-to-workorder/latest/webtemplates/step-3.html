@@ -1,0 +1,1 @@
+{{ "SELECT CONVERT(FLOAT, Qty) AS [Full Qty On Barcode] FROM TrackingEntity WHERE Barcode = @TrackingEntity" | dbSelect({TrackingEntity}) | basicTable({}) }}

@@ -1,0 +1,7 @@
+{{#if LocationZone}}
+    <div class="alert alert-info" role="alert" style="margin-top:10px;">
+        Select a zone to see the remaining lines and quantity for that zone.
+    </div>
+{{/if}}
+
+{{"EXEC WebTemplate_Picking_ZonesonOrder @Document= @Document" |dbSelect({Document})|basicTable({selectOnColumn:"Zone", enableSearch:true})}}

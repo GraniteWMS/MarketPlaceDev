@@ -1,0 +1,21 @@
+{
+  "Identifier": "310dcb83-5464-4330-a565-f90fd3883c10",
+  "Name": "Prescript_Example_PrintSsrsReport",
+  "Description": "This template provides an illustration of utilizing SQL_CLR to print SSRS reports, although it should be noted that this process is not fully functional.\n\nIn the stored procedure Prescript_Example_PrintSsrsReport, the clr_ReportPrint is employed to print a SSRS report. Ensure the printer is accessible by the SQL server.",
+  "Type": "PRESCRIPT",
+  "Version": 1,
+  "LastModified": "19/03/2024",
+  "DatabaseVersion": "8.0.0.0",
+  "Tags": [],
+  "Components": [
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.Prescript_Example_PrintSsrsReport",
+      "Path": "",
+      "DependsOn": []
+    }
+  ],
+  "DependsOnClr": true,
+  "SqlClrAssemblyVersion": "7.0.0.0",
+  "Deprecated": false
+}

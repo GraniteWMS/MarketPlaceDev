@@ -1,0 +1,212 @@
+{
+  "Identifier": "418a87bb-0173-4c00-b386-82361b2d82c3",
+  "Name": "TAKEONITEMSEARCHLOC",
+  "Description": "TAKEON ITEM SEARCH (DEFAULT LOC)\n\nGeneric TAKEON process allowing for \n1. MasterItem search by Code or Description - limiting the number of records returned to the MasterItem step webtemplate table.  \n2. Dynamic step navigation based on MasterItem rules (EnforceBatchNumber, EnforceExpiryDate, EnforceSerialNumber), allowing the steps to be shown based on rules - if not set then don't ask for it\n\nMasterItem search is executed by a SQL table function \nMasterItem step webtemplate display also uses the SQL table function, and currently returns the Enforce fields - to no longer display these, remove these columns from the function  \nRule for number of records is currently in the MasterItemSearch prescript, but this can also be stored in SystemStaticData",
+  "Type": "PROCESS",
+  "Version": 0,
+  "LastModified": "30/05/2026",
+  "DatabaseVersion": "8.0.0.0",
+  "Tags": [
+    "Manufacturing",
+    "Retail",
+    "Automotive",
+    "Agricultural",
+    "Textile",
+    "Electronics",
+    "Construction",
+    "E-commerce",
+    "Logistics",
+    "Pharmaceutical",
+    "Cold Storage"
+  ],
+  "TypeSpecificAttributes": {
+    "ProcessType": "TAKEON",
+    "ProcessName": "TAKEONITEMSEARCHLOC",
+    "ProcessDescription": "TAKEON ITEM SEARCH (DEFAULT LOC)",
+    "IntegrationIsActive": false,
+    "IntegrationPost": false,
+    "ProcessStepMetadata": [
+      {
+        "Name": "MasterItemSearch",
+        "Description": "MasterItem Search (Use values seperated by spaces)",
+        "Process": "TAKEONITEMSEARCHLOC",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_TakeonItemSearch_MasterItemSearch",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Location",
+        "Description": "Location",
+        "Process": "TAKEONITEMSEARCHLOC",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "DefaultValue": "A001",
+        "PreScript": "Prescript_TakeonItemSearch_Location",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "MasterItem",
+        "Description": "MasterItem",
+        "Process": "TAKEONITEMSEARCHLOC",
+        "ProcessIndex": 2,
+        "NextIndex": 3,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_TakeonItemSearch_MasterItem",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Batch",
+        "Description": "Batch",
+        "Process": "TAKEONITEMSEARCHLOC",
+        "ProcessIndex": 3,
+        "NextIndex": 4,
+        "isActive": true,
+        "Required": false,
+        "PreScript": "Prescript_TakeonItemSearch_Batch",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "ExpiryDate",
+        "Description": "ExpiryDate (YYYYMMDD)",
+        "Process": "TAKEONITEMSEARCHLOC",
+        "ProcessIndex": 4,
+        "NextIndex": 5,
+        "isActive": true,
+        "Required": false,
+        "PreScript": "Prescript_TakeonItemSearch_ExpiryDate",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "SerialNumber",
+        "Description": "SerialNumber",
+        "Process": "TAKEONITEMSEARCHLOC",
+        "ProcessIndex": 5,
+        "NextIndex": 6,
+        "isActive": true,
+        "Required": false,
+        "PreScript": "Prescript_TakeonItemSearch_SerialNumber",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Qty",
+        "Description": "Qty",
+        "Process": "TAKEONITEMSEARCHLOC",
+        "ProcessIndex": 6,
+        "NextIndex": 7,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "NoEntities",
+        "Description": "Number of Entities",
+        "Process": "TAKEONITEMSEARCHLOC",
+        "ProcessIndex": 7,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true
+      }
+    ]
+  },
+  "Components": [
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.Prescript_TakeonItemSearch_MasterItem",
+      "Path": "PRESCRIPT/dbo.Prescript_TakeonItemSearch_MasterItem",
+      "DependsOn": []
+    },
+    {
+      "Type": "SQL_INLINE_TABLE_VALUED_FUNCTION",
+      "Name": "dbo.FN_MasterItem_Search",
+      "Path": "SQL_INLINE_TABLE_VALUED_FUNCTION/dbo.FN_MasterItem_Search",
+      "DependsOn": []
+    },
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.Prescript_TakeonItemSearch_Location",
+      "Path": "PRESCRIPT/dbo.Prescript_TakeonItemSearch_Location",
+      "DependsOn": []
+    },
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.Prescript_TakeonItemSearch_Batch",
+      "Path": "PRESCRIPT/dbo.Prescript_TakeonItemSearch_Batch",
+      "DependsOn": []
+    },
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.Prescript_TakeonItemSearch_ExpiryDate",
+      "Path": "PRESCRIPT/dbo.Prescript_TakeonItemSearch_ExpiryDate",
+      "DependsOn": []
+    },
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.Prescript_TakeonItemSearch_SerialNumber",
+      "Path": "PRESCRIPT/dbo.Prescript_TakeonItemSearch_SerialNumber",
+      "DependsOn": []
+    },
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.Prescript_TakeonItemSearch_MasterItemSearch",
+      "Path": "PRESCRIPT/dbo.Prescript_TakeonItemSearch_MasterItemSearch",
+      "DependsOn": [
+        {
+          "Type": "SQL_INLINE_TABLE_VALUED_FUNCTION",
+          "Name": "dbo.FN_MasterItem_Search"
+        }
+      ]
+    },
+    {
+      "Type": "SQL_STORED_PROCEDURE",
+      "Name": "dbo.WebTemplate_SP_MasterItemSearch",
+      "Path": "SQL_STORED_PROCEDURE/dbo.WebTemplate_SP_MasterItemSearch",
+      "DependsOn": [
+        {
+          "Type": "SQL_INLINE_TABLE_VALUED_FUNCTION",
+          "Name": "dbo.FN_MasterItem_Search"
+        }
+      ]
+    },
+    {
+      "Type": "PROCESS",
+      "Name": "TAKEONITEMSEARCHLOC",
+      "Path": "",
+      "DependsOn": [
+        {
+          "Type": "PRESCRIPT",
+          "Name": "dbo.Prescript_TakeonItemSearch_Batch"
+        },
+        {
+          "Type": "PRESCRIPT",
+          "Name": "dbo.Prescript_TakeonItemSearch_ExpiryDate"
+        },
+        {
+          "Type": "PRESCRIPT",
+          "Name": "dbo.Prescript_TakeonItemSearch_Location"
+        },
+        {
+          "Type": "PRESCRIPT",
+          "Name": "dbo.Prescript_TakeonItemSearch_MasterItem"
+        },
+        {
+          "Type": "PRESCRIPT",
+          "Name": "dbo.Prescript_TakeonItemSearch_MasterItemSearch"
+        },
+        {
+          "Type": "PRESCRIPT",
+          "Name": "dbo.Prescript_TakeonItemSearch_SerialNumber"
+        }
+      ]
+    }
+  ],
+  "DependsOnClr": true,
+  "SqlClrAssemblyVersion": "7.0.0.0",
+  "Deprecated": false
+}

@@ -1,0 +1,199 @@
+{
+  "Identifier": "07849bb3-81a5-4b88-8de0-dd8c43c38b41",
+  "Name": "VSERV_PICKING",
+  "Description": "VSERV_PICKING\n\nAutomatically determines the tracking entity to pick based on the item code, location and expiry date.\n\nThere are 2 settings in system static data that are used to determine if FIFO or FEFO must be used.",
+  "Type": "PROCESS",
+  "Version": 1,
+  "LastModified": "09/02/2026",
+  "DatabaseVersion": "8.0.0.0",
+  "Tags": [
+    "Manufacturing",
+    "Retail",
+    "Automotive",
+    "Agricultural",
+    "Textile",
+    "Electronics",
+    "Construction",
+    "E-commerce",
+    "Logistics",
+    "Pharmaceutical",
+    "Cold Storage"
+  ],
+  "TypeSpecificAttributes": {
+    "ProcessType": "PICKING",
+    "ProcessName": "VSERV_PICKING",
+    "ProcessDescription": "VSERV_PICKING",
+    "IntegrationIsActive": false,
+    "IntegrationPost": false,
+    "ProcessStepMetadata": [
+      {
+        "Name": "Document",
+        "Description": "Document",
+        "Process": "VSERV_PICKING",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_Picking_Document",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Location",
+        "Description": "Location",
+        "Process": "VSERV_PICKING",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_Picking_Location",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Comment",
+        "Description": "Expiry Date (YYYYMM)",
+        "Process": "VSERV_PICKING",
+        "ProcessIndex": 2,
+        "NextIndex": 3,
+        "isActive": true,
+        "Required": false,
+        "PreScript": "Prescript_Picking_ExpiryDate",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "TrackingEntity",
+        "Description": "Enter Item Code or Alias",
+        "Process": "VSERV_PICKING",
+        "ProcessIndex": 3,
+        "NextIndex": 4,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_Picking_TrackingEntity",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Qty",
+        "Description": "Qty",
+        "Process": "VSERV_PICKING",
+        "ProcessIndex": 4,
+        "NextIndex": 3,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Step200",
+        "Description": "Step200",
+        "Process": "VSERV_PICKING",
+        "ProcessIndex": 200,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_Picking_Step200",
+        "hasWebTemplate": false
+      }
+    ]
+  },
+  "Components": [
+    {
+      "Type": "VIEW",
+      "Name": "dbo.WebTemplate_Picking_Document",
+      "Path": "VIEW/dbo.WebTemplate_Picking_Document",
+      "DependsOn": []
+    },
+    {
+      "Type": "VIEW",
+      "Name": "dbo.WebTemplate_Picking_Location",
+      "Path": "VIEW/dbo.WebTemplate_Picking_Location",
+      "DependsOn": []
+    },
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.Prescript_Picking_Document",
+      "Path": "PRESCRIPT/dbo.Prescript_Picking_Document",
+      "DependsOn": []
+    },
+    {
+      "Type": "VIEW",
+      "Name": "dbo.MasterItemAlias_View",
+      "Path": "VIEW/dbo.MasterItemAlias_View",
+      "DependsOn": []
+    },
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.Prescript_Picking_Location",
+      "Path": "PRESCRIPT/dbo.Prescript_Picking_Location",
+      "DependsOn": [
+        {
+          "Type": "VIEW",
+          "Name": "dbo.WebTemplate_Picking_Location"
+        }
+      ]
+    },
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.Prescript_Picking_TrackingEntity",
+      "Path": "PRESCRIPT/dbo.Prescript_Picking_TrackingEntity",
+      "DependsOn": [
+        {
+          "Type": "VIEW",
+          "Name": "dbo.MasterItemAlias_View"
+        }
+      ]
+    },
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.Prescript_Picking_ExpiryDate",
+      "Path": "PRESCRIPT/dbo.Prescript_Picking_ExpiryDate",
+      "DependsOn": []
+    },
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.Prescript_Picking_Step200",
+      "Path": "PRESCRIPT/dbo.Prescript_Picking_Step200",
+      "DependsOn": []
+    },
+    {
+      "Type": "DATA",
+      "Name": "dbo.SystemStaticData",
+      "Path": "DATA/dbo.SystemStaticData",
+      "DependsOn": []
+    },
+    {
+      "Type": "PROCESS",
+      "Name": "VSERV_PICKING",
+      "Path": "",
+      "DependsOn": [
+        {
+          "Type": "PRESCRIPT",
+          "Name": "dbo.Prescript_Picking_Document"
+        },
+        {
+          "Type": "PRESCRIPT",
+          "Name": "dbo.Prescript_Picking_ExpiryDate"
+        },
+        {
+          "Type": "PRESCRIPT",
+          "Name": "dbo.Prescript_Picking_Location"
+        },
+        {
+          "Type": "PRESCRIPT",
+          "Name": "dbo.Prescript_Picking_Step200"
+        },
+        {
+          "Type": "PRESCRIPT",
+          "Name": "dbo.Prescript_Picking_TrackingEntity"
+        },
+        {
+          "Type": "VIEW",
+          "Name": "dbo.WebTemplate_Picking_Document"
+        },
+        {
+          "Type": "VIEW",
+          "Name": "dbo.WebTemplate_Picking_Location"
+        }
+      ]
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

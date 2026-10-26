@@ -1,0 +1,8 @@
+{
+  "Group": "Inventory",
+  "Name": "CrateStatistics",
+  "SQLView": "DataGrid_CrateStatistics",
+  "GridDefinition": "[{\"field\":\"ProductionDate\",\"width\":150,\"filter\":\"agDateColumnFilter\"},{\"field\":\"DayOfTheWeek\",\"width\":150,\"filter\":\"agTextColumnFilter\"},{\"field\":\"HourOfTheYear\",\"width\":80,\"filter\":\"agNumberColumnFilter\",\"hide\":true,\"sort\":\"desc\"},{\"field\":\"HourOfTheDay\",\"width\":150,\"filter\":\"agNumberColumnFilter\"},{\"field\":\"CratesProducedInHour\",\"width\":200,\"filter\":\"agNumberColumnFilter\"},{\"field\":\"NumberOfCratesPerMinute\",\"width\":250,\"filter\":\"agTextColumnFilter\"}]",
+  "IsApplicationGrid": false,
+  "IsCustomGrid": true
+}

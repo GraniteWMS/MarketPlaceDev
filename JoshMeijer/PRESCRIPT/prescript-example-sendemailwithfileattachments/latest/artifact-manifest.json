@@ -1,0 +1,21 @@
+{
+  "Identifier": "1c93bc84-34da-427d-b488-6dd3bd1275c0",
+  "Name": "Prescript_Example_SendEmailWithFileAttachments",
+  "Description": "This template provides an illustration of utilizing SQL_CLR to send emails with attachments, although it should be noted that this process is not fully functional.\n\nWithin the stored procedure Prescript_Example_SendEmailWithFileAttachments, the clr_SimpleEmail is employed to attach two files and dispatch an email.",
+  "Type": "PRESCRIPT",
+  "Version": 0,
+  "LastModified": "19/03/2024",
+  "DatabaseVersion": "8.0.0.0",
+  "Tags": [],
+  "Components": [
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.Prescript_Example_SendEmailWithFileAttachments",
+      "Path": "",
+      "DependsOn": []
+    }
+  ],
+  "DependsOnClr": true,
+  "SqlClrAssemblyVersion": "7.0.0.0",
+  "Deprecated": false
+}

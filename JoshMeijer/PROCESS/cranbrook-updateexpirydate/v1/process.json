@@ -1,0 +1,39 @@
+{
+  "Name": "CRANBROOK_UPDATEEXPIRYDATE",
+  "Description": "Update Expiry Date",
+  "Type": "CUSTOM",
+  "IsActive": true,
+  "IntegrationIsActive": false,
+  "IntegrationPost": false,
+  "Steps": [
+    {
+      "Name": "TrackingEntity",
+      "Description": "Scan Barcode To Update",
+      "ProcessIndex": 0,
+      "NextIndex": 1,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "PrescriptUpdateExpiryDateTrackingEntity"
+    },
+    {
+      "Name": "Comment",
+      "Description": "Reason for Update",
+      "ProcessIndex": 1,
+      "NextIndex": 2,
+      "IsActive": true,
+      "Required": false,
+      "IsBusinessRule": false
+    },
+    {
+      "Name": "ExpiryDateCus",
+      "Description": "Enter New ExpiryDate (YYYYMMDD)",
+      "ProcessIndex": 2,
+      "NextIndex": 0,
+      "IsActive": true,
+      "Required": false,
+      "IsBusinessRule": false,
+      "PreScript": "PrescriptUpdateExpiryDateExpiryDate"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "Identifier": "127ecdac-3e89-492d-ae9f-d860b2615423",
+  "Name": "Prescript_Generic_Document_UpdateInstruction",
+  "Description": "Use this prescript to show the reason that your document detail has failed to sync with the ERP.\n\nThis prescript assumes that you are using the scheduler injected jobs for your specific ERP system. It expects the reasons for ERP sync failure to be logged to the IntegrationLog table, and the ERPSyncFailed flag to be set when a failure occurs.",
+  "Type": "PRESCRIPT",
+  "Version": 1,
+  "LastModified": "29/05/2025",
+  "DatabaseVersion": "8.0.0.0",
+  "Tags": [],
+  "Components": [
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.Prescript_Generic_Document_UpdateInstruction",
+      "Path": "",
+      "DependsOn": []
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

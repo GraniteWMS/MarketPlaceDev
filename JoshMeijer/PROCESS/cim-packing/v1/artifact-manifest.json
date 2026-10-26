@@ -1,0 +1,146 @@
+{
+  "Identifier": "a260d9c1-e89f-4779-89ea-444baf6e01b3",
+  "Name": "CIM_PACKING",
+  "Description": "CIM PACKING\n\nSAP B1 with prefix\n\nN/a",
+  "Type": "PROCESS",
+  "Version": 1,
+  "LastModified": "18/05/2026",
+  "DatabaseVersion": "8.0.0.0",
+  "Tags": [
+    "Manufacturing",
+    "Retail",
+    "Automotive",
+    "Agricultural",
+    "Textile",
+    "Electronics",
+    "Construction",
+    "E-commerce",
+    "Logistics",
+    "Pharmaceutical",
+    "Cold Storage"
+  ],
+  "TypeSpecificAttributes": {
+    "ProcessType": "PACKING",
+    "ProcessName": "CIM_PACKING",
+    "ProcessDescription": "CIM PACKING",
+    "IntegrationIsActive": false,
+    "IntegrationPost": false,
+    "ProcessStepMetadata": [
+      {
+        "Name": "Document",
+        "Description": "Scan/Enter Sales Order Number",
+        "Process": "CIM_PACKING",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "PrescriptPackingDocument",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "MasterItem",
+        "Description": "Scan/Enter Tracking Barcode",
+        "Process": "CIM_PACKING",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "PrescriptPackingMasterItem",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Qty",
+        "Description": "Enter Packed Qty",
+        "Process": "CIM_PACKING",
+        "ProcessIndex": 2,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "PrescriptPackingQty",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "CarryingEntity",
+        "Description": "BOX or PALLET",
+        "Process": "CIM_PACKING",
+        "ProcessIndex": 100,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Location",
+        "Description": "Scan/Enter Packing Location",
+        "Process": "CIM_PACKING",
+        "ProcessIndex": 100,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "STEP200",
+        "Description": "STEP200",
+        "Process": "CIM_PACKING",
+        "ProcessIndex": 200,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": false,
+        "PreScript": "PrescriptPackingStep200",
+        "hasWebTemplate": false
+      }
+    ]
+  },
+  "Components": [
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.PrescriptPackingDocument",
+      "Path": "PRESCRIPT/dbo.PrescriptPackingDocument",
+      "DependsOn": []
+    },
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.PrescriptPackingMasterItem",
+      "Path": "PRESCRIPT/dbo.PrescriptPackingMasterItem",
+      "DependsOn": []
+    },
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.PrescriptPackingQty",
+      "Path": "PRESCRIPT/dbo.PrescriptPackingQty",
+      "DependsOn": []
+    },
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.PrescriptPackingStep200",
+      "Path": "PRESCRIPT/dbo.PrescriptPackingStep200",
+      "DependsOn": []
+    },
+    {
+      "Type": "PROCESS",
+      "Name": "CIM_PACKING",
+      "Path": "",
+      "DependsOn": [
+        {
+          "Type": "PRESCRIPT",
+          "Name": "dbo.PrescriptPackingDocument"
+        },
+        {
+          "Type": "PRESCRIPT",
+          "Name": "dbo.PrescriptPackingMasterItem"
+        },
+        {
+          "Type": "PRESCRIPT",
+          "Name": "dbo.PrescriptPackingQty"
+        },
+        {
+          "Type": "PRESCRIPT",
+          "Name": "dbo.PrescriptPackingStep200"
+        }
+      ]
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

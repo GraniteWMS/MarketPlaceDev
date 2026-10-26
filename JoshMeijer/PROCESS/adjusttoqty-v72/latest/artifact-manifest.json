@@ -1,0 +1,136 @@
+{
+  "Identifier": "044bc39d-e93d-4fb2-ba09-282a2a109c1e",
+  "Name": "ADJUSTTOQTY_V72",
+  "Description": "ADJUST TO Qty V7.2\n\nCUSTOM Adjust To Qty.   ASKS if you want to Integrate and uses CLR for the Integration.  V7.2 Update to support CLR Change on Adjustment where a Document Number and DocumentLine are required.\n\nCLR_Adjustment has changed between V7.0 and V7.2 to add extra properties.",
+  "Type": "PROCESS",
+  "Version": 0,
+  "LastModified": "10/09/2026",
+  "DatabaseVersion": "8.0.0.0",
+  "Tags": [],
+  "TypeSpecificAttributes": {
+    "ProcessType": "CUSTOM",
+    "ProcessName": "ADJUSTTOQTY_V72",
+    "ProcessDescription": "ADJUST TO Qty V7.2",
+    "IntegrationMethod": "ADJUSTMENT",
+    "IntegrationIsActive": true,
+    "IntegrationPost": true,
+    "ProcessStepMetadata": [
+      {
+        "Name": "TrackingEntity",
+        "Description": "TrackingEntity",
+        "Process": "ADJUSTTOQTY_V72",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "PrescriptAdjustToQtyTrackingEntity",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Qty",
+        "Description": "Qty",
+        "Process": "ADJUSTTOQTY_V72",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "PrescriptAdjustToQtyQty",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "ERPAction",
+        "Description": "Confirm Integration Action",
+        "Process": "ADJUSTTOQTY_V72",
+        "ProcessIndex": 2,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Step200",
+        "Description": "CLR Adjustment",
+        "Process": "ADJUSTTOQTY_V72",
+        "ProcessIndex": 200,
+        "NextIndex": 200,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "PrescriptAdjustToQtyStep200",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Step201",
+        "Description": "Post to ERP using CLR",
+        "Process": "ADJUSTTOQTY_V72",
+        "ProcessIndex": 201,
+        "NextIndex": 201,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "PrescriptAdjustToQtyStep201",
+        "hasWebTemplate": false
+      }
+    ]
+  },
+  "Components": [
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.PrescriptAdjustToQtyTrackingEntity",
+      "Path": "PRESCRIPT/dbo.PrescriptAdjustToQtyTrackingEntity",
+      "DependsOn": []
+    },
+    {
+      "Type": "VIEW",
+      "Name": "dbo.Integration_Transactions",
+      "Path": "VIEW/dbo.Integration_Transactions",
+      "DependsOn": []
+    },
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.PrescriptAdjustToQtyQty",
+      "Path": "PRESCRIPT/dbo.PrescriptAdjustToQtyQty",
+      "DependsOn": []
+    },
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.PrescriptAdjustToQtyStep201",
+      "Path": "PRESCRIPT/dbo.PrescriptAdjustToQtyStep201",
+      "DependsOn": [
+        {
+          "Type": "VIEW",
+          "Name": "dbo.Integration_Transactions"
+        }
+      ]
+    },
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.PrescriptAdjustToQtyStep200",
+      "Path": "PRESCRIPT/dbo.PrescriptAdjustToQtyStep200",
+      "DependsOn": []
+    },
+    {
+      "Type": "PROCESS",
+      "Name": "ADJUSTTOQTY_V72",
+      "Path": "",
+      "DependsOn": [
+        {
+          "Type": "PRESCRIPT",
+          "Name": "dbo.PrescriptAdjustToQtyQty"
+        },
+        {
+          "Type": "PRESCRIPT",
+          "Name": "dbo.PrescriptAdjustToQtyStep200"
+        },
+        {
+          "Type": "PRESCRIPT",
+          "Name": "dbo.PrescriptAdjustToQtyStep201"
+        },
+        {
+          "Type": "PRESCRIPT",
+          "Name": "dbo.PrescriptAdjustToQtyTrackingEntity"
+        }
+      ]
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

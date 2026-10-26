@@ -1,0 +1,40 @@
+{
+  "Name": "RECEIVINGPOST",
+  "Description": "Receiving Post to SAGE",
+  "Type": "RECEIVINGPOST",
+  "IsActive": true,
+  "IntegrationIsActive": true,
+  "IntegrationPost": true,
+  "Steps": [
+    {
+      "Name": "Document",
+      "Description": "Document",
+      "ProcessIndex": 0,
+      "NextIndex": 1,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "WebTemplateFile": "webtemplates/step-1.html"
+    },
+    {
+      "Name": "Confirmation",
+      "Description": "Confirm the Details to Post",
+      "ProcessIndex": 1,
+      "NextIndex": 0,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "WebTemplateFile": "webtemplates/step-2.html"
+    },
+    {
+      "Name": "Step200",
+      "Description": "Insert Confirm Label to Print in Receiving",
+      "ProcessIndex": 200,
+      "NextIndex": 200,
+      "IsActive": true,
+      "Required": true,
+      "IsBusinessRule": false,
+      "PreScript": "PrescriptReceivingPostStep200"
+    }
+  ]
+}

@@ -1,0 +1,99 @@
+{
+  "Identifier": "3dd7b11f-7ced-4639-ae04-c253fb75a9d7",
+  "Name": "PACKING",
+  "Description": "PACKING\n\nThis is the default (empty) PACKING process.",
+  "Type": "PROCESS",
+  "Version": 1,
+  "LastModified": "27/03/2024",
+  "DatabaseVersion": "8.0.0.0",
+  "Tags": [],
+  "TypeSpecificAttributes": {
+    "ProcessType": "PACKING",
+    "ProcessName": "PACKING",
+    "ProcessDescription": "PACKING",
+    "IntegrationIsActive": false,
+    "IntegrationPost": false,
+    "ProcessStepMetadata": [
+      {
+        "Name": "Comment",
+        "Description": "Comment",
+        "Process": "PACKING",
+        "ProcessIndex": 0,
+        "NextIndex": 0,
+        "isActive": false,
+        "Required": false,
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Document",
+        "Description": "Document",
+        "Process": "PACKING",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Reference",
+        "Description": "Reference",
+        "Process": "PACKING",
+        "ProcessIndex": 0,
+        "NextIndex": 0,
+        "isActive": false,
+        "Required": false,
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Location",
+        "Description": "Check and Pack Location",
+        "Process": "PACKING",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "CarryingEntity",
+        "Description": "BOX or PALLET",
+        "Process": "PACKING",
+        "ProcessIndex": 2,
+        "NextIndex": 3,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "MasterItem",
+        "Description": "MasterItem (Code, Barcode or TrackingEntity)",
+        "Process": "PACKING",
+        "ProcessIndex": 3,
+        "NextIndex": 4,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Qty",
+        "Description": "Qty",
+        "Process": "PACKING",
+        "ProcessIndex": 4,
+        "NextIndex": 3,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": false
+      }
+    ]
+  },
+  "Components": [
+    {
+      "Type": "PROCESS",
+      "Name": "PACKING",
+      "Path": "",
+      "DependsOn": []
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

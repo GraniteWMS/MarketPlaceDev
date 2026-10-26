@@ -1,0 +1,22 @@
+<div style = "table table-responsive">
+{{#if Search}}
+<body>
+<h1 style="color:red;font-size:150%;">
+<div><header class="gn-float-centre">Searched for: {{Search}}</header></div>
+</h1>
+</body>
+{{/if}}
+
+
+
+{{#if Search}}
+  {{
+    "EXEC SP_Search_TE_Multiword @Search"
+    | dbSelect({Search}) 
+    | to => returnedData
+  }}
+    {{returnedData | basicTable({enableSearch:false}) }}
+  </div>
+
+
+{{/if}}

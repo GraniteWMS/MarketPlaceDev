@@ -1,0 +1,8 @@
+{
+  "Name": "GenerateStockOnHandFile",
+  "Description": "Generate Stock On Hand File",
+  "Module": "TRACKINGENTITY",
+  "Script": "WebDesktopFunction_GenerateStockOnHandFile",
+  "IsActive": true,
+  "Parameters": []
+}

@@ -1,0 +1,2 @@
+{{ ['DAMAGED ON ARRIVAL', 'DAMAGED IN STORAGE', 'DAMAGED DURING LOADOUT', 'STORAGE DAMAGE -WATER'] | map => { Value: it } | createButtonList({ columnName: 'Value' }) }}
+{{ hideTextBox() }}

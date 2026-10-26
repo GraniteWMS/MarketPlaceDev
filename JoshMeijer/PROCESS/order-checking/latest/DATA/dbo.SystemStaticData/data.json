@@ -1,0 +1,15 @@
+{
+  "Table": "dbo.SystemStaticData",
+  "KeyColumns": [
+    "Key"
+  ],
+  "Rows": [
+    {
+      "Key": "ORDER_CHECKING",
+      "Description": "This value is used by the ORDER_CHECKING prescripts to set the ProcessName for ProcessStepLookupDynamic entries.",
+      "Group": "ProcessName",
+      "Value": "ORDER_CHECKING",
+      "isEncrypted": "False"
+    }
+  ]
+}

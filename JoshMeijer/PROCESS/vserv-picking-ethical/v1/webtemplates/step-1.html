@@ -1,0 +1,5 @@
+{{ "SELECT DocumentNumber, Customer, RouteName, CreateDate 
+     FROM WebTemplate_PickingEthical_Document 
+     ORDER BY CreateDate DESC" 
+     | dbSelect({}) 
+     | basicTable({selectOnColumn:"DocumentNumber", enableSearch:true}) }}

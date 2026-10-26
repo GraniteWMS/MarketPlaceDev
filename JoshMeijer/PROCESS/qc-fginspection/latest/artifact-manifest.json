@@ -1,0 +1,254 @@
+{
+  "Identifier": "11c81e73-94c7-4606-b313-e19616671ea6",
+  "Name": "QC_FGInspection",
+  "Description": "QC Data Capture\n\nQC Datacapture",
+  "Type": "PROCESS",
+  "Version": 0,
+  "LastModified": "19/06/2024",
+  "DatabaseVersion": "8.0.0.0",
+  "Tags": [],
+  "TypeSpecificAttributes": {
+    "ProcessType": "CUSTOM",
+    "ProcessName": "QC_FGInspection",
+    "ProcessDescription": "QC Data Capture",
+    "IntegrationIsActive": false,
+    "IntegrationPost": false,
+    "ProcessStepMetadata": [
+      {
+        "Name": "Document",
+        "Description": "MO Number",
+        "Process": "QC_FGInspection",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "PrescriptQC_FGInspectionDocument",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Batch",
+        "Description": "Lot Number",
+        "Process": "QC_FGInspection",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Gauge",
+        "Description": "Gauge",
+        "Process": "QC_FGInspection",
+        "ProcessIndex": 2,
+        "NextIndex": 3,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Tolerance",
+        "Description": "Enter Tolerance as a decimal (e.g .032)",
+        "Process": "QC_FGInspection",
+        "ProcessIndex": 3,
+        "NextIndex": 4,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Value_X",
+        "Description": "Enter a Value for X",
+        "Process": "QC_FGInspection",
+        "ProcessIndex": 4,
+        "NextIndex": 5,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Value_Y",
+        "Description": "Enter a Value for Y",
+        "Process": "QC_FGInspection",
+        "ProcessIndex": 5,
+        "NextIndex": 6,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Value_Flange",
+        "Description": "Flange",
+        "Process": "QC_FGInspection",
+        "ProcessIndex": 6,
+        "NextIndex": 7,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Value_HolePosition",
+        "Description": "Hole Position",
+        "Process": "QC_FGInspection",
+        "ProcessIndex": 7,
+        "NextIndex": 8,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Value_HoleSpacing",
+        "Description": "Hole Spacing",
+        "Process": "QC_FGInspection",
+        "ProcessIndex": 8,
+        "NextIndex": 9,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Value_HoleCentering",
+        "Description": "Hole Centering",
+        "Process": "QC_FGInspection",
+        "ProcessIndex": 9,
+        "NextIndex": 10,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Value_Length",
+        "Description": "Length",
+        "Process": "QC_FGInspection",
+        "ProcessIndex": 10,
+        "NextIndex": 11,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Value_Angle",
+        "Description": "Angle",
+        "Process": "QC_FGInspection",
+        "ProcessIndex": 11,
+        "NextIndex": 12,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Value_PaintCoating",
+        "Description": "PaintCoating",
+        "Process": "QC_FGInspection",
+        "ProcessIndex": 12,
+        "NextIndex": 13,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Value_AnodizedCoating",
+        "Description": "Anodized Coating",
+        "Process": "QC_FGInspection",
+        "ProcessIndex": 13,
+        "NextIndex": 14,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Value_PowderCoating",
+        "Description": "Powder Coating",
+        "Process": "QC_FGInspection",
+        "ProcessIndex": 14,
+        "NextIndex": 15,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Comment",
+        "Description": "Remarks",
+        "Process": "QC_FGInspection",
+        "ProcessIndex": 15,
+        "NextIndex": 16,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Value_AcceptReject",
+        "Description": "QC Accept or Reject",
+        "Process": "QC_FGInspection",
+        "ProcessIndex": 16,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "PrescriptQC_FGInspectionConfirmation",
+        "hasWebTemplate": true
+      }
+    ]
+  },
+  "Components": [
+    {
+      "Type": "SQL_STORED_PROCEDURE",
+      "Name": "dbo.webTemplate_MOItemToMake",
+      "Path": "SQL_STORED_PROCEDURE/dbo.webTemplate_MOItemToMake",
+      "DependsOn": []
+    },
+    {
+      "Type": "USER_TABLE",
+      "Name": "dbo.custom_DocumentTrackingLog",
+      "Path": "USER_TABLE/dbo.custom_DocumentTrackingLog",
+      "DependsOn": []
+    },
+    {
+      "Type": "USER_TABLE",
+      "Name": "dbo.QC_FGInspection",
+      "Path": "USER_TABLE/dbo.QC_FGInspection",
+      "DependsOn": []
+    },
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.PrescriptQC_FGInspectionDocument",
+      "Path": "PRESCRIPT/dbo.PrescriptQC_FGInspectionDocument",
+      "DependsOn": [
+        {
+          "Type": "USER_TABLE",
+          "Name": "dbo.custom_DocumentTrackingLog"
+        }
+      ]
+    },
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.PrescriptQC_FGInspectionConfirmation",
+      "Path": "PRESCRIPT/dbo.PrescriptQC_FGInspectionConfirmation",
+      "DependsOn": [
+        {
+          "Type": "USER_TABLE",
+          "Name": "dbo.QC_FGInspection"
+        }
+      ]
+    },
+    {
+      "Type": "PROCESS",
+      "Name": "QC_FGInspection",
+      "Path": "",
+      "DependsOn": [
+        {
+          "Type": "PRESCRIPT",
+          "Name": "dbo.PrescriptQC_FGInspectionConfirmation"
+        },
+        {
+          "Type": "PRESCRIPT",
+          "Name": "dbo.PrescriptQC_FGInspectionDocument"
+        },
+        {
+          "Type": "SQL_STORED_PROCEDURE",
+          "Name": "dbo.webTemplate_MOItemToMake"
+        }
+      ]
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

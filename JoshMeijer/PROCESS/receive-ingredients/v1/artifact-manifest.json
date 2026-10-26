@@ -1,0 +1,218 @@
+{
+  "Identifier": "1c42435a-3bde-40c2-985e-91a860e112f2",
+  "Name": "RECEIVE_INGREDIENTS",
+  "Description": "RECEIVE INGREDIENTS\n\nReceiving with Optional fields for Newburg Eggs",
+  "Type": "PROCESS",
+  "Version": 1,
+  "LastModified": "31/07/2025",
+  "DatabaseVersion": "8.0.0.0",
+  "Tags": [],
+  "TypeSpecificAttributes": {
+    "ProcessType": "TAKEON",
+    "ProcessName": "RECEIVE_INGREDIENTS",
+    "ProcessDescription": "RECEIVE INGREDIENTS",
+    "IntegrationIsActive": false,
+    "IntegrationPost": false,
+    "ProcessStepMetadata": [
+      {
+        "Name": "Location",
+        "Description": "Receiving Location",
+        "Process": "RECEIVE_INGREDIENTS",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "MasterItem",
+        "Description": "Select Item",
+        "Process": "RECEIVE_INGREDIENTS",
+        "ProcessIndex": 2,
+        "NextIndex": 3,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_ReceiveIngredients_MasterItem",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Batch",
+        "Description": "Batch Number",
+        "Process": "RECEIVE_INGREDIENTS",
+        "ProcessIndex": 3,
+        "NextIndex": 4,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Qty",
+        "Description": "Qty per Pallet",
+        "Process": "RECEIVE_INGREDIENTS",
+        "ProcessIndex": 4,
+        "NextIndex": 5,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "NoEntities",
+        "Description": "Number of pallets",
+        "Process": "RECEIVE_INGREDIENTS",
+        "ProcessIndex": 5,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "DefaultValue": "1",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Print",
+        "Description": "Print",
+        "Process": "RECEIVE_INGREDIENTS",
+        "ProcessIndex": 99,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "OptionalField1",
+        "Description": "OptionalField1",
+        "Process": "RECEIVE_INGREDIENTS",
+        "ProcessIndex": 100,
+        "NextIndex": 100,
+        "isActive": true,
+        "Required": true,
+        "DefaultValue": "Supplier",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "OptionalFieldValue1",
+        "Description": "Select Supplier",
+        "Process": "RECEIVE_INGREDIENTS",
+        "ProcessIndex": 100,
+        "NextIndex": 100,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Step200",
+        "Description": "Update OptionalField",
+        "Process": "RECEIVE_INGREDIENTS",
+        "ProcessIndex": 200,
+        "NextIndex": 200,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_ReceiveIngredients_Step200",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Step201",
+        "Description": "Print Labels",
+        "Process": "RECEIVE_INGREDIENTS",
+        "ProcessIndex": 201,
+        "NextIndex": 201,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_ReceiveIngredients_Step201",
+        "hasWebTemplate": false
+      }
+    ]
+  },
+  "Components": [
+    {
+      "Type": "VIEW",
+      "Name": "dbo.WebTemplate_MasterItems_Ingredients",
+      "Path": "VIEW/dbo.WebTemplate_MasterItems_Ingredients",
+      "DependsOn": []
+    },
+    {
+      "Type": "VIEW",
+      "Name": "dbo.WebTemplate_ReceivingLocations",
+      "Path": "VIEW/dbo.WebTemplate_ReceivingLocations",
+      "DependsOn": []
+    },
+    {
+      "Type": "VIEW",
+      "Name": "dbo.WebTemplate_IngredientSuppliers",
+      "Path": "VIEW/dbo.WebTemplate_IngredientSuppliers",
+      "DependsOn": []
+    },
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.Prescript_ReceiveIngredients_MasterItem",
+      "Path": "PRESCRIPT/dbo.Prescript_ReceiveIngredients_MasterItem",
+      "DependsOn": []
+    },
+    {
+      "Type": "VIEW",
+      "Name": "dbo.Label_Box",
+      "Path": "VIEW/dbo.Label_Box",
+      "DependsOn": []
+    },
+    {
+      "Type": "SQL_SCALAR_FUNCTION",
+      "Name": "dbo.GetJulianDate",
+      "Path": "SQL_SCALAR_FUNCTION/dbo.GetJulianDate",
+      "DependsOn": []
+    },
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.Prescript_ReceiveIngredients_Step200",
+      "Path": "PRESCRIPT/dbo.Prescript_ReceiveIngredients_Step200",
+      "DependsOn": []
+    },
+    {
+      "Type": "VIEW",
+      "Name": "dbo.Label_TrackingEntity",
+      "Path": "VIEW/dbo.Label_TrackingEntity",
+      "DependsOn": [
+        {
+          "Type": "SQL_SCALAR_FUNCTION",
+          "Name": "dbo.GetJulianDate"
+        }
+      ]
+    },
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.Prescript_ReceiveIngredients_Step201",
+      "Path": "PRESCRIPT/dbo.Prescript_ReceiveIngredients_Step201",
+      "DependsOn": []
+    },
+    {
+      "Type": "PROCESS",
+      "Name": "RECEIVE_INGREDIENTS",
+      "Path": "",
+      "DependsOn": [
+        {
+          "Type": "PRESCRIPT",
+          "Name": "dbo.Prescript_ReceiveIngredients_MasterItem"
+        },
+        {
+          "Type": "PRESCRIPT",
+          "Name": "dbo.Prescript_ReceiveIngredients_Step200"
+        },
+        {
+          "Type": "PRESCRIPT",
+          "Name": "dbo.Prescript_ReceiveIngredients_Step201"
+        },
+        {
+          "Type": "VIEW",
+          "Name": "dbo.WebTemplate_IngredientSuppliers"
+        },
+        {
+          "Type": "VIEW",
+          "Name": "dbo.WebTemplate_MasterItems_Ingredients"
+        },
+        {
+          "Type": "VIEW",
+          "Name": "dbo.WebTemplate_ReceivingLocations"
+        }
+      ]
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

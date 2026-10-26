@@ -1,0 +1,92 @@
+{
+  "Identifier": "44d5745d-9cb5-4fd2-8476-cb6de16f8bb7",
+  "Name": "PICKINGPOSTQUEUE",
+  "Description": "Picking Post to Queue\n\nIf integration takes more than 30seconds, the scanner times out, but integration can still be successful.  In some sites the user wants to post and immediately move on, not waiting for the post response.   This process inserts the posting requirement into a table IntegrationDocumentPostingQueue.  A separate Scheduled Job should pick up the record, post it, and update Status and Response message.   A DatGrid should be made available to show the results.\n\nThe process will Create the Table IntegrationDocumentPostingQueue.  At this stage, I have not created the Scheduled Job yet.",
+  "Type": "PROCESS",
+  "Version": 0,
+  "LastModified": "02/04/2026",
+  "DatabaseVersion": "8.0.0.0",
+  "Tags": [],
+  "TypeSpecificAttributes": {
+    "ProcessType": "CUSTOM",
+    "ProcessName": "PICKINGPOSTQUEUE",
+    "ProcessDescription": "Picking Post to Queue",
+    "IntegrationIsActive": false,
+    "IntegrationPost": false,
+    "ProcessStepMetadata": [
+      {
+        "Name": "Document",
+        "Description": "Document",
+        "Process": "PICKINGPOSTQUEUE",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "Confirmation",
+        "Description": "Confirm Details To Post",
+        "Process": "PICKINGPOSTQUEUE",
+        "ProcessIndex": 1,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "PrescriptPickingPostQueueConfirmation",
+        "hasWebTemplate": true
+      }
+    ]
+  },
+  "Components": [
+    {
+      "Type": "VIEW",
+      "Name": "dbo.webtemplate_SOtoPost",
+      "Path": "VIEW/dbo.webtemplate_SOtoPost",
+      "DependsOn": []
+    },
+    {
+      "Type": "SQL_STORED_PROCEDURE",
+      "Name": "dbo.WebTemplate_SalesOrderPostDetail",
+      "Path": "SQL_STORED_PROCEDURE/dbo.WebTemplate_SalesOrderPostDetail",
+      "DependsOn": []
+    },
+    {
+      "Type": "USER_TABLE",
+      "Name": "dbo.IntegrationDocumentPostingQueue",
+      "Path": "USER_TABLE/dbo.IntegrationDocumentPostingQueue",
+      "DependsOn": []
+    },
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.PrescriptPickingPostQueueConfirmation",
+      "Path": "PRESCRIPT/dbo.PrescriptPickingPostQueueConfirmation",
+      "DependsOn": [
+        {
+          "Type": "USER_TABLE",
+          "Name": "dbo.IntegrationDocumentPostingQueue"
+        }
+      ]
+    },
+    {
+      "Type": "PROCESS",
+      "Name": "PICKINGPOSTQUEUE",
+      "Path": "",
+      "DependsOn": [
+        {
+          "Type": "PRESCRIPT",
+          "Name": "dbo.PrescriptPickingPostQueueConfirmation"
+        },
+        {
+          "Type": "SQL_STORED_PROCEDURE",
+          "Name": "dbo.WebTemplate_SalesOrderPostDetail"
+        },
+        {
+          "Type": "VIEW",
+          "Name": "dbo.webtemplate_SOtoPost"
+        }
+      ]
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}

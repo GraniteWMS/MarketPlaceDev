@@ -1,0 +1,13 @@
+<button 
+  type="button" 
+  style="background-color: #d9dbde; border: none; color: #ff0000; 
+  padding: 15px 32px; text-align: center;
+  text-decoration: none; display: inline-block; font-size: 16px;" 
+  onclick="ProceedNext("NEWDOC")">
+  Create NEW Document
+</button>
+
+
+{{var DocumentStatusList = "ENTERED,RELEASED"}}
+{{var DocumentType = "ORDER"}}
+{{"EXEC	[dbo].[webtemplate_3PLDocumentList] @Principle = @Principle, @DocumentStatusList = @DocumentStatusList,@DocumentType = @DocumentType" |dbSelect({Principle,DocumentStatusList,DocumentType})|basicTable({selectOnColumn:"Number", enableSearch:true})}}

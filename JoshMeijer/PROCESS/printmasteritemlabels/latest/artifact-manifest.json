@@ -1,0 +1,105 @@
+{
+  "Identifier": "b8465a10-0f2b-4ceb-9027-359f6fc91526",
+  "Name": "PRINTMASTERITEMLABELS",
+  "Description": "PRINT ITEM LABELS\n\nPrint MasterItemLabels.  Label MasterItem.zpl must exist.\n\nUses CLR to Print Item Labels.  Validates Qty<100 and MasterItem is valid -also checks MasterItemAlias_View",
+  "Type": "PROCESS",
+  "Version": 0,
+  "LastModified": "25/10/2026",
+  "DatabaseVersion": "8.0.0.0",
+  "Tags": [],
+  "TypeSpecificAttributes": {
+    "ProcessType": "CUSTOM",
+    "ProcessName": "PRINTMASTERITEMLABELS",
+    "ProcessDescription": "PRINT ITEM LABELS",
+    "IntegrationIsActive": false,
+    "IntegrationPost": false,
+    "ProcessStepMetadata": [
+      {
+        "Name": "MasterItem",
+        "Description": "Enter Item Code",
+        "Process": "PRINTMASTERITEMLABELS",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "PRescript_PrintMasterItemLabels_MasterItem",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "NumberOfLabels",
+        "Description": "Number of Labels (<100)",
+        "Process": "PRINTMASTERITEMLABELS",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_PrintMasterItemLabels_NumberOfLabels",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Confirmation",
+        "Description": "Confirm label print",
+        "Process": "PRINTMASTERITEMLABELS",
+        "ProcessIndex": 2,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_PrintMasterItemLabels_Confirmation",
+        "hasWebTemplate": false
+      }
+    ]
+  },
+  "Components": [
+    {
+      "Type": "VIEW",
+      "Name": "dbo.MasterItemAlias_View",
+      "Path": "VIEW/dbo.MasterItemAlias_View",
+      "DependsOn": []
+    },
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.PRescript_PrintMasterItemLabels_MasterItem",
+      "Path": "PRESCRIPT/dbo.PRescript_PrintMasterItemLabels_MasterItem",
+      "DependsOn": [
+        {
+          "Type": "VIEW",
+          "Name": "dbo.MasterItemAlias_View"
+        }
+      ]
+    },
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.Prescript_PrintMasterItemLabels_NumberOfLabels",
+      "Path": "PRESCRIPT/dbo.Prescript_PrintMasterItemLabels_NumberOfLabels",
+      "DependsOn": []
+    },
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.Prescript_PrintMasterItemLabels_Confirmation",
+      "Path": "PRESCRIPT/dbo.Prescript_PrintMasterItemLabels_Confirmation",
+      "DependsOn": []
+    },
+    {
+      "Type": "PROCESS",
+      "Name": "PRINTMASTERITEMLABELS",
+      "Path": "",
+      "DependsOn": [
+        {
+          "Type": "PRESCRIPT",
+          "Name": "dbo.Prescript_PrintMasterItemLabels_Confirmation"
+        },
+        {
+          "Type": "PRESCRIPT",
+          "Name": "dbo.PRescript_PrintMasterItemLabels_MasterItem"
+        },
+        {
+          "Type": "PRESCRIPT",
+          "Name": "dbo.Prescript_PrintMasterItemLabels_NumberOfLabels"
+        }
+      ]
+    }
+  ],
+  "DependsOnClr": true,
+  "SqlClrAssemblyVersion": "7.0.0.0",
+  "Deprecated": false
+}

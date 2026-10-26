@@ -1,0 +1,22 @@
+{
+  "Table": "dbo.SystemStaticData",
+  "KeyColumns": [
+    "Key"
+  ],
+  "Rows": [
+    {
+      "Key": "DocumentPrinter",
+      "Description": "Printer used for LoadSheet report",
+      "Group": "Printer",
+      "Value": "Brother HL-L2460DW Printer",
+      "isEncrypted": "False"
+    },
+    {
+      "Key": "LoadSheet",
+      "Description": "",
+      "Group": "Email",
+      "Value": "alessandrot@cradle.co.za;alushkee@cradle.co.za",
+      "isEncrypted": "False"
+    }
+  ]
+}

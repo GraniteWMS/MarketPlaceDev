@@ -1,0 +1,15 @@
+{
+  "Table": "dbo.SystemStaticData",
+  "KeyColumns": [
+    "Key"
+  ],
+  "Rows": [
+    {
+      "Key": "BOLPrinter",
+      "Description": "Printer name as registered on the server",
+      "Group": "Reports",
+      "Value": "",
+      "isEncrypted": "False"
+    }
+  ]
+}

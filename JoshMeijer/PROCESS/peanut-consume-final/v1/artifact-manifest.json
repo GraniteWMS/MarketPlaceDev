@@ -1,0 +1,126 @@
+{
+  "Identifier": "1f5468f6-e238-4a29-8dd4-b15d166fa377",
+  "Name": "PEANUT_CONSUME_FINAL",
+  "Description": "PEANUT_CONSUME_FINAL\n\nIt automatically calculates the wastage quantity based on the wastage percentage set on the line comment",
+  "Type": "PROCESS",
+  "Version": 1,
+  "LastModified": "31/05/2026",
+  "DatabaseVersion": "8.0.0.0",
+  "Tags": [
+    "Manufacturing"
+  ],
+  "TypeSpecificAttributes": {
+    "ProcessType": "CONSUME",
+    "ProcessName": "PEANUT_CONSUME_FINAL",
+    "ProcessDescription": "PEANUT_CONSUME_FINAL",
+    "IntegrationIsActive": false,
+    "IntegrationPost": false,
+    "ProcessStepMetadata": [
+      {
+        "Name": "Document",
+        "Description": "Enter FG Document",
+        "Process": "PEANUT_CONSUME_FINAL",
+        "ProcessIndex": 0,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_PeanutConsume_Document",
+        "hasWebTemplate": true
+      },
+      {
+        "Name": "TrackingEntity",
+        "Description": "Scan Barcode To Consume",
+        "Process": "PEANUT_CONSUME_FINAL",
+        "ProcessIndex": 1,
+        "NextIndex": 2,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_PeanutConsume_TrackingEntity",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Qty",
+        "Description": "Qty To Consume",
+        "Process": "PEANUT_CONSUME_FINAL",
+        "ProcessIndex": 2,
+        "NextIndex": 1,
+        "isActive": true,
+        "Required": true,
+        "PreScript": "Prescript_PeanutConsume_Qty",
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Comment",
+        "Description": "Comment",
+        "Process": "PEANUT_CONSUME_FINAL",
+        "ProcessIndex": 100,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": false,
+        "hasWebTemplate": false
+      },
+      {
+        "Name": "Location",
+        "Description": "Location",
+        "Process": "PEANUT_CONSUME_FINAL",
+        "ProcessIndex": 100,
+        "NextIndex": 0,
+        "isActive": true,
+        "Required": true,
+        "DefaultValue": "Peanut Warehouse",
+        "hasWebTemplate": false
+      }
+    ]
+  },
+  "Components": [
+    {
+      "Type": "VIEW",
+      "Name": "dbo.WebTemplate_PeanutManufacture_Document",
+      "Path": "VIEW/dbo.WebTemplate_PeanutManufacture_Document",
+      "DependsOn": []
+    },
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.Prescript_PeanutConsume_Document",
+      "Path": "PRESCRIPT/dbo.Prescript_PeanutConsume_Document",
+      "DependsOn": []
+    },
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.Prescript_PeanutConsume_TrackingEntity",
+      "Path": "PRESCRIPT/dbo.Prescript_PeanutConsume_TrackingEntity",
+      "DependsOn": []
+    },
+    {
+      "Type": "PRESCRIPT",
+      "Name": "dbo.Prescript_PeanutConsume_Qty",
+      "Path": "PRESCRIPT/dbo.Prescript_PeanutConsume_Qty",
+      "DependsOn": []
+    },
+    {
+      "Type": "PROCESS",
+      "Name": "PEANUT_CONSUME_FINAL",
+      "Path": "",
+      "DependsOn": [
+        {
+          "Type": "PRESCRIPT",
+          "Name": "dbo.Prescript_PeanutConsume_Document"
+        },
+        {
+          "Type": "PRESCRIPT",
+          "Name": "dbo.Prescript_PeanutConsume_Qty"
+        },
+        {
+          "Type": "PRESCRIPT",
+          "Name": "dbo.Prescript_PeanutConsume_TrackingEntity"
+        },
+        {
+          "Type": "VIEW",
+          "Name": "dbo.WebTemplate_PeanutManufacture_Document"
+        }
+      ]
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}
