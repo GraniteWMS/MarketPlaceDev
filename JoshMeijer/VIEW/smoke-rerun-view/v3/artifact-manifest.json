@@ -1,0 +1,23 @@
+{
+  "Identifier": "ddb7c53a-2f38-4e69-a34f-efedfe20bf8f",
+  "Name": "Smoke_Rerun_View",
+  "Description": "Smoke re-run view",
+  "Type": "VIEW",
+  "Version": 3,
+  "LastModified": "26/10/2026",
+  "DatabaseVersion": "8.0.0.0",
+  "Tags": [
+    "smoketest",
+    "patched"
+  ],
+  "Components": [
+    {
+      "Type": "VIEW",
+      "Name": "dbo.Smoke_Rerun_View",
+      "Path": "",
+      "DependsOn": []
+    }
+  ],
+  "DependsOnClr": false,
+  "Deprecated": false
+}
